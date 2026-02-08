@@ -1,0 +1,3211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERCELLUM - Learning Path</title>
+    <meta name="description" content="Learn how to profit from AI with VERCELLUM's structured lessons.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "VERCELLUM AI Learning Path",
+        "description": "Structured lessons to learn how to profit from AI",
+        "educationalLevel": "Beginner",
+        "learningResourceType": "Course"
+    }
+    </script>
+    
+    <style>
+        /* CSS Variables - Matching Home Page */
+        :root {
+            --gold: #d4af37;
+            --gold-muted: #b8962e;
+            --gold-light: #e8c45b;
+            --gold-rgb: 212, 175, 55;
+            --foreground: #0a0a0a;
+            --background: #ffffff;
+            --card: #ffffff;
+            --card-foreground: #0a0a0a;
+            --popover: #ffffff;
+            --popover-foreground: #0a0a0a;
+            --primary: #18181b;
+            --primary-foreground: #fafafa;
+            --secondary: #f4f4f5;
+            --secondary-foreground: #18181b;
+            --muted: #f4f4f5;
+            --muted-foreground: #71717a;
+            --accent: #f4f4f5;
+            --accent-foreground: #18181b;
+            --destructive: #ef4444;
+            --destructive-foreground: #fafafa;
+            --border: #e4e4e7;
+            --input: #e4e4e7;
+            --ring: #18181b;
+            --radius: 0.625rem;
+        }
+
+        /* Dark Mode Variables - FIXED & COMPLETE */
+        .dark-mode {
+            --foreground: #fafafa;
+            --background: #0a0a0a;
+            --card: #1a1a1a;
+            --card-foreground: #fafafa;
+            --popover: #1a1a1a;
+            --popover-foreground: #fafafa;
+            --primary: #fafafa;
+            --primary-foreground: #18181b;
+            --secondary: #262626;
+            --secondary-foreground: #fafafa;
+            --muted: #262626;
+            --muted-foreground: #a1a1aa;
+            --accent: #262626;
+            --accent-foreground: #fafafa;
+            --border: #404040;
+            --input: #404040;
+            --ring: #d4d4d8;
+            --gold: #e8c45b;
+            --gold-muted: #d4af37;
+            --gold-light: #f2d885;
+            --gold-rgb: 232, 196, 91;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Sidebar - Modern Redesign */
+        #sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--background) 0%, rgba(var(--gold-rgb), 0.02) 100%);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+            gap: 0.5rem;
+            flex-shrink: 0;
+            z-index: 100;
+            position: relative;
+            overflow-y: auto;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar-header {
+            padding: 0 0.75rem 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            background: rgba(var(--gold-rgb), 0.05);
+            border: 1px solid rgba(var(--gold-rgb), 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-brand:hover {
+            background: rgba(var(--gold-rgb), 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(var(--gold-rgb), 0.15);
+        }
+
+        .nav-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(var(--gold-rgb), 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .nav-logo {
+            color: #fff;
+        }
+
+        .nav-brand:hover .nav-logo {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .nav-brand-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--foreground);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-subtitle {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            margin-left: 0.75rem;
+        }
+
+        .progress-container {
+            padding: 1rem;
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb), 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .progress-container:hover::before {
+            left: 100%;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .progress-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 0.75rem;
+            background: var(--muted);
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-muted), var(--gold), var(--gold-muted));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+            transition: width 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .lesson-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            padding: 1rem;
+            border-radius: var(--radius);
+            background: var(--card);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(var(--gold-rgb), 0.1);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            font-weight: 500;
+        }
+
+        .nav-section {
+            margin-top: 1rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 1rem 0.75rem;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: none;
+            background: transparent;
+            text-align: left;
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb), 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: rgba(var(--gold-rgb), 0.05);
+            transform: translateX(8px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.1), rgba(var(--gold-rgb), 0.05));
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(var(--gold-rgb), 0.15);
+            transform: translateX(8px);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(var(--gold-rgb), 0.2);
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 4px rgba(var(--gold-rgb), 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(var(--gold-rgb), 0.4);
+            }
+        }
+
+        .nav-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 2;
+            background: rgba(var(--gold-rgb), 0.1);
+            color: var(--foreground);
+        }
+
+        .nav-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid transparent;
+            border-radius: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover .nav-icon {
+            transform: scale(1.1);
+        }
+
+        .nav-item.active .nav-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: #000;
+            box-shadow: 0 4px 12px rgba(var(--gold-rgb), 0.3);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .dark-mode .nav-item.active .nav-icon {
+            color: #fff;
+        }
+
+        .nav-item.active .nav-icon::after {
+            border-color: rgba(var(--gold-rgb), 0.5);
+        }
+
+        .nav-info {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+            color: var(--foreground);
+        }
+
+        .nav-item.active .nav-title {
+            color: var(--gold);
+        }
+
+        .nav-description {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            display: none;
+        }
+
+        .nav-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .nav-duration {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-status {
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-completed {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        .status-locked {
+            background: rgba(100, 116, 139, 0.1);
+            color: #64748b;
+        }
+
+        /* Main Content */
+        #content {
+            flex: 1;
+            margin-left: 280px;
+            position: relative;
+            overflow-y: auto;
+            height: 100vh;
+            background: var(--background);
+            transition: background-color 0.3s ease;
+        }
+
+        .lesson-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(40px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            padding: 2rem;
+            display: none;
+        }
+
+        .lesson-section.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            display: block;
+            animation: fadeSlideIn 0.6s ease-out;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .lesson-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .lesson-badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: rgba(var(--gold-rgb), 0.1);
+            color: var(--gold);
+            border: 1px solid rgba(var(--gold-rgb), 0.2);
+        }
+
+        .lesson-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            position: relative;
+            display: inline-block;
+            color: var(--foreground);
+        }
+
+        .lesson-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            border-radius: 2px;
+        }
+
+        .lesson-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        .lesson-number {
+            font-size: 12rem;
+            font-weight: 200;
+            color: rgba(var(--gold-rgb), 0.05);
+            user-select: none;
+            letter-spacing: -8px;
+            position: fixed;
+            bottom: -2rem;
+            right: 2rem;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+
+        .lesson-content {
+            position: relative;
+            z-index: 1;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 3rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lesson-content:hover {
+            box-shadow: 0 8px 32px rgba(var(--gold-rgb), 0.1);
+            border-color: rgba(var(--gold-rgb), 0.3);
+        }
+
+        .content-placeholder {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .content-placeholder-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.5rem;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(var(--gold-rgb), 0.1), rgba(var(--gold-rgb), 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(var(--gold-rgb), 0.15);
+        }
+
+        .content-placeholder-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .content-placeholder-text {
+            color: var(--muted-foreground);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Scrollbar */
+        #sidebar::-webkit-scrollbar,
+        #content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #sidebar::-webkit-scrollbar-track,
+        #content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb,
+        #content::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold-muted), var(--gold));
+            border-radius: 3px;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb:hover,
+        #content::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* Focus states */
+        .nav-item:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            #sidebar {
+                width: 240px;
+            }
+            
+            #content {
+                margin-left: 240px;
+            }
+            
+            .lesson-number {
+                font-size: 10rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 1rem;
+            }
+            
+            #content {
+                margin-left: 0;
+                height: calc(100vh - 400px);
+            }
+            
+            .lesson-section {
+                padding: 1rem;
+            }
+            
+            .lesson-title {
+                font-size: 2rem;
+            }
+            
+            .lesson-number {
+                display: none;
+            }
+        }
+
+        /* Mobile sidebar toggle */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            border: none;
+            color: #000;
+            font-weight: 700;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(var(--gold-rgb), 0.3);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode .mobile-toggle {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                position: fixed;
+                height: 100vh;
+                z-index: 999;
+            }
+            
+            #sidebar.active {
+                transform: translateX(0);
+            }
+            
+            #content {
+                margin-left: 0;
+            }
+        }
+
+        /* Overlay for mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle sidebar">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" aria-label="Lesson navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo">V</div>
+                <div>
+                    <div class="nav-brand-text">VERCELLUM</div>
+                    <div class="nav-subtitle">Learning Path</div>
+                </div>
+            </a>
+            
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z" 
+                                  stroke="currentColor" 
+                                  stroke-width="2" 
+                                  stroke-linecap="round"/>
+                            <path d="M12 6V12L16 14" 
+                                  stroke="currentColor" 
+                                  stroke-width="2" 
+                                  stroke-linecap="round"/>
+                        </svg>
+                        Your Progress
+                    </div>
+                    <div class="progress-value" id="progressValue">0%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="lesson-stats">
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">13</div>
+                    <div class="stat-label">Total Lessons</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Lessons</div>
+            <!-- Lesson 0-12 navigation items -->
+            <button class="nav-item active" data-lesson="0" aria-label="Introduction - AI Fundamentals">
+                <div class="nav-icon">0</div>
+                <div class="nav-info">
+                    <div class="nav-title">Introduction</div>
+                    <div class="nav-description">AI Profit Fundamentals</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">15 min</div>
+                        <div class="nav-status status-completed">Completed</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="1" aria-label="Lesson 1 - Tools Selection">
+                <div class="nav-icon">1</div>
+                <div class="nav-info">
+                    <div class="nav-title">Tools Selection</div>
+                    <div class="nav-description">Master AI Tools</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">20 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="2" aria-label="Lesson 2 - Niche Focus">
+                <div class="nav-icon">2</div>
+                <div class="nav-info">
+                    <div class="nav-title">Niche Focus</div>
+                    <div class="nav-description">Find Your Niche</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">25 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="3" aria-label="Lesson 3 - Production Systems">
+                <div class="nav-icon">3</div>
+                <div class="nav-info">
+                    <div class="nav-title">Production</div>
+                    <div class="nav-description">Build Systems</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">30 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="4" aria-label="Lesson 4 - Monetization">
+                <div class="nav-icon">4</div>
+                <div class="nav-info">
+                    <div class="nav-title">Monetization</div>
+                    <div class="nav-description">Revenue Strategies</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">35 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="5" aria-label="Lesson 5 - Mastery">
+                <div class="nav-icon">5</div>
+                <div class="nav-info">
+                    <div class="nav-title">Mastery</div>
+                    <div class="nav-description">Scale Your Income</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">40 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="6" aria-label="Lesson 6 - AI Video Systems">
+                <div class="nav-icon">6</div>
+                <div class="nav-info">
+                    <div class="nav-title">Video Systems</div>
+                    <div class="nav-description">Create & Monetize</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">45 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="7" aria-label="Lesson 7 - AI Automation">
+                <div class="nav-icon">7</div>
+                <div class="nav-info">
+                    <div class="nav-title">Automation</div>
+                    <div class="nav-description">Business Solutions</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">50 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="8" aria-label="Lesson 8 - Content Engines">
+                <div class="nav-icon">8</div>
+                <div class="nav-info">
+                    <div class="nav-title">Content Engines</div>
+                    <div class="nav-description">Scale Production</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">55 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="9" aria-label="Lesson 9 - Advanced Strategies">
+                <div class="nav-icon">9</div>
+                <div class="nav-info">
+                    <div class="nav-title">Advanced</div>
+                    <div class="nav-description">Expert Techniques</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">60 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="10" aria-label="Lesson 10 - Scaling">
+                <div class="nav-icon">10</div>
+                <div class="nav-info">
+                    <div class="nav-title">Scaling</div>
+                    <div class="nav-description">Grow Your Business</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">65 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="11" aria-label="Lesson 11 - Automation Tools">
+                <div class="nav-icon">11</div>
+                <div class="nav-info">
+                    <div class="nav-title">Tools Deep Dive</div>
+                    <div class="nav-description">Advanced Automation</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">70 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="nav-item" data-lesson="12" aria-label="Lesson 12 - Certification">
+                <div class="nav-icon">12</div>
+                <div class="nav-info">
+                    <div class="nav-title">Certification</div>
+                    <div class="nav-description">Final Assessment</div>
+                    <div class="nav-meta">
+                        <div class="nav-duration">75 min</div>
+                        <div class="nav-status status-locked">Locked</div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="content">
+        <!-- Lesson 0 - Active by default -->
+  <section id="lesson-0" class="lesson-section active" aria-labelledby="lesson-0-title">
+    <meta name="description" content="VERCELLUM Lesson 0: AI-Powered Freelancing & Service Scaling - Transition from curiosity to mental commitment with a complete work system.">
+    <meta name="keywords" content="AI freelancing, service scaling, VERCELLUM, professional system, AI work system">
+    <meta name="author" content="VERCELLUM">
+
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-muted: #b8962e;
+            --gold-light: #e8c45b;
+            --red: #dc2626;
+            --red-light: #fecaca;
+            --green: #059669;
+            --green-light: #a7f3d0;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --background-white: #ffffff;
+            --background-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Mode Variables - UPDATED FOR CONSISTENCY */
+        .dark-mode {
+            --gold: #e8c45b;
+            --gold-muted: #d4af37;
+            --gold-light: #f2d885;
+            --red: #f87171;
+            --red-light: #7f1d1d;
+            --green: #34d399;
+            --green-light: #065f46;
+            --text-dark: #f0f0f0;
+            --text-light: #b0b0b0;
+            --background-white: #1a1a1a;
+            --background-light: #2d2d2d;
+            --border-color: #404040;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .vercellum-lesson {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--background-white);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            transition: var(--transition);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Dark Mode Toggle - ENHANCED */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: var(--text-dark);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            animation: slideInRight 0.6s ease-out 0.3s both;
+            overflow: hidden;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .dark-mode-toggle:hover::before {
+            left: 100%;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.3);
+        }
+
+        .dark-mode-toggle:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .dark-mode-toggle .icon {
+            font-size: 1.4rem;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .dark-mode .dark-mode-toggle .icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .dark-mode-toggle .text {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { border-color: var(--gold-light); box-shadow: 0 0 25px rgba(232, 196, 91, 0.5); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Scroll Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--gold), var(--green), var(--red)) 1;
+            padding-left: 1rem;
+        }
+
+        h2::before {
+            content: '📌';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite;
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3::before {
+            content: '→';
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+
+        .lesson-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            padding: 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Dynamic Content Elements */
+        .interactive-highlight {
+            position: relative;
+            cursor: pointer;
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            border: 1px dashed transparent;
+        }
+
+        .interactive-highlight:hover {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .interactive-highlight::after {
+            content: 'ℹ️';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .interactive-highlight:hover::after {
+            opacity: 1;
+        }
+
+        .content-block {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--green), var(--red));
+            background-size: 200% auto;
+            animation: shimmer 3s infinite linear;
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            animation: borderGlow 2s infinite;
+        }
+
+        .content-block .section-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Lists */
+        .level-list {
+            counter-reset: level-counter;
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .level-list li {
+            counter-increment: level-counter;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem 1.5rem 1.5rem 5rem;
+            background: var(--background-light);
+            border-radius: var(--radius-md);
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .level-list li:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .level-list li::before {
+            content: counter(level-counter);
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .level-list li.completed::before {
+            content: '✓';
+            background: linear-gradient(135deg, var(--green), var(--green-light));
+        }
+
+        /* Interactive Progress Checkpoints */
+        .checkpoint {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--gold);
+        }
+
+        .checkpoint input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .checkpoint label {
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-dark);
+            flex: 1;
+        }
+
+        .checkpoint.completed {
+            background: rgba(5, 150, 105, 0.1);
+            border-left-color: var(--green);
+        }
+
+        .checkpoint.completed label {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        /* Interactive Elements */
+        .task-container {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--red);
+            animation: borderGlow 2s infinite;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: var(--transition);
+            background: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        button {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        button:hover::after {
+            left: 100%;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: var(--text-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(135deg, var(--gold-muted), var(--gold));
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .secondary-btn {
+            background: var(--background-light);
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .vision-statement {
+            background: linear-gradient(135deg, var(--gold-light), #fff9e6);
+            border: 3px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .dark-mode .vision-statement {
+            background: linear-gradient(135deg, #2d2d1a, #1a1a1a);
+        }
+
+        /* Enhanced Scroll-Based Progress Indicator */
+        .lesson-progress-container {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            height: 4px;
+            background: var(--background-light);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            .lesson-progress-container {
+                left: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lesson-progress-container {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .lesson-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold-muted), var(--gold), var(--gold-muted));
+            background-size: 200% 100%;
+            transition: width 0.2s ease-out;
+            position: relative;
+            animation: shimmer 3s infinite linear;
+        }
+
+        .lesson-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 1.5s infinite linear;
+        }
+
+        /* Collapsible Sections */
+        .collapsible {
+            background: var(--background-white);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .collapsible:hover {
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .collapsible-header {
+            padding: 1.5rem;
+            background: var(--background-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(90deg, var(--background-light), rgba(212, 175, 55, 0.1));
+        }
+
+        .collapsible-content {
+            padding: 1.5rem;
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            display: block;
+        }
+
+        .toggle-icon {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .collapsible.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Highlights and Emphasis */
+        .highlight {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            font-weight: 700;
+            padding: 0 0.2em;
+            color: var(--gold);
+        }
+
+        .brand-mention {
+            color: var(--gold);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .brand-mention::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-mention:hover::after {
+            transform: scaleX(1);
+        }
+
+        .psychological-goal {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--background-light);
+            border-radius: 50px;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Next Lesson Button */
+        .next-lesson-container {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            padding: 2rem;
+            background: rgba(var(--gold-rgb), 0.05);
+            border-radius: var(--radius-lg);
+            border: 2px dashed rgba(var(--gold-rgb), 0.3);
+            display: none;
+        }
+
+        .next-lesson-button {
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: var(--text-dark);
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .next-lesson-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(var(--gold-rgb), 0.4);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            border: 2px solid var(--gold-light);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dark-mode-toggle {
+                right: 10px;
+                top: 10px;
+                padding: 12px 20px;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vercellum-lesson {
+                padding: 1.5rem 1rem;
+            }
+
+            .dark-mode-toggle {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                min-width: 110px;
+            }
+
+            .dark-mode-toggle .icon {
+                font-size: 1.2rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .task-container {
+                padding: 1.5rem;
+            }
+
+            .level-list li {
+                padding: 1.25rem 1.25rem 1.25rem 4rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h2 {
+                padding-left: 2rem;
+            }
+            
+            h2::before {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1rem;
+                padding-left: 2rem;
+            }
+
+            .content-block {
+                padding: 1.25rem;
+            }
+
+            .task-container {
+                padding: 1.25rem;
+            }
+
+            .level-list li {
+                padding: 1rem 1rem 1rem 3.5rem;
+            }
+
+            .level-list li::before {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1rem;
+            }
+            
+            .dark-mode-toggle {
+                min-width: 100px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- Enhanced Scroll Progress Indicator -->
+    <div class="lesson-progress-container">
+        <div class="lesson-progress-bar" id="lessonProgressBar"></div>
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <span class="icon">🌙</span>
+        <span class="text">Dark Mode</span>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        ↑
+    </div>
+
+        <header class="animate-on-scroll">
+        <h1>🧩 VERCELLUM Lesson 0: AI-Powered Freelancing Mastery</h1>
+        <p class="psychological-goal animate-on-scroll delay-1">Main Psychological Goal: Transition from Curiosity → Understanding → Mental Commitment with VERCELLUM</p>
+    </header>
+
+    <article>
+        <section id="hook" class="content-block hook-block animate-on-scroll delay-1">
+            <div class="section-number">1</div>
+            <span class="psychological-goal">Psychological Goal: Break mental patterns + grab attention immediately</span>
+            <h2>Section 1: The Crucial Hook</h2>
+            <blockquote style="border-left: 4px solid var(--gold); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "Let's start with an uncomfortable truth: most of what you hear about 'AI in freelancing' is completely wrong. Not a small mistake, but something that wastes your time and costs opportunities. The model used by <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM is your AI-powered freelancing system that transforms how you work.')">VERCELLUM</span> professionals is not just AI as a helper, but <span class="highlight interactive-highlight" onclick="showTooltip('AI as a complete work system means integrating AI into every aspect of your workflow, not just as a tool but as a strategic partner.')">AI as a complete work system</span>. This lesson will show you how to move from task execution to building a full AI-powered service system."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="hookCheck" onchange="handleCheckpoint(this)">
+                <label for="hookCheck">I understand the core message of this section</label>
+            </div>
+        </section>
+
+        <section id="diagnosis" class="content-block animate-on-scroll delay-2">
+            <div class="section-number">2</div>
+            <span class="psychological-goal">Psychological Goal: Normalize feelings + empathy + define common problem</span>
+            <h2>Section 2: Diagnosing the Current Reality</h2>
+            <blockquote style="border-left: 4px solid var(--green); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "You may have tried AI tools and felt frustrated: results are generic or limited, while competitors achieve more faster. This feeling—caught between opportunity and confusion—is normal, and it's exactly what <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM provides clarity and structure to your AI freelancing journey.')">VERCELLUM</span> aims to clarify. We'll reveal why this gap exists and how you can move smartly within this market."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="diagnosisCheck" onchange="handleCheckpoint(this)">
+                <label for="diagnosisCheck">I recognize these feelings in my own experience</label>
+            </div>
+        </section>
+
+        <section id="transformation" class="content-block transformation-block animate-on-scroll delay-2">
+            <div class="section-number">3</div>
+            <span class="psychological-goal">Psychological Goal: Present new vision + build logic-based hope</span>
+            <h2>Section 3: Radical Transformation</h2>
+            <blockquote style="border-left: 4px solid var(--red); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "The gap isn't between AI users and non-users, but between <span class="highlight interactive-highlight" onclick="showTooltip('These three levels represent the evolution of AI integration in freelancing work.')">three real levels</span>:"
+            </blockquote>
+            
+            <ol class="level-list" id="levelList">
+                <li class="animate-on-scroll delay-1" onclick="completeLevel(1)"><strong>AI as an assistant:</strong> saves 10–20% time, superficial tasks</li>
+                <li class="animate-on-scroll delay-2" onclick="completeLevel(2)"><strong>AI as a skill multiplier:</strong> saves 50% time + higher quality</li>
+                <li class="animate-on-scroll delay-3" onclick="completeLevel(3)"><strong>AI as a work system:</strong> doubles capacity + creates new offerings</li>
+            </ol>
+            
+            <p class="animate-on-scroll delay-3" style="margin-top: 1.5rem;">90% of freelancers are stuck between level 1 and 2. <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM accelerates your progression to Level 3 mastery.')">VERCELLUM</span> guides you straight to level 3, where your knowledge and time transform into a scalable system.</p>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="transformationCheck" onchange="handleCheckpoint(this)">
+                <label for="transformationCheck">I understand the three levels and where I want to be</label>
+            </div>
+        </section>
+
+        <section id="roadmap" class="content-block animate-on-scroll delay-3">
+            <div class="section-number">4</div>
+            <span class="psychological-goal">Psychological Goal: Reduce ambiguity + Progression Bias</span>
+            <h2>Section 4: Step-by-Step Roadmap</h2>
+            
+            <div class="collapsible animate-on-scroll delay-1">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 1 — Understanding the System</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Reduce anxiety + break belief that high tech is required</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "We don't start with tools, but by reprogramming your thinking: from selling your time → to building a service system. AI shifts from a tool → to an integrated partner. This is the <span class="brand-mention">VERCELLUM</span> principle."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="collapsible animate-on-scroll delay-2">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 2 — Guided Practical Experimentation</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Transform knowledge into feeling, create first small win</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "Apply what you learned to your real situation: your current service, your time, your clients, your limits. No imaginary projects—everything is about you. This small experiment gives you first sense of control and confidence."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="collapsible animate-on-scroll delay-3">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 3 — Professionalization & Scaling</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Elevate identity from executor → professional + instill scaling mindset</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "We move from experiment to system: how do you validate what works? How do you turn your experience into repeatable service? How do you start thinking about scaling? This is the heart of the <span class="brand-mention">VERCELLUM</span> path."
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="roadmapCheck" onchange="handleCheckpoint(this)">
+                <label for="roadmapCheck">I understand the 3-step VERCELLUM roadmap</label>
+            </div>
+        </section>
+
+        <section id="task" class="content-block task-block animate-on-scroll delay-3">
+            <div class="section-number">5</div>
+            <span class="psychological-goal">Psychological Goal: Convert doubt into confidence through tangible result</span>
+            <h2>Section 5: Immediate Proof / Task</h2>
+            
+            <div class="task-container animate-on-scroll delay-1">
+                <h3>Part 1 :</h3>
+                <p>Answer these 3 questions honestly:</p>
+                
+                <div class="question-group animate-on-scroll delay-1">
+                    <label for="question1">1. What is the single thing stopping you from doubling your income now?</label>
+                    <textarea id="question1" placeholder="Be specific about the main obstacle..." oninput="handleTextInput()"></textarea>
+                </div>
+                
+                <div class="question-group animate-on-scroll delay-2">
+                    <label for="question2">2. How do you want your work to look in 6 months?</label>
+                    <textarea id="question2" placeholder="Describe your ideal work situation..." oninput="handleTextInput()"></textarea>
+                </div>
+                
+                <div class="question-group animate-on-scroll delay-3">
+                    <label for="question3">3. What risk are you afraid of in using AI?</label>
+                    <textarea id="question3" placeholder="What's your biggest concern or fear?" oninput="handleTextInput()"></textarea>
+                </div>
+
+                <h3 class="animate-on-scroll delay-3" style="margin-top: 2rem;">Part 2 :</h3>
+                <p class="animate-on-scroll delay-3">Generate your Professional Vision Statement:</p>
+                
+                <div class="button-group animate-on-scroll delay-3">
+                    <button class="primary-btn" onclick="generateVisionStatement()">
+                        ✨ Generate Vision Statement
+                    </button>
+                    <button class="secondary-btn" onclick="clearAllInputs()">
+                        🗑️ Clear All
+                    </button>
+                </div>
+
+                <div id="visionStatement" class="vision-statement">
+                    <h3>Your Professional Vision Statement</h3>
+                    <div id="visionContent"></div>
+                    <div class="button-group" style="margin-top: 1.5rem;">
+                        <button class="secondary-btn" onclick="saveAsText()">
+                            💾 Save as Text
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="taskCheck" onchange="handleCheckpoint(this)">
+                <label for="taskCheck">I completed the vision statement task</label>
+            </div>
+            
+            <p class="animate-on-scroll delay-3" style="margin-top: 1.5rem; font-style: italic;"><strong>Instruction:</strong> Enter your answers above and click "Generate Vision Statement". Keep the output: it will be your mirror for the <span class="brand-mention">VERCELLUM</span> journey.</p>
+        </section>
+
+        <section id="commitment" class="content-block animate-on-scroll delay-3">
+            <div class="section-number">6</div>
+            <span class="psychological-goal">Psychological Goal: Convert curiosity into internal commitment with Brand Identity</span>
+            <h2>Section 6: Psychological Closing</h2>
+            <blockquote style="border-left: 4px solid var(--green); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "You have two choices: return to what you were doing, or spend 12 minutes on a task that changes your work mindset. If you choose the second, welcome to the <span class="brand-mention interactive-highlight" onclick="showTooltip('The VERCELLUM journey transforms freelancers into AI-powered professionals.')">VERCELLUM</span> journey, where the smart freelancer starts with the small right step."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="commitmentCheck" onchange="handleCheckpoint(this)">
+                <label for="commitmentCheck">I commit to taking the VERCELLUM journey</label>
+            </div>
+        </section>
+
+        <!-- Next Lesson Button -->
+        <div class="next-lesson-container" id="nextLessonContainer">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">🎉 Lesson 0 Completed!</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-light);">You've mastered the fundamentals of AI-powered freelancing. Ready to continue?</p>
+            <button class="next-lesson-button" id="nextLessonButton" onclick="goToNextLesson()">
+                <span>Continue to Lesson 1: Tools Selection</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+    </article>
+
+    <script>
+        // Track completed checkpoints
+        let completedCheckpoints = 0;
+        const totalCheckpoints = 6;
+        let lessonCompleted = false;
+
+        // Handle checkpoint completion
+        function handleCheckpoint(checkbox) {
+            const checkContainer = checkbox.closest('.checkpoint');
+            
+            if (checkbox.checked) {
+                checkContainer.classList.add('completed');
+                completedCheckpoints++;
+                
+                // Add visual feedback
+                checkContainer.style.animation = 'none';
+                setTimeout(() => {
+                    checkContainer.style.animation = 'borderGlow 1s ease';
+                }, 10);
+            } else {
+                checkContainer.classList.remove('completed');
+                completedCheckpoints = Math.max(0, completedCheckpoints - 1);
+            }
+            
+            // Update progress bar
+            updateScrollProgress();
+            
+            // Check if lesson is completed
+            if (completedCheckpoints === totalCheckpoints && !lessonCompleted) {
+                lessonCompleted = true;
+                showNextLessonButton();
+            }
+        }
+
+        // Show next lesson button
+        function showNextLessonButton() {
+            const container = document.getElementById('nextLessonContainer');
+            container.style.display = 'block';
+            container.style.animation = 'fadeInUp 0.6s ease-out';
+            
+            // Scroll to button
+            setTimeout(() => {
+                container.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 300);
+        }
+
+        // Navigate to next lesson
+        function goToNextLesson() {
+            // Update completed lessons count
+            updateCompletedLessonsCount(1);
+            
+            // Navigate to Lesson 1
+            const navItem = document.querySelector('.nav-item[data-lesson="1"]');
+            if (navItem) {
+                navItem.click();
+            } else {
+                window.location.hash = '#1';
+            }
+        }
+
+        // Update completed lessons count in sidebar
+        function updateCompletedLessonsCount(increment = 0) {
+            const statValueElement = document.querySelector('.stat-card .stat-value');
+            if (statValueElement) {
+                let currentValue = parseInt(statValueElement.textContent) || 0;
+                currentValue += increment;
+                statValueElement.textContent = currentValue;
+                
+                // Add animation
+                statValueElement.style.animation = 'none';
+                setTimeout(() => {
+                    statValueElement.style.animation = 'pulse 0.5s ease';
+                }, 10);
+            }
+        }
+
+        // Scroll-based progress tracking
+        function updateScrollProgress() {
+            const scrollTopBtn = document.getElementById('scrollTop');
+            const progressBar = document.getElementById('lessonProgressBar');
+            
+            // Calculate scroll progress
+            const lessonContent = document.querySelector('#lesson-0');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const lessonTop = lessonContent.offsetTop;
+            const lessonHeight = lessonContent.offsetHeight;
+            const windowHeight = window.innerHeight;
+
+            let scrollProgress = 0;
+            if (scrollTop > lessonTop) {
+                scrollProgress = (scrollTop - lessonTop) / (lessonHeight - windowHeight);
+                scrollProgress = Math.min(1, Math.max(0, scrollProgress));
+            }
+
+            // Calculate checkpoint progress
+            const checkpointProgress = completedCheckpoints / totalCheckpoints;
+            
+            // Combine scroll and checkpoint progress (weighted)
+            const totalProgress = (scrollProgress * 0.7) + (checkpointProgress * 0.3);
+            
+            // Update progress bar
+            if (progressBar) {
+                progressBar.style.width = `${totalProgress * 100}%`;
+            }
+
+            // Show/hide scroll to top button
+            if (scrollTop > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeText = darkModeToggle.querySelector('.text');
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeText.textContent = 'Light Mode';
+                darkModeToggle.querySelector('.icon').textContent = '☀️';
+            } else {
+                darkModeText.textContent = 'Dark Mode';
+                darkModeToggle.querySelector('.icon').textContent = '🌙';
+            }
+            
+            // Add click animation
+            darkModeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                darkModeToggle.style.transform = '';
+            }, 200);
+            
+            // Save preference
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        // Tooltip System
+        function showTooltip(message) {
+            // Create tooltip
+            const tooltip = document.createElement('div');
+            tooltip.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, var(--gold), var(--green));
+                color: white;
+                padding: 15px 30px;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-lg);
+                z-index: 1003;
+                display: block;
+                animation: slideDown 0.5s ease-out;
+                font-weight: 600;
+                text-align: center;
+                max-width: 300px;
+                width: 90%;
+            `;
+            tooltip.textContent = message;
+            
+            document.body.appendChild(tooltip);
+            
+            setTimeout(() => {
+                tooltip.remove();
+            }, 2000);
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    // Add staggered animation for children
+                    if (entry.target.classList.contains('level-list')) {
+                        const items = entry.target.querySelectorAll('li');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('animated');
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Level completion
+        function completeLevel(level) {
+            const listItems = document.querySelectorAll('.level-list li');
+            if (listItems[level - 1] && !listItems[level - 1].classList.contains('completed')) {
+                listItems[level - 1].classList.add('completed');
+                
+                // Add animation
+                listItems[level - 1].style.animation = 'none';
+                setTimeout(() => {
+                    listItems[level - 1].style.animation = 'borderGlow 1s ease';
+                }, 10);
+            }
+        }
+
+        // Collapsible sections with animation
+        function toggleCollapsible(header) {
+            const collapsible = header.parentElement;
+            const isActive = collapsible.classList.contains('active');
+            
+            // Close all other collapsibles
+            document.querySelectorAll('.collapsible.active').forEach(other => {
+                if (other !== collapsible) {
+                    other.classList.remove('active');
+                }
+            });
+            
+            // Toggle current
+            collapsible.classList.toggle('active');
+            
+            // Add click animation
+            header.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                header.style.transform = '';
+            }, 200);
+        }
+
+        // Handle text input for progress tracking
+        function handleTextInput() {
+            updateScrollProgress();
+        }
+
+        // Generate Vision Statement with enhanced animation
+        function generateVisionStatement() {
+            const q1 = document.getElementById('question1').value.trim();
+            const q2 = document.getElementById('question2').value.trim();
+            const q3 = document.getElementById('question3').value.trim();
+            
+            if (!q1 || !q2 || !q3) {
+                // Add shake animation to empty textareas
+                const textareas = document.querySelectorAll('textarea');
+                textareas.forEach(ta => {
+                    if (!ta.value.trim()) {
+                        ta.style.animation = 'none';
+                        setTimeout(() => {
+                            ta.style.animation = 'shake 0.5s ease-in-out';
+                        }, 10);
+                    }
+                });
+                
+                setTimeout(() => {
+                    textareas.forEach(ta => {
+                        ta.style.animation = '';
+                    });
+                }, 500);
+                
+                return;
+            }
+            
+            const visionTemplate = `
+                <div class="vision-content-inner">
+                    <h4 style="color: var(--gold); margin-bottom: 1rem;">Professional Vision Statement</h4>
+                    <div class="vision-section">
+                        <h5>Current Challenge</h5>
+                        <p>${q1}</p>
+                    </div>
+                    <div class="vision-section">
+                        <h5>6-Month Vision</h5>
+                        <p>${q2}</p>
+                    </div>
+                    <div class="vision-section">
+                        <h5>Risk to Overcome</h5>
+                        <p>${q3}</p>
+                    </div>
+                    <hr style="margin: 1.5rem 0; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <div class="vision-section">
+                        <h5>VERCELLUM Path Forward</h5>
+                        <p>As a VERCELLUM professional, I commit to transforming my current challenge into an opportunity by leveraging AI as a complete work system. Within 6 months, I will establish ${q2.toLowerCase().includes('system') ? 'this vision' : 'a scalable service system'} that addresses my identified risk while building capacity and creating new offerings.</p>
+                        <p>I acknowledge that the transition from executor to system-builder requires mindset reprogramming first, followed by guided experimentation and professionalization. This vision statement serves as my commitment anchor throughout the VERCELLUM journey.</p>
+                    </div>
+                    <p style="font-style: italic; margin-top: 1.5rem; color: var(--text-light); font-size: 0.9rem;">
+                        Generated on ${new Date().toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })} as part of VERCELLUM Lesson 0
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('visionContent').innerHTML = visionTemplate;
+            const visionStatement = document.getElementById('visionStatement');
+            visionStatement.style.display = 'block';
+            
+            // Add entrance animation
+            visionStatement.style.animation = 'none';
+            setTimeout(() => {
+                visionStatement.style.animation = 'fadeInUp 0.6s ease-out';
+            }, 10);
+            
+            // Scroll to vision statement with smooth animation
+            visionStatement.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Add success animation to generate button
+            const generateBtn = document.querySelector('.primary-btn');
+            generateBtn.style.animation = 'pulse 1s ease';
+            setTimeout(() => {
+                generateBtn.style.animation = '';
+            }, 1000);
+        }
+
+        // Clear all inputs with confirmation
+        function clearAllInputs() {
+            const textareas = document.querySelectorAll('textarea');
+            const hasContent = Array.from(textareas).some(ta => ta.value.trim());
+            
+            if (!hasContent) return;
+            
+            // Add fade out animation
+            textareas.forEach(ta => {
+                ta.style.transition = 'opacity 0.3s ease';
+                ta.style.opacity = '0.5';
+            });
+            
+            if (confirm('Are you sure you want to clear all inputs?')) {
+                textareas.forEach(ta => {
+                    ta.value = '';
+                    ta.style.opacity = '1';
+                });
+                document.getElementById('visionStatement').style.display = 'none';
+            } else {
+                textareas.forEach(ta => {
+                    ta.style.opacity = '1';
+                });
+            }
+            
+            setTimeout(() => {
+                textareas.forEach(ta => {
+                    ta.style.transition = '';
+                });
+            }, 300);
+        }
+
+        // Copy to clipboard with feedback
+        function copyToClipboard() {
+            const visionText = document.getElementById('visionContent').innerText;
+            navigator.clipboard.writeText(visionText).then(() => {
+                const btn = event.target.closest('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.background = 'var(--green)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Could not copy to clipboard. Please select and copy manually.');
+            });
+        }
+
+        // Save as text file
+        function saveAsText() {
+            const visionText = document.getElementById('visionContent').innerText;
+            const blob = new Blob([visionText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `VERCELLUM-Vision-Statement-${new Date().toISOString().slice(0,10)}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Scroll to top functionality
+        document.getElementById('scrollTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-expand first collapsible
+            const firstCollapsible = document.querySelector('.collapsible');
+            if (firstCollapsible) {
+                firstCollapsible.classList.add('active');
+            }
+            
+            // Load dark mode preference
+            const darkModePreference = localStorage.getItem('darkMode') === 'true';
+            if (darkModePreference) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.querySelector('.text').textContent = 'Light Mode';
+                darkModeToggle.querySelector('.icon').textContent = '☀️';
+            }
+            
+            // Add CSS for shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    75% { transform: translateX(5px); }
+                }
+                
+                .vision-section {
+                    margin-bottom: 1.5rem;
+                }
+                
+                .vision-section h5 {
+                    color: var(--gold);
+                    margin-bottom: 0.5rem;
+                    font-size: 1.1rem;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', updateScrollProgress);
+        window.addEventListener('load', updateScrollProgress);
+    </script>
+</section>
+        <!-- Lesson 1 -->
+        <section id="lesson-1" class="lesson-section" aria-labelledby="lesson-1-title">
+            <div class="lesson-number">1</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Up Next</span>
+                    <h1 class="lesson-title" id="lesson-1-title">Master AI Tools Selection</h1>
+                    <p class="lesson-subtitle">Learn to choose and implement the most profitable AI tools for your business</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                                <circle cx="12" cy="12" r="6" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                                <circle cx="12" cy="12" r="2" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Tools Selection Course Content</h3>
+                        <p class="content-placeholder-text">
+                            In Lesson 1, you'll discover how to select the right AI tools for maximum profitability. 
+                            We'll cover content generation, automation, video creation, and business optimization tools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 2 -->
+        <section id="lesson-2" class="lesson-section" aria-labelledby="lesson-2-title">
+            <div class="lesson-number">2</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-2-title">Find Your Profitable Niche</h1>
+                    <p class="lesson-subtitle">Discover and validate AI-powered business opportunities</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                                <line x1="2" y1="12" x2="22" y2="12" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <path d="M12 2A15.3 15.3 0 0 1 16 12A15.3 15.3 0 0 1 12 22A15.3 15.3 0 0 1 8 12A15.3 15.3 0 0 1 12 2Z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Niche Focus Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 2 focuses on identifying and validating profitable AI niches. 
+                            You'll learn market research techniques and opportunity validation strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 3 -->
+        <section id="lesson-3" class="lesson-section" aria-labelledby="lesson-3-title">
+            <div class="lesson-number">3</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-3-title">Build Content Production Systems</h1>
+                    <p class="lesson-subtitle">Create scalable AI-powered content creation workflows</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H8C10.21 3 12 4.79 12 7V21C9.79 21 8 19.21 8 17H2V3Z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                                <path d="M22 3H16C13.79 3 12 4.79 12 7V21C14.21 21 16 19.21 16 17H22V3Z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Production Systems Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 3 teaches you how to build efficient content production systems using AI. 
+                            You'll learn workflow automation and content scaling strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 4 -->
+        <section id="lesson-4" class="lesson-section" aria-labelledby="lesson-4-title">
+            <div class="lesson-number">4</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-4-title">Implement Revenue Strategies</h1>
+                    <p class="lesson-subtitle">Master monetization techniques for AI-powered businesses</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12H18L15 15H9L6 12H2" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <path d="M16 16L12 12V16" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <path d="M8 12L12 16V12" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Monetization Course Content</h3>
+                        <p class="content-placeholder-text">
+                            In Lesson 4, you'll explore various revenue models and monetization strategies. 
+                            Learn how to turn your AI skills into sustainable income streams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 5 -->
+        <section id="lesson-5" class="lesson-section" aria-labelledby="lesson-5-title">
+            <div class="lesson-number">5</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-5-title">Scale Your AI Income Streams</h1>
+                    <p class="lesson-subtitle">Advanced techniques for growing and automating your AI business</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="6" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                                <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Mastery Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 5 focuses on scaling your AI income to the next level. 
+                            You'll learn automation, outsourcing, and advanced business strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 6 -->
+        <section id="lesson-6" class="lesson-section" aria-labelledby="lesson-6-title">
+            <div class="lesson-number">6</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-6-title">AI Video Creation Systems</h1>
+                    <p class="lesson-subtitle">Master AI-powered video production and monetization</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 7L16 12L23 17V7Z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" 
+                                      stroke="currentColor" 
+                                      stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Video Systems Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 6 covers AI video generation, editing, and monetization. 
+                            Learn to create viral content and build YouTube automation channels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 7 -->
+        <section id="lesson-7" class="lesson-section" aria-labelledby="lesson-7-title">
+            <div class="lesson-number">7</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-7-title">AI Automation for Businesses</h1>
+                    <p class="lesson-subtitle">Build automated solutions for clients and enterprises</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <path d="M16 21V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V21" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <path d="M12 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 12H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Automation Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 7 focuses on AI automation consulting and solution building. 
+                            Learn to create client-ready automation systems and build a consulting business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 8 -->
+        <section id="lesson-8" class="lesson-section" aria-labelledby="lesson-8-title">
+            <div class="lesson-number">8</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-8-title">AI Content Generation Engines</h1>
+                    <p class="lesson-subtitle">Create and scale content production with AI</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Content Engines Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 8 teaches you how to build AI-powered content engines. 
+                            Learn SEO optimization, content scaling, and automated publishing strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 9 -->
+        <section id="lesson-9" class="lesson-section" aria-labelledby="lesson-9-title">
+            <div class="lesson-number">9</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-9-title">Advanced AI Implementation</h1>
+                    <p class="lesson-subtitle">Expert techniques for complex AI projects</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" 
+                                        stroke="currentColor" 
+                                        stroke-width="2" 
+                                        stroke-linecap="round"/>
+                                <path d="M12 8V12L16 14" 
+                                      stroke="currentColor" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round"/>
+                                <circle cx="12" cy="12" r="2" 
+                                      stroke="currentColor" 
+                                      stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Advanced Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 9 covers advanced AI implementation and integration techniques. 
+                            Learn to build complex systems and integrate multiple AI tools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 10 -->
+        <section id="lesson-10" class="lesson-section" aria-labelledby="lesson-10-title">
+            <div class="lesson-number">10</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-10-title">Scaling Your AI Business</h1>
+                    <p class="lesson-subtitle">Grow from solo operation to team-based enterprise</p>
+                </div>                
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M7 17L10 13L13 17L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Scaling Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 10 focuses on business scaling strategies. 
+                            Learn team building, outsourcing, and systemization for growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 11 -->
+        <section id="lesson-11" class="lesson-section" aria-labelledby="lesson-11-title">
+            <div class="lesson-number">12</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-12-title">Certification & Final Assessment</h1>
+                    <p class="lesson-subtitle">Complete your learning journey and earn your certification</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 10V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M17 5V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Tools Deep Dive Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 11 is a deep dive into advanced AI automation tools. 
+                            Learn complex workflow automation and integration strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson 12 -->
+        <section id="lesson-12" class="lesson-section" aria-labelledby="lesson-12-title">
+            <div class="lesson-number">12</div>
+            <div class="lesson-container">
+                <div class="lesson-header">
+                    <span class="lesson-badge">Locked</span>
+                    <h1 class="lesson-title" id="lesson-12-title">Certification & Final Assessment</h1>
+                    <p class="lesson-subtitle">Complete your learning journey and earn your certification</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="content-placeholder">
+                        <div class="content-placeholder-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" 
+                                      fill="currentColor" 
+                                      stroke="currentColor" 
+                                      stroke-width="0"/>
+                            </svg>
+                        </div>
+                        <h3 class="content-placeholder-title">Certification Course Content</h3>
+                        <p class="content-placeholder-text">
+                            Lesson 12 is your final assessment and certification. 
+                            Complete the final project and earn your VERCELLUM AI Profit Certification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (function() {
+            'use strict';
+            
+            // DOM Elements
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.lesson-section');
+            const progressBar = document.getElementById('progressBar');
+            const progressValue = document.getElementById('progressValue');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            
+            // State
+            let currentLesson = 0;
+            const totalLessons = 13;
+            
+            // Enthusiastic sound effect function
+            function playNavigationSound() {
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 0.1);
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.8, audioContext.currentTime + 0.05);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.25);
+                    
+                    oscillator.onended = () => audioContext.close();
+                } catch (error) {
+                    console.log("Sound effect not supported");
+                }
+            }
+            
+            // Update progress
+            function updateProgress() {
+                const completedLessons = currentLesson; // Lesson 0 is completed
+                const progressPercentage = Math.round((completedLessons / totalLessons) * 100);
+                
+                progressBar.style.width = `${progressPercentage}%`;
+                progressValue.textContent = `${progressPercentage}%`;
+            }
+            
+            // Activate lesson
+            function activateLesson(lessonNumber) {
+                // Play sound if available
+                if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                    playNavigationSound();
+                }
+                
+                // Update current lesson
+                currentLesson = lessonNumber;
+                
+                // Update navigation
+                navItems.forEach(item => {
+                    const isActive = parseInt(item.dataset.lesson) === lessonNumber;
+                    item.classList.toggle('active', isActive);
+                    item.setAttribute('aria-current', isActive ? 'true' : 'false');
+                    
+                    // Update status badges
+                    const statusElement = item.querySelector('.nav-status');
+                    if (statusElement) {
+                        if (parseInt(item.dataset.lesson) < lessonNumber) {
+                            statusElement.textContent = 'Completed';
+                            statusElement.className = 'nav-status status-completed';
+                        } else if (parseInt(item.dataset.lesson) === lessonNumber) {
+                            statusElement.textContent = 'Current';
+                            statusElement.className = 'nav-status status-completed';
+                        } else {
+                            statusElement.textContent = 'Locked';
+                            statusElement.className = 'nav-status status-locked';
+                        }
+                    }
+                });
+                
+                // Update sections
+                sections.forEach(section => {
+                    const isActive = section.id === `lesson-${lessonNumber}`;
+                    section.classList.toggle('active', isActive);
+                    section.setAttribute('aria-hidden', !isActive);
+                });
+                
+                // Update URL hash
+                history.replaceState(null, '', `#${lessonNumber}`);
+                
+                // Update progress
+                updateProgress();
+                
+                // Close mobile sidebar if open
+                if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            }
+            
+            // Toggle mobile sidebar
+            function toggleSidebar() {
+                const isActive = sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active', isActive);
+                mobileToggle.setAttribute('aria-expanded', isActive);
+                
+                // Update toggle icon
+                const icon = mobileToggle.querySelector('svg');
+                if (isActive) {
+                    icon.innerHTML = `
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    `;
+                } else {
+                    icon.innerHTML = `
+                        <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    `;
+                }
+            }
+            
+            // Click handlers
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lessonNumber = parseInt(item.dataset.lesson);
+                    
+                    // Check if lesson is unlocked (all lessons before current + 1 are unlocked)
+                    if (lessonNumber <= currentLesson + 1) {
+                        activateLesson(lessonNumber);
+                    } else {
+                        // Show lock message with animation
+                        item.style.animation = 'shake 0.5s ease';
+                        setTimeout(() => {
+                            item.style.animation = '';
+                        }, 500);
+                        
+                        // Create lock notification
+                        const notification = document.createElement('div');
+                        notification.style.cssText = `
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            background: var(--destructive);
+                            color: white;
+                            padding: 1rem 1.5rem;
+                            border-radius: var(--radius);
+                            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+                            z-index: 1000;
+                            animation: slideIn 0.3s ease;
+                        `;
+                        notification.textContent = 'Complete previous lessons to unlock this content';
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            notification.style.animation = 'slideOut 0.3s ease';
+                            setTimeout(() => notification.remove(), 300);
+                        }, 3000);
+                    }
+                });
+            });
+            
+            // Mobile toggle handler
+            mobileToggle.addEventListener('click', toggleSidebar);
+            sidebarOverlay.addEventListener('click', toggleSidebar);
+            
+            // Handle hash on load
+            function handleInitialHash() {
+                const hash = window.location.hash.replace('#', '');
+                const lessonNum = hash && parseInt(hash) >= 0 && parseInt(hash) <= 12 
+                    ? parseInt(hash) 
+                    : 0;
+                activateLesson(lessonNum);
+            }
+            
+            // Handle hash changes
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash.replace('#', '');
+                if (hash && parseInt(hash) >= 0 && parseInt(hash) <= 12) {
+                    activateLesson(parseInt(hash));
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const activeNav = document.querySelector('.nav-item.active');
+                if (!activeNav) return;
+                
+                const currentIndex = parseInt(activeNav.dataset.lesson);
+                let nextIndex = currentIndex;
+                
+                switch(e.key) {
+                    case 'ArrowUp':
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        nextIndex = Math.max(0, currentIndex - 1);
+                        break;
+                    case 'ArrowDown':
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        nextIndex = Math.min(12, currentIndex + 1);
+                        break;
+                    case 'Home':
+                        e.preventDefault();
+                        nextIndex = 0;
+                        break;
+                    case 'End':
+                        e.preventDefault();
+                        nextIndex = 12;
+                        break;
+                    case 'Escape':
+                        if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                            toggleSidebar();
+                        }
+                        break;
+                }
+                
+                if (nextIndex !== currentIndex && nextIndex <= currentLesson + 1) {
+                    activateLesson(nextIndex);
+                    document.querySelector(`.nav-item[data-lesson="${nextIndex}"]`).focus();
+                }
+            });
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    75% { transform: translateX(5px); }
+                }
+                
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+                
+                @media (max-width: 768px) {
+                    .nav-item:hover {
+                        transform: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initialize
+            handleInitialHash();
+            updateProgress();
+            
+            // Add lesson number animation on scroll
+            const lessonNumbers = document.querySelectorAll('.lesson-number');
+            window.addEventListener('scroll', () => {
+                lessonNumbers.forEach(number => {
+                    const rect = number.parentElement.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const progress = 1 - (rect.top / window.innerHeight);
+                        number.style.transform = `translateY(${progress * -20}px)`;
+                        number.style.opacity = `${0.05 + progress * 0.05}`;
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

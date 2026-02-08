@@ -1,0 +1,1613 @@
+        <!-- Lesson 0 - Active by default -->
+  <section id="lesson-0" class="lesson-section active" aria-labelledby="lesson-0-title">
+    <meta name="description" content="VERCELLUM Lesson 0: AI-Powered Freelancing & Service Scaling - Transition from curiosity to mental commitment with a complete work system.">
+    <meta name="keywords" content="AI freelancing, service scaling, VERCELLUM, professional system, AI work system">
+    <meta name="author" content="VERCELLUM">
+
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-muted: #b8962e;
+            --gold-light: #e8c45b;
+            --red: #dc2626;
+            --red-light: #fecaca;
+            --green: #059669;
+            --green-light: #a7f3d0;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --background-white: #ffffff;
+            --background-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Mode Variables - UPDATED FOR CONSISTENCY */
+        .dark-mode {
+            --gold: #e8c45b;
+            --gold-muted: #d4af37;
+            --gold-light: #f2d885;
+            --red: #f87171;
+            --red-light: #7f1d1d;
+            --green: #34d399;
+            --green-light: #065f46;
+            --text-dark: #f0f0f0;
+            --text-light: #b0b0b0;
+            --background-white: #1a1a1a;
+            --background-light: #2d2d2d;
+            --border-color: #404040;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .vercellum-lesson {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--background-white);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            transition: var(--transition);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* XP System - REORGANIZED */
+        .xp-system {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--gold);
+            box-shadow: var(--shadow-md);
+            animation: slideInLeft 0.6s ease-out 0.3s both;
+        }
+
+        .xp-badge {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+            animation: pulse 2s infinite;
+        }
+
+        .xp-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .xp-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .xp-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .xp-notification {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--green));
+            color: white;
+            padding: 15px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 1002;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+            font-weight: 600;
+            text-align: center;
+            max-width: 300px;
+            width: 90%;
+        }
+
+        /* Dark Mode Toggle - ENHANCED */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: var(--text-dark);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            animation: slideInRight 0.6s ease-out 0.3s both;
+            overflow: hidden;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .dark-mode-toggle:hover::before {
+            left: 100%;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.3);
+        }
+
+        .dark-mode-toggle:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .dark-mode-toggle .icon {
+            font-size: 1.4rem;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .dark-mode .dark-mode-toggle .icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .dark-mode-toggle .text {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { border-color: var(--gold-light); box-shadow: 0 0 25px rgba(232, 196, 91, 0.5); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Scroll Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--gold), var(--green), var(--red)) 1;
+            padding-left: 1rem;
+        }
+
+        h2::before {
+            content: '📌';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite;
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3::before {
+            content: '→';
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+
+        .lesson-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            padding: 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Dynamic Content Elements */
+        .interactive-highlight {
+            position: relative;
+            cursor: pointer;
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            border: 1px dashed transparent;
+        }
+
+        .interactive-highlight:hover {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .interactive-highlight::after {
+            content: 'ℹ️';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .interactive-highlight:hover::after {
+            opacity: 1;
+        }
+
+        .content-block {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--green), var(--red));
+            background-size: 200% auto;
+            animation: shimmer 3s infinite linear;
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            animation: borderGlow 2s infinite;
+        }
+
+        .content-block .section-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Lists */
+        .level-list {
+            counter-reset: level-counter;
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .level-list li {
+            counter-increment: level-counter;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem 1.5rem 1.5rem 5rem;
+            background: var(--background-light);
+            border-radius: var(--radius-md);
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .level-list li:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .level-list li::before {
+            content: counter(level-counter);
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .level-list li.completed::before {
+            content: '✓';
+            background: linear-gradient(135deg, var(--green), var(--green-light));
+        }
+
+        /* Interactive Progress Checkpoints */
+        .checkpoint {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--gold);
+        }
+
+        .checkpoint input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .checkpoint label {
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-dark);
+            flex: 1;
+        }
+
+        .checkpoint.completed {
+            background: rgba(5, 150, 105, 0.1);
+            border-left-color: var(--green);
+        }
+
+        .checkpoint.completed label {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        /* Interactive Elements */
+        .task-container {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--red);
+            animation: borderGlow 2s infinite;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: var(--transition);
+            background: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        button {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        button:hover::after {
+            left: 100%;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+            color: var(--text-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(135deg, var(--gold-muted), var(--gold));
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .secondary-btn {
+            background: var(--background-light);
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .vision-statement {
+            background: linear-gradient(135deg, var(--gold-light), #fff9e6);
+            border: 3px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .dark-mode .vision-statement {
+            background: linear-gradient(135deg, #2d2d1a, #1a1a1a);
+        }
+
+        /* Progress Indicator - SIMPLIFIED */
+        .lesson-progress {
+            position: sticky;
+            top: 0;
+            background: var(--background-white);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            z-index: 100;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .lesson-progress:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .progress-label svg {
+            color: var(--gold);
+        }
+
+        .progress-percentage {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Collapsible Sections */
+        .collapsible {
+            background: var(--background-white);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .collapsible:hover {
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .collapsible-header {
+            padding: 1.5rem;
+            background: var(--background-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(90deg, var(--background-light), rgba(212, 175, 55, 0.1));
+        }
+
+        .collapsible-content {
+            padding: 1.5rem;
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            display: block;
+        }
+
+        .toggle-icon {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .collapsible.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Highlights and Emphasis */
+        .highlight {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            font-weight: 700;
+            padding: 0 0.2em;
+            color: var(--gold);
+        }
+
+        .brand-mention {
+            color: var(--gold);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .brand-mention::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-mention:hover::after {
+            transform: scaleX(1);
+        }
+
+        .psychological-goal {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--background-light);
+            border-radius: 50px;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--text-dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            border: 2px solid var(--gold-light);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Achievement Badges */
+        .achievement-badge {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--green), var(--green-light));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .achievement-badge.show {
+            opacity: 1;
+            transform: scale(1);
+            animation: pulse 2s infinite;
+        }
+
+        .achievement-badge:hover {
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .xp-system {
+                left: 10px;
+                top: 10px;
+                padding: 8px 15px;
+            }
+            
+            .dark-mode-toggle {
+                right: 10px;
+                top: 10px;
+                padding: 12px 20px;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vercellum-lesson {
+                padding: 1.5rem 1rem;
+            }
+
+            .dark-mode-toggle {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                min-width: 110px;
+            }
+
+            .dark-mode-toggle .icon {
+                font-size: 1.2rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .task-container {
+                padding: 1.5rem;
+            }
+
+            .level-list li {
+                padding: 1.25rem 1.25rem 1.25rem 4rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h2 {
+                padding-left: 2rem;
+            }
+            
+            h2::before {
+                left: 0;
+            }
+            
+            .lesson-progress {
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1rem;
+                padding-left: 2rem;
+            }
+
+            .content-block {
+                padding: 1.25rem;
+            }
+
+            .task-container {
+                padding: 1.25rem;
+            }
+
+            .level-list li {
+                padding: 1rem 1rem 1rem 3.5rem;
+            }
+
+            .level-list li::before {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1rem;
+            }
+            
+            .xp-system {
+                flex-direction: column;
+                gap: 5px;
+                padding: 8px;
+            }
+            
+            .dark-mode-toggle {
+                min-width: 100px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- XP System -->
+    <div class="xp-system">
+        <div class="xp-badge" id="xpBadge">XP</div>
+        <div class="xp-info">
+            <span class="xp-label">EXPERIENCE POINTS</span>
+            <span class="xp-value" id="xpValue">0</span>
+        </div>
+    </div>
+
+    <div class="xp-notification" id="xpNotification">
+        +10 XP Earned! 🎯
+    </div>
+
+    <!-- Achievement Badge -->
+    <div class="achievement-badge" id="achievementBadge" title="Click to view achievements">
+        🏆
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <span class="icon">🌙</span>
+        <span class="text">Dark Mode</span>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        ↑
+    </div>
+
+    <!-- Simplified Progress Indicator -->
+    <div class="lesson-progress">
+        <div class="progress-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z" 
+                      stroke="currentColor" 
+                      stroke-width="2" 
+                      stroke-linecap="round"/>
+                <path d="M12 6V12L16 14" 
+                      stroke="currentColor" 
+                      stroke-width="2" 
+                      stroke-linecap="round"/>
+            </svg>
+            Lesson Progress
+        </div>
+        <div class="progress-percentage" id="progressText">0%</div>
+    </div>
+        <header class="animate-on-scroll">
+        <h1>🧩 VERCELLUM Lesson 0: AI-Powered Freelancing Mastery</h1>
+        <p class="psychological-goal animate-on-scroll delay-1">Main Psychological Goal: Transition from Curiosity → Understanding → Mental Commitment with VERCELLUM</p>
+    </header>
+
+    <article>
+        <section id="hook" class="content-block hook-block animate-on-scroll delay-1">
+            <div class="section-number">1</div>
+            <span class="psychological-goal">Psychological Goal: Break mental patterns + grab attention immediately</span>
+            <h2>Section 1: The Crucial Hook</h2>
+            <blockquote style="border-left: 4px solid var(--gold); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "Let's start with an uncomfortable truth: most of what you hear about 'AI in freelancing' is completely wrong. Not a small mistake, but something that wastes your time and costs opportunities. The model used by <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM is your AI-powered freelancing system that transforms how you work.')">VERCELLUM</span> professionals is not just AI as a helper, but <span class="highlight interactive-highlight" onclick="showTooltip('AI as a complete work system means integrating AI into every aspect of your workflow, not just as a tool but as a strategic partner.')">AI as a complete work system</span>. This lesson will show you how to move from task execution to building a full AI-powered service system."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="hookCheck" onchange="updateXP(10, 'Understood the hook')">
+                <label for="hookCheck">I understand the core message of this section</label>
+            </div>
+        </section>
+
+        <section id="diagnosis" class="content-block animate-on-scroll delay-2">
+            <div class="section-number">2</div>
+            <span class="psychological-goal">Psychological Goal: Normalize feelings + empathy + define common problem</span>
+            <h2>Section 2: Diagnosing the Current Reality</h2>
+            <blockquote style="border-left: 4px solid var(--green); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "You may have tried AI tools and felt frustrated: results are generic or limited, while competitors achieve more faster. This feeling—caught between opportunity and confusion—is normal, and it's exactly what <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM provides clarity and structure to your AI freelancing journey.')">VERCELLUM</span> aims to clarify. We'll reveal why this gap exists and how you can move smartly within this market."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="diagnosisCheck" onchange="updateXP(10, 'Recognized current reality')">
+                <label for="diagnosisCheck">I recognize these feelings in my own experience</label>
+            </div>
+        </section>
+
+        <section id="transformation" class="content-block transformation-block animate-on-scroll delay-2">
+            <div class="section-number">3</div>
+            <span class="psychological-goal">Psychological Goal: Present new vision + build logic-based hope</span>
+            <h2>Section 3: Radical Transformation</h2>
+            <blockquote style="border-left: 4px solid var(--red); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "The gap isn't between AI users and non-users, but between <span class="highlight interactive-highlight" onclick="showTooltip('These three levels represent the evolution of AI integration in freelancing work.')">three real levels</span>:"
+            </blockquote>
+            
+            <ol class="level-list" id="levelList">
+                <li class="animate-on-scroll delay-1" onclick="completeLevel(1)"><strong>AI as an assistant:</strong> saves 10–20% time, superficial tasks</li>
+                <li class="animate-on-scroll delay-2" onclick="completeLevel(2)"><strong>AI as a skill multiplier:</strong> saves 50% time + higher quality</li>
+                <li class="animate-on-scroll delay-3" onclick="completeLevel(3)"><strong>AI as a work system:</strong> doubles capacity + creates new offerings</li>
+            </ol>
+            
+            <p class="animate-on-scroll delay-3" style="margin-top: 1.5rem;">90% of freelancers are stuck between level 1 and 2. <span class="brand-mention interactive-highlight" onclick="showTooltip('VERCELLUM accelerates your progression to Level 3 mastery.')">VERCELLUM</span> guides you straight to level 3, where your knowledge and time transform into a scalable system.</p>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="transformationCheck" onchange="updateXP(15, 'Understood transformation levels')">
+                <label for="transformationCheck">I understand the three levels and where I want to be</label>
+            </div>
+        </section>
+
+        <section id="roadmap" class="content-block animate-on-scroll delay-3">
+            <div class="section-number">4</div>
+            <span class="psychological-goal">Psychological Goal: Reduce ambiguity + Progression Bias</span>
+            <h2>Section 4: Step-by-Step Roadmap</h2>
+            
+            <div class="collapsible animate-on-scroll delay-1">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 1 — Understanding the System</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Reduce anxiety + break belief that high tech is required</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "We don't start with tools, but by reprogramming your thinking: from selling your time → to building a service system. AI shifts from a tool → to an integrated partner. This is the <span class="brand-mention">VERCELLUM</span> principle."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="collapsible animate-on-scroll delay-2">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 2 — Guided Practical Experimentation</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Transform knowledge into feeling, create first small win</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "Apply what you learned to your real situation: your current service, your time, your clients, your limits. No imaginary projects—everything is about you. This small experiment gives you first sense of control and confidence."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="collapsible animate-on-scroll delay-3">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <h3 style="margin: 0;">STEP 3 — Professionalization & Scaling</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <span class="psychological-goal">Psychological Goal: Elevate identity from executor → professional + instill scaling mindset</span>
+                    <blockquote style="border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                        "We move from experiment to system: how do you validate what works? How do you turn your experience into repeatable service? How do you start thinking about scaling? This is the heart of the <span class="brand-mention">VERCELLUM</span> path."
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="roadmapCheck" onchange="updateXP(15, 'Understood roadmap steps')">
+                <label for="roadmapCheck">I understand the 3-step VERCELLUM roadmap</label>
+            </div>
+        </section>
+
+        <section id="task" class="content-block task-block animate-on-scroll delay-3">
+            <div class="section-number">5</div>
+            <span class="psychological-goal">Psychological Goal: Convert doubt into confidence through tangible result</span>
+            <h2>Section 5: Immediate Proof / Task</h2>
+            
+            <div class="task-container animate-on-scroll delay-1">
+                <h3>Part 1 :</h3>
+                <p>Answer these 3 questions honestly:</p>
+                
+                <div class="question-group animate-on-scroll delay-1">
+                    <label for="question1">1. What is the single thing stopping you from doubling your income now?</label>
+                    <textarea id="question1" placeholder="Be specific about the main obstacle..." oninput="updateXP(2, 'Started answering questions')"></textarea>
+                </div>
+                
+                <div class="question-group animate-on-scroll delay-2">
+                    <label for="question2">2. How do you want your work to look in 6 months?</label>
+                    <textarea id="question2" placeholder="Describe your ideal work situation..." oninput="updateXP(2, 'Described vision')"></textarea>
+                </div>
+                
+                <div class="question-group animate-on-scroll delay-3">
+                    <label for="question3">3. What risk are you afraid of in using AI?</label>
+                    <textarea id="question3" placeholder="What's your biggest concern or fear?" oninput="updateXP(2, 'Identified risks')"></textarea>
+                </div>
+
+                <h3 class="animate-on-scroll delay-3" style="margin-top: 2rem;">Part 2 :</h3>
+                <p class="animate-on-scroll delay-3">Generate your Professional Vision Statement:</p>
+                
+                <div class="button-group animate-on-scroll delay-3">
+                    <button class="primary-btn" onclick="generateVisionStatement()">
+                        ✨ Generate Vision Statement
+                    </button>
+                    <button class="secondary-btn" onclick="clearAllInputs()">
+                        🗑️ Clear All
+                    </button>
+                </div>
+
+                <div id="visionStatement" class="vision-statement">
+                    <h3>Your Professional Vision Statement</h3>
+                    <div id="visionContent"></div>
+                    <div class="button-group" style="margin-top: 1.5rem;">
+                        <button class="secondary-btn" onclick="saveAsText()">
+                            💾 Save as Text
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="taskCheck" onchange="updateXP(20, 'Completed vision task')">
+                <label for="taskCheck">I completed the vision statement task</label>
+            </div>
+            
+            <p class="animate-on-scroll delay-3" style="margin-top: 1.5rem; font-style: italic;"><strong>Instruction:</strong> Enter your answers above and click "Generate Vision Statement". Keep the output: it will be your mirror for the <span class="brand-mention">VERCELLUM</span> journey.</p>
+        </section>
+
+        <section id="commitment" class="content-block animate-on-scroll delay-3">
+            <div class="section-number">6</div>
+            <span class="psychological-goal">Psychological Goal: Convert curiosity into internal commitment with Brand Identity</span>
+            <h2>Section 6: Psychological Closing</h2>
+            <blockquote style="border-left: 4px solid var(--green); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dark);">
+                "You have two choices: return to what you were doing, or spend 12 minutes on a task that changes your work mindset. If you choose the second, welcome to the <span class="brand-mention interactive-highlight" onclick="showTooltip('The VERCELLUM journey transforms freelancers into AI-powered professionals.')">VERCELLUM</span> journey, where the smart freelancer starts with the small right step."
+            </blockquote>
+            
+            <div class="checkpoint">
+                <input type="checkbox" id="commitmentCheck" onchange="updateXP(15, 'Made commitment')">
+                <label for="commitmentCheck">I commit to taking the VERCELLUM journey</label>
+            </div>
+        </section>
+
+
+    </article>
+
+    <script>
+        // XP System - STRUCTURED AND LOGICAL
+        let xp = 0;
+        const XP_STRUCTURE = {
+            sections: {
+                hook: { base: 10, reason: 'Section completion' },
+                diagnosis: { base: 10, reason: 'Section completion' },
+                transformation: { base: 15, reason: 'Section completion' },
+                roadmap: { base: 15, reason: 'Section completion' },
+                task: { base: 20, reason: 'Section completion' },
+                commitment: { base: 15, reason: 'Section completion' }
+            },
+            interactions: {
+                checkpoint: 5,
+                levelComplete: 10,
+                questionAnswer: 2,
+                tooltip: 1,
+                darkMode: 10,
+                visionGenerated: 10
+            },
+            milestones: {
+                halfLesson: 25,
+                fullLesson: 50
+            }
+        };
+
+        function updateXP(points, reason) {
+            if (points <= 0) return;
+            
+            xp += points;
+            document.getElementById('xpValue').textContent = xp;
+            
+            // Update badge animation
+            const badge = document.getElementById('xpBadge');
+            badge.style.animation = 'none';
+            setTimeout(() => {
+                badge.style.animation = 'pulse 0.5s ease';
+            }, 10);
+            
+            // Show notification
+            const notification = document.getElementById('xpNotification');
+            notification.textContent = `+${points} XP! ${reason}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+            
+            // Check for achievements
+            checkAchievements();
+            
+            // Save to localStorage
+            localStorage.setItem('vercellumXP', xp);
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function checkAchievements() {
+            const badge = document.getElementById('achievementBadge');
+            if (xp >= 25 && xp < 50) {
+                badge.classList.add('show');
+                badge.title = 'Progress Starter - 25 XP Earned!';
+                badge.innerHTML = '⭐';
+            } else if (xp >= 50 && xp < 75) {
+                badge.classList.add('show');
+                badge.title = 'Lesson Explorer - 50 XP Earned!';
+                badge.innerHTML = '🎯';
+            } else if (xp >= 75) {
+                badge.classList.add('show');
+                badge.title = 'AI Pioneer - 75 XP Earned!';
+                badge.innerHTML = '🚀';
+            }
+        }
+
+        function updateProgress() {
+            const maxXP = 100;
+            const progressPercent = Math.min((xp / maxXP) * 100, 100);
+            document.getElementById('progressText').textContent = `${Math.round(progressPercent)}%`;
+            
+            // Update main progress bar if exists
+            const mainProgress = document.getElementById('progressBar');
+            if (mainProgress) {
+                mainProgress.style.width = `${progressPercent}%`;
+            }
+        }
+
+        // Level completion
+        function completeLevel(level) {
+            const listItems = document.querySelectorAll('.level-list li');
+            if (listItems[level - 1] && !listItems[level - 1].classList.contains('completed')) {
+                listItems[level - 1].classList.add('completed');
+                updateXP(XP_STRUCTURE.interactions.levelComplete, `Completed Level ${level}`);
+            }
+        }
+
+        // Dark Mode Toggle - FIXED AND WORKING
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeText = darkModeToggle.querySelector('.text');
+        let darkModeUsed = false;
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeText.textContent = 'Light Mode';
+                darkModeToggle.querySelector('.icon').textContent = '☀️';
+                if (!darkModeUsed) {
+                    updateXP(XP_STRUCTURE.interactions.darkMode, 'Dark Mode Activated');
+                    darkModeUsed = true;
+                }
+            } else {
+                darkModeText.textContent = 'Dark Mode';
+                darkModeToggle.querySelector('.icon').textContent = '🌙';
+            }
+            
+            // Add click animation
+            darkModeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                darkModeToggle.style.transform = '';
+            }, 200);
+            
+            // Save preference
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        // Tooltip System
+        function showTooltip(message) {
+            updateXP(XP_STRUCTURE.interactions.tooltip, 'Interactive element');
+            
+            // Create tooltip
+            const tooltip = document.createElement('div');
+            tooltip.className = 'xp-notification';
+            tooltip.textContent = message;
+            tooltip.style.position = 'fixed';
+            tooltip.style.top = '50%';
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translate(-50%, -50%)';
+            tooltip.style.zIndex = '1003';
+            tooltip.style.maxWidth = '80%';
+            tooltip.style.display = 'block';
+            
+            document.body.appendChild(tooltip);
+            
+            setTimeout(() => {
+                tooltip.remove();
+            }, 2000);
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    // Add staggered animation for children
+                    if (entry.target.classList.contains('level-list')) {
+                        const items = entry.target.querySelectorAll('li');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('animated');
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll progress tracking
+        function updateScrollProgress() {
+            const scrollTopBtn = document.getElementById('scrollTop');
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+
+        // Collapsible sections with animation
+        function toggleCollapsible(header) {
+            const collapsible = header.parentElement;
+            const isActive = collapsible.classList.contains('active');
+            
+            // Close all other collapsibles
+            document.querySelectorAll('.collapsible.active').forEach(other => {
+                if (other !== collapsible) {
+                    other.classList.remove('active');
+                }
+            });
+            
+            // Toggle current
+            collapsible.classList.toggle('active');
+            
+            // Add click animation
+            header.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                header.style.transform = '';
+            }, 200);
+            
+            updateXP(XP_STRUCTURE.interactions.checkpoint, 'Explored roadmap step');
+        }
+
+        // Generate Vision Statement with enhanced animation
+        function generateVisionStatement() {
+            const q1 = document.getElementById('question1').value.trim();
+            const q2 = document.getElementById('question2').value.trim();
+            const q3 = document.getElementById('question3').value.trim();
+            
+            if (!q1 || !q2 || !q3) {
+                // Add shake animation to empty textareas
+                const textareas = document.querySelectorAll('textarea');
+                textareas.forEach(ta => {
+                    if (!ta.value.trim()) {
+                        ta.style.animation = 'none';
+                        setTimeout(() => {
+                            ta.style.animation = 'shake 0.5s ease-in-out';
+                        }, 10);
+                    }
+                });
+                
+                setTimeout(() => {
+                    textareas.forEach(ta => {
+                        ta.style.animation = '';
+                    });
+                }, 500);
+                
+                return;
+            }
+            
+            const visionTemplate = `
+                <div class="vision-content-inner">
+                    <h4 style="color: var(--gold); margin-bottom: 1rem;">Professional Vision Statement</h4>
+                    <div class="vision-section">
+                        <h5>Current Challenge</h5>
+                        <p>${q1}</p>
+                    </div>
+                    <div class="vision-section">
+                        <h5>6-Month Vision</h5>
+                        <p>${q2}</p>
+                    </div>
+                    <div class="vision-section">
+                        <h5>Risk to Overcome</h5>
+                        <p>${q3}</p>
+                    </div>
+                    <hr style="margin: 1.5rem 0; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <div class="vision-section">
+                        <h5>VERCELLUM Path Forward</h5>
+                        <p>As a VERCELLUM professional, I commit to transforming my current challenge into an opportunity by leveraging AI as a complete work system. Within 6 months, I will establish ${q2.toLowerCase().includes('system') ? 'this vision' : 'a scalable service system'} that addresses my identified risk while building capacity and creating new offerings.</p>
+                        <p>I acknowledge that the transition from executor to system-builder requires mindset reprogramming first, followed by guided experimentation and professionalization. This vision statement serves as my commitment anchor throughout the VERCELLUM journey.</p>
+                    </div>
+                    <p style="font-style: italic; margin-top: 1.5rem; color: var(--text-light); font-size: 0.9rem;">
+                        Generated on ${new Date().toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })} as part of VERCELLUM Lesson 0
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('visionContent').innerHTML = visionTemplate;
+            const visionStatement = document.getElementById('visionStatement');
+            visionStatement.style.display = 'block';
+            
+            // Add entrance animation
+            visionStatement.style.animation = 'none';
+            setTimeout(() => {
+                visionStatement.style.animation = 'fadeInUp 0.6s ease-out';
+            }, 10);
+            
+            // Scroll to vision statement with smooth animation
+            visionStatement.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Add success animation to generate button
+            const generateBtn = document.querySelector('.primary-btn');
+            generateBtn.style.animation = 'pulse 1s ease';
+            setTimeout(() => {
+                generateBtn.style.animation = '';
+            }, 1000);
+            
+            // Award XP for completing vision statement
+            updateXP(XP_STRUCTURE.interactions.visionGenerated, 'Created vision statement');
+        }
+
+        // Clear all inputs with confirmation
+        function clearAllInputs() {
+            const textareas = document.querySelectorAll('textarea');
+            const hasContent = Array.from(textareas).some(ta => ta.value.trim());
+            
+            if (!hasContent) return;
+            
+            // Add fade out animation
+            textareas.forEach(ta => {
+                ta.style.transition = 'opacity 0.3s ease';
+                ta.style.opacity = '0.5';
+            });
+            
+            if (confirm('Are you sure you want to clear all inputs?')) {
+                textareas.forEach(ta => {
+                    ta.value = '';
+                    ta.style.opacity = '1';
+                });
+                document.getElementById('visionStatement').style.display = 'none';
+            } else {
+                textareas.forEach(ta => {
+                    ta.style.opacity = '1';
+                });
+            }
+            
+            setTimeout(() => {
+                textareas.forEach(ta => {
+                    ta.style.transition = '';
+                });
+            }, 300);
+        }
+
+        // Copy to clipboard with feedback
+        function copyToClipboard() {
+            const visionText = document.getElementById('visionContent').innerText;
+            navigator.clipboard.writeText(visionText).then(() => {
+                const btn = event.target.closest('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.background = 'var(--green)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+                
+                updateXP(XP_STRUCTURE.interactions.checkpoint, 'Copied vision statement');
+            }).catch(err => {
+                alert('Could not copy to clipboard. Please select and copy manually.');
+            });
+        }
+
+        // Save as text file
+        function saveAsText() {
+            const visionText = document.getElementById('visionContent').innerText;
+            const blob = new Blob([visionText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `VERCELLUM-Vision-Statement-${new Date().toISOString().slice(0,10)}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            updateXP(XP_STRUCTURE.interactions.checkpoint, 'Saved vision statement');
+        }
+
+        // Scroll to top functionality
+        document.getElementById('scrollTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Achievement badge click
+        document.getElementById('achievementBadge').addEventListener('click', () => {
+            showTooltip(`You have ${xp} XP! Keep going to unlock more achievements.`);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-expand first collapsible
+            const firstCollapsible = document.querySelector('.collapsible');
+            if (firstCollapsible) {
+                firstCollapsible.classList.add('active');
+            }
+            
+            // Load saved XP
+            const savedXP = localStorage.getItem('vercellumXP');
+            if (savedXP) {
+                xp = parseInt(savedXP);
+                document.getElementById('xpValue').textContent = xp;
+                updateProgress();
+                checkAchievements();
+            }
+            
+            // Load dark mode preference
+            const darkModePreference = localStorage.getItem('darkMode') === 'true';
+            if (darkModePreference) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.querySelector('.text').textContent = 'Light Mode';
+                darkModeToggle.querySelector('.icon').textContent = '☀️';
+            }
+            
+            // Add CSS for shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    75% { transform: translateX(5px); }
+                }
+                
+                .vision-section {
+                    margin-bottom: 1.5rem;
+                }
+                
+                .vision-section h5 {
+                    color: var(--gold);
+                    margin-bottom: 0.5rem;
+                    font-size: 1.1rem;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Award initial XP for starting
+            updateXP(5, 'Started Lesson 0');
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', updateScrollProgress);
+    </script>
+</section>
