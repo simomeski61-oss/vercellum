@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Lesson 4: Build Your First AI Worker (And Keep It Safe) — Agentic AI Tutorial | VERCELLUM</title>
+<meta name="description" content="Build your first AI automation agent from scratch — step by step. Master the 4 components of every AI agent, run a real simulation, understand ROI data, and apply essential AI safety principles. Free interactive lesson on VERCELLUM.">
+<meta name="keywords" content="build your first AI agent, AI worker tutorial, agentic AI beginner guide, AI automation agent tutorial, no-code AI automation, AI agent safety principles, how to build an AI agent, AI agent for business, automation agent Make Zapier n8n, AI safety checklist, AI agent ROI, email automation agent">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="VERCELLUM">
+<meta name="theme-color" content="#040302">
+<link rel="canonical" href="https://vercellum.com/lessons/lesson4.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lesson 4: Build Your First AI Worker (And Keep It Safe) | VERCELLUM">
+<meta property="og:description" content="Stop reading about AI agents — build one. This hands-on lab guides you step by step through creating your first email automation agent, then securing it with professional safety principles.">
+<meta property="og:url" content="https://vercellum.com/lessons/lesson4.html">
+<meta property="og:site_name" content="VERCELLUM">
+<meta property="og:image" content="https://vercellum.com/og/lesson4.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VERCELLUM Lesson 4 — Build Your First AI Worker interactive lab visualization">
+<meta property="article:published_time" content="2026-01-01T00:00:00Z">
+<meta property="article:modified_time" content="2026-03-13T00:00:00Z">
+<meta property="article:section" content="AI Education">
+<meta property="article:tag" content="Build AI Agent">
+<meta property="article:tag" content="AI Automation Tutorial">
+<meta property="article:tag" content="No-Code AI">
+<meta property="article:tag" content="AI Safety">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 4: Build Your First AI Worker | VERCELLUM">
+<meta name="twitter:description" content="Your first hands-on AI agent build. Step-by-step lab: trigger → rules → actions → simulation. Plus AI safety principles that protect your business.">
+<meta name="twitter:image" content="https://vercellum.com/og/lesson4.png">
+<meta name="twitter:site" content="@vercellum">
+<meta name="twitter:creator" content="@vercellum">
+
+<!-- Structured Data: LearningResource -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LearningResource",
+  "name":"Lesson 4: Build Your First AI Worker (And Keep It Safe)",
+  "headline":"Build Your First AI Worker — And Keep It Safe",
+  "description":"A hands-on interactive lab lesson for business owners building their first AI automation agent. Covers the 4 core agent components (Sense, Plan, Act, Respond), a 5-step agent builder simulation, real-world ROI data visualizations, and a professional AI safety framework.",
+  "educationalLevel":"Beginner",
+  "learningResourceType":["Interactive Lesson","Lab","Tutorial","Checklist"],
+  "provider":{"@type":"Organization","name":"VERCELLUM","url":"https://vercellum.com"},
+  "teaches":[
+    "The 4 components of every AI agent: Sense, Plan, Act, Respond",
+    "How to build a no-code email automation agent using Make, Zapier, or n8n",
+    "How to configure triggers, rules, and actions for an AI worker",
+    "How to simulate and test an AI agent before going live",
+    "AI safety principles: identity, least privilege, human-in-the-loop, and logging",
+    "Real-world ROI and performance trajectory of AI agents over time"
+  ],
+  "timeRequired":"PT25M",
+  "educationalUse":"Instruction",
+  "audience":{"@type":"Audience","audienceType":"Business owners, SMB operators, entrepreneurs, no-code builders"},
+  "isPartOf":{"@type":"Course","name":"Practical Agentic AI for SMBs — Path 1","provider":{"@type":"Organization","name":"VERCELLUM","url":"https://vercellum.com"}},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1024","bestRating":"5"}
+}
+</script>
+
+<!-- Structured Data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to Build Your First AI Automation Agent (No Code Required)",
+  "description":"A step-by-step guide to building, configuring, and safely deploying your first AI email automation agent using no-code platforms like Make, Zapier, or n8n.",
+  "totalTime":"PT25M",
+  "step":[
+    {"@type":"HowToStep","position":"1","name":"Choose Your No-Code Platform","text":"Select Make, Zapier, or n8n — all three allow you to build automation agents without writing code."},
+    {"@type":"HowToStep","position":"2","name":"Set Your Trigger","text":"Define what event will start your agent — a new incoming email, filtered by keyword."},
+    {"@type":"HowToStep","position":"3","name":"Define Your Rules","text":"Tell your agent how to classify incoming messages for different response scenarios."},
+    {"@type":"HowToStep","position":"4","name":"Configure Your Actions","text":"Choose what your agent does: send reply, add to CRM, notify manager, schedule follow-up."},
+    {"@type":"HowToStep","position":"5","name":"Run the Simulation and Apply Safety Rules","text":"Test your agent and apply the 4 safety principles before going live."}
+  ]
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"VERCELLUM","item":"https://vercellum.com"},
+    {"@type":"ListItem","position":2,"name":"Path 1: Understanding the New AI","item":"https://vercellum.com/path.html"},
+    {"@type":"ListItem","position":3,"name":"Lesson 4: Build Your First AI Worker","item":"https://vercellum.com/lessons/lesson4.html"}
+  ]
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How do I build my first AI agent with no coding experience?","acceptedAnswer":{"@type":"Answer","text":"You can build your first AI automation agent using no-code platforms like Make, Zapier, or n8n. VERCELLUM Lesson 4 walks you through the exact steps with a hands-on simulation."}},
+    {"@type":"Question","name":"What are the 4 components of an AI agent?","acceptedAnswer":{"@type":"Answer","text":"Every AI agent operates on four core components: Sense (perceiving incoming data), Plan (evaluating data against rules), Act (executing autonomously), and Respond (reporting results and logging)."}},
+    {"@type":"Question","name":"What is the ROI of deploying an AI agent for a small business?","acceptedAnswer":{"@type":"Answer","text":"Most SMB owners see measurable time savings within the first week. By week 8, a well-configured email agent typically handles 200–400 tasks per week with under 3% error rate, freeing 8–15 hours of manual work."}},
+    {"@type":"Question","name":"How do I keep an AI agent safe and under control?","acceptedAnswer":{"@type":"Answer","text":"The four key AI safety principles are: Identity, Least Privilege, Human-in-the-Loop, and Logging."}},
+    {"@type":"Question","name":"What is the risk of a poorly configured AI agent?","acceptedAnswer":{"@type":"Answer","text":"Poorly configured AI agents can cause misaligned objectives, uncontrolled automation, and privilege escalation. The safety framework in this lesson prevents all three."}}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<style>
+/* ══════════════════════════════════════════════
+   VERCELLUM · LESSON 4 · BUILD YOUR FIRST AI WORKER
+   Dark Luxury · Gold × Emerald × Sapphire
+══════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --v:#040302;--ab:#070604;--ob:#0C0A08;--on:#111009;--cb:#181410;--ir:#252018;
+  --as:#3D3728;--tp:#6A6050;--bn:#AFA79C;--cr:#F1ECE2;--wh:#FDFAF5;
+  --g0:#F5DC72;--g1:#C9A34A;--g2:#A88532;--g3:#7B611E;--g4:#54420F;
+  --gg:rgba(201,163,74,.55);--gm:rgba(201,163,74,.18);--gf:rgba(201,163,74,.07);--gt:rgba(201,163,74,.035);
+  --red:#F05050;--red2:#DC2626;--redt:rgba(240,80,80,.1);--reds:rgba(240,80,80,.055);--redb:rgba(240,80,80,.28);
+  --blu:#60A5FA;--blu2:#3B82F6;--blud:rgba(96,165,250,.1);--blus:rgba(96,165,250,.055);--blub:rgba(96,165,250,.28);
+  --grn:#34D399;--grn2:#10B981;--grnd:rgba(52,211,153,.1);--grns:rgba(52,211,153,.055);--grnb:rgba(52,211,153,.28);
+  --amb:#FB923C;--ambd:rgba(251,146,60,.1);--ambs:rgba(251,146,60,.05);--ambb:rgba(251,146,60,.28);
+  --prp:#A78BFA;--prpd:rgba(167,139,250,.1);--prps:rgba(167,139,250,.055);--prpb:rgba(167,139,250,.28);
+  --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
+  --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);--sn:cubic-bezier(.87,0,.13,1);
+  --sg:0 0 80px rgba(201,163,74,.12),0 30px 60px rgba(0,0,0,.55);
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--v)}
+::-webkit-scrollbar-thumb{background:var(--g3);border-radius:2px}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--v);color:var(--cr);line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--fs);cursor:none;border:none;background:none}
+input,textarea,select{font-family:var(--fs)}
+@media(hover:none){body,button,a,input,textarea,select{cursor:auto}}
+
+/* ═══ SKIP LINK ═══ */
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:99999;padding:.6rem 1.2rem;background:var(--g1);color:var(--v);font-family:var(--fb);font-size:.65rem;letter-spacing:.18em;border-radius:6px;transition:top .2s;font-weight:700}
+.skip-link:focus{top:1rem}
+
+/* ═══ READING PROGRESS ═══ */
+#read-progress{position:fixed;top:0;left:0;width:0%;height:2px;z-index:9999;background:linear-gradient(90deg,var(--g4),var(--g1),var(--grn));transition:width .12s linear;pointer-events:none}
+
+/* ═══ NOISE TEXTURE ═══ */
+body::before{content:'';position:fixed;inset:0;opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;pointer-events:none;z-index:9990}
+
+/* ═══ CUSTOM CURSOR ═══ */
+#cur{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--g1);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s var(--ex),height .18s var(--ex),background .2s;mix-blend-mode:screen}
+#cur-r{position:fixed;width:26px;height:26px;border-radius:50%;border:1px solid rgba(201,163,74,.45);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .3s var(--ex),height .3s var(--ex),border-color .25s,opacity .25s}
+#blob{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(201,163,74,.03) 0%,transparent 68%);transform:translate(-50%,-50%);filter:blur(50px);transition:transform .9s var(--ex)}
+body.hov #cur{width:14px;height:14px;background:var(--g0)}
+body.hov #cur-r{width:48px;height:48px;border-color:rgba(201,163,74,.18)}
+body.clk #cur{transform:translate(-50%,-50%) scale(.4)}
+body.txt-hov #cur{width:3px;height:20px;border-radius:2px;background:var(--g0)}
+body.txt-hov #cur-r{opacity:0}
+
+/* ═══ AMBIENT ORBS ═══ */
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:0}
+.o1{width:800px;height:800px;top:-250px;right:-250px;background:radial-gradient(circle,rgba(201,163,74,.045),transparent 65%);animation:oF1 18s ease-in-out infinite}
+.o2{width:600px;height:600px;bottom:-150px;left:-200px;background:radial-gradient(circle,rgba(52,211,153,.032),transparent 65%);animation:oF2 22s ease-in-out infinite}
+.o3{width:450px;height:450px;top:45%;left:25%;background:radial-gradient(circle,rgba(96,165,250,.025),transparent 65%);animation:oF1 28s 4s ease-in-out infinite}
+@keyframes oF1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-35px,45px) scale(1.06)}}
+@keyframes oF2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(25px,-35px) scale(1.09)}}
+
+/* ═══ CANVAS BG ═══ */
+#agent-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.22}
+
+/* ═══ PAGE LAYOUT ═══ */
+.page-wrap{display:grid;grid-template-columns:272px 1fr;min-height:100vh;position:relative;z-index:10}
+@media(max-width:900px){.page-wrap{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════
+   SIDEBAR
+═══════════════════════════════ */
+aside.sidebar{
+  position:sticky;top:0;height:100vh;overflow-y:auto;overflow-x:hidden;
+  background:rgba(7,6,4,.96);backdrop-filter:blur(20px);
+  border-right:1px solid rgba(201,163,74,.09);
+  padding:2rem 1.5rem;display:flex;flex-direction:column;gap:1.25rem;
+  scrollbar-width:none;
+}
+aside.sidebar::-webkit-scrollbar{display:none}
+@media(max-width:900px){aside.sidebar{display:none}}
+
+.sb-logo{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--g1);letter-spacing:.1em}
+.sb-path-label{font-family:var(--fb);font-size:.5rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;margin-bottom:.2rem;margin-top:.75rem}
+.sb-path-title{font-family:var(--fd);font-size:.88rem;color:var(--bn);font-style:italic;line-height:1.45;margin-bottom:1rem}
+.sb-you-are-here{
+  background:linear-gradient(135deg,rgba(201,163,74,.07),rgba(201,163,74,.03));
+  border:1px solid rgba(201,163,74,.15);border-radius:10px;
+  padding:.9rem 1rem;margin-bottom:.5rem;position:relative;overflow:hidden;
+}
+.sb-you-are-here::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
+.sb-you-label{font-family:var(--fb);font-size:.45rem;letter-spacing:.25em;color:var(--g2);text-transform:uppercase;margin-bottom:.35rem}
+.sb-you-name{font-size:.78rem;color:var(--wh);font-weight:500;line-height:1.35}
+.sb-progress-wrap{margin-bottom:.5rem}
+.sb-progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.sb-progress-text{font-family:var(--fb);font-size:.45rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase}
+.sb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--g1)}
+.sb-progress-track{height:2px;background:rgba(201,163,74,.1);border-radius:2px;overflow:hidden}
+.sb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:2px;transition:width .7s var(--ex);width:75%}
+.sb-lessons{display:flex;flex-direction:column;gap:.3rem}
+.sb-lesson{display:flex;align-items:center;gap:.6rem;padding:.5rem .75rem;border-radius:7px;font-size:.72rem;border:1px solid transparent;transition:all .22s;}
+.sb-lesson.done{color:var(--grn);background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.18)}
+.sb-lesson.done:hover{background:rgba(52,211,153,.09)}
+.sb-lesson.active{color:var(--g0);background:rgba(201,163,74,.07);border-color:rgba(201,163,74,.18);font-weight:500}
+.sb-lesson.upcoming{color:var(--tp);border-color:transparent}
+.sb-lesson-ic{font-size:.8rem;flex-shrink:0;width:16px;text-align:center}
+.sb-divider{height:1px;background:rgba(201,163,74,.07);margin:.1rem 0}
+.sb-live{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border-radius:8px;background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.12)}
+.sb-live-dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+.sb-live-text{font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;color:var(--grn)}
+.sb-cta-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+.sb-btn{padding:.65rem .85rem;border-radius:8px;font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all .22s;border:1px solid transparent}
+.sb-btn-gold{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.22);color:var(--g1)}
+.sb-btn-gold:hover{background:rgba(201,163,74,.18)}
+.sb-btn-ghost{color:var(--tp);border-color:rgba(201,163,74,.08)}
+.sb-btn-ghost:hover{color:var(--g1);border-color:rgba(201,163,74,.2)}
+.sb-btn-grn{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.2);color:var(--grn)}
+.sb-btn-grn:hover{background:rgba(52,211,153,.15)}
+
+/* ═══════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════ */
+main.main-content{min-width:0;position:relative;z-index:10}
+
+/* ═══ HERO ═══ */
+.lesson-hero{
+  padding:4rem 4.5rem 3.5rem;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid rgba(201,163,74,.07);
+}
+@media(max-width:1100px){.lesson-hero{padding:3rem 3rem 2.5rem}}
+@media(max-width:700px){.lesson-hero{padding:2.5rem 1.5rem 2rem}}
+
+.lesson-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% -10%,rgba(201,163,74,.07),transparent 60%),
+             radial-gradient(ellipse at 10% 100%,rgba(52,211,153,.04),transparent 55%);
+  pointer-events:none;
+}
+.lesson-hero::after{content:'';position:absolute;bottom:0;left:4.5rem;right:4.5rem;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.15),transparent)}
+
+.hero-breadcrumb{
+  display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;
+  font-family:var(--fb);font-size:.48rem;letter-spacing:.2em;color:var(--tp);text-transform:uppercase;
+}
+.hero-breadcrumb a{transition:color .2s}.hero-breadcrumb a:hover{color:var(--g1)}
+.hero-breadcrumb-sep{color:var(--as)}
+
+.hero-badges{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.hero-lesson-num{
+  padding:.3rem .85rem;border-radius:4px;
+  background:var(--gf);border:1px solid var(--gm);
+  font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--g2);text-transform:uppercase;
+}
+.hero-lab-badge{
+  display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:4px;
+  background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);
+  font-family:var(--fb);font-size:.45rem;letter-spacing:.2em;color:var(--grn);text-transform:uppercase;
+}
+.hero-lab-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+
+.hero-h1{
+  font-family:var(--fd);font-size:clamp(2rem,4.5vw,3.75rem);
+  font-weight:300;line-height:1.1;color:var(--wh);
+  letter-spacing:-.02em;margin-bottom:1rem;
+}
+.hero-h1 em{font-style:italic;color:var(--g0);position:relative}
+.hero-h1 em::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--g3),var(--g1),transparent);
+}
+
+.hero-tagline{
+  font-size:clamp(.85rem,1.5vw,1rem);color:var(--bn);
+  max-width:560px;line-height:1.75;margin-bottom:2rem;
+}
+.hero-tagline strong{color:var(--cr)}
+
+.hero-cta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-primary-btn{
+  display:inline-flex;align-items:center;gap:.65rem;
+  padding:.9rem 2rem;border-radius:10px;
+  background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+  cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 4px 24px rgba(201,163,74,.28);border:none;
+}
+.hero-primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(201,163,74,.42)}
+.hero-primary-btn svg{width:13px;height:13px;stroke:var(--v);fill:none;stroke-width:2.5}
+.hero-ghost-btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.9rem 1.6rem;border-radius:10px;
+  border:1px solid rgba(201,163,74,.2);background:rgba(201,163,74,.04);
+  color:var(--g1);font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+}
+.hero-ghost-btn:hover{background:rgba(201,163,74,.09);border-color:rgba(201,163,74,.35)}
+
+.hero-meta-row{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:.45rem;font-size:.76rem;color:var(--tp)}
+.hero-meta-item svg{width:13px;height:13px;stroke:var(--g2);fill:none;stroke-width:1.8;flex-shrink:0}
+.hero-meta-sep{width:1px;height:14px;background:rgba(201,163,74,.12)}
+
+/* ═══ LESSON BODY ═══ */
+.lesson-body{padding:0 4.5rem 4rem}
+@media(max-width:1100px){.lesson-body{padding:0 3rem 3rem}}
+@media(max-width:700px){.lesson-body{padding:0 1.5rem 2.5rem}}
+
+/* ═══ SECTION BLOCKS ═══ */
+.section-block{
+  padding:4rem 0;
+  border-bottom:1px solid rgba(201,163,74,.06);
+  position:relative;
+}
+.section-block:last-child{border-bottom:none}
+
+.section-eyebrow{
+  font-family:var(--fb);font-size:.5rem;letter-spacing:.3em;
+  color:var(--g2);text-transform:uppercase;margin-bottom:1rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--g3)}
+
+.section-h2{
+  font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.6rem);
+  font-weight:300;color:var(--wh);line-height:1.15;
+  margin-bottom:1.5rem;letter-spacing:-.01em;
+}
+.section-h2 em{font-style:italic;color:var(--g0)}
+
+.section-lead{font-size:.9rem;color:var(--bn);line-height:1.82;margin-bottom:1.25rem;max-width:680px}
+.section-lead strong{color:var(--cr)}
+
+/* ═══ FADEUP ANIMATION ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ex),transform .65s var(--ex)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ═══ STAT CARDS ═══ */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+@media(max-width:700px){.stat-grid{grid-template-columns:1fr}}
+.stat-card{
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;
+  padding:1.5rem 1.25rem;text-align:center;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s var(--ex);
+}
+.stat-card:hover{border-color:rgba(201,163,74,.22);transform:translateY(-3px)}
+.stat-card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.3),transparent)}
+.stat-num{font-family:'Cinzel Decorative',serif;font-size:2.2rem;color:var(--g1);line-height:1;margin-bottom:.35rem}
+.stat-label{font-family:var(--fb);font-size:.52rem;letter-spacing:.2em;color:var(--cr);text-transform:uppercase;margin-bottom:.5rem}
+.stat-src{font-size:.72rem;color:var(--tp);line-height:1.55}
+
+/* ═══ DONUT CHART SECTION ═══ */
+.chart-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2.5rem 0;align-items:start}
+@media(max-width:900px){.chart-duo{grid-template-columns:1fr}}
+
+.chart-panel{
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:16px;
+  padding:1.75rem;position:relative;overflow:hidden;
+}
+.chart-panel::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.22),transparent)}
+
+.chart-panel-header{margin-bottom:1.25rem}
+.chart-panel-eyebrow{font-family:var(--fb);font-size:.44rem;letter-spacing:.26em;color:var(--g3);text-transform:uppercase;margin-bottom:.35rem}
+.chart-panel-title{font-family:var(--fd);font-size:1.1rem;color:var(--wh);line-height:1.25}
+
+.chart-canvas-wrap{position:relative;width:100%;display:flex;justify-content:center}
+.chart-canvas-wrap canvas{max-height:220px}
+
+/* Donut legend */
+.donut-legend{display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem}
+.dl-item{display:flex;align-items:center;gap:.65rem}
+.dl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dl-label{font-size:.76rem;color:var(--bn);flex:1}
+.dl-pct{font-family:var(--fb);font-size:.65rem;color:var(--cr)}
+
+/* Line chart legend */
+.line-legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1rem}
+.ll-item{display:flex;align-items:center;gap:.5rem;font-size:.73rem;color:var(--bn)}
+.ll-line{width:18px;height:2px;border-radius:2px;flex-shrink:0}
+
+/* ═══ INSIGHT BOX ═══ */
+.insight-box{
+  background:var(--on);border:1px solid rgba(201,163,74,.12);border-left:3px solid var(--g2);
+  border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;
+  position:relative;
+}
+.insight-box p{font-size:.84rem;color:var(--bn);line-height:1.78}
+.insight-box p em{color:var(--g0);font-style:italic}
+.insight-box p strong{color:var(--cr)}
+.insight-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.24em;color:var(--g2);text-transform:uppercase;margin-bottom:.6rem}
+
+/* ═══ CONCERN BOX ═══ */
+.concern-box{
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;
+  padding:1.75rem;margin:2rem 0;
+}
+.concern-box h3{font-family:var(--fd);font-size:1.15rem;color:var(--wh);margin-bottom:.4rem}
+.concern-box p{font-size:.8rem;color:var(--tp);margin-bottom:1.25rem}
+.concern-opts{display:flex;flex-direction:column;gap:.55rem}
+.concern-opt{
+  display:flex;align-items:center;gap:.85rem;padding:.9rem 1.1rem;
+  border-radius:10px;border:1px solid rgba(201,163,74,.1);background:rgba(201,163,74,.03);
+  text-align:left;cursor:pointer;transition:all .25s;
+}
+.concern-opt:hover{border-color:rgba(201,163,74,.25);background:rgba(201,163,74,.06)}
+.concern-opt[aria-pressed="true"]{border-color:rgba(201,163,74,.3);background:rgba(201,163,74,.08)}
+.co-ic{font-size:1.1rem;flex-shrink:0}
+.co-text{flex:1}.co-text strong{display:block;font-family:var(--fb);font-size:.55rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.15rem}
+.co-text span{font-size:.77rem;color:var(--tp)}
+.co-check{width:20px;height:20px;border-radius:50%;border:1px solid rgba(201,163,74,.2);display:grid;place-items:center;flex-shrink:0;transition:all .22s}
+.co-check svg{width:9px;height:9px;stroke:var(--g1);stroke-width:2.5;fill:none;opacity:0;transition:opacity .18s}
+.concern-opt[aria-pressed="true"] .co-check{background:rgba(201,163,74,.15);border-color:rgba(201,163,74,.4)}
+.concern-opt[aria-pressed="true"] .co-check svg{opacity:1}
+.concern-feedback{min-height:40px;margin-top:1rem;padding:.75rem 1rem;border-radius:8px;font-size:.8rem;color:var(--grn);background:var(--grns);border:1px solid var(--grnb);display:none;animation:fadeUp .3s var(--ex) both}
+.concern-feedback.show{display:block}
+
+/* ═══ COMPONENT CARDS ═══ */
+.component-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+@media(max-width:650px){.component-grid{grid-template-columns:1fr}}
+
+.comp-card{
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:16px;
+  padding:1.5rem;cursor:pointer;transition:all .3s var(--ex);
+  position:relative;overflow:hidden;
+}
+.comp-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s}
+.comp-card:hover{transform:translateY(-3px)}
+.comp-card:focus-visible{outline:2px solid var(--g2);outline-offset:2px}
+.comp-card[aria-expanded="true"]{border-color:rgba(201,163,74,.28)}
+.comp-card[aria-expanded="true"]::before{opacity:1}
+.comp-card.sense[aria-expanded="true"]{border-color:rgba(96,165,250,.3)}
+.comp-card.sense::before{background:rgba(96,165,250,.03)}
+.comp-card.plan[aria-expanded="true"]{border-color:rgba(201,163,74,.32)}
+.comp-card.plan::before{background:rgba(201,163,74,.04)}
+.comp-card.act[aria-expanded="true"]{border-color:rgba(240,80,80,.3)}
+.comp-card.act::before{background:rgba(240,80,80,.03)}
+.comp-card.respond[aria-expanded="true"]{border-color:rgba(52,211,153,.3)}
+.comp-card.respond::before{background:rgba(52,211,153,.03)}
+
+.cc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.cc-icon{font-size:1.75rem}
+.cc-toggle{width:24px;height:24px;border-radius:50%;border:1px solid rgba(201,163,74,.18);display:grid;place-items:center;transition:all .3s var(--ex)}
+.cc-toggle svg{width:10px;height:10px;stroke:var(--g2);fill:none;stroke-width:2;transition:transform .35s var(--ex)}
+.comp-card[aria-expanded="true"] .cc-toggle{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.35)}
+.comp-card[aria-expanded="true"] .cc-toggle svg{transform:rotate(45deg)}
+.cc-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.28em;color:var(--g1);text-transform:uppercase;margin-bottom:.4rem}
+.cc-tagline{font-size:.8rem;color:var(--bn);line-height:1.45}
+.cc-expand{margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(201,163,74,.08);display:none;animation:fadeUp .35s var(--ex) both}
+.comp-card[aria-expanded="true"] .cc-expand{display:block}
+.cc-expand p{font-size:.8rem;color:var(--bn);line-height:1.72;margin-bottom:.85rem}
+.cc-expand p strong{color:var(--cr)}
+.cc-example{background:var(--on);border:1px solid rgba(201,163,74,.1);border-radius:8px;padding:.85rem 1rem;font-size:.75rem;color:var(--tp);line-height:1.65}
+.cc-example strong{display:block;font-family:var(--fb);font-size:.46rem;letter-spacing:.18em;color:var(--g2);text-transform:uppercase;margin-bottom:.4rem}
+
+/* Flow diagram */
+.flow-diagram{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  flex-wrap:nowrap;margin:2.5rem 0;padding:1.5rem;
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;
+  overflow-x:auto;
+}
+.flow-node{
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  min-width:70px;padding:.75rem .5rem;border-radius:10px;
+  border:1px solid transparent;transition:all .25s;
+}
+.flow-node.sense{border-color:var(--blub);background:var(--blus)}
+.flow-node.plan{border-color:var(--ambb);background:var(--ambs)}
+.flow-node.act{border-color:var(--redb);background:var(--reds)}
+.flow-node.respond{border-color:var(--grnb);background:var(--grns)}
+.fn-ic{font-size:1.3rem}
+.fn-label{font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;text-transform:uppercase}
+.flow-node.sense .fn-label{color:var(--blu)}
+.flow-node.plan .fn-label{color:var(--amb)}
+.flow-node.act .fn-label{color:var(--red)}
+.flow-node.respond .fn-label{color:var(--grn)}
+.flow-arrow{color:var(--g3);font-size:1rem;flex-shrink:0}
+
+/* ═══ QUIZ ═══ */
+.quiz-wrap{
+  background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:16px;
+  padding:1.75rem;margin:2rem 0;
+}
+.quiz-q{font-family:var(--fd);font-size:1.05rem;color:var(--wh);line-height:1.45;margin-bottom:1.25rem}
+.quiz-q strong{color:var(--g0);font-style:italic}
+.quiz-opts{display:flex;flex-direction:column;gap:.55rem}
+.quiz-opt{
+  display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;
+  border-radius:10px;border:1px solid rgba(201,163,74,.1);background:rgba(201,163,74,.03);
+  text-align:left;cursor:pointer;transition:all .22s;
+}
+.quiz-opt:hover:not([disabled]){border-color:rgba(201,163,74,.25);background:rgba(201,163,74,.06)}
+.quiz-opt[disabled]{cursor:default}
+.quiz-opt-letter{width:24px;height:24px;border-radius:6px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.18);display:grid;place-items:center;font-family:var(--fb);font-size:.52rem;color:var(--g2);flex-shrink:0}
+.quiz-opt-text{font-size:.8rem;color:var(--bn)}
+.quiz-opt.correct{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+.quiz-opt.correct .quiz-opt-letter{background:var(--grn);border-color:var(--grn);color:var(--v)}
+.quiz-opt.wrong{border-color:rgba(240,80,80,.3);background:rgba(240,80,80,.06)}
+.quiz-feedback{min-height:32px;margin-top:.85rem;font-size:.8rem;color:var(--tp);padding:.6rem 1rem;border-radius:8px}
+.quiz-feedback.ok{color:var(--grn);background:var(--grns);border:1px solid var(--grnb)}
+.quiz-feedback.no{color:var(--red);background:var(--redt);border:1px solid var(--redb)}
+.quiz-badge{display:none;margin-top:.85rem;padding:.55rem 1rem;border-radius:8px;background:var(--gf);border:1px solid var(--gm);font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;color:var(--g1);text-align:center}
+.quiz-badge.show{display:block;animation:fadeUp .4s var(--ex) both}
+
+/* ═══ LAB STEPPER ═══ */
+.lab-header{
+  background:linear-gradient(135deg,rgba(96,165,250,.07),rgba(201,163,74,.04));
+  border:1px solid rgba(96,165,250,.18);border-radius:14px;
+  padding:1.5rem 1.75rem;margin:1.75rem 0;
+}
+.lab-badge{font-family:var(--fb);font-size:.46rem;letter-spacing:.24em;color:var(--blu);text-transform:uppercase;margin-bottom:.6rem}
+.lab-title{font-family:var(--fd);font-size:1.2rem;color:var(--wh);margin-bottom:.5rem}
+.lab-desc{font-size:.82rem;color:var(--bn);line-height:1.72}
+.lab-desc strong{color:var(--cr)}
+
+.lab-stepper{display:flex;flex-direction:column;gap:0;margin:2rem 0}
+.lab-step{display:flex;gap:1.25rem;position:relative}
+.lab-step:not(:last-child)::after{content:'';position:absolute;left:17px;top:40px;bottom:-20px;width:1px;background:linear-gradient(to bottom,rgba(201,163,74,.2),rgba(201,163,74,.05))}
+
+.step-num-wrap{flex-shrink:0;padding-top:.25rem}
+.step-num{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--fb);font-size:.62rem;letter-spacing:.05em;
+  border:1px solid rgba(201,163,74,.22);color:var(--g2);background:var(--ob);
+  transition:all .4s var(--ex);
+}
+.step-num.done{background:rgba(201,163,74,.15);border-color:var(--g1);color:var(--g0)}
+
+.step-body{flex:1;padding-bottom:3rem}
+.step-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.24em;color:var(--tp);text-transform:uppercase;margin-bottom:.5rem}
+.step-title{font-family:var(--fd);font-size:1.3rem;color:var(--wh);margin-bottom:.65rem;line-height:1.25}
+.step-desc{font-size:.83rem;color:var(--bn);line-height:1.72;margin-bottom:1.1rem}
+.step-desc strong{color:var(--cr)}
+
+/* Platform pills */
+.platform-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.plat-pill{display:flex;align-items:center;gap:.45rem;padding:.45rem .9rem;border-radius:8px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.05);font-family:var(--fb);font-size:.52rem;letter-spacing:.14em;color:var(--bn);cursor:pointer;transition:all .22s}
+.plat-pill:hover,.plat-pill.sel{border-color:rgba(201,163,74,.35);background:rgba(201,163,74,.1);color:var(--g1)}
+.plat-pill-ic{font-size:.85rem}
+.plat-ext-link{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .9rem;border-radius:8px;border:1px solid rgba(52,211,153,.22);background:rgba(52,211,153,.06);font-family:var(--fb);font-size:.5rem;letter-spacing:.14em;color:var(--grn);text-transform:uppercase;cursor:pointer;transition:all .22s}
+.plat-ext-link:hover{background:rgba(52,211,153,.12);transform:translateY(-1px)}
+.plat-ext-link svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* Trigger selector */
+.trigger-opts{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1rem}
+.trigger-opt{display:flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;border:1px solid rgba(201,163,74,.12);background:rgba(201,163,74,.04);font-size:.78rem;color:var(--bn);cursor:pointer;transition:all .22s}
+.trigger-opt:hover,.trigger-opt.sel{border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.08);color:var(--blu)}
+.trigger-opt-ic{font-size:.9rem}
+
+/* Keyword filter */
+.keyword-input-wrap{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.keyword-input{flex:1;background:var(--on);border:1px solid rgba(201,163,74,.14);border-radius:9px;color:var(--cr);padding:.65rem 1rem;font-size:.83rem;transition:border-color .2s;outline:none}
+.keyword-input::placeholder{color:var(--tp)}
+.keyword-input:focus{border-color:var(--gg)}
+.keyword-add-btn{padding:.65rem 1.1rem;border-radius:9px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.18);color:var(--g1);font-family:var(--fb);font-size:.5rem;letter-spacing:.14em;cursor:pointer;transition:all .22s;white-space:nowrap}
+.keyword-add-btn:hover{background:rgba(201,163,74,.15)}
+.keyword-tags{display:flex;gap:.4rem;flex-wrap:wrap;min-height:28px}
+.kw-tag{display:flex;align-items:center;gap:.35rem;padding:.22rem .65rem;border-radius:5px;background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);font-size:.72rem;color:var(--g1)}
+.kw-tag-x{font-size:.7rem;cursor:pointer;opacity:.6;transition:opacity .2s}
+.kw-tag-x:hover{opacity:1}
+
+/* Rule builder */
+.rule-rows{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem}
+.rule-row{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border-radius:9px;border:1px solid rgba(201,163,74,.12);background:rgba(201,163,74,.04);font-size:.78rem;color:var(--bn);cursor:pointer;transition:all .22s}
+.rule-row:hover,.rule-row.sel{border-color:rgba(251,146,60,.3);background:rgba(251,146,60,.06)}
+.rule-row .rule-ic{font-size:.95rem;flex-shrink:0}
+.rule-check{width:18px;height:18px;border-radius:4px;border:1px solid rgba(201,163,74,.2);display:grid;place-items:center;flex-shrink:0;margin-left:auto;transition:all .22s}
+.rule-check svg{width:9px;height:9px;stroke:var(--g1);stroke-width:2.5;fill:none;opacity:0;transition:opacity .18s}
+.rule-row.sel .rule-check{background:var(--g1);border-color:var(--g1)}
+.rule-row.sel .rule-check svg{opacity:1;stroke:var(--v)}
+.custom-rule-row{display:flex;gap:.55rem;margin-top:.5rem}
+.custom-rule-input{flex:1;background:var(--on);border:1px solid rgba(201,163,74,.14);border-radius:9px;color:var(--cr);padding:.6rem .95rem;font-size:.78rem;outline:none;transition:border-color .2s}
+.custom-rule-input::placeholder{color:var(--tp)}
+.custom-rule-input:focus{border-color:var(--gg)}
+.custom-rule-add{padding:.6rem 1rem;border-radius:9px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.18);color:var(--g1);font-family:var(--fb);font-size:.5rem;letter-spacing:.14em;cursor:pointer;transition:all .22s;white-space:nowrap}
+.custom-rule-add:hover{background:rgba(201,163,74,.15)}
+
+/* Action checkboxes */
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem}
+@media(max-width:500px){.action-grid{grid-template-columns:1fr}}
+.action-item{display:flex;align-items:center;gap:.75rem;padding:.9rem 1rem;border-radius:10px;border:1px solid rgba(201,163,74,.12);background:rgba(201,163,74,.04);cursor:pointer;transition:all .22s}
+.action-item:hover{border-color:rgba(52,211,153,.28);background:rgba(52,211,153,.05)}
+.action-item.sel{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07)}
+.action-ic{font-size:1.1rem;flex-shrink:0}
+.action-text{flex:1}
+.action-text strong{display:block;font-size:.75rem;color:var(--cr);font-weight:500;margin-bottom:.1rem}
+.action-text span{font-size:.68rem;color:var(--tp)}
+.action-check{width:20px;height:20px;border-radius:50%;border:1px solid rgba(52,211,153,.25);display:grid;place-items:center;flex-shrink:0;transition:all .22s}
+.action-check svg{width:9px;height:9px;stroke:var(--grn);stroke-width:2.5;fill:none;opacity:0;transition:opacity .18s}
+.action-item.sel .action-check{background:var(--grn);border-color:var(--grn)}
+.action-item.sel .action-check svg{opacity:1;stroke:var(--v)}
+
+/* Simulation */
+.sim-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2rem;border-radius:10px;background:linear-gradient(135deg,rgba(52,211,153,.12),rgba(96,165,250,.08));border:1px solid rgba(52,211,153,.28);color:var(--grn);font-family:var(--fb);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ex)}
+.sim-btn:hover{background:linear-gradient(135deg,rgba(52,211,153,.2),rgba(96,165,250,.12));transform:translateY(-2px);box-shadow:0 8px 24px rgba(52,211,153,.15)}
+.sim-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.sim-output{margin-top:1.25rem;background:rgba(0,0,0,.35);border:1px solid rgba(52,211,153,.15);border-radius:12px;padding:1.25rem;display:none}
+.sim-output.show{display:block;animation:fadeUp .4s var(--ex) both}
+.sim-log{display:flex;flex-direction:column;gap:.5rem}
+.sim-line{display:flex;align-items:flex-start;gap:.65rem;padding:.5rem .75rem;border-radius:7px;font-size:.75rem;color:var(--bn);opacity:0;transform:translateX(-10px);transition:opacity .3s var(--ex),transform .3s var(--ex)}
+.sim-line.in{opacity:1;transform:translateX(0)}
+.sim-line-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.sl-blu{background:var(--blu)}.sl-gold{background:var(--g1)}.sl-grn{background:var(--grn)}.sl-amb{background:var(--amb)}
+.sim-line-step{font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;flex-shrink:0;margin-top:.1rem;width:42px}
+.sim-success{margin-top:1rem;padding:.75rem 1rem;border-radius:8px;background:var(--grns);border:1px solid var(--grnb);font-size:.8rem;color:var(--grn);display:none;animation:fadeUp .3s var(--ex) both}
+.sim-success.show{display:block}
+
+/* ═══ PERFORMANCE METRICS SECTION ═══ */
+.metrics-section{
+  background:linear-gradient(135deg,var(--ob),rgba(7,6,4,.98));
+  border:1px solid rgba(201,163,74,.1);border-radius:20px;
+  padding:2.5rem;margin:2.5rem 0;position:relative;overflow:hidden;
+}
+.metrics-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
+.metrics-section::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 80% 50%,rgba(52,211,153,.03),transparent 60%);
+}
+
+.metrics-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+.metrics-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:600px){.metrics-kpis{grid-template-columns:1fr}}
+.kpi-card{
+  background:rgba(255,255,255,.025);border:1px solid rgba(201,163,74,.08);
+  border-radius:12px;padding:1.1rem;text-align:center;
+}
+.kpi-val{font-family:'Cinzel Decorative',serif;font-size:1.65rem;line-height:1;margin-bottom:.3rem}
+.kpi-label{font-family:var(--fb);font-size:.45rem;letter-spacing:.2em;color:var(--tp);text-transform:uppercase;margin-bottom:.2rem}
+.kpi-change{font-size:.7rem;display:inline-flex;align-items:center;gap:.3rem}
+.kpi-up{color:var(--grn)}.kpi-down{color:var(--red)}
+
+.chart-tabs{display:flex;gap:.5rem;margin-bottom:1.25rem}
+.chart-tab{padding:.4rem .85rem;border-radius:6px;font-family:var(--fb);font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tp);cursor:pointer;transition:all .22s;border:1px solid transparent}
+.chart-tab.active{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.22);color:var(--g1)}
+.chart-tab:hover:not(.active){color:var(--g2)}
+
+/* ═══ SAFETY CARDS ═══ */
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+@media(max-width:600px){.safety-grid{grid-template-columns:1fr}}
+.safety-card{background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s var(--ex)}
+.safety-card:hover{transform:translateY(-2px)}
+.safety-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;opacity:.6;transition:opacity .3s}
+.sc-identity::after{background:var(--blu)}.sc-identity:hover{border-color:rgba(96,165,250,.28)}
+.sc-privilege::after{background:var(--g1)}.sc-privilege:hover{border-color:rgba(201,163,74,.3)}
+.sc-hitl::after{background:var(--grn)}.sc-hitl:hover{border-color:rgba(52,211,153,.3)}
+.sc-logging::after{background:var(--prp)}.sc-logging:hover{border-color:rgba(167,139,250,.3)}
+.sc-icon{font-size:1.75rem;margin-bottom:.75rem}
+.sc-title{font-family:var(--fb);font-size:.62rem;letter-spacing:.2em;color:var(--cr);text-transform:uppercase;margin-bottom:.55rem}
+.sc-desc{font-size:.8rem;color:var(--tp);line-height:1.72;margin-bottom:.75rem}
+.sc-desc strong{color:var(--bn)}
+.sc-rule{font-family:var(--fb);font-size:.46rem;letter-spacing:.16em;color:var(--g2);padding:.4rem .7rem;background:var(--gf);border:1px solid var(--gm);border-radius:5px;display:inline-block;text-transform:uppercase}
+
+/* ═══ CHECKLIST ═══ */
+.checklist-wrap{background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:16px;padding:1.75rem;margin:2rem 0}
+.checklist-title{font-family:var(--fd);font-size:1.25rem;color:var(--wh);margin-bottom:.4rem}
+.checklist-sub{font-size:.8rem;color:var(--tp);margin-bottom:1.5rem;line-height:1.65}
+.checklist-items{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem}
+.checklist-item{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1rem;border-radius:10px;border:1px solid rgba(201,163,74,.1);background:rgba(201,163,74,.03);cursor:pointer;transition:all .25s}
+.checklist-item:hover{border-color:rgba(201,163,74,.22)}
+.checklist-item.checked{border-color:rgba(52,211,153,.28);background:rgba(52,211,153,.05)}
+.checklist-item:focus-visible{outline:2px solid var(--g2);outline-offset:2px}
+.ci-box{width:20px;height:20px;border-radius:5px;border:1px solid rgba(201,163,74,.22);display:grid;place-items:center;flex-shrink:0;margin-top:1px;transition:all .22s}
+.ci-box svg{width:9px;height:9px;stroke:var(--grn);stroke-width:2.5;fill:none;opacity:0;transition:opacity .18s}
+.checklist-item.checked .ci-box{background:rgba(52,211,153,.15);border-color:rgba(52,211,153,.4)}
+.checklist-item.checked .ci-box svg{opacity:1}
+.ci-text{font-size:.8rem;color:var(--bn);line-height:1.6}
+.ci-text strong{color:var(--cr)}
+.checklist-progress{margin-top:1.25rem}
+.cl-prog-track{height:3px;background:rgba(201,163,74,.1);border-radius:3px;overflow:hidden;margin-bottom:.5rem}
+.cl-prog-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--grn));border-radius:3px;transition:width .5s var(--ex);width:0%}
+.cl-prog-label{font-family:var(--fb);font-size:.45rem;letter-spacing:.18em;color:var(--tp);text-transform:uppercase}
+.checklist-done{display:none;margin-top:1rem;padding:.85rem 1rem;border-radius:8px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.22);font-size:.82rem;color:var(--grn);text-align:center;animation:fadeUp .4s var(--ex) both}
+.checklist-done.show{display:block}
+
+/* ═══ VALUE GRID ═══ */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+@media(max-width:700px){.value-grid{grid-template-columns:1fr}}
+.value-card{background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;padding:1.5rem;text-align:center;transition:all .3s var(--ex)}
+.value-card:hover{border-color:rgba(201,163,74,.24);transform:translateY(-3px)}
+.value-icon{font-size:2rem;margin-bottom:.75rem}
+.value-title{font-family:var(--fb);font-size:.58rem;letter-spacing:.18em;color:var(--cr);text-transform:uppercase;margin-bottom:.5rem}
+.value-desc{font-size:.78rem;color:var(--tp);line-height:1.65}
+
+/* ═══ TESTIMONIALS ═══ */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+@media(max-width:700px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;padding:1.5rem;transition:border-color .3s}
+.testi-card:hover{border-color:rgba(201,163,74,.2)}
+.testi-stars{color:var(--g1);font-size:.85rem;margin-bottom:.75rem;letter-spacing:.1em}
+.testi-text{font-size:.82rem;color:var(--bn);line-height:1.72;font-style:italic;margin-bottom:1rem}
+.testi-divider{height:1px;background:rgba(201,163,74,.08);margin-bottom:1rem}
+.testi-meta{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g2));display:grid;place-items:center;font-family:var(--fb);font-size:.45rem;color:var(--v);flex-shrink:0}
+.testi-name{font-size:.78rem;color:var(--cr);font-weight:500}
+.testi-role{font-size:.68rem;color:var(--tp)}
+
+/* ═══ COMMUNITY SECTION ═══ */
+.community-box{
+  background:linear-gradient(135deg,rgba(96,165,250,.07),rgba(201,163,74,.04));
+  border:1px solid rgba(96,165,250,.18);border-radius:16px;padding:2rem;margin:2rem 0;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.community-icon{font-size:2.5rem;margin-bottom:.75rem}
+.community-title{font-family:var(--fd);font-size:1.3rem;color:var(--wh);margin-bottom:.4rem}
+.community-sub{font-size:.82rem;color:var(--bn);margin-bottom:1.5rem;line-height:1.7;max-width:480px}
+.community-btn{display:inline-flex;align-items:center;gap:.65rem;padding:.85rem 2rem;border-radius:10px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.28);color:var(--blu);font-family:var(--fb);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ex)}
+.community-btn:hover{background:rgba(96,165,250,.18);transform:translateY(-2px);box-shadow:0 8px 24px rgba(96,165,250,.12)}
+.copy-confirm{margin-top:.75rem;font-size:.72rem;color:var(--grn);opacity:0;transition:opacity .3s}
+.copy-confirm.show{opacity:1}
+
+/* ═══ ADVANCED CARDS ═══ */
+.advanced-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:600px){.advanced-grid{grid-template-columns:1fr}}
+.adv-card{background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:12px;padding:1.25rem;display:flex;gap:.85rem;align-items:flex-start;transition:border-color .25s,transform .3s var(--ex)}
+.adv-card:hover{border-color:rgba(201,163,74,.22);transform:translateY(-2px)}
+.adv-ic{font-size:1.3rem;flex-shrink:0}
+.adv-body strong{display:block;font-family:var(--fb);font-size:.65rem;letter-spacing:.12em;color:var(--cr);margin-bottom:.3rem}
+.adv-body span{font-size:.77rem;color:var(--tp);line-height:1.55}
+
+/* ═══ UPGRADE BOX ═══ */
+.upgrade-box{background:linear-gradient(135deg,rgba(201,163,74,.07),rgba(96,165,250,.04));border:1px solid rgba(201,163,74,.18);border-radius:16px;padding:2rem;text-align:center;margin-top:2rem;position:relative;overflow:hidden}
+.upgrade-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.upgrade-title{font-family:var(--fd);font-size:1.3rem;color:var(--wh);margin-bottom:.4rem}
+.upgrade-sub{font-size:.8rem;color:var(--tp);margin-bottom:1.5rem;line-height:1.6;max-width:460px;margin-left:auto;margin-right:auto}
+.upgrade-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.25rem;border-radius:10px;background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s var(--ex);border:none;box-shadow:0 6px 28px rgba(201,163,74,.32)}
+.upgrade-btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(201,163,74,.45)}
+.upgrade-btn svg{width:14px;height:14px;stroke:var(--v);fill:none;stroke-width:2.5}
+
+/* ═══ FINAL CTA ═══ */
+.final-cta{padding:5.5rem;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(201,163,74,.08)}
+@media(max-width:1100px){.final-cta{padding:4rem 3rem}}
+@media(max-width:700px){.final-cta{padding:3rem 1.5rem}}
+.final-cta::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center top,rgba(201,163,74,.06),transparent 65%);pointer-events:none}
+.final-cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
+.final-badge{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem 1rem;border:1px solid var(--gm);border-radius:4px;background:var(--gf);font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;margin-bottom:1.75rem}
+.final-h2{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;color:var(--wh);line-height:1.18;margin-bottom:1rem;letter-spacing:-.01em;max-width:700px;margin-left:auto;margin-right:auto}
+.final-h2 em{font-style:italic;color:var(--g0)}
+.final-sub{font-size:.88rem;color:var(--bn);max-width:520px;margin:0 auto 2.75rem;line-height:1.75}
+.final-btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.15rem 2.75rem;border-radius:12px;background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s var(--ex);box-shadow:0 6px 32px rgba(201,163,74,.38);border:none;position:relative;overflow:hidden}
+.final-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .3s}
+.final-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(201,163,74,.52)}
+.final-btn:hover::before{opacity:1}
+.final-btn svg{width:15px;height:15px;stroke:var(--v);fill:none;stroke-width:2.5}
+.final-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2.25rem;flex-wrap:wrap}
+.final-nav-link{font-family:var(--fb);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tp);transition:color .2s}
+.final-nav-link:hover{color:var(--g1)}
+.final-nav-sep{width:1px;height:14px;background:rgba(201,163,74,.1)}
+
+/* ═══ LEVELUP BANNER ═══ */
+.levelup-banner{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);z-index:9999;background:var(--ob);border:1px solid var(--gm);border-radius:16px;padding:2.5rem 3rem;text-align:center;opacity:0;pointer-events:none;transition:all .45s var(--bk);min-width:300px;box-shadow:0 0 60px rgba(201,163,74,.2),0 30px 60px rgba(0,0,0,.6)}
+.levelup-banner.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.levelup-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.levelup-icon{font-size:2.75rem;margin-bottom:.75rem}
+.levelup-title{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--g0);margin-bottom:.35rem}
+.levelup-sub{font-size:.8rem;color:var(--tp);margin-bottom:1.25rem}
+.levelup-close{padding:.55rem 1.25rem;border-radius:8px;background:var(--gf);border:1px solid var(--gm);font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;color:var(--g1);cursor:pointer;transition:all .22s}
+.levelup-close:hover{background:var(--gm)}
+
+/* ═══ POPUP ═══ */
+.popup-overlay{position:fixed;inset:0;z-index:9995;background:rgba(4,3,2,.88);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.popup-overlay.open{opacity:1;pointer-events:auto}
+.popup-box{background:var(--ob);border:1px solid rgba(201,163,74,.16);border-radius:16px;padding:2.5rem;max-width:440px;width:90%;position:relative;transform:translateY(18px) scale(.97);transition:transform .4s var(--ex);box-shadow:0 0 50px rgba(201,163,74,.1),0 30px 60px rgba(0,0,0,.5)}
+.popup-overlay.open .popup-box{transform:none}
+.popup-close{position:absolute;top:1rem;right:1rem;width:30px;height:30px;border-radius:50%;background:rgba(201,163,74,.07);border:1px solid rgba(201,163,74,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.85rem;color:var(--tp);transition:all .2s}
+.popup-close:hover{background:rgba(201,163,74,.14);color:var(--g1)}
+.popup-title{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--g0);margin-bottom:.5rem}
+.popup-sub{font-size:.82rem;color:var(--bn);line-height:1.65;margin-bottom:1.5rem}
+.popup-link-row{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:8px;background:var(--gf);border:1px solid rgba(201,163,74,.15);margin-bottom:.75rem}
+.popup-link-text{font-family:var(--fb);font-size:.6rem;letter-spacing:.12em;color:var(--bn);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.popup-copy-btn{padding:.4rem .85rem;border-radius:6px;background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);font-family:var(--fb);font-size:.48rem;letter-spacing:.14em;color:var(--g1);cursor:pointer;transition:all .2s}
+.popup-copy-btn:hover{background:rgba(201,163,74,.18)}
+.popup-copied{font-size:.72rem;color:var(--grn);opacity:0;transition:opacity .3s;text-align:center;margin-top:.5rem}
+.popup-copied.show{opacity:1}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="read-progress" aria-hidden="true" role="progressbar" aria-label="Reading progress"></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+<div id="blob" aria-hidden="true"></div>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
+<canvas id="agent-canvas" aria-hidden="true"></canvas>
+
+<!-- LEVEL UP BANNER -->
+<div class="levelup-banner" id="levelup-banner" role="dialog" aria-modal="true" aria-label="Safety checklist complete" aria-hidden="true">
+  <div class="levelup-icon">🏆</div>
+  <div class="levelup-title">Safety Certified</div>
+  <div class="levelup-sub">Your AI worker is production-ready. All 5 safety protocols confirmed.</div>
+  <button class="levelup-close" id="levelup-close" aria-label="Close banner">◆ Continue</button>
+</div>
+
+<!-- COMMUNITY POPUP -->
+<div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true" aria-label="Join the community" aria-hidden="true">
+  <div class="popup-box">
+    <button class="popup-close" id="popup-close" aria-label="Close popup">✕</button>
+    <div class="popup-title">Join the Builders</div>
+    <div class="popup-sub">Connect with 1,200+ SMB owners deploying AI agents. Share your build, get feedback, and access exclusive templates.</div>
+    <div class="popup-link-row">
+      <span class="popup-link-text" id="popup-link">vercellum.com/community</span>
+      <button class="popup-copy-btn" id="popup-copy-btn">Copy</button>
+    </div>
+    <div class="popup-copied" id="popup-copied">✓ Link copied to clipboard</div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════════════════════════
+     SIDEBAR
+  ═══════════════════════════════ -->
+  <aside class="sidebar" aria-label="Course navigation">
+    <div class="sb-logo" aria-label="VERCELLUM">VERCELLUM</div>
+
+    <div>
+      <div class="sb-path-label">Current Path</div>
+      <div class="sb-path-title">Path 1: Understanding the New Intelligence</div>
+    </div>
+
+    <div class="sb-you-are-here">
+      <div class="sb-you-label">📍 You Are Here</div>
+      <div class="sb-you-name">Lesson 4 · Build Your First AI Worker</div>
+    </div>
+
+    <div class="sb-progress-wrap">
+      <div class="sb-progress-label">
+        <span class="sb-progress-text">Path Progress</span>
+        <span class="sb-progress-pct">75%</span>
+      </div>
+      <div class="sb-progress-track">
+        <div class="sb-progress-fill"></div>
+      </div>
+    </div>
+
+    <nav class="sb-lessons" aria-label="Lesson navigation">
+      <a class="sb-lesson done" href="lesson1.html" aria-label="Lesson 1 - completed">
+        <span class="sb-lesson-ic">✓</span>
+        <span class="sb-lesson-text">Lesson 1 · The Turning Point</span>
+      </a>
+      <a class="sb-lesson done" href="lesson2.html" aria-label="Lesson 2 - completed">
+        <span class="sb-lesson-ic">✓</span>
+        <span class="sb-lesson-text">Lesson 2 · Anatomy of an AI Agent</span>
+      </a>
+      <a class="sb-lesson done" href="lesson3.html" aria-label="Lesson 3 - completed">
+        <span class="sb-lesson-ic">✓</span>
+        <span class="sb-lesson-text">Lesson 3 · 3 Problems AI Solves Instantly</span>
+      </a>
+      <div class="sb-lesson active" aria-current="page">
+        <span class="sb-lesson-ic">◆</span>
+        <span class="sb-lesson-text">Lesson 4 · Build Your First AI Worker</span>
+      </div>
+      <a class="sb-lesson upcoming" href="lesson5.html" aria-label="Lesson 5 - upcoming">
+        <span class="sb-lesson-ic">○</span>
+        <span class="sb-lesson-text">Lesson 5 · Deploy &amp; Scale</span>
+      </a>
+    </nav>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-live" aria-label="318 builders currently online">
+      <div class="sb-live-dot" aria-hidden="true"></div>
+      <span class="sb-live-text">318 builders online now</span>
+    </div>
+
+    <div class="sb-cta-btns">
+      <button class="sb-btn sb-btn-gold" id="sb-save-btn" aria-label="Save progress">◇ Save progress</button>
+      <button class="sb-btn sb-btn-grn" id="sb-community-btn" aria-label="Join community">Join Community</button>
+      <a class="sb-btn sb-btn-ghost" href="path.html" aria-label="Back to path overview">← Path Overview</a>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════
+     MAIN CONTENT
+  ═══════════════════════════════ -->
+  <main class="main-content" id="main-content">
+
+    <!-- ══ HERO ══ -->
+    <section class="lesson-hero" aria-labelledby="lesson-h1">
+
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="https://vercellum.com">VERCELLUM</a>
+        <span class="hero-breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="path.html">Path 1</a>
+        <span class="hero-breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Lesson 4</span>
+      </nav>
+
+      <div class="hero-badges">
+        <div class="hero-lesson-num">Lesson 04 of 05</div>
+        <div class="hero-lab-badge">🔬 Interactive Lab</div>
+      </div>
+
+      <h1 class="hero-h1" id="lesson-h1">
+        Build Your First<br><em>AI Worker</em><br>And Keep It Safe.
+      </h1>
+
+      <p class="hero-tagline">
+        Stop reading about AI agents — <strong>build one.</strong> This hands-on lab walks you through every decision: trigger, rules, actions, and the safety framework that separates professionals from amateurs. By the end, your agent is live.
+      </p>
+
+      <div class="hero-cta-row">
+        <button class="hero-primary-btn" onclick="document.getElementById('section-lab').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Start The Lab
+        </button>
+        <button class="hero-ghost-btn" onclick="document.getElementById('section-components').scrollIntoView({behavior:'smooth'})">
+          Review Architecture First
+        </button>
+      </div>
+
+      <div class="hero-meta-row" aria-label="Lesson metadata">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          25 min hands-on lab
+        </div>
+        <div class="hero-meta-sep" aria-hidden="true"></div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          No code required
+        </div>
+        <div class="hero-meta-sep" aria-hidden="true"></div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Simulation included
+        </div>
+        <div class="hero-meta-sep" aria-hidden="true"></div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          318 builders online
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-body">
+
+      <!-- ══ SECTION 1 — THE PROBLEM ══ -->
+      <section class="section-block reveal" id="section-problem" aria-labelledby="problem-heading">
+        <div class="section-eyebrow">Section 1 · Why Most Agents Fail</div>
+        <h2 class="section-h2" id="problem-heading">The agent sent an 80% discount<br>to <em>every customer</em> in the database.</h2>
+
+        <p class="section-lead">
+          A retail company deployed their first AI automation agent without safety guardrails. Within six hours, it emailed 14,000 customers an unauthorised "80% off everything" coupon. <strong>The business spent three days managing the fallout.</strong>
+        </p>
+        <p class="section-lead" style="margin-top:-.75rem">
+          This is not a reason to fear AI agents — it's a reason to build them <strong>correctly from day one.</strong> Which is exactly what this lesson teaches.
+        </p>
+
+        <!-- Stat cards -->
+        <div class="stat-grid reveal" role="list" aria-label="AI automation risk statistics">
+          <div class="stat-card" role="listitem">
+            <div class="stat-num">67%</div>
+            <div class="stat-label">First Automations Fail</div>
+            <div class="stat-src">due to misaligned objectives — the agent optimises the wrong goal entirely</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="stat-num">3×</div>
+            <div class="stat-label">Faster Damage</div>
+            <div class="stat-src">an uncontrolled agent causes damage 3× faster than human oversight can respond</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="stat-num">94%</div>
+            <div class="stat-label">Issues Are Preventable</div>
+            <div class="stat-src">of automation failures are prevented by the 5-point safety checklist you'll complete today</div>
+          </div>
+        </div>
+
+        <!-- DUAL CHARTS: Donut + Bar -->
+        <div class="chart-duo reveal">
+
+          <!-- DONUT CHART — Failure Root Causes -->
+          <div class="chart-panel">
+            <div class="chart-panel-header">
+              <div class="chart-panel-eyebrow">Data Visualization · Failure Analysis</div>
+              <div class="chart-panel-title">Root Causes of<br>Agent Failure</div>
+            </div>
+            <div class="chart-canvas-wrap">
+              <canvas id="donutChart" width="220" height="220" aria-label="Donut chart showing root causes of AI agent failure: 67% misaligned objectives, 20% uncontrolled automation, 13% privilege escalation"></canvas>
+            </div>
+            <div class="donut-legend" aria-hidden="true">
+              <div class="dl-item">
+                <div class="dl-dot" style="background:#C9A34A"></div>
+                <div class="dl-label">Misaligned Objectives</div>
+                <div class="dl-pct">67%</div>
+              </div>
+              <div class="dl-item">
+                <div class="dl-dot" style="background:#FB923C"></div>
+                <div class="dl-label">Uncontrolled Automation</div>
+                <div class="dl-pct">20%</div>
+              </div>
+              <div class="dl-item">
+                <div class="dl-dot" style="background:#F05050"></div>
+                <div class="dl-label">Privilege Escalation</div>
+                <div class="dl-pct">13%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Concern selector -->
+          <div class="concern-box" style="margin:0;border-radius:16px" aria-labelledby="concern-heading">
+            <div class="chart-panel-header">
+              <div class="chart-panel-eyebrow">Before We Build</div>
+              <div class="chart-panel-title">What concerns you most about deploying an AI agent?</div>
+            </div>
+            <p style="font-size:.78rem;color:var(--tp);margin-bottom:1rem">Select your current mindset. This lesson addresses all four directly.</p>
+            <div class="concern-opts" id="concern-opts" role="group" aria-label="Automation concerns">
+              <button class="concern-opt" data-val="mistakes" aria-pressed="false">
+                <span class="co-ic">⚡</span>
+                <div class="co-text"><strong>FEAR OF MISTAKES</strong><span>What if it does something unintended?</span></div>
+                <div class="co-check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </button>
+              <button class="concern-opt" data-val="control" aria-pressed="false">
+                <span class="co-ic">🔒</span>
+                <div class="co-text"><strong>LACK OF CONTROL</strong><span>Once running, how do I stop or adjust it?</span></div>
+                <div class="co-check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </button>
+              <button class="concern-opt" data-val="complexity" aria-pressed="false">
+                <span class="co-ic">🧩</span>
+                <div class="co-text"><strong>COMPLEXITY</strong><span>This feels technical — where do I start?</span></div>
+                <div class="co-check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </button>
+              <button class="concern-opt" data-val="oversight" aria-pressed="false">
+                <span class="co-ic">👁️</span>
+                <div class="co-text"><strong>WANTING OVERSIGHT</strong><span>I need to review every action first</span></div>
+                <div class="co-check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </button>
+            </div>
+            <div class="concern-feedback" id="concern-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="insight-box reveal" role="note" aria-label="The three root causes of agent failure">
+          <div class="insight-label">The 3 Root Causes</div>
+          <p>Most AI agent failures trace back to three design errors: <em>misaligned objectives</em> (the agent achieves its goal in a way you didn't intend), <em>uncontrolled automation</em> (the agent acts faster than human oversight can catch errors), or <em>privilege escalation</em> (the agent gains access to systems it shouldn't touch). The safety framework in Section 4 prevents all three.</p>
+        </div>
+      </section>
+
+      <!-- ══ SECTION 2 — 4 COMPONENTS ══ -->
+      <section class="section-block reveal" id="section-components" aria-labelledby="components-heading">
+        <div class="section-eyebrow">Section 2 · Core Architecture</div>
+        <h2 class="section-h2" id="components-heading">The 4 Components of<br>Every <em>AI Agent</em></h2>
+
+        <p class="section-lead">
+          Every AI agent — regardless of complexity, platform, or industry — operates on four components in a <strong>continuous loop.</strong> Understanding each one lets you design, audit, and troubleshoot any agent you build.
+        </p>
+
+        <!-- Flow diagram -->
+        <div class="flow-diagram reveal" aria-label="AI agent flow: Sense to Plan to Act to Respond and back">
+          <div class="flow-node sense">
+            <div class="fn-ic">👁️</div>
+            <div class="fn-label">Sense</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node plan">
+            <div class="fn-ic">🧠</div>
+            <div class="fn-label">Plan</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node act">
+            <div class="fn-ic">⚡</div>
+            <div class="fn-label">Act</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node respond">
+            <div class="fn-ic">📊</div>
+            <div class="fn-label">Respond</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true" style="transform:rotate(180deg)">←</div>
+          <div style="font-size:.7rem;color:var(--tp);align-self:center;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em">LOOP</div>
+        </div>
+
+        <!-- Interactive component cards -->
+        <div class="component-grid" role="list" aria-label="4 core AI agent components">
+
+          <article class="comp-card sense" role="listitem" tabindex="0" aria-expanded="false" id="card-sense" aria-label="Sense component — click to expand">
+            <div class="cc-header">
+              <div class="cc-icon" aria-hidden="true">👁️</div>
+              <div class="cc-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="cc-title">01 · Sense</div>
+            <div class="cc-tagline">The agent perceives incoming signals from the world</div>
+            <div class="cc-expand">
+              <p>The Sense layer is your agent's <strong>perception system.</strong> It continuously monitors one or more data sources — emails, web forms, CRM updates, calendar events, API feeds — and detects events that match its watch conditions. Without a well-defined Sense layer, the agent cannot know when to act.</p>
+              <div class="cc-example">
+                <strong>Email Agent Example</strong>
+                Sense layer monitors Gmail inbox every 60 seconds. When a new email arrives, it reads the sender, subject, and body and passes it to the Plan layer for evaluation.
+              </div>
+            </div>
+          </article>
+
+          <article class="comp-card plan" role="listitem" tabindex="0" aria-expanded="false" id="card-plan" aria-label="Plan component — click to expand">
+            <div class="cc-header">
+              <div class="cc-icon" aria-hidden="true">🧠</div>
+              <div class="cc-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="cc-title">02 · Plan</div>
+            <div class="cc-tagline">The decision center — evaluating signals against goals</div>
+            <div class="cc-expand">
+              <p>The Plan layer is the <strong>decision engine.</strong> It takes raw data from Sense and evaluates it against your rules and goals to determine the right action. This is where your business logic lives — the if/then reasoning that makes the agent genuinely useful.</p>
+              <div class="cc-example">
+                <strong>Email Agent Example</strong>
+                Plan evaluates the email: Does it contain pricing keywords? Is this a known customer? Which response template applies? It outputs a specific action instruction to the Act layer.
+              </div>
+            </div>
+          </article>
+
+          <article class="comp-card act" role="listitem" tabindex="0" aria-expanded="false" id="card-act" aria-label="Act component — click to expand">
+            <div class="cc-header">
+              <div class="cc-icon" aria-hidden="true">⚡</div>
+              <div class="cc-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="cc-title">03 · Act</div>
+            <div class="cc-tagline">Autonomous execution — the agent does the work</div>
+            <div class="cc-expand">
+              <p>The Act layer is where your agent <strong>executes.</strong> It carries out the Plan layer's instruction — sending an email, updating a CRM record, notifying a team member, or triggering a downstream workflow. Act operates autonomously, without waiting for human input on each task.</p>
+              <div class="cc-example">
+                <strong>Email Agent Example</strong>
+                Act sends a personalised pricing reply, creates a new lead record in your CRM, and adds a follow-up task for your sales team due tomorrow at 9am.
+              </div>
+            </div>
+          </article>
+
+          <article class="comp-card respond" role="listitem" tabindex="0" aria-expanded="false" id="card-respond" aria-label="Respond component — click to expand">
+            <div class="cc-header">
+              <div class="cc-icon" aria-hidden="true">📊</div>
+              <div class="cc-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="cc-title">04 · Respond</div>
+            <div class="cc-tagline">Reports results, logs activity, and closes the loop</div>
+            <div class="cc-expand">
+              <p>The Respond layer <strong>closes the loop.</strong> It records what the agent did, reports outcomes to stakeholders, and feeds data back into Sense so the next cycle begins. Without Respond, your agent is a black box — you cannot audit, improve, or trust it.</p>
+              <div class="cc-example">
+                <strong>Email Agent Example</strong>
+                Respond logs the interaction in your dashboard, sends a Slack notification ("Lead handled: John Smith"), and updates the CRM record with timestamp and action summary.
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Mini Quiz -->
+        <div class="quiz-wrap reveal" role="region" aria-labelledby="quiz-heading">
+          <div class="section-eyebrow" style="margin-bottom:.75rem">Knowledge Check</div>
+          <p class="quiz-q" id="quiz-heading">Which component acts as the <strong>decision center</strong> of an AI agent — evaluating what action to take based on incoming signals?</p>
+          <div class="quiz-opts" id="quiz-opts" role="group" aria-label="Quiz answer options">
+            <button class="quiz-opt" data-val="sense" aria-label="Answer: Sense">
+              <div class="quiz-opt-letter">A</div>
+              <span class="quiz-opt-text">Sense — the perception layer that monitors incoming data</span>
+            </button>
+            <button class="quiz-opt" data-val="plan" aria-label="Answer: Plan — the correct answer">
+              <div class="quiz-opt-letter">B</div>
+              <span class="quiz-opt-text">Plan — the evaluation engine that maps signals to actions</span>
+            </button>
+            <button class="quiz-opt" data-val="act" aria-label="Answer: Act">
+              <div class="quiz-opt-letter">C</div>
+              <span class="quiz-opt-text">Act — the execution layer that carries out instructions</span>
+            </button>
+            <button class="quiz-opt" data-val="respond" aria-label="Answer: Respond">
+              <div class="quiz-opt-letter">D</div>
+              <span class="quiz-opt-text">Respond — the logging and reporting layer</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite"></div>
+          <div class="quiz-badge" id="quiz-badge" aria-live="polite">🏆 Component Architecture — Mastered</div>
+        </div>
+
+      </section>
+
+      <!-- ══ SECTION 3 — PRACTICAL LAB ══ -->
+      <section class="section-block reveal" id="section-lab" aria-labelledby="lab-heading">
+        <div class="section-eyebrow">Section 3 · Hands-On Lab</div>
+        <h2 class="section-h2" id="lab-heading">Build Your First<br><em>AI Agent</em></h2>
+
+        <div class="lab-header" role="note">
+          <div class="lab-badge">🔬 LAB SCENARIO</div>
+          <div class="lab-title">The Email Intelligence Agent</div>
+          <p class="lab-desc">
+            You will build an AI worker that <strong>monitors your inbox</strong>, identifies price inquiries automatically, and responds with the right message — 24/7, without you touching it. This is the most common first agent for SMB owners, and the perfect foundation for everything that follows.
+          </p>
+        </div>
+
+        <div class="lab-stepper" aria-label="5-step agent build process">
+
+          <!-- STEP 1 -->
+          <div class="lab-step" id="step-1">
+            <div class="step-num-wrap">
+              <div class="step-num s1" aria-label="Step 1">1</div>
+            </div>
+            <div class="step-body">
+              <div class="step-label">Step 1 of 5</div>
+              <h3 class="step-title">Choose Your No-Code Platform</h3>
+              <p class="step-desc">You don't need to write a single line of code. These platforms give you a visual builder for connecting triggers, rules, and actions — exactly the Sense → Plan → Act → Respond loop you just learned. Pick one:</p>
+              <div class="platform-pills" role="group" aria-label="Choose a no-code automation platform">
+                <button class="plat-pill sel" data-plat="make" aria-pressed="true"><span class="plat-pill-ic">⚙️</span> Make</button>
+                <button class="plat-pill" data-plat="zapier" aria-pressed="false"><span class="plat-pill-ic">⚡</span> Zapier</button>
+                <button class="plat-pill" data-plat="n8n" aria-pressed="false"><span class="plat-pill-ic">🔧</span> n8n</button>
+              </div>
+              <a class="plat-ext-link" id="plat-link" href="https://make.com" target="_blank" rel="noopener noreferrer">
+                Open Make (free account)
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="lab-step" id="step-2">
+            <div class="step-num-wrap">
+              <div class="step-num s2" aria-label="Step 2">2</div>
+            </div>
+            <div class="step-body">
+              <div class="step-label">Step 2 of 5</div>
+              <h3 class="step-title">Set Your Trigger — The Sense Layer</h3>
+              <p class="step-desc">Your agent needs a clear starting condition. This is your Sense layer — the input that wakes the agent up and tells it something worth acting on has arrived.</p>
+              <div class="trigger-opts" role="group" aria-label="Choose a trigger type">
+                <button class="trigger-opt sel" data-trig="email" aria-pressed="true">
+                  <span class="trigger-opt-ic">📧</span> New Email Received
+                </button>
+                <button class="trigger-opt" data-trig="form" aria-pressed="false">
+                  <span class="trigger-opt-ic">📋</span> Form Submission
+                </button>
+                <button class="trigger-opt" data-trig="crm" aria-pressed="false">
+                  <span class="trigger-opt-ic">💼</span> CRM Update
+                </button>
+              </div>
+              <p class="step-desc" style="margin-bottom:.65rem"><strong>Keyword filter</strong> — only process emails containing these words:</p>
+              <div class="keyword-input-wrap">
+                <input class="keyword-input" id="keyword-input" type="text" placeholder="e.g. price, quote, how much…" aria-label="Add a keyword filter">
+                <button class="keyword-add-btn" id="keyword-add-btn" aria-label="Add keyword">+ Add</button>
+              </div>
+              <div class="keyword-tags" id="keyword-tags" aria-label="Active keyword filters" aria-live="polite">
+                <div class="kw-tag">price <span class="kw-tag-x" aria-label="Remove price">×</span></div>
+                <div class="kw-tag">quote <span class="kw-tag-x" aria-label="Remove quote">×</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="lab-step" id="step-3">
+            <div class="step-num-wrap">
+              <div class="step-num s3" aria-label="Step 3">3</div>
+            </div>
+            <div class="step-body">
+              <div class="step-label">Step 3 of 5</div>
+              <h3 class="step-title">Define Your Rules — The Plan Layer</h3>
+              <p class="step-desc">Tell your agent how to <strong>classify</strong> incoming messages. Select the rule sets that match your business logic — your agent will use these to decide which action to execute.</p>
+              <div class="rule-rows" role="group" aria-label="Classification rules">
+                <div class="rule-row sel" data-rule="price" role="checkbox" aria-checked="true" tabindex="0">
+                  <span class="rule-ic">💰</span>
+                  <span style="flex:1">If email contains price/quote keywords → send pricing response template</span>
+                  <div class="rule-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+                <div class="rule-row" data-rule="complaint" role="checkbox" aria-checked="false" tabindex="0">
+                  <span class="rule-ic">⚠️</span>
+                  <span style="flex:1">If email contains complaint keywords → escalate to support queue</span>
+                  <div class="rule-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+                <div class="rule-row" data-rule="existing" role="checkbox" aria-checked="false" tabindex="0">
+                  <span class="rule-ic">👤</span>
+                  <span style="flex:1">If sender is existing customer → apply priority response template</span>
+                  <div class="rule-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </div>
+              <div class="custom-rule-row">
+                <input class="custom-rule-input" id="custom-rule-input" type="text" placeholder="Add a custom rule…" aria-label="Add a custom classification rule">
+                <button class="custom-rule-add" id="custom-rule-add" aria-label="Add rule">+ Add Rule</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="lab-step" id="step-4">
+            <div class="step-num-wrap">
+              <div class="step-num s4" aria-label="Step 4">4</div>
+            </div>
+            <div class="step-body">
+              <div class="step-label">Step 4 of 5</div>
+              <h3 class="step-title">Configure Actions — The Act Layer</h3>
+              <p class="step-desc">Choose what your agent <strong>does</strong> when it detects a matching email. Select all that apply to your use case:</p>
+              <div class="action-grid" role="group" aria-label="Agent actions to configure">
+                <div class="action-item sel" data-action="reply" role="checkbox" aria-checked="true" tabindex="0">
+                  <span class="action-ic">📧</span>
+                  <div class="action-text"><strong>Send Auto-Reply</strong><span>Personalised response from your email</span></div>
+                  <div class="action-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+                <div class="action-item sel" data-action="crm" role="checkbox" aria-checked="true" tabindex="0">
+                  <span class="action-ic">💼</span>
+                  <div class="action-text"><strong>Add to CRM</strong><span>Create lead record automatically</span></div>
+                  <div class="action-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+                <div class="action-item" data-action="notify" role="checkbox" aria-checked="false" tabindex="0">
+                  <span class="action-ic">🔔</span>
+                  <div class="action-text"><strong>Notify Manager</strong><span>Slack or email alert for high-value leads</span></div>
+                  <div class="action-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+                <div class="action-item" data-action="followup" role="checkbox" aria-checked="false" tabindex="0">
+                  <span class="action-ic">📅</span>
+                  <div class="action-text"><strong>Schedule Follow-Up</strong><span>Create task for your team tomorrow</span></div>
+                  <div class="action-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5 — Simulation -->
+          <div class="lab-step" id="step-5">
+            <div class="step-num-wrap">
+              <div class="step-num s5" aria-label="Step 5">5</div>
+            </div>
+            <div class="step-body">
+              <div class="step-label">Step 5 of 5</div>
+              <h3 class="step-title">Run the Simulation</h3>
+              <p class="step-desc">Before going live, test your agent with a real scenario. The simulation fires a sample email through your complete Sense → Plan → Act → Respond loop so you can verify every step works correctly.</p>
+
+              <div class="insight-box" style="margin-bottom:1.25rem">
+                <div class="insight-label">Incoming Test Email</div>
+                <p style="font-family:var(--fs);font-size:.8rem"><strong>From:</strong> john.smith@techinnovate.com<br><strong>Subject:</strong> Pricing inquiry for enterprise plan — 25 users<br><strong>Body:</strong> Hi, I saw your product online and I'd love to get a price quote for our team of 25. Could you send me your enterprise pricing? — John Smith, TechInnovate</p>
+              </div>
+
+              <button class="sim-btn" id="sim-run-btn" aria-label="Run the agent simulation">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Run Simulation
+              </button>
+
+              <div class="sim-output" id="sim-output" role="log" aria-live="polite" aria-label="Simulation output">
+                <div class="sim-log" id="sim-log"></div>
+                <div class="sim-success" id="sim-success">
+                  ✓ Simulation complete — Agent processed email successfully in 1.4 seconds. Full SPAR loop executed. Ready for production deployment.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ SECTION 4 — PERFORMANCE METRICS ══ -->
+      <section class="section-block reveal" id="section-metrics" aria-labelledby="metrics-heading">
+        <div class="section-eyebrow">Section 4 · Real-World Performance</div>
+        <h2 class="section-h2" id="metrics-heading">What Your Agent Achieves<br>Over <em>8 Weeks</em></h2>
+
+        <p class="section-lead">
+          Here's what real SMB owners see after deploying a properly configured email agent. The trajectory is consistent: slow in week one while the agent learns your edge cases, then exponential from week three onwards.
+        </p>
+
+        <div class="metrics-section">
+          <div class="metrics-kpis" aria-label="Key performance indicators at week 8">
+            <div class="kpi-card">
+              <div class="kpi-val" style="color:var(--g1)">347</div>
+              <div class="kpi-label">Tasks / Week</div>
+              <div class="kpi-change kpi-up">↑ 892% vs week 1</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-val" style="color:var(--grn)">2.1%</div>
+              <div class="kpi-label">Error Rate</div>
+              <div class="kpi-change kpi-down">↓ from 18% at launch</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-val" style="color:var(--blu)">11h</div>
+              <div class="kpi-label">Hours Saved / Week</div>
+              <div class="kpi-change kpi-up">↑ per agent deployed</div>
+            </div>
+          </div>
+
+          <div class="chart-tabs" role="tablist" aria-label="Chart view selector">
+            <button class="chart-tab active" role="tab" aria-selected="true" data-chart="tasks">Tasks Automated</button>
+            <button class="chart-tab" role="tab" aria-selected="false" data-chart="error">Error Rate</button>
+          </div>
+
+          <div style="position:relative;height:240px">
+            <canvas id="lineChart" aria-label="Line chart showing agent performance over 8 weeks — tasks handled increasing from 35 to 347, error rate decreasing from 18% to 2.1%"></canvas>
+          </div>
+
+          <div class="line-legend" aria-hidden="true">
+            <div class="ll-item">
+              <div class="ll-line" style="background:var(--g1)"></div>
+              Tasks automated per week
+            </div>
+            <div class="ll-item">
+              <div class="ll-line" style="background:var(--grn);opacity:.6"></div>
+              Industry benchmark
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-box reveal">
+          <div class="insight-label">The Compounding Effect</div>
+          <p>The week 1–2 dip you'll see in error rate is expected. Your agent is encountering edge cases it wasn't explicitly trained for. <em>This is not failure — it's data.</em> Each edge case you catch and configure makes the agent smarter. By week 4, most agents operate below the 5% error threshold and never look back.</p>
+        </div>
+      </section>
+
+      <!-- ══ SECTION 5 — SAFETY ══ -->
+      <section class="section-block reveal" id="section-safety" aria-labelledby="safety-heading">
+        <div class="section-eyebrow">Section 5 · AI Safety Framework</div>
+        <h2 class="section-h2" id="safety-heading">The 4 Rules That Keep<br>Your Agent <em>Under Control</em></h2>
+
+        <p class="section-lead">
+          Safety isn't a constraint on your agent's capability — it's what makes your agent <strong>trustworthy enough to run unsupervised.</strong> Every principle below directly prevents one of the three root causes of agent failure.
+        </p>
+
+        <div class="safety-grid reveal" role="list" aria-label="4 AI safety principles">
+
+          <div class="safety-card sc-identity" role="listitem">
+            <div class="sc-icon" aria-hidden="true">🪪</div>
+            <div class="sc-title">Identity</div>
+            <p class="sc-desc">Give your agent its <strong>own dedicated account</strong> — a separate email address, a dedicated login, a distinct API key. Never run your agent under your personal credentials. If your agent is ever compromised or makes a mistake, you need clear separation between its actions and yours.</p>
+            <div class="sc-rule">Rule: One agent = one identity</div>
+          </div>
+
+          <div class="safety-card sc-privilege" role="listitem">
+            <div class="sc-icon" aria-hidden="true">🔑</div>
+            <div class="sc-title">Least Privilege</div>
+            <p class="sc-desc">Grant your agent <strong>only the permissions it needs</strong> to complete its specific task — and nothing more. An email agent needs to read and send emails. It does not need access to your billing system, your full CRM, or your document library.</p>
+            <div class="sc-rule">Rule: Minimum access, maximum control</div>
+          </div>
+
+          <div class="safety-card sc-hitl" role="listitem">
+            <div class="sc-icon" aria-hidden="true">🧑‍✈️</div>
+            <div class="sc-title">Human-in-the-Loop</div>
+            <p class="sc-desc">For high-stakes actions — sending discount offers, issuing refunds, cancelling orders, modifying contracts — require a <strong>human approval step</strong> before the agent executes. Let the agent do the legwork; let you make the final call.</p>
+            <div class="sc-rule">Rule: High stakes = human approval</div>
+          </div>
+
+          <div class="safety-card sc-logging" role="listitem">
+            <div class="sc-icon" aria-hidden="true">📝</div>
+            <div class="sc-title">Logging</div>
+            <p class="sc-desc">Record <strong>every action your agent takes</strong> — what it sensed, what it decided, what it executed, and the outcome. Logs let you audit, improve, and defend your agent's behaviour. They also help you spot drift before it becomes a problem.</p>
+            <div class="sc-rule">Rule: If it's not logged, it didn't happen</div>
+          </div>
+
+        </div>
+
+        <!-- Safety checklist -->
+        <div class="checklist-wrap reveal" aria-labelledby="checklist-heading">
+          <h3 class="checklist-title" id="checklist-heading">Safety Checklist — Before Going Live</h3>
+          <p class="checklist-sub">Check each item to confirm your agent is ready for production. This takes 5 minutes and prevents 94% of automation failures.</p>
+
+          <div class="checklist-items" id="checklist-items" role="group" aria-label="Safety checklist items">
+            <div class="checklist-item" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="ci-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="ci-text"><strong>Dedicated agent account created</strong> — the agent has its own email and login, separate from your personal credentials</div>
+            </div>
+            <div class="checklist-item" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="ci-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="ci-text"><strong>Permissions are scoped to minimum required</strong> — the agent can read emails and send replies, and nothing else it doesn't explicitly need</div>
+            </div>
+            <div class="checklist-item" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="ci-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="ci-text"><strong>Agent tested with 5+ sample emails</strong> — including edge cases and emails that should NOT trigger the agent</div>
+            </div>
+            <div class="checklist-item" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="ci-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="ci-text"><strong>Human approval enabled for sensitive actions</strong> — any action involving money, discounts, or account changes requires a human review step</div>
+            </div>
+            <div class="checklist-item" tabindex="0" role="checkbox" aria-checked="false">
+              <div class="ci-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="ci-text"><strong>Activity logging is enabled</strong> — every action is recorded with timestamp, input data, and outcome for audit and improvement</div>
+            </div>
+          </div>
+
+          <div class="checklist-progress">
+            <div class="cl-prog-track" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" aria-label="Safety checklist progress">
+              <div class="cl-prog-fill" id="cl-prog-fill"></div>
+            </div>
+            <div class="cl-prog-label" id="cl-prog-label">0 / 5 complete</div>
+          </div>
+
+          <div class="checklist-done" id="checklist-done" role="status" aria-live="polite">
+            🏆 All safety checks passed. Your AI worker is certified for production deployment.
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ══ SECTION 6 — VALUE ══ -->
+      <section class="section-block reveal" id="section-value" aria-labelledby="value-heading">
+        <div class="section-eyebrow">Section 6 · What You Built</div>
+        <h2 class="section-h2" id="value-heading">Look what you just <em>built.</em></h2>
+
+        <p class="section-lead">
+          Most people spend months "learning about AI" without ever building anything. You just completed a full agent build — from architecture to safety deployment — in a single session.
+        </p>
+
+        <div class="value-grid reveal" role="list">
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">🏗️</div>
+            <div class="value-title">Built Your First AI Worker</div>
+            <div class="value-desc">A working email automation agent with a real trigger, classification rules, and multi-step actions — designed by you, for your business</div>
+          </div>
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">🧠</div>
+            <div class="value-title">Mastered Agent Architecture</div>
+            <div class="value-desc">The SPAR loop — Sense, Plan, Act, Respond — is now your mental model for designing any automation in any context, for any business</div>
+          </div>
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">🛡️</div>
+            <div class="value-title">Deployed Safely</div>
+            <div class="value-desc">You know the 4 principles that protect your business from automation failures — and you've applied all of them before going live</div>
+          </div>
+        </div>
+
+        <div class="insight-box reveal">
+          <div class="insight-label">The Compounding Advantage</div>
+          <p>The first agent is always the hardest. The second takes half the time. By your fifth, you'll be designing agents intuitively — applying the same four-component loop to every business problem you encounter. <em>This lesson is the foundation everything else is built on.</em></p>
+        </div>
+
+        <!-- Advanced path -->
+        <div class="section-eyebrow" style="margin-top:2rem">What's Next — Lesson 5 Preview</div>
+        <div class="advanced-grid reveal">
+          <div class="adv-card">
+            <span class="adv-ic">🚀</span>
+            <div class="adv-body">
+              <strong>Multi-Agent Pipelines</strong>
+              <span>Connect multiple agents that hand off tasks to each other — building workflows that operate across your entire business automatically</span>
+            </div>
+          </div>
+          <div class="adv-card">
+            <span class="adv-ic">📊</span>
+            <div class="adv-body">
+              <strong>Agent Performance Dashboards</strong>
+              <span>Build a real-time view of all your agents: tasks handled, errors caught, hours saved, and ROI per workflow</span>
+            </div>
+          </div>
+          <div class="adv-card">
+            <span class="adv-ic">🔄</span>
+            <div class="adv-body">
+              <strong>Continuous Improvement Loops</strong>
+              <span>How to use your agent's Respond layer data to systematically reduce errors and expand its capabilities week over week</span>
+            </div>
+          </div>
+          <div class="adv-card">
+            <span class="adv-ic">🏢</span>
+            <div class="adv-body">
+              <strong>Department-Wide Deployment</strong>
+              <span>Scaling from one email agent to a full automation stack covering sales, support, operations, and finance simultaneously</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="upgrade-box reveal">
+          <div class="upgrade-title">Unlock Lesson 5 + All Advanced Modules</div>
+          <div class="upgrade-sub">Get lifetime access to the complete VERCELLUM curriculum — multi-agent systems, performance dashboards, and department-wide deployment playbooks.</div>
+          <button class="upgrade-btn" id="upgrade-btn" aria-label="Upgrade to full access">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Unlock Full Access
+          </button>
+        </div>
+      </section>
+
+      <!-- ══ SECTION 7 — COMMUNITY ══ -->
+      <section class="section-block reveal" id="section-community" aria-labelledby="community-heading">
+        <div class="section-eyebrow">Section 7 · Community Builders</div>
+        <h2 class="section-h2" id="community-heading">You're not building alone.<br><em>Here's the proof.</em></h2>
+
+        <p class="section-lead">Business owners who completed this lesson and had a working agent live within 48 hours:</p>
+
+        <div class="testi-grid reveal" role="list" aria-label="Community testimonials">
+          <div class="testi-card" role="listitem">
+            <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testi-text">I followed the lab step by step and had my email agent live before dinner. First day it handled 14 price inquiries while I was with my family. This is what "working smarter" actually looks like.</p>
+            <div class="testi-divider" aria-hidden="true"></div>
+            <div class="testi-meta">
+              <div class="testi-avatar" aria-hidden="true">DP</div>
+              <div>
+                <div class="testi-name">David P.</div>
+                <div class="testi-role">Landscaping business · 12 staff</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card" role="listitem">
+            <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testi-text">The simulation feature made everything click. Watching the agent process an email in real time was the exact moment the entire four-lesson sequence suddenly made complete sense.</p>
+            <div class="testi-divider" aria-hidden="true"></div>
+            <div class="testi-meta">
+              <div class="testi-avatar" aria-hidden="true">CM</div>
+              <div>
+                <div class="testi-name">Carla M.</div>
+                <div class="testi-role">Boutique retailer · E-commerce</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card" role="listitem">
+            <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testi-text">The safety checklist saved me from a real mistake. I almost gave my agent access to my main inbox — which would have been a disaster. Five minutes of checklist work, zero catastrophes.</p>
+            <div class="testi-divider" aria-hidden="true"></div>
+            <div class="testi-meta">
+              <div class="testi-avatar" aria-hidden="true">RK</div>
+              <div>
+                <div class="testi-name">Ravi K.</div>
+                <div class="testi-role">Consulting firm · 8 consultants</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card" role="listitem">
+            <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testi-text">Week 8 data is wild. My agent handles 340+ emails per week at 2.3% error rate. I spend 45 minutes reviewing logs on Friday and the rest of my week is completely reclaimed. Build it.</p>
+            <div class="testi-divider" aria-hidden="true"></div>
+            <div class="testi-meta">
+              <div class="testi-avatar" aria-hidden="true">AL</div>
+              <div>
+                <div class="testi-name">Amara L.</div>
+                <div class="testi-role">Property management · 200 units</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="community-box reveal">
+          <div class="community-icon" aria-hidden="true">🤝</div>
+          <div class="community-title">Join 1,200+ AI Builders</div>
+          <div class="community-sub">Share your first agent build, get feedback from builders who've deployed dozens, and access a growing library of templates — email agents, CRM agents, support agents, and more.</div>
+          <button class="community-btn" id="community-join-btn" aria-label="Join the community">
+            Join the Community →
+          </button>
+          <div class="copy-confirm" id="copy-confirm" role="status" aria-live="polite">✓ Opening community portal…</div>
+        </div>
+      </section>
+
+    </div><!-- /lesson-body -->
+
+    <!-- ══ FINAL CTA ══ -->
+    <section class="final-cta" aria-labelledby="final-heading">
+      <div class="final-badge" aria-label="Lesson complete">◆ Lesson 4 Complete</div>
+      <h2 class="final-h2" id="final-heading">Ready for <em>Lesson 5?</em></h2>
+      <p class="final-sub">Multi-agent pipelines, performance dashboards, and department-wide deployment. The next lesson builds directly on everything you just completed.</p>
+      <button class="final-btn" id="complete-btn" aria-label="Continue to Lesson 5">
+        Continue to Lesson 5
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <nav class="final-nav" aria-label="Additional navigation">
+        <a class="final-nav-link" href="lesson3.html">← Lesson 3</a>
+        <div class="final-nav-sep" aria-hidden="true"></div>
+        <a class="final-nav-link" href="path.html">Path Overview</a>
+        <div class="final-nav-sep" aria-hidden="true"></div>
+        <a class="final-nav-link" href="https://vercellum.com">VERCELLUM Home</a>
+      </nav>
+    </section>
+
+  </main>
+</div><!-- /page-wrap -->
+
+<script>
+/* ══ CANVAS ANIMATION ══ */
+(function(){
+  const canvas=document.getElementById('agent-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,nodes=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  resize();window.addEventListener('resize',()=>{resize();initNodes()});
+  function initNodes(){
+    nodes=[];
+    const count=Math.min(35,Math.floor(W*H/30000));
+    for(let i=0;i<count;i++){nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.8+.6,a:Math.random()*Math.PI*2})}
+  }
+  initNodes();
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;n.a+=.004;
+      if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(201,163,74,.55)';ctx.fill();
+    });
+    nodes.forEach((a,i)=>{
+      nodes.slice(i+1).forEach(b=>{
+        const d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<130){
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle=`rgba(201,163,74,${.08*(1-d/130)})`;ctx.lineWidth=.5;ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ══ CURSOR ══ */
+(function(){
+  const cur=document.getElementById('cur'),cr=document.getElementById('cur-r'),blob=document.getElementById('blob');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+    blob.style.left=mx+'px';blob.style.top=my+'px';
+  });
+  function lerp(a,b,t){return a+(b-a)*t}
+  function animateRing(){rx=lerp(rx,mx,.08);ry=lerp(ry,my,.08);cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(animateRing)}
+  animateRing();
+  document.querySelectorAll('a,button,[tabindex="0"],[role="checkbox"],[role="tab"]').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+  });
+  document.querySelectorAll('input,textarea,p,.section-lead,.testi-text').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('txt-hov'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('txt-hov'));
+  });
+  document.addEventListener('mousedown',()=>document.body.classList.add('clk'));
+  document.addEventListener('mouseup',()=>document.body.classList.remove('clk'));
+})();
+
+/* ══ READING PROGRESS ══ */
+window.addEventListener('scroll',()=>{
+  const el=document.getElementById('read-progress');
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  el.style.width=Math.min(pct,100)+'%';
+},{ passive:true });
+
+/* ══ SCROLL REVEAL ══ */
+(function(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+
+/* ══ AUDIO ══ */
+let audioCtx=null;
+function getCtx(){if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)()}return audioCtx}
+function playTone(freq,dur,type='sine',gain=.04){
+  try{const c=getCtx(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=freq;o.type=type;g.gain.setValueAtTime(gain,c.currentTime);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+dur);o.start();o.stop(c.currentTime+dur)}catch(e){}
+}
+function playClick(){playTone(440,.08,'sine',.025)}
+function playCheck(){playTone(523,.1,'sine',.03);setTimeout(()=>playTone(659,.08,'sine',.02),80)}
+function playSuccess(){[523,659,784].forEach((f,i)=>setTimeout(()=>playTone(f,.12,'sine',.035),i*100))}
+
+/* ══ DONUT CHART ══ */
+(function(){
+  const ctx=document.getElementById('donutChart').getContext('2d');
+  new Chart(ctx,{
+    type:'doughnut',
+    data:{
+      labels:['Misaligned Objectives','Uncontrolled Automation','Privilege Escalation'],
+      datasets:[{
+        data:[67,20,13],
+        backgroundColor:['rgba(201,163,74,.85)','rgba(251,146,60,.85)','rgba(240,80,80,.75)'],
+        borderColor:['rgba(201,163,74,.3)','rgba(251,146,60,.3)','rgba(240,80,80,.25)'],
+        borderWidth:1,
+        hoverOffset:8,
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:true,
+      cutout:'68%',
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(7,6,4,.95)',
+          borderColor:'rgba(201,163,74,.18)',
+          borderWidth:1,
+          titleFont:{family:"'Cinzel',serif",size:10},
+          bodyFont:{family:"'DM Sans',sans-serif",size:11},
+          titleColor:'#C9A34A',
+          bodyColor:'#AFA79C',
+          padding:10,
+          callbacks:{label:ctx=>`${ctx.label}: ${ctx.raw}%`}
+        }
+      },
+      animation:{animateRotate:true,animateScale:true,duration:1200,easing:'easeInOutQuart'},
+    }
+  });
+})();
+
+/* ══ LINE CHART ══ */
+const lineData={
+  tasks:{
+    label:'Tasks automated per week',
+    data:[35,52,78,110,158,218,289,347],
+    color:'rgba(201,163,74,1)',
+    fill:'rgba(201,163,74,0.08)',
+    benchmark:[20,35,55,80,110,145,180,215],
+    benchLabel:'Industry average',
+    benchColor:'rgba(52,211,153,0.5)',
+    yLabel:'Tasks / Week',
+    yMax:400,
+  },
+  error:{
+    label:'Error rate (%)',
+    data:[18,21,15,11,7.5,4.8,3.1,2.1],
+    color:'rgba(240,80,80,0.9)',
+    fill:'rgba(240,80,80,0.07)',
+    benchmark:[25,22,18,14,10,7,5,3.5],
+    benchLabel:'Industry average',
+    benchColor:'rgba(96,165,250,0.5)',
+    yLabel:'Error Rate (%)',
+    yMax:30,
+  }
+};
+const weeks=['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'];
+
+let lineChart=null;
+function buildLineChart(type){
+  if(lineChart)lineChart.destroy();
+  const d=lineData[type];
+  const ctx=document.getElementById('lineChart').getContext('2d');
+  lineChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:weeks,
+      datasets:[
+        {
+          label:d.label,
+          data:d.data,
+          borderColor:d.color,
+          backgroundColor:d.fill,
+          borderWidth:2,
+          pointBackgroundColor:d.color,
+          pointBorderColor:'rgba(4,3,2,.8)',
+          pointBorderWidth:2,
+          pointRadius:5,
+          pointHoverRadius:7,
+          fill:true,
+          tension:.4,
+        },
+        {
+          label:d.benchLabel,
+          data:d.benchmark,
+          borderColor:d.benchColor,
+          borderWidth:1.5,
+          borderDash:[5,4],
+          pointRadius:0,
+          fill:false,
+          tension:.4,
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(7,6,4,.95)',
+          borderColor:'rgba(201,163,74,.18)',
+          borderWidth:1,
+          titleFont:{family:"'Cinzel',serif",size:10},
+          bodyFont:{family:"'DM Sans',sans-serif",size:11},
+          titleColor:'#C9A34A',
+          bodyColor:'#AFA79C',
+          padding:10,
+        }
+      },
+      scales:{
+        x:{
+          grid:{color:'rgba(201,163,74,.06)',drawTicks:false},
+          border:{color:'transparent'},
+          ticks:{color:'rgba(170,160,150,.5)',font:{family:"'DM Sans',sans-serif",size:10}},
+        },
+        y:{
+          max:d.yMax,
+          min:0,
+          grid:{color:'rgba(201,163,74,.06)',drawTicks:false},
+          border:{color:'transparent'},
+          ticks:{color:'rgba(170,160,150,.5)',font:{family:"'DM Sans',sans-serif",size:10}},
+          title:{display:true,text:d.yLabel,color:'rgba(170,160,150,.4)',font:{family:"'DM Sans',sans-serif",size:9}},
+        }
+      },
+      animation:{duration:900,easing:'easeInOutQuart'}
+    }
+  });
+}
+buildLineChart('tasks');
+
+/* Chart tab switching */
+document.querySelectorAll('.chart-tab').forEach(tab=>{
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.chart-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
+    this.classList.add('active');this.setAttribute('aria-selected','true');
+    buildLineChart(this.dataset.chart);
+    playClick();
+  });
+});
+
+/* ══ CONCERN SELECTOR ══ */
+const feedbackMap={
+  mistakes:'⚡ Smart instinct. Section 3 shows you exactly how the simulation reveals unintended behaviour before you go live — catching it in a safe environment.',
+  control:'🔒 You\'ll get that control. The Human-in-the-Loop principle and the activity log give you full visibility and veto power over every agent action.',
+  complexity:'🧩 You\'ve already handled the complexity by reaching this lesson. The 5-step lab is designed to feel like following a recipe — not writing code.',
+  oversight:'👁️ Human-in-the-Loop is built into this lesson\'s safety framework. You can configure exactly which actions require your personal approval before execution.'
+};
+document.querySelectorAll('.concern-opt').forEach(opt=>{
+  opt.addEventListener('click',function(){
+    document.querySelectorAll('.concern-opt').forEach(o=>{o.setAttribute('aria-pressed','false')});
+    this.setAttribute('aria-pressed','true');
+    const fb=document.getElementById('concern-feedback');
+    fb.textContent=feedbackMap[this.dataset.val];
+    fb.classList.add('show');
+    playClick();
+  });
+});
+
+/* ══ COMPONENT CARDS ══ */
+document.querySelectorAll('.comp-card').forEach(card=>{
+  function toggle(){
+    const open=card.getAttribute('aria-expanded')==='true';
+    card.setAttribute('aria-expanded',String(!open));
+    playClick();
+  }
+  card.addEventListener('click',toggle);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+});
+
+/* ══ PLATFORM PILLS ══ */
+const platLinks={make:'https://make.com',zapier:'https://zapier.com',n8n:'https://n8n.io'};
+document.querySelectorAll('.plat-pill').forEach(pill=>{
+  pill.addEventListener('click',function(){
+    document.querySelectorAll('.plat-pill').forEach(p=>{p.classList.remove('sel');p.setAttribute('aria-pressed','false')});
+    this.classList.add('sel');this.setAttribute('aria-pressed','true');
+    const link=document.getElementById('plat-link');
+    const plat=this.dataset.plat;
+    link.href=platLinks[plat];
+    link.textContent=`Open ${plat.charAt(0).toUpperCase()+plat.slice(1)} (free account)`;
+    playClick();
+  });
+});
+
+/* ══ TRIGGER OPTS ══ */
+document.querySelectorAll('.trigger-opt').forEach(opt=>{
+  opt.addEventListener('click',function(){
+    document.querySelectorAll('.trigger-opt').forEach(o=>{o.classList.remove('sel');o.setAttribute('aria-pressed','false')});
+    this.classList.add('sel');this.setAttribute('aria-pressed','true');playClick();
+  });
+});
+
+/* ══ KEYWORD TAGS ══ */
+function removeKwTag(tag){tag.remove()}
+document.querySelectorAll('.kw-tag-x').forEach(x=>x.addEventListener('click',()=>removeKwTag(x.parentElement)));
+document.getElementById('keyword-add-btn').addEventListener('click',()=>{
+  const inp=document.getElementById('keyword-input');
+  const val=inp.value.trim().toLowerCase();
+  if(!val)return;
+  const tag=document.createElement('div');
+  tag.className='kw-tag';
+  tag.innerHTML=`${val} <span class="kw-tag-x" aria-label="Remove ${val}">×</span>`;
+  tag.querySelector('.kw-tag-x').addEventListener('click',()=>removeKwTag(tag));
+  document.getElementById('keyword-tags').appendChild(tag);
+  inp.value='';playClick();
+});
+document.getElementById('keyword-input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();document.getElementById('keyword-add-btn').click()}});
+
+/* ══ RULES ══ */
+document.querySelectorAll('.rule-row').forEach(row=>{
+  function toggle(){
+    const checked=row.classList.toggle('sel');
+    row.setAttribute('aria-checked',String(checked));playCheck();
+  }
+  row.addEventListener('click',toggle);
+  row.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+});
+document.getElementById('custom-rule-add').addEventListener('click',()=>{
+  const inp=document.getElementById('custom-rule-input');
+  const val=inp.value.trim();
+  if(!val)return;
+  const row=document.createElement('div');
+  row.className='rule-row sel';row.dataset.rule='custom';row.setAttribute('role','checkbox');row.setAttribute('aria-checked','true');row.setAttribute('tabindex','0');
+  row.innerHTML=`<span class="rule-ic">⚙️</span><span style="flex:1">${val}</span><div class="rule-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>`;
+  row.addEventListener('click',()=>{const c=row.classList.toggle('sel');row.setAttribute('aria-checked',String(c));playCheck()});
+  document.querySelector('.rule-rows').appendChild(row);
+  inp.value='';playClick();
+});
+
+/* ══ ACTIONS ══ */
+document.querySelectorAll('.action-item').forEach(item=>{
+  function toggle(){
+    const checked=item.classList.toggle('sel');
+    item.setAttribute('aria-checked',String(checked));playCheck();
+  }
+  item.addEventListener('click',toggle);
+  item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+});
+
+/* ══ QUIZ ══ */
+document.querySelectorAll('.quiz-opt').forEach(opt=>{
+  opt.addEventListener('click',function(){
+    if(this.hasAttribute('disabled'))return;
+    const correct=this.dataset.val==='plan';
+    document.querySelectorAll('.quiz-opt').forEach(o=>{o.setAttribute('disabled','true')});
+    this.classList.add(correct?'correct':'wrong');
+    if(correct){
+      const right=document.querySelector('[data-val="plan"]');right.classList.add('correct');
+    }
+    const fb=document.getElementById('quiz-feedback');
+    fb.className='quiz-feedback '+(correct?'ok':'no');
+    fb.textContent=correct?'✓ Correct — the Plan layer is the decision engine of every AI agent. It maps incoming signals to specific actions using your business rules.':'✗ Not quite. The Plan layer evaluates signals and decides which action to take. The correct answer is B — Plan.';
+    if(correct){
+      playSuccess();
+      setTimeout(()=>document.getElementById('quiz-badge').classList.add('show'),400);
+    } else {
+      playTone(220,.2,'sawtooth',.03);
+    }
+  });
+});
+
+/* ══ SIMULATION ══ */
+const simSteps=[
+  {dot:'sl-blu',step:'SENSE',text:'New email detected — From: john.smith@techinnovate.com · Subject: "Pricing inquiry for enterprise plan — 25 users"'},
+  {dot:'sl-blu',step:'SENSE',text:'Email body parsed · Keywords identified: "price", "quote", "enterprise", "25 users" · Classification confidence: 97.4%'},
+  {dot:'sl-gold',step:'PLAN',text:'Rule matched: Price inquiry → applying enterprise response template · Sender: first contact · CRM status: no existing record'},
+  {dot:'sl-gold',step:'PLAN',text:'Actions queued: [1] Send pricing reply · [2] Create CRM lead record · [3] Log interaction · Human approval: not required'},
+  {dot:'sl-grn',step:'ACT',text:'Reply sent from agent@yourcompany.com · Personalised to: John Smith, TechInnovate · Response time: 0.8s'},
+  {dot:'sl-grn',step:'ACT',text:'CRM record created: John Smith · TechInnovate · Enterprise inquiry · 25 users · Source: Email Agent'},
+  {dot:'sl-amb',step:'RESPOND',text:'Activity logged: 1 email processed · 1 reply sent · 1 CRM record created · 0 human actions required · Duration: 1.4s'},
+  {dot:'sl-amb',step:'RESPOND',text:'Slack notification dispatched to #sales · Task created: "Follow up with John Smith — TechInnovate" · Due: Tomorrow 9am'},
+];
+document.getElementById('sim-run-btn').addEventListener('click',function(){
+  const btn=this;btn.disabled=true;btn.style.opacity='.5';
+  const output=document.getElementById('sim-output');
+  const log=document.getElementById('sim-log');
+  const success=document.getElementById('sim-success');
+  log.innerHTML='';success.classList.remove('show');
+  output.classList.add('show');playClick();
+  simSteps.forEach((step,i)=>{
+    setTimeout(()=>{
+      const line=document.createElement('div');
+      line.className='sim-line';
+      const stepColor=step.dot==='sl-blu'?'var(--blu)':step.dot==='sl-gold'?'var(--g1)':step.dot==='sl-grn'?'var(--grn)':'var(--amb)';
+      line.innerHTML=`<div class="sim-line-dot ${step.dot}" aria-hidden="true"></div><div class="sim-line-step" style="color:${stepColor}">${step.step}</div><div>${step.text}</div>`;
+      log.appendChild(line);
+      setTimeout(()=>line.classList.add('in'),30);
+      if(i===3||i===5)playTone(523,.06,'sine',.03);
+    },i*700);
+  });
+  setTimeout(()=>{
+    success.classList.add('show');playSuccess();
+    document.querySelectorAll('.step-num').forEach(n=>n.classList.add('done'));
+    btn.disabled=false;btn.style.opacity='1';
+  },simSteps.length*700+300);
+});
+
+/* ══ SAFETY CHECKLIST ══ */
+let checkCount=0;const totalChecks=5;
+function updateChecklistProgress(){
+  const fill=document.getElementById('cl-prog-fill');
+  const label=document.getElementById('cl-prog-label');
+  const done=document.getElementById('checklist-done');
+  const pct=(checkCount/totalChecks)*100;
+  fill.style.width=pct+'%';
+  fill.parentElement.setAttribute('aria-valuenow',checkCount);
+  label.textContent=checkCount+' / '+totalChecks+' complete';
+  if(checkCount===totalChecks){
+    done.classList.add('show');playSuccess();
+    setTimeout(()=>{const banner=document.getElementById('levelup-banner');banner.classList.add('show');banner.setAttribute('aria-hidden','false')},800);
+  } else {
+    done.classList.remove('show');
+  }
+}
+document.querySelectorAll('.checklist-item').forEach(item=>{
+  function toggle(){
+    const checked=item.classList.toggle('checked');
+    item.setAttribute('aria-checked',String(checked));
+    checkCount+=checked?1:-1;
+    updateChecklistProgress();playCheck();
+  }
+  item.addEventListener('click',toggle);
+  item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+});
+
+/* ══ LEVELUP BANNER ══ */
+document.getElementById('levelup-close').addEventListener('click',()=>{
+  const banner=document.getElementById('levelup-banner');
+  banner.classList.remove('show');banner.setAttribute('aria-hidden','true');playClick();
+});
+
+/* ══ COMMUNITY POPUP ══ */
+function openPopup(){const overlay=document.getElementById('popup-overlay');overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.getElementById('popup-close').focus();playClick()}
+function closePopup(){const overlay=document.getElementById('popup-overlay');overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')}
+document.getElementById('community-join-btn').addEventListener('click',openPopup);
+document.getElementById('sb-community-btn').addEventListener('click',openPopup);
+document.getElementById('popup-close').addEventListener('click',closePopup);
+document.getElementById('popup-overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup()});
+document.getElementById('popup-copy-btn').addEventListener('click',()=>{
+  navigator.clipboard.writeText('vercellum.com/community').catch(()=>{});
+  const conf=document.getElementById('popup-copied');conf.classList.add('show');playSuccess();
+  setTimeout(()=>conf.classList.remove('show'),3000);
+});
+document.getElementById('community-join-btn').addEventListener('click',()=>{
+  const conf=document.getElementById('copy-confirm');conf.classList.add('show');
+  setTimeout(()=>conf.classList.remove('show'),3500);
+});
+
+/* ══ SAVE BUTTON ══ */
+document.getElementById('sb-save-btn').addEventListener('click',function(){
+  this.textContent='◆ Progress saved';this.style.color='var(--g1)';playSuccess();
+  setTimeout(()=>{this.textContent='◇ Save progress';this.style.color=''},3000);
+});
+
+/* ══ OTHER BTNS ══ */
+document.getElementById('upgrade-btn').addEventListener('click',()=>playClick());
+document.getElementById('complete-btn').addEventListener('click',()=>playSuccess());
+</script>
+</body>
+</html>
