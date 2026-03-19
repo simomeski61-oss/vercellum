@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>VERCELLUM · Discover Your AI Path — Free Assessment</title>
-<meta name="description" content="Take the free 2-minute AI discovery test. Understand exactly where you stand in the AI landscape and find the right structured learning path.">
+<title>VERCELLUM · Business AI Readiness Assessment — Free & 2 Minutes</title>
+<meta name="description" content="Discover exactly where your business stands in the AI landscape. Free 2-minute assessment for SMB owners and entrepreneurs — find the right path to automating your operations.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#040302">
-<link rel="canonical" href="https://vercellum.com/onboarding">
+<link rel="canonical" href="https://vercellum.com/assessment">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vercellum.com/onboarding">
-<meta property="og:title" content="Discover Your AI Path — VERCELLUM Free Assessment">
-<meta property="og:description" content="A 2-minute psychological assessment that reveals exactly where you stand in the AI world.">
+<meta property="og:url" content="https://vercellum.com/assessment">
+<meta property="og:title" content="Business AI Readiness Assessment — VERCELLUM">
+<meta property="og:description" content="A free 2-minute assessment that reveals exactly where your business stands in the AI landscape — and the exact path to transform it.">
 <meta property="og:site_name" content="VERCELLUM">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"VERCELLUM AI Discovery Assessment","url":"https://vercellum.com/onboarding","description":"Structured psychological assessment helping users find their AI learning path.","isPartOf":{"@type":"WebSite","name":"VERCELLUM","url":"https://vercellum.com"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vercellum.com"},{"@type":"ListItem","position":2,"name":"AI Discovery","item":"https://vercellum.com/onboarding"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"VERCELLUM Business AI Readiness Assessment","url":"https://vercellum.com/assessment","description":"Structured assessment helping SMB owners and entrepreneurs find the right AI automation learning path for their business.","isPartOf":{"@type":"WebSite","name":"VERCELLUM","url":"https://vercellum.com"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vercellum.com"},{"@type":"ListItem","position":2,"name":"Business AI Assessment","item":"https://vercellum.com/assessment"}]}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -28,6 +28,7 @@
   --as:#423B30;--tp:#6A6050;--bn:#AFA79C;--cr:#F1ECE2;--wh:#FDFAF5;
   --g0:#F2D668;--g1:#C9A34A;--g2:#A88532;--g3:#7B611E;--g4:#54420F;
   --gg:rgba(201,163,74,.5);--gm:rgba(201,163,74,.18);--gf:rgba(201,163,74,.08);--gt:rgba(201,163,74,.04);
+  --grn:#34D399;
   --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
   --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);--sn:cubic-bezier(.87,0,.13,1);
 }
@@ -74,7 +75,53 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .hdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.07);transition:all .4s var(--ex)}
 .hdot.done{background:rgba(201,163,74,.45)}
 .hdot.now{background:var(--g1);box-shadow:0 0 7px rgba(201,163,74,.5)}
-@media(max-width:680px){.hdr{padding:.85rem 1.25rem}.hstep-lbl{display:none}}
+/* Back breadcrumb */
+.hdr-back{display:flex;align-items:center;gap:.6rem;font-family:var(--fb);font-size:.52rem;letter-spacing:.16em;color:var(--tp);transition:color .25s}
+.hdr-back:hover{color:var(--g1)}
+.hdr-back svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;transition:transform .25s}
+.hdr-back:hover svg{transform:translateX(-3px)}
+/* NEW: step counter and skip test link */
+.step-counter {
+  font-family: var(--fb);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--g2);
+  margin-left: 0.5rem;
+  background: rgba(201,163,74,0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(201,163,74,0.2);
+}
+.skip-test-link {
+  font-family: var(--fs);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--cr);
+  background: rgba(201,163,74,0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  border: 1px solid rgba(201,163,74,0.3);
+  margin-left: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.skip-test-link:hover {
+  background: var(--g1);
+  color: var(--v);
+  border-color: var(--g1);
+}
+@media(max-width:680px){
+  .hdr{padding:.85rem 1.25rem}
+  .hstep-lbl{display:none}
+  .hdr-back{display:none}
+  .step-counter, .skip-test-link {
+    margin-left: 0.3rem;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
 
 /* ORBS */
 .orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(90px);z-index:0}
@@ -146,6 +193,11 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .s1-st-n{font-family:var(--fb);font-size:1.5rem;font-weight:700;color:var(--g1);letter-spacing:-.02em;display:block}
 .s1-st-l{font-size:.65rem;color:var(--tp);letter-spacing:.14em;margin-top:.2rem}
 
+/* Trust strip */
+.s1-trust{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin:1.5rem 0 0;flex-wrap:wrap}
+.s1-trust-it{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;color:var(--tp);letter-spacing:.05em}
+.s1-trust-it svg{width:11px;height:11px;stroke:var(--grn);stroke-width:2.5;fill:none}
+
 /* ═══════════════════════════════════════════
    STAGE 2: QUESTIONS
 ═══════════════════════════════════════════ */
@@ -182,14 +234,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .pause-badge svg{width:14px;height:14px;stroke:var(--g1);stroke-width:2;fill:none}
 .pause-h{font-family:var(--fd);font-size:clamp(1.6rem,4.5vw,2.65rem);font-weight:300;font-style:italic;color:var(--cr);line-height:1.65;margin-bottom:1.5rem}
 .pause-h em{font-style:normal;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pause-ins{display:inline-flex;align-items:center;gap:.75rem;padding:.75rem 1.4rem;border-radius:12px;background:rgba(201,163,74,.055);border:1px solid rgba(201,163,74,.14);font-size:.82rem;color:var(--bn);margin-bottom:2.25rem;max-width:430px;text-align:left}
+.pause-ins{display:inline-flex;align-items:center;gap:.75rem;padding:.75rem 1.4rem;border-radius:12px;background:rgba(201,163,74,.055);border:1px solid rgba(201,163,74,.14);font-size:.82rem;color:var(--bn);margin-bottom:2.25rem;max-width:460px;text-align:left}
 .pause-ins svg{width:18px;height:18px;stroke:var(--g1);stroke-width:2;fill:none;flex-shrink:0}
-.pause-body{font-size:.89rem;color:var(--bn);line-height:1.95;max-width:480px;margin:0 auto 2.5rem}
+.pause-body{font-size:.89rem;color:var(--bn);line-height:1.95;max-width:500px;margin:0 auto 2.5rem}
 
 /* ═══════════════════════════════════════════
-   STAGE 3: AI PROFILE — RADICAL REDESIGN
-   Split layout: gauge left, radar right,
-   trait chips bottom
+   STAGE 3: BUSINESS PROFILE
 ═══════════════════════════════════════════ */
 
 /* Scan loader */
@@ -212,7 +262,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 /* PROFILE RESULT */
 .profile-result{width:100%}
 
-/* Top strip: score + label */
+/* Top strip */
 .profile-header{
   position:relative;text-align:center;margin-bottom:2.5rem;
   padding:2rem 0 1.5rem;
@@ -266,8 +316,6 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .trait-icon svg{width:14px;height:14px;stroke:var(--g1);stroke-width:2;fill:none}
 .trait-name{font-size:.78rem;font-weight:600;color:var(--cr);margin-bottom:.12rem}
 .trait-desc{font-size:.68rem;color:var(--tp);line-height:1.45}
-
-/* Bar meter for each trait */
 .trait-meter{margin-top:.4rem;height:2px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
 .trait-fill{height:100%;background:linear-gradient(90deg,var(--g3),var(--g1));border-radius:2px;width:0%;transition:width 1.2s var(--ex)}
 
@@ -289,12 +337,16 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .pi-lbl{font-size:.65rem;color:var(--tp);letter-spacing:.1em;line-height:1.4}
 
 /* ═══════════════════════════════════════════
-   STAGE 4: CAPABILITIES — BENTO REDESIGN
-   Asymmetric grid with hero card + satellite cards
+   STAGE 4: CAPABILITIES — BENTO
 ═══════════════════════════════════════════ */
+.cap-header{text-align:center;margin-bottom:2.5rem}
+.cap-header-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.26em;color:var(--g3);margin-bottom:1rem}
+.cap-header-t{font-family:var(--fd);font-size:clamp(1.5rem,3.8vw,2.4rem);font-weight:300;font-style:italic;color:var(--cr);line-height:1.55;margin-bottom:.6rem}
+.cap-header-t em{font-style:normal;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cap-header-s{font-size:.87rem;color:var(--bn);max-width:480px;margin:0 auto;line-height:1.8}
+
 .bento{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:auto;gap:.7rem}
 
-/* Card base */
 .bc{
   border-radius:18px;padding:1.6rem 1.5rem;
   background:rgba(10,8,6,.85);border:1px solid rgba(201,163,74,.08);
@@ -304,14 +356,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .bc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,74,.05),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
 .bc:hover{border-color:rgba(201,163,74,.24);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 24px rgba(201,163,74,.03)}.bc:hover::before{opacity:1}
 
-/* Grid placement */
 .bc-hero{grid-column:span 6}
 .bc-wide{grid-column:span 4}
 .bc-narrow{grid-column:span 2}
 .bc-third{grid-column:span 2}
 @media(max-width:620px){.bc-hero,.bc-wide,.bc-narrow,.bc-third{grid-column:span 6}}
 
-/* Hero card special styling */
 .bc-hero{
   background:linear-gradient(135deg,rgba(14,11,8,.98) 0%,rgba(10,8,6,.95) 100%);
   border-color:rgba(201,163,74,.14);
@@ -329,152 +379,87 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 }
 .bc-hero-graphic::before{content:'';position:absolute;inset:-1px;border-radius:19px;background:linear-gradient(135deg,rgba(201,163,74,.2),transparent);opacity:.5}
 .bc-hero-graphic svg{width:32px;height:32px;stroke:var(--g1);stroke-width:1.5;fill:none}
-.bc-hero-text{}
 .bc-hero-tag{font-family:var(--fb);font-size:.46rem;letter-spacing:.2em;color:var(--g3);margin-bottom:.4rem;opacity:.8}
 .bc-hero-title{font-family:var(--fd);font-size:clamp(1.2rem,3vw,1.65rem);font-style:italic;font-weight:400;color:var(--cr);line-height:1.35;margin-bottom:.5rem}
 .bc-hero-desc{font-size:.82rem;color:var(--bn);line-height:1.75;max-width:500px}
-.bc-hero-stat{
-  margin-left:auto;flex-shrink:0;text-align:right;
-}
+.bc-hero-stat{margin-left:auto;flex-shrink:0;text-align:right;}
 @media(max-width:580px){.bc-hero-stat{margin-left:0;text-align:left}}
 .bc-hero-stat-n{font-family:var(--fb);font-size:2.2rem;color:var(--g1);letter-spacing:-.04em;line-height:1}
 .bc-hero-stat-l{font-size:.6rem;color:var(--tp);letter-spacing:.1em;margin-top:.2rem}
 
-/* Regular bento cards */
 .bc-tag{font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--g3);margin-bottom:.7rem;opacity:.75}
 .bc-icon{width:36px;height:36px;border-radius:10px;background:rgba(201,163,74,.07);border:1px solid rgba(201,163,74,.14);display:grid;place-items:center;margin-bottom:.85rem;transition:transform .4s var(--bk),border-color .3s}
 .bc:hover .bc-icon{transform:rotate(8deg) scale(1.1);border-color:rgba(201,163,74,.4)}
 .bc-icon svg{width:17px;height:17px;stroke:var(--g1);stroke-width:1.75;fill:none}
 .bc-title{font-size:.9rem;font-weight:600;color:var(--cr);margin-bottom:.3rem;letter-spacing:-.01em}
 .bc-desc{font-size:.74rem;color:var(--tp);line-height:1.65}
-.bc-metric{
-  margin-top:.85rem;display:inline-flex;align-items:baseline;gap:.3rem;
-  font-family:var(--fb);
-}
+.bc-metric{margin-top:.85rem;display:inline-flex;align-items:baseline;gap:.3rem;font-family:var(--fb)}
 .bc-metric-n{font-size:1.4rem;color:var(--g1);letter-spacing:-.03em}
 .bc-metric-u{font-size:.6rem;color:var(--tp);letter-spacing:.1em}
 
-/* Wide card has a mini bar chart visual */
 .bc-wide{display:flex;gap:1.25rem;align-items:center}
 @media(max-width:620px){.bc-wide{flex-direction:column;align-items:flex-start}}
 .bc-wide-bars{display:flex;align-items:flex-end;gap:4px;height:48px;flex-shrink:0}
-.bbar{width:8px;border-radius:3px 3px 0 0;background:rgba(201,163,74,.15);transition:height .8s var(--ex),background .3s}
-.bc:hover .bbar{background:rgba(201,163,74,.35)}
-.bc-wide-content{flex:1}
-
-/* Cap section header */
-.cap-header{text-align:center;margin-bottom:2rem}
-.cap-header-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.28em;color:var(--g3);margin-bottom:.6rem;opacity:.85}
-.cap-header-t{font-family:var(--fd);font-size:clamp(1.5rem,3.8vw,2.2rem);font-weight:300;font-style:italic;color:var(--cr);margin-bottom:.5rem}
-.cap-header-t em{font-style:normal;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cap-header-s{font-size:.82rem;color:var(--tp);max-width:480px;margin:0 auto;line-height:1.7}
+.bbar{width:8px;border-radius:3px 3px 0 0;background:linear-gradient(to top,var(--g3),var(--g1));transition:height .8s var(--ex)}
 
 /* ═══════════════════════════════════════════
-   STAGE 5: TIMING WINDOW — LINE CHART + REDESIGN
+   STAGE 5: TIMING
 ═══════════════════════════════════════════ */
-.timing-wrap{width:100%}
-.timing-header{text-align:center;margin-bottom:2rem}
-.timing-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.28em;color:var(--g3);margin-bottom:.6rem;opacity:.85}
-.timing-title{font-family:var(--fd);font-size:clamp(1.5rem,3.8vw,2.2rem);font-weight:300;color:var(--cr);line-height:1.45;margin-bottom:.5rem}
-.timing-title em{font-style:italic;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.timing-sub{font-size:.82rem;color:var(--tp);max-width:440px;margin:0 auto;line-height:1.7}
+.timing-wrap{}
+.timing-header{text-align:center;margin-bottom:2.5rem}
+.timing-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.26em;color:var(--g3);margin-bottom:1rem}
+.timing-title{font-family:var(--fd);font-size:clamp(1.55rem,4vw,2.5rem);font-weight:300;font-style:italic;color:var(--cr);line-height:1.55;margin-bottom:.6rem}
+.timing-title em{font-style:normal;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.timing-sub{font-size:.87rem;color:var(--bn);max-width:480px;margin:0 auto;line-height:1.8}
 
-/* Chart container */
-.chart-shell{
-  background:rgba(8,6,4,.9);border:1px solid rgba(201,163,74,.1);
-  border-radius:22px;padding:1.75rem;margin:1.75rem 0;
-  position:relative;overflow:hidden;
-}
-.chart-shell::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(201,163,74,.04),transparent 55%);pointer-events:none}
-.chart-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
-.chart-title-label{font-family:var(--fb);font-size:.5rem;letter-spacing:.22em;color:var(--g3);opacity:.8}
-.chart-legend{display:flex;align-items:center;gap:.5rem;font-size:.65rem;color:var(--tp)}
-.chart-legend-dot{width:8px;height:2px;background:var(--g1);border-radius:1px}
+.chart-shell{border-radius:20px;background:rgba(9,7,5,.7);border:1px solid rgba(201,163,74,.1);padding:1.5rem;margin-bottom:1.75rem;overflow:hidden}
+.chart-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
+.chart-title-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.18em;color:var(--g3)}
+.chart-legend{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:var(--tp);letter-spacing:.05em}
+.chart-legend-dot{width:6px;height:6px;border-radius:50%;background:var(--g1)}
 #advantageChart{width:100%;display:block}
 .chart-annotations{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1rem}
-.chart-ann{text-align:center;padding:.6rem .5rem;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:background .3s,border-color .3s}
-.chart-ann:hover{background:rgba(201,163,74,.03);border-color:rgba(201,163,74,.12)}
-.chart-ann:last-child{background:rgba(201,163,74,.05);border-color:rgba(201,163,74,.18)}
-.chart-ann-yr{font-family:var(--fb);font-size:.48rem;letter-spacing:.14em;color:var(--tp);margin-bottom:.25rem}
-.chart-ann:last-child .chart-ann-yr{color:var(--g1)}
-.chart-ann-lbl{font-size:.7rem;color:var(--cr);font-weight:500;line-height:1.3}
-@media(max-width:480px){.chart-annotations{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.chart-annotations{grid-template-columns:repeat(2,1fr)}}
+.chart-ann{padding:.6rem .85rem;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
+.chart-ann-yr{font-family:var(--fb);font-size:.52rem;letter-spacing:.12em;color:var(--g1);margin-bottom:.18rem}
+.chart-ann-lbl{font-size:.68rem;color:var(--tp);line-height:1.4}
 
-/* Insight strip below chart */
-.timing-insights{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;
-  margin-top:1.25rem;
-}
-@media(max-width:500px){.timing-insights{grid-template-columns:1fr}}
-.ti{
-  padding:1.1rem;border-radius:14px;
-  background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);
-  transition:border-color .3s,transform .35s var(--ex);
-}
-.ti:hover{border-color:rgba(201,163,74,.14);transform:translateY(-3px)}
-.ti-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--g3);margin-bottom:.4rem;opacity:.75}
-.ti-val{font-family:var(--fd);font-size:1.25rem;font-style:italic;color:var(--cr);margin-bottom:.2rem;line-height:1.2}
+.timing-insights{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+@media(max-width:520px){.timing-insights{grid-template-columns:1fr}}
+.ti{padding:1.25rem;border-radius:14px;background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.04);transition:border-color .3s,transform .35s var(--ex)}
+.ti:hover{border-color:rgba(201,163,74,.16);transform:translateY(-2px)}
+.ti-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.2em;color:var(--g3);margin-bottom:.4rem}
+.ti-val{font-family:var(--fd);font-size:1.35rem;color:var(--cr);font-style:italic;margin-bottom:.3rem}
 .ti-desc{font-size:.71rem;color:var(--tp);line-height:1.55}
-
-.timing-close{font-family:var(--fd);font-size:clamp(.95rem,2.4vw,1.3rem);font-style:italic;color:var(--bn);max-width:500px;margin:1.5rem auto 0;text-align:center;line-height:1.9}
-.timing-close em{color:var(--g1);font-style:normal;font-weight:500}
+.timing-close{font-family:var(--fd);font-size:clamp(1rem,2.4vw,1.35rem);font-style:italic;color:var(--bn);text-align:center;line-height:1.7;max-width:520px;margin:0 auto 0}
+.timing-close em{font-style:normal;color:var(--cr)}
 
 /* ═══════════════════════════════════════════
-   STAGE 6: YOUR PATH — STAIRCASE DESIGN
-   Each level is a diagonal-offset card with
-   connecting glow line
+   STAGE 6: PATH — STAIRCASE
 ═══════════════════════════════════════════ */
-.path-wrap{width:100%}
+.path-wrap{}
 .path-header{text-align:center;margin-bottom:2.5rem}
-.path-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.28em;color:var(--g3);margin-bottom:.6rem;opacity:.85}
-.path-title{font-family:var(--fd);font-size:clamp(1.5rem,3.8vw,2.2rem);font-weight:300;font-style:italic;color:var(--cr);line-height:1.45;margin-bottom:.5rem}
+.path-ey{font-family:var(--fb);font-size:.52rem;letter-spacing:.26em;color:var(--g3);margin-bottom:1rem}
+.path-title{font-family:var(--fd);font-size:clamp(1.55rem,4vw,2.5rem);font-weight:300;font-style:italic;color:var(--cr);line-height:1.55;margin-bottom:.6rem}
 .path-title em{font-style:normal;font-weight:500;background:linear-gradient(115deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.path-sub{font-size:.82rem;color:var(--tp);max-width:440px;margin:0 auto;line-height:1.7}
+.path-sub{font-size:.87rem;color:var(--bn);max-width:480px;margin:0 auto;line-height:1.8}
 
-/* Staircase container */
-.staircase{display:flex;flex-direction:column;gap:0;position:relative}
-/* Connector line */
-.staircase::before{
-  content:'';position:absolute;left:38px;top:46px;bottom:46px;width:1px;
-  background:linear-gradient(to bottom,rgba(201,163,74,.08),rgba(201,163,74,.25),rgba(201,163,74,.35),rgba(201,163,74,.2));
-  z-index:0;
-}
-@media(max-width:480px){.staircase::before{left:28px}}
-
-/* Each step */
-.step{
-  display:flex;gap:0;align-items:stretch;
-  margin-bottom:.6rem;position:relative;z-index:1;
-}
-.step:last-child{margin-bottom:0}
-
-/* Level number node */
-.step-node{
-  flex-shrink:0;width:76px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:1.5rem;
-  position:relative;
-}
+.staircase{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.5rem}
+.step{display:flex;gap:.85rem;align-items:flex-start;position:relative}
+.step-node{display:flex;flex-direction:column;align-items:center;width:64px;flex-shrink:0;padding-top:.85rem;position:relative}
 @media(max-width:480px){.step-node{width:56px}}
-.step-dot{
-  width:16px;height:16px;border-radius:50%;
-  border:2px solid rgba(201,163,74,.3);background:var(--v);
-  display:grid;place-items:center;
-  z-index:2;
-}
+.step-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(201,163,74,.3);background:var(--v);display:grid;place-items:center;z-index:2}
 .step:hover .step-dot{border-color:var(--g1);box-shadow:0 0 16px rgba(201,163,74,.4)}
 .step-dot-inner{width:6px;height:6px;border-radius:50%;background:var(--g3);transition:background .4s,transform .4s}
 .step:hover .step-dot-inner{background:var(--g1);transform:scale(1.3)}
-.step-num{
-  font-family:var(--fb);font-size:.48rem;letter-spacing:.18em;color:var(--tp);margin-top:.5rem;
-}
+.step-num{font-family:var(--fb);font-size:.48rem;letter-spacing:.18em;color:var(--tp);margin-top:.5rem}
 
-/* Card */
 .step-card{
   flex:1;border-radius:18px;padding:1.6rem 1.75rem;
   background:rgba(10,8,6,.88);border:1px solid rgba(201,163,74,.09);
   position:relative;overflow:hidden;
   transition:border-color .38s var(--ex),transform .38s var(--ex),box-shadow .38s;
 }
-/* Stagger indent per level */
 .step:nth-child(1) .step-card{margin-left:0}
 .step:nth-child(2) .step-card{margin-left:1rem}
 .step:nth-child(3) .step-card{margin-left:2rem}
@@ -484,38 +469,20 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   .step:nth-child(3) .step-card{margin-left:1rem}
   .step:nth-child(4) .step-card{margin-left:1.5rem}
 }
-
-/* Top accent line */
 .step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,var(--g1),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ex)}
 .step:hover .step-card::before{transform:scaleX(1)}
-
 .step-card:hover{border-color:rgba(201,163,74,.24);transform:translateX(4px);box-shadow:0 12px 40px rgba(0,0,0,.4),0 0 20px rgba(201,163,74,.03)}
-
-/* Level 1 glow */
 .step:nth-child(1) .step-card{border-color:rgba(201,163,74,.14);background:linear-gradient(135deg,rgba(14,11,8,.95),rgba(9,7,5,.98))}
-
 .sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.85rem}
 .sc-level{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--g3);opacity:.8}
-.sc-free{
-  font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--g1);
-  background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);
-  padding:.18rem .55rem;border-radius:4px;white-space:nowrap;
-}
+.sc-free{font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--g1);background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);padding:.18rem .55rem;border-radius:4px;white-space:nowrap}
 .sc-name{font-size:1.05rem;font-weight:700;color:var(--cr);margin-bottom:.4rem;letter-spacing:-.01em}
 .sc-desc{font-size:.79rem;color:var(--bn);line-height:1.72}
 .sc-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem}
 .sctag{font-size:.6rem;color:var(--tp);letter-spacing:.05em;padding:.16rem .55rem;border:1px solid rgba(255,255,255,.07);border-radius:4px;background:rgba(255,255,255,.02)}
-
-/* Big decorative number background */
-.step-card::after{
-  content:attr(data-n);position:absolute;right:1rem;bottom:-.5rem;
-  font-family:var(--fb);font-size:5rem;font-weight:700;color:rgba(201,163,74,.04);
-  line-height:1;pointer-events:none;user-select:none;letter-spacing:-.05em;
-  transition:color .4s,transform .4s;
-}
+.step-card::after{content:attr(data-n);position:absolute;right:1rem;bottom:-.5rem;font-family:var(--fb);font-size:5rem;font-weight:700;color:rgba(201,163,74,.04);line-height:1;pointer-events:none;user-select:none;letter-spacing:-.05em;transition:color .4s,transform .4s}
 .step:hover .step-card::after{color:rgba(201,163,74,.07);transform:scale(1.05)}
 
-/* Path glow footer */
 .path-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 110%,rgba(201,163,74,.052),transparent 55%)}
 </style>
 </head>
@@ -523,7 +490,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <div id="cur" aria-hidden="true"></div>
 <div id="cur-r" aria-hidden="true"></div>
 <div id="blob" aria-hidden="true"></div>
-<div id="prog" role="progressbar" aria-label="Onboarding progress" aria-valuemin="0" aria-valuemax="100"></div>
+<div id="prog" role="progressbar" aria-label="Assessment progress" aria-valuemin="0" aria-valuemax="100"></div>
 <canvas id="bgc" aria-hidden="true"></canvas>
 <div class="orb o1" aria-hidden="true"></div>
 <div class="orb o2" aria-hidden="true"></div>
@@ -535,38 +502,52 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <span class="hb-n">VERCELLUM</span>
   </a>
   <div class="hdr-r">
+    <a href="index.html" class="hdr-back" aria-label="Back to homepage">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span>BACK TO HOME</span>
+    </a>
     <span class="hstep-lbl" id="stepLbl" aria-live="polite">Discovery</span>
     <div class="hdots" id="hdots" aria-hidden="true"></div>
+    <!-- NEW: step counter and skip test link -->
+    <span class="step-counter" id="stepCounter" aria-label="Current step">1/6</span>
+    <a href="path.html" class="skip-test-link" id="skipTestLink">Skip test →</a>
   </div>
 </header>
 
 <main class="wrap" id="main" role="main">
-<div id="sDots" role="tablist" aria-label="Onboarding progress steps"></div>
+<div id="sDots" role="tablist" aria-label="Assessment progress steps"></div>
 
 <!-- ════════════════ S1: INTRO ════════════════ -->
 <section class="stage active" id="s1" aria-label="Introduction">
   <div class="s1">
-    <div class="ey fu"><div class="ey-dot"></div>AI Discovery · Free · 2 Minutes</div>
-    <h1 class="s1-h fu d1">The world is changing faster<br>than <em>most people realize.</em></h1>
+    <div class="ey fu"><div class="ey-dot"></div>BUSINESS AI ASSESSMENT · FREE · 2 MINUTES</div>
+    <h1 class="s1-h fu d1">Your competitors are automating.<br><em>Most business owners don't know where to start.</em></h1>
     <div class="gl fu d2"></div>
     <div class="s1-body fu d3">
-      <p>Artificial Intelligence is not just another technology trend. It is a fundamental shift in how people work, create, and build real opportunities — and it is happening right now.</p>
-      <p>Many feel confused about where to start. Others wonder if they are already too late.</p>
-      <p><strong>You are not — and this experience will show you exactly why.</strong></p>
+      <!-- NEW: welcome message and explanation -->
+      <p><strong>Welcome to VERCELLUM.</strong> This quick assessment will pinpoint your business's AI readiness and recommend the best learning path.</p>
+      <p>AI agents are no longer a future possibility — they are running operations, closing sales, and handling customer support inside businesses right now. The gap between early movers and late adopters is widening every month.</p>
+      <p>Most SMB owners understand this is important. Very few know the right first step for their specific business.</p>
+      <p><strong>This assessment will show you exactly where your business stands — and the precise path to get ahead.</strong></p>
     </div>
     <div class="s1-stats fu d4">
       <div class="s1-st"><span class="s1-st-n">2min</span><span class="s1-st-l">TO COMPLETE</span></div>
       <div class="s1-st"><span class="s1-st-n">6</span><span class="s1-st-l">QUESTIONS</span></div>
       <div class="s1-st"><span class="s1-st-n">Free</span><span class="s1-st-l">NO SIGN UP</span></div>
     </div>
-    <div class="bw fu d5">
-      <button class="btn-p" id="s1btn"><span>Start Quick Test</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <div class="s1-trust fu d5">
+      <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No coding required</span>
+      <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built for SMB owners</span>
+      <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Real business results</span>
+    </div>
+    <div class="bw fu d6">
+      <button class="btn-p" id="s1btn"><span>Start Business Assessment</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
 
 <!-- ════════════════ S2: QUESTIONS ════════════════ -->
-<section class="stage" id="s2" aria-label="Quick assessment" style="display:none">
+<section class="stage" id="s2" aria-label="Business assessment questions" style="display:none">
   <div class="q-prog-wrap">
     <div class="q-prog-track"><div class="q-prog-fill" id="qpf" style="width:0%"></div></div>
     <div class="q-prog-lbls"><span class="qpl hi" id="qpl">Question 1</span><span class="qpl" id="qpr">6 remaining</span></div>
@@ -574,21 +555,21 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   <div class="qinner" id="qi">
     <div class="q-ctr"><span id="qctr">QUESTION 1 OF 6</span><div class="q-ctr-bar"><div class="q-ctr-fill" id="qcf" style="width:0%"></div></div></div>
     <h2 class="q-txt" id="qtxt"></h2>
-    <p class="q-hint">Choose the answer that resonates most</p>
+    <p class="q-hint">Choose the answer that best reflects your business today</p>
     <div class="q-opts" id="qopts"></div>
     <div id="qconf" style="text-align:center;margin-top:1.2rem"></div>
   </div>
   <div class="pause-s" id="pauseBlk" style="display:none">
     <div class="pause-badge fu"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Halfway There</div>
-    <h2 class="pause-h fu d1">Your answers reveal <em>genuine curiosity</em> about this field.</h2>
-    <div class="pause-ins fu d2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span>Only 12% of people who encounter AI actually take a structured first step toward mastering it.</span></div>
-    <p class="pause-body fu d3">Many people hear about AI every day. Almost none take the time to understand it properly.<br><br>You are already in a different category. Let's find exactly which path fits where you are right now.</p>
-    <div class="bw fu d4"><button class="btn-p" id="pauseBtn"><span>Continue Test</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+    <h2 class="pause-h fu d1">Your answers signal <em>real readiness to act.</em></h2>
+    <div class="pause-ins fu d2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span>Only 14% of small business owners have taken any structured step toward AI implementation — you are already in a different category.</span></div>
+    <p class="pause-body fu d3">Most business owners know AI matters. Almost none have taken the time to build a structured plan around it.<br><br>You are already thinking differently about your operations. Let's identify the exact automation path that fits where your business is right now.</p>
+    <div class="bw fu d4"><button class="btn-p" id="pauseBtn"><span>Continue Assessment</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 </section>
 
-<!-- ════════════════ S3: AI PROFILE — REDESIGNED ════════════════ -->
-<section class="stage" id="s3" aria-label="AI profile analysis" style="display:none">
+<!-- ════════════════ S3: BUSINESS PROFILE ════════════════ -->
+<section class="stage" id="s3" aria-label="Business AI profile analysis" style="display:none">
 
   <!-- Loader -->
   <div id="scanWrap" class="scan-loader">
@@ -597,8 +578,8 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       <div class="scan-sweep"></div>
       <div class="scan-core"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
     </div>
-    <div class="scan-lbl fu d1" id="scanMsg">MAPPING YOUR PROFILE</div>
-    <div class="scan-stream fu d2"><span>Analyzing curiosity index ···</span><span>Mapping learning style ·····</span><span>Finalizing results ··········</span></div>
+    <div class="scan-lbl fu d1" id="scanMsg">MAPPING YOUR BUSINESS PROFILE</div>
+    <div class="scan-stream fu d2"><span>Analyzing operational readiness ···</span><span>Mapping automation potential ····</span><span>Calculating AI readiness score ···</span></div>
   </div>
 
   <!-- Result -->
@@ -606,13 +587,13 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 
     <!-- Score header -->
     <div class="profile-header fu">
-      <div class="profile-tag">YOUR AI PROFILE · VERCELLUM ASSESSMENT</div>
+      <div class="profile-tag">YOUR BUSINESS AI PROFILE · VERCELLUM ASSESSMENT</div>
       <div class="profile-score-row">
         <div class="profile-score-big" id="scoreCounter">0</div>
         <div class="profile-score-meta">
           <div class="profile-score-denom">/ 100</div>
-          <div class="profile-score-name">Readiness Score</div>
-          <div class="profile-score-sub">Top 6% of assessed profiles this month</div>
+          <div class="profile-score-name">Business AI Readiness</div>
+          <div class="profile-score-sub">Top 8% of SMB owners assessed this month</div>
         </div>
       </div>
     </div>
@@ -622,49 +603,49 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 
       <!-- Radar chart -->
       <div class="radar-panel fu d1">
-        <div class="radar-title">COGNITIVE PROFILE · 5 DIMENSIONS</div>
-        <svg id="radarChart" viewBox="0 0 200 200" aria-label="Radar chart showing 5 cognitive dimensions"></svg>
+        <div class="radar-title">BUSINESS READINESS · 5 DIMENSIONS</div>
+        <svg id="radarChart" viewBox="0 0 200 200" aria-label="Radar chart showing 5 business readiness dimensions"></svg>
       </div>
 
       <!-- Traits -->
       <div class="traits-panel">
         <div class="trait-row fu d2">
-          <div class="trait-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
           <div style="flex:1">
-            <div class="trait-name">Curiosity Depth</div>
-            <div class="trait-desc">Your engagement goes beyond surface interest into genuine exploration</div>
+            <div class="trait-name">Strategic Vision</div>
+            <div class="trait-desc">You recognize AI as a fundamental business lever, not just another tool or trend</div>
             <div class="trait-meter"><div class="trait-fill" data-w="92"></div></div>
           </div>
         </div>
         <div class="trait-row fu d3">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div>
           <div style="flex:1">
-            <div class="trait-name">Structural Thinking</div>
-            <div class="trait-desc">You gravitate toward organized, progressive frameworks over scattered content</div>
+            <div class="trait-name">Systems Thinking</div>
+            <div class="trait-desc">Your business instincts favor process over improvisation — ideal for AI agent deployment</div>
             <div class="trait-meter"><div class="trait-fill" data-w="88"></div></div>
           </div>
         </div>
         <div class="trait-row fu d4">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <div style="flex:1">
-            <div class="trait-name">Action Orientation</div>
-            <div class="trait-desc">You are driven by practical output and measurable results, not passive learning</div>
+            <div class="trait-name">Implementation Drive</div>
+            <div class="trait-desc">You prioritize deploying over deliberating — the most critical quality for business automation</div>
             <div class="trait-meter"><div class="trait-fill" data-w="95"></div></div>
           </div>
         </div>
         <div class="trait-row fu d5">
-          <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+          <div class="trait-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div style="flex:1">
-            <div class="trait-name">Adaptability</div>
-            <div class="trait-desc">High openness to new tools — the most critical trait in the current AI landscape</div>
+            <div class="trait-name">Operational Adaptability</div>
+            <div class="trait-desc">High readiness to restructure workflows around AI — a rare and valuable business trait</div>
             <div class="trait-meter"><div class="trait-fill" data-w="85"></div></div>
           </div>
         </div>
         <div class="trait-row fu d6">
-          <div class="trait-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <div style="flex:1">
-            <div class="trait-name">Growth Momentum</div>
-            <div class="trait-desc">Strong forward trajectory and willingness to invest in compounding knowledge</div>
+            <div class="trait-name">Growth Orientation</div>
+            <div class="trait-desc">Strong trajectory toward scaling operations through leverage rather than headcount</div>
             <div class="trait-meter"><div class="trait-fill" data-w="90"></div></div>
           </div>
         </div>
@@ -675,51 +656,51 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <!-- Three insight pills -->
     <div class="profile-insights fu d7">
       <div class="pi">
-        <span class="pi-num">Top 6%</span>
-        <span class="pi-lbl">Profile Readiness<br>vs. all assessments</span>
+        <span class="pi-num">Top 8%</span>
+        <span class="pi-lbl">SMB Readiness<br>vs. all assessments</span>
       </div>
       <div class="pi">
         <span class="pi-num">94pts</span>
-        <span class="pi-lbl">Composite Score<br>across all dimensions</span>
+        <span class="pi-lbl">Composite Score<br>across 5 dimensions</span>
       </div>
       <div class="pi">
-        <span class="pi-num">Level 1</span>
+        <span class="pi-num">Path 1</span>
         <span class="pi-lbl">Recommended<br>starting point</span>
       </div>
     </div>
 
     <div class="bw fu d8">
-      <button class="btn-g" id="s3btn">See What AI Can Actually Do<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn-g" id="s3btn">See What AI Can Do for Your Business<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
 
 <!-- ════════════════ S4: CAPABILITIES — BENTO ════════════════ -->
-<section class="stage" id="s4" aria-label="AI Capabilities" style="display:none">
+<section class="stage" id="s4" aria-label="AI Capabilities for SMBs" style="display:none">
   <div class="cap-header">
-    <div class="cap-header-ey fu">REAL CAPABILITIES · DEPLOYABLE TODAY</div>
-    <h2 class="cap-header-t fu d1">What AI can <em>actually do</em> for you</h2>
-    <p class="cap-header-s fu d2">Not hypothetical. Not future promises. Tools you can use right now — with the right knowledge.</p>
+    <div class="cap-header-ey fu">REAL CAPABILITIES · DEPLOYABLE IN YOUR BUSINESS TODAY</div>
+    <h2 class="cap-header-t fu d1">What AI agents can <em>actually do</em> for your business</h2>
+    <p class="cap-header-s fu d2">Not hypothetical. Not promises. Systems you can deploy inside your operations right now — with the right structured knowledge.</p>
   </div>
 
   <div class="bento">
     <!-- Hero card -->
     <div class="bc bc-hero fu d1">
       <div class="bc-hero-graphic">
-        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
       <div class="bc-hero-text">
-        <div class="bc-hero-tag">HIGHEST IMPACT CAPABILITY</div>
-        <div class="bc-hero-title">Multiply your productive output — without multiplying your hours</div>
-        <div class="bc-hero-desc">AI doesn't just make you faster. It allows a single person to produce the strategic, creative, and analytical output of a full team — fundamentally rewriting what one individual can build.</div>
+        <div class="bc-hero-tag">HIGHEST IMPACT FOR SMB OWNERS</div>
+        <div class="bc-hero-title">Replace 40+ hours of weekly operations — without adding a single hire</div>
+        <div class="bc-hero-desc">AI agents don't just assist your team. They handle entire workflows autonomously — customer queries, lead follow-up, scheduling, reporting — freeing your people for the decisions that actually move your business forward.</div>
       </div>
       <div class="bc-hero-stat">
-        <div class="bc-hero-stat-n">10×</div>
-        <div class="bc-hero-stat-l">AVG OUTPUT<br>MULTIPLIER</div>
+        <div class="bc-hero-stat-n">40+</div>
+        <div class="bc-hero-stat-l">HOURS SAVED<br>PER WEEK</div>
       </div>
     </div>
 
-    <!-- Row 2: wide + narrow -->
+    <!-- Row 2 -->
     <div class="bc bc-wide fu d2">
       <div class="bc-wide-bars" id="autoBars">
         <div class="bbar" style="height:20%"></div>
@@ -729,107 +710,107 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
         <div class="bbar" style="height:90%"></div>
       </div>
       <div class="bc-wide-content">
-        <div class="bc-tag">WORKFLOW AUTOMATION</div>
+        <div class="bc-tag">OPERATIONS AUTOMATION</div>
         <div class="bc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div class="bc-title">Automate Repetitive Work</div>
-        <div class="bc-desc">Let AI handle routine tasks 24/7 while you focus on decisions that actually move things forward</div>
+        <div class="bc-title">Automate Your Back Office 24/7</div>
+        <div class="bc-desc">AI agents handle scheduling, follow-ups, data entry, and reporting around the clock while your team focuses on work that requires real judgment</div>
         <div class="bc-metric"><span class="bc-metric-n">80%</span><span class="bc-metric-u">OF ROUTINE TASKS</span></div>
       </div>
     </div>
 
     <div class="bc bc-narrow fu d3">
-      <div class="bc-tag">BUILD SPEED</div>
+      <div class="bc-tag">NO-CODE DEPLOYMENT</div>
       <div class="bc-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-      <div class="bc-title">Build Products Faster</div>
-      <div class="bc-desc">Create websites, apps, and tools at a fraction of the time and cost</div>
-      <div class="bc-metric"><span class="bc-metric-n">10×</span><span class="bc-metric-u">FASTER</span></div>
+      <div class="bc-title">Deploy Without Developers</div>
+      <div class="bc-desc">Launch AI agents inside your business in days, not months — no technical team, no coding background required</div>
+      <div class="bc-metric"><span class="bc-metric-n">0</span><span class="bc-metric-u">CODE REQUIRED</span></div>
     </div>
 
-    <!-- Row 3: three equal thirds -->
+    <!-- Row 3 -->
     <div class="bc bc-third fu d4">
-      <div class="bc-tag">CONTENT & IDEAS</div>
-      <div class="bc-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-      <div class="bc-title">Generate Content</div>
-      <div class="bc-desc">Produce high-quality writing, strategies and visuals on demand at any scale</div>
+      <div class="bc-tag">SALES & LEAD GENERATION</div>
+      <div class="bc-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <div class="bc-title">AI-Powered Sales Pipelines</div>
+      <div class="bc-desc">Agents that prospect, qualify, and nurture leads 24/7 — growing your revenue without growing your headcount</div>
     </div>
 
     <div class="bc bc-third fu d5">
-      <div class="bc-tag">DATA ANALYSIS</div>
-      <div class="bc-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="bc-title">Analyze Information</div>
-      <div class="bc-desc">Extract insights from data, documents, and research in seconds — not hours</div>
+      <div class="bc-tag">CUSTOMER SUPPORT</div>
+      <div class="bc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="bc-title">Always-On Customer Service</div>
+      <div class="bc-desc">Handle enquiries, resolve issues, and qualify prospects at any volume, any hour — without adding support staff</div>
     </div>
 
     <div class="bc bc-third fu d6">
-      <div class="bc-tag">INCOME GENERATION</div>
-      <div class="bc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <div class="bc-title">Create Digital Products</div>
-      <div class="bc-desc">Design and launch income-generating products without needing a developer</div>
+      <div class="bc-tag">BUSINESS INTELLIGENCE</div>
+      <div class="bc-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="bc-title">Instant Data Insights</div>
+      <div class="bc-desc">Analyze sales patterns, customer feedback, and operational data in seconds — not hours of manual spreadsheet work</div>
     </div>
   </div>
 
   <div class="bw fu d7">
-    <button class="btn-g" id="s4btn">Why the Timing Matters Now<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-g" id="s4btn">Why the Timing Matters for Your Business<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
 <!-- ════════════════ S5: TIMING — LINE CHART ════════════════ -->
-<section class="stage" id="s5" aria-label="Why now" style="display:none">
+<section class="stage" id="s5" aria-label="Why now matters for businesses" style="display:none">
   <div class="timing-wrap">
     <div class="timing-header">
-      <div class="timing-ey fu">THE COMPOUNDING ADVANTAGE</div>
-      <h2 class="timing-title fu d1">Those who start now<br><em>build an unassailable lead.</em></h2>
-      <p class="timing-sub fu d2">Every major technology shift rewards early movers with advantages that late adopters simply cannot replicate.</p>
+      <div class="timing-ey fu">THE FIRST-MOVER BUSINESS ADVANTAGE</div>
+      <h2 class="timing-title fu d1">Businesses that automate now<br><em>build leads that cannot be closed.</em></h2>
+      <p class="timing-sub fu d2">Every major technology shift rewards the businesses that move first with structural advantages that late adopters simply cannot replicate — no matter how hard they try later.</p>
     </div>
 
     <div class="chart-shell fu d3">
       <div class="chart-label-row">
-        <span class="chart-title-label">EARLY ADOPTER ADVANTAGE INDEX · 2000 → NOW → +5 YEARS</span>
-        <span class="chart-legend"><span class="chart-legend-dot"></span>Relative Competitive Advantage</span>
+        <span class="chart-title-label">COMPETITIVE ADVANTAGE INDEX · 2000 → NOW → +5 YEARS</span>
+        <span class="chart-legend"><span class="chart-legend-dot"></span>Early Adopter Business Advantage</span>
       </div>
-      <svg id="advantageChart" viewBox="0 0 640 220" aria-label="Line chart showing rising AI early adopter advantage over time"></svg>
+      <svg id="advantageChart" viewBox="0 0 640 220" aria-label="Line chart showing rising competitive advantage for early AI adopters over time"></svg>
       <div class="chart-annotations">
         <div class="chart-ann"><div class="chart-ann-yr">2000s</div><div class="chart-ann-lbl">The Internet</div></div>
-        <div class="chart-ann"><div class="chart-ann-yr">2010s</div><div class="chart-ann-lbl">Social Media</div></div>
-        <div class="chart-ann"><div class="chart-ann-yr">2015–20</div><div class="chart-ann-lbl">Coding &amp; No-Code</div></div>
-        <div class="chart-ann"><div class="chart-ann-yr">NOW →</div><div class="chart-ann-lbl">Artificial Intelligence</div></div>
+        <div class="chart-ann"><div class="chart-ann-yr">2010s</div><div class="chart-ann-lbl">Social Commerce</div></div>
+        <div class="chart-ann"><div class="chart-ann-yr">2015–20</div><div class="chart-ann-lbl">No-Code Tools</div></div>
+        <div class="chart-ann"><div class="chart-ann-yr">NOW →</div><div class="chart-ann-lbl">AI Agents</div></div>
       </div>
     </div>
 
     <div class="timing-insights fu d4">
       <div class="ti">
+        <div class="ti-label">COMPETITIVE WINDOW</div>
+        <div class="ti-val">18 months</div>
+        <div class="ti-desc">The average time before an early-adopter business's AI advantage becomes structurally impossible for competitors to close</div>
+      </div>
+      <div class="ti">
+        <div class="ti-label">ADOPTION PHASE</div>
+        <div class="ti-val">Early Majority</div>
+        <div class="ti-desc">The AI adoption curve is still in the steep early-majority phase — the optimal window for businesses to establish durable leads</div>
+      </div>
+      <div class="ti">
         <div class="ti-label">COMPOUNDING EFFECT</div>
-        <div class="ti-val">12 months</div>
-        <div class="ti-desc">Time it takes early movers to build a skills gap that late adopters cannot close</div>
-      </div>
-      <div class="ti">
-        <div class="ti-label">WINDOW STATUS</div>
-        <div class="ti-val">Open Now</div>
-        <div class="ti-desc">The AI adoption curve is still in the steep early-majority phase — not yet saturated</div>
-      </div>
-      <div class="ti">
-        <div class="ti-label">KNOWLEDGE HALF-LIFE</div>
-        <div class="ti-val">Indefinite</div>
-        <div class="ti-desc">Unlike specific tools, strategic AI thinking compounds and stays relevant regardless of which platforms change</div>
+        <div class="ti-val">Permanent</div>
+        <div class="ti-desc">Unlike specific tool knowledge, AI-operated workflows become self-reinforcing operational moats that competitors cannot buy their way into</div>
       </div>
     </div>
 
-    <p class="timing-close fu d5">Those who start now will not just learn faster — they will build <em>compounding advantages</em> that become structurally impossible to match later.</p>
+    <p class="timing-close fu d5">Businesses that build AI workflows now will not just operate more efficiently — they will develop <em>structural competitive advantages</em> that become impossible to replicate.</p>
   </div>
   <div class="bw fu d6">
-    <button class="btn-g" id="s5btn">Show Me My Exact Path<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-g" id="s5btn">Show Me My Business Path<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
 <!-- ════════════════ S6: PATH — STAIRCASE ════════════════ -->
-<section class="stage" id="s6" aria-label="Your learning path" style="display:none">
+<section class="stage" id="s6" aria-label="Your business transformation path" style="display:none">
   <div class="path-wrap" style="position:relative">
     <div class="path-glow"></div>
 
     <div class="path-header">
-      <div class="path-ey fu">YOUR STRUCTURED ASCENT</div>
-      <h2 class="path-title fu d1">Four levels.<br>One <em>path to real mastery.</em></h2>
-      <p class="path-sub fu d2">Each level builds on the last — practical, progressive, and designed around real-world results from session one.</p>
+      <div class="path-ey fu">YOUR BUSINESS TRANSFORMATION ROADMAP</div>
+      <h2 class="path-title fu d1">Four levels.<br>One <em>path to AI-powered operations.</em></h2>
+      <p class="path-sub fu d2">Each level delivers measurable improvements to your business — practical, progressive, and producing results from your very first session.</p>
     </div>
 
     <div class="staircase fu d3">
@@ -841,12 +822,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
         </div>
         <div class="step-card" data-n="01">
           <div class="sc-top">
-            <div class="sc-level">BEGINNER · AI FOUNDATIONS</div>
+            <div class="sc-level">FOUNDATIONS · AI AGENTS FOR BUSINESS</div>
             <div class="sc-free">FREE TO START</div>
           </div>
-          <div class="sc-name">Understanding the New Intelligence</div>
-          <div class="sc-desc">Grasp how AI actually works, what it can and cannot do, and how to think about it strategically — so you deploy it with precision, not guesswork. Your first session ends with a working system.</div>
-          <div class="sc-tags"><span class="sctag">No prior knowledge</span><span class="sctag">Practical from session 1</span><span class="sctag">Conceptual clarity</span></div>
+          <div class="sc-name">AI Foundations for Business Owners</div>
+          <div class="sc-desc">Understand how AI agents actually work, what they can automate in your business, and how to deploy your first working agent — no technical background required. Your first session ends with a system live inside your operations.</div>
+          <div class="sc-tags"><span class="sctag">No coding required</span><span class="sctag">First agent deployed</span><span class="sctag">Business-first thinking</span></div>
         </div>
       </div>
 
@@ -856,10 +837,10 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
           <div class="step-num">LV 02</div>
         </div>
         <div class="step-card" data-n="02">
-          <div class="sc-top"><div class="sc-level">BUILDER · TOOLS IN PRACTICE</div></div>
-          <div class="sc-name">From Knowledge to Execution</div>
-          <div class="sc-desc">Start using AI tools in real, hands-on ways. Build your first automated workflows and discover the fundamental difference between casual use and true strategic leverage.</div>
-          <div class="sc-tags"><span class="sctag">Real workflows built</span><span class="sctag">Immediate time savings</span><span class="sctag">First automation live</span></div>
+          <div class="sc-top"><div class="sc-level">BUILDER · AUTOMATION SYSTEMS FOR OPERATIONS</div></div>
+          <div class="sc-name">Automate Your Business Operations</div>
+          <div class="sc-desc">Build agents that handle your real operational workflows — customer follow-ups, scheduling, reporting, internal processes. Your first full automation goes live and starts saving measurable hours every week.</div>
+          <div class="sc-tags"><span class="sctag">Real workflows automated</span><span class="sctag">Immediate time savings</span><span class="sctag">First agent live in ops</span></div>
         </div>
       </div>
 
@@ -869,10 +850,10 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
           <div class="step-num">LV 03</div>
         </div>
         <div class="step-card" data-n="03">
-          <div class="sc-top"><div class="sc-level">ADVANCED · REAL PROJECTS</div></div>
-          <div class="sc-name">Building Things That Deliver Value</div>
-          <div class="sc-desc">Build actual products and systems using AI — from digital tools to automated business processes. Apply everything you know to something tangible that creates measurable outcomes.</div>
-          <div class="sc-tags"><span class="sctag">Deploy real projects</span><span class="sctag">Systems architecture</span><span class="sctag">Portfolio-ready work</span></div>
+          <div class="sc-top"><div class="sc-level">ADVANCED · AI SALES & MARKETING AGENTS</div></div>
+          <div class="sc-name">Deploy Revenue-Generating AI Agents</div>
+          <div class="sc-desc">Build agents that generate leads, qualify prospects, and nurture pipelines 24/7 — growing your revenue without increasing headcount. AI-powered sales that work while you sleep.</div>
+          <div class="sc-tags"><span class="sctag">Sales pipeline automated</span><span class="sctag">Lead generation live</span><span class="sctag">Revenue without hiring</span></div>
         </div>
       </div>
 
@@ -882,17 +863,17 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
           <div class="step-num">LV 04</div>
         </div>
         <div class="step-card" data-n="04">
-          <div class="sc-top"><div class="sc-level">PROFESSIONAL · AI-POWERED OPPORTUNITIES</div></div>
-          <div class="sc-name">Where Learning Becomes Earning</div>
-          <div class="sc-desc">Turn your AI knowledge into real-world income streams, career leverage, or a scalable business. This is where compounded skill transforms into compounded financial and professional advantage.</div>
-          <div class="sc-tags"><span class="sctag">Income generation</span><span class="sctag">Scalable systems</span><span class="sctag">Professional leverage</span></div>
+          <div class="sc-top"><div class="sc-level">PROFESSIONAL · MULTI-AGENT BUSINESS WORKFORCE</div></div>
+          <div class="sc-name">Build Your AI-Powered Business</div>
+          <div class="sc-desc">Deploy interconnected AI systems across entire business departments — sales, support, operations, and analytics all working autonomously. Your business runs smarter, leaner, and more competitively than ever before.</div>
+          <div class="sc-tags"><span class="sctag">Multi-agent systems</span><span class="sctag">Full business automation</span><span class="sctag">Scalable AI workforce</span></div>
         </div>
       </div>
 
     </div>
 
     <div class="bw fu d6" style="position:relative;z-index:1">
-      <button class="btn-p" id="finalBtn"><span>Start Your Path — It's Free</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn-p" id="finalBtn"><span>Start Building — It's Free</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
@@ -945,7 +926,7 @@ function drawCV(){ct.clearRect(0,0,W,H);dots.forEach((d,i)=>{d.x+=d.vx;d.y+=d.vy
 drawCV();
 
 /* ══ STAGES ══ */
-const TOTAL=6,LABELS=['Introduction','Quick Test','Profile Analysis','AI Capabilities','Why Now','Your Path'],STAGES=['s1','s2','s3','s4','s5','s6'];
+const TOTAL=6,LABELS=['Introduction','Assessment','Business Profile','AI Capabilities','Why Now','Your Path'],STAGES=['s1','s2','s3','s4','s5','s6'];
 let curS=1;
 function updateUI(){
   const p=(curS-1)/(TOTAL-1);
@@ -954,6 +935,8 @@ function updateUI(){
   document.getElementById('stepLbl').textContent=LABELS[curS-1];
   document.getElementById('hdots').innerHTML=STAGES.map((_,i)=>{const n=i+1,c=n===curS?'now':n<curS?'done':'';return`<div class="hdot ${c}"></div>`;}).join('');
   document.getElementById('sDots').innerHTML=STAGES.map((_,i)=>{const n=i+1,c=n===curS?'act':n<curS?'dn':'ft';return`<div class="si ${c}" role="tab" aria-label="${LABELS[i]}" aria-selected="${n===curS}"></div>`;}).join('');
+  // NEW: update step counter
+  document.getElementById('stepCounter').textContent = `${curS}/${TOTAL}`;
 }
 updateUI();
 
@@ -970,12 +953,12 @@ document.getElementById('s1btn').addEventListener('click',e=>{SND.click();burst(
 
 /* ══ QUESTIONS ══ */
 const QS=[
-  {q:"What attracts you most about AI?",opts:["The ability to automate boring, repetitive tasks","Creating things faster — content, products, ideas","Understanding it before it reshapes everything","Finding new income and career opportunities"]},
-  {q:"How often do you currently use AI tools?",opts:["Never — I haven't started yet","Occasionally, mostly out of curiosity","A few times a week for basic tasks","Regularly — it's part of my workflow"]},
-  {q:"What is your biggest obstacle when it comes to learning AI?",opts:["I don't know where to start","It feels too technical and complex","I don't have enough time to learn","I'm not sure what's actually useful"]},
-  {q:"What would you most like AI to help you achieve?",opts:["Save time and reduce my workload","Build or grow a business","Create a new income stream","Advance my career or freelance work"]},
-  {q:"How comfortable are you learning new digital tools?",opts:["Not very — I prefer simplicity","Somewhat — I can figure things out slowly","Comfortable — I pick things up reasonably fast","Very comfortable — I enjoy exploring new tools"]},
-  {q:"What best describes your current situation?",opts:["Student or just starting out","Working a job, looking for something more","Freelancer or consultant","Building or running a business"]}
+  {q:"What is your biggest operational challenge right now?",opts:["Managing and automating repetitive day-to-day tasks","Growing revenue without proportionally growing headcount","Competing with larger, better-resourced businesses","Delivering better customer experience at any scale"]},
+  {q:"How is AI currently being used in your business?",opts:["Not at all — we haven't started yet","Occasionally by one or two people out of curiosity","A few tools deployed, but not systematically","AI is integrated into several key business workflows"]},
+  {q:"What is your biggest obstacle to adopting AI in your business?",opts:["Not knowing which tools are actually right for us","It feels too technical for a non-developer business owner","We don't have the time to figure out where to start","Uncertainty about real ROI for our specific situation"]},
+  {q:"What would AI integration most improve in your business?",opts:["Reduce time spent on manual, repetitive operations","Automatically generate and qualify more sales leads","Provide better customer support without more staff","Scale operations without proportionally scaling costs"]},
+  {q:"How comfortable is your team with adopting new digital tools?",opts:["Low — we keep things simple and manual for now","Moderate — we use software but don't push boundaries","Comfortable — we adopt useful tools when we see the value","High — we actively build and optimize our workflows"]},
+  {q:"Which best describes your business right now?",opts:["Solo founder or early-stage startup","Small business with a small core team (1–15 people)","Growing company building toward scale (15–100 people)","Established business ready to transform operations with AI"]}
 ];
 const LETTERS=['A','B','C','D'];
 let qi=0,pauseShown=false;
@@ -998,103 +981,94 @@ function renderQ(idx){
   },360);
 }
 function handleAns(btn,idx,e){
-  if(btn.classList.contains('sel'))return;SND.select();burst(e.clientX,e.clientY);
-  document.querySelectorAll('.qo').forEach(b=>{b.classList.remove('sel');b.disabled=true;});
+  SND.select();burst(e.clientX,e.clientY);
+  document.querySelectorAll('.qo').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
-  document.getElementById('qconf').innerHTML=`<div class="cchip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Recorded · Moving on</div>`;
+  const conf=document.getElementById('qconf');
+  conf.innerHTML=`<div class="cchip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Answer recorded</div>`;
   setTimeout(()=>{
-    qi=idx+1;
-    if(qi===3&&!pauseShown){pauseShown=true;showPause();}
-    else if(qi<6){renderQ(qi);}
-    else{SND.transition();goTo('s3');startAnalysis();}
-  },820);
+    if(idx===2&&!pauseShown){
+      pauseShown=true;
+      const qi2=document.getElementById('qi');const pb=document.getElementById('pauseBlk');
+      qi2.style.display='none';pb.style.display='block';
+      SND.pause();
+      document.getElementById('pauseBtn').addEventListener('click',e2=>{
+        SND.click();burst(e2.clientX,e2.clientY);
+        pb.style.display='none';qi2.style.display='block';
+        renderQ(idx+1);
+      },{once:true});
+    } else if(idx<5){
+      renderQ(idx+1);
+    } else {
+      goTo('s3');
+      SND.transition();
+      startAnalysis();
+    }
+  },720);
 }
-function showPause(){
-  const inner=document.getElementById('qi'),pause=document.getElementById('pauseBlk');SND.pause();
-  inner.style.transition='opacity .4s,transform .4s';inner.style.opacity='0';inner.style.transform='translateY(-14px)';
-  setTimeout(()=>{inner.style.display='none';pause.style.display='block';pause.style.opacity='0';pause.style.transform='translateY(20px)';requestAnimationFrame(()=>requestAnimationFrame(()=>{pause.style.transition='opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)';pause.style.opacity='1';pause.style.transform='translateY(0)';}));},420);
-}
-document.getElementById('pauseBtn').addEventListener('click',e=>{
-  SND.click();burst(e.clientX,e.clientY);
-  const inner=document.getElementById('qi'),pause=document.getElementById('pauseBlk');
-  pause.style.transition='opacity .4s,transform .4s';pause.style.opacity='0';pause.style.transform='translateY(-14px)';
-  setTimeout(()=>{pause.style.display='none';inner.style.display='';inner.style.opacity='0';inner.style.transform='translateY(20px)';requestAnimationFrame(()=>requestAnimationFrame(()=>{inner.style.transition='opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)';inner.style.opacity='1';inner.style.transform='translateY(0)';}));renderQ(qi);},420);
-});
 
-/* ══ ANALYSIS ══ */
-const SCAN_MSGS=['MAPPING YOUR PROFILE','ANALYZING CURIOSITY INDEX','IDENTIFYING LEARNING STYLE','CALCULATING READINESS SCORE','MATCHING OPTIMAL PATH','COMPILING RESULTS'];
+/* ══ S3 ANALYSIS ══ */
 function startAnalysis(){
-  let mi=0;const el=document.getElementById('scanMsg');
-  const iv=setInterval(()=>{if(++mi>=SCAN_MSGS.length){clearInterval(iv);return;}el&&(el.textContent=SCAN_MSGS[mi]);},550);
+  SND.analysis();
+  const msgs=['MAPPING YOUR BUSINESS PROFILE','ANALYZING AUTOMATION POTENTIAL','CALCULATING READINESS SCORE','GENERATING YOUR BUSINESS REPORT'];
+  let mi=0;
+  const scanEl=document.getElementById('scanMsg');
+  const iv=setInterval(()=>{mi++;if(mi<msgs.length)scanEl.textContent=msgs[mi];else clearInterval(iv);},750);
   setTimeout(()=>{
-    const scan=document.getElementById('scanWrap'),res=document.getElementById('anResult');
-    scan.style.transition='opacity .5s,transform .5s';scan.style.opacity='0';scan.style.transform='scale(.94)';
-    setTimeout(()=>{scan.style.display='none';res.style.display='block';SND.analysis();initProfileAnimations();},520);
-  },3500);
+    document.getElementById('scanWrap').style.display='none';
+    const res=document.getElementById('anResult');res.style.display='block';
+    drawRadar();
+    // Animate score counter
+    let sc=0;const target=94;
+    const ctr=document.getElementById('scoreCounter');
+    const scIv=setInterval(()=>{sc+=2;if(sc>=target){sc=target;clearInterval(scIv);}ctr.textContent=sc;},22);
+    // Animate trait bars
+    setTimeout(()=>{
+      document.querySelectorAll('.trait-fill').forEach(el=>{
+        el.style.width=el.dataset.w+'%';
+      });
+    },400);
+  },3200);
 }
 
-/* ══ PROFILE ANIMATIONS ══ */
-function initProfileAnimations(){
-  // Animate score counter
-  const el=document.getElementById('scoreCounter');
-  let n=0;const target=94;const dur=1400;const start=performance.now();
-  function tick(now){const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*target);if(p<1)requestAnimationFrame(tick);}
-  requestAnimationFrame(tick);
-
-  // Animate trait bars
-  setTimeout(()=>{
-    document.querySelectorAll('.trait-fill').forEach(bar=>{
-      const w=bar.dataset.w;setTimeout(()=>bar.style.width=w+'%',100);
-    });
-  },400);
-
-  // Draw radar chart
-  setTimeout(drawRadar,300);
-}
-
+/* ══ RADAR ══ */
 function drawRadar(){
   const svg=document.getElementById('radarChart');
-  const cx=100,cy=100,r=70;
-  const dims=['Curiosity','Structure','Action','Adapt','Growth'];
-  const vals=[.92,.88,.95,.85,.90];
-  const N=dims.length;
-  const angle=i=>-Math.PI/2+(2*Math.PI*i)/N;
-  const pt=(i,radius)=>({x:cx+radius*Math.cos(angle(i)),y:cy+radius*Math.sin(angle(i))});
-
+  const cx=100,cy=100,R=75;
+  const labels=['Strategy','Systems','Drive','Adaptability','Growth'];
+  const values=[.92,.88,.95,.85,.9];
+  const N=5;
   // Grid rings
-  [.25,.5,.75,1].forEach(scale=>{
-    const poly=dims.map((_,i)=>pt(i,r*scale));
-    const el=document.createElementNS('http://www.w3.org/2000/svg','polygon');
-    el.setAttribute('points',poly.map(p=>`${p.x},${p.y}`).join(' '));
-    el.setAttribute('fill','none');
-    el.setAttribute('stroke',`rgba(201,163,74,${scale===1?.14:.07})`);
-    el.setAttribute('stroke-width',scale===1?'1':'0.5');
-    svg.appendChild(el);
+  [.25,.5,.75,1].forEach(r=>{
+    const pts=Array.from({length:N},(_,i)=>{
+      const a=(Math.PI*2*i/N)-Math.PI/2;
+      return`${cx+Math.cos(a)*R*r},${cy+Math.sin(a)*R*r}`;
+    }).join(' ');
+    const poly=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    poly.setAttribute('points',pts);poly.setAttribute('fill','none');
+    poly.setAttribute('stroke',`rgba(201,163,74,${r===1?.08:.04})`);poly.setAttribute('stroke-width','.8');
+    svg.appendChild(poly);
   });
-
-  // Axes
-  dims.forEach((_,i)=>{
-    const end=pt(i,r);
+  // Spokes + labels
+  Array.from({length:N},(_,i)=>{
+    const a=(Math.PI*2*i/N)-Math.PI/2;
     const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    line.setAttribute('x1',cx);line.setAttribute('y1',cy);line.setAttribute('x2',end.x);line.setAttribute('y2',end.y);
-    line.setAttribute('stroke','rgba(201,163,74,.1)');line.setAttribute('stroke-width','0.8');
+    line.setAttribute('x1',cx);line.setAttribute('y1',cy);
+    line.setAttribute('x2',cx+Math.cos(a)*R);line.setAttribute('y2',cy+Math.sin(a)*R);
+    line.setAttribute('stroke','rgba(201,163,74,.06)');line.setAttribute('stroke-width','1');
     svg.appendChild(line);
+    const lx=cx+Math.cos(a)*(R+12),ly=cy+Math.sin(a)*(R+12);
+    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x',lx);txt.setAttribute('y',ly+4);txt.setAttribute('text-anchor','middle');
+    txt.setAttribute('fill','rgba(106,96,80,.8)');txt.setAttribute('font-family',"'Cinzel',serif");
+    txt.setAttribute('font-size','7');txt.setAttribute('letter-spacing','0.5');
+    txt.textContent=labels[i];svg.appendChild(txt);
   });
-
-  // Labels
-  dims.forEach((d,i)=>{
-    const lpt=pt(i,r+16);
-    const text=document.createElementNS('http://www.w3.org/2000/svg','text');
-    text.setAttribute('x',lpt.x);text.setAttribute('y',lpt.y);
-    text.setAttribute('text-anchor','middle');text.setAttribute('dominant-baseline','middle');
-    text.setAttribute('fill','rgba(170,160,144,.75)');
-    text.setAttribute('font-family',"'Cinzel',serif");text.setAttribute('font-size','6.5');
-    text.setAttribute('letter-spacing','1');text.textContent=d;
-    svg.appendChild(text);
+  // Value polygon
+  const vpts=values.map((v,i)=>{
+    const a=(Math.PI*2*i/N)-Math.PI/2;
+    return{x:cx+Math.cos(a)*R*v,y:cy+Math.sin(a)*R*v};
   });
-
-  // Value polygon — animated
-  const vpts=vals.map((v,i)=>pt(i,r*v));
   const poly=document.createElementNS('http://www.w3.org/2000/svg','polygon');
   poly.setAttribute('points',vpts.map(p=>`${p.x},${p.y}`).join(' '));
   poly.setAttribute('fill','rgba(201,163,74,.12)');
@@ -1104,8 +1078,6 @@ function drawRadar(){
   poly.style.opacity='0';poly.style.transition='opacity .8s';
   svg.appendChild(poly);
   setTimeout(()=>poly.style.opacity='1',100);
-
-  // Value dots
   vpts.forEach((p,i)=>{
     const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
     circle.setAttribute('cx',p.x);circle.setAttribute('cy',p.y);circle.setAttribute('r','3');
@@ -1121,8 +1093,6 @@ function drawAdvantageChart(){
   const svg=document.getElementById('advantageChart');
   const W=640,H=220,pad={t:20,r:30,b:30,l:45};
   const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
-
-  // Background grid
   [0,.25,.5,.75,1].forEach(t=>{
     const y=pad.t+cH*(1-t);
     const line=document.createElementNS('http://www.w3.org/2000/svg','line');
@@ -1131,8 +1101,6 @@ function drawAdvantageChart(){
     svg.appendChild(line);
     if(t>0){const txt=document.createElementNS('http://www.w3.org/2000/svg','text');txt.setAttribute('x',pad.l-8);txt.setAttribute('y',y+4);txt.setAttribute('text-anchor','end');txt.setAttribute('fill','rgba(106,96,80,.7)');txt.setAttribute('font-family',"'DM Sans',sans-serif");txt.setAttribute('font-size','9');txt.textContent=`${t*100}`;svg.appendChild(txt);}
   });
-
-  // X axis labels
   const xLabels=['2000','2005','2010','2015','2020','NOW','+5yr'];
   xLabels.forEach((lbl,i)=>{
     const x=pad.l+(i/(xLabels.length-1))*cW;
@@ -1143,15 +1111,10 @@ function drawAdvantageChart(){
     txt.setAttribute('letter-spacing','1');txt.setAttribute('font-weight',lbl==='NOW'?'600':'400');
     txt.textContent=lbl;svg.appendChild(txt);
   });
-
-  // Curve data: exponential growth with tech adoption waves
-  // x: 0→1, y: 0→1 (normalized)
   const points=[
     [0,.05],[.08,.08],[.16,.12],[.22,.18],[.3,.28],[.38,.32],[.45,.38],
     [.52,.45],[.58,.55],[.65,.68],[.72,.8],[.78,.92],[.83,.96],[1,1]
   ];
-
-  // Area fill
   const areaPts=points.map(([x,y])=>[pad.l+x*cW, pad.t+cH*(1-y)]);
   const areaPath=`M ${pad.l} ${pad.t+cH} ${areaPts.map(([x,y])=>`L ${x} ${y}`).join(' ')} L ${pad.l+cW} ${pad.t+cH} Z`;
   const area=document.createElementNS('http://www.w3.org/2000/svg','path');
@@ -1164,8 +1127,6 @@ function drawAdvantageChart(){
   const stop2=document.createElementNS('http://www.w3.org/2000/svg','stop');stop2.setAttribute('offset','100%');stop2.setAttribute('stop-color','rgba(201,163,74,.01)');
   grad.appendChild(stop1);grad.appendChild(stop2);defs.appendChild(grad);svg.appendChild(defs);
   area.setAttribute('fill',`url(#${gradId})`);svg.appendChild(area);
-
-  // Main line
   const pathStr=`M ${areaPts.map(([x,y])=>`${x} ${y}`).join(' L ')}`;
   const path=document.createElementNS('http://www.w3.org/2000/svg','path');
   path.setAttribute('d',pathStr);path.setAttribute('fill','none');
@@ -1176,9 +1137,7 @@ function drawAdvantageChart(){
   path.style.transition='stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)';
   svg.appendChild(path);
   setTimeout(()=>path.style.strokeDashoffset='0',200);
-
-  // Era marker lines
-  const eras=[{x:.16,lbl:'Internet'},{x:.38,lbl:'Social'},{x:.58,lbl:'Code'},{x:.83,lbl:'AI →',gold:true}];
+  const eras=[{x:.16,lbl:'Internet'},{x:.38,lbl:'Social'},{x:.58,lbl:'No-Code'},{x:.83,lbl:'AI →',gold:true}];
   eras.forEach(({x,lbl,gold})=>{
     const px=pad.l+x*cW,yVal=points.find(p=>Math.abs(p[0]-x)<.05)?.[1]||.5;
     const py=pad.t+cH*(1-yVal);
@@ -1200,6 +1159,14 @@ document.getElementById('s3btn')?.addEventListener('click',e=>{SND.click();burst
 document.getElementById('s4btn')?.addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);goTo('s5');setTimeout(drawAdvantageChart,400);});
 document.getElementById('s5btn')?.addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);goTo('s6');});
 document.getElementById('finalBtn')?.addEventListener('click',e=>{SND.final();burst(e.clientX,e.clientY);burst(e.clientX-25,e.clientY+12);burst(e.clientX+25,e.clientY-12);setTimeout(()=>{location.href='path.html';},700);});
+
+/* ══ SKIP TEST LINK ══ */
+document.getElementById('skipTestLink').addEventListener('click', function(e) {
+  e.preventDefault();
+  SND.click();
+  burst(e.clientX, e.clientY);
+  setTimeout(() => { location.href = 'path.html'; }, 200);
+});
 
 })();
 </script>

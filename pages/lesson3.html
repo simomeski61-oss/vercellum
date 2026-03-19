@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Lesson 3: The 3 Business Problems AI Solves Instantly — AI for Small Business | VERCELLUM</title>
 <meta name="description" content="Discover the 3 business problems AI agents solve instantly — reduce operating costs, increase team productivity, and grow sales. Interactive lesson for SMB owners with ROI calculator. Free on VERCELLUM.">
-<meta name="keywords" content="AI for small business, AI productivity tools, AI business automation, AI cost reduction, AI sales automation, agentic AI ROI, AI business use cases, AI agents SMB, business AI solutions 2026, AI workflow automation">
+<meta name="keywords" content="AI for small business, AI productivity tools, AI business automation, AI cost reduction, AI sales automation, agentic AI ROI, AI business use cases, AI agents SMB, business AI solutions 2026, AI workflow automation, SPAR framework, Sense Plan Act Respond, AI agent loop">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="VERCELLUM">
 <meta name="theme-color" content="#040302">
@@ -25,6 +25,7 @@
 <meta property="article:tag" content="AI for Small Business">
 <meta property="article:tag" content="AI Business Automation">
 <meta property="article:tag" content="Agentic AI ROI">
+<meta property="article:tag" content="SPAR Framework">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lesson 3: 3 Business Problems AI Solves Instantly | VERCELLUM">
@@ -38,11 +39,11 @@
   "@type":"LearningResource",
   "name":"Lesson 3: The 3 Business Problems AI Solves Instantly",
   "headline":"The 3 Business Problems AI Solves Instantly",
-  "description":"An interactive lesson teaching SMB owners how AI agents create measurable ROI by solving three critical business problems: high operating costs, low team productivity, and lost sales opportunities. Includes an interactive savings calculator and real business case studies.",
+  "description":"An interactive lesson teaching SMB owners how AI agents using the SPAR framework (Sense, Plan, Act, Respond) create measurable ROI by solving three critical business problems: high operating costs, low team productivity, and lost sales opportunities. Includes an interactive savings calculator and real business case studies.",
   "educationalLevel":"Beginner",
   "learningResourceType":["Interactive Lesson","Case Study","Calculator Tool"],
   "provider":{"@type":"Organization","name":"VERCELLUM","url":"https://vercellum.com"},
-  "teaches":["How AI reduces operating costs through automation","How AI workflow automation eliminates productivity bottlenecks","How AI follow-up agents recover lost sales opportunities","How to calculate potential AI ROI for your business"],
+  "teaches":["How AI reduces operating costs through automation","How AI workflow automation eliminates productivity bottlenecks","How AI follow-up agents recover lost sales opportunities","How to calculate potential AI ROI for your business","The SPAR framework: Sense, Plan, Act, Respond for AI agents"],
   "timeRequired":"PT20M",
   "educationalUse":"Instruction",
   "audience":{"@type":"Audience","audienceType":"Small business owners, SMB operators, entrepreneurs"},
@@ -70,7 +71,8 @@
   "mainEntity":[
     {"@type":"Question","name":"What business problems can AI agents solve immediately?","acceptedAnswer":{"@type":"Answer","text":"AI agents can immediately address three core business problems: high operating costs (by automating repetitive tasks like invoicing and data entry), low team productivity (by eliminating workflow bottlenecks through automatic lead routing), and lost sales opportunities (by responding to leads 24/7 within 90 seconds)."}},
     {"@type":"Question","name":"How much can AI automation save a small business?","acceptedAnswer":{"@type":"Answer","text":"Businesses that automate 70% of repetitive administrative work typically see annual savings equivalent to several weeks of full-time labor. The interactive calculator in this lesson estimates your specific savings based on hours spent, hourly rate, and team size."}},
-    {"@type":"Question","name":"What is AI ROI for small businesses?","acceptedAnswer":{"@type":"Answer","text":"AI ROI for small businesses compares the cost of AI implementation against recovered time, reduced errors, and increased conversion rates. Businesses deploying AI agents strategically recover 25-40% of time previously spent on manual tasks and increase lead conversion rates by 20-35%."}},
+    {"@type":"Question","name":"What is the SPAR framework for AI agents?","acceptedAnswer":{"@type":"Answer","text":"SPAR is a framework that describes how AI agents operate in a continuous loop: Sense (perceive the environment through data), Plan (reason about the best course of action), Act (execute tasks using tools), and Respond (log outcomes, provide feedback, and refine future behavior). This loop enables agents to learn and improve over time, making them more reliable and scalable."}},
+    {"@type":"Question","name":"How is SPAR different from other AI frameworks?","acceptedAnswer":{"@type":"Answer","text":"Unlike simpler models, SPAR includes a critical 'Respond' step that closes the loop. This allows agents to not just execute tasks but also to log what happened, notify stakeholders, and refine their own planning logic based on outcomes. This feedback mechanism is what transforms AI from a simple automation tool into an autonomous, learning system."}},
     {"@type":"Question","name":"How long does Lesson 3 take?","acceptedAnswer":{"@type":"Answer","text":"Lesson 3 takes approximately 20 minutes, including the interactive poll, three problem deep-dives with real case studies, the savings calculator, and community testimonials."}}
   ]
 }
@@ -208,29 +210,19 @@ aside.sidebar::-webkit-scrollbar{display:none}
 
 .sb-live{
   display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;
-  background:rgba(240,80,80,.07);border:1px solid rgba(240,80,80,.2);border-radius:8px;
+  background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.12);border-radius:8px;
 }
-.sb-live-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.8s infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-.sb-live-text{font-size:.68rem;color:var(--bn);line-height:1.35}
-.sb-live-count{font-weight:600;color:var(--cr)}
+.sb-live-dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+.sb-live-text{font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;color:var(--grn)}
 
-.sb-community{
-  display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;
-  background:rgba(96,165,250,.055);border:1px solid rgba(96,165,250,.22);border-radius:8px;
-  cursor:pointer;transition:background .22s;text-align:left;width:100%;
-}
-.sb-community:hover{background:rgba(96,165,250,.1)}
-.sb-community-ic{font-size:.95rem;flex-shrink:0}
-.sb-community-text{font-size:.68rem;color:var(--bn);line-height:1.35}
-.sb-community-link{color:var(--blu);font-weight:500}
-
-.sb-save{
-  margin-top:auto;padding:.65rem 1rem;border-radius:8px;border:1px solid rgba(201,163,74,.12);
-  font-family:var(--fb);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--tp);cursor:pointer;transition:all .22s;text-align:center;width:100%;
-}
-.sb-save:hover{border-color:rgba(201,163,74,.35);color:var(--g1)}
+/* Sidebar buttons */
+.sb-cta-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+.sb-btn{padding:.65rem .85rem;border-radius:8px;font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all .22s;border:1px solid transparent}
+.sb-btn-gold{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.22);color:var(--g1)}
+.sb-btn-gold:hover{background:rgba(201,163,74,.18)}
+.sb-btn-ghost{color:var(--tp);border-color:rgba(201,163,74,.08)}
+.sb-btn-ghost:hover{color:var(--g1);border-color:rgba(201,163,74,.2)}
 
 /* ═══════════════════════════════
    MAIN CONTENT
@@ -240,10 +232,10 @@ main{min-width:0;position:relative}
 /* ═══ HERO ═══ */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding:6rem 5.5rem 4.5rem;position:relative;overflow:hidden;
+  padding:4rem 4.5rem 3.5rem;position:relative;overflow:hidden;
 }
-@media(max-width:1100px){.hero{padding:5rem 3rem 3.5rem}}
-@media(max-width:700px){.hero{padding:5rem 1.5rem 3rem}}
+@media(max-width:1100px){.hero{padding:3rem 3rem 2.5rem}}
+@media(max-width:700px){.hero{padding:2.5rem 1.5rem 2rem}}
 
 /* Decorative hero line */
 .hero::after{
@@ -319,9 +311,9 @@ main{min-width:0;position:relative}
 /* ═══════════════════════════════
    LESSON BODY
 ═══════════════════════════════ */
-.lesson-body{padding:5rem 5.5rem 7rem;max-width:900px}
-@media(max-width:1100px){.lesson-body{padding:4rem 3rem 5rem}}
-@media(max-width:700px){.lesson-body{padding:3rem 1.5rem 4rem}}
+.lesson-body{padding:0 4.5rem 4rem;}
+@media(max-width:1100px){.lesson-body{padding:0 3rem 3rem}}
+@media(max-width:700px){.lesson-body{padding:0 1.5rem 2.5rem}}
 
 .section-block{
   margin-bottom:5.5rem;opacity:0;transform:translateY(28px);
@@ -1213,6 +1205,44 @@ main{min-width:0;position:relative}
   transition:height .8s var(--ex);height:0;
 }
 .bar-label{font-family:var(--fb);font-size:7.5px;color:var(--tp);letter-spacing:.04em}
+
+/* ===== New: Collapsible sections ===== */
+.section-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(201,163,74,.1);
+  border: 1px solid rgba(201,163,74,.2);
+  color: var(--g1);
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all .2s;
+  font-size: 12px;
+  line-height: 1;
+}
+.section-toggle:hover {
+  background: rgba(201,163,74,.2);
+}
+.section-block.collapsed .section-content {
+  display: none;
+}
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+}
+.section-eyebrow::before {
+  margin-right: 6px;
+}
+@media (max-width: 700px) {
+  .section-toggle {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+}
 </style>
 </head>
 <body>
@@ -1239,82 +1269,68 @@ main{min-width:0;position:relative}
   <div class="levelup-sub">Proceeding to Lesson 4 — Design Your AI Agent →</div>
 </div>
 
-<!-- Community Popup -->
-<div class="popup-overlay" id="popup-discord" aria-modal="true" aria-hidden="true" role="dialog" aria-labelledby="popup-title">
-  <div class="popup-box">
-    <button class="popup-close" id="close-discord" aria-label="Close">✕</button>
-    <div class="popup-title" id="popup-title">Join the Community</div>
-    <div class="popup-sub">Connect with 2,500+ entrepreneurs building and deploying AI agents. Share results, get feedback, and find accountability partners.</div>
-    <div class="popup-link-box">
-      <span class="popup-link-url">discord.gg/vercellum</span>
-      <button class="popup-copy" id="copy-discord-btn">Copy Link</button>
-    </div>
-    <div id="copied-note" aria-live="polite">✓ Link copied to clipboard</div>
-  </div>
-</div>
-
 <!-- Page Layout -->
 <div class="page-wrap">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" aria-label="Learning path navigation">
+  <!-- SIDEBAR (unified with Lesson 4) -->
+  <aside class="sidebar" aria-label="Course navigation">
+    <div class="sb-logo" aria-label="VERCELLUM">VERCELLUM</div>
+
     <div>
-      <div class="sb-logo">VERCELLUM</div>
       <div class="sb-path-label">Current Path</div>
-      <div class="sb-path-title">🧠 Understanding the New Intelligence</div>
-
-      <div class="sb-you-are-here">
-        <div class="sb-you-label">You are here</div>
-        <div class="sb-you-name">💰 Lesson 3 — Three Business Problems AI Solves Instantly</div>
-      </div>
-
-      <div class="sb-progress-wrap">
-        <div class="sb-progress-label">
-          <span class="sb-progress-text">Path Progress</span>
-          <span class="sb-progress-pct" id="sb-pct">75%</span>
-        </div>
-        <div class="sb-progress-track">
-          <div class="sb-progress-fill" id="sb-fill" style="width:75%"></div>
-        </div>
-      </div>
-
-      <nav class="sb-lessons" aria-label="Lessons in path">
-        <a class="sb-lesson done" href="lesson1.html" aria-label="Lesson 1 — Completed">
-          <span class="sb-lesson-ic">✓</span>
-          <span class="sb-lesson-text">Lesson 1 — The Turning Point</span>
-        </a>
-        <a class="sb-lesson done" href="lesson2.html" aria-label="Lesson 2 — Completed">
-          <span class="sb-lesson-ic">✓</span>
-          <span class="sb-lesson-text">Lesson 2 — Anatomy of an AI Agent</span>
-        </a>
-        <div class="sb-lesson active" aria-current="page">
-          <span class="sb-lesson-ic">💰</span>
-          <span class="sb-lesson-text">Lesson 3 — Three Business Problems</span>
-        </div>
-        <div class="sb-lesson upcoming" aria-label="Lesson 4 — upcoming">
-          <span class="sb-lesson-ic">⬜</span>
-          <span class="sb-lesson-text">Lesson 4 — Design Your AI Agent</span>
-        </div>
-      </nav>
-
-      <div class="sb-divider"></div>
-
-      <div class="sb-live" aria-label="Live learner count">
-        <div class="sb-live-dot" aria-hidden="true"></div>
-        <div class="sb-live-text">
-          <span class="sb-live-count">342 learners</span> currently in this lesson
-        </div>
-      </div>
-
-      <button class="sb-community" id="sb-discord-btn" aria-label="Open community discussion panel">
-        <span class="sb-community-ic">💬</span>
-        <div class="sb-community-text">
-          <span class="sb-community-link">Join the discussion community</span><br>
-          127 active discussions
-        </div>
-      </button>
+      <div class="sb-path-title">Path 1: Understanding the New Intelligence</div>
     </div>
-    <button class="sb-save" id="save-exit-btn">Save &amp; Return to Path</button>
+
+    <div class="sb-you-are-here">
+      <div class="sb-you-label">📍 You Are Here</div>
+      <div class="sb-you-name">Lesson 3 · Three Business Problems AI Solves Instantly</div>
+    </div>
+
+    <div class="sb-progress-wrap">
+      <div class="sb-progress-label">
+        <span class="sb-progress-text">Path Progress</span>
+        <span class="sb-progress-pct">75%</span>
+      </div>
+      <div class="sb-progress-track">
+        <div class="sb-progress-fill" style="width:75%"></div>
+      </div>
+    </div>
+
+    <nav class="sb-lessons" aria-label="Lesson navigation">
+      <a class="sb-lesson done" href="lesson1.html" aria-label="Lesson 1 - completed">
+        <span class="sb-lesson-ic">✓</span>
+        <span class="sb-lesson-text">Lesson 1 · The Turning Point</span>
+      </a>
+      <a class="sb-lesson done" href="lesson2.html" aria-label="Lesson 2 - completed">
+        <span class="sb-lesson-ic">✓</span>
+        <span class="sb-lesson-text">Lesson 2 · Anatomy of an AI Agent</span>
+      </a>
+      <div class="sb-lesson active" aria-current="page">
+        <span class="sb-lesson-ic">◆</span>
+        <span class="sb-lesson-text">Lesson 3 · Three Business Problems AI Solves Instantly</span>
+      </div>
+      <a class="sb-lesson upcoming" href="lesson4.html" aria-label="Lesson 4 - upcoming">
+        <span class="sb-lesson-ic">○</span>
+        <span class="sb-lesson-text">Lesson 4 · Design Your AI Agent</span>
+      </a>
+      
+       <a class="sb-lesson upcoming" href="test1.html" aria-label="Quiz - upcoming">
+        <span class="sb-lesson-ic">○</span>
+        <span class="sb-lesson-text">Quiz · Path 1 Mastery Check</span>
+      </a>
+    </nav>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-live" aria-label="318 builders currently online">
+      <div class="sb-live-dot" aria-hidden="true"></div>
+      <span class="sb-live-text">318 builders online now</span>
+    </div>
+
+    <div class="sb-cta-btns">
+      <button class="sb-btn sb-btn-gold" id="sb-save-btn" aria-label="Save progress">◇ Save progress</button>
+      <a class="sb-btn sb-btn-ghost" href="path.html" aria-label="Back to path overview">← Path Overview</a>
+    </div>
   </aside>
 
   <!-- MAIN -->
@@ -1380,239 +1396,245 @@ main{min-width:0;position:relative}
     <article class="lesson-body">
 
       <!-- ══ SECTION 1: POLL ══ -->
-      <section class="section-block" id="section-poll" aria-labelledby="poll-heading">
-        <div class="section-eyebrow">Section 1 · Your Reality Check</div>
+      <section class="section-block visible" id="section-poll">
+        <div class="section-eyebrow">
+          Section 1 · Your Reality Check
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="true">▼</span>
+        </div>
         <h2 class="section-h2" id="poll-heading">Start with <em>your</em> challenge</h2>
-        <p class="section-lead">
-          Before we go further, let's anchor this lesson in your actual situation. Select the challenge that hits closest to home — it will shape how you read everything that follows.
-        </p>
+        <div class="section-content">
+          <p class="section-lead">
+            Before we go further, let's anchor this lesson in your actual situation. Select the challenge that hits closest to home — it will shape how you read everything that follows.
+          </p>
 
-        <div class="poll-wrap" role="group" aria-labelledby="poll-q">
-          <div class="poll-question" id="poll-q">"What is the biggest challenge in your business right now?"</div>
-          <div class="poll-opts" role="radiogroup" aria-labelledby="poll-q">
-            <button class="poll-opt" data-variant="red" role="radio" aria-checked="false" aria-label="Operating costs are too high">
-              <span class="poll-dot poll-dot-r" aria-hidden="true"></span>
-              <span class="poll-opt-text">🔴 <strong>Operating costs are too high</strong> — I'm spending too much on tasks that feel like they shouldn't cost this much time or money</span>
-            </button>
-            <button class="poll-opt" data-variant="yellow" role="radio" aria-checked="false" aria-label="Team is overwhelmed">
-              <span class="poll-dot poll-dot-y" aria-hidden="true"></span>
-              <span class="poll-opt-text">🟡 <strong>My team is overwhelmed with daily tasks</strong> — we're buried in busywork and never have time to focus on what actually moves the needle</span>
-            </button>
-            <button class="poll-opt" data-variant="green" role="radio" aria-checked="false" aria-label="Want to grow sales but limited time">
-              <span class="poll-dot poll-dot-g" aria-hidden="true"></span>
-              <span class="poll-opt-text">🟢 <strong>I want to grow sales but can't keep up</strong> — leads are slipping through the cracks because I can't respond fast enough</span>
-            </button>
-          </div>
-          <div class="poll-feedback" id="poll-fb" role="status" aria-live="polite">
-            💬 You're not alone — these are the <em>three most common challenges</em> reported by small business owners worldwide. And all three have a direct, deployable AI solution. Keep reading.
+          <div class="poll-wrap" role="group" aria-labelledby="poll-q">
+            <div class="poll-question" id="poll-q">"What is the biggest challenge in your business right now?"</div>
+            <div class="poll-opts" role="radiogroup" aria-labelledby="poll-q">
+              <button class="poll-opt" data-variant="red" role="radio" aria-checked="false" aria-label="Operating costs are too high">
+                <span class="poll-dot poll-dot-r" aria-hidden="true"></span>
+                <span class="poll-opt-text">🔴 <strong>Operating costs are too high</strong> — I'm spending too much on tasks that feel like they shouldn't cost this much time or money</span>
+              </button>
+              <button class="poll-opt" data-variant="yellow" role="radio" aria-checked="false" aria-label="Team is overwhelmed">
+                <span class="poll-dot poll-dot-y" aria-hidden="true"></span>
+                <span class="poll-opt-text">🟡 <strong>My team is overwhelmed with daily tasks</strong> — we're buried in busywork and never have time to focus on what actually moves the needle</span>
+              </button>
+              <button class="poll-opt" data-variant="green" role="radio" aria-checked="false" aria-label="Want to grow sales but limited time">
+                <span class="poll-dot poll-dot-g" aria-hidden="true"></span>
+                <span class="poll-opt-text">🟢 <strong>I want to grow sales but can't keep up</strong> — leads are slipping through the cracks because I can't respond fast enough</span>
+              </button>
+            </div>
+            <div class="poll-feedback" id="poll-fb" role="status" aria-live="polite">
+              💬 You're not alone — these are the <em>three most common challenges</em> reported by small business owners worldwide. And all three have a direct, deployable AI solution. Keep reading.
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ══ SECTION 2: THE GAP ══ -->
-      <section class="section-block" id="section-gap" aria-labelledby="gap-heading">
-        <div class="section-eyebrow">Section 2 · Understanding the Gap</div>
+      <section class="section-block" id="section-gap">
+        <div class="section-eyebrow">
+          Section 2 · Understanding the Gap
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
+        </div>
         <h2 class="section-h2" id="gap-heading">Why most businesses <em>haven't benefited</em> from AI yet</h2>
-        <p class="section-lead">
-          AI dominates the headlines — but for most small businesses, the results have been underwhelming. Not because AI doesn't work, but because they're using it the wrong way. The data tells a stark story about who is winning and why.
-        </p>
+        <div class="section-content">
+          <p class="section-lead">
+            AI dominates the headlines — but for most small businesses, the results have been underwhelming. Not because AI doesn't work, but because they're using it the wrong way. The data tells a stark story about who is winning and why.
+          </p>
 
-        <!-- TOP ROW: Donut + Stats -->
-        <div class="gap-top">
-          <!-- Donut Chart: Time Breakdown -->
-          <div class="donut-wrap">
-            <svg class="donut-svg" id="donut-time" viewBox="0 0 220 220" aria-label="Time breakdown donut chart" role="img">
+          <!-- TOP ROW: Donut + Stats -->
+          <div class="gap-top">
+            <!-- Donut Chart: Time Breakdown -->
+            <div class="donut-wrap">
+              <svg class="donut-svg" id="donut-time" viewBox="0 0 220 220" aria-label="Time breakdown donut chart" role="img">
+                <defs>
+                  <filter id="glow-r"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  <filter id="glow-g"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <!-- Track -->
+                <circle class="donut-track" cx="110" cy="110" r="80" stroke-width="18"/>
+                <!-- Waste segment (60%) -->
+                <circle class="donut-waste" id="donut-seg-waste" cx="110" cy="110" r="80"
+                  stroke-width="18" transform="rotate(-90 110 110)"
+                  stroke-dashoffset="0" filter="url(#glow-r)"
+                  aria-label="60% wasted on repetitive tasks"/>
+                <!-- Productive segment (40%) -->
+                <circle class="donut-prod" id="donut-seg-prod" cx="110" cy="110" r="80"
+                  stroke-width="18" transform="rotate(-90 110 110)"
+                  stroke-dashoffset="0"
+                  aria-label="40% on strategic work"/>
+              </svg>
+              <div class="donut-center" id="donut-center-label">
+                <span class="donut-pct" id="donut-main-pct">60%</span>
+                <span class="donut-sub-label">Wasted Daily</span>
+              </div>
+              <div class="donut-legend" aria-label="Chart legend">
+                <div class="donut-legend-item">
+                  <div class="donut-legend-dot" style="background:var(--red)"></div>
+                  Repetitive tasks (60%)
+                </div>
+                <div class="donut-legend-item">
+                  <div class="donut-legend-dot" style="background:var(--g1)"></div>
+                  Strategic work (40%)
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Column -->
+            <div class="gap-stats-col" role="list" aria-label="AI adoption statistics">
+              <div class="gap-stat-row gap-stat-row-r" role="listitem">
+                <div class="gap-stat-big gap-stat-big-r" aria-label="60 percent">
+                  <span class="stat-num" data-target="60">0%</span>
+                </div>
+                <div class="gap-stat-desc">Estimates suggest that 60% of business hours are lost to repetitive administrative tasks that AI agents can automate today — with no reduction in output quality.</div>
+              </div>
+              <div class="gap-stat-row gap-stat-row-y" role="listitem">
+                <div class="gap-stat-big gap-stat-big-y" aria-label="73 percent">
+                  <span class="stat-num" data-target="73">0%</span>
+                </div>
+                <div class="gap-stat-desc">Estimates suggest that 73% of small businesses are still only "evaluating" AI — most haven't deployed a single working operational agent in their workflow.</div>
+              </div>
+              <div class="gap-stat-row gap-stat-row-b" role="listitem">
+                <div class="gap-stat-big gap-stat-big-b" aria-label="14 percent">
+                  <span class="stat-num" data-target="14">0%</span>
+                </div>
+                <div class="gap-stat-desc">Estimates suggest that only 14% of AI initiatives generate their expected ROI. The rest fail due to lack of strategy — not lack of technology. That gap is what this lesson closes.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LINE CHART: AI Hype vs Actual ROI Gap -->
+          <div class="linechart-wrap" aria-label="AI adoption vs ROI gap line chart">
+            <div class="linechart-header">
+              <div class="linechart-title">AI Adoption vs. Businesses Getting Real ROI — 2021 to 2026</div>
+              <div class="linechart-legend">
+                <div class="linechart-legend-item">
+                  <div class="linechart-legend-line" style="background:var(--blu)"></div>
+                  Businesses "using AI"
+                </div>
+                <div class="linechart-legend-item">
+                  <div class="linechart-legend-line" style="background:var(--grn)"></div>
+                  Businesses getting measurable ROI
+                </div>
+              </div>
+            </div>
+            <svg class="linechart-svg" id="linechart-svg" viewBox="0 0 620 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
               <defs>
-                <filter id="glow-r"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                <filter id="glow-g"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <linearGradient id="grad-hype" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#60A5FA" stop-opacity=".6"/>
+                  <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="grad-roi" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#34D399" stop-opacity=".7"/>
+                  <stop offset="100%" stop-color="#34D399" stop-opacity="0"/>
+                </linearGradient>
               </defs>
-              <!-- Track -->
-              <circle class="donut-track" cx="110" cy="110" r="80" stroke-width="18"/>
-              <!-- Waste segment (60%) -->
-              <circle class="donut-waste" id="donut-seg-waste" cx="110" cy="110" r="80"
-                stroke-width="18" transform="rotate(-90 110 110)"
-                stroke-dashoffset="0" filter="url(#glow-r)"
-                aria-label="60% wasted on repetitive tasks"/>
-              <!-- Productive segment (40%) -->
-              <circle class="donut-prod" id="donut-seg-prod" cx="110" cy="110" r="80"
-                stroke-width="18" transform="rotate(-90 110 110)"
-                stroke-dashoffset="0"
-                aria-label="40% on strategic work"/>
+              <!-- Grid lines -->
+              <line class="lc-grid-line" x1="60" y1="20" x2="60" y2="150"/>
+              <line class="lc-grid-line" x1="160" y1="20" x2="160" y2="150"/>
+              <line class="lc-grid-line" x1="260" y1="20" x2="260" y2="150"/>
+              <line class="lc-grid-line" x1="360" y1="20" x2="360" y2="150"/>
+              <line class="lc-grid-line" x1="460" y1="20" x2="460" y2="150"/>
+              <line class="lc-grid-line" x1="560" y1="20" x2="560" y2="150"/>
+              <line class="lc-grid-line" x1="60" y1="150" x2="560" y2="150"/>
+              <!-- Y axis labels -->
+              <text class="lc-axis-label" x="8" y="154">0%</text>
+              <text class="lc-axis-label" x="8" y="116">25%</text>
+              <text class="lc-axis-label" x="8" y="78">50%</text>
+              <text class="lc-axis-label" x="8" y="40">75%</text>
+              <line class="lc-grid-line" x1="55" y1="150" x2="565" y2="150"/>
+              <line class="lc-grid-line" x1="55" y1="112" x2="565" y2="112" stroke-dasharray="3,4"/>
+              <line class="lc-grid-line" x1="55" y1="74" x2="565" y2="74" stroke-dasharray="3,4"/>
+              <line class="lc-grid-line" x1="55" y1="36" x2="565" y2="36" stroke-dasharray="3,4"/>
+              <!-- X labels -->
+              <text class="lc-axis-label" x="52" y="164" text-anchor="middle">2021</text>
+              <text class="lc-axis-label" x="152" y="164" text-anchor="middle">2022</text>
+              <text class="lc-axis-label" x="252" y="164" text-anchor="middle">2023</text>
+              <text class="lc-axis-label" x="352" y="164" text-anchor="middle">2024</text>
+              <text class="lc-axis-label" x="452" y="164" text-anchor="middle">2025</text>
+              <text class="lc-axis-label" x="552" y="164" text-anchor="middle">2026</text>
+              <!-- Area fills -->
+              <polygon class="lc-area-hype" id="lc-area-hype" points="60,150 60,150 160,150 260,150 360,150 460,150 560,150"/>
+              <polygon class="lc-area-roi" id="lc-area-roi" points="60,150 60,150 160,150 260,150 360,150 460,150 560,150"/>
+              <!-- Lines (animated via JS) -->
+              <path class="lc-path-hype" id="lc-path-hype" d="M60,144"/>
+              <path class="lc-path-roi" id="lc-path-roi" d="M60,148"/>
+              <!-- GAP annotation -->
+              <line id="lc-gap-line" x1="560" y1="14" x2="560" y2="107" stroke="rgba(240,80,80,.3)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text class="lc-gap-label" x="566" y="65" opacity="0" id="lc-gap-text">THE GAP</text>
+              <!-- Dots (blue) -->
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h0" cx="60" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h1" cx="160" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h2" cx="260" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h3" cx="360" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h4" cx="460" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-hype" id="lc-d-h5" cx="560" cy="150" r="4" opacity="0"/>
+              <!-- Dots (green) -->
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r0" cx="60" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r1" cx="160" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r2" cx="260" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r3" cx="360" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r4" cx="460" cy="150" r="4" opacity="0"/>
+              <circle class="lc-dot lc-dot-roi" id="lc-d-r5" cx="560" cy="150" r="4" opacity="0"/>
             </svg>
-            <div class="donut-center" id="donut-center-label">
-              <span class="donut-pct" id="donut-main-pct">60%</span>
-              <span class="donut-sub-label">Wasted Daily</span>
-            </div>
-            <div class="donut-legend" aria-label="Chart legend">
-              <div class="donut-legend-item">
-                <div class="donut-legend-dot" style="background:var(--red)"></div>
-                Repetitive tasks (60%)
-              </div>
-              <div class="donut-legend-item">
-                <div class="donut-legend-dot" style="background:var(--g1)"></div>
-                Strategic work (40%)
-              </div>
-            </div>
           </div>
 
-          <!-- Stats Column -->
-          <div class="gap-stats-col" role="list" aria-label="AI adoption statistics">
-            <div class="gap-stat-row gap-stat-row-r" role="listitem">
-              <div class="gap-stat-big gap-stat-big-r" aria-label="60 percent">
-                <span class="stat-num" data-target="60">0%</span>
-              </div>
-              <div class="gap-stat-desc">of business hours are lost to repetitive administrative tasks that AI agents can automate today — with no reduction in output quality.</div>
-            </div>
-            <div class="gap-stat-row gap-stat-row-y" role="listitem">
-              <div class="gap-stat-big gap-stat-big-y" aria-label="73 percent">
-                <span class="stat-num" data-target="73">0%</span>
-              </div>
-              <div class="gap-stat-desc">of small businesses are still only "evaluating" AI — most haven't deployed a single working operational agent in their workflow.</div>
-            </div>
-            <div class="gap-stat-row gap-stat-row-b" role="listitem">
-              <div class="gap-stat-big gap-stat-big-b" aria-label="14 percent">
-                <span class="stat-num" data-target="14">0%</span>
-              </div>
-              <div class="gap-stat-desc">of AI initiatives generate their expected ROI. The rest fail due to lack of strategy — not lack of technology. That gap is what this lesson closes.</div>
-            </div>
-          </div>
-        </div>
+          <p class="section-lead" style="margin-bottom:2rem">
+            The businesses that <em style="color:var(--g0)">do</em> get results aren't using better AI — they're using it <strong style="color:var(--cr)">strategically</strong>. They identify three specific problem categories, deploy targeted agents, and measure real outcomes. That's exactly what this lesson teaches.
+          </p>
 
-        <!-- LINE CHART: AI Hype vs Actual ROI Gap -->
-        <div class="linechart-wrap" aria-label="AI adoption vs ROI gap line chart">
-          <div class="linechart-header">
-            <div class="linechart-title">AI Adoption vs. Businesses Getting Real ROI — 2021 to 2026</div>
-            <div class="linechart-legend">
-              <div class="linechart-legend-item">
-                <div class="linechart-legend-line" style="background:var(--blu)"></div>
-                Businesses "using AI"
+          <!-- Case Study — redesigned v2 -->
+          <div class="case-v2" aria-label="Business case study: Green Thumb Landscaping">
+            <div class="case-v2-top">
+              <div class="case-v2-left">
+                <div class="case-v2-tag">✓ Real Business Case Study</div>
+                <div class="case-v2-company">Green Thumb <em>Landscaping</em></div>
+                <p class="case-v2-summary">A 12-person Nashville landscaping company was spending 22 hours per week on invoicing, lead follow-up, and scheduling. They deployed two focused AI agents in a single afternoon — and measured the results 90 days later.</p>
               </div>
-              <div class="linechart-legend-item">
-                <div class="linechart-legend-line" style="background:var(--grn)"></div>
-                Businesses getting measurable ROI
-              </div>
-            </div>
-          </div>
-          <svg class="linechart-svg" id="linechart-svg" viewBox="0 0 620 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <defs>
-              <linearGradient id="grad-hype" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#60A5FA" stop-opacity=".6"/>
-                <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="grad-roi" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#34D399" stop-opacity=".7"/>
-                <stop offset="100%" stop-color="#34D399" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <!-- Grid lines -->
-            <line class="lc-grid-line" x1="60" y1="20" x2="60" y2="150"/>
-            <line class="lc-grid-line" x1="160" y1="20" x2="160" y2="150"/>
-            <line class="lc-grid-line" x1="260" y1="20" x2="260" y2="150"/>
-            <line class="lc-grid-line" x1="360" y1="20" x2="360" y2="150"/>
-            <line class="lc-grid-line" x1="460" y1="20" x2="460" y2="150"/>
-            <line class="lc-grid-line" x1="560" y1="20" x2="560" y2="150"/>
-            <line class="lc-grid-line" x1="60" y1="150" x2="560" y2="150"/>
-            <!-- Y axis labels -->
-            <text class="lc-axis-label" x="8" y="154">0%</text>
-            <text class="lc-axis-label" x="8" y="116">25%</text>
-            <text class="lc-axis-label" x="8" y="78">50%</text>
-            <text class="lc-axis-label" x="8" y="40">75%</text>
-            <line class="lc-grid-line" x1="55" y1="150" x2="565" y2="150"/>
-            <line class="lc-grid-line" x1="55" y1="112" x2="565" y2="112" stroke-dasharray="3,4"/>
-            <line class="lc-grid-line" x1="55" y1="74" x2="565" y2="74" stroke-dasharray="3,4"/>
-            <line class="lc-grid-line" x1="55" y1="36" x2="565" y2="36" stroke-dasharray="3,4"/>
-            <!-- X labels -->
-            <text class="lc-axis-label" x="52" y="164" text-anchor="middle">2021</text>
-            <text class="lc-axis-label" x="152" y="164" text-anchor="middle">2022</text>
-            <text class="lc-axis-label" x="252" y="164" text-anchor="middle">2023</text>
-            <text class="lc-axis-label" x="352" y="164" text-anchor="middle">2024</text>
-            <text class="lc-axis-label" x="452" y="164" text-anchor="middle">2025</text>
-            <text class="lc-axis-label" x="552" y="164" text-anchor="middle">2026</text>
-            <!-- Area fills -->
-            <!-- Hype area: 15,28,45,62,78,89 → y: 144,97,70,50,30,14 (scaled: 0%=150, 100%=6) -->
-            <polygon class="lc-area-hype" id="lc-area-hype"
-              points="60,150 60,150 160,150 260,150 360,150 460,150 560,150"/>
-            <!-- ROI area: 8,11,14,18,22,27 → y: 148,143,139,129,121,107 -->
-            <polygon class="lc-area-roi" id="lc-area-roi"
-              points="60,150 60,150 160,150 260,150 360,150 460,150 560,150"/>
-            <!-- Lines (animated via JS) -->
-            <path class="lc-path-hype" id="lc-path-hype" d="M60,144"/>
-            <path class="lc-path-roi" id="lc-path-roi" d="M60,148"/>
-            <!-- GAP annotation -->
-            <line id="lc-gap-line" x1="560" y1="14" x2="560" y2="107" stroke="rgba(240,80,80,.3)" stroke-width="1" stroke-dasharray="3,3"/>
-            <text class="lc-gap-label" x="566" y="65" opacity="0" id="lc-gap-text">THE GAP</text>
-            <!-- Dots (blue) -->
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h0" cx="60" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h1" cx="160" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h2" cx="260" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h3" cx="360" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h4" cx="460" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-hype" id="lc-d-h5" cx="560" cy="150" r="4" opacity="0"/>
-            <!-- Dots (green) -->
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r0" cx="60" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r1" cx="160" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r2" cx="260" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r3" cx="360" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r4" cx="460" cy="150" r="4" opacity="0"/>
-            <circle class="lc-dot lc-dot-roi" id="lc-d-r5" cx="560" cy="150" r="4" opacity="0"/>
-          </svg>
-        </div>
-
-        <p class="section-lead" style="margin-bottom:2rem">
-          The businesses that <em style="color:var(--g0)">do</em> get results aren't using better AI — they're using it <strong style="color:var(--cr)">strategically</strong>. They identify three specific problem categories, deploy targeted agents, and measure real outcomes. That's exactly what this lesson teaches.
-        </p>
-
-        <!-- Case Study — redesigned v2 -->
-        <div class="case-v2" aria-label="Business case study: Green Thumb Landscaping">
-          <div class="case-v2-top">
-            <div class="case-v2-left">
-              <div class="case-v2-tag">✓ Real Business Case Study</div>
-              <div class="case-v2-company">Green Thumb <em>Landscaping</em></div>
-              <p class="case-v2-summary">A 12-person Nashville landscaping company was spending 22 hours per week on invoicing, lead follow-up, and scheduling. They deployed two focused AI agents in a single afternoon — and measured the results 90 days later.</p>
-            </div>
-            <div class="case-v2-right">
-              <div class="case-v2-metrics">
-                <div class="case-v2-metric">
-                  <div class="case-v2-metric-val" aria-label="18 hours saved per week">18h</div>
-                  <div class="case-v2-metric-info">
-                    <div class="case-v2-metric-label">Hours saved per week</div>
-                    <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="82" style="background:var(--g1)"></div></div>
+              <div class="case-v2-right">
+                <div class="case-v2-metrics">
+                  <div class="case-v2-metric">
+                    <div class="case-v2-metric-val" aria-label="18 hours saved per week">18h</div>
+                    <div class="case-v2-metric-info">
+                      <div class="case-v2-metric-label">Hours saved per week</div>
+                      <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="82" style="background:var(--g1)"></div></div>
+                    </div>
                   </div>
-                </div>
-                <div class="case-v2-metric">
-                  <div class="case-v2-metric-val" aria-label="34 percent conversion increase">+34%</div>
-                  <div class="case-v2-metric-info">
-                    <div class="case-v2-metric-label">Lead conversion rate increase</div>
-                    <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="34" style="background:var(--grn)"></div></div>
+                  <div class="case-v2-metric">
+                    <div class="case-v2-metric-val" aria-label="34 percent conversion increase">+34%</div>
+                    <div class="case-v2-metric-info">
+                      <div class="case-v2-metric-label">Lead conversion rate increase</div>
+                      <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="34" style="background:var(--grn)"></div></div>
+                    </div>
                   </div>
-                </div>
-                <div class="case-v2-metric">
-                  <div class="case-v2-metric-val" aria-label="47000 dollars annual savings">$47K</div>
-                  <div class="case-v2-metric-info">
-                    <div class="case-v2-metric-label">Projected annual savings</div>
-                    <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="70" style="background:var(--blu)"></div></div>
+                  <div class="case-v2-metric">
+                    <div class="case-v2-metric-val" aria-label="47000 dollars annual savings">$47K</div>
+                    <div class="case-v2-metric-info">
+                      <div class="case-v2-metric-label">Projected annual savings</div>
+                      <div class="case-v2-metric-bar"><div class="case-v2-metric-fill" data-pct="70" style="background:var(--blu)"></div></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <button class="case-v2-expand-btn" id="case-expand-btn" aria-expanded="false" aria-controls="case-v2-details">
-            <span>How exactly did they do it? — View the full breakdown</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="case-v2-details" id="case-v2-details" aria-hidden="true">
-            <div class="case-v2-details-inner">
-              <div class="case-v2-detail">
-                <div class="case-v2-detail-label">Agent 1 — Invoice Processing</div>
-                <p class="case-v2-detail-text">Monitored vendor emails, extracted invoice data, matched to open POs, flagged discrepancies, and queued clean invoices for approval. Eliminated 11 hrs/week of data entry.</p>
-              </div>
-              <div class="case-v2-detail">
-                <div class="case-v2-detail-label">Agent 2 — Lead Follow-Up</div>
-                <p class="case-v2-detail-text">Watched the website contact form and Google Business Profile. Responded to new inquiries in 90 seconds, booked site visits, and updated the CRM automatically. Conversion up 34%.</p>
-              </div>
-              <div class="case-v2-detail">
-                <div class="case-v2-detail-label">The Final Result</div>
-                <p class="case-v2-detail-text">The owner now spends 3 hours on work that used to consume his entire Monday. He used the recovered time to close two additional contracts per month — fully funding the AI tools and then some.</p>
+            <button class="case-v2-expand-btn" id="case-expand-btn" aria-expanded="false" aria-controls="case-v2-details">
+              <span>How exactly did they do it? — View the full breakdown</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="case-v2-details" id="case-v2-details" aria-hidden="true">
+              <div class="case-v2-details-inner">
+                <div class="case-v2-detail">
+                  <div class="case-v2-detail-label">Agent 1 — Invoice Processing</div>
+                  <p class="case-v2-detail-text">Monitored vendor emails, extracted invoice data, matched to open POs, flagged discrepancies, and queued clean invoices for approval. Eliminated 11 hrs/week of data entry.</p>
+                </div>
+                <div class="case-v2-detail">
+                  <div class="case-v2-detail-label">Agent 2 — Lead Follow-Up</div>
+                  <p class="case-v2-detail-text">Watched the website contact form and Google Business Profile. Responded to new inquiries in 90 seconds, booked site visits, and updated the CRM automatically. Conversion up 34%.</p>
+                </div>
+                <div class="case-v2-detail">
+                  <div class="case-v2-detail-label">The Final Result</div>
+                  <p class="case-v2-detail-text">The owner now spends 3 hours on work that used to consume his entire Monday. He used the recovered time to close two additional contracts per month — fully funding the AI tools and then some.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -1620,371 +1642,427 @@ main{min-width:0;position:relative}
       </section>
 
       <!-- ══ SECTION 3: THE 3 PROBLEMS ══ -->
-      <section class="section-block" id="section-problems" aria-labelledby="prob-heading">
-        <div class="section-eyebrow">Section 3 · The Core Framework</div>
+      <section class="section-block" id="section-problems">
+        <div class="section-eyebrow">
+          Section 3 · The Core Framework
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
+        </div>
         <h2 class="section-h2" id="prob-heading">3 Problems AI <em>Can Solve This Week</em></h2>
-        <p class="problems-intro">
-          The businesses that extract real ROI from AI don't use it for everything — they pick one of three specific operational problems and deploy a focused agent. Here are the three that matter most for small businesses right now.
-        </p>
+        <div class="section-content">
+          <p class="problems-intro">
+            The businesses that extract real ROI from AI don't use it for everything — they pick one of three specific operational problems and deploy a focused agent. Here are the three that matter most for small businesses right now.
+          </p>
 
-        <div class="prob-rows" role="list" aria-label="Three business problems AI solves">
+          <div class="prob-rows" role="list" aria-label="Three business problems AI solves">
 
-          <!-- ROW 1: High Costs -->
-          <div class="prob-row" role="listitem">
-            <div class="prob-row-num prn-r" aria-hidden="true">01</div>
-            <div class="prob-row-body">
-              <div class="prob-row-label prl-r">Cost Reduction</div>
-              <h3 class="prob-row-title">High Operating Costs</h3>
-              <p class="prob-row-desc">Every business carries a hidden tax — hours spent on data entry, invoice processing, report generation, and scheduling confirmations. These tasks are repetitive and rule-based. AI agents were built exactly for this: they run 24/7, never make errors from fatigue, and don't collect overtime.</p>
-              <span class="prob-row-chip">⚖️ Invoice agents · Data extraction · Report generation</span>
-              <div class="prob-row-expand" id="row-ex-costs" aria-hidden="true">
-                <div class="prob-row-expand-inner">
-                  <strong>AI Invoice Processing Agent</strong> — monitors your inbox for vendor invoices, then automatically extracts all fields, matches to open purchase orders, flags discrepancies, and queues clean invoices for one-click approval.
-                  <ol>
-                    <li>Extracts vendor name, line items, amounts, and due dates</li>
-                    <li>Matches each invoice against purchase orders in your system</li>
-                    <li>Flags mismatches above your defined threshold for review</li>
-                    <li>Files everything and queues clean invoices for approval</li>
-                  </ol>
-                  <div class="prob-row-result">⏱ Average: 11 hrs/week recovered · ~$18,000/yr in labor value</div>
+            <!-- ROW 1: High Costs -->
+            <div class="prob-row" role="listitem">
+              <div class="prob-row-num prn-r" aria-hidden="true">01</div>
+              <div class="prob-row-body">
+                <div class="prob-row-label prl-r">Cost Reduction</div>
+                <h3 class="prob-row-title">High Operating Costs</h3>
+                <p class="prob-row-desc">Every business carries a hidden tax — hours spent on data entry, invoice processing, report generation, and scheduling confirmations. These tasks are repetitive and rule-based. AI agents were built exactly for this: they run 24/7, never make errors from fatigue, and don't collect overtime.</p>
+                <span class="prob-row-chip">⚖️ Invoice agents · Data extraction · Report generation</span>
+                <div class="prob-row-expand" id="row-ex-costs" aria-hidden="true">
+                  <div class="prob-row-expand-inner">
+                    <strong>AI Invoice Processing Agent</strong> — monitors your inbox for vendor invoices, then automatically extracts all fields, matches to open purchase orders, flags discrepancies, and queues clean invoices for one-click approval.
+                    <ol>
+                      <li>Extracts vendor name, line items, amounts, and due dates</li>
+                      <li>Matches each invoice against purchase orders in your system</li>
+                      <li>Flags mismatches above your defined threshold for review</li>
+                      <li>Files everything and queues clean invoices for approval</li>
+                    </ol>
+                    <div class="prob-row-result">⏱ Average: 11 hrs/week recovered · ~$18,000/yr in labor value</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="prob-row-right">
-              <div class="prob-row-stat">
-                <span class="prob-row-stat-val prsv-r">40%</span>
-                <span class="prob-row-stat-lbl">avg. cost reduction</span>
+              <div class="prob-row-right">
+                <div class="prob-row-stat">
+                  <span class="prob-row-stat-val prsv-r">40%</span>
+                  <span class="prob-row-stat-lbl">avg. cost reduction</span>
+                </div>
+                <button class="prob-row-btn prb-r" data-target="row-ex-costs" aria-expanded="false" aria-controls="row-ex-costs">
+                  Example
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
               </div>
-              <button class="prob-row-btn prb-r" data-target="row-ex-costs" aria-expanded="false" aria-controls="row-ex-costs">
-                Example
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
             </div>
-          </div>
 
-          <!-- ROW 2: Low Productivity -->
-          <div class="prob-row" role="listitem">
-            <div class="prob-row-num prn-b" aria-hidden="true">02</div>
-            <div class="prob-row-body">
-              <div class="prob-row-label prl-b">Productivity</div>
-              <h3 class="prob-row-title">Low Team Productivity</h3>
-              <p class="prob-row-desc">Your team is talented — but they spend hours every day on coordination work: routing requests, classifying messages, updating statuses, chasing down information. AI workflow agents sit at the center of your processes, make routing decisions automatically, and keep everything moving without constant human intervention.</p>
-              <span class="prob-row-chip">⚡ Lead routing · Task classification · Status automation</span>
-              <div class="prob-row-expand" id="row-ex-prod" aria-hidden="true">
-                <div class="prob-row-expand-inner">
-                  <strong>AI Lead Routing &amp; Operations Agent</strong> — when a new lead submits your contact form, the agent reads, scores, and routes them without any manual sorting.
-                  <ol>
-                    <li>Reads the submission and classifies by industry, size, and intent</li>
-                    <li>Scores the lead against your ideal customer profile criteria</li>
-                    <li>Routes high-fit leads directly to your best rep with a briefing note</li>
-                    <li>Enrolls lower-fit leads into an automated nurture sequence</li>
-                  </ol>
-                  <div class="prob-row-result">⚡ Avg result: 28% sales output increase · No added headcount</div>
+            <!-- ROW 2: Low Productivity -->
+            <div class="prob-row" role="listitem">
+              <div class="prob-row-num prn-b" aria-hidden="true">02</div>
+              <div class="prob-row-body">
+                <div class="prob-row-label prl-b">Productivity</div>
+                <h3 class="prob-row-title">Low Team Productivity</h3>
+                <p class="prob-row-desc">Your team is talented — but they spend hours every day on coordination work: routing requests, classifying messages, updating statuses, chasing down information. AI workflow agents sit at the center of your processes, make routing decisions automatically, and keep everything moving without constant human intervention.</p>
+                <span class="prob-row-chip">⚡ Lead routing · Task classification · Status automation</span>
+                <div class="prob-row-expand" id="row-ex-prod" aria-hidden="true">
+                  <div class="prob-row-expand-inner">
+                    <strong>AI Lead Routing &amp; Operations Agent</strong> — when a new lead submits your contact form, the agent reads, scores, and routes them without any manual sorting.
+                    <ol>
+                      <li>Reads the submission and classifies by industry, size, and intent</li>
+                      <li>Scores the lead against your ideal customer profile criteria</li>
+                      <li>Routes high-fit leads directly to your best rep with a briefing note</li>
+                      <li>Enrolls lower-fit leads into an automated nurture sequence</li>
+                    </ol>
+                    <div class="prob-row-result">⚡ Avg result: 28% sales output increase · No added headcount</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="prob-row-right">
-              <div class="prob-row-stat">
-                <span class="prob-row-stat-val prsv-b">3.2h</span>
-                <span class="prob-row-stat-lbl">lost daily per employee</span>
+              <div class="prob-row-right">
+                <div class="prob-row-stat">
+                  <span class="prob-row-stat-val prsv-b">3.2h</span>
+                  <span class="prob-row-stat-lbl">lost daily per employee</span>
+                </div>
+                <button class="prob-row-btn prb-b" data-target="row-ex-prod" aria-expanded="false" aria-controls="row-ex-prod">
+                  Example
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
               </div>
-              <button class="prob-row-btn prb-b" data-target="row-ex-prod" aria-expanded="false" aria-controls="row-ex-prod">
-                Example
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
             </div>
-          </div>
 
-          <!-- ROW 3: Lost Sales -->
-          <div class="prob-row" role="listitem">
-            <div class="prob-row-num prn-g" aria-hidden="true">03</div>
-            <div class="prob-row-body">
-              <div class="prob-row-label prl-g">Revenue Recovery</div>
-              <h3 class="prob-row-title">Lost Sales Opportunities</h3>
-              <p class="prob-row-desc">The fastest way to lose a sale is to respond slowly. 78% of customers buy from the first business that responds meaningfully — but most SMBs can't reply within minutes, especially outside office hours. AI follow-up agents respond in under 90 seconds, every time, around the clock, with messages that feel personal.</p>
-              <span class="prob-row-chip">📈 Instant follow-up · Lead capture · 24/7 response</span>
-              <div class="prob-row-expand" id="row-ex-sales" aria-hidden="true">
-                <div class="prob-row-expand-inner">
-                  <strong>Instant Follow-Up AI Agent</strong> — a visitor fills out your form at 11:47 PM. Your agent responds before midnight.
-                  <ol>
-                    <li>Reads their message and identifies the exact service they need</li>
-                    <li>Crafts a personalized reply referencing their specific situation</li>
-                    <li>Sends the response within 90 seconds with your booking link</li>
-                    <li>Logs to CRM and sets a morning follow-up reminder for your team</li>
-                  </ol>
-                  <div class="prob-row-result">📈 Avg result: 2–4 extra closed deals/month · 5× higher conversion vs slow response</div>
+            <!-- ROW 3: Lost Sales -->
+            <div class="prob-row" role="listitem">
+              <div class="prob-row-num prn-g" aria-hidden="true">03</div>
+              <div class="prob-row-body">
+                <div class="prob-row-label prl-g">Revenue Recovery</div>
+                <h3 class="prob-row-title">Lost Sales Opportunities</h3>
+                <p class="prob-row-desc">The fastest way to lose a sale is to respond slowly. 78% of customers buy from the first business that responds meaningfully — but most SMBs can't reply within minutes, especially outside office hours. AI follow-up agents respond in under 90 seconds, every time, around the clock, with messages that feel personal.</p>
+                <span class="prob-row-chip">📈 Instant follow-up · Lead capture · 24/7 response</span>
+                <div class="prob-row-expand" id="row-ex-sales" aria-hidden="true">
+                  <div class="prob-row-expand-inner">
+                    <strong>Instant Follow-Up AI Agent</strong> — a visitor fills out your form at 11:47 PM. Your agent responds before midnight.
+                    <ol>
+                      <li>Reads their message and identifies the exact service they need</li>
+                      <li>Crafts a personalized reply referencing their specific situation</li>
+                      <li>Sends the response within 90 seconds with your booking link</li>
+                      <li>Logs to CRM and sets a morning follow-up reminder for your team</li>
+                    </ol>
+                    <div class="prob-row-result">📈 Avg result: 2–4 extra closed deals/month · 5× higher conversion vs slow response</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="prob-row-right">
-              <div class="prob-row-stat">
-                <span class="prob-row-stat-val prsv-g">5×</span>
-                <span class="prob-row-stat-lbl">higher conversion rate</span>
+              <div class="prob-row-right">
+                <div class="prob-row-stat">
+                  <span class="prob-row-stat-val prsv-g">5×</span>
+                  <span class="prob-row-stat-lbl">higher conversion rate</span>
+                </div>
+                <button class="prob-row-btn prb-g" data-target="row-ex-sales" aria-expanded="false" aria-controls="row-ex-sales">
+                  Example
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
               </div>
-              <button class="prob-row-btn prb-g" data-target="row-ex-sales" aria-expanded="false" aria-controls="row-ex-sales">
-                Example
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </button>
             </div>
-          </div>
 
+          </div>
+          <!-- New subsection: Why SPAR makes these solutions work -->
+          <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--ob); border-radius: 12px; border-left: 4px solid var(--g1);">
+            <h3 style="font-family: var(--fd); font-size: 1.3rem; color: var(--wh); margin-bottom: 0.75rem;">The Engine Behind These Solutions: The SPAR Framework</h3>
+            <p style="font-size: 0.9rem; color: var(--bn); line-height: 1.7; margin-bottom: 1rem;">What makes these AI agents so effective? They operate in a continuous, intelligent loop called SPAR: <strong style="color: var(--g0);">Sense → Plan → Act → Respond</strong>. This isn't a one-and-done process. It's a cycle that enables agents to learn and improve.</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;">
+              <div style="text-align: center;"><span style="display: block; font-family: var(--fb); color: var(--g1); font-size: 0.7rem; letter-spacing: 0.1em;">1. SENSE</span><span style="font-size: 0.8rem; color: var(--tp);">Perceive environment (email, form, data)</span></div>
+              <div style="text-align: center;"><span style="display: block; font-family: var(--fb); color: var(--blu); font-size: 0.7rem; letter-spacing: 0.1em;">2. PLAN</span><span style="font-size: 0.8rem; color: var(--tp);">Reason about the best course of action</span></div>
+              <div style="text-align: center;"><span style="display: block; font-family: var(--fb); color: var(--grn); font-size: 0.7rem; letter-spacing: 0.1em;">3. ACT</span><span style="font-size: 0.8rem; color: var(--tp);">Execute tasks (send email, update CRM)</span></div>
+              <div style="text-align: center;"><span style="display: block; font-family: var(--fb); color: var(--red); font-size: 0.7rem; letter-spacing: 0.1em;">4. RESPOND</span><span style="font-size: 0.8rem; color: var(--tp);">Log outcome, notify, and refine future plans</span></div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--bn); line-height: 1.6; margin-top: 1.25rem;">The <strong>Respond</strong> step is what separates SPAR from older models like PEA (Perceive-Evaluate-Act). By closing the loop, agents don't just complete a task; they log what happened, provide feedback to stakeholders, and use that information to make better plans next time. This is the difference between a simple tool and an autonomous, learning system [citation:6].</p>
+          </div>
         </div>
       </section>
 
       <!-- ══ SECTION 4: TAKEAWAYS ══ -->
-      <section class="section-block" id="section-gains" aria-labelledby="gains-heading">
-        <div class="section-eyebrow">Section 4 · Your Strategic Takeaways</div>
-        <h2 class="section-h2" id="gains-heading">What you're walking away with</h2>
-
-        <div class="tw-header-row">
-          <div class="tw-counter" aria-hidden="true">4</div>
-          <p class="tw-intro-text">You didn't just read about AI — you've absorbed a deployable strategic framework. Here's exactly what you now have that most business owners are still missing.</p>
+      <section class="section-block" id="section-gains">
+        <div class="section-eyebrow">
+          Section 4 · Your Strategic Takeaways
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
         </div>
-
-        <div class="tw-grid" role="list" aria-label="Lesson takeaways">
-
-          <div class="tw-item" role="listitem">
-            <div class="tw-item-top">
-              <div class="tw-item-check" aria-hidden="true">✓</div>
-              <div class="tw-item-num">Takeaway 01</div>
-            </div>
-            <div class="tw-item-title">A clear mental model for AI ROI</div>
-            <p class="tw-item-desc">You now understand exactly how AI creates measurable financial value — not in theory, but through specific operational mechanisms that apply to businesses of every size.</p>
+        <h2 class="section-h2" id="gains-heading">What you're walking away with</h2>
+        <div class="section-content">
+          <div class="tw-header-row">
+            <div class="tw-counter" aria-hidden="true">4</div>
+            <p class="tw-intro-text">You didn't just read about AI — you've absorbed a deployable strategic framework. Here's exactly what you now have that most business owners are still missing.</p>
           </div>
 
-          <div class="tw-item" role="listitem">
-            <div class="tw-item-top">
-              <div class="tw-item-check" aria-hidden="true">✓</div>
-              <div class="tw-item-num">Takeaway 02</div>
-            </div>
-            <div class="tw-item-title">The ability to spot automation opportunities</div>
-            <p class="tw-item-desc">You can now look at any business process and evaluate whether it's a candidate for AI automation — and which of the three problem categories it belongs to.</p>
-          </div>
+          <div class="tw-grid" role="list" aria-label="Lesson takeaways">
 
-          <div class="tw-item" role="listitem">
-            <div class="tw-item-top">
-              <div class="tw-item-check" aria-hidden="true">✓</div>
-              <div class="tw-item-num">Takeaway 03</div>
+            <div class="tw-item" role="listitem">
+              <div class="tw-item-top">
+                <div class="tw-item-check" aria-hidden="true">✓</div>
+                <div class="tw-item-num">Takeaway 01</div>
+              </div>
+              <div class="tw-item-title">A clear mental model for AI ROI</div>
+              <p class="tw-item-desc">You now understand exactly how AI creates measurable financial value — not in theory, but through specific operational mechanisms that apply to businesses of every size.</p>
             </div>
-            <div class="tw-item-title">Three AI projects you could start this week</div>
-            <p class="tw-item-desc">You've seen concrete examples for cost reduction, productivity, and sales recovery — each with enough operational detail to brief a developer or platform on exactly what you need built.</p>
-          </div>
 
-          <div class="tw-item" role="listitem">
-            <div class="tw-item-top">
-              <div class="tw-item-check" aria-hidden="true">✓</div>
-              <div class="tw-item-num">Takeaway 04</div>
+            <div class="tw-item" role="listitem">
+              <div class="tw-item-top">
+                <div class="tw-item-check" aria-hidden="true">✓</div>
+                <div class="tw-item-num">Takeaway 02</div>
+              </div>
+              <div class="tw-item-title">The ability to spot automation opportunities</div>
+              <p class="tw-item-desc">You can now look at any business process and evaluate whether it's a candidate for AI automation — and which of the three problem categories it belongs to.</p>
             </div>
-            <div class="tw-item-title">A personalized savings estimate</div>
-            <p class="tw-item-desc">The calculator in the next section gives you a specific, data-grounded number — your potential annual savings from AI automation — based on your actual business parameters.</p>
-          </div>
 
+            <div class="tw-item" role="listitem">
+              <div class="tw-item-top">
+                <div class="tw-item-check" aria-hidden="true">✓</div>
+                <div class="tw-item-num">Takeaway 03</div>
+              </div>
+              <div class="tw-item-title">Three AI projects you could start this week</div>
+              <p class="tw-item-desc">You've seen concrete examples for cost reduction, productivity, and sales recovery — each with enough operational detail to brief a developer or platform on exactly what you need built.</p>
+            </div>
+
+            <div class="tw-item" role="listitem">
+              <div class="tw-item-top">
+                <div class="tw-item-check" aria-hidden="true">✓</div>
+                <div class="tw-item-num">Takeaway 04</div>
+              </div>
+              <div class="tw-item-title">A personalized savings estimate</div>
+              <p class="tw-item-desc">The calculator in the next section gives you a specific, data-grounded number — your potential annual savings from AI automation — based on your actual business parameters.</p>
+            </div>
+
+          </div>
         </div>
       </section>
 
       <!-- ══ SECTION 5: CALCULATOR ══ -->
-      <section class="section-block" id="section-calc" aria-labelledby="calc-heading">
-        <div class="section-eyebrow">Section 5 · Your ROI Estimate</div>
+      <section class="section-block" id="section-calc">
+        <div class="section-eyebrow">
+          Section 5 · Your ROI Estimate
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
+        </div>
         <h2 class="section-h2" id="calc-heading">How much could <em>your business save?</em></h2>
-        <p class="section-lead">
-          This isn't a generic statistic. Adjust the inputs to match your reality — your savings donut and 12-month projection update in real time, giving you a data-grounded number to take into any business conversation.
-        </p>
+        <div class="section-content">
+          <p class="section-lead">
+            This isn't a generic statistic. Adjust the inputs to match your reality — your savings donut and 12-month projection update in real time, giving you a data-grounded number to take into any business conversation.
+          </p>
 
-        <div class="roi-shell" role="region" aria-label="Interactive AI savings calculator">
-          <div class="roi-gradient-bar" aria-hidden="true"></div>
-          <div class="roi-body">
+          <div class="roi-shell" role="region" aria-label="Interactive AI savings calculator">
+            <div class="roi-gradient-bar" aria-hidden="true"></div>
+            <div class="roi-body">
 
-            <!-- LEFT: Controls -->
-            <div class="roi-controls">
-              <div class="roi-ctrl-title">Your Business Inputs</div>
-              <div class="roi-ctrl-sub">Drag the slider and choose your parameters — results update live</div>
+              <!-- LEFT: Controls -->
+              <div class="roi-controls">
+                <div class="roi-ctrl-title">Your Business Inputs</div>
+                <div class="roi-ctrl-sub">Drag the slider and choose your parameters — results update live</div>
 
-              <div class="roi-field">
-                <div class="roi-label">
-                  <span class="roi-label-text">Hours/week on repetitive tasks</span>
-                  <span class="roi-label-val" id="hours-val">12 hrs/wk</span>
+                <div class="roi-field">
+                  <div class="roi-label">
+                    <span class="roi-label-text">Hours/week on repetitive tasks</span>
+                    <span class="roi-label-val" id="hours-val">12 hrs/wk</span>
+                  </div>
+                  <input type="range" class="roi-slider" id="hours-slider" min="2" max="60" value="12"
+                    aria-label="Hours per week on repetitive tasks" aria-valuemin="2" aria-valuemax="60" aria-valuenow="12">
                 </div>
-                <input type="range" class="roi-slider" id="hours-slider" min="2" max="60" value="12"
-                  aria-label="Hours per week on repetitive tasks" aria-valuemin="2" aria-valuemax="60" aria-valuenow="12">
+
+                <div class="roi-selects">
+                  <div class="roi-select-wrap">
+                    <label class="roi-select-label" for="rate-select">Hourly work value</label>
+                    <select class="roi-select" id="rate-select" aria-label="Select hourly rate">
+                      <option value="25">$25/hr</option>
+                      <option value="50" selected>$50/hr</option>
+                      <option value="75">$75/hr</option>
+                      <option value="100">$100/hr</option>
+                      <option value="150">$150+/hr</option>
+                    </select>
+                  </div>
+                  <div class="roi-select-wrap">
+                    <label class="roi-select-label" for="team-select">People affected</label>
+                    <select class="roi-select" id="team-select" aria-label="Select team size">
+                      <option value="1">Solo</option>
+                      <option value="2" selected>2–3 people</option>
+                      <option value="5">4–6 people</option>
+                      <option value="10">7–15 people</option>
+                      <option value="20">15+ people</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Result numbers (mirrored below donut on mobile) -->
+                <div class="roi-result-nums" style="margin-bottom:1.25rem" aria-live="polite">
+                  <div class="roi-result-item">
+                    <div class="roi-result-label">Annual cost of wasted work</div>
+                    <div class="roi-result-val loss" id="res-cost">$62K</div>
+                    <div class="roi-result-sub">Hrs × Rate × Team × 52</div>
+                  </div>
+                  <div class="roi-result-item">
+                    <div class="roi-result-label">Estimated annual savings</div>
+                    <div class="roi-result-val gain" id="res-save">$44K</div>
+                    <div class="roi-result-sub">70% automation target</div>
+                  </div>
+                </div>
+
+                <div class="roi-save-row">
+                  <button class="roi-save-btn" id="calc-save-btn" aria-label="Save your results">💾 Save Results</button>
+                  <div class="roi-saved-note" id="calc-saved-confirm" role="status" aria-live="polite">✓ Saved to your profile</div>
+                </div>
+
+                <div id="calc-insight" style="font-size:.75rem;color:var(--tp);line-height:1.6;margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(201,163,74,.07)">
+                  This estimate is your starting point for building the business case for AI automation in your organization.
+                </div>
               </div>
 
-              <div class="roi-selects">
-                <div class="roi-select-wrap">
-                  <label class="roi-select-label" for="rate-select">Hourly work value</label>
-                  <select class="roi-select" id="rate-select" aria-label="Select hourly rate">
-                    <option value="25">$25/hr</option>
-                    <option value="50" selected>$50/hr</option>
-                    <option value="75">$75/hr</option>
-                    <option value="100">$100/hr</option>
-                    <option value="150">$150+/hr</option>
-                  </select>
+              <!-- RIGHT: Donut visualization -->
+              <div class="roi-visual">
+                <div style="font-family:var(--fd);font-size:1rem;color:var(--wh);font-style:italic;text-align:center;margin-bottom:-.5rem">Savings Breakdown</div>
+                <div class="roi-donut-wrap">
+                  <svg class="roi-donut-svg" viewBox="0 0 200 200" aria-label="Savings donut chart" role="img">
+                    <defs>
+                      <filter id="glow-grn"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    </defs>
+                    <!-- Track -->
+                    <circle class="roi-donut-track" cx="100" cy="100" r="80" stroke-width="20"/>
+                    <!-- Cost segment (red) -->
+                    <circle class="roi-donut-seg-r" id="roi-seg-r" cx="100" cy="100" r="80"
+                      stroke-width="20" transform="rotate(-90 100 100)"/>
+                    <!-- Savings segment (green) -->
+                    <circle class="roi-donut-seg-g" id="roi-seg-g" cx="100" cy="100" r="80"
+                      stroke-width="20" transform="rotate(-90 100 100)" filter="url(#glow-grn)"/>
+                  </svg>
+                  <div class="roi-donut-center">
+                    <span class="roi-donut-pct" id="roi-donut-pct">70%</span>
+                    <span class="roi-donut-pct-sub">Recoverable</span>
+                  </div>
                 </div>
-                <div class="roi-select-wrap">
-                  <label class="roi-select-label" for="team-select">People affected</label>
-                  <select class="roi-select" id="team-select" aria-label="Select team size">
-                    <option value="1">Solo</option>
-                    <option value="2" selected>2–3 people</option>
-                    <option value="5">4–6 people</option>
-                    <option value="10">7–15 people</option>
-                    <option value="20">15+ people</option>
-                  </select>
+                <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
+                  <div style="display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--bn)">
+                    <div style="width:10px;height:10px;border-radius:50%;background:var(--grn)"></div>
+                    Recovered by AI (70%)
+                  </div>
+                  <div style="display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--bn)">
+                    <div style="width:10px;height:10px;border-radius:50%;background:var(--red)"></div>
+                    Remaining cost (30%)
+                  </div>
                 </div>
-              </div>
-
-              <!-- Result numbers (mirrored below donut on mobile) -->
-              <div class="roi-result-nums" style="margin-bottom:1.25rem" aria-live="polite">
-                <div class="roi-result-item">
-                  <div class="roi-result-label">Annual cost of wasted work</div>
-                  <div class="roi-result-val loss" id="res-cost">$62K</div>
-                  <div class="roi-result-sub">Hrs × Rate × Team × 52</div>
-                </div>
-                <div class="roi-result-item">
-                  <div class="roi-result-label">Estimated annual savings</div>
-                  <div class="roi-result-val gain" id="res-save">$44K</div>
-                  <div class="roi-result-sub">70% automation target</div>
-                </div>
-              </div>
-
-              <div class="roi-save-row">
-                <button class="roi-save-btn" id="calc-save-btn" aria-label="Save your results">💾 Save Results</button>
-                <div class="roi-saved-note" id="calc-saved-confirm" role="status" aria-live="polite">✓ Saved to your profile</div>
-              </div>
-
-              <div id="calc-insight" style="font-size:.75rem;color:var(--tp);line-height:1.6;margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(201,163,74,.07)">
-                This estimate is your starting point for building the business case for AI automation in your organization.
               </div>
             </div>
 
-            <!-- RIGHT: Donut visualization -->
-            <div class="roi-visual">
-              <div style="font-family:var(--fd);font-size:1rem;color:var(--wh);font-style:italic;text-align:center;margin-bottom:-.5rem">Savings Breakdown</div>
-              <div class="roi-donut-wrap">
-                <svg class="roi-donut-svg" viewBox="0 0 200 200" aria-label="Savings donut chart" role="img">
-                  <defs>
-                    <filter id="glow-grn"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                  </defs>
-                  <!-- Track -->
-                  <circle class="roi-donut-track" cx="100" cy="100" r="80" stroke-width="20"/>
-                  <!-- Cost segment (red) -->
-                  <circle class="roi-donut-seg-r" id="roi-seg-r" cx="100" cy="100" r="80"
-                    stroke-width="20" transform="rotate(-90 100 100)"/>
-                  <!-- Savings segment (green) -->
-                  <circle class="roi-donut-seg-g" id="roi-seg-g" cx="100" cy="100" r="80"
-                    stroke-width="20" transform="rotate(-90 100 100)" filter="url(#glow-grn)"/>
-                </svg>
-                <div class="roi-donut-center">
-                  <span class="roi-donut-pct" id="roi-donut-pct">70%</span>
-                  <span class="roi-donut-pct-sub">Recoverable</span>
-                </div>
+            <!-- Bottom: 12-month bar chart -->
+            <div class="roi-barchart-wrap" aria-label="12-month projected savings bar chart">
+              <div class="roi-barchart-header">
+                <div class="roi-barchart-title">12-Month Projected Savings — Cumulative</div>
+                <div class="roi-insight-text" id="roi-bar-insight">Savings compound month over month as your AI agents run unattended — each month adds to the total recovered.</div>
               </div>
-              <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-                <div style="display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--bn)">
-                  <div style="width:10px;height:10px;border-radius:50%;background:var(--grn)"></div>
-                  Recovered by AI (70%)
-                </div>
-                <div style="display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--bn)">
-                  <div style="width:10px;height:10px;border-radius:50%;background:var(--red)"></div>
-                  Remaining cost (30%)
-                </div>
+              <div class="bars-container" id="bars-container" aria-hidden="true">
+                <!-- 12 bars injected by JS -->
               </div>
-            </div>
-          </div>
-
-          <!-- Bottom: 12-month bar chart -->
-          <div class="roi-barchart-wrap" aria-label="12-month projected savings bar chart">
-            <div class="roi-barchart-header">
-              <div class="roi-barchart-title">12-Month Projected Savings — Cumulative</div>
-              <div class="roi-insight-text" id="roi-bar-insight">Savings compound month over month as your AI agents run unattended — each month adds to the total recovered.</div>
-            </div>
-            <div class="bars-container" id="bars-container" aria-hidden="true">
-              <!-- 12 bars injected by JS -->
-            </div>
-            <div style="display:flex;justify-content:space-between;margin-top:.4rem;padding:0 2px">
-              <span style="font-family:var(--fb);font-size:.42rem;letter-spacing:.12em;color:var(--tp);text-transform:uppercase">Month 1</span>
-              <span style="font-family:var(--fb);font-size:.42rem;letter-spacing:.12em;color:var(--tp);text-transform:uppercase">Month 12</span>
+              <div style="display:flex;justify-content:space-between;margin-top:.4rem;padding:0 2px">
+                <span style="font-family:var(--fb);font-size:.42rem;letter-spacing:.12em;color:var(--tp);text-transform:uppercase">Month 1</span>
+                <span style="font-family:var(--fb);font-size:.42rem;letter-spacing:.12em;color:var(--tp);text-transform:uppercase">Month 12</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ══ SECTION 6: COMMUNITY ══ -->
-      <section class="section-block" id="section-community" aria-labelledby="community-heading">
-        <div class="section-eyebrow">Section 6 · Community Voices</div>
+      <section class="section-block" id="section-community">
+        <div class="section-eyebrow">
+          Section 6 · Community Voices
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
+        </div>
         <h2 class="section-h2" id="community-heading">What other entrepreneurs <em>are saying</em></h2>
-        <p class="section-lead">
-          Business owners at different stages of their AI journey — all VERCELLUM community members who completed this lesson and took action within 30 days.
-        </p>
+        <div class="section-content">
+          <p class="section-lead">
+            Business owners at different stages of their AI journey — all VERCELLUM community members who completed this lesson and took action within 30 days.
+          </p>
 
-        <div class="voices-list" role="list" aria-label="Community testimonials">
+          <div class="voices-list" role="list" aria-label="Community testimonials">
 
-          <div class="voice-item" role="listitem">
-            <div class="voice-person">
-              <div class="voice-avatar" aria-hidden="true">MR</div>
-              <div class="voice-name">Marcus R.</div>
-              <div class="voice-role-short">E-commerce · 8 staff</div>
+            <div class="voice-item" role="listitem">
+              <div class="voice-person">
+                <div class="voice-avatar" aria-hidden="true">MR</div>
+                <div class="voice-name">Marcus R.</div>
+                <div class="voice-role-short">E-commerce · 8 staff</div>
+              </div>
+              <p class="voice-quote">I was skeptical until I saw the numbers. Our AI invoice agent saved 14 hours in its first week. The ROI calculator in this lesson predicted it almost exactly.</p>
+              <div class="voice-right">
+                <div class="voice-stars" aria-label="5 stars">★★★★★</div>
+                <div class="voice-result">✓ 14 hrs saved · Week 1</div>
+              </div>
             </div>
-            <p class="voice-quote">I was skeptical until I saw the numbers. Our AI invoice agent saved 14 hours in its first week. The ROI calculator in this lesson predicted it almost exactly.</p>
-            <div class="voice-right">
-              <div class="voice-stars" aria-label="5 stars">★★★★★</div>
-              <div class="voice-result">✓ 14 hrs saved · Week 1</div>
+
+            <div class="voice-item" role="listitem">
+              <div class="voice-person">
+                <div class="voice-avatar" aria-hidden="true">SK</div>
+                <div class="voice-name">Sarah K.</div>
+                <div class="voice-role-short">Agency founder · 5 clients</div>
+              </div>
+              <p class="voice-quote">The lead follow-up agent paid for a full year of VERCELLUM in its first month. We went from calling leads back the next morning to responding in 90 seconds.</p>
+              <div class="voice-right">
+                <div class="voice-stars" aria-label="5 stars">★★★★★</div>
+                <div class="voice-result">✓ ROI in month 1</div>
+              </div>
             </div>
+
+            <div class="voice-item" role="listitem">
+              <div class="voice-person">
+                <div class="voice-avatar" aria-hidden="true">JT</div>
+                <div class="voice-name">James T.</div>
+                <div class="voice-role-short">Operations · Logistics</div>
+              </div>
+              <p class="voice-quote">Lesson 3 gave me the exact language to explain AI ROI to my business partner. We approved our first AI project budget that same week.</p>
+              <div class="voice-right">
+                <div class="voice-stars" aria-label="5 stars">★★★★★</div>
+                <div class="voice-result">✓ Budget approved · Same week</div>
+              </div>
+            </div>
+
+            <div class="voice-item" role="listitem">
+              <div class="voice-person">
+                <div class="voice-avatar" aria-hidden="true">AL</div>
+                <div class="voice-name">Ana L.</div>
+                <div class="voice-role-short">Solo consultant</div>
+              </div>
+              <p class="voice-quote">I used to think AI was for big tech. After this lesson I built my first automation the same evening. It runs my weekly reporting now — without me touching it.</p>
+              <div class="voice-right">
+                <div class="voice-stars" aria-label="5 stars">★★★★★</div>
+                <div class="voice-result">✓ Live same day</div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="voice-item" role="listitem">
-            <div class="voice-person">
-              <div class="voice-avatar" aria-hidden="true">SK</div>
-              <div class="voice-name">Sarah K.</div>
-              <div class="voice-role-short">Agency founder · 5 clients</div>
+          <!-- Community CTA (unchanged) -->
+          <div class="community-invite">
+            <div class="community-invite-left">
+              <div class="community-invite-title">Join 2,800+ builders in our community</div>
+              <div class="community-invite-sub">Share your progress, ask questions, and see what others are building.</div>
             </div>
-            <p class="voice-quote">The lead follow-up agent paid for a full year of VERCELLUM in its first month. We went from calling leads back the next morning to responding in 90 seconds.</p>
-            <div class="voice-right">
-              <div class="voice-stars" aria-label="5 stars">★★★★★</div>
-              <div class="voice-result">✓ ROI in month 1</div>
-            </div>
-          </div>
-
-          <div class="voice-item" role="listitem">
-            <div class="voice-person">
-              <div class="voice-avatar" aria-hidden="true">JT</div>
-              <div class="voice-name">James T.</div>
-              <div class="voice-role-short">Operations · Logistics</div>
-            </div>
-            <p class="voice-quote">Lesson 3 gave me the exact language to explain AI ROI to my business partner. We approved our first AI project budget that same week.</p>
-            <div class="voice-right">
-              <div class="voice-stars" aria-label="5 stars">★★★★★</div>
-              <div class="voice-result">✓ Budget approved · Same week</div>
+            <div class="community-invite-right">
+              <button class="community-invite-btn" id="community-copy-link">📋 Copy invite link</button>
+              <div class="community-copy-note" id="community-copy-note">Link copied!</div>
             </div>
           </div>
-
-          <div class="voice-item" role="listitem">
-            <div class="voice-person">
-              <div class="voice-avatar" aria-hidden="true">AL</div>
-              <div class="voice-name">Ana L.</div>
-              <div class="voice-role-short">Solo consultant</div>
-            </div>
-            <p class="voice-quote">I used to think AI was for big tech. After this lesson I built my first automation the same evening. It runs my weekly reporting now — without me touching it.</p>
-            <div class="voice-right">
-              <div class="voice-stars" aria-label="5 stars">★★★★★</div>
-              <div class="voice-result">✓ Live same day</div>
-            </div>
-          </div>
-
         </div>
+      </section>
 
-        <div class="community-invite">
-          <div class="community-invite-left">
-            <div class="community-invite-title">You're not building this alone</div>
-            <p class="community-invite-sub">2,500+ entrepreneurs sharing AI agents, live results, and strategies — in real time</p>
+      <!-- ══ NEW SECTION: PRACTICAL APPLICATION ══ -->
+      <section class="section-block" id="section-practical">
+        <div class="section-eyebrow">
+          🧪 Practical Application
+          <span class="section-toggle" aria-label="Toggle section" aria-expanded="false">▶</span>
+        </div>
+        <h2 class="section-h2">Choose a problem and <em>design an AI agent</em></h2>
+        <div class="section-content">
+          <p class="section-lead">Now it's your turn. Pick one of the following business problems and describe how you would build an AI agent to solve it. Use the SPAR framework (Sense, Plan, Act, Respond) to structure your answer. This exercise will be saved in your browser.</p>
+          <div style="margin-bottom:1.5rem;">
+            <p style="font-family:var(--fb);font-size:.6rem;color:var(--g1);margin-bottom:.5rem">Example Problems:</p>
+            <ul style="color:var(--bn);font-size:.8rem;line-height:1.8;margin-left:1.2rem;">
+              <li><strong>Customer support</strong> — Your team spends hours answering the same questions about shipping, returns, and pricing.</li>
+              <li><strong>Sales follow-up</strong> — Leads from your website contact form often go cold because you don't respond within 24 hours.</li>
+              <li><strong>Task management</strong> — Your team uses multiple tools (email, Slack, Trello) and tasks get lost in the noise.</li>
+            </ul>
           </div>
-          <div class="community-invite-right">
-            <button class="community-invite-btn" id="community-join-btn" aria-label="Join community and copy invite link">
-              <span>💬</span>
-              <span>Join the Community</span>
-            </button>
-            <div class="community-copy-note" id="copy-confirm" role="status" aria-live="polite">✓ Invite link copied!</div>
+          <div class="poll-wrap" style="padding:1.5rem;">
+            <label for="practical-text" style="font-family:var(--fb);font-size:.55rem;letter-spacing:.2em;color:var(--g2);text-transform:uppercase;display:block;margin-bottom:.75rem;">Your agent design:</label>
+            <textarea id="practical-text" rows="4" style="width:100%;background:var(--on);border:1px solid rgba(201,163,74,.14);border-radius:9px;color:var(--cr);padding:.75rem;font-size:.9rem;resize:vertical;" placeholder="Describe the trigger (Sense), rules (Plan), actions (Act), and how it logs (Respond)..."></textarea>
+            <div style="display:flex;align-items:center;gap:1rem;margin-top:1rem;">
+              <button class="sb-btn sb-btn-gold" id="practical-save-btn" style="padding:.7rem 1.5rem;">💾 Save Exercise</button>
+              <span id="practical-feedback" style="color:var(--grn);font-size:.8rem;opacity:0;transition:opacity .3s;">✓ Saved</span>
+            </div>
           </div>
         </div>
-
       </section>
 
     </article>
@@ -2341,10 +2419,18 @@ const calcIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInter
 const calcEl=document.getElementById('section-calc');if(calcEl)calcIO.observe(calcEl);
 updateCalc();
 
-// Save button
+// Save button with future‑ready logic
+function saveROIData(data) {
+  localStorage.setItem('vrc_l3_calc', JSON.stringify(data));
+  // Future integration: if user account exists, send to API
+  if (window.user) {
+    console.log('Send to database (future)', data);
+  }
+}
 document.getElementById('calc-save-btn').addEventListener('click',()=>{
   const hours=+hoursSlider.value,rate=+rateSelect.value,team=+teamSelect.value;
-  try{localStorage.setItem('vrc_l3_calc',JSON.stringify({hours,rate,team,saved:new Date().toISOString()}))}catch(e){}
+  const data = {hours,rate,team,saved:new Date().toISOString()};
+  saveROIData(data);
   const conf=document.getElementById('calc-saved-confirm');
   conf.classList.add('show');playSuccess();
   setTimeout(()=>conf.classList.remove('show'),3000);
@@ -2358,26 +2444,19 @@ document.getElementById('calc-save-btn').addEventListener('click',()=>{
   }catch(e){}
 })();
 
-/* ══ COMMUNITY ══ */
-document.getElementById('community-join-btn').addEventListener('click',()=>{
-  navigator.clipboard.writeText('https://discord.gg/vercellum').catch(()=>{});
-  const c=document.getElementById('copy-confirm');c.classList.add('show');playSuccess();
-  setTimeout(()=>c.classList.remove('show'),3000);
-});
-document.getElementById('sb-discord-btn').addEventListener('click',()=>{
-  const p=document.getElementById('popup-discord');p.classList.add('open');p.setAttribute('aria-hidden','false');playClick();
-});
-document.getElementById('close-discord').addEventListener('click',()=>{
-  const p=document.getElementById('popup-discord');p.classList.remove('open');p.setAttribute('aria-hidden','true');
-});
-document.getElementById('popup-discord').addEventListener('click',e=>{
-  if(e.target===e.currentTarget){e.currentTarget.classList.remove('open');e.currentTarget.setAttribute('aria-hidden','true')}
-});
-document.getElementById('copy-discord-btn').addEventListener('click',()=>{
-  navigator.clipboard.writeText('https://discord.gg/vercellum').catch(()=>{});
-  const n=document.getElementById('copied-note');n.classList.add('show');playTone(660,.2,'sine',.06);
-  setTimeout(()=>n.classList.remove('show'),2500);
-});
+/* ══ SIDEBAR SAVE BUTTON (unified with Lesson 4) ══ */
+const sbSaveBtn = document.getElementById('sb-save-btn');
+if (sbSaveBtn) {
+  sbSaveBtn.addEventListener('click', function() {
+    this.textContent = '◆ Progress saved';
+    this.style.color = 'var(--g1)';
+    playSuccess();
+    setTimeout(() => {
+      this.textContent = '◇ Save progress';
+      this.style.color = '';
+    }, 3000);
+  });
+}
 
 /* ══ COMPLETE LESSON ══ */
 const lvlBanner=document.getElementById('levelup-banner');
@@ -2388,16 +2467,12 @@ document.getElementById('complete-btn').addEventListener('click',()=>{
   setTimeout(()=>lvlBanner.classList.remove('show'),4200);
   setTimeout(()=>{window.location.href='lesson4.html'},4600);
 });
-document.getElementById('save-exit-btn').addEventListener('click',()=>{
-  try{localStorage.setItem('vrc_path1_progress','60')}catch(e){}
-  playClick();window.location.href='path.html';
-});
 
 /* ══ PROGRESS ══ */
 let curProgress=0;
 function updateProgress(val){
   if(val<=curProgress)return;curProgress=val;
-  const fill=document.getElementById('sb-fill'),pct=document.getElementById('sb-pct');
+  const fill=document.querySelector('.sb-progress-fill'),pct=document.querySelector('.sb-progress-pct');
   const lp=Math.round(75+(val/100)*25);
   if(fill)fill.style.width=lp+'%';if(pct)pct.textContent=lp+'%';
 }
@@ -2406,6 +2481,42 @@ function updateProgress(val){
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape')document.querySelectorAll('.popup-overlay.open').forEach(p=>{p.classList.remove('open');p.setAttribute('aria-hidden','true')});
 });
+
+/* ═══ NEW: Collapsible sections ═══ */
+document.querySelectorAll('.section-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const section = this.closest('.section-block');
+    if (!section) return;
+    const isCollapsed = section.classList.toggle('collapsed');
+    this.textContent = isCollapsed ? '▶' : '▼';
+    this.setAttribute('aria-expanded', !isCollapsed);
+    playClick();
+  });
+});
+
+/* ═══ NEW: Practical application save ═══ */
+const practicalText = document.getElementById('practical-text');
+const practicalSaveBtn = document.getElementById('practical-save-btn');
+const practicalFeedback = document.getElementById('practical-feedback');
+
+// Load saved text on page load
+try {
+  const saved = localStorage.getItem('vrc_l3_practical');
+  if (saved && practicalText) practicalText.value = saved;
+} catch(e) {}
+
+if (practicalSaveBtn && practicalText) {
+  practicalSaveBtn.addEventListener('click', () => {
+    const text = practicalText.value;
+    try {
+      localStorage.setItem('vrc_l3_practical', text);
+    } catch(e) {}
+    practicalFeedback.style.opacity = 1;
+    playSuccess();
+    setTimeout(() => { practicalFeedback.style.opacity = 0; }, 2000);
+  });
+}
 
 })();
 </script>
