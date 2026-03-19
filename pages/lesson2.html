@@ -392,22 +392,6 @@ aside.sidebar::-webkit-scrollbar{display:none}
 .btn-ghost:hover{border-color:rgba(201,163,74,.3);color:var(--bn)}
 .btn-ghost svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none}
 
-/* ═══ CTA ═══ */
-.cta-wrap{background:linear-gradient(135deg,rgba(201,163,74,.09),rgba(96,165,250,.06));border:1px solid rgba(201,163,74,.2);border-radius:20px;padding:3rem 2rem;text-align:center;position:relative;overflow:hidden}
-.cta-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,163,74,.06),transparent 60%);pointer-events:none}
-.sec-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .85rem;border-radius:6px;font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.25rem}
-.sec-badge.gold{background:var(--gf);border:1px solid rgba(201,163,74,.22);color:var(--g1)}
-.cta-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.1rem,3vw,1.8rem);color:transparent;background:linear-gradient(135deg,var(--g0),var(--g1));-webkit-background-clip:text;background-clip:text;margin-bottom:.75rem}
-.cta-sub{font-family:var(--fd);font-style:italic;font-size:1.05rem;color:var(--bn);margin-bottom:1.75rem;max-width:500px;margin-left:auto;margin-right:auto}
-.cta-preview{background:var(--gt);border:1px solid rgba(201,163,74,.12);border-radius:12px;padding:1.25rem;margin:1.25rem auto 1.75rem;max-width:440px;text-align:left}
-.cta-preview-label{font-family:var(--fb);font-size:.47rem;letter-spacing:.22em;color:var(--g2);margin-bottom:.65rem;text-transform:uppercase}
-.cta-preview-items{display:flex;flex-direction:column;gap:.45rem}
-.cta-pi{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--bn)}
-.cta-pi-dot{width:5px;height:5px;border-radius:50%;background:var(--grn);flex-shrink:0}
-.cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
-.cta-note{font-size:.77rem;color:var(--tp)}
-.cta-note a{color:var(--g2);text-decoration:underline;text-underline-offset:2px}
-
 /* ═══ LEVEL-UP BANNER ═══ */
 .levelup-banner{position:fixed;top:1.5rem;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(135deg,var(--ob),rgba(201,163,74,.12));border:1px solid rgba(201,163,74,.4);border-radius:12px;padding:.85rem 1.6rem;display:flex;align-items:center;gap:.85rem;z-index:9999;opacity:0;pointer-events:none;transition:all .5s var(--bk);max-width:calc(100vw - 2rem);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 30px rgba(201,163,74,.2)}
 .levelup-banner.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
@@ -445,6 +429,57 @@ aside.sidebar::-webkit-scrollbar{display:none}
   .lesson-hero { padding: 3rem 1.5rem 2.5rem; }
   .lesson-body { padding: 2rem 1.5rem; }
 }
+
+/* ===== New styles from Lesson 3's final CTA ===== */
+.final-cta{
+  padding:5.5rem 5.5rem;text-align:center;position:relative;overflow:hidden;
+  border-top:1px solid rgba(201,163,74,.08);
+}
+.final-cta::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at center top,rgba(201,163,74,.06),transparent 65%);
+  pointer-events:none;
+}
+.final-cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
+.final-badge{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.4rem 1rem;
+  border:1px solid var(--gm);border-radius:4px;background:var(--gf);
+  font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;
+  margin-bottom:1.75rem;
+}
+.final-h2{
+  font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3rem);
+  font-weight:300;color:var(--wh);line-height:1.18;margin-bottom:1rem;
+  letter-spacing:-.01em;max-width:700px;margin-left:auto;margin-right:auto;
+}
+.final-h2 em{font-style:italic;color:var(--g0)}
+.final-sub{font-size:.88rem;color:var(--bn);max-width:520px;margin:0 auto 2.75rem;line-height:1.75}
+.final-actions{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.final-btn{
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:1.15rem 2.75rem;border-radius:12px;
+  background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:700;cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 6px 32px rgba(201,163,74,.38);border:none;position:relative;overflow:hidden;
+}
+.final-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .3s}
+.final-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(201,163,74,.52)}
+.final-btn:hover::before{opacity:1}
+.final-btn svg{width:15px;height:15px;stroke:var(--v);fill:none;stroke-width:2.5}
+.final-btn-ghost{
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:1.15rem 2.5rem;border-radius:12px;
+  border:1px solid rgba(201,163,74,.25);background:transparent;
+  color:var(--bn);font-family:var(--fb);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+}
+.final-btn-ghost:hover{border-color:rgba(201,163,74,.45);color:var(--g1);background:rgba(201,163,74,.03);}
+.final-btn-ghost svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+.final-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2.25rem;flex-wrap:wrap}
+.final-nav-link{font-family:var(--fb);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tp);transition:color .2s}
+.final-nav-link:hover{color:var(--g1)}
+.final-nav-sep{width:1px;height:14px;background:rgba(201,163,74,.1)}
 </style>
 </head>
 <body>
@@ -980,43 +1015,34 @@ aside.sidebar::-webkit-scrollbar{display:none}
         </div>
       </section>
 
-      <!-- ══════════════════════════
-           SECTION 6: CTA — UPDATED TO SPAR
-      ══════════════════════════ -->
-      <section class="section-block reveal" id="s-cta" aria-labelledby="cta-heading">
-        <div class="cta-wrap">
-          <div class="sec-badge gold">Lesson 2 Complete</div>
-          <h2 class="cta-title" id="cta-heading">You Think Like an Agent Designer</h2>
-          <p class="cta-sub">You understand the SPAR framework, you've traced it through a real scenario, and you've sketched your first agent's logic — including how it will learn. In Lesson 3, you build it.</p> <!-- Updated -->
-
-          <div class="cta-preview" aria-label="Lesson 3 preview">
-            <div class="cta-preview-label">Coming in Lesson 3 — Build Your First Agent</div>
-            <div class="cta-preview-items">
-              <div class="cta-pi"><span class="cta-pi-dot"></span>Connect your first data source to the Sense layer</div>
-              <div class="cta-pi"><span class="cta-pi-dot"></span>Define your agent's Planning logic in plain language — no code</div>
-              <div class="cta-pi"><span class="cta-pi-dot"></span>Configure actions and set Reflection rules for continuous improvement</div>
-              <div class="cta-pi"><span class="cta-pi-dot"></span>Deploy your agent and watch it complete its first autonomous cycle — and get smarter</div>
-              <div class="cta-pi"><span class="cta-pi-dot"></span>Calculate the real-time ROI your agent generates each week</div>
-            </div>
-          </div>
-
-          <div class="cta-actions">
-            <button class="btn-gold" id="complete-btn" style="font-size:.72rem;padding:1rem 2.2rem">
-              <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Complete Lesson 2 → Continue to Lesson 3
-            </button>
-            <button class="btn-ghost" id="save-exit-btn">
-              <svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
-              Save & Return to Path
-            </button>
-          </div>
-          <div class="cta-note">
-            ← <a href="lesson1.html">Back to Lesson 1</a> &nbsp;·&nbsp; Lesson 3: Build Your First Agent →
-          </div>
-        </div>
-      </section>
-
     </div><!-- /.lesson-body -->
+
+    <!-- ══════════════════════════
+         NEW FINAL CTA (redesigned to match Lesson 3)
+    ══════════════════════════ -->
+    <section class="final-cta" id="s-cta" aria-labelledby="cta-heading">
+      <div class="final-badge">🎯 Lesson 2 Complete</div>
+      <h2 class="final-h2" id="cta-heading">You Think Like an <em>Agent Designer</em></h2>
+      <p class="final-sub">You understand the SPAR framework, you've traced it through a real scenario, and you've sketched your first agent's logic — including how it will learn. In Lesson 3, you build it.</p>
+      <div class="final-actions">
+        <button class="final-btn" id="complete-btn" aria-label="Complete Lesson 2 and continue to Lesson 3">
+          <span>Complete Lesson 2 → Continue to Lesson 3</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <button class="final-btn-ghost" id="save-exit-btn" aria-label="Save and return to path">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
+          Save & Return to Path
+        </button>
+      </div>
+      <div class="final-nav" aria-label="Lesson navigation">
+        <a class="final-nav-link" href="lesson1.html">← Lesson 1: The Turning Point</a>
+        <div class="final-nav-sep" aria-hidden="true"></div>
+        <a class="final-nav-link" href="path.html">Return to Path Overview</a>
+        <div class="final-nav-sep" aria-hidden="true"></div>
+        <a class="final-nav-link" href="lesson3.html">Lesson 3: Build Your First Agent →</a>
+      </div>
+    </section>
+
   </main>
 </div><!-- /.page-wrap -->
 
@@ -1228,7 +1254,7 @@ document.getElementById('complete-btn').addEventListener('click',()=>{
   const banner=document.getElementById('levelup-banner');
   banner.classList.add('show');
   setTimeout(()=>banner.classList.remove('show'),4200);
-  setTimeout(()=>{window.location.href='lesson3.html'},4500);
+  setTimeout(()=>{window.location.href='path.html'},4500);
 });
 
 document.getElementById('save-exit-btn').addEventListener('click',()=>{

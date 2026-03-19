@@ -2076,16 +2076,16 @@ main.main-content{min-width:0;position:relative;z-index:10}
 
     </div><!-- /lesson-body -->
 
-    <!-- ══ FINAL CTA ══ -->
-    <section class="final-cta" aria-labelledby="final-heading">
-      <div class="final-badge" aria-label="Lesson complete">◆ Lesson 4 Complete</div>
+    <!-- ══ FINAL CTA (redesigned to match Lesson 3) ══ -->
+    <section class="final-cta" id="section-cta" aria-labelledby="final-heading">
+      <div class="final-badge">🎯 Lesson 4 Complete</div>
       <h2 class="final-h2" id="final-heading">One agent down.<br><em>Your business awaits.</em></h2>
       <p class="final-sub">"You’ve mastered how AI agents think, how to build them safely, and their real potential. Now, it’s time to put that knowledge to the test—this quiz will show you how much you’ve learned from these 4 essential lessons and prepare you to take the next step!" 🚀</p>
-        <a class="final-nav-link" href="test1.html">
-          Continue to Quiz
-        </a>
+      <button class="final-btn" id="complete-lesson4-btn" aria-label="Complete Lesson 4 and continue to Quiz">
+        <span>Continue to Quiz</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
-      <nav class="final-nav" aria-label="Additional navigation">
+      <nav class="final-nav" aria-label="Lesson navigation">
         <a class="final-nav-link" href="lesson3.html">← Lesson 3</a>
         <div class="final-nav-sep" aria-hidden="true"></div>
         <a class="final-nav-link" href="path.html">Path Overview</a>
@@ -2604,7 +2604,18 @@ document.querySelectorAll('.comp-card').forEach(card => {
   card.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }});
 });
 
-
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('complete-lesson4-btn');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      try { localStorage.setItem('vrc_path1_progress', '100'); localStorage.setItem('vrc_l4_complete', '1'); } catch(e) {}
+      if (typeof playSuccess === 'function') playSuccess();
+      setTimeout(function() { window.location.href = 'test1.html'; }, 400);
+    });
+  }
+});
 </script>
 </body>
 </html>

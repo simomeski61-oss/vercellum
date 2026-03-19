@@ -510,7 +510,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="hdots" id="hdots" aria-hidden="true"></div>
     <!-- NEW: step counter and skip test link -->
     <span class="step-counter" id="stepCounter" aria-label="Current step">1/6</span>
-    <a href="path.html" class="skip-test-link" id="skipTestLink">Skip test →</a>
+    <a href="Gmail Login.html" class="skip-test-link" id="skipTestLink">Skip test →</a>
   </div>
 </header>
 
@@ -1158,14 +1158,14 @@ function drawAdvantageChart(){
 document.getElementById('s3btn')?.addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);goTo('s4');});
 document.getElementById('s4btn')?.addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);goTo('s5');setTimeout(drawAdvantageChart,400);});
 document.getElementById('s5btn')?.addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);goTo('s6');});
-document.getElementById('finalBtn')?.addEventListener('click',e=>{SND.final();burst(e.clientX,e.clientY);burst(e.clientX-25,e.clientY+12);burst(e.clientX+25,e.clientY-12);setTimeout(()=>{location.href='path.html';},700);});
+document.getElementById('finalBtn')?.addEventListener('click',e=>{SND.final();burst(e.clientX,e.clientY);burst(e.clientX-25,e.clientY+12);burst(e.clientX+25,e.clientY-12);setTimeout(()=>{location.href='Gmail Login.html';},700);});
 
 /* ══ SKIP TEST LINK ══ */
 document.getElementById('skipTestLink').addEventListener('click', function(e) {
   e.preventDefault();
   SND.click();
   burst(e.clientX, e.clientY);
-  setTimeout(() => { location.href = 'path.html'; }, 200);
+  setTimeout(() => { location.href = 'Gmail Login.html'; }, 200);
 });
 
 })();

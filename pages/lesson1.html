@@ -94,6 +94,7 @@
    Dark Luxury · Gold, Red & Green Accents
    Modified: PEA → SPAR (Sense-Plan-Act-Reflect)
    UPDATE: Standardized green to #34D399 (matches project design tokens)
+   ADDED: final-cta styles from Lesson 3 for redesigned "What Comes Next"
 ══════════════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -559,6 +560,70 @@ p.body-text .highlight-green{color:var(--grn);font-weight:500}
 .testimonial:nth-child(4) .testi-avatar{background:var(--purpd);border-color:var(--purpb);color:var(--purp)} /* Updated to purple */
 .testi-name{font-family:var(--fb);font-size:.62rem;letter-spacing:.14em;color:var(--cr)}
 .testi-role{font-size:.7rem;color:var(--tp)}
+/* ===== New styles from Lesson 3 for final CTA redesign ===== */
+.final-cta{
+  padding:5.5rem 5.5rem;text-align:center;position:relative;overflow:hidden;
+  border-top:1px solid rgba(201,163,74,.08);
+}
+@media(max-width:1100px){.final-cta{padding:4rem 3rem}}
+@media(max-width:700px){.final-cta{padding:3rem 1.5rem}}
+.final-cta::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at center top,rgba(201,163,74,.06),transparent 65%);
+  pointer-events:none;
+}
+.final-cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
+.final-badge{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.4rem 1rem;
+  border:1px solid var(--gm);border-radius:4px;background:var(--gf);
+  font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;
+  margin-bottom:1.75rem;
+}
+.final-h2{
+  font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3rem);
+  font-weight:300;color:var(--wh);line-height:1.18;margin-bottom:1rem;
+  letter-spacing:-.01em;max-width:700px;margin-left:auto;margin-right:auto;
+}
+.final-h2 em{font-style:italic;color:var(--g0)}
+.final-sub{font-size:.88rem;color:var(--bn);max-width:520px;margin:0 auto 2.75rem;line-height:1.75}
+.final-btn{
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:1.15rem 2.75rem;border-radius:12px;
+  background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:700;cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 6px 32px rgba(201,163,74,.38);border:none;position:relative;overflow:hidden;
+}
+.final-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .3s}
+.final-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(201,163,74,.52)}
+.final-btn:hover::before{opacity:1}
+.final-btn svg{width:15px;height:15px;stroke:var(--v);fill:none;stroke-width:2.5}
+.final-btn-ghost{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:1.15rem 2.2rem;border-radius:12px;
+  border:1px solid rgba(201,163,74,.25);background:transparent;
+  color:var(--bn);font-family:var(--fb);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .35s var(--ex);
+}
+.final-btn-ghost:hover{border-color:var(--g1);color:var(--g1);background:rgba(201,163,74,.05);transform:translateY(-2px);}
+.final-btn-ghost svg{stroke:currentColor;}
+.final-next-card{
+  background:rgba(255,255,255,.02);border:1px solid rgba(201,163,74,.12);
+  border-radius:12px;padding:1.25rem;max-width:440px;margin:1.75rem auto;
+  text-align:left;backdrop-filter:blur(4px);
+}
+.final-next-label{
+  font-family:var(--fb);font-size:.5rem;letter-spacing:.22em;color:var(--g2);
+  text-transform:uppercase;margin-bottom:.5rem;
+}
+.final-next-title{
+  font-family:var(--fd);font-size:1.1rem;color:var(--cr);margin-bottom:.2rem;
+}
+.final-next-duration{
+  font-size:.8rem;color:var(--tp);
+}
+/* End of new styles */
+
 .cta-box{background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(52,211,153,.03));border:1px solid rgba(201,163,74,.2);border-radius:20px;padding:3rem 2.5rem;text-align:center;position:relative;overflow:hidden;margin-top:2rem}
 .cta-box::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:300px;height:120px;background:radial-gradient(ellipse,rgba(201,163,74,.08),transparent 70%);pointer-events:none}
 .cta-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
@@ -771,7 +836,7 @@ p.body-text .highlight-green{color:var(--grn);font-weight:500}
         </div>
         <div class="hero-meta-sep" aria-hidden="true"></div>
         <div class="hero-meta-item">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           318 builders online
         </div>
       </div>
@@ -1044,28 +1109,27 @@ p.body-text .highlight-green{color:var(--grn);font-weight:500}
       </section>
       <div class="divider" aria-hidden="true"></div>
 
-      <!-- CTA (final) - updated for SPAR and improved CTA button text -->
+      <!-- CTA (final) - redesigned to match Lesson 3's "Lesson 3 Complete" style -->
       <section class="section-block reveal" id="s-cta" aria-labelledby="cta-heading">
-        <div class="cta-box">
-          <div class="eyebrow" style="justify-content:center;margin-bottom:1.25rem"><span class="ey-dot"></span>WHAT COMES NEXT</div>
-          <h2 class="cta-title" id="cta-heading">You've Mastered SPAR.<br>Now Build with It.</h2>
-          <p class="cta-sub">
+        <div class="final-cta">
+          <div class="final-badge">🎯 Lesson 1 Complete</div>
+          <h2 class="final-h2" id="cta-heading">You've Mastered SPAR.<br>Now Build with It.</h2>
+          <p class="final-sub">
             Lesson 2 dives into the architecture beneath the surface:<br>
             <em>How do agents plan complex tasks? How do they reflect and improve?</em><br>
             You'll map the mind of an agent — and start designing your own using the SPAR framework.
           </p>
-          <div class="next-lesson-card">
-            <div class="nlc-up">UP NEXT — LESSON 2</div>
-            <div class="nlc-title">Anatomy of an AI Agent</div>
-            <div class="nlc-sub">How It Plans, Acts, and Reflects · ~18 min</div>
+          <div class="final-next-card">
+            <div class="final-next-label">UP NEXT — LESSON 2</div>
+            <div class="final-next-title">Anatomy of an AI Agent</div>
+            <div class="final-next-duration">How It Plans, Acts, and Reflects · ~18 min</div>
           </div>
-          <div class="cta-btns">
-            <!-- Improved CTA button text with arrow direction -->
-            <button class="btn-gold" id="complete-btn" aria-label="Complete lesson 1 and go to lesson 2">
+          <div class="final-buttons" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <button class="final-btn" id="complete-btn" aria-label="Complete lesson 1 and go to lesson 2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               I've completed Lesson 1 → Continue to Lesson 2
             </button>
-            <button class="btn-ghost" id="save-exit-btn" aria-label="Save progress and exit">
+            <button class="final-btn-ghost" id="save-exit-btn" aria-label="Save progress and exit">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
               SAVE & EXIT
             </button>
@@ -1293,7 +1357,7 @@ document.getElementById('complete-btn').addEventListener('click',()=>{
   playLevelUp();
   lvlBanner.classList.add('show');
   setTimeout(()=>{lvlBanner.classList.remove('show');},4200);
-  setTimeout(()=>{window.location.href='lesson2.html';},4500);
+  setTimeout(()=>{window.location.href='path.html';},4500);
 });
 
 /* ===== SAVE & EXIT with fixed path progress ===== */

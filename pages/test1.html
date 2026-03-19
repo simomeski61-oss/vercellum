@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -323,8 +322,8 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
 .rb-sub{font-size:.72rem;color:var(--tp);margin-top:.2rem}
 
 /* ══════════════════════════════════════════
-   CHART — REDESIGNED v4
-   Bar chart · Green = pass · Red = fail
+   CHART — LINE CHART v5
+   Canvas-based · Gold target · Green/Red points
 ══════════════════════════════════════════ */
 .chart-section{margin-bottom:2rem;padding:1.75rem 2rem 1.5rem;border-radius:16px;background:linear-gradient(135deg,rgba(201,163,74,.05),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.11);position:relative;overflow:hidden}
 .chart-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g3),transparent)}
@@ -334,29 +333,13 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
 .chart-sub{font-size:.75rem;color:var(--tp)}
 .chart-legend{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .chart-leg{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--tp)}
-.chart-leg-swatch{width:10px;height:10px;border-radius:3px}
+.chart-leg-swatch{width:10px;height:10px;border-radius:50%}
 .chart-leg-swatch.pass{background:var(--grn)}
 .chart-leg-swatch.fail{background:var(--red)}
-.chart-leg-swatch.target{width:18px;height:2px;border-radius:1px;background:rgba(201,163,74,.6)}
-/* Bar chart container */
-.chart-bars-wrap{position:relative;padding:0 0 28px}
-.chart-grid-lines{position:absolute;top:0;left:38px;right:0;bottom:28px;pointer-events:none}
-.chart-grid-line{position:absolute;left:0;right:0;height:1px}
-.chart-grid-line.target-line{background:rgba(201,163,74,.35);border-top:1px dashed rgba(201,163,74,.4)}
-.chart-grid-line.base-line{background:rgba(201,163,74,.12)}
-.chart-y-axis{position:absolute;top:0;left:0;width:34px;bottom:28px;display:flex;flex-direction:column;justify-content:space-between;padding-bottom:0}
-.chart-y-label{font-family:var(--fb);font-size:.38rem;letter-spacing:.08em;color:var(--tp);text-align:right;padding-right:6px;line-height:1}
-.chart-bars{display:flex;gap:.65rem;align-items:flex-end;height:148px;padding-left:38px;position:relative;z-index:1}
-.chart-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:.45rem;height:100%}
-.chart-bar-outer{width:100%;flex:1;display:flex;align-items:flex-end;position:relative}
-.chart-bar{width:100%;border-radius:6px 6px 0 0;transition:height 1s var(--ex);position:relative;min-height:3px}
-.chart-bar.pass{background:linear-gradient(180deg,var(--grn),var(--grn2));box-shadow:0 0 12px rgba(34,197,94,.25)}
-.chart-bar.fail{background:linear-gradient(180deg,var(--red),#DC2626);box-shadow:0 0 10px rgba(239,68,68,.2)}
-.chart-bar.pass::after,.chart-bar.fail::after{content:'';position:absolute;inset:0;border-radius:6px 6px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent)}
-.chart-bar-pct{font-family:'Cinzel Decorative',serif;font-size:.65rem;font-weight:700;transition:all .8s var(--ex)}
-.chart-bar-pct.pass{color:var(--grn)}
-.chart-bar-pct.fail{color:var(--red)}
-.chart-bar-label{font-family:var(--fb);font-size:.4rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);text-align:center;white-space:nowrap}
+.chart-leg-swatch.target{width:24px;height:2px;border-radius:1px;background:rgba(201,163,74,.75)}
+/* Line chart canvas container */
+.chart-bars-wrap{position:relative;width:100%;height:200px}
+#perf-line-canvas{display:block;width:100%;height:100%}
 /* Summary row under chart */
 .chart-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.25rem;border-top:1px solid rgba(201,163,74,.08);padding-top:1.25rem}
 @media(max-width:500px){.chart-summary{grid-template-columns:1fr 1fr}}
@@ -622,7 +605,7 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
           </div>
         </div>
         <div class="chart-bars-wrap" id="chart-bars-wrap">
-          <!-- Injected by JS -->
+          <canvas id="perf-line-canvas"></canvas>
         </div>
         <div class="chart-summary" id="chart-summary">
           <!-- Injected by JS -->
@@ -657,7 +640,7 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
       </div>
 
       <div class="res-ctas">
-        <a href="path.html" class="res-cta-p">Begin Path 2 →</a>
+        <a href="Oscar1.html" class="res-cta-p">Take Oscar Award →</a>
         <button class="res-cta-s" onclick="retakeQuiz()">Retake Quiz</button>
       </div>
     </div>
@@ -1053,9 +1036,8 @@ function showRes(){
 }
 
 /* ═══════════════════════════════════════════════
-   FIX 2: REDESIGNED BAR CHART
-   Green = pass (≥75%), Red = fail (<75%)
-   Clear labels, spacing, visual hierarchy
+   REDESIGNED: PERFORMANCE LINE CHART v5
+   Canvas-based · Animated · Gold/Green/Red palette
 ═══════════════════════════════════════════════ */
 function buildChart(ls,lc,fp){
   const wrap=$('chart-bars-wrap');if(!wrap)return;
@@ -1067,50 +1049,176 @@ function buildChart(ls,lc,fp){
     {label:'Final',pct:fp}
   ];
   const TARGET=75;
-  const maxH=148; // px height for 100%
 
-  // Y axis labels
-  const yLabels=[100,75,50,25,0];
-  let yHTML='<div class="chart-y-axis">';
-  yLabels.forEach(v=>{ yHTML+=`<div class="chart-y-label">${v}%</div>`; });
-  yHTML+='</div>';
+  // ── Canvas setup ──────────────────────────────
+  const canvas=document.getElementById('perf-line-canvas');
+  if(!canvas)return;
+  const DPR=window.devicePixelRatio||1;
+  const W=wrap.clientWidth||600,H=wrap.clientHeight||200;
+  canvas.width=W*DPR;canvas.height=H*DPR;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(DPR,DPR);
 
-  // Grid lines (positioned by %)
-  let gridHTML='<div class="chart-grid-lines">';
+  // Layout constants
+  const PAD={top:28,right:24,bottom:42,left:46};
+  const cW=W-PAD.left-PAD.right;
+  const cH=H-PAD.top-PAD.bottom;
+
+  // Helper: data value → canvas Y
+  const yFor=pct=>PAD.top+cH*(1-(pct/100));
+  // Helper: index → canvas X
+  const xFor=i=>PAD.left+(i/(data.length-1))*cW;
+
+  // ── Grid lines ────────────────────────────────
   [0,25,50,75,100].forEach(v=>{
-    const topPct=100-v; // 0% at bottom = top:100%, 100% at top = top:0%
-    const cls=v===TARGET?'chart-grid-line target-line':'chart-grid-line base-line';
-    gridHTML+=`<div class="${cls}" style="top:${topPct}%"></div>`;
+    const y=yFor(v);
+    ctx.beginPath();
+    if(v===TARGET){
+      ctx.setLineDash([6,4]);
+      ctx.strokeStyle='rgba(201,163,74,0.55)';
+      ctx.lineWidth=1.5;
+    } else {
+      ctx.setLineDash([]);
+      ctx.strokeStyle='rgba(255,255,255,0.06)';
+      ctx.lineWidth=1;
+    }
+    ctx.moveTo(PAD.left,y);ctx.lineTo(PAD.left+cW,y);ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Y-axis labels
+    ctx.fillStyle=v===TARGET?'rgba(201,163,74,0.75)':'rgba(160,150,130,0.6)';
+    ctx.font=`500 10px "DM Sans",sans-serif`;
+    ctx.textAlign='right';
+    ctx.textBaseline='middle';
+    ctx.fillText(v+'%',PAD.left-8,y);
   });
-  gridHTML+='</div>';
 
-  // Bars
-  let barsHTML='<div class="chart-bars">';
-  data.forEach(d=>{
-    const pass=d.pct>=TARGET;
-    const barH=Math.round((d.pct/100)*maxH);
-    barsHTML+=`
-    <div class="chart-bar-col">
-      <div class="chart-bar-pct ${pass?'pass':'fail'}">${d.pct}%</div>
-      <div class="chart-bar-outer">
-        <div class="chart-bar ${pass?'pass':'fail'}" id="bar-${d.label}" style="height:0" data-h="${barH}px"></div>
-      </div>
-      <div class="chart-bar-label">${d.label}</div>
-    </div>`;
-  });
-  barsHTML+='</div>';
+  // ── Target label ──────────────────────────────
+  ctx.fillStyle='rgba(201,163,74,0.75)';
+  ctx.font=`600 9px "DM Sans",sans-serif`;
+  ctx.textAlign='left';
+  ctx.textBaseline='bottom';
+  ctx.fillText('TARGET',PAD.left+cW+4,yFor(TARGET)+1);
 
-  wrap.innerHTML=yHTML+gridHTML+barsHTML;
+  // ── Animated line draw ────────────────────────
+  let progress=0;
+  const DURATION=900; // ms
+  const startTime=performance.now();
 
-  // Animate bars after paint
-  setTimeout(()=>{
-    data.forEach(d=>{
-      const bar=document.getElementById('bar-'+d.label);
-      if(bar)bar.style.height=bar.dataset.h;
+  function drawFrame(now){
+    // Clear chart area only (keep grid)
+    ctx.clearRect(PAD.left-1,PAD.top-1,cW+2,cH+2);
+
+    // Redraw grid (cleared above)
+    [0,25,50,75,100].forEach(v=>{
+      const y=yFor(v);
+      ctx.beginPath();
+      if(v===TARGET){ctx.setLineDash([6,4]);ctx.strokeStyle='rgba(201,163,74,0.55)';ctx.lineWidth=1.5;}
+      else{ctx.setLineDash([]);ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;}
+      ctx.moveTo(PAD.left,y);ctx.lineTo(PAD.left+cW,y);ctx.stroke();
+      ctx.setLineDash([]);
     });
-  },400);
 
-  // Summary row
+    const t=Math.min((now-startTime)/DURATION,1);
+    const ease=t<.5?2*t*t:(1-Math.pow(-2*t+2,2)/2);
+    const drawUpTo=(data.length-1)*ease; // float index up to which we draw
+
+    // ── Fill under line ───────────────────────
+    ctx.beginPath();
+    data.forEach((d,i)=>{
+      const x=xFor(i),y=yFor(Math.min(i,drawUpTo)>=i?d.pct:data[Math.floor(drawUpTo)].pct+(d.pct-data[Math.floor(drawUpTo)].pct)*(drawUpTo%1));
+      if(i===0)ctx.moveTo(x,i<=drawUpTo?yFor(d.pct):yFor(data[0].pct));
+      else if(i<=drawUpTo)ctx.lineTo(x,yFor(d.pct));
+      else if(i-1<drawUpTo){const frac=drawUpTo-(i-1);const yCur=yFor(data[i-1].pct+(d.pct-data[i-1].pct)*frac);ctx.lineTo(xFor(i-1+(i-1<drawUpTo?1:frac)),yCur);}
+    });
+    // Simpler approach: draw partial path
+    ctx.beginPath();
+    let pathEndX=PAD.left,pathEndY=yFor(data[0].pct);
+    data.forEach((d,i)=>{
+      if(i===0){ctx.moveTo(xFor(0),yFor(d.pct));pathEndX=xFor(0);pathEndY=yFor(d.pct);return;}
+      if(i<=drawUpTo){ctx.lineTo(xFor(i),yFor(d.pct));pathEndX=xFor(i);pathEndY=yFor(d.pct);}
+      else if(i-1<drawUpTo){
+        const frac=drawUpTo-(i-1);
+        const ex=xFor(i-1)+(xFor(i)-xFor(i-1))*frac;
+        const ey=yFor(data[i-1].pct+(d.pct-data[i-1].pct)*frac);
+        ctx.lineTo(ex,ey);pathEndX=ex;pathEndY=ey;
+      }
+    });
+
+    // Fill gradient under line
+    const grad=ctx.createLinearGradient(0,PAD.top,0,PAD.top+cH);
+    grad.addColorStop(0,'rgba(201,163,74,0.18)');
+    grad.addColorStop(1,'rgba(201,163,74,0.01)');
+    ctx.lineTo(pathEndX,PAD.top+cH);
+    ctx.lineTo(PAD.left,PAD.top+cH);
+    ctx.closePath();
+    ctx.fillStyle=grad;ctx.fill();
+
+    // ── Draw the line ─────────────────────────
+    ctx.beginPath();
+    data.forEach((d,i)=>{
+      if(i===0){ctx.moveTo(xFor(0),yFor(d.pct));return;}
+      if(i<=drawUpTo){ctx.lineTo(xFor(i),yFor(d.pct));}
+      else if(i-1<drawUpTo){
+        const frac=drawUpTo-(i-1);
+        ctx.lineTo(xFor(i-1)+(xFor(i)-xFor(i-1))*frac,yFor(data[i-1].pct+(d.pct-data[i-1].pct)*frac));
+      }
+    });
+    ctx.strokeStyle='rgba(201,163,74,0.9)';
+    ctx.lineWidth=2.5;
+    ctx.lineJoin='round';
+    ctx.setLineDash([]);
+    ctx.stroke();
+
+    // ── Data points ───────────────────────────
+    data.forEach((d,i)=>{
+      if(i>drawUpTo+0.05)return;
+      const x=xFor(i),y=yFor(d.pct);
+      const pass=d.pct>=TARGET;
+      const ptColor=pass?'#22C55E':'#EF4444';
+      const glowColor=pass?'rgba(34,197,94,0.35)':'rgba(239,68,68,0.35)';
+
+      // Glow ring
+      ctx.beginPath();ctx.arc(x,y,9,0,Math.PI*2);
+      ctx.fillStyle=glowColor;ctx.fill();
+
+      // White ring
+      ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);
+      ctx.fillStyle='#1B1710';ctx.fill();
+      ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);
+      ctx.strokeStyle=ptColor;ctx.lineWidth=2;ctx.stroke();
+
+      // Inner fill
+      ctx.beginPath();ctx.arc(x,y,3.5,0,Math.PI*2);
+      ctx.fillStyle=ptColor;ctx.fill();
+
+      // Percentage label above point
+      if(i<=drawUpTo){
+        ctx.fillStyle=pass?'#22C55E':'#EF4444';
+        ctx.font=`700 11px "DM Sans",sans-serif`;
+        ctx.textAlign='center';
+        ctx.textBaseline='bottom';
+        ctx.fillText(d.pct+'%',x,y-12);
+      }
+    });
+
+    // ── X-axis labels ─────────────────────────
+    const xLabels=['Lesson 1','Lesson 2','Lesson 3','Lesson 4','Final'];
+    data.forEach((d,i)=>{
+      ctx.fillStyle='rgba(160,150,130,0.65)';
+      ctx.font=`500 10px "DM Sans",sans-serif`;
+      ctx.textAlign='center';
+      ctx.textBaseline='top';
+      ctx.fillText(xLabels[i],xFor(i),PAD.top+cH+10);
+    });
+
+    if(t<1)requestAnimationFrame(drawFrame);
+  }
+
+  setTimeout(()=>requestAnimationFrame(drawFrame),350);
+
+  // ── Summary row ───────────────────────────────
   const passed=data.filter(d=>d.pct>=TARGET).length;
   const failed=data.length-passed;
   const avg=Math.round(data.reduce((a,b)=>a+b.pct,0)/data.length);
@@ -1349,6 +1457,3 @@ function retakeQuiz(){
 </script>
 </body>
 </html>
-=======
-
->>>>>>> 8a0c305c5bc965faeedb575065f6f3fa357fc8e8

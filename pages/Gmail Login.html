@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>VERCELLUM · the inner circle</title>
+  <meta name="description" content="Continue your ascent. Access the most structured AI curriculum built exclusively for business owners and entrepreneurs. Secure, exclusive, and free to start.">
+
+  <!-- Google Identity Services (OAuth) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Prestige typography – same as core site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       DARK LUXURY DESIGN SYSTEM – VERCELLUM ELITE LOGIN (v2)
+       ══════════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --v: #040302; --ab: #070604; --ob: #0C0A08; --on: #131009;
+      --cb: #1B1710; --ir: #2A2419; --as: #423B30; --tp: #6A6050;
+      --bn: #AFA79C; --cr: #F1ECE2; --wh: #FDFAF5;
+      --g0: #F2D668; --g1: #C9A34A; --g2: #A88532; --g3: #7B611E; --g4: #54420F;
+      --gg: rgba(201,163,74,.5); --gm: rgba(201,163,74,.18);
+      --gf: rgba(201,163,74,.08); --gt: rgba(201,163,74,.04);
+      --fb: 'Cinzel', serif; --fd: 'Cormorant Garamond', serif; --fs: 'DM Sans', sans-serif;
+      --ex: cubic-bezier(.16,1,.3,1); --bk: cubic-bezier(.34,1.56,.64,1);
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--v); }
+    ::-webkit-scrollbar-thumb { background: var(--g3); border-radius: 2px; }
+
+    body {
+      font-family: var(--fs);
+      background: var(--v);
+      color: var(--cr);
+      line-height: 1.65;
+      overflow-x: hidden;
+      cursor: none;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* skip link */
+    .skip-link {
+      position: absolute; top: -60px; left: 1rem; background: var(--g1); color: var(--v);
+      padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; z-index: 9999;
+      transition: top 0.2s; text-decoration: none;
+    }
+    .skip-link:focus { top: 0.75rem; outline: 3px solid var(--g0); }
+
+    /* noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 160px;
+      pointer-events: none;
+      z-index: 9990;
+    }
+
+    /* custom cursor (refined) */
+    #blob {
+      position: fixed; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,163,74,.04) 0%, transparent 70%);
+      transform: translate(-50%,-50%); filter: blur(50px); z-index: 0;
+      pointer-events: none; transition: transform 0.8s var(--ex);
+    }
+    #cur {
+      position: fixed; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--g1); pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: width 0.2s var(--ex), height 0.2s var(--ex), background 0.2s;
+    }
+    #cur-r {
+      position: fixed; width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid rgba(201,163,74,.5); pointer-events: none; z-index: 9997;
+      transform: translate(-50%,-50%);
+      transition: width 0.35s var(--ex), height 0.35s var(--ex), border-color 0.3s;
+    }
+    body.hov #cur { width: 18px; height: 18px; background: var(--g0); }
+    body.hov #cur-r { width: 58px; height: 58px; border-color: rgba(201,163,74,.25); }
+    body.clk #cur { transform: translate(-50%,-50%) scale(0.4); }
+
+    /* atmospheric orbs (more detail) */
+    .orb {
+      position: fixed; border-radius: 50%; pointer-events: none; filter: blur(100px); z-index: 0;
+    }
+    .o1 {
+      width: 800px; height: 800px; top: -250px; right: -250px;
+      background: radial-gradient(circle, rgba(201,163,74,.06), transparent 75%);
+      animation: float1 22s ease-in-out infinite;
+    }
+    .o2 {
+      width: 700px; height: 700px; bottom: -200px; left: -250px;
+      background: radial-gradient(circle, rgba(201,163,74,.045), transparent 75%);
+      animation: float2 26s ease-in-out infinite;
+    }
+    .o3 {
+      width: 400px; height: 400px; top: 30%; left: 20%;
+      background: radial-gradient(circle, rgba(201,163,74,.03), transparent 70%);
+      animation: float3 18s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(-40px,30px) scale(1.05); } }
+    @keyframes float2 { 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(35px,-45px) scale(1.07); } }
+    @keyframes float3 { 0%,100%{ transform:translate(0,0); } 33%{ transform:translate(25px,-20px); } 66%{ transform:translate(-20px,25px); } }
+
+    /* canvas background (refined particles) */
+    #bgc {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.6;
+    }
+
+    /* header – minimal, refined */
+    .hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+      padding: 0.9rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(4,3,2,.9); backdrop-filter: blur(30px);
+      border-bottom: 1px solid rgba(201,163,74,.1);
+    }
+    .hb {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hb-em {
+      width: 36px; height: 36px; border-radius: 10px;
+      border: 1px solid rgba(201,163,74,.25); background: var(--gt);
+      display: grid; place-items: center;
+      transition: border-color .3s, transform .4s var(--bk);
+    }
+    .hb-em:hover { border-color: var(--g1); transform: rotate(12deg) scale(1.07); }
+    .hb-em svg { width: 16px; height: 16px; stroke: var(--g1); stroke-width: 2; fill: none; }
+    .hb-n { font-family: var(--fb); font-size: 0.88rem; letter-spacing: .2em; color: var(--cr); }
+    .back-link {
+      font-family: var(--fb); font-size: 0.65rem; letter-spacing: .16em; color: var(--tp);
+      display: flex; align-items: center; gap: 8px; transition: color .25s;
+      padding: 0.4rem 0.8rem; border-radius: 40px; background: rgba(201,163,74,.03);
+      border: 1px solid rgba(201,163,74,.08);
+    }
+    .back-link:hover { color: var(--g1); border-color: rgba(201,163,74,.25); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; }
+
+    /* main split container */
+    .login-split {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+      gap: 2rem;
+      max-width: 1400px; margin: 0 auto;
+    }
+
+    /* left side – value proposition (prestige messaging, icons only) */
+    .value-prop {
+      padding-right: 2rem;
+    }
+    .value-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 0.45rem 1.2rem; border-radius: 60px;
+      border: 1px solid rgba(201,163,74,.2); background: rgba(201,163,74,.05);
+      font-family: var(--fb); font-size: 0.6rem; letter-spacing: .22em; color: var(--g1);
+      margin-bottom: 2rem;
+    }
+    .value-badge svg {
+      width: 14px; height: 14px; stroke: var(--g1); stroke-width: 2; fill: none;
+    }
+    .value-title {
+      font-family: var(--fd); font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300; line-height: 1.1; color: var(--cr); margin-bottom: 1.5rem;
+    }
+    .value-title em {
+      font-style: italic; background: linear-gradient(135deg, var(--g0), var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .value-list {
+      display: flex; flex-direction: column; gap: 1.25rem; margin: 2.5rem 0;
+    }
+    .value-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .value-icon {
+      width: 32px; height: 32px; border-radius: 10px;
+      border: 1px solid rgba(201,163,74,.2); background: rgba(201,163,74,.06);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .value-icon svg {
+      width: 16px; height: 16px; stroke: var(--g1); stroke-width: 2; fill: none;
+    }
+    .value-item-text h4 {
+      font-family: var(--fb); font-size: 0.9rem; font-weight: 600; color: var(--cr); margin-bottom: 0.2rem;
+    }
+    .value-item-text p {
+      font-size: 0.8rem; color: var(--bn); line-height: 1.6;
+    }
+    .value-stat {
+      display: flex; align-items: center; gap: 1rem; margin-top: 2rem;
+      font-family: var(--fb); font-size: 0.7rem; color: var(--tp); letter-spacing: 0.05em;
+    }
+    .value-stat svg {
+      width: 18px; height: 18px; stroke: var(--g2); stroke-width: 2;
+    }
+
+    /* right side – login card (enhanced) */
+    .card-wrapper {
+      position: relative;
+    }
+    .card {
+      background: rgba(12,10,8,.9);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(201,163,74,.2);
+      border-radius: 42px;
+      padding: 3.2rem 2.8rem;
+      box-shadow: 0 60px 100px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(201,163,74,.15) inset;
+      transition: transform .4s var(--ex), border-color .3s, box-shadow .4s;
+      animation: cardFloatIn 1s var(--ex) forwards;
+      opacity: 0; transform: translateY(20px);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 20%, rgba(201,163,74,.08), transparent 70%);
+      pointer-events: none;
+    }
+    .card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,163,74,.5), transparent);
+    }
+    @keyframes cardFloatIn { to { opacity: 1; transform: translateY(0); } }
+    .card:hover { border-color: rgba(201,163,74,.35); box-shadow: 0 70px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,163,74,.25) inset; }
+
+    .access-emblem {
+      display: flex; justify-content: center; margin-bottom: 1.8rem;
+    }
+    .emblem {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: rgba(201,163,74,.12);
+      border: 1px solid rgba(201,163,74,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; color: var(--g1);
+      box-shadow: 0 0 30px rgba(201,163,74,.3);
+    }
+
+    .card-title {
+      font-family: var(--fd); font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 300; font-style: italic; text-align: center;
+      color: var(--cr); line-height: 1.2; margin-bottom: 0.75rem;
+    }
+    .card-title em {
+      font-style: normal; font-weight: 500;
+      background: linear-gradient(135deg, var(--g0), var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-sub {
+      text-align: center;
+      font-size: 0.9rem; color: var(--bn);
+      max-width: 340px; margin: 0 auto 2rem; line-height: 1.8;
+    }
+
+    .continuity-line {
+      display: flex; align-items: center; gap: 1rem; justify-content: center;
+      margin-bottom: 2.2rem; color: var(--tp);
+    }
+    .continuity-line hr {
+      flex: 1; border: none; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,163,74,.2), transparent);
+    }
+    .continuity-line span {
+      font-family: var(--fb); font-size: 0.55rem; letter-spacing: 0.22em; color: var(--g2);
+    }
+
+    /* custom Gmail button – prestige */
+    .google-btn-container {
+      width: 100%; margin: 2rem 0 1.5rem;
+      display: flex; justify-content: center;
+    }
+    .gmail-prestige-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 14px;
+      width: 100%; max-width: 340px;
+      padding: 1.1rem 2rem;
+      background: linear-gradient(135deg, #c9a34a, #a88532);
+      border: none; border-radius: 60px;
+      font-family: var(--fs); font-size: 0.95rem; font-weight: 600;
+      color: #040302;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 30px rgba(201,163,74,.3);
+      transition: all 0.35s var(--ex);
+      cursor: none;
+      border: 1px solid rgba(255,215,120,.3);
+      position: relative; overflow: hidden;
+    }
+    .gmail-prestige-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transform: translateX(-120%) skewX(-15deg);
+      transition: transform 0.7s var(--ex);
+    }
+    .gmail-prestige-btn:hover {
+      background: linear-gradient(135deg, #f2d668, #c9a34a);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(201,163,74,.45);
+    }
+    .gmail-prestige-btn:hover::before { transform: translateX(120%) skewX(-15deg); }
+    .gmail-prestige-btn svg {
+      width: 22px; height: 22px; fill: none; stroke: #040302; stroke-width: 2;
+    }
+
+    /* trust strip (no emojis) */
+    .trust-strip {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 1.5rem; margin: 1.8rem 0 0; font-size: 0.7rem; color: var(--as);
+      font-family: var(--fb); letter-spacing: 0.06em;
+    }
+    .trust-strip span {
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .trust-strip svg {
+      width: 14px; height: 14px; stroke: var(--g2); stroke-width: 2; fill: none;
+    }
+
+    /* microcopy */
+    .config-note {
+      font-size: 0.6rem; color: var(--tp); text-align: center; margin-top: 1.8rem;
+      opacity: 0.6; letter-spacing: 0.04em;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .login-split { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; }
+      .value-prop { padding-right: 0; text-align: center; }
+      .value-item { justify-content: center; }
+      .value-stat { justify-content: center; }
+      .card { max-width: 500px; margin: 0 auto; }
+    }
+    @media (max-width: 500px) {
+      .card { padding: 2.5rem 1.5rem; }
+      .hdr { padding: 0.8rem 1.25rem; }
+      .back-link span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- custom cursor -->
+  <div id="blob" aria-hidden="true"></div>
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur-r" aria-hidden="true"></div>
+
+  <!-- atmospheric background (orbs + canvas) -->
+  <div class="orb o1" aria-hidden="true"></div>
+  <div class="orb o2" aria-hidden="true"></div>
+  <div class="orb o3" aria-hidden="true"></div>
+  <canvas id="bgc" aria-hidden="true"></canvas>
+
+  <!-- header -->
+  <header class="hdr">
+    <a href="/" class="hb" aria-label="VERCELLUM home">
+      <div class="hb-em"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <span class="hb-n">VERCELLUM</span>
+    </a>
+    <a href="/" class="back-link" aria-label="Return to homepage">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span>HOME</span>
+    </a>
+  </header>
+
+  <main id="main-content" class="login-split">
+    <!-- left side: value proposition (prestige, icons only) -->
+    <div class="value-prop">
+      <div class="value-badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 16 12 12 8 8"/></svg>
+        <span>THE NEW INTELLIGENCE</span>
+      </div>
+      <h1 class="value-title">Your next evolution<br><em>begins here.</em></h1>
+      <div class="value-list">
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="value-item-text">
+            <h4>Structured for owners, not developers</h4>
+            <p>Every lesson in plain business language — zero code required.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="value-item-text">
+            <h4>Deploy your first agent today</h4>
+            <p>Not a demo. A real AI worker handling a task inside your business.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+          <div class="value-item-text">
+            <h4>Join 1,500+ founders</h4>
+            <p>Private network of business owners building AI‑powered operations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="value-stat">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>FIRST 10% FREE · NO CREDIT CARD</span>
+      </div>
+    </div>
+
+    <!-- right side: login card (refined) -->
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="access-emblem">
+          <div class="emblem">◈</div>
+        </div>
+        <h2 class="card-title">Continue <em>Your Ascent</em></h2>
+        <p class="card-sub">Access your path, your progress, and the inner circle.</p>
+
+        <div class="continuity-line">
+          <hr><span>THE JOURNEY CONTINUES</span><hr>
+        </div>
+
+        <!-- Google sign-in button (prestige) -->
+        <div class="google-btn-container">
+          <button id="gmailLoginBtn" class="gmail-prestige-btn">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 8 8 0 0 0-14.46 0A1.65 1.65 0 0 0 4.6 15"/>
+            </svg>
+            Continue with Gmail
+          </button>
+        </div>
+
+        <!-- trust indicators (icons only) -->
+        <div class="trust-strip">
+          <span><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>256-bit</span>
+          <span><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>no code</span>
+          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>free to start</span>
+        </div>
+
+        <p class="config-note">⸻  exclusive access · verified members  ⸻</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // ---- custom cursor ----
+      const blob = document.getElementById('blob');
+      const cur = document.getElementById('cur');
+      const ring = document.getElementById('cur-r');
+      let mx = window.innerWidth/2, my = window.innerHeight/2;
+      let rx = mx, ry = my, bx = mx, by = my;
+
+      document.addEventListener('mousemove', (e) => {
+        mx = e.clientX; my = e.clientY;
+        cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      });
+
+      function animateCursor() {
+        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+        bx += (mx - bx) * 0.06; by += (my - by) * 0.06;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        blob.style.left = bx + 'px'; blob.style.top = by + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      document.addEventListener('mousedown', () => document.body.classList.add('clk'));
+      document.addEventListener('mouseup', () => document.body.classList.remove('clk'));
+      const hoverables = document.querySelectorAll('a, button, .gmail-prestige-btn, .back-link');
+      hoverables.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+      });
+
+      // ---- canvas particles (refined) ----
+      const canvas = document.getElementById('bgc');
+      const ctx = canvas.getContext('2d');
+      let w, h;
+      function resizeCanvas() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const particles = Array.from({ length: 60 }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.1, vy: (Math.random() - 0.5) * 0.1,
+        r: Math.random() * 1.5 + 0.5, o: Math.random() * 0.2 + 0.05
+      }));
+
+      function drawCanvas() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(201, 163, 74, ${p.o})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(drawCanvas);
+      }
+      drawCanvas();
+
+      // ---- GOOGLE SIGN-IN (elite OAuth) ----
+      // REPLACE WITH YOUR GOOGLE CLIENT ID
+      const CLIENT_ID = 'YOUR_CLIENT_ID.apps.googleusercontent.com'; // ← REPLACE ME
+
+      let tokenClient;
+      const loginBtn = document.getElementById('gmailLoginBtn');
+
+      if (google?.accounts?.oauth2) {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: 'email profile',
+          callback: (response) => {
+            if (response && response.id_token) {
+              // Redirect to the path page inside the 'pages' folder
+              window.location.href = '/pages/path.html';
+            } else {
+              const msg = document.createElement('div');
+              msg.style.marginTop = '1rem';
+              msg.style.color = 'var(--tp)';
+              msg.style.fontSize = '0.7rem';
+              msg.innerText = 'Access interrupted. Please try again.';
+              loginBtn.parentNode.appendChild(msg);
+              setTimeout(() => msg.remove(), 3000);
+            }
+          }
+        });
+      } else {
+        console.warn('Google Identity Services not loaded.');
+      }
+
+      loginBtn.addEventListener('click', () => {
+        if (!tokenClient) {
+          alert('Authentication service unavailable. Please refresh.');
+          return;
+        }
+        tokenClient.requestAccessToken({ prompt: 'select_account' });
+      });
+
+      // Demo hint (remove in production)
+      if (CLIENT_ID === 'YOUR_CLIENT_ID.apps.googleusercontent.com') {
+        const note = document.createElement('div');
+        note.style.marginTop = '0.8rem';
+        note.style.fontSize = '0.6rem';
+        note.style.color = 'var(--as)';
+        note.style.letterSpacing = '0.5px';
+        note.style.textAlign = 'center';
+        note.innerText = '⚡ Demo: Replace with your Google Client ID for production.';
+        loginBtn.parentNode.insertAdjacentElement('afterend', note);
+      }
+    })();
+  </script>
+</body>
+</html>
