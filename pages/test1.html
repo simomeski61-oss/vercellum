@@ -12,8 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════
-   VERCELLUM · PATH 1 MASTERY CHECK · v4
-   Randomised Answers · Redesigned Chart/Map/Review
+   VERCELLUM · PATH 1 MASTERY CHECK · v5
+   Redesigned UI with Nav Rail + Focus Mode
+   Quiz content 100% unchanged
 ═══════════════════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -26,17 +27,24 @@
   --blu:#60A5FA;
   --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
   --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);
+  --topbar-h:52px;--rail-w:64px;--rail-expanded:268px;
 }
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--v)}
 ::-webkit-scrollbar-thumb{background:var(--g3);border-radius:2px}
 html{scroll-behavior:smooth}
-body{font-family:var(--fs);background:var(--v);color:var(--cr);line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fs);background:var(--v);color:var(--cr);line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;padding-top:var(--topbar-h);padding-left:var(--rail-w);transition:padding .4s var(--ex)}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--fs);cursor:none;border:none;background:none}
 input{font-family:var(--fs)}
 @media(hover:none){body,button,a,input{cursor:auto}}
-body::before{content:'';position:fixed;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;pointer-events:none;z-index:9990}
+body.focus-mode{padding-left:0}
+
+/* Skip link */
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:99999;padding:.6rem 1.2rem;background:var(--g1);color:var(--v);font-family:var(--fb);font-size:.65rem;letter-spacing:.18em;border-radius:6px;transition:top .2s;font-weight:700}
+.skip-link:focus{top:calc(var(--topbar-h) + .5rem)}
+
+body::before{content:'';position:fixed;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;pointer-events:none;z-index:0}
 
 /* CURSOR */
 #cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--g1);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s var(--ex),height .2s var(--ex),background .2s}
@@ -55,64 +63,90 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 @keyframes oF3{0%,100%{transform:translate(0,0)}33%{transform:translate(18px,-14px)}66%{transform:translate(-14px,18px)}}
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
 
-/* LAYOUT */
-.page-wrap{display:grid;grid-template-columns:272px 1fr;min-height:100vh;position:relative;z-index:10}
-@media(max-width:900px){.page-wrap{grid-template-columns:1fr}}
-
-/* SIDEBAR */
-aside.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;overflow-x:hidden;background:rgba(7,6,4,.96);backdrop-filter:blur(20px);border-right:1px solid rgba(201,163,74,.09);padding:2rem 1.5rem;display:flex;flex-direction:column;gap:1.25rem;scrollbar-width:none}
-aside.sidebar::-webkit-scrollbar{display:none}
-@media(max-width:900px){aside.sidebar{display:none}}
-.sb-logo{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--g1);letter-spacing:.1em}
-.sb-path-label{font-family:var(--fb);font-size:.5rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;margin-bottom:.2rem;margin-top:.75rem}
-.sb-path-title{font-family:var(--fd);font-size:.88rem;color:var(--bn);font-style:italic;line-height:1.45;margin-bottom:1rem}
-.sb-you-are-here{background:linear-gradient(135deg,rgba(201,163,74,.07),rgba(201,163,74,.03));border:1px solid rgba(201,163,74,.15);border-radius:10px;padding:.9rem 1rem;position:relative;overflow:hidden}
-.sb-you-are-here::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent)}
-.sb-you-label{font-family:var(--fb);font-size:.45rem;letter-spacing:.25em;color:var(--g2);text-transform:uppercase;margin-bottom:.35rem}
-.sb-you-name{font-size:.78rem;color:var(--wh);font-weight:500}
-.sb-progress-wrap{margin-bottom:.5rem}
-.sb-progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
-.sb-progress-text{font-family:var(--fb);font-size:.45rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase}
-.sb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--g1)}
-.sb-progress-track{height:2px;background:rgba(201,163,74,.1);border-radius:2px;overflow:hidden}
-.sb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:2px;width:100%}
-.sb-lessons{display:flex;flex-direction:column;gap:.3rem}
-.sb-lesson{display:flex;align-items:center;gap:.6rem;padding:.5rem .75rem;border-radius:7px;font-size:.72rem;border:1px solid transparent;transition:all .22s}
-.sb-lesson.done{color:var(--grn);background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.18)}
-.sb-lesson.active{color:var(--g0);background:rgba(201,163,74,.07);border-color:rgba(201,163,74,.18);font-weight:500}
-.sb-lesson-ic{font-size:.8rem;flex-shrink:0;width:16px;text-align:center}
-.sb-divider{height:1px;background:rgba(201,163,74,.07)}
-.sb-live{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border-radius:8px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1)}
-.sb-live-dot{width:7px;height:7px;border-radius:50%;background:var(--g1);animation:pulse 2s infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,163,74,.4)}50%{box-shadow:0 0 0 6px rgba(201,163,74,0)}}
-.sb-live-text{font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;color:var(--g1)}
-.sb-cta-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
-.sb-btn{padding:.65rem .85rem;border-radius:8px;font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all .22s;border:1px solid transparent;display:block}
-.sb-btn-gold{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.22);color:var(--g1)}
-.sb-btn-gold:hover{background:rgba(201,163,74,.18)}
-.sb-btn-ghost{color:var(--tp);border-color:rgba(201,163,74,.08)}
-.sb-btn-ghost:hover{color:var(--bn)}
-
-/* MAIN */
-main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
-@media(max-width:1100px){main{padding:2.5rem 2rem 5rem}}
-@media(max-width:600px){main{padding:1.75rem 1.25rem 4rem}}
-
-/* TOPBAR */
-.quiz-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(201,163,74,.08)}
-.quiz-path-chip{display:flex;align-items:center;gap:.5rem;padding:.4rem .85rem;border-radius:20px;background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.14)}
-.quiz-path-chip span{font-family:var(--fb);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g2)}
-.quiz-path-dot{width:5px;height:5px;border-radius:50%;background:var(--g1);animation:pulse 2s infinite}
-.topbar-right{display:flex;align-items:center;gap:1.1rem}
+/* ══ TOP BAR ══ */
+#topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);z-index:900;display:flex;align-items:center;padding:0 1.5rem 0 calc(var(--rail-w) + 1.5rem);background:rgba(4,3,2,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,163,74,.06);transition:padding .4s var(--ex)}
+body.focus-mode #topbar{padding-left:1.5rem}
+.tb-left{display:flex;align-items:center;gap:.75rem;flex:1}
+.tb-lesson-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.tb-lesson-label span{color:var(--g2)}
+.tb-progress-wrap{flex:1;max-width:240px;display:flex;align-items:center;gap:.75rem}
+.tb-progress-track{flex:1;height:2px;background:rgba(201,163,74,.08);border-radius:2px;overflow:hidden}
+.tb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:2px;width:100%;transition:width .8s var(--ex)}
+.tb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.62rem;color:var(--g2);white-space:nowrap;min-width:2.2rem;text-align:right}
+.tb-right{display:flex;align-items:center;gap:.5rem}
+#focus-btn{display:flex;align-items:center;gap:.55rem;padding:.46rem 1.1rem;border-radius:7px;border:1px solid var(--g2);background:linear-gradient(135deg,rgba(84,66,15,.85),rgba(123,97,30,.75));color:var(--g0);font-family:var(--fb);font-size:.46rem;letter-spacing:.18em;cursor:pointer;transition:all .28s var(--ex);white-space:nowrap;box-shadow:0 2px 10px rgba(201,163,74,.18),inset 0 1px 0 rgba(242,214,104,.12);position:relative;overflow:hidden}
+#focus-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(242,214,104,.08),transparent);opacity:0;transition:opacity .2s}
+#focus-btn:hover{border-color:var(--g1);background:linear-gradient(135deg,rgba(123,97,30,.9),rgba(168,133,50,.8));box-shadow:0 4px 18px rgba(201,163,74,.32),inset 0 1px 0 rgba(242,214,104,.15);transform:translateY(-1px)}
+#focus-btn:hover::before{opacity:1}
+#focus-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+body.focus-mode #focus-btn{border-color:var(--g0);background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--v);box-shadow:0 4px 22px rgba(201,163,74,.42),inset 0 1px 0 rgba(242,214,104,.2)}
+.tb-score-wrap{display:flex;align-items:center;gap:.5rem}
+.tb-score-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tp)}
+.tb-score-val{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--g1);transition:transform .25s var(--bk),color .15s}
+.tb-score-val.pop{transform:scale(1.45);color:var(--g0)}
 .streak-wrap{display:flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:12px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.08);opacity:0;transition:all .35s var(--ex)}
 .streak-wrap.show{opacity:1;border-color:rgba(201,163,74,.22);background:rgba(201,163,74,.09)}
 .streak-icon svg{width:13px;height:13px;stroke:var(--g1);fill:none;display:block}
 .streak-count{font-family:'Cinzel Decorative',serif;font-size:.8rem;color:var(--g0)}
 .streak-label{font-family:var(--fb);font-size:.38rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
-.quiz-score-wrap{display:flex;align-items:center;gap:.5rem}
-.quiz-score-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tp)}
-.quiz-score-val{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--g1);transition:transform .25s var(--bk),color .15s}
-.quiz-score-val.pop{transform:scale(1.45);color:var(--g0)}
+
+/* ══ NAVIGATION RAIL ══ */
+#nav-rail{position:fixed;left:0;top:var(--topbar-h);bottom:0;width:var(--rail-w);z-index:800;background:rgba(4,3,2,.96);backdrop-filter:blur(20px);border-right:1px solid rgba(201,163,74,.06);display:flex;flex-direction:column;overflow:hidden;transition:width .35s var(--ex),opacity .35s var(--ex),transform .35s var(--ex)}
+body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:none}
+@media(min-width:900px){#nav-rail:hover,#nav-rail.pinned{width:var(--rail-expanded)}}
+@media(max-width:900px){#nav-rail{display:none}}
+.rail-logo-area{display:flex;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(201,163,74,.06);overflow:hidden;flex-shrink:0}
+.rail-logo-icon{width:var(--rail-w);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rail-logo-mark{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,var(--g4),var(--g2));border:1px solid rgba(201,163,74,.3);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:.55rem;color:var(--v);font-weight:700;flex-shrink:0}
+.rail-logo-text{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-8px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
+#nav-rail:hover .rail-logo-text,#nav-rail.pinned .rail-logo-text{opacity:1;transform:translateX(0)}
+.rail-wordmark{font-family:'Cinzel Decorative',serif;font-size:.78rem;color:var(--g1);letter-spacing:.06em;display:block}
+.rail-tagline{font-size:.58rem;color:var(--tp);margin-top:.15rem;letter-spacing:.04em}
+.rail-nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.75rem 0;scrollbar-width:none}
+.rail-nav::-webkit-scrollbar{display:none}
+.rail-lesson{display:flex;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;border:none;background:none;width:100%;text-align:left}
+.rail-lesson:hover{background:rgba(201,163,74,.04)}
+.rail-lesson.active{background:rgba(201,163,74,.07)}
+.rail-lesson.done{background:rgba(52,211,153,.04)}
+.rail-lesson-icon{width:var(--rail-w);height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.rail-lesson-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.48rem;letter-spacing:.1em;border:1px solid;flex-shrink:0;transition:all .25s}
+.rail-lesson.active .rail-lesson-num{background:var(--g1);border-color:var(--g1);color:var(--v);font-weight:700}
+.rail-lesson.done .rail-lesson-num{background:var(--grns);border-color:var(--grnb);color:var(--grn)}
+.rail-lesson-active-line{position:absolute;left:0;top:50%;transform:translateY(-50%);width:2px;height:0;background:var(--g1);transition:height .3s var(--ex)}
+.rail-lesson.active .rail-lesson-active-line{height:60%}
+.rail-lesson-body{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-6px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
+#nav-rail:hover .rail-lesson-body,#nav-rail.pinned .rail-lesson-body{opacity:1;transform:translateX(0)}
+.rail-lesson-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.16em;color:var(--tp);text-transform:uppercase;margin-bottom:.12rem}
+.rail-lesson.active .rail-lesson-tag{color:var(--g2)}
+.rail-lesson-name{font-size:.74rem;color:var(--bn);line-height:1.3}
+.rail-lesson.active .rail-lesson-name{color:var(--cr)}
+.rail-bottom{padding:1rem 0;border-top:1px solid rgba(201,163,74,.06);display:flex;align-items:center;flex-shrink:0}
+.rail-live{display:flex;align-items:center;gap:.5rem;padding:.5rem 0 .5rem var(--rail-w);white-space:nowrap;overflow:hidden;flex:1}
+.rail-live-dot{width:6px;height:6px;border-radius:50%;background:var(--grn);flex-shrink:0;animation:dpls 2s ease-in-out infinite}
+@keyframes dpls{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 4px rgba(52,211,153,0)}}
+.rail-live-text{font-family:var(--fb);font-size:.45rem;letter-spacing:.16em;color:var(--grn);opacity:0;transition:opacity .25s}
+#nav-rail:hover .rail-live-text,#nav-rail.pinned .rail-live-text{opacity:1}
+.rail-pin-btn{width:var(--rail-w);height:36px;display:flex;align-items:center;justify-content:center;color:var(--tp);cursor:pointer;flex-shrink:0;transition:color .2s}
+.rail-pin-btn:hover{color:var(--g1)}
+.rail-pin-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.rail-cta{padding:.75rem;opacity:0;transition:opacity .25s var(--ex)}
+#nav-rail:hover .rail-cta,#nav-rail.pinned .rail-cta{opacity:1}
+.rail-cta-btn{display:block;width:100%;padding:.65rem .85rem;border-radius:8px;font-family:var(--fb);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all .22s;border:1px solid transparent;text-decoration:none}
+.rail-cta-gold{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.22);color:var(--g1)}
+.rail-cta-gold:hover{background:rgba(201,163,74,.18)}
+.rail-cta-ghost{color:var(--tp);border-color:rgba(201,163,74,.08);margin-top:.5rem}
+.rail-cta-ghost:hover{color:var(--bn)}
+
+/* FOCUS HINT */
+.focus-hint{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%) translateY(80px);z-index:650;background:rgba(4,3,2,.88);backdrop-filter:blur(12px);border:1px solid rgba(201,163,74,.18);border-radius:50px;padding:.55rem 1.25rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--tp);display:flex;align-items:center;gap:.6rem;transition:transform .4s var(--bk),opacity .3s;opacity:0;pointer-events:none}
+body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.focus-hint kbd{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);padding:.12rem .5rem;border-radius:4px;font-size:.5rem;color:var(--g2);font-family:var(--fs)}
+
+/* MAIN */
+main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
+@media(max-width:1100px){main{padding:2.5rem 2rem 5rem}}
+@media(max-width:600px){main{padding:1.75rem 1.25rem 4rem}}
+body.focus-mode main{max-width:920px}
 
 /* XP FLASH */
 .xp-flash{position:fixed;pointer-events:none;z-index:9999;font-family:'Cinzel Decorative',serif;font-size:.92rem;font-weight:700;animation:xpRise .85s var(--ex) forwards;opacity:0}
@@ -134,6 +168,7 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
 /* INTRO */
 .intro-badge{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem 1.1rem;border-radius:20px;background:rgba(201,163,74,.07);border:1px solid rgba(201,163,74,.18);margin-bottom:1.75rem}
 .intro-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--g0);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,163,74,.4)}50%{box-shadow:0 0 0 6px rgba(201,163,74,0)}}
 .intro-badge-text{font-family:var(--fb);font-size:.46rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g1)}
 .intro-eyebrow{font-family:var(--fb);font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--g2);margin-bottom:.85rem}
 .intro-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);color:var(--wh);line-height:1.25;margin-bottom:.6rem}
@@ -456,201 +491,255 @@ main{padding:3rem 3.5rem 6rem;max-width:860px;margin:0 auto;width:100%}
 /* CONFETTI */
 .cpiece{position:fixed;pointer-events:none;z-index:9999;animation:cfall linear forwards}
 @keyframes cfall{0%{transform:translateY(-80px) rotate(0) scale(1);opacity:1}100%{transform:translateY(110vh) rotate(800deg) scale(.5);opacity:0}}
+
+/* PRINT STYLES */
+@media print{#cur,#cur-r,#nav-rail,#topbar,.focus-hint{display:none!important}body{padding:0}}
 </style>
 </head>
 <body>
-<div id="cur"></div>
-<div id="cur-r"></div>
-<canvas id="particles"></canvas>
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
 
-<div class="page-wrap">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sb-logo">VERCELLUM</div>
-    <div>
-      <div class="sb-path-label">Current Path</div>
-      <div class="sb-path-title">Path 1 — Understanding the New AI</div>
-    </div>
-    <div class="sb-you-are-here">
-      <div class="sb-you-label">You Are Here</div>
-      <div class="sb-you-name">Path 1 · Mastery Check</div>
-    </div>
-    <div class="sb-progress-wrap">
-      <div class="sb-progress-label">
-        <span class="sb-progress-text">Path Progress</span>
-        <span class="sb-progress-pct">100%</span>
-      </div>
-      <div class="sb-progress-track"><div class="sb-progress-fill"></div></div>
-    </div>
-    <nav class="sb-lessons">
-      <a class="sb-lesson done" href="lesson1.html"><span class="sb-lesson-ic">✓</span>Lesson 1 — The Turning Point</a>
-      <a class="sb-lesson done" href="lesson2.html"><span class="sb-lesson-ic">✓</span>Lesson 2 — How Agents Think</a>
-      <a class="sb-lesson done" href="lesson3.html"><span class="sb-lesson-ic">✓</span>Lesson 3 — Your First Agent</a>
-      <a class="sb-lesson done" href="lesson4.html"><span class="sb-lesson-ic">✓</span>Lesson 4 — Deploying for ROI</a>
-      <div class="sb-divider"></div>
-      <div class="sb-lesson active"><span class="sb-lesson-ic">◆</span>Path 1 Mastery Check</div>
-    </nav>
-    <div class="sb-live"><div class="sb-live-dot"></div><span class="sb-live-text">Mastery Check Active</span></div>
-    <div class="sb-cta-btns">
-      <a href="path.html" class="sb-btn sb-btn-gold">View All Paths</a>
-      <a href="index.html" class="sb-btn sb-btn-ghost">← Home</a>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <main>
-    <!-- TOPBAR -->
-    <div class="quiz-topbar">
-      <div class="quiz-path-chip"><div class="quiz-path-dot"></div><span>Path 1 · Mastery Check</span></div>
-      <div class="topbar-right">
-        <div class="streak-wrap" id="streak-wrap">
-          <span class="streak-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-          <span class="streak-count" id="sc">2</span>
-          <span class="streak-label">streak</span>
-        </div>
-        <div class="quiz-score-wrap">
-          <span class="quiz-score-label">Score</span>
-          <span class="quiz-score-val" id="live-score">0</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- INTRO -->
-    <div class="screen active" id="s-intro">
-      <div class="intro-badge"><div class="intro-badge-dot"></div><span class="intro-badge-text">All 4 Lessons Complete</span></div>
-      <div class="intro-eyebrow">Path 1 · Mastery Check</div>
-      <h1 class="intro-title">Validate Your <em>Understanding</em></h1>
-      <p class="intro-subtitle">You invested real time. Now close this chapter with clarity — and take the first piece of what you're building.</p>
-      <div class="intro-stats">
-        <div class="intro-stat"><span class="intro-stat-val">12</span><span class="intro-stat-lbl">Questions</span></div>
-        <div class="intro-stat"><span class="intro-stat-val">~5</span><span class="intro-stat-lbl">Minutes</span></div>
-        <div class="intro-stat"><span class="intro-stat-val">1 / 4</span><span class="intro-stat-lbl">Puzzle Piece</span></div>
-      </div>
-      <div class="intro-what">
-        <div class="intro-what-title">This covers</div>
-        <div class="intro-what-list">
-          <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 1 · The shift from AI tools to AI agents — PEA Framework</span></div>
-          <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 2 · How agents perceive, reason, and execute autonomously</span></div>
-          <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 3 · Triggers, workflows, and your first automation</span></div>
-          <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 4 · Deploying AI agents for measurable SMB ROI</span></div>
-        </div>
-      </div>
-      <button class="intro-cta" onclick="startQuiz()">Begin Mastery Check <span class="intro-cta-arrow">→</span></button>
-    </div>
-
-    <!-- QUIZ -->
-    <div class="screen" id="s-quiz">
-      <div class="qprog-wrap">
-        <div class="qprog-meta"><span class="qprog-label">Progress</span><span class="qprog-frac" id="qf">1 / 12</span></div>
-        <div class="qprog-track"><div class="qprog-fill" id="qfill" style="width:8.33%"></div></div>
-        <div class="qprog-steps" id="qsteps"></div>
-      </div>
-      <div class="motiv-wrap"><div class="motiv-strip" id="motiv"></div></div>
-      <div class="q-card" id="qcard"></div>
-    </div>
-
-    <!-- MILESTONE -->
-    <div class="screen" id="s-ms">
-      <div class="ms-wrap">
-        <div class="ms-emblem"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linejoin="round"/></svg></div>
-        <div class="ms-kicker">Halfway Checkpoint</div>
-        <div class="ms-title">Momentum Confirmed</div>
-        <div class="ms-sub">You're progressing faster than you think.</div>
-        <p class="ms-body">Most people stop before they reach this point. You didn't. That distinction matters — and it will show in how you apply this knowledge.</p>
-        <div class="ms-score-row">
-          <div class="ms-sc-item"><span class="ms-sc-val" id="ms-sc">—</span><span class="ms-sc-lbl">Correct</span></div>
-          <div class="ms-sc-div"></div>
-          <div class="ms-sc-item"><span class="ms-sc-val" id="ms-acc">—</span><span class="ms-sc-lbl">Accuracy</span></div>
-          <div class="ms-sc-div"></div>
-          <div class="ms-sc-item"><span class="ms-sc-val">6</span><span class="ms-sc-lbl">Remaining</span></div>
-        </div>
-        <div class="ms-dots" id="ms-dots"></div>
-        <button class="ms-cta" onclick="continueMilestone()">Continue — Final 6 Questions →</button>
-      </div>
-    </div>
-
-    <!-- RESULTS -->
-    <div class="screen" id="s-res">
-      <div class="res-header">
-        <div class="res-ring" id="res-ring"></div>
-        <div class="res-eyebrow">Path 1 Complete</div>
-        <h2 class="res-title" id="res-title">Foundation Established</h2>
-        <div class="res-score-big" id="res-score">—</div>
-        <div class="res-score-sub" id="res-sub">Questions answered correctly</div>
-        <div class="res-grade-bar" id="res-bar"></div>
-        <div class="res-grade-label" id="res-grade">—</div>
-      </div>
-      <div class="res-breakdown">
-        <div class="rb-card"><div class="rb-label">Correct Answers</div><div class="rb-val" id="rb-c">—</div><div class="rb-sub">out of 12 questions</div></div>
-        <div class="rb-card"><div class="rb-label">Accuracy Rate</div><div class="rb-val" id="rb-a">—</div><div class="rb-sub">overall performance</div></div>
-        <div class="rb-card"><div class="rb-label">Strongest Area</div><div class="rb-val" id="rb-s" style="font-size:.82rem">—</div><div class="rb-sub">lesson performance</div></div>
-        <div class="rb-card"><div class="rb-label">Mastery Level</div><div class="rb-val" id="rb-l" style="font-size:.82rem">—</div><div class="rb-sub">path certification</div></div>
-      </div>
-
-      <!-- Chart (redesigned) -->
-      <div class="chart-section">
-        <div class="chart-hdr">
-          <div>
-            <div class="chart-kicker">Performance Trajectory</div>
-            <div class="chart-title">Your Growth Across Path 1</div>
-            <div class="chart-sub">Lesson-by-lesson accuracy breakdown</div>
-          </div>
-          <div class="chart-legend">
-            <div class="chart-leg"><div class="chart-leg-swatch pass"></div>Passed ≥75%</div>
-            <div class="chart-leg"><div class="chart-leg-swatch fail"></div>Below target</div>
-            <div class="chart-leg"><div class="chart-leg-swatch target"></div>Target</div>
-          </div>
-        </div>
-        <div class="chart-bars-wrap" id="chart-bars-wrap">
-          <canvas id="perf-line-canvas"></canvas>
-        </div>
-        <div class="chart-summary" id="chart-summary">
-          <!-- Injected by JS -->
-        </div>
-      </div>
-
-      <!-- Mastery Map (circular) -->
-      <div class="mastery-section">
-        <div class="mastery-hdr">
-          <div class="mastery-kicker">Mastery Map</div>
-          <div class="mastery-title">Your Path to Full AI Mastery</div>
-          <div class="mastery-sub">Complete all 4 paths to unlock complete mastery</div>
-        </div>
-        <div class="mastery-body">
-          <div class="mastery-circle-wrap" id="mastery-circle-wrap">
-            <!-- SVG injected by JS -->
-          </div>
-          <div class="mastery-paths" id="mastery-paths">
-            <!-- Cards injected by JS -->
-          </div>
-        </div>
-        <div class="mastery-msg" id="mastery-msg"></div>
-      </div>
-
-      <!-- Review (redesigned) -->
-      <div class="review-section">
-        <div class="review-hdr">
-          <div class="review-title">Question Review</div>
-          <div class="review-stats" id="review-stats"></div>
-        </div>
-        <div class="review-list" id="rev-list"></div>
-      </div>
-
-      <div class="res-ctas">
-        <a href="Oscar1.html" class="res-cta-p">Take Oscar Award →</a>
-        <button class="res-cta-s" onclick="retakeQuiz()">Retake Quiz</button>
-      </div>
-    </div>
-  </main>
+<div class="focus-hint" aria-live="polite">
+  Press <kbd>Esc</kbd> or click <kbd>Focus</kbd> again to exit deep work mode
 </div>
+
+<!-- ══ TOP BAR ══ -->
+<header id="topbar" role="banner">
+  <div class="tb-left">
+    <span class="tb-lesson-label">Path 1 · <span>Mastery Check</span></span>
+    <div class="tb-progress-wrap">
+      <div class="tb-progress-track">
+        <div class="tb-progress-fill" id="tb-progress-fill"></div>
+      </div>
+      <span class="tb-progress-pct" id="tb-progress-pct">100%</span>
+    </div>
+  </div>
+  <div class="tb-right">
+    <div class="streak-wrap" id="streak-wrap">
+      <span class="streak-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+      <span class="streak-count" id="sc">2</span>
+      <span class="streak-label">streak</span>
+    </div>
+    <div class="tb-score-wrap">
+      <span class="tb-score-label">Score</span>
+      <span class="tb-score-val" id="live-score">0</span>
+    </div>
+    <button id="focus-btn" aria-label="Toggle focus mode" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span id="focus-btn-label">Focus Mode</span>
+    </button>
+  </div>
+</header>
+
+<!-- ══ NAVIGATION RAIL ══ -->
+<nav id="nav-rail" aria-label="Course navigation">
+  <div class="rail-logo-area">
+    <div class="rail-logo-icon">
+      <div class="rail-logo-mark" aria-label="VERCELLUM">V</div>
+    </div>
+    <div class="rail-logo-text">
+      <span class="rail-wordmark">VERCELLUM</span>
+      <span class="rail-tagline">Agentic AI · Path 1</span>
+    </div>
+  </div>
+
+  <div class="rail-nav" role="list">
+    <a class="rail-lesson done" href="lesson1.html" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">✓</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Done · Lesson 1</div>
+        <div class="rail-lesson-name">The Turning Point</div>
+      </div>
+    </a>
+    <a class="rail-lesson done" href="lesson2.html" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">✓</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Done · Lesson 2</div>
+        <div class="rail-lesson-name">How Agents Think</div>
+      </div>
+    </a>
+    <a class="rail-lesson done" href="lesson3.html" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">✓</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Done · Lesson 3</div>
+        <div class="rail-lesson-name">Your First Agent</div>
+      </div>
+    </a>
+    <a class="rail-lesson done" href="lesson4.html" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">✓</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Done · Lesson 4</div>
+        <div class="rail-lesson-name">Deploying for ROI</div>
+      </div>
+    </a>
+    <div class="rail-lesson active" role="listitem" aria-current="page">
+      <div class="rail-lesson-icon">
+        <div class="rail-lesson-active-line"></div>
+        <div class="rail-lesson-num" style="font-size:.38rem">Q</div>
+      </div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Active · Final</div>
+        <div class="rail-lesson-name">Path 1 Mastery Check</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail-bottom">
+    <div class="rail-live" aria-label="Quiz active">
+      <div class="rail-live-dot" aria-hidden="true"></div>
+      <span class="rail-live-text">Mastery Check Active</span>
+    </div>
+    <button class="rail-pin-btn" id="rail-pin-btn" aria-label="Pin navigation open" title="Pin open">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+  </div>
+
+  <div class="rail-cta">
+    <a href="path.html" class="rail-cta-btn rail-cta-gold">View All Paths</a>
+    <a href="index.html" class="rail-cta-btn rail-cta-ghost">← Home</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main id="main-content">
+  <!-- INTRO -->
+  <div class="screen active" id="s-intro">
+    <div class="intro-badge"><div class="intro-badge-dot"></div><span class="intro-badge-text">All 4 Lessons Complete</span></div>
+    <div class="intro-eyebrow">Path 1 · Mastery Check</div>
+    <h1 class="intro-title">Validate Your <em>Understanding</em></h1>
+    <p class="intro-subtitle">You invested real time. Now close this chapter with clarity — and take the first piece of what you're building.</p>
+    <div class="intro-stats">
+      <div class="intro-stat"><span class="intro-stat-val">12</span><span class="intro-stat-lbl">Questions</span></div>
+      <div class="intro-stat"><span class="intro-stat-val">~5</span><span class="intro-stat-lbl">Minutes</span></div>
+      <div class="intro-stat"><span class="intro-stat-val">1 / 4</span><span class="intro-stat-lbl">Puzzle Piece</span></div>
+    </div>
+    <div class="intro-what">
+      <div class="intro-what-title">This covers</div>
+      <div class="intro-what-list">
+        <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 1 · The shift from AI tools to AI agents — PEA Framework</span></div>
+        <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 2 · How agents perceive, reason, and execute autonomously</span></div>
+        <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 3 · Triggers, workflows, and your first automation</span></div>
+        <div class="intro-what-item"><span class="intro-what-ic">→</span><span>Lesson 4 · Deploying AI agents for measurable SMB ROI</span></div>
+      </div>
+    </div>
+    <button class="intro-cta" onclick="startQuiz()">Begin Mastery Check <span class="intro-cta-arrow">→</span></button>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="s-quiz">
+    <div class="qprog-wrap">
+      <div class="qprog-meta"><span class="qprog-label">Progress</span><span class="qprog-frac" id="qf">1 / 12</span></div>
+      <div class="qprog-track"><div class="qprog-fill" id="qfill" style="width:8.33%"></div></div>
+      <div class="qprog-steps" id="qsteps"></div>
+    </div>
+    <div class="motiv-wrap"><div class="motiv-strip" id="motiv"></div></div>
+    <div class="q-card" id="qcard"></div>
+  </div>
+
+  <!-- MILESTONE -->
+  <div class="screen" id="s-ms">
+    <div class="ms-wrap">
+      <div class="ms-emblem"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linejoin="round"/></svg></div>
+      <div class="ms-kicker">Halfway Checkpoint</div>
+      <div class="ms-title">Momentum Confirmed</div>
+      <div class="ms-sub">You're progressing faster than you think.</div>
+      <p class="ms-body">Most people stop before they reach this point. You didn't. That distinction matters — and it will show in how you apply this knowledge.</p>
+      <div class="ms-score-row">
+        <div class="ms-sc-item"><span class="ms-sc-val" id="ms-sc">—</span><span class="ms-sc-lbl">Correct</span></div>
+        <div class="ms-sc-div"></div>
+        <div class="ms-sc-item"><span class="ms-sc-val" id="ms-acc">—</span><span class="ms-sc-lbl">Accuracy</span></div>
+        <div class="ms-sc-div"></div>
+        <div class="ms-sc-item"><span class="ms-sc-val">6</span><span class="ms-sc-lbl">Remaining</span></div>
+      </div>
+      <div class="ms-dots" id="ms-dots"></div>
+      <button class="ms-cta" onclick="continueMilestone()">Continue — Final 6 Questions →</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="screen" id="s-res">
+    <div class="res-header">
+      <div class="res-ring" id="res-ring"></div>
+      <div class="res-eyebrow">Path 1 Complete</div>
+      <h2 class="res-title" id="res-title">Foundation Established</h2>
+      <div class="res-score-big" id="res-score">—</div>
+      <div class="res-score-sub" id="res-sub">Questions answered correctly</div>
+      <div class="res-grade-bar" id="res-bar"></div>
+      <div class="res-grade-label" id="res-grade">—</div>
+    </div>
+    <div class="res-breakdown">
+      <div class="rb-card"><div class="rb-label">Correct Answers</div><div class="rb-val" id="rb-c">—</div><div class="rb-sub">out of 12 questions</div></div>
+      <div class="rb-card"><div class="rb-label">Accuracy Rate</div><div class="rb-val" id="rb-a">—</div><div class="rb-sub">overall performance</div></div>
+      <div class="rb-card"><div class="rb-label">Strongest Area</div><div class="rb-val" id="rb-s" style="font-size:.82rem">—</div><div class="rb-sub">lesson performance</div></div>
+      <div class="rb-card"><div class="rb-label">Mastery Level</div><div class="rb-val" id="rb-l" style="font-size:.82rem">—</div><div class="rb-sub">path certification</div></div>
+    </div>
+
+    <!-- Chart (redesigned) -->
+    <div class="chart-section">
+      <div class="chart-hdr">
+        <div>
+          <div class="chart-kicker">Performance Trajectory</div>
+          <div class="chart-title">Your Growth Across Path 1</div>
+          <div class="chart-sub">Lesson-by-lesson accuracy breakdown</div>
+        </div>
+        <div class="chart-legend">
+          <div class="chart-leg"><div class="chart-leg-swatch pass"></div>Passed ≥75%</div>
+          <div class="chart-leg"><div class="chart-leg-swatch fail"></div>Below target</div>
+          <div class="chart-leg"><div class="chart-leg-swatch target"></div>Target</div>
+        </div>
+      </div>
+      <div class="chart-bars-wrap" id="chart-bars-wrap">
+        <canvas id="perf-line-canvas"></canvas>
+      </div>
+      <div class="chart-summary" id="chart-summary">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <!-- Mastery Map (circular) -->
+    <div class="mastery-section">
+      <div class="mastery-hdr">
+        <div class="mastery-kicker">Mastery Map</div>
+        <div class="mastery-title">Your Path to Full AI Mastery</div>
+        <div class="mastery-sub">Complete all 4 paths to unlock complete mastery</div>
+      </div>
+      <div class="mastery-body">
+        <div class="mastery-circle-wrap" id="mastery-circle-wrap">
+          <!-- SVG injected by JS -->
+        </div>
+        <div class="mastery-paths" id="mastery-paths">
+          <!-- Cards injected by JS -->
+        </div>
+      </div>
+      <div class="mastery-msg" id="mastery-msg"></div>
+    </div>
+
+    <!-- Review (redesigned) -->
+    <div class="review-section">
+      <div class="review-hdr">
+        <div class="review-title">Question Review</div>
+        <div class="review-stats" id="review-stats"></div>
+      </div>
+      <div class="review-list" id="rev-list"></div>
+    </div>
+
+    <div class="res-ctas">
+      <a href="Oscar1.html" class="res-cta-p">Take Oscar Award →</a>
+      <button class="res-cta-s" onclick="retakeQuiz()">Retake Quiz</button>
+    </div>
+  </div>
+</main>
 
 <script>
 /* ═══════════════════════════════════════════════
-   VERCELLUM · QUIZ ENGINE v4
-   Randomised answers · Redesigned chart/map/review
+   VERCELLUM · QUIZ ENGINE v5
+   Redesigned UI · Quiz content unchanged
 ═══════════════════════════════════════════════ */
 
 // CURSOR
@@ -683,9 +772,24 @@ const sndMs=()=>[392,494,587,784].forEach((f,i)=>setTimeout(()=>t(f,.16,'sine',.
 const sndDone=()=>{[523,659,784,1047].forEach((f,i)=>setTimeout(()=>t(f,.2,'sine',.09),i*100));setTimeout(()=>t(1319,.45,'sine',.08),455);};
 const sndStr=()=>{t(660,.06,'sine',.08);setTimeout(()=>t(880,.12,'sine',.07),70);};
 
+// FOCUS MODE
+const focusBtn=document.getElementById('focus-btn');
+const railPinBtn=document.getElementById('rail-pin-btn');
+let railPinned=false;
+
+focusBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('focus-mode');
+  const isFocus=document.body.classList.contains('focus-mode');
+  focusBtn.setAttribute('aria-pressed',isFocus);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('focus-mode')){document.body.classList.remove('focus-mode');focusBtn.setAttribute('aria-pressed','false');}});
+railPinBtn.addEventListener('click',()=>{
+  railPinned=!railPinned;
+  document.getElementById('nav-rail').classList.toggle('pinned',railPinned);
+});
+
 /* ═══════════════════════════════════════════════
-   QUESTION BANK — answers stored at original index
-   Shuffled at render-time so no predictable pattern
+   QUESTION BANK — UNCHANGED
 ═══════════════════════════════════════════════ */
 const QS=[
   // Each MC question: opts[] = A,B,C,D at ORIGINAL positions. ans = original correct index.
@@ -793,8 +897,6 @@ const MOT=[
 
 /* ═══════════════════════════════════════════════
    FIX 1: ANSWER RANDOMISATION
-   Shuffle MC/QD options at startQuiz() so each
-   attempt has a different correct-answer position.
 ═══════════════════════════════════════════════ */
 function fisherYates(arr){
   const a=[...arr];
@@ -1037,7 +1139,6 @@ function showRes(){
 
 /* ═══════════════════════════════════════════════
    REDESIGNED: PERFORMANCE LINE CHART v5
-   Canvas-based · Animated · Gold/Green/Red palette
 ═══════════════════════════════════════════════ */
 function buildChart(ls,lc,fp){
   const wrap=$('chart-bars-wrap');if(!wrap)return;
@@ -1124,14 +1225,6 @@ function buildChart(ls,lc,fp){
     const ease=t<.5?2*t*t:(1-Math.pow(-2*t+2,2)/2);
     const drawUpTo=(data.length-1)*ease; // float index up to which we draw
 
-    // ── Fill under line ───────────────────────
-    ctx.beginPath();
-    data.forEach((d,i)=>{
-      const x=xFor(i),y=yFor(Math.min(i,drawUpTo)>=i?d.pct:data[Math.floor(drawUpTo)].pct+(d.pct-data[Math.floor(drawUpTo)].pct)*(drawUpTo%1));
-      if(i===0)ctx.moveTo(x,i<=drawUpTo?yFor(d.pct):yFor(data[0].pct));
-      else if(i<=drawUpTo)ctx.lineTo(x,yFor(d.pct));
-      else if(i-1<drawUpTo){const frac=drawUpTo-(i-1);const yCur=yFor(data[i-1].pct+(d.pct-data[i-1].pct)*frac);ctx.lineTo(xFor(i-1+(i-1<drawUpTo?1:frac)),yCur);}
-    });
     // Simpler approach: draw partial path
     ctx.beginPath();
     let pathEndX=PAD.left,pathEndY=yFor(data[0].pct);
@@ -1231,10 +1324,6 @@ function buildChart(ls,lc,fp){
 
 /* ═══════════════════════════════════════════════
    FIX 3: CIRCULAR MASTERY MAP
-   SVG circle divided into 4 arcs (quadrants)
-   Path 1: completed (gold-green fill)
-   Path 2: active/unlocked (gold outline, animated)
-   Paths 3-4: locked (dark)
 ═══════════════════════════════════════════════ */
 function buildMasteryMap(pct){
   const cw=$('mastery-circle-wrap');
@@ -1356,8 +1445,6 @@ function buildMasteryMap(pct){
 
 /* ═══════════════════════════════════════════════
    FIX 4: REDESIGNED QUESTION REVIEW
-   Rich cards with question text, correct answer,
-   lesson tag, type badge, result badge
 ═══════════════════════════════════════════════ */
 function buildReview(ls,lc){
   const list=$('rev-list');if(!list)return;list.innerHTML='';
