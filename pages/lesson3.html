@@ -423,6 +423,50 @@ body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:n
 .spar-mini-step-name{display:block;font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;margin-bottom:.4rem}
 .spar-mini-step-desc{font-size:.72rem;color:var(--tp);line-height:1.5}
 
+/* ══ PREVIEW DECISION BLOCK ══ */
+.preview-decision-wrap{margin:1.5rem 0}
+.preview-decision-opts{display:flex;flex-direction:column;gap:.65rem}
+.preview-decision-opt{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.25rem;border-radius:12px;border:1px solid rgba(201,163,74,.12);background:var(--ob);cursor:pointer;transition:all .28s var(--ex);text-align:left;width:100%;position:relative}
+.preview-decision-opt:hover{border-color:rgba(201,163,74,.35);background:rgba(201,163,74,.04);transform:translateX(4px)}
+.preview-decision-opt.selected{border-color:var(--g1);background:rgba(201,163,74,.08)}
+.pdo-icon{font-size:1.6rem;flex-shrink:0;width:42px;text-align:center}
+.pdo-content{flex:1}
+.pdo-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.2em;color:var(--g1);text-transform:uppercase;margin-bottom:.35rem}
+.pdo-desc{font-size:.82rem;color:var(--bn);line-height:1.6;margin-bottom:.4rem}
+.pdo-tag{font-size:.7rem;color:var(--tp);font-style:italic}
+.pdo-check{width:24px;height:24px;border-radius:50%;border:1px solid rgba(201,163,74,.25);display:grid;place-items:center;flex-shrink:0;transition:all .25s var(--ex)}
+.pdo-check svg{width:11px;height:11px;stroke:var(--g1);stroke-width:2.5;fill:none;opacity:0;transition:opacity .2s}
+.preview-decision-opt.selected .pdo-check{background:rgba(201,163,74,.2);border-color:var(--g1)}
+.preview-decision-opt.selected .pdo-check svg{opacity:1}
+
+.preview-flow-wrap{margin:2rem 0;padding:1.5rem;border-radius:14px;background:linear-gradient(135deg,var(--ob),var(--on));border:1px solid rgba(201,163,74,.12)}
+.preview-flow-header{margin-bottom:1.25rem}
+.preview-flow-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g2);text-transform:uppercase;margin-bottom:.35rem}
+.preview-flow-title{font-family:var(--fd);font-size:1.15rem;color:var(--wh);font-style:italic}
+.preview-flow-diagram{display:flex;flex-direction:column;align-items:center;gap:.25rem}
+.pfd-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:.75rem 1rem;border-radius:10px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1);width:100%;max-width:340px;transition:all .3s var(--ex)}
+.pfd-step:hover{background:rgba(201,163,74,.07);border-color:rgba(201,163,74,.2)}
+.pfd-step-final{background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.2)}
+.pfd-step-final:hover{background:rgba(52,211,153,.1)}
+.pfd-icon{font-size:1.4rem;margin-bottom:.35rem}
+.pfd-label{font-family:var(--fb);font-size:.52rem;letter-spacing:.16em;color:var(--g1);text-transform:uppercase;margin-bottom:.25rem}
+.pfd-step-final .pfd-label{color:var(--grn)}
+.pfd-desc{font-size:.72rem;color:var(--tp);line-height:1.45}
+.pfd-arrow{font-size:1.1rem;color:var(--g3);line-height:1;animation:pfdPulse 1.5s ease-in-out infinite}
+@keyframes pfdPulse{0%,100%{opacity:.4}50%{opacity:.8}}
+
+.preview-ownership{margin:1.5rem 0;padding:1.25rem;border-radius:10px;background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.15)}
+.po-item{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid rgba(52,211,153,.08)}
+.po-item:last-child{border-bottom:none}
+.po-icon{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--grn);flex-shrink:0}
+.po-text{font-size:.85rem;color:var(--cr);line-height:1.5}
+
+.preview-bridge{margin:1.5rem 0}
+.pb-content{display:flex;align-items:flex-start;gap:1rem;padding:1.35rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.18)}
+.pb-icon{font-size:1.5rem;flex-shrink:0}
+.pb-text{font-size:.88rem;color:var(--bn);line-height:1.7}
+.pb-text strong{color:var(--cr)}
+
 /* ══ TAKEAWAYS GRID ══ */
 .tw-intro-text{font-size:.88rem;color:var(--bn);line-height:1.7;margin-bottom:1.5rem}
 .tw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
@@ -1411,7 +1455,141 @@ body.ai-open #ai-panel{transform:translateX(0)}
           </div>
         </section>
         <div class="step-continue-wrap">
-          <button class="step-continue-btn" data-next="final">Complete Lesson 3<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button class="step-continue-btn" data-next="preview">Claim Your AI Worker<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══ PREVIEW DECISION BLOCK ══ -->
+      <div class="prog-step" data-step="preview" id="prog-step-preview">
+        <div class="divider"></div>
+        <section class="section-block reveal" aria-labelledby="preview-heading">
+          <div class="sec-badge gold">🚀 YOUR AI WORKER AWAITS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>DEFINE YOUR FIRST BUILD</div>
+          <h2 class="sec-title" id="preview-heading">Which AI Worker Will You <span class="gold">Build First?</span></h2>
+          <p class="body-text">You've seen the three problems AI solves. You've calculated your potential ROI. Now it's time to make it real. Below are the four most common AI workers that SMB owners deploy first. Select the one that matches your biggest pain point — this is the AI worker you'll start building in Lesson 4.</p>
+
+          <!-- Decision Options -->
+          <div class="preview-decision-wrap" role="radiogroup" aria-labelledby="preview-heading">
+            <div class="preview-decision-opts">
+              <button class="preview-decision-opt" data-worker="lead" role="radio" aria-checked="false" aria-label="Select Lead Response AI Worker">
+                <div class="pdo-icon">📩</div>
+                <div class="pdo-content">
+                  <div class="pdo-title">Lead Response AI Worker</div>
+                  <div class="pdo-desc">Responds to every incoming lead in under 90 seconds, 24/7. Qualifies the inquiry, books meetings, and ensures no opportunity slips through the cracks.</div>
+                  <div class="pdo-tag">Best for: Slow response times, lost leads</div>
+                </div>
+                <div class="pdo-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+              <button class="preview-decision-opt" data-worker="support" role="radio" aria-checked="false" aria-label="Select Customer Support AI Worker">
+                <div class="pdo-icon">💬</div>
+                <div class="pdo-content">
+                  <div class="pdo-title">Customer Support AI Worker</div>
+                  <div class="pdo-desc">Answers common customer questions instantly, routes complex issues to the right team member, and logs every interaction for continuous improvement.</div>
+                  <div class="pdo-tag">Best for: Overwhelmed support inbox, repetitive questions</div>
+                </div>
+                <div class="pdo-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+              <button class="preview-decision-opt" data-worker="quote" role="radio" aria-checked="false" aria-label="Select Quote & Pricing AI Worker">
+                <div class="pdo-icon">💰</div>
+                <div class="pdo-content">
+                  <div class="pdo-title">Quote / Pricing AI Worker</div>
+                  <div class="pdo-desc">Generates accurate quotes from inquiry details, checks pricing rules, sends proposals automatically, and follows up until the deal closes.</div>
+                  <div class="pdo-tag">Best for: Time-consuming quote creation, pricing delays</div>
+                </div>
+                <div class="pdo-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+              <button class="preview-decision-opt" data-worker="ops" role="radio" aria-checked="false" aria-label="Select Internal Operations AI Worker">
+                <div class="pdo-icon">⚙️</div>
+                <div class="pdo-content">
+                  <div class="pdo-title">Internal Operations AI Worker</div>
+                  <div class="pdo-desc">Processes invoices, updates spreadsheets, generates reports, and handles the repetitive admin tasks that drain your team's energy.</div>
+                  <div class="pdo-tag">Best for: Admin overload, data entry fatigue</div>
+                </div>
+                <div class="pdo-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Conceptual Flow Preview -->
+          <div class="preview-flow-wrap" id="preview-flow-wrap" style="display:none;" aria-label="Conceptual workflow of your AI worker">
+            <div class="preview-flow-header">
+              <div class="preview-flow-label">📋 YOUR AI WORKER BLUEPRINT</div>
+              <div class="preview-flow-title" id="preview-flow-title">Lead Response AI Worker</div>
+            </div>
+            <div class="preview-flow-diagram">
+              <div class="pfd-step">
+                <div class="pfd-icon">📥</div>
+                <div class="pfd-label">Incoming Request</div>
+                <div class="pfd-desc">A lead arrives via email, form, or message</div>
+              </div>
+              <div class="pfd-arrow" aria-hidden="true">↓</div>
+              <div class="pfd-step">
+                <div class="pfd-icon">👁️</div>
+                <div class="pfd-label">AI Reads Message</div>
+                <div class="pfd-desc">Senses the incoming trigger instantly</div>
+              </div>
+              <div class="pfd-arrow" aria-hidden="true">↓</div>
+              <div class="pfd-step">
+                <div class="pfd-icon">🧠</div>
+                <div class="pfd-label">AI Identifies Intent</div>
+                <div class="pfd-desc">Plans the right response for this situation</div>
+              </div>
+              <div class="pfd-arrow" aria-hidden="true">↓</div>
+              <div class="pfd-step">
+                <div class="pfd-icon">✍️</div>
+                <div class="pfd-label">AI Prepares Response</div>
+                <div class="pfd-desc">Crafts a personalized, relevant reply</div>
+              </div>
+              <div class="pfd-arrow" aria-hidden="true">↓</div>
+              <div class="pfd-step">
+                <div class="pfd-icon">📤</div>
+                <div class="pfd-label">AI Sends Reply</div>
+                <div class="pfd-desc">Delivers in under 90 seconds, 24/7</div>
+              </div>
+              <div class="pfd-arrow" aria-hidden="true">↓</div>
+              <div class="pfd-step pfd-step-final">
+                <div class="pfd-icon">✅</div>
+                <div class="pfd-label">Task Logged</div>
+                <div class="pfd-desc">Records outcome and learns for next time</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ownership Messages -->
+          <div class="preview-ownership" id="preview-ownership" style="display:none;">
+            <div class="po-item">
+              <span class="po-icon">✓</span>
+              <span class="po-text">You've just defined your first AI worker.</span>
+            </div>
+            <div class="po-item">
+              <span class="po-icon">✓</span>
+              <span class="po-text">This is the workflow you'll activate in the next lesson.</span>
+            </div>
+            <div class="po-item">
+              <span class="po-icon">✓</span>
+              <span class="po-text">You're now one step away from building your first AI system.</span>
+            </div>
+          </div>
+
+          <!-- Bridge to Lesson 4 -->
+          <div class="preview-bridge" id="preview-bridge" style="display:none;">
+            <div class="pb-content">
+              <div class="pb-icon">🎯</div>
+              <div class="pb-text">In the next lesson, you'll turn this workflow into a working AI worker — safely and step-by-step. No code required. No technical background needed. Just your business knowledge, transformed into an automated advantage.</div>
+            </div>
+          </div>
+
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="final" id="preview-continue-btn" disabled>Continue to Complete Lesson<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
       </div>
 
@@ -1535,8 +1713,8 @@ document.getElementById('tb-save-btn').addEventListener('click',function(){
 /* ══════════════════════════════════════════════
    PROGRESSIVE DISPLAY SYSTEM
 ══════════════════════════════════════════════ */
-const STEPS=['0','1','2','quiz1','3','4','5','quiz2','6','7','final'];
-const DOTS=['0','1','2','quiz1','3','4','5','quiz2','6','7'];
+const STEPS=['0','1','2','quiz1','3','4','5','quiz2','6','7','preview','final'];
+const DOTS=['0','1','2','quiz1','3','4','5','quiz2','6','7','preview'];
 let stepIdx=0;
 
 const dotsEl=document.getElementById('step-dots');
@@ -1591,11 +1769,11 @@ function goTo(nextKey){
   }
 
   // Milestone moments
-  const ms={'quiz1':['🎯','KNOWLEDGE CHECK'],'3':['💥','3 PROBLEMS UNLOCKED'],'5':['📈','ALL 3 PROBLEMS'],'quiz2':['🎯','QUIZ 2'],'6':['✅','TAKEAWAYS + ROI'],'7':['💬','COMMUNITY'],'final':['🏆','LESSON 3 COMPLETE']};
+  const ms={'quiz1':['🎯','KNOWLEDGE CHECK'],'3':['💥','3 PROBLEMS UNLOCKED'],'5':['📈','ALL 3 PROBLEMS'],'quiz2':['🎯','QUIZ 2'],'6':['✅','TAKEAWAYS + ROI'],'7':['💬','COMMUNITY'],'preview':['🚀','AI WORKER SELECTED'],'final':['🏆','LESSON 3 COMPLETE']};
   if(ms[nextKey])setTimeout(()=>showMilestone(ms[nextKey][0],ms[nextKey][1]),250);
 
   // Progress milestones
-  const pm={'0':5,'1':14,'2':22,'quiz1':28,'3':36,'4':44,'5':52,'quiz2':58,'6':70,'7':85,'final':95};
+  const pm={'0':5,'1':14,'2':22,'quiz1':28,'3':36,'4':44,'5':52,'quiz2':58,'6':70,'7':80,'preview':90,'final':95};
   if(pm[nextKey])setProgress(pm[nextKey]);
 
   // Trigger animations for specific steps
@@ -1694,6 +1872,100 @@ if(practicalSaveBtn&&practicalText){
     setTimeout(()=>{practicalFeedback.style.opacity='0';},2000);
   });
 }
+
+/* ══ PREVIEW DECISION BLOCK ══ */
+const workerNames={
+  'lead':'Lead Response AI Worker',
+  'support':'Customer Support AI Worker',
+  'quote':'Quote / Pricing AI Worker',
+  'ops':'Internal Operations AI Worker'
+};
+let selectedWorker=null;
+
+document.querySelectorAll('.preview-decision-opt').forEach(opt=>{
+  opt.addEventListener('click',function(){
+    // Deselect all
+    document.querySelectorAll('.preview-decision-opt').forEach(o=>{
+      o.classList.remove('selected');
+      o.setAttribute('aria-checked','false');
+    });
+    // Select this one
+    this.classList.add('selected');
+    this.setAttribute('aria-checked','true');
+    selectedWorker=this.dataset.worker;
+    playClick();
+    
+    // Update flow title
+    const flowTitle=document.getElementById('preview-flow-title');
+    if(flowTitle)flowTitle.textContent=workerNames[selectedWorker]||'AI Worker';
+    
+    // Show flow, ownership, bridge
+    const flowWrap=document.getElementById('preview-flow-wrap');
+    const ownership=document.getElementById('preview-ownership');
+    const bridge=document.getElementById('preview-bridge');
+    
+    if(flowWrap){
+      flowWrap.style.display='block';
+      flowWrap.style.opacity='0';
+      requestAnimationFrame(()=>{
+        flowWrap.style.transition='opacity .4s ease';
+        flowWrap.style.opacity='1';
+      });
+    }
+    
+    setTimeout(()=>{
+      if(ownership){
+        ownership.style.display='block';
+        ownership.style.opacity='0';
+        requestAnimationFrame(()=>{
+          ownership.style.transition='opacity .4s ease';
+          ownership.style.opacity='1';
+        });
+      }
+    },200);
+    
+    setTimeout(()=>{
+      if(bridge){
+        bridge.style.display='block';
+        bridge.style.opacity='0';
+        requestAnimationFrame(()=>{
+          bridge.style.transition='opacity .4s ease';
+          bridge.style.opacity='1';
+        });
+      }
+    },400);
+    
+    // Enable continue button
+    const continueBtn=document.getElementById('preview-continue-btn');
+    if(continueBtn){
+      continueBtn.disabled=false;
+      continueBtn.style.opacity='1';
+    }
+    
+    // Save selection
+    try{localStorage.setItem('vrc_l3_worker',selectedWorker);}catch(e){}
+    
+    setProgress(92);
+  });
+  
+  opt.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      opt.click();
+    }
+  });
+});
+
+// Restore saved worker selection
+(function(){
+  try{
+    const saved=localStorage.getItem('vrc_l3_worker');
+    if(saved&&workerNames[saved]){
+      const opt=document.querySelector(`.preview-decision-opt[data-worker="${saved}"]`);
+      if(opt)opt.click();
+    }
+  }catch(e){}
+})();
 
 /* ══ COMPLETE LESSON ══ */
 const lvlBanner=document.getElementById('levelup-banner');
@@ -1920,6 +2192,10 @@ const STEP_DATA={
   '7':{
     ctx:'Community voices and practical agent design exercise',
     qs:['How do I design my first agent if I\'m not technical?','What\'s the minimum viable first agent for a solo business owner?','How do I convince a skeptical partner or co-founder to try AI?','What should I do in the next 24 hours after this lesson?']
+  },
+  'preview':{
+    ctx:'Your AI worker selection — choosing which agent to build first in Lesson 4',
+    qs:['How do I know which AI worker is right for my specific business?','Can I build more than one AI worker?','What if I pick the wrong one — can I change my mind?','What happens after I select my AI worker?']
   },
   'final':{
     ctx:'Lesson 3 complete — what comes next in Lesson 4',
