@@ -13,6 +13,7 @@
 <!-- END NEW: Google Analytics -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#040302">
 <title>VERCELLUM · AI Agents for Small Business Owners — Build & Automate Without Code</title>
 <meta name="description" content="VERCELLUM is the structured AI agents curriculum built exclusively for entrepreneurs and SMB owners. Learn to build, deploy, and manage AI agents that automate your operations, sales, and support — no coding required. Free to start.">
 <meta name="keywords" content="AI agents for small business, AI automation for SMB, build AI agents no code, AI for entrepreneurs, AI business automation, learn AI agents, small business AI tools">
@@ -20,10 +21,25 @@
 <meta property="og:description" content="The only structured curriculum teaching entrepreneurs and SMB owners to build AI agents that automate operations, sales, and support. No coding. Free to start.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vercellum.com">
+<meta property="og:image" content="https://vercellum.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="VERCELLUM">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vercellum.com/og-image.jpg">
+<meta name="twitter:title" content="VERCELLUM · AI Agents That Run Your Business">
+<meta name="twitter:description" content="The only structured curriculum teaching entrepreneurs and SMB owners to build AI agents. No coding. Free to start.">
+<meta name="twitter:site" content="@vercellum">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://vercellum.com">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"VERCELLUM","url":"https://vercellum.com","description":"Structured AI agents learning platform for small and medium business owners and entrepreneurs. Build, deploy, and manage AI agents without coding.","foundingDate":"2025","teaches":"AI Agents for Business Automation","educationalCredentialAwarded":"AI Business Automation Certification"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need coding experience to build AI agents?","acceptedAnswer":{"@type":"Answer","text":"Zero technical background needed. VERCELLUM is built entirely for business owners and entrepreneurs, not developers. Every lesson is in plain business language."}},{"@type":"Question","name":"How quickly can I deploy my first AI agent?","acceptedAnswer":{"@type":"Answer","text":"Most learners deploy their first working AI agent within their first session — typically under 60 minutes. The platform is designed for immediate, practical results."}},{"@type":"Question","name":"How much does VERCELLUM cost?","acceptedAnswer":{"@type":"Answer","text":"The first 30% of every learning path is completely free — no credit card required. The full path unlocks for $19."}}]}</script>
+<!-- NEW: WebPage structured data for better search result appearance -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://vercellum.com/#webpage","url":"https://vercellum.com","name":"VERCELLUM — AI Agents for Small Business Owners","isPartOf":{"@id":"https://vercellum.com/#website"},"description":"VERCELLUM is the structured AI agents curriculum built exclusively for entrepreneurs and SMB owners. Build, deploy, and manage AI agents that automate operations, sales, and support — no coding required. Free to start.","inLanguage":"en-US","datePublished":"2025-01-01","dateModified":"2025-03-30"}</script>
+<!-- NEW: Organization enhanced schema with social profiles -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://vercellum/#organization","name":"VERCELLUM","url":"https://vercellum.com","logo":{"@type":"ImageObject","url":"https://vercellum.com/logo.png","width":512,"height":512},"sameAs":[],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","availableLanguage":"English"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -54,7 +70,9 @@
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--v)}
 ::-webkit-scrollbar-thumb{background:var(--g3);border-radius:2px}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+/* NEW: Ensure sections don't get hidden behind sticky header */
+[id]{scroll-margin-top:5rem}
 
 body{
   font-family:var(--fs);background:var(--v);color:var(--cr);
@@ -67,6 +85,12 @@ button{font-family:var(--fs);cursor:none;border:none;background:none}
 .skip{position:absolute;top:-60px;left:1rem;padding:.5rem 1.2rem;background:var(--g1);color:var(--v);font-size:.8rem;font-weight:700;border-radius:4px;z-index:9999;transition:top .2s}
 .skip:focus{top:.75rem;outline:3px solid var(--g0)}
 @media(hover:none){body{cursor:auto}button,a{cursor:pointer}}
+/* NEW: Focus-visible styles for keyboard navigation accessibility */
+button:focus-visible,a:focus-visible{outline:2px solid var(--g1);outline-offset:3px;border-radius:4px}
+.bt-g:focus-visible{box-shadow:0 0 0 3px rgba(201,163,74,.3)}
+.bt-hp-p:focus-visible{box-shadow:0 0 0 3px rgba(201,163,74,.3)}
+.fqb:focus-visible{outline-offset:0}
+.cin:focus-visible{outline-offset:0;border-color:rgba(201,163,74,.5)!important}
 
 /* ══ NOISE LAYER ══ */
 body::before{content:'';position:fixed;inset:0;opacity:.025;
@@ -132,6 +156,19 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 .bt-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-120%) skewX(-15deg);transition:transform .55s}
 .bt-g:hover{background:var(--g0);box-shadow:0 0 30px rgba(201,163,74,.4);transform:translateY(-1px)}.bt-g:hover::after{transform:translateX(130%) skewX(-15deg)}
 @media(max-width:680px){.hn{display:none}.hdr{padding:.9rem 1.25rem}}
+
+/* Mobile hamburger menu button */
+.mob-menu-btn{display:none;position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:6px;border:1px solid rgba(201,163,74,.2);background:rgba(201,163,74,.05);flex-direction:column;align-items:center;justify-content:center;gap:5px;z-index:801;padding:0}
+.mob-menu-btn span{display:block;width:16px;height:1px;background:var(--g1);transition:transform .3s var(--ex),width .3s var(--ex)}
+.mob-menu-btn.open span:nth-child(1){transform:rotate(45deg) translate(2.5px,2.5px)}
+.mob-menu-btn.open span:nth-child(2){opacity:0;width:0}
+.mob-menu-btn.open span:nth-child(3){transform:rotate(-45deg) translate(2.5px,-2.5px)}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:799;background:rgba(4,3,2,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);padding:6rem 2rem 2rem;flex-direction:column;gap:1.5rem;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .4s var(--ex),visibility .4s,transform .4s var(--ex)}
+.mob-nav.open{opacity:1;visibility:visible;transform:translateY(0)}
+.mob-nav a{font-family:var(--fb);font-size:.9rem;font-weight:500;letter-spacing:.12em;color:var(--bn);padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s}
+.mob-nav a:hover{color:var(--g1)}
+.mob-nav .hr{flex-direction:column;align-items:flex-start;gap:.75rem}
+@media(max-width:680px){.mob-menu-btn{display:flex!important}}
 
 /* ══════════════════════════════════════════════════
    HERO
@@ -220,6 +257,10 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
    SECTION COMMONS
 ══════════════════════════════════════════════════ */
 .sec{position:relative;z-index:1;padding:9rem 1.5rem}
+/* NEW: Smooth section transitions for visual polish */
+.sec+.gr{position:relative;overflow:hidden}
+.sec+.gr::before{content:'';position:absolute;top:0;left:50%;width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent);animation:grPulse 3s ease-in-out infinite}
+@keyframes grPulse{0%,100%{opacity:.3;transform:translateX(-50%)}50%{opacity:1;transform:translateX(-50%)}}
 .si{max-width:1240px;margin:0 auto}
 .chip{
   display:inline-flex;align-items:center;gap:9px;
@@ -536,6 +577,24 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   .rv,.rvc,.rvx,.rvy{transition:opacity .3s ease!important;transform:none!important}
 }
 
+/* NEW: Selection styling for better UX when users copy text */
+::selection{background:rgba(201,163,74,.25);color:var(--wh)}
+::-moz-selection{background:rgba(201,163,74,.25);color:var(--wh)}
+
+/* NEW: Print styles — clean output when users print */
+@media print{
+  body{background:#fff!important;color:#000!important;cursor:auto!important;overflow:visible!important}
+  .hero{min-height:auto!important;padding:2rem!important}
+  .orb,#bgc,#blob,#cur,#cur-r,#prog,#loader,.cfab,.mq,.gr,.hero-clip-bl,.ctab::before,.ctab-deco{display:none!important}
+  .htitle,.htitle .wc{-webkit-text-fill-color:var(--g1)!important;color:var(--g1)!important;background:none!important}
+  .hsub,.hpills,.hcta,.shint{opacity:1!important;animation:none!important;transform:none!important;color:#333!important}
+  .sec{padding:2rem 1.5rem!important}
+  .bt-hp-p{background:#C9A34A!important;color:#000!important}
+  .step,.path-card,.tc,.aq-card,.tcard{border-color:#ddd!important;background:#f9f9f9!important;box-shadow:none!important}
+  a{text-decoration:underline!important}
+  #loader{display:none!important}
+}
+
 /* NEW: Technical improvements — suggested enhancements (commented out to preserve original issues) */
 /* 
   1. Loader: replace with CSS-only version (example below)
@@ -657,6 +716,14 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 <!-- NEW: End of style block with improvement comments -->
 <!-- NEW: Performance preconnect hints -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
+<!-- NEW: Favicon and icons for better branding in search results -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23040302'/%3E%3Cpolygon points='50 12 61.7 36.7 88 39.5 50 73.3 12 70.7' fill='%23C9A34A'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -690,6 +757,15 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
     <a href="#paths">Learning Paths</a>
     <a href="#faq">FAQ</a>
   </nav>
+  <!-- NEW: Mobile hamburger menu button for better mobile UX -->
+  <button class="mob-menu-btn" id="mobMenuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
+  <div class="mob-nav" id="mobNav" aria-label="Mobile navigation">
+    <a href="#how-it-works" class="mob-nav-link">How It Works</a>
+    <a href="#paths" class="mob-nav-link">Learning Paths</a>
+    <a href="#stories" class="mob-nav-link">Success Stories</a>
+    <a href="#faq" class="mob-nav-link">FAQ</a>
+    <a href="pages/intro-test.html" class="mob-nav-link" style="color:var(--g1);">Start Free →</a>
+  </div>
   <div class="hr">
     <a href="pages/intro-test.html" class="bt-o">Explore Paths</a>
     <a href="pages/intro-test.html" class="bt-g">Start Free →</a>
@@ -820,7 +896,7 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   <div class="si">
     <div class="sc" style="margin-bottom:4.5rem">
       <div class="chip rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>THE REAL DIFFERENCE</div>
-      <h2 id="gaph" class="sh rv d1">Most platforms teach you <em>about</em> AI.<br>VERCELLUM teaches you to <em>build</em> with it.</h2>
+      <h2 id="gaph" class="sh rv d1">Most platforms teach you <em>about</em> AI.<br>VERCELLUM teaches you to <em>build</em> with it — today.</h2>
     </div>
     <div class="ctg rvc d2">
       <div class="ctc bad">
@@ -860,7 +936,7 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
     <div class="sc" style="margin-bottom:4.5rem">
       <div class="chip rv"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>THE PROCESS</div>
       <h2 id="howh" class="sh rv d1">Three Steps.<br><em>One Transformation.</em></h2>
-      <p class="ss rv d2">You don't watch. You don't take notes. You build. Every step ends with something real running inside your business.</p>
+      <p class="ss rv d2">You don't watch. You don't take notes. You <strong>build</strong>. Every step ends with something <strong>real running inside your business</strong> — by the time you finish, you'll have an AI employee working 24/7.</p>
     </div>
     <div class="steps-grid">
       <div class="step rvc d1">
@@ -906,7 +982,7 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   <div class="paths-label">
     <div class="chip rv"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>FIVE LEARNING PATHS</div>
     <h2 id="psh" class="sh rv d1">From First Agent<br><em>to Full AI Workforce.</em></h2>
-    <p class="ss rv d2" style="margin:0 auto">A progressive journey that builds real business capability at every level. Each path ends with AI systems that operate independently inside your business — around the clock.</p>
+    <p class="ss rv d2" style="margin:0 auto">A progressive journey that builds <strong>real business capability</strong> at every level. Each path ends with AI systems that operate independently inside your business — around the clock, without your constant involvement.</p>
   </div>
   <div class="paths-strip rvc d2" id="pathsStrip" aria-label="Learning paths — scroll horizontally to explore">
     <div class="paths-row">
@@ -1234,14 +1310,48 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 </section>
 
 <!-- ══════════════════════════════════════════════════
+   [NEW] WHY NOW — URGENCY SECTION
+   Every day without automation is revenue and time permanently lost.
+══════════════════════════════════════════════════ -->
+<section class="sec" style="padding:6rem 1.5rem;" aria-label="Why act now">
+  <div class="si" style="text-align:center;">
+    <div class="chip rv"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3h6a8 8 0 0 0 8 8V12a8 8 0 0 0-8-8h-6"/><polyline points="9 15 12 12 15 9"/></svg>WHY NOW</div>
+    <h2 class="sh rv d1" style="font-size:clamp(1.8rem,4vw,3rem);">The cost of waiting is <em>measurable.</em></h2>
+    <p class="ss rv d2" style="max-width:600px;margin:0 auto;">Every week without AI automation, your competitors are gaining an irreversible advantage. The window to be an early adopter is closing — and VERCELLUM makes it effortless to start <strong>today</strong>, not "someday."</p>
+    <div class="rv d3" style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2.5rem;">
+      <div style="text-align:center; max-width:200px;">
+        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">168 hrs</div>
+        <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">wasted per year on repetitive tasks</div>
+      </div>
+      <div style="text-align:center; max-width:200px;">
+        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">$23K+</div>
+        <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">annual revenue lost to inefficiency</div>
+      </div>
+      <div style="text-align:center; max-width:200px;">
+        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">73%</div>
+        <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">of SMBs plan to adopt AI by 2026</div>
+      </div>
+    </div>
+    <div class="rv d4" style="margin-top:2.5rem;">
+      <a href="pages/intro-test.html" class="bt-hp bt-hp-p" style="font-size:.92rem;padding:1.05rem 2.75rem">
+        Find Out What You're Missing
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <p style="font-size:0.76rem; color:var(--tp); margin-top:.75rem; letter-spacing:0.04em;">Free 2-minute assessment · No signup required</p>
+    </div>
+  </div>
+</section>
+
+<div class="gr"></div>
+
+<!-- ══════════════════════════════════════════════════
    FINAL CTA — THE CLOSE
    One decision. One action. Nothing else.
 ══════════════════════════════════════════════════ -->
-<div class="gr"></div>
 <div class="ctab" aria-labelledby="ctabh">
   <div class="ctab-deco" aria-hidden="true">AI</div>
   <h2 id="ctabh" class="ctab-ti rv"><em>Your AI Workforce</em><br>Starts With One Agent.</h2>
-  <p class="ctab-su rv d1">Free to start. No coding. No credit card. No prior experience.<br>Your first AI business agent is one session away.</p>
+  <p class="ctab-su rv d1">Free to start. No coding. No credit card. No prior experience.<br>Your first AI business agent is <strong>one session away</strong> — and it works while you sleep.</p>
   <!-- NEW: Stronger closing section before final CTA -->
   <div class="rv d2" style="position:relative; z-index:1; max-width:520px; margin:0 auto 2.5rem;">
     <p style="font-family:var(--fd); font-size:clamp(1rem,2vw,1.2rem); font-style:italic; color:var(--cr); margin-bottom:1.25rem; line-height:1.7;">Try it yourself now. In just 2 minutes, you'll discover:</p>
@@ -1532,6 +1642,20 @@ cQs.addEventListener('click',e=>{const q=e.target.closest('.cq');if(q)sChat(q.te
 cSd.addEventListener('click',()=>{const v=cIn.value.trim();if(v){cIn.value='';sChat(v);}});
 cIn.addEventListener('keydown',e=>{if(e.key==='Enter'){const v=cIn.value.trim();if(v){cIn.value='';sChat(v);}}});
 
+})();
+
+// NEW: Mobile menu toggle
+(function(){
+  const btn=document.getElementById('mobMenuBtn'),nav=document.getElementById('mobNav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    const open=!nav.classList.contains('open');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{btn.classList.remove('open');nav.classList.remove('open');btn.setAttribute('aria-expanded','false');document.body.style.overflow='';}));
 })();
 </script>
 <!-- NEW: script optimization comment: consider throttling requestAnimationFrame in drawCanvas to 30fps for performance -->

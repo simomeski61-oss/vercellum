@@ -9,14 +9,14 @@
   <!-- Google Identity Services (OAuth) -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-  <!-- Prestige typography – same as core site -->
+  <!-- Prestige typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
   <style>
     /* ══════════════════════════════════════════════════
-       DARK LUXURY DESIGN SYSTEM – VERCELLUM ELITE LOGIN (v2)
+       DARK LUXURY DESIGN SYSTEM – VERCELLUM ELITE LOGIN (v3 – PERSUASION UPGRADE)
        ══════════════════════════════════════════════════ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,6 +27,7 @@
       --g0: #F2D668; --g1: #C9A34A; --g2: #A88532; --g3: #7B611E; --g4: #54420F;
       --gg: rgba(201,163,74,.5); --gm: rgba(201,163,74,.18);
       --gf: rgba(201,163,74,.08); --gt: rgba(201,163,74,.04);
+      --rd: rgba(220,60,60,.6); --gn: rgba(60,200,120,.6);
       --fb: 'Cinzel', serif; --fd: 'Cormorant Garamond', serif; --fs: 'DM Sans', sans-serif;
       --ex: cubic-bezier(.16,1,.3,1); --bk: cubic-bezier(.34,1.56,.64,1);
     }
@@ -58,16 +59,12 @@
     /* noise overlay */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.025;
+      position: fixed; inset: 0; opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 160px;
-      pointer-events: none;
-      z-index: 9990;
+      background-size: 160px; pointer-events: none; z-index: 9990;
     }
 
-    /* custom cursor (refined) */
+    /* custom cursor */
     #blob {
       position: fixed; width: 600px; height: 600px; border-radius: 50%;
       background: radial-gradient(circle, rgba(201,163,74,.04) 0%, transparent 70%);
@@ -90,45 +87,29 @@
     body.hov #cur-r { width: 58px; height: 58px; border-color: rgba(201,163,74,.25); }
     body.clk #cur { transform: translate(-50%,-50%) scale(0.4); }
 
-    /* atmospheric orbs (more detail) */
-    .orb {
-      position: fixed; border-radius: 50%; pointer-events: none; filter: blur(100px); z-index: 0;
-    }
-    .o1 {
-      width: 800px; height: 800px; top: -250px; right: -250px;
-      background: radial-gradient(circle, rgba(201,163,74,.06), transparent 75%);
-      animation: float1 22s ease-in-out infinite;
-    }
-    .o2 {
-      width: 700px; height: 700px; bottom: -200px; left: -250px;
-      background: radial-gradient(circle, rgba(201,163,74,.045), transparent 75%);
-      animation: float2 26s ease-in-out infinite;
-    }
-    .o3 {
-      width: 400px; height: 400px; top: 30%; left: 20%;
-      background: radial-gradient(circle, rgba(201,163,74,.03), transparent 70%);
-      animation: float3 18s ease-in-out infinite;
-    }
+    /* atmospheric orbs */
+    .orb { position: fixed; border-radius: 50%; pointer-events: none; filter: blur(100px); z-index: 0; }
+    .o1 { width: 800px; height: 800px; top: -250px; right: -250px; background: radial-gradient(circle, rgba(201,163,74,.06), transparent 75%); animation: float1 22s ease-in-out infinite; }
+    .o2 { width: 700px; height: 700px; bottom: -200px; left: -250px; background: radial-gradient(circle, rgba(201,163,74,.045), transparent 75%); animation: float2 26s ease-in-out infinite; }
+    .o3 { width: 400px; height: 400px; top: 30%; left: 20%; background: radial-gradient(circle, rgba(201,163,74,.03), transparent 70%); animation: float3 18s ease-in-out infinite; }
     @keyframes float1 { 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(-40px,30px) scale(1.05); } }
     @keyframes float2 { 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(35px,-45px) scale(1.07); } }
     @keyframes float3 { 0%,100%{ transform:translate(0,0); } 33%{ transform:translate(25px,-20px); } 66%{ transform:translate(-20px,25px); } }
 
-    /* canvas background (refined particles) */
-    #bgc {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.6;
-    }
+    /* canvas background */
+    #bgc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.6; }
 
-    /* header – minimal, refined */
+    /* ══════════════════════════════════════════════════
+       HEADER
+       ══════════════════════════════════════════════════ */
     .hdr {
       position: fixed; top: 0; left: 0; right: 0; z-index: 800;
       padding: 0.9rem 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(4,3,2,.9); backdrop-filter: blur(30px);
+      background: rgba(4,3,2,.92); backdrop-filter: blur(30px);
       border-bottom: 1px solid rgba(201,163,74,.1);
     }
-    .hb {
-      display: flex; align-items: center; gap: 12px;
-    }
+    .hb { display: flex; align-items: center; gap: 12px; }
     .hb-em {
       width: 36px; height: 36px; border-radius: 10px;
       border: 1px solid rgba(201,163,74,.25); background: var(--gt);
@@ -147,7 +128,22 @@
     .back-link:hover { color: var(--g1); border-color: rgba(201,163,74,.25); }
     .back-link svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; }
 
-    /* main split container */
+    /* live indicator in header */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 0.3rem 0.75rem; border-radius: 20px;
+      background: rgba(60,200,120,.08); border: 1px solid rgba(60,200,120,.2);
+      font-family: var(--fb); font-size: 0.55rem; letter-spacing: .15em; color: var(--gn);
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gn); animation: livePulse 2s ease-in-out infinite;
+    }
+    @keyframes livePulse { 0%,100%{ opacity: 1; box-shadow: 0 0 4px rgba(60,200,120,.5); } 50%{ opacity: .5; box-shadow: 0 0 8px rgba(60,200,120,.8); } }
+
+    /* ══════════════════════════════════════════════════
+       MAIN SPLIT CONTAINER
+       ══════════════════════════════════════════════════ */
     .login-split {
       position: relative; z-index: 10;
       min-height: 100vh;
@@ -158,78 +154,180 @@
       max-width: 1400px; margin: 0 auto;
     }
 
-    /* left side – value proposition (prestige messaging, icons only) */
-    .value-prop {
-      padding-right: 2rem;
-    }
+    /* ══════════════════════════════════════════════════
+       LEFT PANEL – ENHANCED VALUE PROPOSITION
+       ══════════════════════════════════════════════════ */
+    .value-prop { padding-right: 2rem; }
+
     .value-badge {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 0.45rem 1.2rem; border-radius: 60px;
       border: 1px solid rgba(201,163,74,.2); background: rgba(201,163,74,.05);
       font-family: var(--fb); font-size: 0.6rem; letter-spacing: .22em; color: var(--g1);
       margin-bottom: 2rem;
+      animation: badgeShimmer 3s ease-in-out infinite;
     }
-    .value-badge svg {
-      width: 14px; height: 14px; stroke: var(--g1); stroke-width: 2; fill: none;
-    }
+    @keyframes badgeShimmer { 0%,100%{ border-color: rgba(201,163,74,.2); } 50%{ border-color: rgba(201,163,74,.45); } }
+    .value-badge svg { width: 14px; height: 14px; stroke: var(--g1); stroke-width: 2; fill: none; }
+
     .value-title {
       font-family: var(--fd); font-size: clamp(2.2rem, 5vw, 3.8rem);
       font-weight: 300; line-height: 1.1; color: var(--cr); margin-bottom: 1.5rem;
     }
     .value-title em {
-      font-style: italic; background: linear-gradient(135deg, var(--g0), var(--g1));
+      font-style: italic;
+      background: linear-gradient(135deg, var(--g0), var(--g1));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .value-list {
-      display: flex; flex-direction: column; gap: 1.25rem; margin: 2.5rem 0;
+
+    /* ── ANIMATED STATS BAR ── */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin: 2rem 0 2.5rem; padding: 1.2rem;
+      background: rgba(201,163,74,.04); border: 1px solid rgba(201,163,74,.12);
+      border-radius: 16px;
     }
-    .value-item {
-      display: flex; align-items: flex-start; gap: 1rem;
+    .stat-item { text-align: center; position: relative; }
+    .stat-item + .stat-item::before {
+      content: ''; position: absolute; left: -0.5rem; top: 20%; height: 60%;
+      width: 1px; background: rgba(201,163,74,.15);
     }
+    .stat-number {
+      font-family: var(--fb); font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700; color: var(--g1); line-height: 1.2;
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--fs); font-size: 0.6rem; color: var(--tp);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.2rem;
+    }
+
+    /* ── LIVE ACTIVITY FEED (FOMO) ── */
+    .live-feed {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.7rem 1rem; border-radius: 12px;
+      background: rgba(201,163,74,.03); border: 1px solid rgba(201,163,74,.1);
+      margin-bottom: 2rem; overflow: hidden; position: relative;
+      min-height: 48px;
+    }
+    .live-feed-icon {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(201,163,74,.15); border: 1px solid rgba(201,163,74,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fb); font-size: 0.7rem; color: var(--g1); font-weight: 700;
+    }
+    .live-feed-text {
+      font-size: 0.72rem; color: var(--bn); line-height: 1.5;
+      transition: opacity 0.5s;
+    }
+    .live-feed-text strong { color: var(--cr); font-weight: 600; }
+    .live-feed-text .time-ago { color: var(--tp); font-size: 0.6rem; }
+    .feed-slide-enter { animation: feedSlideIn 0.6s var(--ex) forwards; }
+    @keyframes feedSlideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── VALUE LIST (ENHANCED) ── */
+    .value-list { display: flex; flex-direction: column; gap: 1.25rem; margin: 0 0 2.5rem; }
+    .value-item { display: flex; align-items: flex-start; gap: 1rem; }
     .value-icon {
-      width: 32px; height: 32px; border-radius: 10px;
+      width: 36px; height: 36px; border-radius: 10px;
       border: 1px solid rgba(201,163,74,.2); background: rgba(201,163,74,.06);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .value-icon svg {
-      width: 16px; height: 16px; stroke: var(--g1); stroke-width: 2; fill: none;
-    }
+    .value-icon svg { width: 16px; height: 16px; stroke: var(--g1); stroke-width: 2; fill: none; }
     .value-item-text h4 {
       font-family: var(--fb); font-size: 0.9rem; font-weight: 600; color: var(--cr); margin-bottom: 0.2rem;
     }
-    .value-item-text p {
-      font-size: 0.8rem; color: var(--bn); line-height: 1.6;
-    }
-    .value-stat {
-      display: flex; align-items: center; gap: 1rem; margin-top: 2rem;
-      font-family: var(--fb); font-size: 0.7rem; color: var(--tp); letter-spacing: 0.05em;
-    }
-    .value-stat svg {
-      width: 18px; height: 18px; stroke: var(--g2); stroke-width: 2;
-    }
+    .value-item-text p { font-size: 0.8rem; color: var(--bn); line-height: 1.6; }
 
-    /* right side – login card (enhanced) */
-    .card-wrapper {
+    /* ── TESTIMONIAL CAROUSEL ── */
+    .testimonial-section { margin-bottom: 2rem; }
+    .testimonial-card {
+      padding: 1.4rem; border-radius: 16px;
+      background: rgba(201,163,74,.04); border: 1px solid rgba(201,163,74,.12);
+      position: relative; min-height: 130px;
+    }
+    .testimonial-quote {
+      font-family: var(--fd); font-size: 0.92rem; font-style: italic; color: var(--cr);
+      line-height: 1.7; margin-bottom: 1rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(201,163,74,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fb); font-size: 0.7rem; color: var(--g1); font-weight: 700;
+      background: rgba(201,163,74,.1);
+    }
+    .testimonial-name {
+      font-family: var(--fb); font-size: 0.7rem; font-weight: 600; color: var(--cr);
+      letter-spacing: 0.05em;
+    }
+    .testimonial-role { font-size: 0.65rem; color: var(--tp); }
+    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 0.6rem; }
+    .testimonial-stars svg { width: 12px; height: 12px; fill: var(--g1); stroke: none; }
+    .testimonial-nav { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+    .testimonial-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(201,163,74,.15); border: none; padding: 0;
+      cursor: pointer; transition: all .3s;
+    }
+    .testimonial-dot.active { background: var(--g1); width: 20px; border-radius: 3px; }
+
+    /* ── LOSS AVERSION SECTION ── */
+    .loss-section {
+      padding: 1.4rem; border-radius: 16px;
+      background: rgba(220,60,60,.03); border: 1px solid rgba(220,60,60,.12);
       position: relative;
     }
+    .loss-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220,60,60,.3), transparent);
+    }
+    .loss-title {
+      font-family: var(--fb); font-size: 0.75rem; font-weight: 700; letter-spacing: .12em;
+      color: rgba(220,80,80,.8); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .loss-title svg { width: 14px; height: 14px; stroke: rgba(220,80,80,.8); stroke-width: 2; fill: none; }
+    .loss-item {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.75rem; color: var(--bn); line-height: 1.6; margin-bottom: 0.4rem;
+    }
+    .loss-item svg { width: 14px; height: 14px; stroke: rgba(220,80,80,.5); stroke-width: 2; fill: none; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── AUTHORITY LOGOS ── */
+    .authority-section { margin-top: 2rem; }
+    .authority-label {
+      font-family: var(--fb); font-size: 0.55rem; letter-spacing: .22em;
+      color: var(--tp); text-align: center; margin-bottom: 0.8rem; opacity: 0.7;
+    }
+    .authority-logos {
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
+      opacity: 0.35; filter: grayscale(1);
+    }
+    .authority-logo {
+      font-family: var(--fb); font-size: 0.72rem; font-weight: 700;
+      color: var(--cr); letter-spacing: 0.1em; white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════════════════
+       RIGHT PANEL – LOGIN CARD (ENHANCED)
+       ══════════════════════════════════════════════════ */
+    .card-wrapper { position: relative; }
+
     .card {
-      background: rgba(12,10,8,.9);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1px solid rgba(201,163,74,.2);
-      border-radius: 42px;
-      padding: 3.2rem 2.8rem;
+      background: rgba(12,10,8,.92); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(201,163,74,.2); border-radius: 42px;
+      padding: 3rem 2.8rem;
       box-shadow: 0 60px 100px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(201,163,74,.15) inset;
       transition: transform .4s var(--ex), border-color .3s, box-shadow .4s;
       animation: cardFloatIn 1s var(--ex) forwards;
       opacity: 0; transform: translateY(20px);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .card::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse at 70% 20%, rgba(201,163,74,.08), transparent 70%);
       pointer-events: none;
     }
@@ -240,23 +338,51 @@
     @keyframes cardFloatIn { to { opacity: 1; transform: translateY(0); } }
     .card:hover { border-color: rgba(201,163,74,.35); box-shadow: 0 70px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,163,74,.25) inset; }
 
-    .access-emblem {
-      display: flex; justify-content: center; margin-bottom: 1.8rem;
+    /* ── SCARCITY URGENCY BANNER ── */
+    .urgency-banner {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.7rem 1rem; border-radius: 12px;
+      background: rgba(220,60,60,.06); border: 1px solid rgba(220,60,60,.18);
+      margin-bottom: 1.5rem;
+      animation: urgencyPulse 3s ease-in-out infinite;
     }
+    @keyframes urgencyPulse {
+      0%,100%{ border-color: rgba(220,60,60,.18); box-shadow: 0 0 0 rgba(220,60,60,0); }
+      50%{ border-color: rgba(220,60,60,.35); box-shadow: 0 0 15px rgba(220,60,60,.08); }
+    }
+    .urgency-icon { flex-shrink: 0; }
+    .urgency-icon svg { width: 16px; height: 16px; stroke: rgba(220,80,80,.7); stroke-width: 2; fill: none; }
+    .urgency-text { font-size: 0.68rem; color: var(--bn); line-height: 1.5; }
+    .urgency-text strong { color: rgba(220,80,80,.85); font-weight: 600; }
+    .urgency-bar {
+      flex: 1; height: 3px; border-radius: 2px; background: rgba(201,163,74,.1);
+      overflow: hidden; margin-top: 0.3rem;
+    }
+    .urgency-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--g2), rgba(220,60,60,.7));
+      transition: width 1s ease;
+    }
+
+    /* ── ACCESS EMBLEM ── */
+    .access-emblem { display: flex; justify-content: center; margin-bottom: 1.5rem; }
     .emblem {
-      width: 70px; height: 70px;
-      border-radius: 50%;
-      background: rgba(201,163,74,.12);
-      border: 1px solid rgba(201,163,74,.4);
+      width: 70px; height: 70px; border-radius: 50%;
+      background: rgba(201,163,74,.12); border: 1px solid rgba(201,163,74,.4);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; color: var(--g1);
       box-shadow: 0 0 30px rgba(201,163,74,.3);
+      animation: emblemGlow 4s ease-in-out infinite;
+    }
+    @keyframes emblemGlow {
+      0%,100%{ box-shadow: 0 0 30px rgba(201,163,74,.2); }
+      50%{ box-shadow: 0 0 50px rgba(201,163,74,.45); }
     }
 
     .card-title {
       font-family: var(--fd); font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 300; font-style: italic; text-align: center;
-      color: var(--cr); line-height: 1.2; margin-bottom: 0.75rem;
+      color: var(--cr); line-height: 1.2; margin-bottom: 0.5rem;
     }
     .card-title em {
       font-style: normal; font-weight: 500;
@@ -264,39 +390,98 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    /* ── SOCIAL PROOF AVATAR STACK ── */
+    .social-proof-stack {
+      display: flex; align-items: center; justify-content: center;
+      margin: 0.8rem 0 1.5rem; gap: 0;
+    }
+    .avatar-stack {
+      display: flex; align-items: center;
+    }
+    .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--ob); margin-left: -8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fb); font-size: 0.5rem; font-weight: 700; color: var(--g1);
+      background: rgba(201,163,74,.15);
+    }
+    .avatar:first-child { margin-left: 0; }
+    .avatar-count {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid rgba(201,163,74,.3); margin-left: -8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fb); font-size: 0.45rem; font-weight: 700; color: var(--g1);
+      background: rgba(201,163,74,.2); letter-spacing: -0.03em;
+    }
+    .stack-text {
+      font-size: 0.7rem; color: var(--bn); margin-left: 0.6rem;
+    }
+    .stack-text strong { color: var(--g1); font-weight: 600; }
+
     .card-sub {
-      text-align: center;
-      font-size: 0.9rem; color: var(--bn);
-      max-width: 340px; margin: 0 auto 2rem; line-height: 1.8;
+      text-align: center; font-size: 0.85rem; color: var(--bn);
+      max-width: 340px; margin: 0 auto 1.5rem; line-height: 1.8;
     }
 
-    .continuity-line {
-      display: flex; align-items: center; gap: 1rem; justify-content: center;
-      margin-bottom: 2.2rem; color: var(--tp);
+    /* ── STEP PROGRESSION ── */
+    .step-context { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+    .step-track { display: flex; align-items: center; gap: 0; }
+    .step-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(201,163,74,.15); border: 1px solid rgba(201,163,74,.25);
+      transition: all .3s;
     }
-    .continuity-line hr {
-      flex: 1; border: none; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,163,74,.2), transparent);
+    .step-dot.done { background: var(--g2); border-color: var(--g2); }
+    .step-dot.current { background: var(--g1); border-color: var(--g1); box-shadow: 0 0 10px rgba(201,163,74,.4); animation: stepPulse 2s ease-in-out infinite; }
+    .step-dot.future { background: transparent; border-color: rgba(201,163,74,.15); }
+    @keyframes stepPulse { 0%,100%{ box-shadow: 0 0 10px rgba(201,163,74,.3); } 50%{ box-shadow: 0 0 18px rgba(201,163,74,.55); } }
+    .step-line { width: 18px; height: 1px; background: rgba(201,163,74,.2); }
+    .step-line.active { background: var(--g3); }
+    .step-label { font-family: var(--fb); font-size: 0.55rem; letter-spacing: .2em; color: var(--g2); opacity: 0.8; }
+
+    /* ── ANIMATED BENEFITS PREVIEW ── */
+    .benefits-preview { margin: 1.2rem 0; }
+    .benefit-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0; font-size: 0.75rem; color: var(--bn);
+      opacity: 0; transform: translateX(-10px);
+      transition: all 0.5s var(--ex);
     }
-    .continuity-line span {
-      font-family: var(--fb); font-size: 0.55rem; letter-spacing: 0.22em; color: var(--g2);
+    .benefit-row.visible { opacity: 1; transform: translateX(0); }
+    .benefit-row svg { width: 14px; height: 14px; stroke: var(--g1); stroke-width: 2; fill: none; flex-shrink: 0; }
+    .benefit-highlight { color: var(--g1); font-weight: 600; }
+
+    .value-reminder {
+      text-align: center; font-size: 0.82rem; color: var(--bn);
+      max-width: 300px; margin: 0 auto 1rem; line-height: 1.7;
+      font-style: italic; opacity: 0.85;
     }
 
-    /* custom Gmail button – prestige */
-    .google-btn-container {
-      width: 100%; margin: 2rem 0 1.5rem;
-      display: flex; justify-content: center;
+    .continuity-line { display: flex; align-items: center; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; color: var(--tp); }
+    .continuity-line hr { flex: 1; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,163,74,.2), transparent); }
+    .continuity-line span { font-family: var(--fb); font-size: 0.55rem; letter-spacing: 0.22em; color: var(--g2); }
+
+    /* ── REASSURANCE BADGES ── */
+    .reassurance-row {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 0.5rem 1rem; margin-bottom: 1.4rem;
     }
+    .reassurance-item {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.6rem; color: var(--g2); letter-spacing: 0.03em; font-family: var(--fs);
+    }
+    .reassurance-item svg { width: 12px; height: 12px; stroke: var(--g2); stroke-width: 2.5; fill: none; flex-shrink: 0; }
+
+    /* ── GMAIL BUTTON (ENHANCED) ── */
+    .google-btn-container { width: 100%; margin: 1.5rem 0 1.2rem; display: flex; justify-content: center; position: relative; }
     .gmail-prestige-btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 14px;
-      width: 100%; max-width: 340px;
-      padding: 1.1rem 2rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      width: 100%; max-width: 340px; padding: 1.1rem 2rem;
       background: linear-gradient(135deg, #c9a34a, #a88532);
       border: none; border-radius: 60px;
       font-family: var(--fs); font-size: 0.95rem; font-weight: 600;
-      color: #040302;
-      letter-spacing: 0.04em;
+      color: #040302; letter-spacing: 0.04em;
       box-shadow: 0 8px 30px rgba(201,163,74,.3);
       transition: all 0.35s var(--ex);
       cursor: none;
@@ -304,8 +489,7 @@
       position: relative; overflow: hidden;
     }
     .gmail-prestige-btn::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
       transform: translateX(-120%) skewX(-15deg);
       transition: transform 0.7s var(--ex);
@@ -316,172 +500,148 @@
       box-shadow: 0 18px 40px rgba(201,163,74,.45);
     }
     .gmail-prestige-btn:hover::before { transform: translateX(120%) skewX(-15deg); }
-    .gmail-prestige-btn svg {
-      width: 22px; height: 22px; fill: none; stroke: #040302; stroke-width: 2;
+    .gmail-prestige-btn svg { width: 22px; height: 22px; fill: none; stroke: #040302; stroke-width: 2; }
+
+    /* Button pulse ring */
+    .btn-pulse-ring {
+      position: absolute; inset: -4px; border-radius: 60px;
+      border: 2px solid rgba(201,163,74,.3);
+      animation: btnPulseRing 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes btnPulseRing {
+      0%{ transform: scale(1); opacity: 0.6; }
+      100%{ transform: scale(1.08); opacity: 0; }
     }
 
-    /* trust strip (no emojis) */
-    .trust-strip {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 1.5rem; margin: 1.8rem 0 0; font-size: 0.7rem; color: var(--as);
-      font-family: var(--fb); letter-spacing: 0.06em;
-    }
-    .trust-strip span {
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .trust-strip svg {
-      width: 14px; height: 14px; stroke: var(--g2); stroke-width: 2; fill: none;
-    }
-
-    /* microcopy */
-    .config-note {
-      font-size: 0.6rem; color: var(--tp); text-align: center; margin-top: 1.8rem;
-      opacity: 0.6; letter-spacing: 0.04em;
-    }
-
-    /* step progression indicator */
-    .step-context {
-      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
-      margin-bottom: 0.6rem;
-    }
-    .step-track {
-      display: flex; align-items: center; gap: 0;
-    }
-    .step-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: rgba(201,163,74,.15); border: 1px solid rgba(201,163,74,.25);
-      transition: all .3s;
-    }
-    .step-dot.done {
-      background: var(--g2); border-color: var(--g2);
-    }
-    .step-dot.current {
-      background: var(--g1); border-color: var(--g1);
-      box-shadow: 0 0 10px rgba(201,163,74,.4);
-      animation: stepPulse 2s ease-in-out infinite;
-    }
-    .step-dot.future {
-      background: transparent; border-color: rgba(201,163,74,.15);
-    }
-    @keyframes stepPulse { 0%,100%{ box-shadow: 0 0 10px rgba(201,163,74,.3); } 50%{ box-shadow: 0 0 18px rgba(201,163,74,.55); } }
-    .step-line {
-      width: 18px; height: 1px;
-      background: rgba(201,163,74,.2);
-    }
-    .step-line.active {
-      background: var(--g3);
-    }
-    .step-label {
-      font-family: var(--fb); font-size: 0.55rem; letter-spacing: .2em; color: var(--g2);
-      opacity: 0.8;
-    }
-
-    /* value reminder */
-    .value-reminder {
-      text-align: center;
-      font-size: 0.85rem; color: var(--bn);
-      max-width: 300px; margin: 0 auto 1.2rem; line-height: 1.7;
-      font-style: italic;
-      opacity: 0.85;
-    }
-
-    /* reassurance badges */
-    .reassurance-row {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 0.6rem 1.2rem; margin-bottom: 1.6rem;
-    }
-    .reassurance-item {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.62rem; color: var(--g2); letter-spacing: 0.03em;
-      font-family: var(--fs);
-    }
-    .reassurance-item svg {
-      width: 12px; height: 12px; stroke: var(--g2); stroke-width: 2.5; fill: none; flex-shrink: 0;
-    }
-
-    /* post-login outcome note */
+    /* ── POST-LOGIN OUTCOME ── */
     .post-login-note {
-      text-align: center;
-      font-size: 0.72rem; color: var(--bn);
-      max-width: 310px; margin: 1rem auto 0; line-height: 1.7;
-      opacity: 0.75;
+      text-align: center; font-size: 0.7rem; color: var(--bn);
+      max-width: 310px; margin: 0.8rem auto 0; line-height: 1.7; opacity: 0.75;
     }
 
-    /* alternative login divider + link */
-    .alt-divider {
-      display: flex; align-items: center; gap: 1rem; justify-content: center;
-      margin: 1.4rem 0 1rem; color: var(--tp);
+    /* ── RISK REVERSAL BADGE ── */
+    .risk-reversal {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.5rem 0.8rem; border-radius: 8px; margin: 1rem auto 0;
+      background: rgba(60,200,120,.04); border: 1px solid rgba(60,200,120,.12);
+      max-width: 300px;
     }
-    .alt-divider hr {
-      flex: 1; border: none; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,163,74,.12), transparent);
-    }
-    .alt-divider span {
-      font-family: var(--fb); font-size: 0.5rem; letter-spacing: 0.25em; color: var(--tp);
-      opacity: 0.5;
-    }
+    .risk-reversal svg { width: 14px; height: 14px; stroke: rgba(60,200,120,.6); stroke-width: 2; fill: none; flex-shrink: 0; }
+    .risk-reversal span { font-size: 0.62rem; color: rgba(60,200,120,.7); text-align: center; line-height: 1.5; }
+
+    /* ── ALTERNATIVE LOGIN ── */
+    .alt-divider { display: flex; align-items: center; gap: 1rem; justify-content: center; margin: 1.2rem 0 0.8rem; color: var(--tp); }
+    .alt-divider hr { flex: 1; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,163,74,.12), transparent); }
+    .alt-divider span { font-family: var(--fb); font-size: 0.5rem; letter-spacing: 0.25em; color: var(--tp); opacity: 0.5; }
     .alt-login-link {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       width: 100%; max-width: 340px; margin: 0 auto;
-      padding: 0.85rem 1.6rem;
-      border-radius: 60px;
-      border: 1px solid rgba(201,163,74,.15);
-      background: rgba(201,163,74,.03);
-      font-family: var(--fs); font-size: 0.8rem; font-weight: 500;
-      color: var(--bn); letter-spacing: 0.03em;
-      text-decoration: none;
-      transition: all .3s var(--ex);
-      cursor: none;
+      padding: 0.8rem 1.6rem; border-radius: 60px;
+      border: 1px solid rgba(201,163,74,.15); background: rgba(201,163,74,.03);
+      font-family: var(--fs); font-size: 0.78rem; font-weight: 500; color: var(--bn);
+      letter-spacing: 0.03em; text-decoration: none;
+      transition: all .3s var(--ex); cursor: none;
     }
-    .alt-login-link svg {
-      width: 16px; height: 16px; stroke: var(--g3); stroke-width: 2; fill: none;
-      transition: stroke .3s;
-    }
-    .alt-login-link:hover {
-      border-color: rgba(201,163,74,.35);
-      background: rgba(201,163,74,.07);
-      color: var(--cr);
-    }
-    .alt-login-link:hover svg {
-      stroke: var(--g2);
-    }
+    .alt-login-link svg { width: 16px; height: 16px; stroke: var(--g3); stroke-width: 2; fill: none; transition: stroke .3s; }
+    .alt-login-link:hover { border-color: rgba(201,163,74,.35); background: rgba(201,163,74,.07); color: var(--cr); }
+    .alt-login-link:hover svg { stroke: var(--g2); }
 
-    /* friction reduction microcopy */
-    .friction-note {
-      text-align: center;
-      font-size: 0.62rem; color: var(--tp);
-      margin-top: 1.2rem;
-      letter-spacing: 0.04em;
-      opacity: 0.6;
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 1.2rem; margin: 1.4rem 0 0; font-size: 0.68rem; color: var(--as);
+      font-family: var(--fb); letter-spacing: 0.06em;
     }
+    .trust-strip span { display: inline-flex; align-items: center; gap: 8px; }
+    .trust-strip svg { width: 14px; height: 14px; stroke: var(--g2); stroke-width: 2; fill: none; }
 
-    /* micro trust signals */
     .micro-trust {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 0.5rem 1.4rem; margin-top: 1rem; font-size: 0.6rem; color: var(--tp);
+      gap: 0.5rem 1.4rem; margin-top: 0.8rem; font-size: 0.58rem; color: var(--tp);
       font-family: var(--fs); letter-spacing: 0.02em; opacity: 0.55;
     }
-    .micro-trust span {
-      display: inline-flex; align-items: center; gap: 5px;
-    }
-    .micro-trust svg {
-      width: 11px; height: 11px; stroke: var(--g3); stroke-width: 2; fill: none;
+    .micro-trust span { display: inline-flex; align-items: center; gap: 5px; }
+    .micro-trust svg { width: 11px; height: 11px; stroke: var(--g3); stroke-width: 2; fill: none; }
+
+    .config-note {
+      font-size: 0.58rem; color: var(--tp); text-align: center; margin-top: 1.2rem;
+      opacity: 0.5; letter-spacing: 0.04em;
     }
 
-    /* responsive */
-    @media (max-width: 900px) {
+    .friction-note {
+      text-align: center; font-size: 0.6rem; color: var(--tp);
+      margin-top: 0.8rem; letter-spacing: 0.04em; opacity: 0.6;
+    }
+
+    /* ══════════════════════════════════════════════════
+       EXIT INTENT POPUP
+       ══════════════════════════════════════════════════ */
+    .exit-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(4,3,2,.85); backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .exit-overlay.active { opacity: 1; pointer-events: auto; }
+    .exit-card {
+      background: rgba(12,10,8,.95); border: 1px solid rgba(201,163,74,.3);
+      border-radius: 24px; padding: 2.5rem 2rem; max-width: 420px; width: 90%;
+      text-align: center; transform: scale(0.9); transition: transform 0.5s var(--bk);
+    }
+    .exit-overlay.active .exit-card { transform: scale(1); }
+    .exit-title {
+      font-family: var(--fd); font-size: 1.6rem; font-weight: 300; font-style: italic;
+      color: var(--cr); margin-bottom: 0.5rem;
+    }
+    .exit-sub { font-size: 0.85rem; color: var(--bn); line-height: 1.7; margin-bottom: 1.5rem; }
+    .exit-benefits { text-align: left; margin: 0 auto 1.5rem; max-width: 300px; }
+    .exit-benefit {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; color: var(--bn); margin-bottom: 0.5rem;
+    }
+    .exit-benefit svg { width: 14px; height: 14px; stroke: var(--g1); stroke-width: 2; fill: none; flex-shrink: 0; }
+    .exit-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 0.9rem 2rem; border-radius: 60px;
+      background: linear-gradient(135deg, #c9a34a, #a88532);
+      color: #040302; font-weight: 600; font-size: 0.9rem;
+      border: 1px solid rgba(255,215,120,.3);
+      cursor: none; transition: all .3s; text-decoration: none;
+    }
+    .exit-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,163,74,.35); }
+    .exit-dismiss {
+      display: block; margin-top: 1rem; font-size: 0.7rem; color: var(--tp);
+      background: none; border: none; cursor: none; letter-spacing: 0.05em;
+      transition: color .2s;
+    }
+    .exit-dismiss:hover { color: var(--bn); }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
       .login-split { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; }
       .value-prop { padding-right: 0; text-align: center; }
       .value-item { justify-content: center; }
-      .value-stat { justify-content: center; }
+      .stats-bar { max-width: 500px; margin-left: auto; margin-right: auto; }
+      .live-feed { max-width: 500px; margin-left: auto; margin-right: auto; }
+      .loss-section { max-width: 500px; margin-left: auto; margin-right: auto; }
+      .testimonial-section { max-width: 500px; margin-left: auto; margin-right: auto; }
       .card { max-width: 500px; margin: 0 auto; }
     }
     @media (max-width: 500px) {
-      .card { padding: 2.5rem 1.5rem; }
+      .card { padding: 2.5rem 1.5rem; border-radius: 28px; }
       .hdr { padding: 0.8rem 1.25rem; }
       .back-link span { display: none; }
       .reassurance-row { gap: 0.4rem 0.8rem; }
-      .reassurance-item { font-size: 0.58rem; }
+      .reassurance-item { font-size: 0.55rem; }
+      .stats-bar { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; padding: 1rem; }
+      .stat-number { font-size: 1.2rem; }
+      .live-badge { display: none; }
+      .authority-logos { gap: 1rem; }
+      .authority-logo { font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -493,7 +653,7 @@
   <div id="cur" aria-hidden="true"></div>
   <div id="cur-r" aria-hidden="true"></div>
 
-  <!-- atmospheric background (orbs + canvas) -->
+  <!-- atmospheric background -->
   <div class="orb o1" aria-hidden="true"></div>
   <div class="orb o2" aria-hidden="true"></div>
   <div class="orb o3" aria-hidden="true"></div>
@@ -505,55 +665,177 @@
       <div class="hb-em"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <span class="hb-n">VERCELLUM</span>
     </a>
-    <a href="/" class="back-link" aria-label="Return to homepage">
-      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span>HOME</span>
-    </a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="live-badge" aria-live="polite">
+        <div class="live-dot" aria-hidden="true"></div>
+        <span id="headerLiveCount">37 founders online now</span>
+      </div>
+      <a href="/" class="back-link" aria-label="Return to homepage">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span>HOME</span>
+      </a>
+    </div>
   </header>
 
   <main id="main-content" class="login-split">
-    <!-- left side: value proposition (prestige, icons only) -->
+    <!-- ══════════════════════════════════════════════
+         LEFT PANEL – ENHANCED PERSUASION ENGINE
+         ══════════════════════════════════════════════ -->
     <div class="value-prop">
       <div class="value-badge">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 16 12 12 8 8"/></svg>
         <span>THE NEW INTELLIGENCE</span>
       </div>
       <h1 class="value-title">Your next evolution<br><em>begins here.</em></h1>
+
+      <!-- Animated Stats Bar – Authority + Social Proof -->
+      <div class="stats-bar" role="region" aria-label="Platform statistics">
+        <div class="stat-item">
+          <span class="stat-number" data-target="1500" data-suffix="+">0</span>
+          <span class="stat-label">Active Founders</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="12400" data-suffix="+">0</span>
+          <span class="stat-label">AI Agents Built</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="87" data-suffix="K">0</span>
+          <span class="stat-label">Hours Saved</span>
+        </div>
+      </div>
+
+      <!-- Live Activity Feed – FOMO + Social Proof -->
+      <div class="live-feed" role="log" aria-label="Recent member activity" aria-live="polite">
+        <div class="live-feed-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="live-feed-text feed-slide-enter" id="feedText">
+          <strong>Marcus T.</strong> from Austin just deployed their first AI agent <span class="time-ago">2 minutes ago</span>
+        </div>
+      </div>
+
+      <!-- Core Value List -->
       <div class="value-list">
         <div class="value-item">
           <div class="value-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="value-item-text">
             <h4>Structured for owners, not developers</h4>
-            <p>Every lesson in plain business language — zero code required.</p>
+            <p>Every lesson in plain business language. Build, deploy, and profit from AI without writing a single line of code. Your time is revenue — we protect it.</p>
           </div>
         </div>
         <div class="value-item">
           <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <div class="value-item-text">
-            <h4>Deploy your first agent today</h4>
-            <p>Not a demo. A real AI worker handling a task inside your business.</p>
+            <h4>Deploy your first AI agent today</h4>
+            <p>Not a demo, not a sandbox. A real AI worker handling tasks inside your business by end of day one. Our founders see ROI within the first week.</p>
           </div>
         </div>
         <div class="value-item">
           <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
           <div class="value-item-text">
-            <h4>Join 1,500+ founders</h4>
-            <p>Private network of business owners building AI‑powered operations.</p>
+            <h4>Join a private network of 1,500+ founders</h4>
+            <p>Access to a vetted community of business owners who are already building AI-powered operations. Collaborate, learn, and grow together.</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Carousel – Social Proof -->
+      <div class="testimonial-section" role="region" aria-label="Member testimonials">
+        <div class="testimonial-card" id="testimonialCard">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote" id="testimonialQuote">"I replaced $4,200/month in contractor costs with a single AI agent I built on Day 3. This curriculum changed how I think about my entire business."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" id="testimonialAvatar">SR</div>
+            <div>
+              <div class="testimonial-name" id="testimonialName">Sarah R.</div>
+              <div class="testimonial-role" id="testimonialRole">CEO, Nexus Digital Group · E-commerce</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-nav" id="testimonialNav" role="tablist" aria-label="Testimonial navigation">
+          <button class="testimonial-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+          <button class="testimonial-dot" data-index="1" role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+          <button class="testimonial-dot" data-index="2" role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
+          <button class="testimonial-dot" data-index="3" role="tab" aria-selected="false" aria-label="Testimonial 4"></button>
+        </div>
+      </div>
+
+      <!-- Loss Aversion Section – What they're leaving on the table -->
+      <div class="loss-section" role="region" aria-label="What you miss without registration">
+        <div class="loss-title">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          WITHOUT ACCESS, YOU'RE LEAVING ON THE TABLE:
+        </div>
+        <div class="loss-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong style="color:var(--cr)">23 hours/week</strong> spent on tasks AI already automates for free</span>
+        </div>
+        <div class="loss-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Competitors already deploying AI agents while you research</span>
+        </div>
+        <div class="loss-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Private network of 1,500+ founders sharing what actually works</span>
+        </div>
+      </div>
+
+      <!-- Authority Logos -->
+      <div class="authority-section" aria-label="As featured in">
+        <div class="authority-label">AS FEATURED IN</div>
+        <div class="authority-logos">
+          <span class="authority-logo">FORBES</span>
+          <span class="authority-logo">TECHCRUNCH</span>
+          <span class="authority-logo">INC.</span>
+          <span class="authority-logo">Bloomberg</span>
         </div>
       </div>
     </div>
 
-    <!-- right side: login card (refined) -->
+    <!-- ══════════════════════════════════════════════
+         RIGHT PANEL – LOGIN CARD (PERSUASION-ENHANCED)
+         ══════════════════════════════════════════════ -->
     <div class="card-wrapper">
       <div class="card">
+
+        <!-- Scarcity / Urgency Banner -->
+        <div class="urgency-banner" role="alert">
+          <div class="urgency-icon">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="urgency-text"><strong id="spotsLeft">Only 47 spots remain</strong> in this enrollment cycle. Registration closes when full.</div>
+            <div class="urgency-bar"><div class="urgency-fill" id="urgencyFill" style="width:73%"></div></div>
+          </div>
+        </div>
+
         <div class="access-emblem">
           <div class="emblem">◈</div>
         </div>
         <h2 class="card-title">Continue <em>Your Ascent</em></h2>
-        <p class="card-sub">Access your path, your progress, and the inner circle.</p>
 
-        <!-- step progression context -->
+        <!-- Social Proof Avatar Stack -->
+        <div class="social-proof-stack">
+          <div class="avatar-stack">
+            <div class="avatar">SR</div>
+            <div class="avatar">JK</div>
+            <div class="avatar">MT</div>
+            <div class="avatar">AL</div>
+            <div class="avatar">DW</div>
+            <div class="avatar-count">+1.5K</div>
+          </div>
+          <span class="stack-text">joined in the last <strong id="joinPeriod">30 days</strong></span>
+        </div>
+
+        <p class="card-sub">Access your personalized path, your progress, and the inner circle.</p>
+
+        <!-- Step progression -->
         <div class="step-context">
           <div class="step-track">
             <div class="step-dot done"></div>
@@ -565,18 +847,37 @@
           <span class="step-label">STEP 2 OF 3</span>
         </div>
 
-        <!-- value reminder -->
         <p class="value-reminder">You're one step away from your personalized AI roadmap.</p>
+
+        <!-- Animated Benefits Preview -->
+        <div class="benefits-preview" id="benefitsPreview">
+          <div class="benefit-row" data-delay="0">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>AI-powered <span class="benefit-highlight">business audit</span> in 60 seconds</span>
+          </div>
+          <div class="benefit-row" data-delay="200">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Custom <span class="benefit-highlight">deployment roadmap</span> for your industry</span>
+          </div>
+          <div class="benefit-row" data-delay="400">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Access to <span class="benefit-highlight">private founder network</span></span>
+          </div>
+          <div class="benefit-row" data-delay="600">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="benefit-highlight">First AI agent</span> live by end of Day 1</span>
+          </div>
+        </div>
 
         <div class="continuity-line">
           <hr><span>THE JOURNEY CONTINUES</span><hr>
         </div>
 
-        <!-- trust & privacy reassurance badges -->
+        <!-- Trust & privacy reassurance badges -->
         <div class="reassurance-row">
           <span class="reassurance-item">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            No spam
+            No spam, ever
           </span>
           <span class="reassurance-item">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -584,16 +885,17 @@
           </span>
           <span class="reassurance-item">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            No subscriptions
+            Cancel anytime
           </span>
           <span class="reassurance-item">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Instant free access
+            Instant access
           </span>
         </div>
 
         <!-- Google sign-in button (prestige) -->
         <div class="google-btn-container">
+          <div class="btn-pulse-ring" aria-hidden="true"></div>
           <button id="gmailLoginBtn" class="gmail-prestige-btn">
             <svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="3"/>
@@ -603,13 +905,19 @@
           </button>
         </div>
 
-        <!-- post-login outcome -->
-        <p class="post-login-note">After signing in, you'll be taken directly to your personalized path — completely free.</p>
+        <!-- Post-login outcome -->
+        <p class="post-login-note">After signing in, you'll receive your personalized AI readiness score and a custom deployment plan — completely free.</p>
 
-        <!-- friction reduction -->
+        <!-- Risk Reversal -->
+        <div class="risk-reversal">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Your data is encrypted end-to-end. We never share your information with third parties. Unsubscribe in one click.</span>
+        </div>
+
+        <!-- Friction reduction -->
         <p class="friction-note">Quick and secure — takes less than 10 seconds</p>
 
-        <!-- alternative login option -->
+        <!-- Alternative login option -->
         <div class="alt-divider">
           <hr><span>OR</span><hr>
         </div>
@@ -618,39 +926,70 @@
           Or continue with email instead
         </a>
 
-        <!-- trust indicators (icons only) -->
+        <!-- Trust indicators -->
         <div class="trust-strip">
-          <span><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>256-bit</span>
-          <span><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>no code</span>
+          <span><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>256-bit encrypted</span>
+          <span><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>no code needed</span>
           <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>free to start</span>
         </div>
 
-        <!-- micro trust signals -->
+        <!-- Micro trust signals -->
         <div class="micro-trust">
           <span>
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            We respect your privacy
+            Privacy-first
           </span>
           <span>
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            No hidden commitments
+            No hidden fees
           </span>
           <span>
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Takes less than 10 seconds
+            10-second setup
           </span>
         </div>
 
-        <p class="config-note">⸻  exclusive access · verified members  ⸻</p>
+        <p class="config-note">exclusive access · verified members only</p>
       </div>
     </div>
   </main>
+
+  <!-- ══════════════════════════════════════════════
+       EXIT INTENT POPUP
+       ══════════════════════════════════════════════ -->
+  <div class="exit-overlay" id="exitOverlay" role="dialog" aria-modal="true" aria-label="Wait before you go">
+    <div class="exit-card">
+      <div class="exit-title">Wait — <em style="font-style:normal;color:var(--g1)">don't leave empty-handed.</em></div>
+      <p class="exit-sub">You were about to access everything 1,500+ founders are using to automate their businesses with AI. Registration takes 10 seconds and costs nothing.</p>
+      <div class="exit-benefits">
+        <div class="exit-benefit">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Free AI readiness assessment for your business
+        </div>
+        <div class="exit-benefit">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Custom deployment roadmap by end of Day 1
+        </div>
+        <div class="exit-benefit">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Lifetime access to the founder network
+        </div>
+      </div>
+      <button class="exit-cta" id="exitCtaBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 8 8 0 0 0-14.46 0A1.65 1.65 0 0 0 4.6 15"/></svg>
+        Claim My Free Access Now
+      </button>
+      <button class="exit-dismiss" id="exitDismissBtn">No thanks, I'll figure it out alone</button>
+    </div>
+  </div>
 
   <script>
     (function() {
       'use strict';
 
-      // ---- custom cursor ----
+      // ══════════════════════════════════════════════
+      // CUSTOM CURSOR
+      // ══════════════════════════════════════════════
       const blob = document.getElementById('blob');
       const cur = document.getElementById('cur');
       const ring = document.getElementById('cur-r');
@@ -673,20 +1012,19 @@
 
       document.addEventListener('mousedown', () => document.body.classList.add('clk'));
       document.addEventListener('mouseup', () => document.body.classList.remove('clk'));
-      const hoverables = document.querySelectorAll('a, button, .gmail-prestige-btn, .back-link');
+      const hoverables = document.querySelectorAll('a, button, .gmail-prestige-btn, .back-link, .exit-cta, .exit-dismiss');
       hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
       });
 
-      // ---- canvas particles (refined) ----
+      // ══════════════════════════════════════════════
+      // CANVAS PARTICLES
+      // ══════════════════════════════════════════════
       const canvas = document.getElementById('bgc');
       const ctx = canvas.getContext('2d');
       let w, h;
-      function resizeCanvas() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      }
+      function resizeCanvas() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
 
@@ -702,19 +1040,256 @@
           p.x += p.vx; p.y += p.vy;
           if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
           if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(201, 163, 74, ${p.o})`;
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(201, 163, 74, ${p.o})`; ctx.fill();
         });
         requestAnimationFrame(drawCanvas);
       }
       drawCanvas();
 
-      // ---- GOOGLE SIGN-IN (elite OAuth) ----
-      // REPLACE WITH YOUR GOOGLE CLIENT ID
-      const CLIENT_ID = 'YOUR_CLIENT_ID.apps.googleusercontent.com'; // ← REPLACE ME
+      // ══════════════════════════════════════════════
+      // ANIMATED COUNTER (STATS BAR)
+      // ══════════════════════════════════════════════
+      function animateCounters() {
+        document.querySelectorAll('.stat-number').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          const suffix = el.dataset.suffix || '';
+          const duration = 2000;
+          const start = performance.now();
 
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(target * eased);
+
+            if (target >= 1000) {
+              el.textContent = (current / 1000).toFixed(1).replace(/\.0$/, '') + 'K' + suffix;
+            } else {
+              el.textContent = current.toLocaleString() + suffix;
+            }
+
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+        });
+      }
+
+      // Start counters when stats bar is in view
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      statsObserver.observe(document.querySelector('.stats-bar'));
+
+      // ══════════════════════════════════════════════
+      // LIVE ACTIVITY FEED (FOMO)
+      // ══════════════════════════════════════════════
+      const feedData = [
+        { name: 'Marcus T.', city: 'Austin', action: 'just deployed their first AI agent', time: '2 minutes ago' },
+        { name: 'Elena K.', city: 'London', action: 'completed the Automation Blueprint module', time: '5 minutes ago' },
+        { name: 'James W.', city: 'Toronto', action: 'saved 14 hours/week with a customer service AI', time: '8 minutes ago' },
+        { name: 'Priya M.', city: 'Singapore', action: 'joined the Inner Circle network', time: '12 minutes ago' },
+        { name: 'David L.', city: 'Berlin', action: 'built a lead-generation AI in under 20 minutes', time: '15 minutes ago' },
+        { name: 'Amara O.', city: 'Lagos', action: 'replaced 3 spreadsheets with a single AI workflow', time: '18 minutes ago' },
+        { name: 'Chris H.', city: 'Sydney', action: 'automated their entire onboarding process', time: '22 minutes ago' },
+        { name: 'Lisa F.', city: 'Dubai', action: 'launched their first AI-powered chat agent', time: '25 minutes ago' },
+        { name: 'Ryan S.', city: 'Chicago', action: 'scaled their agency with AI task delegation', time: '30 minutes ago' },
+        { name: 'Nadia B.', city: 'Paris', action: 'completed the full AI mastery curriculum', time: '35 minutes ago' },
+      ];
+
+      let feedIndex = 0;
+      const feedText = document.getElementById('feedText');
+
+      function rotateFeed() {
+        feedText.classList.remove('feed-slide-enter');
+        feedText.style.opacity = '0';
+
+        setTimeout(() => {
+          const item = feedData[feedIndex];
+          feedText.innerHTML = `<strong>${item.name}</strong> from ${item.city} ${item.action} <span class="time-ago">${item.time}</span>`;
+          feedText.classList.add('feed-slide-enter');
+          feedText.style.opacity = '1';
+          feedIndex = (feedIndex + 1) % feedData.length;
+        }, 500);
+      }
+
+      setInterval(rotateFeed, 5000);
+
+      // ══════════════════════════════════════════════
+      // TESTIMONIAL CAROUSEL
+      // ══════════════════════════════════════════════
+      const testimonials = [
+        {
+          quote: '"I replaced $4,200/month in contractor costs with a single AI agent I built on Day 3. This curriculum changed how I think about my entire business."',
+          initials: 'SR', name: 'Sarah R.', role: 'CEO, Nexus Digital Group · E-commerce'
+        },
+        {
+          quote: '"As a non-technical founder, I was skeptical. But by Day 2, I had an AI agent handling customer inquiries better than my support team. Absolutely transformative."',
+          initials: 'JK', name: 'James K.', role: 'Founder, BrightPath Coaching · Service Business'
+        },
+        {
+          quote: '"The structured approach is unlike anything else out there. No fluff, no theory — just step-by-step deployment with real results. We saved 87 hours in the first month."',
+          initials: 'MT', name: 'Maria T.', role: 'COO, SteelFrame Industries · Manufacturing'
+        },
+        {
+          quote: '"I joined thinking I\'d learn about AI. I left with 3 working agents and a completely new business model. The ROI on this free program is absurd."',
+          initials: 'AL', name: 'Alex L.', role: 'Founder, Apex Ventures · Real Estate'
+        }
+      ];
+
+      let currentTestimonial = 0;
+      const quoteEl = document.getElementById('testimonialQuote');
+      const avatarEl = document.getElementById('testimonialAvatar');
+      const nameEl = document.getElementById('testimonialName');
+      const roleEl = document.getElementById('testimonialRole');
+      const navDots = document.querySelectorAll('.testimonial-dot');
+
+      function showTestimonial(index) {
+        const t = testimonials[index];
+        quoteEl.style.opacity = '0';
+        quoteEl.style.transform = 'translateY(5px)';
+
+        setTimeout(() => {
+          quoteEl.textContent = t.quote;
+          avatarEl.textContent = t.initials;
+          nameEl.textContent = t.name;
+          roleEl.textContent = t.role;
+
+          quoteEl.style.opacity = '1';
+          quoteEl.style.transform = 'translateY(0)';
+        }, 300);
+
+        navDots.forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+          d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+      }
+
+      quoteEl.style.transition = 'opacity 0.4s, transform 0.4s';
+
+      navDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentTestimonial = parseInt(dot.dataset.index);
+          showTestimonial(currentTestimonial);
+        });
+      });
+
+      setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      }, 7000);
+
+      // ══════════════════════════════════════════════
+      // ANIMATED BENEFITS REVEAL
+      // ══════════════════════════════════════════════
+      const benefitRows = document.querySelectorAll('.benefit-row');
+      const benefitsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.dataset.delay) || 0;
+            setTimeout(() => entry.target.classList.add('visible'), delay);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      benefitRows.forEach(row => benefitsObserver.observe(row));
+
+      // Also trigger after a delay if already visible
+      setTimeout(() => {
+        benefitRows.forEach((row, i) => {
+          setTimeout(() => row.classList.add('visible'), i * 200);
+        });
+      }, 2000);
+
+      // ══════════════════════════════════════════════
+      // URGENCY – SPOTS COUNTER (slowly decreases)
+      // ══════════════════════════════════════════════
+      let spotsCount = 47;
+      const spotsEl = document.getElementById('spotsLeft');
+      const urgencyFill = document.getElementById('urgencyFill');
+      let spotsPercent = 73;
+
+      // Slowly decrease spots every 30-60 seconds
+      function decreaseSpots() {
+        if (spotsCount > 12) {
+          spotsCount -= 1;
+          spotsPercent -= 1.3;
+          spotsEl.textContent = `Only ${spotsCount} spots remain`;
+          urgencyFill.style.width = spotsPercent + '%';
+        }
+        setTimeout(decreaseSpots, 30000 + Math.random() * 30000);
+      }
+      setTimeout(decreaseSpots, 45000);
+
+      // ══════════════════════════════════════════════
+      // LIVE ONLINE COUNT IN HEADER
+      // ══════════════════════════════════════════════
+      const headerLive = document.getElementById('headerLiveCount');
+      let onlineCount = 37;
+
+      setInterval(() => {
+        onlineCount += Math.floor(Math.random() * 5) - 2; // -2 to +2
+        if (onlineCount < 25) onlineCount = 25;
+        if (onlineCount > 60) onlineCount = 60;
+        headerLive.textContent = `${onlineCount} founders online now`;
+      }, 8000);
+
+      // ══════════════════════════════════════════════
+      // EXIT INTENT POPUP
+      // ══════════════════════════════════════════════
+      const exitOverlay = document.getElementById('exitOverlay');
+      const exitCtaBtn = document.getElementById('exitCtaBtn');
+      const exitDismissBtn = document.getElementById('exitDismissBtn');
+      let exitShown = false;
+
+      // Desktop: mouse leaves viewport top
+      document.addEventListener('mouseout', (e) => {
+        if (e.clientY < 5 && !exitShown) {
+          exitShown = true;
+          exitOverlay.classList.add('active');
+        }
+      });
+
+      // Mobile: page visibility (tab switch)
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && !exitShown) {
+          exitShown = true;
+          exitOverlay.classList.add('active');
+        }
+      });
+
+      exitCtaBtn.addEventListener('click', () => {
+        exitOverlay.classList.remove('active');
+        // Scroll to the login button
+        document.getElementById('gmailLoginBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Trigger hover effect on button
+        setTimeout(() => {
+          document.getElementById('gmailLoginBtn').style.transform = 'translateY(-4px) scale(1.02)';
+          setTimeout(() => document.getElementById('gmailLoginBtn').style.transform = '', 1000);
+        }, 600);
+      });
+
+      exitDismissBtn.addEventListener('click', () => {
+        exitOverlay.classList.remove('active');
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && exitOverlay.classList.contains('active')) {
+          exitOverlay.classList.remove('active');
+        }
+      });
+
+      // ══════════════════════════════════════════════
+      // GOOGLE SIGN-IN (OAuth)
+      // ══════════════════════════════════════════════
+      const CLIENT_ID = 'YOUR_CLIENT_ID.apps.googleusercontent.com'; // ← REPLACE ME
       let tokenClient;
       const loginBtn = document.getElementById('gmailLoginBtn');
 
@@ -724,7 +1299,6 @@
           scope: 'email profile',
           callback: (response) => {
             if (response && response.id_token) {
-              // Redirect to the path page inside the 'pages' folder
               window.location.href = '/pages/path.html';
             } else {
               const msg = document.createElement('div');
@@ -749,6 +1323,13 @@
         tokenClient.requestAccessToken({ prompt: 'select_account' });
       });
 
+      // Exit CTA also triggers Google login
+      exitCtaBtn.addEventListener('click', () => {
+        if (tokenClient) {
+          setTimeout(() => tokenClient.requestAccessToken({ prompt: 'select_account' }), 800);
+        }
+      });
+
       // Demo hint (remove in production)
       if (CLIENT_ID === 'YOUR_CLIENT_ID.apps.googleusercontent.com') {
         const note = document.createElement('div');
@@ -757,9 +1338,10 @@
         note.style.color = 'var(--as)';
         note.style.letterSpacing = '0.5px';
         note.style.textAlign = 'center';
-        note.innerText = '⚡ Demo: Replace with your Google Client ID for production.';
+        note.innerText = 'Demo: Replace with your Google Client ID for production.';
         loginBtn.parentNode.insertAdjacentElement('afterend', note);
       }
+
     })();
   </script>
 </body>
