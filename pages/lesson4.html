@@ -380,12 +380,49 @@ body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:n
 .comp-card[aria-expanded="true"] .cc-toggle svg{transform:rotate(45deg)}
 .cc-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.28em;color:var(--g1);text-transform:uppercase;margin-bottom:.4rem}
 .cc-tagline{font-size:.8rem;color:var(--bn);line-height:1.45}
-.cc-expand{margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(201,163,74,.08);display:none;animation:fadeUp .35s var(--ex) both}
-.comp-card[aria-expanded="true"] .cc-expand{display:block}
+.cc-expand{max-height:0;overflow:hidden;opacity:0;padding-top:0;margin-top:0;transition:max-height .5s var(--ex),opacity .4s var(--ex),padding-top .4s var(--ex),margin-top .4s var(--ex),border-color .3s;pointer-events:none}
+.comp-card[aria-expanded="true"] .cc-expand{max-height:600px;opacity:1;padding-top:1rem;margin-top:1.1rem;border-top:1px solid rgba(201,163,74,.08);pointer-events:auto;display:block}
 .cc-expand p{font-size:.8rem;color:var(--bn);line-height:1.72;margin-bottom:.85rem}
 .cc-expand p strong{color:var(--cr)}
 .cc-example{background:var(--on);border:1px solid rgba(201,163,74,.1);border-radius:8px;padding:.85rem 1rem;font-size:.75rem;color:var(--tp);line-height:1.65}
 .cc-example strong{display:block;font-family:var(--fb);font-size:.46rem;letter-spacing:.18em;color:var(--g2);text-transform:uppercase;margin-bottom:.4rem}
+.comp-card[aria-expanded="true"]{box-shadow:0 4px 24px rgba(201,163,74,.08),inset 0 0 0 1px rgba(201,163,74,.06);transition:all .35s var(--ex)}
+
+/* ── MOTIVATIONAL STRIP ── */
+.motiv-strip{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.15rem;border-radius:10px;background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(201,163,74,.01));border:1px solid rgba(201,163,74,.08);margin:1rem 0;animation:fadeUp .5s var(--ex) both}
+.motiv-strip-icon{font-size:1.15rem;flex-shrink:0;filter:saturate(.85)}
+.motiv-strip-text{font-family:var(--fd);font-size:.88rem;color:var(--g1);font-style:italic;line-height:1.55}
+.motiv-strip-text strong{color:var(--cr);font-style:normal;font-family:var(--fb);font-size:.52rem;letter-spacing:.12em;display:block;margin-bottom:.15rem;text-transform:uppercase}
+
+/* ── KEY TAKEAWAY BOX ── */
+.key-takeaway{background:linear-gradient(135deg,rgba(201,163,74,.05),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.14);border-left:3px solid var(--g1);border-radius:0 12px 12px 0;padding:1.35rem 1.5rem;margin:1.5rem 0;position:relative;animation:fadeUp .5s var(--ex) both}
+.key-takeaway::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.15),transparent)}
+.key-takeaway-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.24em;color:var(--g1);text-transform:uppercase;margin-bottom:.65rem;display:flex;align-items:center;gap:.45rem}
+.key-takeaway-label::before{content:'✦';font-size:.6rem;color:var(--g2)}
+.key-takeaway-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.key-takeaway-list li{font-size:.83rem;color:var(--bn);line-height:1.65;padding-left:1.1rem;position:relative}
+.key-takeaway-list li::before{content:'';position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--g2);opacity:.7}
+
+/* ── NEXT LESSON TEASER ── */
+.next-lesson-teaser{background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(52,211,153,.02));border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:1.5rem 1.75rem;margin:1.75rem 0;text-align:center;position:relative;overflow:hidden;animation:fadeUp .55s var(--ex) both}
+.next-lesson-teaser::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.3),transparent)}
+.next-lesson-teaser-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.25rem .75rem;border-radius:20px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.22);font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--grn);text-transform:uppercase;margin-bottom:.75rem}
+.next-lesson-teaser-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+.next-lesson-teaser-title{font-family:var(--fd);font-size:1.05rem;color:var(--wh);margin-bottom:.75rem;font-style:italic}
+.next-lesson-teaser-list{display:flex;flex-direction:column;gap:.4rem;max-width:360px;margin:0 auto 1rem}
+.next-lesson-teaser-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--bn);text-align:left}
+.next-lesson-teaser-item::before{content:'→';color:var(--grn);font-family:var(--fb);font-size:.55rem;flex-shrink:0;letter-spacing:.05em}
+.next-lesson-teaser-time{font-family:var(--fb);font-size:.44rem;letter-spacing:.16em;color:var(--tp);text-transform:uppercase;margin-top:.25rem}
+
+/* ── ENHANCED FINAL BUTTON ── */
+.final-btn-cta{display:inline-flex;align-items:center;gap:.75rem;padding:1.1rem 2.6rem;border-radius:50px;background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s var(--ex);box-shadow:0 6px 32px rgba(201,163,74,.36);border:none;position:relative;overflow:hidden;text-decoration:none}
+.final-btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .25s}
+.final-btn-cta:hover{transform:translateY(-3px);box-shadow:0 12px 42px rgba(201,163,74,.5)}
+.final-btn-cta:hover::before{opacity:1}
+.final-btn-cta svg{width:14px;height:14px;stroke:var(--v);fill:none;stroke-width:2.5;transition:transform .3s var(--ex)}
+.final-btn-cta:hover svg{transform:translateX(4px)}
+@keyframes btnPulse{0%,100%{box-shadow:0 6px 32px rgba(201,163,74,.36)}50%{box-shadow:0 6px 32px rgba(201,163,74,.52),0 0 60px rgba(201,163,74,.12)}}
+.final-btn-cta{animation:btnPulse 3s ease-in-out infinite}
 
 /* Flow diagram */
 .flow-diagram{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:nowrap;margin:2.5rem 0;padding:1.5rem;background:var(--ob);border:1px solid rgba(201,163,74,.1);border-radius:14px;overflow-x:auto}
@@ -1061,6 +1098,15 @@ body.ai-open #ai-panel{transform:translateX(0)}
               <p>Most AI agent failures trace back to three design errors: <em>misaligned objectives</em> (the agent achieves its goal in a way you didn't intend), <em>uncontrolled automation</em> (the agent acts faster than human oversight can catch errors), or <em>privilege escalation</em> (the agent gains access to systems it shouldn't touch). The safety framework in Section 5 prevents all three.</p>
             </div>
           </div>
+
+          <div class="key-takeaway" role="note" aria-label="Key takeaways from root causes section">
+            <div class="key-takeaway-label">Key Takeaways</div>
+            <ul class="key-takeaway-list">
+              <li>67% of first-time agent failures stem from misaligned objectives — the agent achieves the goal in a way you never intended</li>
+              <li>Uncontrolled automation multiplies damage 3× faster than human oversight can respond</li>
+              <li>94% of all automation failures are preventable with the safety framework you will learn in this lesson</li>
+            </ul>
+          </div>
         </section>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="quiz1">Quick Check<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1078,6 +1124,10 @@ body.ai-open #ai-panel{transform:translateX(0)}
             <button class="quiz-opt" data-correct="false" data-quiz="1" aria-pressed="false"><span class="opt-letter">C</span><span class="opt-text">Privilege Escalation — the agent accessed the discount system without proper authorization</span></button>
           </div>
           <div class="quiz-feedback" id="quiz1-fb" role="status" aria-live="polite"></div>
+        </div>
+        <div class="motiv-strip">
+          <span class="motiv-strip-icon">⚡</span>
+          <span class="motiv-strip-text"><strong>Great progress!</strong>You've unlocked the first knowledge checkpoint. The architecture section next will show you exactly how to build agents that never make this kind of mistake.</span>
         </div>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="3" id="quiz1-continue" disabled>Continue to Architecture<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1208,6 +1258,10 @@ body.ai-open #ai-panel{transform:translateX(0)}
               <div class="wb-label">THE RETAIL COMPANY DISASTER</div>
               <p class="wb-text">Remember the 80% discount story? That agent was missing just <strong>one safety principle</strong> we'll cover in Section 5. By the end of this lesson, you'll never make that mistake.</p>
             </div>
+          </div>
+          <div class="motiv-strip">
+            <span class="motiv-strip-icon">🔬</span>
+            <span class="motiv-strip-text"><strong>You're building something real.</strong>The next five steps walk you through every layer of a production-grade agent. Take your time — there's no rush, and you can always revisit any step.</span>
           </div>
         </section>
         <div class="step-continue-wrap">
@@ -1399,6 +1453,15 @@ body.ai-open #ai-panel{transform:translateX(0)}
               <strong>At this rate over one week:</strong> your agent handles ~200 similar emails, creates ~200 CRM records, sends ~200 personalized replies — all without you. That's <strong>~8–12 hours of manual work back in your week, every week.</strong>
             </div>
           </div>
+
+          <div class="key-takeaway" role="note" aria-label="Key takeaways from the lab simulation">
+            <div class="key-takeaway-label">Key Takeaways</div>
+            <ul class="key-takeaway-list">
+              <li>Your agent processed a real customer inquiry in 1.4 seconds — a task that would take a human 5–10 minutes</li>
+              <li>The SPAR loop (Sense → Plan → Act → Respond) ran flawlessly: every component did its job in sequence</li>
+              <li>At scale, this single automation recovers 8–12 hours per week — the equivalent of hiring a part-time employee</li>
+            </ul>
+          </div>
         </section>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="11">See Performance Data<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1474,6 +1537,10 @@ body.ai-open #ai-panel{transform:translateX(0)}
             <button class="quiz-opt" data-correct="false" data-quiz="2" aria-pressed="false"><span class="opt-letter">C</span><span class="opt-text">The agent would have automatically reduced the discount to 50% and proceeded</span></button>
           </div>
           <div class="quiz-feedback" id="quiz2-fb" role="status" aria-live="polite"></div>
+        </div>
+        <div class="motiv-strip">
+          <span class="motiv-strip-icon">🛡️</span>
+          <span class="motiv-strip-text"><strong>You're one step closer to mastery.</strong>Two checkpoints cleared. The safety framework ahead is the most important section in this entire lesson — it's what separates a dangerous agent from a trustworthy one.</span>
         </div>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="12" id="quiz2-continue" disabled>Continue to Safety Framework<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1604,6 +1671,15 @@ body.ai-open #ai-panel{transform:translateX(0)}
             <div class="insight-label">The Compounding Advantage</div>
             <p>The first agent is always the hardest. The second takes half the time. By your fifth, you'll be designing agents intuitively — applying the same four-component loop to every business problem you encounter. <em>This lesson is the foundation everything else is built on.</em></p>
           </div>
+
+          <div class="key-takeaway" role="note" aria-label="Key takeaways from your build achievement">
+            <div class="key-takeaway-label">Key Takeaways</div>
+            <ul class="key-takeaway-list">
+              <li>You designed a complete AI agent from scratch — Sense, Plan, Act, and Respond — without writing a single line of code</li>
+              <li>The SPAR loop is a universal mental model: once you understand it, you can architect agents for any business process</li>
+              <li>Safety isn't optional — it's the difference between an agent that grows your business and one that puts it at risk</li>
+            </ul>
+          </div>
         </section>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="15">Calculate Your ROI<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1670,6 +1746,10 @@ body.ai-open #ai-panel{transform:translateX(0)}
             <p class="roi-footnote">Calculated from: (emails/day × mins/email ÷ 60) × 22 working days × hourly rate × agents. <em>Based on 87% task automation rate after week 4.</em></p>
           </div>
         </section>
+        <div class="motiv-strip" style="justify-content:center;max-width:520px;margin-left:auto;margin-right:auto">
+          <span class="motiv-strip-icon">✨</span>
+          <span class="motiv-strip-text"><strong>You're doing excellent — continue.</strong>You've explored the full lifecycle of an AI agent: from architecture through simulation to real ROI numbers. One final step to mark this lesson complete.</span>
+        </div>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="final">Complete Lesson 4<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
@@ -1688,10 +1768,26 @@ body.ai-open #ai-panel{transform:translateX(0)}
             <div class="final-next-duration">⏱ ~15 min · Comprehensive Quiz</div>
           </div>
 
+          <div class="next-lesson-teaser">
+            <div class="next-lesson-teaser-badge">COMING UP NEXT</div>
+            <div class="next-lesson-teaser-title">Path 1 Mastery Check</div>
+            <div class="next-lesson-teaser-list">
+              <div class="next-lesson-teaser-item">Test your knowledge across all 4 lessons with scenario-based questions</div>
+              <div class="next-lesson-teaser-item">Identify gaps before moving to Path 2 — advanced agent design</div>
+              <div class="next-lesson-teaser-item">Earn your Path 1 completion badge and personalized next steps</div>
+            </div>
+            <div class="next-lesson-teaser-time">⏱ Estimated completion time: 12 minutes</div>
+          </div>
+
+          <div class="motiv-strip" style="justify-content:center;max-width:480px;margin-left:auto;margin-right:auto">
+            <span class="motiv-strip-icon">🏆</span>
+            <span class="motiv-strip-text"><strong>Completion is within reach.</strong>You've built an agent, run a simulation, and mastered safety principles. One final step to earn your Path 1 certification.</span>
+          </div>
+
           <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-top:1.75rem">
-            <button class="final-btn" id="complete-btn">
+            <button class="final-btn-cta" id="complete-btn">
               <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              Complete Lesson & Take Quiz →
+              Complete this lesson and start the mastery check →
             </button>
           </div>
           <div class="final-nav" aria-label="Lesson navigation">

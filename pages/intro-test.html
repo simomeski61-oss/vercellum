@@ -60,7 +60,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 @keyframes rplOut{0%{transform:translate(-50%,-50%) scale(0);opacity:.9}100%{transform:translate(-50%,-50%) scale(3.5);opacity:0}}
 
 /* PROGRESS */
-#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--g4),var(--g2),var(--g1),var(--g0));z-index:9100;transform-origin:left;transform:scaleX(0);transition:transform .85s var(--ex);box-shadow:0 0 14px rgba(201,163,74,.35)}
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g4),var(--g2),var(--g1),var(--g0));z-index:9100;transform-origin:left;transform:scaleX(0);transition:transform .85s var(--ex);box-shadow:0 0 18px rgba(201,163,74,.45)}
 
 /* HEADER */
 .hdr{position:fixed;top:0;left:0;right:0;z-index:800;padding:.85rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(4,3,2,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-bottom:1px solid rgba(201,163,74,.09)}
@@ -112,6 +112,22 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   color: var(--v);
   border-color: var(--g1);
 }
+/* Skip warning text */
+.skip-warning {
+  font-family: var(--fs);
+  font-size: 0.55rem;
+  color: var(--tp);
+  letter-spacing: 0.02em;
+  margin-left: 0.5rem;
+  opacity: 0.7;
+  display: inline-block;
+}
+.skip-test-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
 @media(max-width:680px){
   .hdr{padding:.85rem 1.25rem}
   .hstep-lbl{display:none}
@@ -121,6 +137,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     font-size: 0.6rem;
     padding: 0.2rem 0.5rem;
   }
+  .skip-warning { display: none; }
 }
 
 /* ORBS */
@@ -199,14 +216,162 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .s1-trust-it svg{width:11px;height:11px;stroke:var(--grn);stroke-width:2.5;fill:none}
 
 /* ═══════════════════════════════════════════
+   MOTIVATIONAL BLOCK (UX Enhancement #1)
+═══════════════════════════════════════════ */
+.motivation-block {
+  max-width: 520px;
+  margin: 1.75rem auto 0;
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
+  background: rgba(201,163,74,.04);
+  border: 1px solid rgba(201,163,74,.12);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.motivation-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  opacity: .5;
+}
+.motivation-label {
+  font-family: var(--fb);
+  font-size: .48rem;
+  letter-spacing: .24em;
+  color: var(--g3);
+  margin-bottom: .85rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.motivation-label svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+}
+.motivation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.motivation-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  font-size: .82rem;
+  color: var(--bn);
+  line-height: 1.55;
+}
+.motivation-list li .mot-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,163,74,.25);
+  background: rgba(201,163,74,.06);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+.motivation-list li .mot-check svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--g1);
+  stroke-width: 2.5;
+  fill: none;
+}
+.motivation-list li strong {
+  color: var(--cr);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   MICRO-BANNER (UX Enhancement #5)
+═══════════════════════════════════════════ */
+.micro-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 850;
+  padding: .6rem 1.5rem;
+  background: rgba(4,3,2,.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201,163,74,.1);
+  text-align: center;
+  font-family: var(--fs);
+  font-size: .76rem;
+  color: var(--bn);
+  letter-spacing: .02em;
+  transform: translateY(100%);
+  transition: transform .5s var(--ex), opacity .5s var(--ex);
+  opacity: 0;
+  pointer-events: none;
+}
+.micro-banner.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+.micro-banner strong {
+  color: var(--g1);
+  font-weight: 600;
+}
+.micro-banner .micro-banner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(201,163,74,.12);
+  margin-right: .5rem;
+  vertical-align: middle;
+}
+.micro-banner .micro-banner-icon svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+}
+@keyframes bannerPulse {
+  0%, 100% { opacity: .7; }
+  50% { opacity: 1; }
+}
+.micro-banner .micro-banner-icon svg {
+  animation: bannerPulse 2.5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
    STAGE 2: QUESTIONS
 ═══════════════════════════════════════════ */
 .q-prog-wrap{margin-bottom:2rem}
-.q-prog-track{height:2px;background:rgba(201,163,74,.08);border-radius:2px;overflow:hidden}
+.q-prog-track{height:3px;background:rgba(201,163,74,.08);border-radius:2px;overflow:hidden}
 .q-prog-fill{height:100%;background:linear-gradient(90deg,var(--g3),var(--g1));border-radius:2px;transition:width .65s var(--ex)}
-.q-prog-lbls{display:flex;justify-content:space-between;margin-top:.5rem}
+.q-prog-lbls{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem}
 .qpl{font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;color:var(--tp)}
 .qpl.hi{color:var(--g1)}
+/* Dynamic progress text */
+.q-prog-dynamic {
+  font-family: var(--fs);
+  font-size: .68rem;
+  color: var(--g3);
+  letter-spacing: .04em;
+  text-align: center;
+  margin-top: .35rem;
+  transition: opacity .3s;
+  opacity: .85;
+}
 .qinner{transition:opacity .42s var(--ex),transform .42s var(--ex)}
 .qinner.out{opacity:0;transform:translateX(-18px)}
 @keyframes qFI{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
@@ -228,6 +393,60 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .qo.sel{border-color:var(--g1);color:var(--g1);background:rgba(201,163,74,.07);transform:translateX(8px);box-shadow:0 4px 28px rgba(0,0,0,.35),-4px 0 0 var(--g1)}.qo.sel::before{opacity:1}
 .qo.sel .qo-l{border-color:var(--g1);background:rgba(201,163,74,.18);color:var(--g1)}
 .qo.sel .qo-ck{opacity:1;border-color:var(--g1);background:rgba(201,163,74,.15)}
+
+/* Reinforcement microcopy (UX Enhancement #1 & #6) */
+.reinforcement-text {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--g3);
+  letter-spacing: .03em;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  opacity: 0;
+  animation: fU .6s var(--ex) .2s both;
+}
+.reinforcement-text svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* Final step callout (UX Enhancement #5) */
+.final-step-callout {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(201,163,74,.06);
+  border: 1px solid rgba(201,163,74,.18);
+  margin-bottom: 1.5rem;
+  animation: fU .6s var(--ex) both;
+}
+.final-step-callout p {
+  font-size: .84rem;
+  color: var(--cr);
+  font-weight: 500;
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+}
+.final-step-callout p svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
 /* PAUSE */
 .pause-s{text-align:center}
 .pause-badge{display:inline-flex;align-items:center;gap:8px;padding:.45rem 1.15rem;border-radius:50px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.24);font-family:var(--fb);font-size:.56rem;letter-spacing:.22em;color:var(--g1);margin-bottom:2rem}
@@ -285,6 +504,64 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .profile-score-name{font-family:var(--fd);font-size:1.1rem;font-style:italic;color:var(--cr);margin-top:.2rem}
 .profile-score-sub{font-size:.72rem;color:var(--tp);letter-spacing:.05em;margin-top:.2rem;max-width:180px;line-height:1.5}
 
+/* Profile interpretation — redesigned 3-card layout */
+.profile-interpretation{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;
+  margin-bottom:.75rem;
+  width:100%;
+}
+@media(max-width:560px){.profile-interpretation{grid-template-columns:1fr;gap:.6rem;}}
+.interp-card{
+  padding:1.2rem 1rem;border-radius:14px;
+  background:rgba(10,8,6,.8);border:1px solid rgba(201,163,74,.1);
+  text-align:center;position:relative;overflow:hidden;
+  transition:border-color .35s var(--ex),transform .35s var(--ex),box-shadow .35s;
+}
+.interp-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--g2),var(--g1),var(--g2),transparent);
+  opacity:.5;
+}
+.interp-card:hover{
+  border-color:rgba(201,163,74,.28);transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(0,0,0,.35),0 0 18px rgba(201,163,74,.06);
+}
+.interp-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.18);
+  display:grid;place-items:center;margin:0 auto .7rem;
+  transition:transform .4s var(--bk),border-color .3s;
+}
+.interp-card:hover .interp-icon{transform:rotate(6deg) scale(1.08);border-color:rgba(201,163,74,.4)}
+.interp-icon svg{width:16px;height:16px;stroke:var(--g1);stroke-width:1.75;fill:none}
+.interp-card-label{
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--g3);
+  margin-bottom:.35rem;opacity:.8;
+}
+.interp-card-value{
+  font-family:var(--fd);font-size:1.05rem;font-weight:500;color:var(--cr);
+  line-height:1.4;margin-bottom:.2rem;
+}
+.interp-card-sub{
+  font-size:.68rem;color:var(--tp);line-height:1.45;
+}
+/* Interpretation meaning banner */
+.profile-interp-meaning{
+  text-align:center;
+  padding:1rem 1.5rem;border-radius:12px;
+  background:rgba(201,163,74,.035);border:1px solid rgba(201,163,74,.08);
+  margin-bottom:1.75rem;
+  font-family:var(--fd);font-size:.88rem;font-style:italic;
+  color:var(--bn);line-height:1.65;
+  position:relative;overflow:hidden;
+}
+.profile-interp-meaning::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,163,74,.04),transparent 60%);
+  pointer-events:none;
+}
+.profile-interp-meaning strong{color:var(--g1);font-style:normal;font-weight:600}
+
 /* Two-column body */
 .profile-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.75rem}
 @media(max-width:580px){.profile-body{grid-template-columns:1fr}}
@@ -299,6 +576,15 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .radar-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,163,74,.04),transparent 60%);pointer-events:none}
 .radar-title{font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--g3);margin-bottom:1rem;opacity:.85}
 #radarChart{width:100%;max-width:200px;height:auto}
+/* Simple chart explanation (UX Enhancement #4) */
+.radar-explanation {
+  font-size: .68rem;
+  color: var(--tp);
+  text-align: center;
+  margin-top: .75rem;
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
 
 /* Traits panel */
 .traits-panel{display:flex;flex-direction:column;gap:.6rem;justify-content:center}
@@ -496,6 +782,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <div class="orb o2" aria-hidden="true"></div>
 <div class="orb o3" aria-hidden="true"></div>
 
+<!-- Persistent micro-banner (UX Enhancement #5) -->
+<div class="micro-banner" id="microBanner">
+  <span class="micro-banner-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+  <span id="microBannerText">You're <strong>1 minute</strong> away from your personalized AI plan</span>
+</div>
+
 <header class="hdr" role="banner">
   <a href="index.html" class="hb" aria-label="Back to VERCELLUM home">
     <div class="hb-em"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -510,7 +802,10 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="hdots" id="hdots" aria-hidden="true"></div>
     <!-- NEW: step counter and skip test link -->
     <span class="step-counter" id="stepCounter" aria-label="Current step">1/6</span>
-    <a href="Gmail Login.html" class="skip-test-link" id="skipTestLink">Skip test →</a>
+    <div class="skip-test-wrap">
+      <a href="Gmail Login.html" class="skip-test-link" id="skipTestLink">Get instant recommendation (without test) →</a>
+      <span class="skip-warning">Less accurate result</span>
+    </div>
   </div>
 </header>
 
@@ -540,6 +835,33 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built for SMB owners</span>
       <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Real business results</span>
     </div>
+
+    <!-- Motivational block (UX Enhancement #1: Clear reward at the start) -->
+    <div class="motivation-block fu d5">
+      <div class="motivation-label">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        After this 2-minute test, you will get:
+      </div>
+      <ul class="motivation-list">
+        <li>
+          <span class="mot-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Your <strong>AI readiness score</strong> — a clear benchmark of where your business stands today</span>
+        </li>
+        <li>
+          <span class="mot-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>A <strong>personalized automation path</strong> tailored to your specific business type and goals</span>
+        </li>
+        <li>
+          <span class="mot-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Your <strong>first AI agent recommendation</strong> — the exact starting point for your operations</span>
+        </li>
+        <li>
+          <span class="mot-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>A clear <strong>30-day action roadmap</strong> to begin automating your business this month</span>
+        </li>
+      </ul>
+    </div>
+
     <div class="bw fu d6">
       <button class="btn-p" id="s1btn"><span>Start Business Assessment</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
@@ -551,9 +873,13 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   <div class="q-prog-wrap">
     <div class="q-prog-track"><div class="q-prog-fill" id="qpf" style="width:0%"></div></div>
     <div class="q-prog-lbls"><span class="qpl hi" id="qpl">Question 1</span><span class="qpl" id="qpr">6 remaining</span></div>
+    <!-- Dynamic progress text (UX Enhancement #3) -->
+    <div class="q-prog-dynamic" id="qProgDynamic">Step 1 of 6 · ~30 seconds remaining</div>
   </div>
   <div class="qinner" id="qi">
     <div class="q-ctr"><span id="qctr">QUESTION 1 OF 6</span><div class="q-ctr-bar"><div class="q-ctr-fill" id="qcf" style="width:0%"></div></div></div>
+    <!-- Reinforcement microcopy slot (UX Enhancement #1 & #6) -->
+    <div id="reinforcementSlot"></div>
     <h2 class="q-txt" id="qtxt"></h2>
     <p class="q-hint">Choose the answer that best reflects your business today</p>
     <div class="q-opts" id="qopts"></div>
@@ -598,18 +924,47 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       </div>
     </div>
 
+    <!-- Profile interpretation — 3-card clear summary -->
+    <div class="profile-interpretation fu d1" id="profileInterpretation">
+
+      <div class="interp-card">
+        <div class="interp-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="interp-card-label">READINESS LEVEL</div>
+        <div class="interp-card-value">94% <span style="color:var(--g1);font-size:.78rem">Advanced</span></div>
+        <div class="interp-card-sub">Top 8% of SMB owners assessed</div>
+      </div>
+
+      <div class="interp-card">
+        <div class="interp-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="interp-card-label">RECOMMENDED PATH</div>
+        <div class="interp-card-value">Operations Automation</div>
+        <div class="interp-card-sub">Automate back-office workflows first</div>
+      </div>
+
+      <div class="interp-card">
+        <div class="interp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="interp-card-label">FIRST STEP</div>
+        <div class="interp-card-value">Build a client follow-up agent</div>
+        <div class="interp-card-sub">Deployable in your first session</div>
+      </div>
+
+    </div>
+
+    <p class="profile-interp-meaning fu d1">This means you are <strong>ready to start automating repetitive tasks immediately</strong> — your business mindset and operational structure are aligned for AI integration.</p>
+
     <!-- Body: radar + traits -->
     <div class="profile-body">
 
       <!-- Radar chart -->
-      <div class="radar-panel fu d1">
+      <div class="radar-panel fu d2">
         <div class="radar-title">BUSINESS READINESS · 5 DIMENSIONS</div>
         <svg id="radarChart" viewBox="0 0 200 200" aria-label="Radar chart showing 5 business readiness dimensions"></svg>
+        <p class="radar-explanation">Each spoke represents a key dimension of your AI readiness — the further from center, the stronger your positioning.</p>
       </div>
 
       <!-- Traits -->
       <div class="traits-panel">
-        <div class="trait-row fu d2">
+        <div class="trait-row fu d3">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
           <div style="flex:1">
             <div class="trait-name">Strategic Vision</div>
@@ -617,7 +972,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
             <div class="trait-meter"><div class="trait-fill" data-w="92"></div></div>
           </div>
         </div>
-        <div class="trait-row fu d3">
+        <div class="trait-row fu d4">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div>
           <div style="flex:1">
             <div class="trait-name">Systems Thinking</div>
@@ -625,7 +980,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
             <div class="trait-meter"><div class="trait-fill" data-w="88"></div></div>
           </div>
         </div>
-        <div class="trait-row fu d4">
+        <div class="trait-row fu d5">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <div style="flex:1">
             <div class="trait-name">Implementation Drive</div>
@@ -633,7 +988,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
             <div class="trait-meter"><div class="trait-fill" data-w="95"></div></div>
           </div>
         </div>
-        <div class="trait-row fu d5">
+        <div class="trait-row fu d6">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div style="flex:1">
             <div class="trait-name">Operational Adaptability</div>
@@ -641,7 +996,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
             <div class="trait-meter"><div class="trait-fill" data-w="85"></div></div>
           </div>
         </div>
-        <div class="trait-row fu d6">
+        <div class="trait-row fu d7">
           <div class="trait-icon"><svg viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <div style="flex:1">
             <div class="trait-name">Growth Orientation</div>
@@ -654,7 +1009,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     </div>
 
     <!-- Three insight pills -->
-    <div class="profile-insights fu d7">
+    <div class="profile-insights fu d8">
       <div class="pi">
         <span class="pi-num">Top 8%</span>
         <span class="pi-lbl">SMB Readiness<br>vs. all assessments</span>
@@ -669,7 +1024,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       </div>
     </div>
 
-    <div class="bw fu d8">
+    <div class="bw fu d9">
       <button class="btn-g" id="s3btn">See What AI Can Do for Your Business<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
@@ -928,6 +1283,28 @@ drawCV();
 /* ══ STAGES ══ */
 const TOTAL=6,LABELS=['Introduction','Assessment','Business Profile','AI Capabilities','Why Now','Your Path'],STAGES=['s1','s2','s3','s4','s5','s6'];
 let curS=1;
+
+/* Micro-banner management (UX Enhancement #5) */
+const microBanner = document.getElementById('microBanner');
+const microBannerText = document.getElementById('microBannerText');
+
+function updateMicroBanner() {
+  if (curS === 2) {
+    microBanner.classList.add('visible');
+    // Update banner text based on question index
+    const remaining = 6 - qi;
+    if (remaining <= 1) {
+      microBannerText.innerHTML = '<strong>Final step</strong> — your personalized result is ready after this';
+    } else if (remaining <= 3) {
+      microBannerText.innerHTML = 'You\'re <strong>' + (remaining * 6) + ' seconds</strong> away from your personalized AI plan';
+    } else {
+      microBannerText.innerHTML = 'You\'re <strong>1 minute</strong> away from your personalized AI plan';
+    }
+  } else {
+    microBanner.classList.remove('visible');
+  }
+}
+
 function updateUI(){
   const p=(curS-1)/(TOTAL-1);
   document.getElementById('prog').style.transform=`scaleX(${p})`;
@@ -937,6 +1314,8 @@ function updateUI(){
   document.getElementById('sDots').innerHTML=STAGES.map((_,i)=>{const n=i+1,c=n===curS?'act':n<curS?'dn':'ft';return`<div class="si ${c}" role="tab" aria-label="${LABELS[i]}" aria-selected="${n===curS}"></div>`;}).join('');
   // NEW: update step counter
   document.getElementById('stepCounter').textContent = `${curS}/${TOTAL}`;
+  // Update micro-banner visibility
+  updateMicroBanner();
 }
 updateUI();
 
@@ -952,6 +1331,28 @@ function goTo(id){
 document.getElementById('s1btn').addEventListener('click',e=>{SND.click();burst(e.clientX,e.clientY);initQ();goTo('s2');SND.transition();});
 
 /* ══ QUESTIONS ══ */
+
+/* Reinforcement microcopy messages (UX Enhancement #1 & #6) */
+const REINFORCEMENT_MSGS = [
+  { text: "Let's quickly understand your business", icon: 'search' },
+  { text: "Quick question — this helps us personalize your result", icon: 'target' },
+  { text: "Quick question — this helps us personalize your result", icon: 'target' },
+  { text: "Great — this is shaping your custom plan", icon: 'sparkle' },
+  { text: "Quick question — this helps us personalize your result", icon: 'target' },
+  { text: "Almost done — this is where it gets interesting", icon: 'star' }
+];
+
+/* SVG icons for reinforcement text */
+const REINFORCEMENT_ICONS = {
+  search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  target: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  sparkle: '<svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20.18 10l-6.09.74L12 17l-2.09-6.26L3.82 10l6.09-.74L12 2z"/></svg>',
+  star: '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+};
+
+/* Estimated remaining time per question (UX Enhancement #3 & #7) */
+const TIME_ESTIMATES = ['~30 seconds remaining', '~25 seconds remaining', '~20 seconds remaining', '~15 seconds remaining', '~10 seconds remaining', '~5 seconds remaining'];
+
 const QS=[
   {q:"What is your biggest operational challenge right now?",opts:["Managing and automating repetitive day-to-day tasks","Growing revenue without proportionally growing headcount","Competing with larger, better-resourced businesses","Delivering better customer experience at any scale"]},
   {q:"How is AI currently being used in your business?",opts:["Not at all — we haven't started yet","Occasionally by one or two people out of curiosity","A few tools deployed, but not systematically","AI is integrated into several key business workflows"]},
@@ -970,14 +1371,44 @@ function renderQ(idx){
     document.getElementById('qctr').innerHTML=`QUESTION ${idx+1} OF 6`;
     document.getElementById('qcf').style.width=`${(idx/6)*100}%`;
     document.getElementById('qtxt').textContent=q.q;
+
+    /* Reinforcement microcopy (UX Enhancement #1 & #6) */
+    const slot = document.getElementById('reinforcementSlot');
+    const msg = REINFORCEMENT_MSGS[idx];
+    const iconSvg = REINFORCEMENT_ICONS[msg.icon] || REINFORCEMENT_ICONS.target;
+
+    /* Final step callout before last question (UX Enhancement #5) */
+    if (idx === 5) {
+      slot.innerHTML = `
+        <div class="final-step-callout">
+          <p><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Final step — your personalized result is ready after this</p>
+        </div>
+      `;
+    } else {
+      slot.innerHTML = `
+        <div class="reinforcement-text">
+          ${iconSvg}
+          <span>${msg.text}</span>
+        </div>
+      `;
+    }
+
     document.getElementById('qopts').innerHTML=q.opts.map((o,i)=>`<button class="qo" data-i="${i}"><div class="qo-l">${LETTERS[i]}</div><div class="qo-x">${o}</div><div class="qo-ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></button>`).join('');
     document.getElementById('qconf').innerHTML='';
     document.getElementById('qpf').style.width=`${(idx/6)*100}%`;
     document.getElementById('qpl').textContent=`Question ${idx+1}`;
     document.getElementById('qpr').textContent=`${6-idx} remaining`;
+
+    /* Dynamic progress text (UX Enhancement #3) */
+    document.getElementById('qProgDynamic').textContent = `Step ${idx+1} of 6 · ${TIME_ESTIMATES[idx]}`;
+
     hov(document.querySelectorAll('.qo'));
     document.querySelectorAll('.qo').forEach(btn=>btn.addEventListener('click',e=>handleAns(btn,idx,e)));
     inner.classList.remove('out');inner.classList.add('in');inner.addEventListener('animationend',()=>inner.classList.remove('in'),{once:true});
+
+    /* Update micro-banner (UX Enhancement #5) */
+    updateMicroBanner();
   },360);
 }
 function handleAns(btn,idx,e){

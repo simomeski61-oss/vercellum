@@ -280,6 +280,336 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .lesson1-hint strong{color:var(--g1);font-weight:600}
 .node-card.completed .lesson1-hint{display:none}
 
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Journey Context Header
+════════════════════════════════════════════════════ */
+.journey-context{
+  margin-bottom:1.75rem;
+  animation:fadeSlideIn .6s var(--ex) both;
+}
+.journey-context-label{
+  font-family:var(--fb);
+  font-size:.5rem;
+  letter-spacing:.28em;
+  color:var(--g2);
+  margin-bottom:.3rem;
+  text-transform:uppercase;
+}
+.journey-context-sub{
+  font-family:var(--fd);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--bn);
+  font-weight:300;
+  transition:all .4s;
+}
+.journey-context-sub.returning{
+  color:var(--g1);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Progress Hero Section
+════════════════════════════════════════════════════ */
+.progress-hero{
+  background:linear-gradient(135deg,rgba(201,163,74,.07) 0%,rgba(201,163,74,.03) 100%);
+  border:1px solid rgba(201,163,74,.18);
+  border-radius:20px;
+  padding:2rem 2.25rem;
+  margin-bottom:2.5rem;
+  position:relative;
+  overflow:hidden;
+  animation:fadeSlideIn .7s var(--ex) both;
+}
+.progress-hero::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-20%;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,163,74,.06),transparent 70%);
+  pointer-events:none;
+}
+.progress-hero-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
+}
+.progress-hero-left{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+}
+.progress-hero-stat{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2rem,5vw,2.8rem);
+  font-weight:700;
+  background:linear-gradient(135deg,var(--g0) 0%,var(--g1) 50%,var(--g2) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  line-height:1.1;
+  transition:all .5s var(--ex);
+}
+.progress-hero-stat.complete{
+  background:linear-gradient(135deg,var(--grn) 0%,rgba(52,211,153,.7) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.progress-hero-desc{
+  font-family:var(--fs);
+  font-size:.82rem;
+  color:var(--bn);
+  line-height:1.5;
+}
+.progress-hero-right{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.progress-hero-ring{
+  position:relative;
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+}
+.progress-hero-ring svg{
+  width:80px;
+  height:80px;
+  transform:rotate(-90deg);
+}
+.progress-hero-ring circle{
+  fill:none;
+  stroke-width:3;
+}
+.ring-bg{
+  stroke:rgba(201,163,74,.1);
+}
+.ring-fill{
+  stroke:var(--g1);
+  stroke-linecap:round;
+  transition:stroke-dashoffset 1.2s var(--ex);
+  filter:drop-shadow(0 0 6px rgba(201,163,74,.4));
+}
+.ring-fill.complete{
+  stroke:var(--grn);
+  filter:drop-shadow(0 0 6px rgba(52,211,153,.4));
+}
+.ring-pct{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--fb);
+  font-size:.75rem;
+  font-weight:600;
+  color:var(--g1);
+  letter-spacing:.05em;
+}
+.ring-pct.complete{color:var(--grn)}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Motivational Feedback
+════════════════════════════════════════════════════ */
+.motivational-wrap{
+  margin-bottom:2.5rem;
+  animation:fadeSlideIn .8s var(--ex) both;
+}
+.motivational-msg{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  padding:.65rem 1.25rem;
+  border-radius:12px;
+  background:rgba(201,163,74,.04);
+  border:1px solid rgba(201,163,74,.12);
+  font-family:var(--fd);
+  font-size:.95rem;
+  color:var(--bn);
+  font-weight:400;
+  font-style:italic;
+  transition:all .5s var(--ex);
+}
+.motivational-msg .motiv-icon{
+  font-size:1.1rem;
+  flex-shrink:0;
+}
+.motivational-msg .motiv-text{
+  line-height:1.5;
+}
+.motivational-msg.motiv-milestone{
+  background:rgba(201,163,74,.08);
+  border-color:rgba(201,163,74,.25);
+  color:var(--g1);
+}
+.motivational-msg.motiv-complete{
+  background:rgba(52,211,153,.06);
+  border-color:rgba(52,211,153,.2);
+  color:var(--grn);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Next Lesson Highlighting
+════════════════════════════════════════════════════ */
+.node-card.next-lesson{
+  border-color:rgba(201,163,74,.5);
+  box-shadow:0 0 30px rgba(201,163,74,.1),0 0 60px rgba(201,163,74,.04);
+  background:linear-gradient(135deg,var(--ob) 0%,rgba(201,163,74,.04) 100%);
+}
+.node-card.next-lesson:hover{
+  border-color:rgba(201,163,74,.65);
+  box-shadow:0 0 40px rgba(201,163,74,.15),0 0 80px rgba(201,163,74,.06);
+  transform:translateY(-4px);
+}
+
+.recommended-indicator{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  margin-bottom:.65rem;
+  animation:fadeSlideIn .5s var(--ex) both;
+}
+.recommended-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:.25rem .7rem;
+  border-radius:6px;
+  background:linear-gradient(135deg,rgba(201,163,74,.15),rgba(201,163,74,.06));
+  border:1px solid rgba(201,163,74,.35);
+  font-family:var(--fb);
+  font-size:.42rem;
+  letter-spacing:.2em;
+  color:var(--g0);
+  text-transform:uppercase;
+  box-shadow:0 0 12px rgba(201,163,74,.15);
+}
+.recommended-badge .rec-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--g0);
+  animation:dpls 2s ease-in-out infinite;
+}
+.continue-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:.25rem .65rem;
+  border-radius:6px;
+  background:rgba(201,163,74,.08);
+  border:1px solid rgba(201,163,74,.2);
+  font-family:var(--fs);
+  font-size:.6rem;
+  font-weight:500;
+  color:var(--g1);
+  letter-spacing:.06em;
+  margin-left:.25rem;
+}
+.continue-badge svg{
+  width:10px;
+  height:10px;
+  stroke:currentColor;
+  stroke-width:2;
+  fill:none;
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Enhanced Start Buttons
+════════════════════════════════════════════════════ */
+.node-btn.start{
+  padding:.7rem 1.5rem;
+  font-size:.6rem;
+  background:linear-gradient(135deg,var(--g3),var(--g1));
+  color:var(--wh);
+  border:1px solid rgba(201,163,74,.5);
+  box-shadow:0 2px 16px rgba(201,163,74,.15);
+  text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.node-btn.start:hover{
+  background:linear-gradient(135deg,var(--g2),var(--g0));
+  box-shadow:0 4px 28px rgba(201,163,74,.3),0 0 12px rgba(201,163,74,.15);
+  transform:translateY(-2px) scale(1.02);
+  border-color:rgba(201,163,74,.7);
+}
+.node-btn.start:active{
+  transform:translateY(0) scale(.98);
+}
+.node-btn.start.btn-continue{
+  padding:.8rem 1.8rem;
+  font-size:.65rem;
+  background:linear-gradient(135deg,var(--g1),var(--g0));
+  border-color:rgba(201,163,74,.7);
+  box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1);
+  animation:btnGlow 2.5s ease-in-out infinite;
+}
+.node-btn.start.btn-continue:hover{
+  box-shadow:0 6px 36px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.15);
+  transform:translateY(-3px) scale(1.03);
+}
+@keyframes btnGlow{
+  0%,100%{box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1)}
+  50%{box-shadow:0 4px 32px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.2)}
+}
+.node-btn.test-start.btn-continue{
+  padding:.8rem 1.8rem;
+  font-size:.7rem;
+  background:linear-gradient(135deg,var(--g1),var(--g0));
+  border-color:rgba(201,163,74,.7);
+  box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1);
+  animation:btnGlow 2.5s ease-in-out infinite;
+}
+.node-btn.test-start.btn-continue:hover{
+  box-shadow:0 6px 36px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.15);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Completed Card Visual Emphasis
+════════════════════════════════════════════════════ */
+.node-card.completed{
+  opacity:.7;
+}
+.node-card.completed:hover{
+  opacity:.9;
+}
+.node-card.completed .node-title{
+  color:var(--bn);
+  text-decoration:none;
+}
+.node-card.completed .node-desc{
+  color:var(--as);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Final Test Next Highlighting
+════════════════════════════════════════════════════ */
+.final-card.next-lesson{
+  border-color:rgba(201,163,74,.5);
+  box-shadow:0 0 30px rgba(201,163,74,.1),0 0 60px rgba(201,163,74,.04);
+}
+.final-card.next-lesson:hover{
+  border-color:rgba(201,163,74,.65);
+  box-shadow:0 0 40px rgba(201,163,74,.15),0 0 80px rgba(201,163,74,.06);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: General Animations
+════════════════════════════════════════════════════ */
+@keyframes fadeSlideIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes subtlePulse{
+  0%,100%{opacity:1}
+  50%{opacity:.7}
+}
+
 /* ══ RESPONSIVE ══ */
 @media(max-width:680px){
   .node-card{width:calc(100% - 4rem) !important;margin-left:2rem !important;margin-right:0 !important}
@@ -288,6 +618,10 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   .node-row{justify-content:flex-end !important}
   .final-card{padding:1.5rem}
   #dev-panel{display:none}
+  .progress-hero{padding:1.5rem 1.25rem}
+  .progress-hero-inner{flex-direction:column;align-items:flex-start;gap:1rem}
+  .recommended-indicator{flex-wrap:wrap}
+  .continue-badge{margin-left:0;margin-top:.25rem}
 }
 </style>
 </head>
@@ -329,6 +663,39 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   </div>
   <h1 class="path-title">Understanding<br>the New Intelligence</h1>
   <p class="path-sub">Four lessons. One fundamental shift in how you see AI.</p>
+
+  <!-- ENHANCEMENT: Journey Context -->
+  <div class="journey-context" id="journey-context">
+    <p class="journey-context-label">Your AI Learning Path</p>
+    <p class="journey-context-sub" id="journey-sub">Begin your journey into the new intelligence era</p>
+  </div>
+
+  <!-- ENHANCEMENT: Progress Hero -->
+  <div class="progress-hero" id="progress-hero">
+    <div class="progress-hero-inner">
+      <div class="progress-hero-left">
+        <div class="progress-hero-stat" id="hero-stat">0% Complete</div>
+        <div class="progress-hero-desc" id="hero-desc">Start your first lesson to begin tracking progress</div>
+      </div>
+      <div class="progress-hero-right">
+        <div class="progress-hero-ring">
+          <svg viewBox="0 0 80 80">
+            <circle class="ring-bg" cx="40" cy="40" r="34"/>
+            <circle class="ring-fill" id="ring-fill" cx="40" cy="40" r="34" stroke-dasharray="213.63" stroke-dashoffset="213.63"/>
+          </svg>
+          <span class="ring-pct" id="ring-pct">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENHANCEMENT: Motivational Feedback -->
+  <div class="motivational-wrap" id="motivational-wrap">
+    <div class="motivational-msg" id="motivational-msg">
+      <span class="motiv-icon">✦</span>
+      <span class="motiv-text" id="motiv-text">Ready to explore? Your first lesson awaits.</span>
+    </div>
+  </div>
 
   <div class="guide-msg">
     <p>Welcome to your first learning path. In this path you will explore the <em>fundamentals of the new intelligence era</em> — what AI actually is, how it works, and how it already shapes every business decision you make. Complete each lesson to unlock the next one and progress toward the final knowledge check.</p>
@@ -625,30 +992,146 @@ function completedCount(){
   return getState().filter(Boolean).length;
 }
 
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Motivational Message Engine
+════════════════════════════════════════════════════ */
+function getMotivation(count){
+  if(count===0) return {icon:'✦', text:'Ready to explore? Your first lesson awaits.', cls:''};
+  if(count===1) return {icon:'🌟', text:'Great start — you\'ve taken the first step into the new intelligence era.', cls:'motiv-milestone'};
+  if(count===2) return {icon:'🔥', text:'You\'re making solid progress — keep building momentum.', cls:'motiv-milestone'};
+  if(count===3) return {icon:'⚡', text:'Almost there — just one lesson stands between you and mastery.', cls:'motiv-milestone'};
+  return {icon:'🏆', text:'All lessons complete. You\'re ready for the final knowledge check.', cls:'motiv-complete'};
+}
+
+function updateMotivation(count){
+  const m=getMotivation(count);
+  const wrap=document.getElementById('motivational-wrap');
+  const msg=document.getElementById('motivational-msg');
+  const icon=document.querySelector('#motivational-msg .motiv-icon');
+  const text=document.getElementById('motiv-text');
+  if(!wrap||!msg||!icon||!text)return;
+  icon.textContent=m.icon;
+  text.textContent=m.text;
+  msg.className='motivational-msg '+m.cls;
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Progress Hero Engine
+════════════════════════════════════════════════════ */
+function updateProgressHero(count){
+  const stat=document.getElementById('hero-stat');
+  const desc=document.getElementById('hero-desc');
+  const ringFill=document.getElementById('ring-fill');
+  const ringPct=document.getElementById('ring-pct');
+  if(!stat||!desc||!ringFill||!ringPct)return;
+
+  const pct=Math.round((count/4)*100);
+  const circumference=2*Math.PI*34;
+  const offset=circumference-(pct/100)*circumference;
+
+  stat.textContent=pct+'% Complete';
+  ringPct.textContent=pct+'%';
+  ringFill.style.strokeDashoffset=offset;
+
+  if(pct>=100){
+    stat.classList.add('complete');
+    ringFill.classList.add('complete');
+    ringPct.classList.add('complete');
+    desc.textContent='All lessons completed — take the final test to earn your certification';
+  } else if(count>0){
+    stat.classList.remove('complete');
+    ringFill.classList.remove('complete');
+    ringPct.classList.remove('complete');
+    const remaining=4-count;
+    desc.textContent=count+' of 4 lessons completed — '+remaining+' lesson'+(remaining>1?'s':'')+' remaining';
+  } else {
+    stat.classList.remove('complete');
+    ringFill.classList.remove('complete');
+    ringPct.classList.remove('complete');
+    desc.textContent='Start your first lesson to begin tracking progress';
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Journey Context Engine
+════════════════════════════════════════════════════ */
+function updateJourneyContext(count){
+  const sub=document.getElementById('journey-sub');
+  if(!sub)return;
+
+  const hasReturning=localStorage.getItem('path1_returning')==='true';
+  if(count===0){
+    sub.textContent='Begin your journey into the new intelligence era';
+    sub.classList.remove('returning');
+  } else if(count<4){
+    sub.textContent='Continue where you left off — Lesson '+(count+1)+' is ready';
+    sub.classList.add('returning');
+  } else {
+    sub.textContent='Your journey is nearly complete — take the final test';
+    sub.classList.add('returning');
+  }
+
+  if(hasReturning && count>0){
+    localStorage.removeItem('path1_returning');
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Next Lesson Detection
+════════════════════════════════════════════════════ */
+function getNextLessonIndex(state){
+  for(let i=0;i<state.length;i++){
+    if(!state[i]) return i;
+  }
+  return -1;
+}
+
 /* ══ RENDER NODES ══ */
 function renderAll(){
   const state=getState();
   const count=state.filter(Boolean).length;
+  const nextIdx=getNextLessonIndex(state);
 
   for(let i=0;i<4;i++){
     const done=state[i];
     const unlocked=i===0||state[i-1];
+    const isNext=(i===nextIdx);
     const card=document.getElementById('card-'+(i+1));
     const tag=document.getElementById('tag-'+(i+1));
     const action=document.getElementById('action-'+(i+1));
     const ni=document.getElementById('ni-'+(i+1));
 
     // Card state
-    card.className='node-card'+(done?' completed':unlocked?' unlocked':' locked');
+    let cardClass='node-card';
+    if(done) cardClass+=' completed';
+    else if(isNext) cardClass+=' unlocked next-lesson';
+    else if(unlocked) cardClass+=' unlocked';
+    else cardClass+=' locked';
+    card.className=cardClass;
 
     // Tag
     tag.className='node-tag'+(done?' completed-tag':'');
     tag.textContent=done?'✓ COMPLETED':LABELS[i];
 
+    // ENHANCEMENT: Recommended indicator for next lesson
+    const existingIndicator=card.querySelector('.recommended-indicator');
+    if(existingIndicator) existingIndicator.remove();
+
+    if(isNext && !done){
+      const indicator=document.createElement('div');
+      indicator.className='recommended-indicator';
+      indicator.innerHTML='<span class="recommended-badge"><span class="rec-dot"></span>Recommended</span>' +
+        '<span class="continue-badge">Continue → <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+      tag.parentNode.insertBefore(indicator, tag.nextSibling);
+    }
+
     // Indicator
     if(done){
       ni.className='node-indicator ni-completed';
       ni.innerHTML='<span style="font-size:1rem">✓</span>';
+    } else if(isNext){
+      ni.className='node-indicator ni-unlocked';
+      ni.innerHTML='<span class="ni-num">0'+(i+1)+'</span>';
     } else if(unlocked){
       ni.className='node-indicator ni-unlocked';
       ni.innerHTML='<span class="ni-num">0'+(i+1)+'</span>';
@@ -668,8 +1151,10 @@ function renderAll(){
           </button>
         </div>`;
     } else if(unlocked){
-      action.innerHTML=`<button class="node-btn start" onclick="window.location.href='${PAGES[i]}'">
-        Start Lesson
+      const btnClass=isNext?'node-btn start btn-continue':'node-btn start';
+      const btnLabel=isNext?'Continue Lesson':'Start Lesson';
+      action.innerHTML=`<button class="${btnClass}" onclick="window.location.href='${PAGES[i]}'">
+        ${btnLabel}
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>`;
     } else {
@@ -679,14 +1164,23 @@ function renderAll(){
 
   // Final test
   const testUnlocked=state[3];
+  const testIsNext=(nextIdx===-1 && !localStorage.getItem('test1_completed'));
   const finalCard=document.getElementById('final-card');
   const finalIcon=document.getElementById('final-icon');
   const actionTest=document.getElementById('action-test');
-  finalCard.className='final-card'+(testUnlocked?' unlocked':' locked');
+
+  let finalClass='final-card';
+  if(testIsNext) finalClass+=' unlocked next-lesson';
+  else if(testUnlocked) finalClass+=' unlocked';
+  else finalClass+=' locked';
+  finalCard.className=finalClass;
+
   finalIcon.textContent=testUnlocked?'◈':'⬡';
   if(testUnlocked){
-    actionTest.innerHTML=`<button class="node-btn test-start" onclick="window.location.href='test1.html'">
-      Begin Final Test
+    const testBtnClass=testIsNext?'node-btn test-start btn-continue':'node-btn test-start';
+    const testBtnLabel=testIsNext?'Take Final Test Now':'Begin Final Test';
+    actionTest.innerHTML=`<button class="${testBtnClass}" onclick="window.location.href='test1.html'">
+      ${testBtnLabel}
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>`;
   } else {
@@ -695,10 +1189,18 @@ function renderAll(){
 
   // Progress bar
   updateProgress(count);
+
+  // ENHANCEMENT: Update hero, motivation, context
+  updateProgressHero(count);
+  updateMotivation(count);
+  updateJourneyContext(count);
+
+  // ENHANCEMENT: Auto-scroll to next lesson on return
+  autoScrollToNext(nextIdx);
 }
 
 function updateProgress(count){
-  const pct=Math.round((count/5)*100); // 5 = 4 lessons + test (test counts as 20%)
+  const pct=Math.round((count/5)*100);
   const realPct=Math.round((count/4)*100);
   document.getElementById('prog-pct').textContent=realPct+'%';
   document.getElementById('prog-fill').style.width=realPct+'%';
@@ -719,6 +1221,28 @@ function updateProgress(count){
   }
   const testDot=document.getElementById('pd-t');
   testDot.className=state[3]?'ps-dot active':'ps-dot';
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Auto-scroll to next lesson
+════════════════════════════════════════════════════ */
+function autoScrollToNext(nextIdx){
+  if(!sessionStorage.getItem('path1_justReturned')) return;
+  sessionStorage.removeItem('path1_justReturned');
+
+  setTimeout(function(){
+    if(nextIdx>=0 && nextIdx<4){
+      var row=document.getElementById('row-'+(nextIdx+1));
+      if(row){
+        row.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    } else if(nextIdx===-1){
+      var finalNode=document.querySelector('.final-node');
+      if(finalNode){
+        finalNode.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+  },600);
 }
 
 /* ══ TOAST ══ */
@@ -757,6 +1281,27 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{threshold:.15});
 cards.forEach(c=>observer.observe(c));
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Cross-tab localStorage sync
+════════════════════════════════════════════════════ */
+window.addEventListener('storage',function(e){
+  if(KEYS.indexOf(e.key)!==-1 || e.key==='test1_completed'){
+    renderAll();
+    syncDevBtns();
+    attachSounds();
+  }
+});
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Returning detection
+   Mark as returning when a lesson page sets this flag
+════════════════════════════════════════════════════ */
+(function detectReturn(){
+  if(sessionStorage.getItem('path1_justReturned')){
+    localStorage.setItem('path1_returning','true');
+  }
+})();
 
 /* ══ INIT ══ */
 renderAll();

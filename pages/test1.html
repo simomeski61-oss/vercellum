@@ -492,8 +492,54 @@ body.focus-mode main{max-width:920px}
 .cpiece{position:fixed;pointer-events:none;z-index:9999;animation:cfall linear forwards}
 @keyframes cfall{0%{transform:translateY(-80px) rotate(0) scale(1);opacity:1}100%{transform:translateY(110vh) rotate(800deg) scale(.5);opacity:0}}
 
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: COMPLETION BANNER
+══════════════════════════════════════════════════════ */
+.completion-banner{display:flex;align-items:center;gap:.85rem;padding:1rem 1.4rem;border-radius:12px;background:linear-gradient(135deg,rgba(201,163,74,.1),rgba(201,163,74,.04));border:1px solid rgba(201,163,74,.22);margin-bottom:.5rem;position:relative;overflow:hidden}
+.completion-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g3),transparent)}
+.completion-banner-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--g3),var(--g1));display:grid;place-items:center;flex-shrink:0;font-size:1.1rem}
+.completion-banner-text{font-family:var(--fb);font-size:.52rem;letter-spacing:.12em;color:var(--wh);line-height:1.55}
+.completion-banner-text strong{color:var(--g0);font-size:.56rem;letter-spacing:.14em}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: TIME REASSURANCE
+══════════════════════════════════════════════════════ */
+.time-reassurance{display:flex;align-items:center;gap:.5rem;margin-bottom:1.25rem;font-family:var(--fs);font-size:.78rem;color:var(--tp)}
+.time-reassurance svg{width:14px;height:14px;stroke:var(--g2);fill:none;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: PROGRESS TIME TEXT
+══════════════════════════════════════════════════════ */
+.qprog-time{margin-top:.55rem;font-family:var(--fs);font-size:.76rem;color:var(--tp);display:flex;align-items:center;gap:.45rem}
+.qprog-time svg{width:12px;height:12px;stroke:var(--g2);fill:none;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: POST-COMPLETION SUCCESS MESSAGE
+══════════════════════════════════════════════════════ */
+.res-success-msg{text-align:center;padding:2rem 1.5rem;margin-bottom:1.5rem;border-radius:16px;background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.02));border:1px solid rgba(34,197,94,.18);position:relative;overflow:hidden}
+.res-success-msg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.4),transparent)}
+.res-success-icon{font-size:2.5rem;margin-bottom:.75rem;display:block}
+.res-success-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--wh);margin-bottom:.5rem}
+.res-success-sub{font-family:var(--fd);font-size:.95rem;color:var(--bn);font-style:italic;max-width:500px;margin:0 auto;line-height:1.6}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: CERTIFICATE CTA
+══════════════════════════════════════════════════════ */
+.res-cert-cta-wrap{text-align:center;margin:2rem 0 1.5rem}
+.res-cert-cta{display:inline-flex;flex-direction:column;align-items:center;gap:.5rem;padding:1.4rem 2.8rem;border-radius:16px;background:linear-gradient(135deg,var(--g2),var(--g1),var(--g0));color:var(--v);font-family:var(--fb);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer;border:none;transition:all .35s var(--ex);box-shadow:0 8px 32px rgba(201,163,74,.4),0 0 60px rgba(201,163,74,.15);position:relative;overflow:hidden;animation:popIn .7s var(--bk) both}
+.res-cert-cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 60%);opacity:0;transition:opacity .3s}
+.res-cert-cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 44px rgba(201,163,74,.5),0 0 80px rgba(201,163,74,.2)}
+.res-cert-cta:hover::before{opacity:1}
+.res-cert-cta-main{font-size:.85rem;letter-spacing:.14em}
+.res-cert-cta-sub{display:block;margin-top:.35rem;font-family:var(--fs);font-size:.72rem;color:rgba(4,3,2,.55);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCEMENT: EMOTIONAL PROGRESSION TAG
+══════════════════════════════════════════════════════ */
+.motiv-emo{display:inline-block;margin-top:.35rem;padding:.2rem .65rem;border-radius:6px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.16);color:var(--g0);font-family:var(--fs);font-size:.8rem;font-style:italic;letter-spacing:0}
+
 /* PRINT STYLES */
-@media print{#cur,#cur-r,#nav-rail,#topbar,.focus-hint{display:none!important}body{padding:0}}
+@media print{#cur,#cur-r,#nav-rail,#topbar,.focus-hint,.completion-banner,.time-reassurance{display:none!important}body{padding:0}}
 </style>
 </head>
 <body>
@@ -608,6 +654,17 @@ body.focus-mode main{max-width:920px}
 
 <!-- MAIN -->
 <main id="main-content">
+  <!-- ENHANCEMENT: COMPLETION MOTIVATION BANNER -->
+  <div class="completion-banner" id="completion-banner">
+    <div class="completion-banner-icon">🏆</div>
+    <div class="completion-banner-text"><strong>Passing this test unlocks your VERCELLUM certificate + 25% progress toward mastery.</strong> Complete all 4 paths to unlock full AI mastery certification.</div>
+  </div>
+  <!-- ENHANCEMENT: PERCEIVED LENGTH REASSURANCE -->
+  <div class="time-reassurance" id="time-reassurance">
+    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>Takes less than 5 minutes to complete</span>
+  </div>
+
   <!-- INTRO -->
   <div class="screen active" id="s-intro">
     <div class="intro-badge"><div class="intro-badge-dot"></div><span class="intro-badge-text">All 4 Lessons Complete</span></div>
@@ -637,6 +694,11 @@ body.focus-mode main{max-width:920px}
       <div class="qprog-meta"><span class="qprog-label">Progress</span><span class="qprog-frac" id="qf">1 / 12</span></div>
       <div class="qprog-track"><div class="qprog-fill" id="qfill" style="width:8.33%"></div></div>
       <div class="qprog-steps" id="qsteps"></div>
+      <!-- ENHANCEMENT: PROGRESS VISIBILITY - DYNAMIC TIME TEXT -->
+      <div class="qprog-time" id="qprog-time">
+        <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="qprog-time-text">Question 1 of 12 · ~5 minutes remaining</span>
+      </div>
     </div>
     <div class="motiv-wrap"><div class="motiv-strip" id="motiv"></div></div>
     <div class="q-card" id="qcard"></div>
@@ -727,6 +789,21 @@ body.focus-mode main{max-width:920px}
         <div class="review-stats" id="review-stats"></div>
       </div>
       <div class="review-list" id="rev-list"></div>
+    </div>
+
+    <!-- ENHANCEMENT: POST-COMPLETION SUCCESS MESSAGE -->
+    <div class="res-success-msg" id="res-success-msg">
+      <span class="res-success-icon">🎉</span>
+      <div class="res-success-title">Congratulations — you've completed the final test.</div>
+      <div class="res-success-sub">You've validated your understanding of AI agents and taken a real step toward practical AI mastery. This is what separates builders from bystanders.</div>
+    </div>
+
+    <!-- ENHANCEMENT: POST-COMPLETION TRIGGER - CERTIFICATE CTA -->
+    <div class="res-cert-cta-wrap" id="res-cert-cta-wrap">
+      <button class="res-cert-cta" onclick="window.location.href='Oscar1.html'">
+        <span class="res-cert-cta-main">🎉 Claim your certificate now (takes 10 seconds)</span>
+        <span class="res-cert-cta-sub">Your Path 1 achievement is ready to be claimed</span>
+      </button>
     </div>
 
     <div class="res-ctas">
@@ -895,6 +972,17 @@ const MOT=[
   {h:'Final answer. Make it count.',b:'Whatever the result — you\'ve done something most people won\'t. Finish strong.'}
 ];
 
+/* ═══════════════════════════════════════════════════════════
+   ENHANCEMENT: EMOTIONAL PROGRESSION MICROCOPY
+══════════════════════════════════════════════════════ */
+function getEmoProgress(qi){
+  if(qi===2||qi===3)return 'Good start — keep going';
+  if(qi===5)return 'You\'re halfway there — stay focused';
+  if(qi===11)return 'Final step — your result is almost ready';
+  if(qi>=4&&qi<=10)return 'You\'re doing great — almost there';
+  return '';
+}
+
 /* ═══════════════════════════════════════════════
    FIX 1: ANSWER RANDOMISATION
 ═══════════════════════════════════════════════ */
@@ -972,6 +1060,9 @@ function startQuiz(){
   const sq=buildShuffledQs();
   S={q:0,score:0,streak:0,ans:[],started:true,sq};
   $('live-score').textContent='0';$('streak-wrap').classList.remove('show');
+  // ENHANCEMENT: Show banner/reassurance during quiz
+  const banner=$('completion-banner');if(banner)banner.style.display='';
+  const timeReas=$('time-reassurance');if(timeReas)timeReas.style.display='';
   showS('s-quiz');initSteps();renderQ();
 }
 
@@ -979,13 +1070,18 @@ function renderQ(){
   const q=S.sq[S.q],tot=S.sq.length;
   $('qf').textContent=`${S.q+1} / ${tot}`;
   $('qfill').style.width=`${((S.q+1)/tot)*100}%`;
+  // ENHANCEMENT: Update dynamic progress time text
+  const remainingQs=tot-S.q-1;
+  const minsLeft=Math.max(1,Math.ceil(remainingQs*0.42));
+  const timeEl=$('qprog-time-text');
+  if(timeEl){timeEl.textContent=`Question ${S.q+1} of ${tot} · ~${minsLeft} minute${minsLeft!==1?'s':''} remaining`;}
   for(let i=0;i<tot;i++){
     const s=$('st-'+i);if(!s)continue;
     if(i<S.q){const a=S.ans[i];s.className='qprog-step '+(a&&a.ok?'done-c':'done-w');}
     else s.className='qprog-step'+(i===S.q?' current':'');
   }
   const m=$('motiv');m.classList.add('out');
-  setTimeout(()=>{const mo=MOT[S.q]||MOT[0];m.innerHTML=`<strong>${mo.h}</strong>${mo.b}`;m.classList.remove('out');},220);
+  setTimeout(()=>{const mo=MOT[S.q]||MOT[0];const emoText=getEmoProgress(S.q);let motivHTML=`<strong>${mo.h}</strong>${mo.b}`;if(emoText){motivHTML+=`<br><span class="motiv-emo">${emoText}</span>`;}m.innerHTML=motivHTML;m.classList.remove('out');},220);
   const card=$('qcard');card.classList.add('out');
   setTimeout(()=>{card.innerHTML=buildHTML(q);card.classList.remove('out');card.querySelectorAll('button,input').forEach(addH);},200);
 }
@@ -1112,6 +1208,9 @@ function continueMilestone(){sndSel();showS('s-quiz');renderQ();}
 
 function showRes(){
   sndDone();confetti();
+  // ENHANCEMENT: Hide banner/reassurance on results screen
+  const banner=$('completion-banner');if(banner)banner.style.display='none';
+  const timeReas=$('time-reassurance');if(timeReas)timeReas.style.display='none';
   const tot=QS.length,pct=Math.round((S.score/tot)*100);
   cntUp('res-score',0,S.score,900,'/ 12');
   $('rb-c').textContent=S.score;$('rb-a').textContent=pct+'%';
@@ -1531,7 +1630,7 @@ function cntUp(id,from,to,dur,sfx=''){
   const el=$(id);if(!el)return;
   const t0=performance.now();
   (function go(now){const t=Math.min((now-t0)/dur,1),e=t<.5?2*t*t:(1-Math.pow(-2*t+2,2)/2);el.textContent=Math.round(from+(to-from)*e)+(sfx?' '+sfx:'');if(t<1)requestAnimationFrame(go);})(performance.now());
-}
+}n
 
 // RETAKE
 function retakeQuiz(){
@@ -1539,6 +1638,9 @@ function retakeQuiz(){
   const sq=buildShuffledQs(); // reshuffle on retake
   S={q:0,score:0,streak:0,ans:[],started:true,sq};
   $('live-score').textContent='0';$('streak-wrap').classList.remove('show');
+  // ENHANCEMENT: Show banner/reassurance on retake
+  const banner=$('completion-banner');if(banner)banner.style.display='';
+  const timeReas=$('time-reassurance');if(timeReas)timeReas.style.display='';
   showS('s-quiz');initSteps();renderQ();
 }
 </script>

@@ -11,7 +11,6 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 <!-- END NEW: Google Analytics -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>VERCELLUM · AI Agents for Small Business Owners — Build & Automate Without Code</title>
@@ -523,6 +522,20 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 @keyframes typDot{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
 @keyframes borderRot{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
+/* NEW: Performance — reduce animations for users who prefer reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .orb,.o1,.o2,.o3{animation:none!important}
+  .ey,.htitle .wc,.hsub,.hpills,.hcta,.shint{animation:none!important;opacity:1!important;transform:none!important}
+  .mq-tr{animation:none!important}
+  .ey-d{animation:none!important}
+  #bgc{opacity:0!important}
+  #loader{display:none!important}
+  body::before{display:none!important}
+  .chip::after{animation:none!important}
+  .ctPls,.dpls{animation:none!important}
+  .rv,.rvc,.rvx,.rvy{transition:opacity .3s ease!important;transform:none!important}
+}
+
 /* NEW: Technical improvements — suggested enhancements (commented out to preserve original issues) */
 /* 
   1. Loader: replace with CSS-only version (example below)
@@ -642,6 +655,8 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 .src-disc{text-align:center;font-size:.68rem;color:var(--as);margin-top:2rem;line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto}
 </style>
 <!-- NEW: End of style block with improvement comments -->
+<!-- NEW: Performance preconnect hints -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -699,6 +714,9 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
     <span>FREE TO START</span>
   </div>
 
+  <!-- NEW: Pain-point headline for psychological hook -->
+  <p style="font-family:var(--fd); font-size:clamp(1.05rem,2vw,1.35rem); font-weight:300; font-style:italic; color:var(--bn); max-width:580px; margin:0 auto 1.25rem; opacity:0; animation:sUp .9s .35s var(--ex) forwards; letter-spacing:0.01em;">Are you working more… but your business isn't growing?</p>
+  <p style="font-family:var(--fs); font-size:0.82rem; color:var(--tp); max-width:480px; margin:0 auto 1.75rem; opacity:0; animation:sUp .9s .38s var(--ex) forwards; letter-spacing:0.02em;">The problem isn't you — it's the tasks that should be automated.</p>
   <h1 id="h1" class="htitle">
     <span class="line"><span class="w"><span class="wc" style="animation-delay:.5s">YOUR</span></span> <span class="w"><span class="wc" style="animation-delay:.62s">NEXT</span></span> <span class="w"><span class="wc" style="animation-delay:.75s">HIRE</span></span></span>
     <span class="line line-g"><span class="w"><span class="wc" style="animation-delay:.87s">WORKS</span></span> <span class="w"><span class="wc" style="animation-delay:1s">FOR</span></span> <span class="w"><span class="wc" style="animation-delay:1.12s">FREE.</span></span></span>
@@ -719,16 +737,35 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
       <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
     <!-- NEW: explanatory text under first CTA button -->
-    <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:-0.5rem;"></span>
+    <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:0.5rem; text-align:center;">Discover in just 2 minutes where your business is losing time to repetitive tasks</span>
     <a href="#how-it-works" class="bt-hp bt-hp-s">See How It Works</a>
     <!-- NEW: explanatory text under second CTA button -->
     <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:-0.5rem;">Learn the process in 3 steps</span>
+  </div>
+  <!-- NEW: Conversion Optimization — CTA reassurance bullets -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem; margin-top:1.5rem; opacity:0; animation:sUp .9s 1.4s var(--ex) forwards;">
+    <span style="display:inline-flex; align-items:center; gap:6px; font-size:0.73rem; color:var(--g3); letter-spacing:0.04em;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--grn);stroke-width:2.5;fill:none;"><polyline points="20 6 9 17 4 12"/></svg>Only 6 questions</span>
+    <span style="display:inline-flex; align-items:center; gap:6px; font-size:0.73rem; color:var(--g3); letter-spacing:0.04em;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--grn);stroke-width:2.5;fill:none;"><polyline points="20 6 9 17 4 12"/></svg>Instant result</span>
+    <span style="display:inline-flex; align-items:center; gap:6px; font-size:0.73rem; color:var(--g3); letter-spacing:0.04em;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--grn);stroke-width:2.5;fill:none;"><polyline points="20 6 9 17 4 12"/></svg>No signup required</span>
   </div>
 
   <div class="shint" aria-hidden="true">
     <div class="shint-l"></div>
   </div>
 </section>
+
+<!-- NEW: Social Proof Trust Bar — immediately below hero -->
+<div style="position:relative; z-index:2; padding:2.5rem 1.5rem; background:rgba(201,163,74,.02); border-bottom:1px solid rgba(201,163,74,.07);">
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+    <p style="font-family:var(--fd); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:300; font-style:italic; color:var(--cr); margin-bottom:0.6rem; letter-spacing:0.01em;">"Saved me 15 hours a week after my first AI agent"</p>
+    <p style="font-size:0.72rem; color:var(--tp); letter-spacing:0.08em; margin-bottom:1.5rem; font-family:var(--fb);">— E-COMMERCE BUSINESS OWNER</p>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem;">
+      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">1,800+</span> business owners saving time with AI</span>
+      <span style="width:1px; height:20px; background:rgba(201,163,74,.15);"></span>
+      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">12 hrs</span> average time saved per week</span>
+    </div>
+  </div>
+</div>
 
 <!-- ══ MARQUEE ══ -->
 <div class="mq" aria-hidden="true">
@@ -1205,14 +1242,24 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   <div class="ctab-deco" aria-hidden="true">AI</div>
   <h2 id="ctabh" class="ctab-ti rv"><em>Your AI Workforce</em><br>Starts With One Agent.</h2>
   <p class="ctab-su rv d1">Free to start. No coding. No credit card. No prior experience.<br>Your first AI business agent is one session away.</p>
-  <div class="rv d2">
+  <!-- NEW: Stronger closing section before final CTA -->
+  <div class="rv d2" style="position:relative; z-index:1; max-width:520px; margin:0 auto 2.5rem;">
+    <p style="font-family:var(--fd); font-size:clamp(1rem,2vw,1.2rem); font-style:italic; color:var(--cr); margin-bottom:1.25rem; line-height:1.7;">Try it yourself now. In just 2 minutes, you'll discover:</p>
+    <div style="display:flex; flex-direction:column; gap:0.65rem; text-align:left; max-width:380px; margin:0 auto;">
+      <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>Where your time is being wasted</span>
+      <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>What AI you can build first</span>
+      <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>How to start immediately</span>
+    </div>
+  </div>
+  <div class="rv d3" style="position:relative; z-index:1;">
     <a href="pages/intro-test.html" class="bt-hp bt-hp-p" style="font-size:.98rem;padding:1.15rem 3.2rem">
-      Start Building Free
+      Start Now — 100% Free
       <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
-    <!-- NEW: explanatory text under final CTA -->
+    <!-- NEW: Micro urgency text -->
+    <p style="font-size:0.72rem; color:var(--tp); margin-top:1rem; letter-spacing:0.06em;">Limited free access available today</p>
   </div>
-  <div class="ctab-rs rv d3">
+  <div class="ctab-rs rv d4">
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free to start</span>
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No coding required</span>
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built for business owners</span>
@@ -1330,7 +1377,7 @@ const blobs=Array.from({length:6},(_,i)=>({
   alpha:Math.random()*.08+.04,
   phase:Math.random()*Math.PI*2,
 }));
-const pts=Array.from({length:80},()=>({
+const pts=Array.from({length:60},()=>({
   x:Math.random()*2000,y:Math.random()*2000,
   vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,
   r:Math.random()*1.2+.4,
@@ -1377,7 +1424,8 @@ function drawCanvas(){
     c2.beginPath();c2.arc(pw[i].x,pw[i].y,pw[i].r,0,Math.PI*2);
     c2.fillStyle=`rgba(${GOLD},${pw[i].o})`;c2.fill();
   }
-  requestAnimationFrame(drawCanvas);
+  // NEW: Throttle to ~30fps for performance
+  setTimeout(()=>requestAnimationFrame(drawCanvas),33);
 }
 drawCanvas();
 

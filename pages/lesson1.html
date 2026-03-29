@@ -972,7 +972,49 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
   transition:opacity .22s ease, transform .22s ease;
 }
 
-@media print{#cur,#cur-r,#blob,.orb,#particles,#read-progress,#back-top,#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.milestone-flash,.focus-hint{display:none!important}body{padding:0}.content-inner{max-width:100%}}
+/* ══════════════════════════════════════════════
+   ENGAGEMENT ENHANCEMENTS
+   Motivational bridges, recap boxes, interactivity boosts
+══════════════════════════════════════════════ */
+
+/* Recap Box — natural stopping point summary */
+.recap-box{background:linear-gradient(135deg,rgba(201,163,74,.05),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.15);border-radius:12px;padding:1.35rem 1.5rem;margin:1.5rem 0;position:relative;overflow:hidden}
+.recap-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.recap-title{font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g2);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.recap-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite}
+.recap-items{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem}
+.recap-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55}
+.recap-item::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.recap-motivation{font-size:.82rem;color:var(--g1);font-style:italic;line-height:1.55;padding-top:.75rem;border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.5rem}
+.recap-motivation::before{content:'🔥';font-size:.85rem;flex-shrink:0}
+
+/* Teaser Box — motivational bridge to next lesson */
+.teaser-next-box{background:linear-gradient(135deg,rgba(52,211,153,.04),rgba(201,163,74,.04));border:1px solid rgba(52,211,153,.18);border-radius:12px;padding:1.35rem 1.5rem;margin:1.75rem 0;position:relative;overflow:hidden}
+.teaser-next-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
+.teaser-next-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.26em;color:var(--grn2);margin-bottom:.85rem;display:flex;align-items:center;gap:.55rem}
+.teaser-next-label::before{content:'🚀';font-size:.85rem}
+.teaser-items{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem}
+.teaser-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55}
+.teaser-item::before{content:'→';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.teaser-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.28rem .7rem;border-radius:50px;background:var(--grns);border:1px solid var(--grnb);font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--grn);margin-top:.25rem}
+.teaser-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:dpls 2s ease-in-out infinite}
+
+/* Motivation Pill — small motivational text at section ends */
+.motivation-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .75rem;border-radius:50px;background:var(--gf);border:1px solid rgba(201,163,74,.15);font-size:.76rem;color:var(--g2);margin-top:.75rem;animation:fadeUp .5s var(--ex) both;font-style:italic}
+
+/* Enhanced SPAR card expanded state */
+.spar-card.expanded .spar-body{color:var(--cr);transition:color .4s var(--ex)}
+.spar-card.expanded .spar-hint{color:var(--g1);font-weight:500}
+@keyframes expandPulse{0%{box-shadow:0 0 0 0 rgba(201,163,74,.15)}50%{box-shadow:0 0 20px 4px rgba(201,163,74,.08)}100%{box-shadow:0 0 0 0 rgba(201,163,74,0)}}
+.spar-card.expand-pulse{animation:expandPulse .6s ease-out}
+
+/* Stat card click sound feedback */
+.stat-card:active{transform:scale(.97)!important}
+
+/* Section end motivational microcopy */
+.section-motivation{font-size:.78rem;color:var(--g2);margin-top:1rem;padding:.6rem 0;text-align:center;letter-spacing:.03em;opacity:.85;animation:fadeUp .6s var(--ex) both}
+
+@media print{#cur,#cur-r,#blob,.orb,#particles,#read-progress,#back-top,#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.milestone-flash,.focus-hint,.recap-box,.teaser-next-box,.motivation-pill,.section-motivation{display:none!important}body{padding:0}.content-inner{max-width:100%}}
 </style>
 </head>
 <body>
@@ -1270,6 +1312,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <div class="checkin-feedback" id="checkin-fb" role="status" aria-live="polite"></div>
           </div>
         </section>
+        <div class="section-motivation">Your honesty here is exactly what separates action-takers from observers.</div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="quiz1">Continue to Quick Check<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
@@ -1284,6 +1327,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <button class="quiz-opt" data-correct="true" data-quiz="1" aria-pressed="false"><span class="opt-letter">C</span><span class="opt-text">Most businesses use AI tools that still require them to be the operator — they prompt it, it responds, they repeat. This is still manual work, just faster.</span></button>
           </div>
           <div class="quiz-feedback" id="quiz1-fb" role="status" aria-live="polite"></div>
+          <div class="motivation-pill" id="quiz1-motivation" style="display:none">✨ You're thinking like a strategist — this distinction will change how you evaluate every AI product.</div>
         </div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="3" id="quiz1-continue" disabled>Continue to the Core Distinction<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
@@ -1323,7 +1367,17 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
               <div class="sec-badge green" style="margin-top:auto">IT RUNS — YOU LEAD</div>
             </div>
           </div>
+          <div class="recap-box reveal">
+            <div class="recap-title">KEY POINTS SO FAR — GREAT PROGRESS</div>
+            <div class="recap-items">
+              <div class="recap-item">AI tools wait for you — AI agents take ownership of entire workflows autonomously</div>
+              <div class="recap-item">The real gap isn't technology — it's who carries the cognitive load: you or the system</div>
+              <div class="recap-item">Agents that Sense, Plan, Act, and Reflect create permanent, compounding advantages</div>
+            </div>
+            <div class="recap-motivation">You're building the strategic vocabulary that 95% of business owners lack. Keep going — the framework is next.</div>
+          </div>
         </section>
+        <div class="section-motivation">You're one step closer to mastering this topic.</div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="4">Continue<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
@@ -1370,7 +1424,18 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <p class="body-text" style="margin-top:.85rem">This is the difference between a one-time automation win and <strong>a permanent advantage that compounds every single week.</strong></p>
           </div>
           <div class="key-insight" style="border-left-color:var(--purp)"><span class="ki-icon">🔄</span><div class="ki-content"><div class="ki-label" style="color:var(--purp)">WHY THIS CHANGES WHAT'S POSSIBLE</div><p class="ki-text">The Reflect step is why some businesses will compound their AI advantage over years while others plateau. Your agent logs outcomes, learns from every interaction, and adapts — like a great employee who gets sharper with every client, except this one never burns out, never asks for a raise, and never calls in sick on your busiest day.</p></div></div>
+          <div class="recap-box reveal">
+            <div class="recap-title">SPAR FRAMEWORK — YOUR FOUNDATION IS SET</div>
+            <div class="recap-items">
+              <div class="recap-item"><strong>Sense</strong> — Your agent monitors 24/7, detecting signals before you know to look</div>
+              <div class="recap-item"><strong>Plan</strong> — It reasons about the best strategy, weighing context and goals in milliseconds</div>
+              <div class="recap-item"><strong>Act</strong> — It executes autonomously: emails, CRM updates, meetings — no human keystrokes</div>
+              <div class="recap-item"><strong>Reflect</strong> — It learns from every outcome, improving without any input from you</div>
+            </div>
+            <div class="recap-motivation">Great progress! Keep going — you now understand what 95% of businesses still miss.</div>
+          </div>
         </div>
+        <div class="section-motivation">Completion is within reach. You're doing exceptionally well.</div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="quiz2">Take the SPAR Quiz<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
@@ -1385,6 +1450,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <button class="quiz-opt" data-correct="true" data-quiz="2" aria-pressed="false"><span class="opt-letter">C</span><span class="opt-text">An agent detects incoming leads, crafts personalized responses based on each prospect's profile, updates your CRM, and silently adjusts its messaging strategy based on which emails actually get replies — all without you touching it.</span></button>
           </div>
           <div class="quiz-feedback" id="quiz2-fb" role="status" aria-live="polite"></div>
+          <div class="motivation-pill" id="quiz2-motivation" style="display:none">🎯 You can now identify a real SPAR agent — that's a skill most business owners won't have for years.</div>
         </div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="7" id="quiz2-continue" disabled>Continue — See What You've Gained<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
@@ -1429,6 +1495,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             </div>
           </div>
         </section>
+        <div class="section-motivation">You've gained more in 15 minutes than most owners gain in months of AI exploration.</div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="8">Lock In Your Opportunity<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
@@ -1440,7 +1507,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <p class="task-prompt">"Think about the last time you thought: <em>Why am I still doing this manually?</em> That feeling is your instinct pointing at an agent opportunity. What is that task — the one that's predictable, repetitive, and quietly draining your best hours?"</p>
             <textarea class="task-input" id="task-input" placeholder="e.g. Answering the same five client questions every morning before I can start real work. Or: manually updating the CRM after every sales call. Or: following up on proposals that go quiet after I send them..." aria-label="Describe your automation task" rows="3"></textarea>
             <div class="task-save"><button class="btn-green" id="task-save-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>LOCK IN MY OPPORTUNITY</button></div>
-            <div class="task-saved" id="task-saved" role="status" aria-live="polite">✅ Locked in. In Lesson 2, you'll map this exact task to the SPAR cycle and begin designing the agent that takes it off your plate permanently.<div class="badge-earned" style="margin-top:.5rem"><span class="badge-dot"></span>AUTOMATION OPPORTUNITY · IDENTIFIED</div></div>
+            <div class="task-saved" id="task-saved" role="status" aria-live="polite">✅ Locked in. In Lesson 2, you'll map this exact task to the SPAR cycle and begin designing the agent that takes it off your plate permanently.<div class="badge-earned" style="margin-top:.5rem"><span class="badge-dot"></span>AUTOMATION OPPORTUNITY · IDENTIFIED</div><div class="motivation-pill" style="margin-top:.65rem;display:inline-flex">💪 This is your starting point. Every great AI deployment begins with a single real problem.</div></div>
           </div>
         </div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="9">Build Your First Agent Rule<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
@@ -1463,6 +1530,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
               <div class="task-saved" id="quickwin-feedback" style="display:none;margin:0">✅ Your first agent rule is live. That's the exact logic behind every auto-response running in real businesses right now. (Simulated)</div>
             </div>
             <p class="body-text" style="font-size:.78rem;margin-top:.85rem"><em>In a production agent, this rule runs continuously in the background — sensing, responding, and logging every trigger. You just built the mental model that scales to any workflow.</em></p>
+            <div class="section-motivation">🎉 You just designed your first agent behaviour — most owners never get this far.</div>
           </div>
         </section>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="final">Complete the Lesson<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
@@ -1476,9 +1544,18 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <div class="final-badge">🎯 Lesson 1 Complete — You're Already Ahead</div>
             <h2 class="final-h2">You Understand SPAR.<br>Now It's Time to Build What Others Are Still Waiting to Understand.</h2>
             <p class="final-sub">Most business owners will read a headline about AI agents this week and still not know what to do.<br><strong>You're past that point.</strong><br><br>In Lesson 2, you go inside the architecture: how agents plan complex tasks, store memory, and how the Reflect loop compounds into genuine competitive advantage.<br><em>You'll leave with a blueprint of the first agent you'll actually deploy.</em></p>
-            <div class="final-next-card"><div class="final-next-label">UP NEXT — LESSON 2</div><div class="final-next-title">Anatomy of an AI Agent</div><div class="final-next-duration">How It Plans, Remembers, and Compounds · ~18 min</div></div>
+            <div class="final-next-card"><div class="final-next-label">UP NEXT — LESSON 2</div><div class="final-next-title">Anatomy of an AI Agent</div><div class="final-next-duration">How It Plans, Remembers, and Compounds · ~14 min</div></div>
+            <div class="teaser-next-box">
+              <div class="teaser-next-label">NEXT LESSON — WHAT'S COMING</div>
+              <div class="teaser-items">
+                <div class="teaser-item">Go deep inside the SPAR loop: see exactly how an agent senses, plans, acts, and reflects in real time</div>
+                <div class="teaser-item">Walk through a real agent's decision — from first signal to reflection and improvement</div>
+                <div class="teaser-item">Sketch your own agent's logic using the SPAR framework — ready to build in Lesson 3</div>
+              </div>
+              <div class="teaser-badge">Next: Lesson 2 — Anatomy of an AI Agent · ~14 min</div>
+            </div>
             <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap">
-              <button class="final-btn" id="complete-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mark Complete &amp; Continue to Lesson 2 →</button>
+              <button class="final-btn" id="complete-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Complete this lesson and start the next one immediately →</button>
               <button class="final-btn-ghost" id="save-exit-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SAVE &amp; COME BACK LATER</button>
             </div>
           </div>
@@ -1520,6 +1597,17 @@ let mx=0,my=0,tx=0,ty=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';blob.style.left=mx+'px';blob.style.top=my+'px';});
 (function a(){curR.style.left=tx+(mx-tx)*.11+'px';curR.style.top=ty+(my-ty)*.11+'px';tx=parseFloat(curR.style.left)||mx;ty=parseFloat(curR.style.top)||my;requestAnimationFrame(a);})();
 document.querySelectorAll('a,button,.spar-card,.checkin-opt,.quiz-opt,.stat-card,.comp-col').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));});
+
+/* ══ STAT CARD SOUND FEEDBACK ══ */
+document.querySelectorAll('.stat-card').forEach(card=>{
+  card.addEventListener('click',()=>playTone(330,.15,'sine',.06));
+});
+
+/* ══ MOTIVATION PILLS — show after quiz answers ══ */
+function showMotivationPill(id){
+  const el=document.getElementById(id);
+  if(el){el.style.display='inline-flex';setTimeout(()=>{el.style.opacity='1';},50);}
+}
 document.addEventListener('mousedown',()=>document.body.classList.add('clk'));
 document.addEventListener('mouseup',()=>document.body.classList.remove('clk'));
 
@@ -1603,10 +1691,11 @@ document.querySelectorAll('.spar-card').forEach((card,i)=>{
   card.addEventListener('click',()=>{
     const ex=document.getElementById('spar-ex-'+i);
     const isOpen=card.classList.contains('expanded');
-    document.querySelectorAll('.spar-card').forEach(c=>c.classList.remove('expanded'));
+    document.querySelectorAll('.spar-card').forEach(c=>{c.classList.remove('expanded');c.classList.remove('expand-pulse');});
     document.querySelectorAll('[id^="spar-ex-"]').forEach(e=>e.classList.remove('show'));
-    if(!isOpen){card.classList.add('expanded');card.setAttribute('aria-expanded','true');ex.classList.add('show');playTone(440,.18,'sine',.08);}
+    if(!isOpen){card.classList.add('expanded');card.classList.add('expand-pulse');card.setAttribute('aria-expanded','true');ex.classList.add('show');playTone(440,.18,'sine',.08);}
     else card.setAttribute('aria-expanded','false');
+    setTimeout(()=>card.classList.remove('expand-pulse'),600);
     setProgress(48);
   });
   card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}});
@@ -1737,8 +1826,8 @@ document.querySelectorAll('.quiz-opt[data-quiz="1"]').forEach(opt=>{
     if(q1done)return;q1done=true;
     const ok=opt.dataset.correct==='true';
     document.querySelectorAll('.quiz-opt[data-quiz="1"]').forEach(o=>o.classList.add('answered'));
-    if(ok){opt.classList.add('correct');document.getElementById('quiz1-fb').textContent='🎯 Exactly right. The 95% aren\'t failing because AI is too expensive or complex — they\'re stuck because they\'re using tools that still require them to be the operator. They prompt, it responds, nothing changes in their workload. That\'s about to change for you.';document.getElementById('quiz1-fb').className='quiz-feedback correct-fb';playSuccess();setProgress(30);}
-    else{opt.classList.add('wrong');document.querySelectorAll('.quiz-opt[data-quiz="1"][data-correct="true"]').forEach(o=>o.classList.add('correct'));document.getElementById('quiz1-fb').textContent='Not quite — but you\'re thinking the right way. Cost and complexity are common assumptions, but the real barrier is simpler: most SMBs are using AI tools that still require constant human input. The 5% getting ahead have flipped that equation entirely.';document.getElementById('quiz1-fb').className='quiz-feedback wrong-fb';playError();}
+    if(ok){opt.classList.add('correct');document.getElementById('quiz1-fb').textContent='🎯 Exactly right. The 95% aren\'t failing because AI is too expensive or complex — they\'re stuck because they\'re using tools that still require them to be the operator. They prompt, it responds, nothing changes in their workload. That\'s about to change for you.';document.getElementById('quiz1-fb').className='quiz-feedback correct-fb';playSuccess();setProgress(30);showMotivationPill('quiz1-motivation');}
+    else{opt.classList.add('wrong');document.querySelectorAll('.quiz-opt[data-quiz="1"][data-correct="true"]').forEach(o=>o.classList.add('correct'));document.getElementById('quiz1-fb').textContent='Not quite — but you\'re thinking the right way. Cost and complexity are common assumptions, but the real barrier is simpler: most SMBs are using AI tools that still require constant human input. The 5% getting ahead have flipped that equation entirely.';document.getElementById('quiz1-fb').className='quiz-feedback wrong-fb';playError();showMotivationPill('quiz1-motivation');}
     const cb=document.getElementById('quiz1-continue');cb.disabled=false;cb.style.opacity='1';
     opt.setAttribute('aria-pressed','true');
   });
@@ -1752,8 +1841,8 @@ document.querySelectorAll('.quiz-opt[data-quiz="2"]').forEach(opt=>{
     if(q2done)return;q2done=true;
     const ok=opt.dataset.correct==='true';
     document.querySelectorAll('.quiz-opt[data-quiz="2"]').forEach(o=>o.classList.add('answered'));
-    if(ok){opt.classList.add('correct');document.getElementById('quiz2-fb').textContent='🎯 Exactly right. Option C is a textbook SPAR agent: it senses (detects leads), plans (crafts personalized responses), acts (updates CRM, sends outreach), and reflects (learns from reply rates). That\'s the compound loop that builds permanent operational advantage.';document.getElementById('quiz2-fb').className='quiz-feedback correct-fb';playSuccess();setProgress(66);}
-    else{opt.classList.add('wrong');document.querySelectorAll('.quiz-opt[data-quiz="2"][data-correct="true"]').forEach(o=>o.classList.add('correct'));document.getElementById('quiz2-fb').textContent='Not quite — but you\'re closer than you think. The key distinction isn\'t whether something sends emails automatically — it\'s whether it reflects on outcomes and improves. Option C is the full SPAR loop: sense, plan, act, and crucially, reflect to get smarter every cycle.';document.getElementById('quiz2-fb').className='quiz-feedback wrong-fb';playError();}
+    if(ok){opt.classList.add('correct');document.getElementById('quiz2-fb').textContent='🎯 Exactly right. Option C is a textbook SPAR agent: it senses (detects leads), plans (crafts personalized responses), acts (updates CRM, sends outreach), and reflects (learns from reply rates). That\'s the compound loop that builds permanent operational advantage.';document.getElementById('quiz2-fb').className='quiz-feedback correct-fb';playSuccess();setProgress(66);showMotivationPill('quiz2-motivation');}
+    else{opt.classList.add('wrong');document.querySelectorAll('.quiz-opt[data-quiz="2"][data-correct="true"]').forEach(o=>o.classList.add('correct'));document.getElementById('quiz2-fb').textContent='Not quite — but you\'re closer than you think. The key distinction isn\'t whether something sends emails automatically — it\'s whether it reflects on outcomes and improves. Option C is the full SPAR loop: sense, plan, act, and crucially, reflect to get smarter every cycle.';document.getElementById('quiz2-fb').className='quiz-feedback wrong-fb';playError();showMotivationPill('quiz2-motivation');}
     const cb=document.getElementById('quiz2-continue');cb.disabled=false;cb.style.opacity='1';
     opt.setAttribute('aria-pressed','true');
   });

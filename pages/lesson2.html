@@ -494,6 +494,13 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
 .outcome-txt strong{color:var(--cr);display:block;margin-bottom:.12rem;font-size:.88rem}
 
 @media print{#cur,#cur-r,#blob,.orb,#particles,#read-progress,#back-top,#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.milestone-flash,.focus-hint{display:none!important}body{padding:0}.content-inner{max-width:100%}}
+
+.next-lesson-teaser{animation:teaserPulse 3s ease-in-out infinite}
+@keyframes teaserPulse{0%,100%{border-color:rgba(201,163,74,.15)}50%{border-color:rgba(201,163,74,.3)}}
+.mid-recap{animation:recapFade .5s var(--ex) both}
+@keyframes recapFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.layer-card{transition:border-color .3s var(--ex),box-shadow .3s var(--ex)}
+.layer-card:active{border-color:rgba(201,163,74,.4)!important;box-shadow:0 0 20px rgba(201,163,74,.08)}
 </style>
 </head>
 <body>
@@ -508,6 +515,8 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
 <div class="orb o2" aria-hidden="true"></div>
 <div class="orb o3" aria-hidden="true"></div>
 <canvas id="particles" aria-hidden="true"></canvas>
+<audio id="click-sfx" preload="auto"><source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav"></audio>
+
 
 <!-- Level up banner -->
 <div id="levelup-banner" role="status" aria-live="polite">
@@ -839,7 +848,11 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           </div>
           <div class="quiz-feedback" id="quiz1-fb" role="status" aria-live="polite"></div>
         </div>
-        <div class="step-continue-wrap"><button class="step-continue-btn" data-next="4" id="quiz1-continue" disabled>Continue to Layer 3: Act<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+        <div class="mid-recap" style="margin:1.25rem 0;padding:1rem 1.15rem;border-radius:10px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1)">
+  <div style="font-family:var(--fb);font-size:.48rem;letter-spacing:.2em;color:var(--g2);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem">📋 QUICK RECAP — PART 1</div>
+  <div style="font-size:.83rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Great progress!</strong> You've learned the first two SPAR layers: <strong style="color:var(--blu)">Sense</strong> (how agents perceive data 24/7) and <strong style="color:var(--g1)">Plan</strong> (how agents reason about the best strategy). Two more layers to go — you're building real understanding.</div>
+</div>
+<div class="step-continue-wrap"><button class="step-continue-btn" data-next="4" id="quiz1-continue" disabled>Continue to Layer 3: Act<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
       <!-- STEP 4 — ACT Layer -->
@@ -891,6 +904,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           <div class="key-insight" style="border-left-color:var(--purp)"><span class="ki-icon">🔄</span><div class="ki-content"><div class="ki-label" style="color:var(--purp)">THE CORE INSIGHT</div><p class="ki-text">Most businesses use AI to <em>answer questions</em>. Businesses powered by AI agents use them to <em>execute entire processes and continuously improve</em>. The SPAR loop is what converts a response machine into an autonomous operator. <strong>You set the goals once. The agent plans, acts, and reflects — forever.</strong></p></div></div>
         </section>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="quiz2">Continue to Knowledge Check<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+<div style="text-align:center;padding:.25rem 0 .75rem;font-size:.76rem;color:var(--g2);font-style:italic;opacity:.8">✨ You're building deep understanding — keep going</div>
       </div>
 
       <!-- QUIZ 2 -->
@@ -905,7 +919,11 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           </div>
           <div class="quiz-feedback" id="quiz2-fb" role="status" aria-live="polite"></div>
         </div>
-        <div class="step-continue-wrap"><button class="step-continue-btn" data-next="6" id="quiz2-continue" disabled>Continue — See It in Action<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+        <div class="mid-recap" style="margin:1.25rem 0;padding:1rem 1.15rem;border-radius:10px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1)">
+  <div style="font-family:var(--fb);font-size:.48rem;letter-spacing:.2em;color:var(--g2);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem">📋 QUICK RECAP — PART 2</div>
+  <div style="font-size:.83rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">You're one step closer to mastering this topic.</strong> All four SPAR layers are now unlocked: <strong style="color:var(--blu)">Sense → Plan → Act → Reflect</strong>. Next comes the most powerful part — seeing the full loop in action with a real business scenario.</div>
+</div>
+<div class="step-continue-wrap"><button class="step-continue-btn" data-next="6" id="quiz2-continue" disabled>Continue — See It in Action<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
       <!-- STEP 6 — Real Example Part 1 (Sense + Plan) -->
@@ -974,7 +992,11 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           </div>
           <div class="key-insight"><span class="ki-icon">🏆</span><div class="ki-content"><div class="ki-label">WHAT THIS MEANS FOR YOUR BUSINESS</div><p class="ki-text">Your best employee — fully briefed, never tired, no sick days — working at <em>machine speed</em> and getting better every single day. That's what the SPAR loop enables. <strong>In Lesson 3, you'll begin to build this exact agent for your own workflow.</strong></p></div></div>
         </section>
-        <div class="step-continue-wrap"><button class="step-continue-btn" data-next="quiz3">Take the Final Check<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+        <div class="mid-recap" style="margin:1.25rem 0;padding:1rem 1.15rem;border-radius:10px;background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.12)">
+  <div style="font-family:var(--fb);font-size:.48rem;letter-spacing:.2em;color:var(--grn);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem">🎯 QUICK RECAP — PART 3</div>
+  <div style="font-size:.83rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">You've now seen the full SPAR loop in action.</strong> Sense → Plan → Act → Reflect → Repeat — each cycle making the agent smarter. <strong style="color:var(--grn)">Completion is within reach.</strong> One final check, then your blueprint exercise.</div>
+</div>
+<div class="step-continue-wrap"><button class="step-continue-btn" data-next="quiz3">Take the Final Check<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
       <!-- QUIZ 3 -->
@@ -1045,6 +1067,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           </div>
         </section>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="9">See What You've Gained<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+<div style="text-align:center;padding:.25rem 0 .75rem;font-size:.76rem;color:var(--grn);font-style:italic;opacity:.8">🏆 Almost there — your lesson completion is within reach</div>
       </div>
 
       <!-- STEP 9 — Outcomes -->
@@ -1073,8 +1096,17 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
             <h2 class="final-h2">You Understand SPAR.<br>Now It's Time to Build What Others Are Still Trying to Understand.</h2>
             <p class="final-sub">Most business owners will read a headline about AI agents this week and still not understand why Reflection matters.<br><strong>You're past that point.</strong><br><br>In Lesson 3, you go from design to reality: how to map a real business problem to the SPAR loop, choose the right tools, and deploy your first working agent.<br><em>You'll leave with something you can actually launch.</em></p>
             <div class="final-next-card"><div class="final-next-label">UP NEXT — LESSON 3</div><div class="final-next-title">3 Problems AI Solves Instantly</div><div class="final-next-duration">Real Deployments · Real Results · ~16 min</div></div>
+            <div class="next-lesson-teaser" style="max-width:400px;margin:0 auto 1.25rem;padding:1.1rem 1.35rem;border-radius:10px;background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(52,211,153,.04));border:1px solid rgba(201,163,74,.15);text-align:left">
+  <div style="font-family:var(--fb);font-size:.46rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;margin-bottom:.55rem;display:flex;align-items:center;gap:.45rem">🚀 WHAT'S NEXT IN LESSON 3</div>
+  <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.82rem;color:var(--bn);line-height:1.55">
+    <div style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--g1);font-size:.7rem;margin-top:.15rem">▸</span><span>How to identify the <strong style="color:var(--cr)">3 business problems</strong> AI agents solve instantly in your company</span></div>
+    <div style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--g1);font-size:.7rem;margin-top:.15rem">▸</span><span>A real-life example from a company <strong style="color:var(--cr)">like yours</strong> — with ROI numbers</span></div>
+    <div style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--g1);font-size:.7rem;margin-top:.15rem">▸</span><span>Interactive ROI calculator tailored to <strong style="color:var(--cr)">your business size</strong></span></div>
+  </div>
+  <div style="margin-top:.65rem;padding:.45rem .75rem;border-radius:6px;background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.12);display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fb);font-size:.42rem;letter-spacing:.16em;color:var(--g2)">⏱ ESTIMATED TIME: ~16 MIN</div>
+</div>
             <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap">
-              <button class="final-btn" id="complete-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mark Complete &amp; Continue to Lesson 3 →</button>
+              <button class="final-btn" id="complete-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Complete this lesson and start the next one immediately →</button>
               <button class="final-btn-ghost" id="save-exit-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SAVE &amp; COME BACK LATER</button>
             </div>
           </div>
@@ -1506,6 +1538,8 @@ updateAiContext('0');
 setProgress(Math.max(progress,5));
 
 })();
+
+(function(){try{var sfx=document.getElementById('click-sfx');if(sfx&&window.AudioContext){var actx=new(window.AudioContext||window.webkitAudioContext)();document.querySelectorAll('.quiz-opt,.step-continue-btn,.hero-primary-btn,.hero-ghost-btn,.popup-close,#focus-btn').forEach(function(el){el.addEventListener('click',function(){try{var o=actx.createOscillator(),g=actx.createGain();o.type='sine';o.frequency.setValueAtTime(880,actx.currentTime);o.frequency.exponentialRampToValueAtTime(440,actx.currentTime+.1);g.gain.setValueAtTime(.08,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.15);o.connect(g);g.connect(actx.destination);o.start(actx.currentTime);o.stop(actx.currentTime+.15)}catch(e){}})})}}catch(e){}})();
 </script>
 </body>
 </html>

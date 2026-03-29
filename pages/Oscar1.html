@@ -630,12 +630,85 @@ main{position:relative;z-index:2;padding-top:80px}
   100%{transform:scale(1) rotate(0)}
 }
 
+/* ══ CONVERSION GAP SECTION ══ */
+.gap-section{
+  padding:5rem 1.5rem 4rem;position:relative;
+  border-top:1px solid rgba(201,163,74,.06);
+}
+.gap-inner{max-width:700px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center}
+.gap-title{font-family:var(--fb);font-size:clamp(1.1rem,2.8vw,1.8rem);letter-spacing:.08em;
+  color:var(--cr);font-weight:500;line-height:1.4}
+.gap-title em{font-style:italic;color:var(--g1)}
+.gap-items{display:flex;flex-direction:column;gap:1rem;width:100%;text-align:left}
+.gap-item{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem 1.5rem;border-radius:12px;
+  background:rgba(201,163,74,.025);border:1px solid rgba(201,163,74,.08);
+  transition:background .3s,border-color .3s,transform .3s}
+.gap-item:hover{background:rgba(201,163,74,.05);border-color:rgba(201,163,74,.18);transform:translateX(4px)}
+.gap-icon{width:34px;height:34px;border-radius:8px;flex-shrink:0;
+  background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.15);
+  display:grid;place-items:center;margin-top:.1rem}
+.gap-icon svg{width:16px;height:16px;stroke:var(--g2);stroke-width:2;fill:none}
+.gap-text{font-family:var(--fd);font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--bn);line-height:1.6;font-weight:300}
+.gap-text strong{color:var(--g1);font-weight:500;font-style:normal}
+
+/* ══ BRIDGE TRANSITION ══ */
+.bridge-line{
+  font-family:var(--fd);font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;font-style:italic;
+  color:var(--g0);max-width:600px;margin:0 auto;text-align:center;
+  padding:2.5rem 1.5rem;line-height:1.6;
+  background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(201,163,74,.02));
+  border-top:1px solid rgba(201,163,74,.06);
+  border-bottom:1px solid rgba(201,163,74,.06);
+}
+.bridge-line strong{font-weight:600;color:var(--wh);font-style:normal}
+
+/* ══ UNLOCK OUTCOMES SECTION ══ */
+.unlock-section{
+  padding:4rem 1.5rem 5rem;position:relative;
+}
+.unlock-inner{max-width:700px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+.unlock-header{text-align:center}
+.unlock-eyebrow{font-family:var(--fb);font-size:.58rem;letter-spacing:.3em;color:var(--g2);
+  text-transform:uppercase;display:flex;align-items:center;gap:12px;
+  margin-bottom:1rem}
+.unlock-eyebrow::before,.unlock-eyebrow::after{content:'';height:1px;width:30px;background:rgba(201,163,74,.25)}
+.unlock-title{font-family:var(--fb);font-size:clamp(1.3rem,3.2vw,2.2rem);letter-spacing:.08em;
+  color:var(--cr);font-weight:500;line-height:1.3}
+.unlock-outcomes{display:flex;flex-direction:column;gap:.75rem;width:100%}
+.unlock-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.5rem;border-radius:12px;
+  background:rgba(201,163,74,.035);border:1px solid rgba(201,163,74,.12);
+  transition:background .3s,border-color .3s,transform .3s}
+.unlock-item:hover{background:rgba(201,163,74,.06);border-color:rgba(201,163,74,.22);transform:translateX(5px)}
+.unlock-icon{width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);
+  display:grid;place-items:center;margin-top:.05rem}
+.unlock-icon svg{width:15px;height:15px;stroke:var(--g1);stroke-width:2.5;fill:none}
+.unlock-text{font-family:var(--fd);font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--bn);line-height:1.6;font-weight:300}
+.unlock-text strong{color:var(--cr);font-weight:500;font-style:normal}
+
+/* ══ MOMENTUM LINE ══ */
+.momentum-line{
+  font-family:var(--fd);font-size:clamp(1rem,2.2vw,1.35rem);font-weight:300;font-style:italic;
+  color:var(--g1);max-width:500px;margin:0 auto;text-align:center;line-height:1.6;
+  padding:1rem 0;
+}
+.momentum-line strong{color:var(--wh);font-weight:500;font-style:normal}
+
+/* ══ CTA URGENCY ══ */
+.cta-urgency{
+  font-family:var(--fs);font-size:.82rem;color:var(--as);
+  margin-top:-1rem;text-align:center;
+  display:flex;align-items:center;gap:6px;justify-content:center;
+}
+.cta-urgency svg{width:14px;height:14px;stroke:var(--g2);stroke-width:2;fill:none;flex-shrink:0}
+
 /* ══ PRINT STYLES ══ */
 @media print{
   body{background:#fff;cursor:auto}
   #loader,#cur,#cur-r,#blob,#bgc,#confetti-canvas,.orb,
   .hdr,.announce,.stats-section,.identity-section,.path-section,
   .next-section,.fomo-section,.cta-section,.footer,
+  .gap-section,.bridge-line,.unlock-section,
   .cert-edit-hint,.cert-print-btn,.cert-badge-row{display:none!important}
   .cert-section{padding:0}
   .cert-wrap{opacity:1!important;animation:none!important;max-width:100%}
@@ -872,6 +945,88 @@ main{position:relative;z-index:2;padding-top:80px}
       Print / Save Certificate
     </button>
 
+  </section>
+
+  <!-- ══ CONVERSION GAP ══ -->
+  <section class="gap-section">
+    <div class="gap-inner reveal">
+      <h2 class="gap-title">What you still haven't done yet<em> (even after completing Level 1):</em></h2>
+      <div class="gap-items">
+        <div class="gap-item reveal reveal-delay-1">
+          <div class="gap-icon">
+            <svg viewBox="0 0 20 20"><path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5Z"/></svg>
+          </div>
+          <div class="gap-text">
+            You haven't built a <strong>real working AI agent</strong> in your business — simulation is not deployment
+          </div>
+        </div>
+        <div class="gap-item reveal reveal-delay-2">
+          <div class="gap-icon">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M10 6V10L13 13"/></svg>
+          </div>
+          <div class="gap-text">
+            You haven't <strong>connected tools to real workflows</strong> — theory doesn't save you time
+          </div>
+        </div>
+        <div class="gap-item reveal reveal-delay-3">
+          <div class="gap-icon">
+            <svg viewBox="0 0 20 20"><polyline points="3,14 7,9 11,12 17,5"/><line x1="15" y1="5" x2="17" y2="5"/><line x1="17" y1="5" x2="17" y2="7"/></svg>
+          </div>
+          <div class="gap-text">
+            You haven't <strong>measured real results</strong> — true ROI starts after Level 2
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BRIDGE TRANSITION ══ -->
+  <div class="bridge-line reveal">
+    This is what Level 2 is about — <strong>not learning more, but activating what you already know.</strong>
+  </div>
+
+  <!-- ══ UNLOCK LEVEL 2 OUTCOMES ══ -->
+  <section class="unlock-section">
+    <div class="unlock-inner">
+      <div class="unlock-header reveal">
+        <div class="unlock-eyebrow">WHAT YOU UNLOCK</div>
+        <h2 class="unlock-title">What you unlock in Level 2:</h2>
+      </div>
+      <div class="unlock-outcomes">
+        <div class="unlock-item reveal reveal-delay-1">
+          <div class="unlock-icon">
+            <svg viewBox="0 0 20 20"><path d="M3 17V7L10 3l7 4v10H3z"/><rect x="7" y="12" width="6" height="5" rx=".5"/></svg>
+          </div>
+          <div class="unlock-text">
+            <strong>Build your first real AI agent</strong> connected to your business
+          </div>
+        </div>
+        <div class="unlock-item reveal reveal-delay-2">
+          <div class="unlock-icon">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M10 7v3l2 2"/><path d="M5.5 5.5l9 9"/></svg>
+          </div>
+          <div class="unlock-text">
+            <strong>Automate one real process</strong> from start to finish
+          </div>
+        </div>
+        <div class="unlock-item reveal reveal-delay-3">
+          <div class="unlock-icon">
+            <svg viewBox="0 0 20 20"><polyline points="3,14 7,9 11,12 17,5"/><line x1="15" y1="5" x2="17" y2="5"/><line x1="17" y1="5" x2="17" y2="7"/></svg>
+          </div>
+          <div class="unlock-text">
+            <strong>Track measurable time or revenue impact</strong> from your AI deployment
+          </div>
+        </div>
+        <div class="unlock-item reveal reveal-delay-4">
+          <div class="unlock-icon">
+            <svg viewBox="0 0 20 20"><path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5Z"/></svg>
+          </div>
+          <div class="unlock-text">
+            <strong>Deploy something that actually works</strong> in production — not theory, results
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══ STATS ══ -->
@@ -1128,10 +1283,19 @@ main{position:relative;z-index:2;padding-top:80px}
       <span class="cta-pill"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2.5"/></svg> Level II available now</span>
     </div>
 
+    <div class="momentum-line reveal">
+      You've built the foundation — now it's time to <strong>make it real.</strong>
+    </div>
+
     <button class="btn-cta" onclick="window.location.href='paywall.html'">
-      Continue Your Path to Mastery
+      Unlock Level 2 — $19 only (no subscription)
       <svg viewBox="0 0 20 20"><line x1="4" y1="10" x2="16" y2="10"/><polyline points="11,5 16,10 11,15"/></svg>
     </button>
+
+    <div class="cta-urgency reveal">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5"/><path d="M8 5V9"/><circle cx="8" cy="11.5" r=".8" fill="currentColor" stroke="none"/></svg>
+      Start now and apply what you just learned while it's fresh
+    </div>
 
     <div class="cta-trust">TRUSTED CURRICULUM · BUILT FOR BUSINESS OWNERS · NOT DEVELOPERS</div>
   </section>
