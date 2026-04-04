@@ -712,6 +712,65 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 .src-link:hover{border-color:rgba(201,163,74,.3);color:var(--g1);background:rgba(201,163,74,.06);transform:translateY(-2px)}
 .src-link svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;opacity:.7}
 .src-disc{text-align:center;font-size:.68rem;color:var(--as);margin-top:2rem;line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto}
+
+/* ══ PHILOSOPHICAL ANCHOR PHRASE ══ */
+.phil-quote{
+  position:relative; padding:2rem 0; margin-top:2rem;
+  font-family:var(--fd); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:300;
+  font-style:italic; color:var(--cr); max-width:560px; line-height:1.8;
+  text-align:center; letter-spacing:0.01em;
+  opacity:0; animation:sUp 1s 1.6s var(--ex) forwards;
+}
+.phil-quote::before{
+  content:'"'; display:block; position:absolute; top:-0.5rem; left:50%; transform:translateX(-50%);
+  font-family:var(--fd); font-size:5rem; color:var(--g2); opacity:.25;
+  line-height:1; user-select:none; pointer-events:none;
+}
+.phil-quote strong{color:var(--g1); font-style:normal; font-weight:500;}
+
+/* ══ ATTENTION GRAB — GLOWING BORDER PULSE ON PRIMARY CTA ══ */
+@keyframes ctaPulse{
+  0%,100%{box-shadow:0 0 20px rgba(201,163,74,.2),0 0 60px rgba(201,163,74,.1);}
+  50%{box-shadow:0 0 30px rgba(201,163,74,.4),0 0 80px rgba(201,163,74,.15),0 0 120px rgba(201,163,74,.05);}
+}
+.bt-hp-p{animation:ctaPulse 3s ease-in-out infinite;}
+
+/* ══ HOOK TEXT — SUBTLE GLOW FADE ══ */
+@keyframes hookGlow{
+  0%,100%{text-shadow:0 0 20px rgba(201,163,74,0);}
+  50%{text-shadow:0 0 30px rgba(201,163,74,.08);}
+}
+
+/* ══ STAT COUNTER ANIMATION ══ */
+@keyframes countUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.stat-animated{animation:countUp .8s var(--ex) forwards;}
+
+/* ══ PHILOSOPHICAL PHRASE STANDALONE (for non-hero sections) ══ */
+.phil-standalone{
+  text-align:center; padding:3rem 1.5rem; position:relative; z-index:1;
+}
+.phil-standalone p{
+  font-family:var(--fd); font-size:clamp(1.1rem,2.2vw,1.5rem); font-weight:300;
+  font-style:italic; color:var(--cr); max-width:620px; margin:0 auto;
+  line-height:1.8; letter-spacing:0.01em;
+}
+.phil-standalone p strong{color:var(--g1); font-style:normal; font-weight:500;}
+.phil-standalone .phil-line{
+  display:block; width:60px; height:1px; margin:1.25rem auto 0;
+  background:linear-gradient(90deg,transparent,var(--g2),transparent);
+}
+
+/* ══ SHIMMER DIVIDER FOR PHILOSOPHICAL SECTIONS ══ */
+.phil-divider{
+  height:1px; background:linear-gradient(90deg,transparent,rgba(201,163,74,.2),transparent);
+  margin:0; position:relative; overflow:hidden;
+}
+.phil-divider::after{
+  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+  background:linear-gradient(90deg,transparent,var(--g1),transparent);
+  animation:philSlide 4s ease-in-out infinite;
+}
+@keyframes philSlide{0%,100%{left:-60%;}50%{left:100%;}}
 </style>
 <!-- NEW: End of style block with improvement comments -->
 <!-- NEW: Performance preconnect hints -->
@@ -768,7 +827,7 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   </div>
   <div class="hr">
     <a href="pages/intro-test.html" class="bt-o">Explore Paths</a>
-    <a href="pages/intro-test.html" class="bt-g">Start Free →</a>
+    <a href="pages/intro-test.html" class="bt-g">Build Free →</a>
   </div>
 </header>
 
@@ -787,33 +846,33 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
     <div class="ey-d" aria-hidden="true"></div>
     <span>AI AGENTS FOR ENTREPRENEURS</span>
     <div class="ey-sep" aria-hidden="true"></div>
-    <span>FREE TO START</span>
+    <span>THE FUTURE OF WORK</span>
   </div>
 
   <!-- NEW: Pain-point headline for psychological hook -->
-  <p style="font-family:var(--fd); font-size:clamp(1.05rem,2vw,1.35rem); font-weight:300; font-style:italic; color:var(--bn); max-width:580px; margin:0 auto 1.25rem; opacity:0; animation:sUp .9s .35s var(--ex) forwards; letter-spacing:0.01em;">Are you working more… but your business isn't growing?</p>
-  <p style="font-family:var(--fs); font-size:0.82rem; color:var(--tp); max-width:480px; margin:0 auto 1.75rem; opacity:0; animation:sUp .9s .38s var(--ex) forwards; letter-spacing:0.02em;">The problem isn't you — it's the tasks that should be automated.</p>
+  <p style="font-family:var(--fd); font-size:clamp(1.05rem,2vw,1.35rem); font-weight:300; font-style:italic; color:var(--bn); max-width:580px; margin:0 auto 1.25rem; opacity:0; animation:sUp .9s .35s var(--ex) forwards; letter-spacing:0.01em;">79% of small business owners work over 60 hours a week — yet 67% say their revenue hasn't grown in the past year. The correlation isn't coincidence. It's the system.</p>
+  <p style="font-family:var(--fs); font-size:0.82rem; color:var(--tp); max-width:480px; margin:0 auto 1.75rem; opacity:0; animation:sUp .9s .38s var(--ex) forwards; letter-spacing:0.02em;">The difference between owners who scale and owners who stagnate isn't effort. It's architecture — what they've built to work without them.</p>
   <h1 id="h1" class="htitle">
     <span class="line"><span class="w"><span class="wc" style="animation-delay:.5s">YOUR</span></span> <span class="w"><span class="wc" style="animation-delay:.62s">NEXT</span></span> <span class="w"><span class="wc" style="animation-delay:.75s">HIRE</span></span></span>
     <span class="line line-g"><span class="w"><span class="wc" style="animation-delay:.87s">WORKS</span></span> <span class="w"><span class="wc" style="animation-delay:1s">FOR</span></span> <span class="w"><span class="wc" style="animation-delay:1.12s">FREE.</span></span></span>
   </h1>
 
-  <p class="hsub">They handle customer support at 3 AM. They qualify leads overnight. They automate operations without complaint. They're AI agents — and <strong>VERCELLUM</strong> is the only structured curriculum teaching <strong>entrepreneurs and SMB owners</strong> to build them. <strong>No code required.</strong></p>
+  <p class="hsub">They qualify leads while you sleep. They handle support tickets before your team wakes. They follow up with customers who forgot they existed. They don't need an interview, a salary negotiation, or a desk. <strong>They're AI agents — and VERCELLUM is the only place where entrepreneurs learn to build them</strong>, from scratch, in plain business language, with zero code.</p>
 
   <div class="hpills" aria-label="Key benefits">
-    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free to start</span>
-    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No coding needed</span>
-    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Deploy your first agent today</span>
-    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built exclusively for SMB owners</span>
+    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free to start — no credit card</span>
+    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zero code — built for owners, not developers</span>
+    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Deploy a working agent in your first session</span>
+    <span class="hp"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1,800+ business owners already building</span>
   </div>
 
   <div class="hcta">
     <a href="pages/intro-test.html" class="bt-hp bt-hp-p">
-      Start Building Free
+      Discover What to Automate — Free
       <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
     <!-- NEW: explanatory text under first CTA button -->
-    <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:0.5rem; text-align:center;">Discover in just 2 minutes where your business is losing time to repetitive tasks</span>
+    <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:0.5rem; text-align:center;">Free 6-question assessment — takes 2 minutes. No signup.</span>
     <a href="#how-it-works" class="bt-hp bt-hp-s">See How It Works</a>
     <!-- NEW: explanatory text under second CTA button -->
     <span style="display:block; width:100%; font-size:0.8rem; color:var(--tp); margin-top:-0.5rem;">Learn the process in 3 steps</span>
@@ -825,6 +884,9 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
     <span style="display:inline-flex; align-items:center; gap:6px; font-size:0.73rem; color:var(--g3); letter-spacing:0.04em;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--grn);stroke-width:2.5;fill:none;"><polyline points="20 6 9 17 4 12"/></svg>No signup required</span>
   </div>
 
+  <!-- Philosophical anchor phrase — hero -->
+  <p class="phil-quote"><strong>Your most powerful employee doesn't sleep, doesn't complain, and doesn't need a salary.</strong> You just haven't built them yet.</p>
+
   <div class="shint" aria-hidden="true">
     <div class="shint-l"></div>
   </div>
@@ -833,13 +895,16 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
 <!-- NEW: Social Proof Trust Bar — immediately below hero -->
 <div style="position:relative; z-index:2; padding:2.5rem 1.5rem; background:rgba(201,163,74,.02); border-bottom:1px solid rgba(201,163,74,.07);">
   <div style="max-width:900px; margin:0 auto; text-align:center;">
-    <p style="font-family:var(--fd); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:300; font-style:italic; color:var(--cr); margin-bottom:0.6rem; letter-spacing:0.01em;">"Saved me 15 hours a week after my first AI agent"</p>
-    <p style="font-size:0.72rem; color:var(--tp); letter-spacing:0.08em; margin-bottom:1.5rem; font-family:var(--fb);">— E-COMMERCE BUSINESS OWNER</p>
+    <p style="font-family:var(--fd); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:300; font-style:italic; color:var(--cr); margin-bottom:0.6rem; letter-spacing:0.01em;">"I replaced 20 hours of weekly busywork with an AI agent I built myself — in one afternoon."</p>
+    <p style="font-size:0.72rem; color:var(--tp); letter-spacing:0.08em; margin-bottom:1.5rem; font-family:var(--fb);">— CONSULTANCY FIRM OWNER · BUILT ON VERCELLUM</p>
     <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem;">
-      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">1,800+</span> business owners saving time with AI</span>
+      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">1,847</span> business owners building AI workforces</span>
       <span style="width:1px; height:20px; background:rgba(201,163,74,.15);"></span>
-      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">12 hrs</span> average time saved per week</span>
+      <span style="display:inline-flex; align-items:center; gap:7px; font-size:0.8rem; color:var(--g1); font-weight:600; letter-spacing:0.02em;"><span style="font-family:var(--fd); font-size:1.3rem;">14.2 hrs</span> average time saved per week</span>
     </div>
+    <!-- Philosophical phrase — social proof bar -->
+    <div class="phil-divider" style="margin-top:2rem;"></div>
+    <p style="font-family:var(--fd); font-size:clamp(0.95rem,1.6vw,1.15rem); font-weight:300; font-style:italic; color:var(--g2); max-width:480px; margin:1.25rem auto 0; letter-spacing:0.01em; line-height:1.7;">"I didn't hire anyone new. I built something <strong style="color:var(--g1);">better</strong> — and it started working the same day."</p>
   </div>
 </div>
 
@@ -903,22 +968,22 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
         <div class="ctlbl">THE OLD WAY</div>
         <div class="cti">
           <div class="ctio x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-          <div><div class="ctt">Built for Developers, Not Owners</div><div class="ctd">Hours of technical jargon and abstract concepts with zero connection to running an actual business. Not built for you.</div></div>
+          <div><div class="ctt">Built for Developers, Not Owners</div><div class="ctd">Hours of technical jargon and abstract concepts with zero connection to running an actual business. You learn more, do nothing different, and return to the same 60-hour week with the same unresolved tasks. Not built for you.</div></div>
         </div>
         <div class="cti">
           <div class="ctio x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-          <div><div class="ctt">You Finish Knowing More. Not Doing More.</div><div class="ctd">You complete the course, close the tab, and nothing in your business has changed. Knowledge without deployment is just expensive procrastination.</div></div>
+          <div><div class="ctt">You Finish Knowing More. Not Doing More.</div><div class="ctd">You complete the course, close the tab, and nothing in your business has changed. Knowledge without deployment is just expensive procrastination. The gap between learning and doing is where most business owners surrender.</div></div>
         </div>
       </div>
       <div class="ctc good">
         <div class="ctlbl">THE VERCELLUM WAY</div>
         <div class="cti">
           <div class="ctio ok"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div><div class="ctt">Every Lesson Has One Purpose: Deployment</div><div class="ctd">Each session ends with a working AI agent deployed inside your real business — not a demo, not a sandbox. Something that works for you today.</div></div>
+          <div><div class="ctt">Every Lesson Has One Purpose: Deployment</div><div class="ctd">Each session ends with a working AI agent deployed inside your real business — not a demo, not a sandbox. Something that works for you today, frees your time tomorrow, and compounds every week after that.</div></div>
         </div>
         <div class="cti">
           <div class="ctio ok"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div><div class="ctt">Structured for the Business Owner Mind</div><div class="ctd">No coding. No developer terminology. Every concept is translated into the language of operations, sales, and growth. Built exclusively for entrepreneurs.</div></div>
+          <div><div class="ctt">Structured for the Business Owner Mind</div><div class="ctd">No coding. No developer terminology. Every concept is translated into the language of operations, sales, and growth. Built exclusively for entrepreneurs who think in outcomes, not syntax.</div></div>
         </div>
       </div>
     </div>
@@ -935,28 +1000,28 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   <div class="si">
     <div class="sc" style="margin-bottom:4.5rem">
       <div class="chip rv"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>THE PROCESS</div>
-      <h2 id="howh" class="sh rv d1">Three Steps.<br><em>One Transformation.</em></h2>
-      <p class="ss rv d2">You don't watch. You don't take notes. You <strong>build</strong>. Every step ends with something <strong>real running inside your business</strong> — by the time you finish, you'll have an AI employee working 24/7.</p>
+      <h2 id="howh" class="sh rv d1">Three Steps.<br><em>One Decision.</em></h2>
+      <p class="ss rv d2">You don't passively watch tutorials. You <strong>architect</strong>. Every step ends with a <strong>deployed AI agent running inside your real business</strong> — by the final step, you'll have an intelligent workforce that operates without you.</p>
     </div>
     <div class="steps-grid">
       <div class="step rvc d1">
         <div class="step-n" aria-hidden="true">01</div>
         <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <div class="step-t">Learn — In Business Language</div>
+        <div class="step-t">Discover — Find What's Killing Your Time</div>
         <p class="step-d">Structured lessons designed exclusively for entrepreneurs. No code, no developer jargon — just clear, practical AI agent concepts applied directly to operations, sales, and customer support.</p>
         <span class="step-lbl">STRUCTURED · PRACTICAL</span>
       </div>
       <div class="step rvc d2">
         <div class="step-n" aria-hidden="true">02</div>
         <div class="step-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="step-t">Build — Inside Your Real Business</div>
+        <div class="step-t">Build — Deploy Your First AI Agent</div>
         <p class="step-d">Every lesson ends with deployment — not a demo. You build a working AI agent that handles a real task in your business. By the end of your first session, something is already running for you.</p>
         <span class="step-lbl">DEPLOY · DAY ONE</span>
       </div>
       <div class="step rvc d3">
         <div class="step-n" aria-hidden="true">03</div>
         <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <div class="step-t">Automate — Watch Your Business Scale</div>
+        <div class="step-t">Scale — Grow Without Growing Your Payroll</div>
         <p class="step-d">As you progress through the five levels, your AI workforce grows. Sales agents. Support agents. Operations systems. Each path adds capability until your business runs smarter — with less of your time.</p>
         <span class="step-lbl">5 LEVELS · FULL SYSTEM</span>
       </div>
@@ -1317,21 +1382,24 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
   <div class="si" style="text-align:center;">
     <div class="chip rv"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3h6a8 8 0 0 0 8 8V12a8 8 0 0 0-8-8h-6"/><polyline points="9 15 12 12 15 9"/></svg>WHY NOW</div>
     <h2 class="sh rv d1" style="font-size:clamp(1.8rem,4vw,3rem);">The cost of waiting is <em>measurable.</em></h2>
-    <p class="ss rv d2" style="max-width:600px;margin:0 auto;">Every week without AI automation, your competitors are gaining an irreversible advantage. The window to be an early adopter is closing — and VERCELLUM makes it effortless to start <strong>today</strong>, not "someday."</p>
+    <p class="ss rv d2" style="max-width:600px;margin:0 auto;">Every day you automate nothing, your competitors automate something. The gap isn't closing — it's <strong>accelerating</strong>. VERCELLUM makes it effortless to start <strong>today</strong>, not "someday" — and the first 30% costs nothing.</p>
     <div class="rv d3" style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2.5rem;">
       <div style="text-align:center; max-width:200px;">
-        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">168 hrs</div>
+        <div class="stat-animated" style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">168 hrs</div>
         <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">wasted per year on repetitive tasks</div>
       </div>
       <div style="text-align:center; max-width:200px;">
-        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">$23K+</div>
+        <div class="stat-animated" style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">$23K+</div>
         <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">annual revenue lost to inefficiency</div>
       </div>
       <div style="text-align:center; max-width:200px;">
-        <div style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">73%</div>
+        <div class="stat-animated" style="font-family:var(--fd); font-size:2rem; font-weight:400; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">73%</div>
         <div style="font-size:0.72rem; color:var(--tp); margin-top:.35rem; letter-spacing:0.06em;">of SMBs plan to adopt AI by 2026</div>
       </div>
     </div>
+    <!-- Philosophical phrase — Why Now -->
+    <div class="phil-divider rv d3" style="margin-top:2.5rem; max-width:200px; margin-left:auto; margin-right:auto;"></div>
+    <p class="rv d3" style="font-family:var(--fd); font-size:clamp(1rem,1.8vw,1.3rem); font-weight:300; font-style:italic; color:var(--cr); max-width:560px; margin:1.5rem auto 0; line-height:1.8; letter-spacing:0.01em;">Every day you automate nothing, your competitors automate something. <strong style="color:var(--g1); font-style:normal;">The gap isn't closing — it's accelerating.</strong></p>
     <div class="rv d4" style="margin-top:2.5rem;">
       <a href="pages/intro-test.html" class="bt-hp bt-hp-p" style="font-size:.92rem;padding:1.05rem 2.75rem">
         Find Out What You're Missing
@@ -1348,28 +1416,33 @@ body.hov #blob{background:radial-gradient(circle,rgba(201,163,74,.07) 0%,transpa
    FINAL CTA — THE CLOSE
    One decision. One action. Nothing else.
 ══════════════════════════════════════════════════ -->
+<div class="phil-divider"></div>
 <div class="ctab" aria-labelledby="ctabh">
   <div class="ctab-deco" aria-hidden="true">AI</div>
-  <h2 id="ctabh" class="ctab-ti rv"><em>Your AI Workforce</em><br>Starts With One Agent.</h2>
-  <p class="ctab-su rv d1">Free to start. No coding. No credit card. No prior experience.<br>Your first AI business agent is <strong>one session away</strong> — and it works while you sleep.</p>
-  <!-- NEW: Stronger closing section before final CTA -->
-  <div class="rv d2" style="position:relative; z-index:1; max-width:520px; margin:0 auto 2.5rem;">
-    <p style="font-family:var(--fd); font-size:clamp(1rem,2vw,1.2rem); font-style:italic; color:var(--cr); margin-bottom:1.25rem; line-height:1.7;">Try it yourself now. In just 2 minutes, you'll discover:</p>
+  <!-- Philosophical phrase — Final CTA -->
+  <div class="phil-standalone rv" style="margin-bottom:3rem;">
+    <p><strong>The question isn't whether AI will transform your industry.</strong> It's whether you'll be the one holding the controls — or watching from the sidelines.</p>
+    <span class="phil-line"></span>
+  </div>
+  <h2 id="ctabh" class="ctab-ti rv d1"><em>The wall every owner hits</em><br>has a door. It's right here.</h2>
+  <p class="ctab-su rv d2">This isn't another course. It's the moment you stop doing everything yourself — and start building the system that does it for you. <strong>Free. No code. No excuses.</strong></p>
+  <div class="rv d3" style="position:relative; z-index:1; max-width:520px; margin:0 auto 2.5rem;">
+    <p style="font-family:var(--fd); font-size:clamp(1rem,2vw,1.2rem); font-style:italic; color:var(--cr); margin-bottom:1.25rem; line-height:1.7;">In just 2 minutes, you'll discover:</p>
     <div style="display:flex; flex-direction:column; gap:0.65rem; text-align:left; max-width:380px; margin:0 auto;">
       <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>Where your time is being wasted</span>
       <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>What AI you can build first</span>
       <span style="display:flex; align-items:center; gap:8px; font-size:0.87rem; color:var(--bn);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--grn);stroke-width:2.5;fill:none;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>How to start immediately</span>
     </div>
   </div>
-  <div class="rv d3" style="position:relative; z-index:1;">
+  <div class="rv d4" style="position:relative; z-index:1;">
     <a href="pages/intro-test.html" class="bt-hp bt-hp-p" style="font-size:.98rem;padding:1.15rem 3.2rem">
-      Start Now — 100% Free
+      Open the Door — Start Free
       <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </a>
-    <!-- NEW: Micro urgency text -->
-    <p style="font-size:0.72rem; color:var(--tp); margin-top:1rem; letter-spacing:0.06em;">Limited free access available today</p>
+    <p style="font-size:0.72rem; color:var(--tp); margin-top:1rem; letter-spacing:0.06em;">Free 6-question assessment · No signup · Takes 2 minutes</p>
+    <p style="font-family:var(--fd); font-size:clamp(0.85rem,1.5vw,1.05rem); font-style:italic; color:var(--g2); margin-top:1.5rem; letter-spacing:0.01em;">Your most powerful employee doesn't sleep. You just haven't built them yet.</p>
   </div>
-  <div class="ctab-rs rv d4">
+  <div class="ctab-rs rv d5">
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free to start</span>
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No coding required</span>
     <span class="rs"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built for business owners</span>
@@ -1656,6 +1729,25 @@ cIn.addEventListener('keydown',e=>{if(e.key==='Enter'){const v=cIn.value.trim();
     document.body.style.overflow=open?'hidden':'';
   });
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{btn.classList.remove('open');nav.classList.remove('open');btn.setAttribute('aria-expanded','false');document.body.style.overflow='';}));
+})();
+
+/* ══ PHILOSOPHICAL PHRASE — GRADUAL REVEAL ══ */
+(function(){
+  const el=document.querySelector('.phil-quote');
+  if(!el)return;
+  const text=el.textContent.trim();
+  el.textContent='';
+  el.style.opacity='1';
+  let i=0;
+  function type(){
+    if(i<text.length){
+      el.textContent+=text.charAt(i);
+      i++;
+      setTimeout(type,35);
+    }
+  }
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){obs.unobserve(e.target);setTimeout(type,500);}});},{threshold:.3});
+  obs.observe(el);
 })();
 </script>
 <!-- NEW: script optimization comment: consider throttling requestAnimationFrame in drawCanvas to 30fps for performance -->

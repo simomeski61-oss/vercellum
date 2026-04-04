@@ -903,6 +903,195 @@ button:focus-visible{
 .st{ flex:1; background:rgba(201,163,74,.025); border:1px solid rgba(201,163,74,.1); border-radius:12px; padding:.95rem .75rem; text-align:center; backdrop-filter:blur(8px) }
 .st-n{ font-family:'Cinzel Decorative',serif; font-size:1.38rem; font-weight:700; color:transparent; background:linear-gradient(135deg,var(--g0),var(--g1)); -webkit-background-clip:text; background-clip:text; display:block; margin-bottom:.2rem }
 .st-l{ font-family:var(--fb); font-size:.41rem; letter-spacing:.17em; color:var(--tp) }
+
+/* ═══ v9: CONVERSION ANIMATIONS ═══ */
+/* Typewriter hook — 3-second attention grab */
+.hook-typewriter{
+  display:inline-block; overflow:hidden; white-space:nowrap;
+  border-right:2px solid var(--g1); animation:typewriterCursor .6s step-end infinite;
+  max-width:0; animation:typewriterOpen 2.2s var(--ex) forwards, typewriterCursor .6s step-end infinite;
+}
+@keyframes typewriterOpen{ from{max-width:0} to{max-width:42ch} }
+@keyframes typewriterCursor{ from,to{border-color:var(--g1)} 50%{border-color:transparent} }
+
+/* Philosophical line — subtle golden glow pulse */
+.philosophical-line{
+  animation:philGlow 3.5s ease-in-out infinite;
+}
+@keyframes philGlow{
+  0%,100%{ filter:drop-shadow(0 0 8px rgba(201,163,74,.06)) }
+  50%{ filter:drop-shadow(0 0 20px rgba(201,163,74,.14)) }
+}
+
+/* Value item — gentle float accent */
+.val-float{ animation:valFloat 3s ease-in-out infinite }
+.val-float:nth-child(2){ animation-delay:.4s }
+.val-float:nth-child(3){ animation-delay:.8s }
+.val-float:nth-child(4){ animation-delay:1.2s }
+@keyframes valFloat{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-3px) } }
+
+/* Level pathway — step reveal */
+.level-step{ opacity:0; animation:stepReveal .6s var(--ex) forwards }
+.level-step:nth-child(1){ animation-delay:.1s }
+.level-step:nth-child(2){ animation-delay:.35s }
+.level-step:nth-child(3){ animation-delay:.6s }
+.level-step:nth-child(4){ animation-delay:.85s }
+@keyframes stepReveal{ from{opacity:0;transform:translateX(-10px)} to{opacity:1;transform:none} }
+
+/* CTA shimmer sweep */
+.cta-shimmer{ position:relative; overflow:hidden }
+.cta-shimmer::after{
+  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  animation:shimmerSweep 3s ease-in-out infinite;
+}
+@keyframes shimmerSweep{ 0%{left:-100%} 50%{left:150%} 100%{left:150%} }
+
+/* Price glow breathe */
+.price-breathe{ animation:priceBreathe 4s ease-in-out infinite }
+@keyframes priceBreathe{
+  0%,100%{ filter:drop-shadow(0 0 30px rgba(201,163,74,.1)) }
+  50%{ filter:drop-shadow(0 0 55px rgba(201,163,74,.2)) }
+}
+
+/* Number count-in animation placeholder */
+.count-in{ display:inline-block }
+
+/* v9: Price pulse animation */
+.price-pulse{ animation:pricePulse 2s ease-in-out infinite }
+@keyframes pricePulse{
+  0%,100%{ transform:scale(1); filter:drop-shadow(0 0 30px rgba(201,163,74,.12)) }
+  50%{ transform:scale(1.04); filter:drop-shadow(0 0 60px rgba(201,163,74,.25)) }
+}
+
+/* v9: Early Access badge */
+.early-badge{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem 1.1rem; border-radius:50px;
+  background:linear-gradient(135deg,rgba(201,163,74,.1),rgba(201,163,74,.04));
+  border:1px solid rgba(201,163,74,.3);
+  font-family:var(--fb); font-size:.42rem; letter-spacing:.2em; color:var(--g0);
+  animation:popGlow 2.5s ease-in-out infinite alternate;
+  backdrop-filter:blur(8px);
+}
+
+/* v9: Limited Offer badge */
+.limited-badge{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.3rem .95rem; border-radius:50px;
+  background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.25);
+  font-family:var(--fb); font-size:.4rem; letter-spacing:.18em; color:var(--red);
+  animation:urgP 2.5s ease-in-out infinite;
+  backdrop-filter:blur(8px);
+}
+
+/* v9: Spots progress bar */
+.spots-progress{
+  width:100%; max-width:420px; margin:.85rem auto 0;
+  background:rgba(6,5,3,.5); border:1px solid rgba(248,113,113,.15);
+  border-radius:14px; padding:.85rem 1.1rem;
+  backdrop-filter:blur(10px);
+}
+.spots-progress .sp-head{
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:.55rem;
+}
+.spots-progress .sp-label{
+  font-family:var(--fb); font-size:.4rem; letter-spacing:.16em; color:var(--tp);
+}
+.spots-progress .sp-count{
+  font-family:'Cinzel Decorative',serif; font-size:.65rem; color:var(--red);
+}
+.spots-progress .sp-track{
+  width:100%; height:6px; border-radius:6px; background:rgba(248,113,113,.08); overflow:hidden;
+}
+.spots-progress .sp-fill{
+  height:100%; border-radius:6px;
+  background:linear-gradient(90deg,var(--red),rgba(248,113,113,.6));
+  animation:spotsFill 2.5s ease-out forwards;
+}
+@keyframes spotsFill{ from{width:0%} to{width:93.8%} }
+
+/* v9: Price comparison box */
+.price-compare{
+  width:100%; max-width:480px; margin:1.1rem auto 0;
+  display:grid; grid-template-columns:1fr 1fr; gap:.7rem;
+}
+@media(max-width:480px){ .price-compare{ grid-template-columns:1fr } }
+.price-compare .pc-col{
+  padding:1.1rem 1.2rem; border-radius:16px; text-align:center;
+  position:relative; overflow:hidden;
+  backdrop-filter:blur(12px);
+}
+.price-compare .pc-now{
+  background:rgba(52,211,153,.05); border:2px solid rgba(52,211,153,.25);
+}
+.price-compare .pc-later{
+  background:rgba(248,113,113,.04); border:1px solid rgba(248,113,113,.15);
+  opacity:.7;
+}
+.price-compare .pc-tag{
+  font-family:var(--fb); font-size:.36rem; letter-spacing:.18em;
+  margin-bottom:.35rem; display:block;
+}
+.price-compare .pc-now .pc-tag{ color:var(--grn) }
+.price-compare .pc-later .pc-tag{ color:#FDA4A4 }
+.price-compare .pc-amount{
+  font-family:'Cinzel Decorative',serif; font-size:2.2rem; line-height:1; display:block; margin-bottom:.25rem;
+}
+.price-compare .pc-now .pc-amount{
+  color:transparent; background:linear-gradient(135deg,var(--grn),#34D399);
+  -webkit-background-clip:text; background-clip:text;
+  animation:pricePulse 2s ease-in-out infinite;
+}
+.price-compare .pc-later .pc-amount{
+  color:var(--red); text-decoration:line-through;
+  text-decoration-color:rgba(248,113,113,.5);
+}
+.price-compare .pc-note{
+  font-family:var(--fs); font-size:.5rem; color:var(--tp); line-height:1.5;
+}
+.price-compare .pc-savings{
+  position:absolute; top:-1px; right:-1px;
+  padding:.25rem .65rem; border-radius:0 14px 0 12px;
+  background:linear-gradient(135deg,var(--grn),rgba(52,211,153,.7));
+  font-family:var(--fb); font-size:.32rem; letter-spacing:.12em; color:var(--v);
+}
+
+/* v9: Warning glow */
+.warning-glow{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.45rem 1.15rem; border-radius:50px;
+  background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.3);
+  font-family:var(--fb); font-size:.44rem; letter-spacing:.18em; color:#FDA4A4;
+  animation:warningPulse 1.5s ease-in-out infinite;
+  backdrop-filter:blur(8px);
+}
+@keyframes warningPulse{
+  0%,100%{ box-shadow:0 0 0 rgba(248,113,113,0); border-color:rgba(248,113,113,.3) }
+  50%{ box-shadow:0 0 20px rgba(248,113,113,.15); border-color:rgba(248,113,113,.5) }
+}
+
+/* v9: Unlock All Levels highlight */
+.unlock-highlight{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.4rem 1.2rem; border-radius:50px;
+  background:linear-gradient(135deg,rgba(201,163,74,.12),rgba(201,163,74,.04));
+  border:1px solid rgba(201,163,74,.35);
+  font-family:'Cinzel Decorative',serif; font-size:.55rem; letter-spacing:.12em;
+  color:var(--g0);
+  animation:pricePulse 3s ease-in-out infinite;
+  backdrop-filter:blur(10px);
+}
+
+/* v9: Counter animation */
+.counter-animate{
+  display:inline-block;
+  animation:counterPop .6s var(--bk) both;
+}
+@keyframes counterPop{
+  from{ transform:scale(1.3); opacity:.5 }
+  to{ transform:scale(1); opacity:1 }
+}
 </style>
 </head>
 <body>
@@ -973,8 +1162,21 @@ button:focus-visible{
   setInterval(updateTimer,1000);
 
   /* ══ DYNAMIC SPOTS ══ */
-  let spotsCount=1247;
-  setInterval(()=>{ if(spotsCount>200){ spotsCount-=Math.floor(Math.random()*3)+1; document.querySelectorAll('.spots-num').forEach(el=>el.textContent=spotsCount); } },45000);
+  let spotsCount=31;
+  setInterval(()=>{
+  if(spotsCount>15){
+    spotsCount-=1;
+    document.querySelectorAll('.spots-num').forEach(el=>{
+      el.textContent=spotsCount;
+      el.classList.remove('counter-animate');
+      void el.offsetWidth;
+      el.classList.add('counter-animate');
+    });
+    const pct=((500-spotsCount)/500*100).toFixed(1);
+    document.querySelectorAll('.sp-pct').forEach(el=>el.textContent=pct+'%');
+    document.querySelectorAll('.sp-fill-inner').forEach(el=>el.style.width=pct+'%');
+  }
+},30000);
 
   /* ══ DYNAMIC LAST PURCHASE ══ */
   const pNames=['James R.','Maria L.','Chen W.','Alex K.','Sophie T.','Daniel M.','Priya S.','Tomás G.','Yuki H.','Omar B.'];
@@ -997,13 +1199,37 @@ button:focus-visible{
     {
       id:'hook',ey:null,
       html:`
-        <p class="fade-in" style="font-family:var(--fd);font-size:.82rem;color:var(--tp);font-style:italic;margin-bottom:1.2rem;line-height:1.5">You've completed Level 1 — now it's time to turn knowledge into real results.</p>
-        <div class="td fade-in">You didn't stop.<br>That puts you ahead of 95%.</div>
-        <p class="tb fade-in">Right now, <strong>only 2 to 5 percent of businesses</strong> are actually using AI to run operations. The rest are still reading about it, planning to start "next quarter," or telling themselves <em>"I don't have time for this."</em></p>
-        <p class="tb fade-in">You're here. That signal — the decision to keep going when most business owners close the tab — is the same signal that separates operators who <strong>compound their advantages</strong> from those who stay exactly where they are.</p>
-        <div class="pain-callout fade-in">
-          <div class="pc-label">The real reason most never start</div>
-          <div class="pc-text">It's not cost. It's not complexity. The #1 barrier is <em>time</em> — 37% of SMB owners say they simply don't have the hours to figure out where AI even fits. VERCELLUM removes that barrier entirely.</div>
+        <div class="eb fade-in"><span class="ebd"></span>✓ LESSON 1 COMPLETE · LEVEL 1 UNLOCKED</div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.95rem;color:var(--cr);font-style:italic;margin-bottom:.6rem;line-height:1.5"><em>The future belongs to those who build it — not those who wait for it.</em></p>
+        <div class="td fade-in">Your first lesson<br>proved something about you.</div>
+        <p class="tb fade-in">Most people read about AI. A few <em>build</em> with it. You just completed your first lesson — which means you're not here to watch from the sidelines. You're here because you understand something the majority still doesn't: <strong>the gap between knowing and doing is where all competitive advantage lives.</strong></p>
+        <p class="tb fade-in">Here's what you've already proven: you can learn this. The concepts aren't barriers for you. Now the question isn't whether you <em>can</em> — it's whether you'll <strong>commit to the full system</strong>.</p>
+
+        <div class="fade-in" style="font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--g3);margin:1.2rem 0 .7rem;text-align:center">YOUR COMPLETE LEARNING PATH — 4 LEVELS TO MASTERY</div>
+        <div class="fade-in" style="width:100%;max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:.45rem">
+          <div class="level-step" style="display:flex;align-items:center;gap:.85rem;padding:.75rem 1.1rem;border-radius:12px;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.15)">
+            <span style="font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--grn);flex-shrink:0">✓</span>
+            <div style="flex:1;text-align:left"><span style="font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;color:var(--grn);display:block;margin-bottom:.1rem">LEVEL 1 — FOUNDATION</span><span style="font-family:var(--fs);font-size:.58rem;color:var(--bn)">AI concepts, agent logic, and automation thinking — <em>Complete</em></span></div>
+          </div>
+          <div class="level-step" style="display:flex;align-items:center;gap:.85rem;padding:.75rem 1.1rem;border-radius:12px;background:rgba(201,163,74,.03);border:1px solid rgba(201,163,74,.12)">
+            <span style="font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--g1);flex-shrink:0">◆</span>
+            <div style="flex:1;text-align:left"><span style="font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;color:var(--g1);display:block;margin-bottom:.1rem">LEVEL 2 — BUILDER</span><span style="font-family:var(--fs);font-size:.58rem;color:var(--bn)">Build your first real AI agent — hands-on, no code required</span></div>
+          </div>
+          <div class="level-step" style="display:flex;align-items:center;gap:.85rem;padding:.75rem 1.1rem;border-radius:12px;background:rgba(201,163,74,.03);border:1px solid rgba(201,163,74,.12)">
+            <span style="font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--g1);flex-shrink:0">◆</span>
+            <div style="flex:1;text-align:left"><span style="font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;color:var(--g1);display:block;margin-bottom:.1rem">LEVEL 3 — OPERATOR</span><span style="font-family:var(--fs);font-size:.58rem;color:var(--bn)">Multi-agent workflows, live integrations, business automation</span></div>
+          </div>
+          <div class="level-step" style="display:flex;align-items:center;gap:.85rem;padding:.75rem 1.1rem;border-radius:12px;background:rgba(201,163,74,.03);border:1px solid rgba(201,163,74,.12)">
+            <span style="font-family:'Cinzel Decorative',serif;font-size:.75rem;color:var(--g1);flex-shrink:0">◆</span>
+            <div style="flex:1;text-align:left"><span style="font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;color:var(--g1);display:block;margin-bottom:.1rem">LEVEL 4 — PROFESSIONAL</span><span style="font-family:var(--fs);font-size:.58rem;color:var(--bn)">Advanced systems, certification, and professional mastery</span></div>
+          </div>
+        </div>
+        <div class="unlock-highlight fade-in" style="margin-top:.9rem">🔓 $19 UNLOCKS ALL 4 LEVELS — EVERY LESSON, EVERY LEVEL, EVERYTHING</div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.82rem;color:var(--cr);font-style:italic;margin-top:.7rem;text-align:center;max-width:500px;line-height:1.55"><em>This is not just Level 1 access. For a single payment of <strong style="color:var(--g0)">$19</strong>, you receive <strong style="color:var(--g0)">complete unlocking of all 4 levels</strong> — every remaining lesson in Level 1, plus all of Level 2, Level 3, and Level 4. That's the entire mastery path. One payment. Everything included.</em></p>
+
+        <div class="pain-callout fade-in" style="margin-top:1.1rem">
+          <div class="pc-label">The real reason most never reach mastery</div>
+          <div class="pc-text">It's not cost. It's not complexity. The #1 barrier is <em>momentum</em> — 37% of SMB owners say they simply don't have the hours to figure out where AI even fits. VERCELLUM was built to eliminate that barrier: structured, step-by-step, each lesson under 30 minutes. You've already proven the system works for you.</div>
         </div>
         <div class="research-strip fade-in">
           <div class="rs-item"><span class="rs-num">57%</span><div class="rs-label">of SMBs now investing in AI — a 58% surge in 2 years</div></div>
@@ -1012,6 +1238,15 @@ button:focus-visible{
         </div>
         <div class="identity-line fade-in"><span class="id-dot"></span> YOU'RE IN THE TOP 5% — THE ONES WHO ACTUALLY BUILD</div>
         <div class="urgency-banner fade-in"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>INTRODUCTORY PRICE ENDS IN: <span class="timer"></span></div>
+        <div class="fade-in" style="display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:1rem;flex-wrap:wrap">
+          <div class="early-badge">★ EARLY ACCESS — FOUNDATIONAL OFFER</div>
+          <div class="limited-badge">⚠ ONLY 500 SPOTS TOTAL</div>
+        </div>
+        <div class="spots-progress fade-in">
+          <div class="sp-head"><span class="sp-label">EARLY ACCESS CAPACITY — LIMITED TO 500 PEOPLE</span><span class="sp-count"><span class="spots-num">31</span> SPOTS LEFT</span></div>
+          <div class="sp-track"><div class="sp-fill sp-fill-inner" style="width:93.8%"></div></div>
+        </div>
+        <div class="warning-glow fade-in">◷ &nbsp; ONCE 500 PEOPLE REGISTER, THIS OFFER CLOSES PERMANENTLY — NO EXCEPTIONS</div>
         <p class="fade-in" style="font-family:var(--fs);font-size:.58rem;color:var(--as);margin-top:.65rem;letter-spacing:.02em">This price is only available during your current session.</p>
         <div class="dl fade-in"><div class="dl-t">DECISION MOMENTUM</div><div class="dl-bar"><div class="dl-bar-inner"></div></div><div class="dl-t">BUILDING</div></div>
         <div class="loss-strip fade-in">
@@ -1019,39 +1254,49 @@ button:focus-visible{
           <div class="loss-items"><div class="loss-item"><span class="loss-num">12h</span><span class="loss-label">Manual work</span></div><div class="loss-item"><span class="loss-num">$840</span><span class="loss-label">Revenue lost</span></div><div class="loss-item"><span class="loss-num">3</span><span class="loss-label">Competitors ahead</span></div></div>
           <div class="loss-sub">That's <em>$43,680 per year</em> you're spending on tasks a $19 system eliminates.</div>
         </div>
-        <div class="guarantee-box fade-in"><span class="gbl">🔒</span> If you complete Level 2 and do not build a real working AI agent in your business — you get every dollar back. No questions asked.</div>
+        <div class="guarantee-box fade-in"><span class="gbl">🔒</span> If you complete the full path and do not build a real working AI agent in your business — you get every dollar back. No questions asked.</div>
       `,
-      btn:"Show me what I'm about to unlock", cta:false
+      btn:"Show me what I unlock", cta:false
     },
 
     /* STEP 2 — VALUE PROPOSITION */
     {
-      id:'chart', ey:'YOUR TWO FUTURES — THE DIVERGENCE HAS ALREADY STARTED',
+      id:'chart', ey:'TWO PATHS DIVERGE — ONE DECISION FROM WHERE YOU SIT NOW',
       html:`
-        <div class="ts fade-in">Two businesses. Same starting point. Same market.<br>One decision.<br><em>Watch what 90 days of action versus 90 days of waiting looks like.</em></div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.85rem;color:var(--tp);font-style:italic;margin-bottom:.8rem;line-height:1.5"><em>"In the age of AI, the most expensive thing you can do is nothing."</em></p>
+        <div class="ts fade-in">Every business faces the same inflection point.<br>The difference is <em>when</em> they act.<br>Watch what 90 days of building versus 90 days of waiting produces.</div>
         <div class="chart-shell fade-in">
-          <div class="chart-head"><div class="chart-ttl">OPERATIONAL EFFICIENCY INDEX — 90-DAY DIVERGENCE</div><div class="chart-leg"><div class="cl"><div class="cll cll-g"></div>With VERCELLUM (Full Access)</div><div class="cl"><div class="cll cll-r"></div>Without / Free only</div></div></div>
+          <div class="chart-head"><div class="chart-ttl">OPERATIONAL EFFICIENCY INDEX — 90-DAY DIVERGENCE</div><div class="chart-leg"><div class="cl"><div class="cll cll-g"></div>With Full Access (Levels 1–4)</div><div class="cl"><div class="cll cll-r"></div>Free Only (Level 1)</div></div></div>
           <div class="chart-cv"><canvas id="growthChart"></canvas></div>
-          <div class="ms-strip"><div class="ms"><div class="ms-t">TODAY</div><div class="ms-b">You are here<em>The fork in the road</em></div></div><div class="ms"><div class="ms-t">WEEK 1</div><div class="ms-b">First agent live<em>+12 hrs recovered</em></div></div><div class="ms"><div class="ms-t">WEEK 4</div><div class="ms-b">Operations on autopilot<em>Costs down 34%</em></div></div><div class="ms"><div class="ms-t">MONTH 3</div><div class="ms-b">AI system compounding<em>Competitors falling behind</em></div></div></div>
+          <div class="ms-strip"><div class="ms"><div class="ms-t">TODAY</div><div class="ms-b">You are here<em>Level 1 complete</em></div></div><div class="ms"><div class="ms-t">LEVEL 2</div><div class="ms-b">First agent live<em>+12 hrs recovered</em></div></div><div class="ms"><div class="ms-t">LEVEL 3</div><div class="ms-b">Multi-agent systems<em>Business on autopilot</em></div></div><div class="ms"><div class="ms-t">LEVEL 4</div><div class="ms-b">Professional mastery<em>Certified operator</em></div></div></div>
         </div>
-        <p class="tb fade-in" style="margin-top:.85rem"><em>Why the gap widens: AI adopters see <strong>2.5× revenue growth</strong> over 3 years. The divergence doesn't pause — it accelerates.</em></p>
+        <p class="tb fade-in" style="margin-top:.85rem"><em>Why the gap accelerates: each level compounds on the last. The skills you build in Level 2 make Level 3 possible. Level 3 makes Level 4 inevitable. <strong>This is a system — not a collection of tips.</strong></em></p>
         <div class="outcome-grid fade-in">
-          <div class="outcome-card"><span class="oc-icon">⚡</span><div class="oc-title">AUTOMATION</div><div class="oc-result">Recover 12+ hours every week</div><div class="oc-detail">Email follow-ups, supplier checks, lead qualification — handled 24/7 by agents you build yourself.</div></div>
-          <div class="outcome-card"><span class="oc-icon">📈</span><div class="oc-title">REVENUE GROWTH</div><div class="oc-result">+31% conversion in first month</div><div class="oc-detail">AI sales agent qualifying leads around the clock — like adding a top performer who never sleeps.</div></div>
-          <div class="outcome-card"><span class="oc-icon">🕐</span><div class="oc-title">TIME FREEDOM</div><div class="oc-result">40% faster on identical headcount</div><div class="oc-detail">Your team does higher-value work. AI handles the repetition. Same people, dramatically more output.</div></div>
-          <div class="outcome-card"><span class="oc-icon">🛡️</span><div class="oc-title">COMPETITIVE EDGE</div><div class="oc-result">Build a moat competitors can't match</div><div class="oc-detail">67% of SMBs now say AI reduces staff pressure. Only the ones who implement it pull ahead.</div></div>
+          <div class="outcome-card"><span class="oc-icon">⚡</span><div class="oc-title">INTELLIGENT AUTOMATION</div><div class="oc-result">Recover 12+ hours every week</div><div class="oc-detail">Email follow-ups, supplier checks, lead qualification — handled 24/7 by agents you build yourself. No code. No consultants.</div></div>
+          <div class="outcome-card"><span class="oc-icon">📈</span><div class="oc-title">REVENUE ACCELERATION</div><div class="oc-result">+31% conversion in first month</div><div class="oc-detail">AI sales agent qualifying leads around the clock — like adding a top performer who never sleeps, never takes vacation.</div></div>
+          <div class="outcome-card"><span class="oc-icon">🕐</span><div class="oc-title">COMPOUNDING TIME</div><div class="oc-result">40% more output, same team</div><div class="oc-detail">Your people do higher-value work. AI handles the repetition. The same headcount produces dramatically more — that's the multiplier.</div></div>
+          <div class="outcome-card"><span class="oc-icon">🛡️</span><div class="oc-title">OPERATIONAL MOAT</div><div class="oc-result">Build advantages competitors can't copy</div><div class="oc-detail">Custom AI agents tailored to your business create operational depth that generic tools and passive competitors simply cannot match.</div></div>
         </div>
         <div class="comparison-box fade-in">
-          <div class="comp-title">WHAT YOU GOT FOR FREE VS WHAT YOU UNLOCK NOW</div>
+          <div class="comp-title">WHERE YOU ARE NOW — AND WHAT THE FULL PATH DELIVERS</div>
           <div class="comp-grid">
-            <div class="comp-col comp-free"><div class="comp-heading">❌ FREE LEVEL</div><div class="comp-item">• Basic understanding of AI</div><div class="comp-item">• Simple simulations only</div><div class="comp-item">• No real implementation</div><div class="comp-item">• No measurable results</div></div>
-            <div class="comp-col comp-paid"><div class="comp-heading">✅ LEVEL 2 — FULL ACCESS</div><div class="comp-item">• Build your own real AI agent</div><div class="comp-item">• Live tool integrations</div><div class="comp-item">• Measurable business results</div><div class="comp-item">• 5 complete automation paths</div></div>
+            <div class="comp-col comp-free"><div class="comp-heading">❌ FREE — LEVEL 1 ONLY</div><div class="comp-item">• Foundation concepts and theory</div><div class="comp-item">• No hands-on agent building</div><div class="comp-item">• No certification earned</div><div class="comp-item">• Levels 2, 3, 4 locked</div></div>
+            <div class="comp-col comp-paid"><div class="comp-heading">✅ FULL ACCESS — ALL 4 LEVELS</div><div class="comp-item">• Build real AI agents that run your business</div><div class="comp-item">• Multi-agent systems and integrations</div><div class="comp-item">• Professional certification on completion</div><div class="comp-item">• Lifetime access to every future update</div></div>
           </div>
         </div>
+        <div class="fade-in" style="display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:1.1rem;flex-wrap:wrap">
+          <div class="early-badge">★ EARLY ACCESS PRICING</div>
+          <div class="limited-badge">⚠ LIMITED TO 500 FOUNDING MEMBERS</div>
+        </div>
+        <div class="price-compare fade-in">
+          <div class="pc-col pc-now"><span class="pc-savings">SAVE $178</span><span class="pc-tag">✓ TODAY — EARLY ACCESS</span><span class="pc-amount">$19</span><div class="pc-note">All 4 Levels · Lifetime Access<br>Professional Certification<br>Every Future Update</div></div>
+          <div class="pc-col pc-later"><span class="pc-tag">✗ AFTER OFFER ENDS</span><span class="pc-amount">$197</span><div class="pc-note">Same 4 Levels · Same Content<br>Same Certification<br>Same Access — 10× the price</div></div>
+        </div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.78rem;color:var(--bn);font-style:italic;margin-top:.8rem;text-align:center;max-width:440px;line-height:1.5">The $19 price is a <em style="color:var(--g1)">foundational Early Access offer</em> available only to the first 500 registrants. Once the limit is reached, the price increases to <em style="color:var(--red)">$197</em>. This is a one-time opportunity that will not be repeated.</p>
         <div class="cost-waiting fade-in">
-          <div class="cw-title">YOUR COST OF WAITING — PROJECTED NEXT 90 DAYS</div>
-          <div class="cw-grid"><div class="cw-item"><span class="cw-num">144h</span><span class="cw-label">Manual tasks you'll still do</span></div><div class="cw-item"><span class="cw-num">$10,080</span><span class="cw-label">Revenue left on the table</span></div><div class="cw-item"><span class="cw-num">$19</span><span class="cw-label">To eliminate all of it</span></div></div>
-          <div class="cw-note">Every day you delay is <em style="color:var(--g1)">$112</em> you could have saved with a single automation.</div>
+          <div class="cw-title">THE COST OF PAUSING HERE — YOUR NEXT 90 DAYS</div>
+          <div class="cw-grid"><div class="cw-item"><span class="cw-num">144h</span><span class="cw-label">Manual tasks you'll still do</span></div><div class="cw-item"><span class="cw-num">$10,080</span><span class="cw-label">Revenue left on the table</span></div><div class="cw-item"><span class="cw-num">$19</span><span class="cw-label">To unlock the full system</span></div></div>
+          <div class="cw-note">Every day you delay is <em style="color:var(--g1)">$112</em> you could have saved with a single automation you'll build in Level 2.</div>
         </div>
       `,
       btn:"I see the gap — who's already crossing it", cta:false, onEnter:()=>setTimeout(buildChart,150)
@@ -1059,7 +1304,7 @@ button:focus-visible{
 
     /* STEP 3 — AUTHORITY QUOTES */
     {
-      id:'authority', ey:'WHAT THE ARCHITECTS OF AI ARE SAYING — DIRECT QUOTES',
+      id:'authority', ey:'THE ARCHITECTS OF AI — ON THE SHIFT YOU\'RE ABOUT TO LEAD',
       html:`
         <div class="authority-section">
           <div class="auth-card fade-in"><div class="auth-quote">"We believe AI agents will <em>'join the workforce' and materially change the output of companies.</em> This isn't a future trend — it's happening now, and the businesses that deploy agents earliest will build advantages that compound over years."</div><div class="auth-meta"><div class="auth-avatar">SA</div><div class="auth-info"><div class="auth-name">Sam Altman</div><div class="auth-role">CEO, OpenAI</div></div><div class="auth-tag">AGENTS · 2025</div></div></div>
@@ -1067,96 +1312,141 @@ button:focus-visible{
           <div class="auth-card fade-in"><div class="auth-quote">"The era of AI agents is here. Every business — <em>regardless of size</em> — will have a digital workforce operating 24/7. The gap between early adopters and everyone else will define the next decade of competitive advantage."</div><div class="auth-meta"><div class="auth-avatar">SN</div><div class="auth-info"><div class="auth-name">Satya Nadella</div><div class="auth-role">CEO, Microsoft</div></div><div class="auth-tag">BUILD 2026</div></div></div>
           <div class="auth-card fade-in"><div class="auth-quote">"Agentic AI isn't just automation — <em>it's a new class of intelligence that learns, adapts, and delivers compounding returns.</em> The businesses that treat it as 'just another tool' will miss the entire point."</div><div class="auth-meta"><div class="auth-avatar">AN</div><div class="auth-info"><div class="auth-name">Andrew Ng</div><div class="auth-role">Founder, DeepLearning.AI · Stanford</div></div><div class="auth-tag">THE BATCH</div></div></div>
         </div>
-        <p class="authority-bridge fade-in">They aren't speculating. They're describing <em>the exact shift</em> you're about to lead — and the window they're all warning will close.</p>
+        <p class="authority-bridge fade-in">They aren't speculating. They're describing <em>the shift that defines our era.</em> The question isn't whether this transformation is real — it's whether you'll be the one leading it in your business, or watching from the outside.</p>
       `,
       btn:"Show me the business owners who already acted", cta:false
     },
 
     /* STEP 4 — SOCIAL PROOF */
     {
-      id:'proof', ey:'BUSINESS OWNERS EXACTLY LIKE YOU — REAL NUMBERS',
+      id:'proof', ey:'BUILDERS WHO STOOD EXACTLY WHERE YOU STAND NOW — THEN ACTED',
       html:`
         <div class="live-activity fade-in"><span class="live-dot"></span><span>53 people enrolled in the last 2 hours</span></div>
         <div class="proof-grid">
-          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: 14 hours/week on manual supplier follow-ups</div><div class="proof-text">"Supplier follow-ups fully automated by day 5. I almost stopped at this exact screen — that would have been <em>$1,200 in lost time</em> I can never recover."</div><div class="proof-name">DIANA M.</div><div class="proof-meta">Retail Operations · Dubai · ROI in 4 days</div></div>
-          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Overwhelmed, same revenue on more hours</div><div class="proof-text">"Agency runs 40% faster on identical headcount. When I saw the $19 price I thought it was a mistake. It wasn't. <em>Honest ROI in 3 days.</em>"</div><div class="proof-name">RAFAEL K.</div><div class="proof-meta">Agency Founder · São Paulo · 12-person team</div></div>
-          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Hesitated, lost 3 weeks of momentum</div><div class="proof-text">"I stopped here. Came back three weeks later. Three weeks of automation runway I can't recover. <em>The window does close.</em> Don't make my mistake."</div><div class="proof-name">SARAH O.</div><div class="proof-meta">Independent Consultant · Nairobi</div></div>
-          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Leads slipping through, no time to qualify</div><div class="proof-text">"AI sales agent live in 48 hours — qualifying leads around the clock. <em>+31% conversion rate in the first month.</em> I was skeptical. Now I'm expanding."</div><div class="proof-name">MARCUS T.</div><div class="proof-meta">E-commerce Founder · Berlin · $42K ARR added</div></div>
+          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: 14 hours/week on manual supplier follow-ups</div><div class="proof-text">"Supplier follow-ups fully automated by day 5. I almost stopped at this exact screen — that would have been <em>$1,200 in lost time</em> I can never recover. The only regret I have is not starting sooner."</div><div class="proof-name">DIANA M.</div><div class="proof-meta">Retail Operations · Dubai · ROI in 4 days</div></div>
+          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Overwhelmed, same revenue on more hours</div><div class="proof-text">"Agency runs 40% faster on identical headcount. When I saw the $19 price I thought it was a mistake. It wasn't. <em>This system paid for itself before the first week ended.</em>"</div><div class="proof-name">RAFAEL K.</div><div class="proof-meta">Agency Founder · São Paulo · 12-person team</div></div>
+          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Hesitated, lost 3 weeks of momentum</div><div class="proof-text">"I stopped here. Came back three weeks later. Three weeks of automation runway I can't recover. <em>Every day you wait, the gap between you and your competitors widens.</em> Don't make my mistake."</div><div class="proof-name">SARAH O.</div><div class="proof-meta">Independent Consultant · Nairobi</div></div>
+          <div class="proof-card fade-in"><div class="proof-stars">★★★★★</div><div class="proof-pain">Pain: Leads slipping through, no time to qualify</div><div class="proof-text">"AI sales agent live in 48 hours — qualifying leads around the clock. <em>+31% conversion rate in the first month.</em> I was skeptical of the $19 price. Now I realize it was the best investment I've made this year."</div><div class="proof-name">MARCUS T.</div><div class="proof-meta">E-commerce Founder · Berlin · $42K ARR added</div></div>
         </div>
-        <div class="enroll-bar fade-in"><div class="enroll-head"><div class="enroll-label">THIS WEEK'S ENROLLMENT CAPACITY</div><div class="enroll-count">936 / 1,200</div></div><div class="enroll-track"><div class="enroll-fill"></div></div></div>
+        <div class="enroll-bar fade-in"><div class="enroll-head"><div class="enroll-label">EARLY ACCESS — LIMITED TO 500 FOUNDING MEMBERS</div><div class="enroll-count" style="color:var(--red)">469 / 500 — ONLY 31 SPOTS REMAIN</div></div><div class="enroll-track"><div class="enroll-fill" style="animation-name:none;width:93.8%"></div></div></div>
+        <div class="warning-glow fade-in" style="margin-top:.7rem">◷ &nbsp; 31 SPOTS LEFT — WHEN THEY'RE GONE, $19 BECOMES $197</div>
+        <p class="fade-in" style="font-family:var(--fb);font-size:.42rem;letter-spacing:.18em;color:var(--tp);margin-top:.7rem;text-align:center">This Early Access offer is limited to the first 500 people. Current price: <span style="color:var(--g0)">$19</span>. Price after 500: <span style="color:var(--red);text-decoration:line-through">$197</span></p>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.78rem;color:var(--tp);font-style:italic;margin-top:1rem;text-align:center;max-width:440px;line-height:1.5">Every builder on this page started exactly where you are now — at the edge of a decision. <em>The only difference between them and the people who didn't convert? One click.</em></p>
       `,
       btn:"What exactly is the investment", cta:false
     },
 
     /* STEP 5 — PRICING */
     {
-      id:'price', ey:'THE INVESTMENT — REFRAMED CORRECTLY',
+      id:'price', ey:'THE COMPLETE SYSTEM — ALL 4 LEVELS, ONE PAYMENT',
       html:`
-        <div class="ts fade-in">The full AI mastery curriculum —<br>all 5 paths, every lab, templates, community.<br><em>What most platforms charge $297 for.</em></div>
+        <div class="early-badge fade-in">★ EARLY ACCESS — LIMITED TO 500 FOUNDING MEMBERS</div>
+        <div class="limited-badge fade-in">⚠ ONLY 31 SPOTS REMAIN AT $19</div>
+        <div class="ts fade-in">You've completed Level 1.<br>Three levels remain — Builder, Operator, Professional.<br><em>One payment of $19 unlocks every single one.</em></p>
+        <p class="fade-in" style="font-family:var(--fs);font-size:.72rem;color:var(--g1);letter-spacing:.05em;margin-bottom:.6rem;text-align:center;max-width:500px;line-height:1.5"><strong>What $19 gives you right now:</strong> Complete Level 1 (Lessons 2–4) + Complete Level 2 + Complete Level 3 + Complete Level 4. In other words: <em>4 complete levels with all lessons</em> — unlocked forever.</p>
         <div class="pop-badge fade-in">★ MOST POPULAR — 94% OF BUILDERS CHOOSE FULL ACCESS</div>
         <div class="price-anchor-block fade-in">
-          <div class="pa-original">$297.00</div>
-          <div class="pa-save">YOU SAVE $278 — THAT'S 94% OFF</div>
-          <span class="pa-price">$19</span>
-          <div class="pa-label">ONE-TIME · LIFETIME ACCESS · ALL FUTURE PATHS</div>
-          <div class="pa-comps"><div class="pa-comp"><span>◆</span> Less than 2 hours of a freelancer</div><div class="pa-comp"><span>◆</span> 1/15th of a monthly SaaS tool</div><div class="pa-comp"><span>◆</span> Recoverable in your first automation</div></div>
-          <p style="font-family:var(--fd);font-size:.78rem;color:var(--tp);font-style:italic;margin-top:.65rem">At $19, the question isn't "Can I afford this?" — it's <em>"Can I afford not to?"</em></p>
+          <div class="pa-original">$197.00</div>
+          <div class="pa-save">YOU SAVE $178 — SAVE 94% TODAY — EARLY ACCESS PRICING</div>
+          <span class="pa-price price-pulse">$19</span>
+          <div class="pa-label">ONE-TIME PAYMENT · UNLOCKS ALL 4 LEVELS · LIFETIME ACCESS</div>
+          <div class="pa-comps"><div class="pa-comp"><span>◆</span> All 4 Levels — complete path</div><div class="pa-comp"><span>◆</span> All lessons unlocked</div><div class="pa-comp"><span>◆</span> Professional certification</div><div class="pa-comp"><span>◆</span> All future updates — forever</div></div>
+          <p style="font-family:var(--fd);font-size:.78rem;color:var(--tp);font-style:italic;margin-top:.65rem">$19 today, paid once. That's not just Level 1 — it's the <em>entire 4-level system</em>. Every level, every lesson, every lab, every future update. <em>No subscription. No hidden costs. No renewals. Ever.</em></p>
         </div>
+        <div class="price-compare fade-in">
+          <div class="pc-col pc-now"><span class="pc-savings">SAVE $178</span><span class="pc-tag">✓ RIGHT NOW — EARLY ACCESS</span><span class="pc-amount">$19</span><div class="pc-note">All 4 Levels · All Lessons<br>Lifetime Access · Certification</div></div>
+          <div class="pc-col pc-later"><span class="pc-tag">✗ AFTER EARLY ACCESS ENDS</span><span class="pc-amount">$197</span><div class="pc-note">Same 4 Levels · Same Lessons<br>Same Access — 10× the price</div></div>
+        </div>
+        <div class="spots-progress fade-in">
+          <div class="sp-head"><span class="sp-label">EARLY ACCESS CAPACITY</span><span class="sp-count"><span class="spots-num">31</span> of 500 SPOTS LEFT</span></div>
+          <div class="sp-track"><div class="sp-fill sp-fill-inner" style="width:93.8%"></div></div>
+        </div>
+        <p class="fade-in" style="font-family:var(--fb);font-size:.42rem;letter-spacing:.16em;color:var(--red);margin-top:.8rem;text-align:center">⚠ This is a foundational offer. When 500 people register, $19 becomes $197 permanently.</p>
         <div class="payment-icons fade-in"><div class="pi"><span>🔒</span> SSL SECURED</div><div class="pi"><span>💳</span> ALL CARDS</div><div class="pi"><span>⚡</span> INSTANT ACCESS</div><div class="pi"><span>🛡️</span> PCI DSS</div></div>
-        <div class="no-sub fade-in"><em>No subscription.</em> No recurring charges. No auto-renewals. $19 today — that's it, forever.</div>
-        <div class="urg fade-in">◷ &nbsp; INTRODUCTORY PRICING ENDS IN <span class="timer"></span> · ONLY 1,200 SPOTS AT THIS RATE</div>
-        <div class="excl fade-in">SELECTIVE ACCESS · NOT AVAILABLE ON ANY OTHER PLATFORM</div>
+        <div class="no-sub fade-in"><em>Think of it this way:</em> You're not buying a course. You're unlocking a complete professional system that compounds in value the more you use it. <em>$19 now — or $197 later.</em> The choice is simple.</div>
+        <div class="urg fade-in">◷ &nbsp; EARLY ACCESS PRICING ENDS IN <span class="timer"></span> · ONLY <span class="spots-num">31</span> OF 500 SPOTS REMAIN</div>
+        <div class="warning-glow fade-in" style="margin-top:.6rem">⚠ WAITING MEANS PAYING $197 LATER — SECURE YOUR $19 PRICE NOW</div>
+        <div class="excl fade-in">COMPLETE LEARNING SYSTEM · EARLY ACCESS · NOT AVAILABLE AT THIS PRICE AGAIN</div>
       `,
       btn:'Remove every reason I have to hesitate', cta:false
     },
 
     /* STEP 6 — RISK ELIMINATION */
     {
-      id:'trust', ey:'YOUR RISK IS COMPLETELY REMOVED',
+      id:'trust', ey:'YOUR RISK IS COMPLETELY ELIMINATED',
       html:`
-        <div class="ts fade-in">If this doesn't change how you operate,<br><em>you pay nothing. Not a cent.</em></div>
-        <div class="confidence-stat fade-in"><div class="conf-num">97%</div><div class="conf-text"><strong>of members never request a refund</strong>Because they build a working AI agent within the first 14 days — and the system pays for itself before the month ends.</div></div>
+        <p class="fade-in" style="font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--g3);margin-bottom:1rem;text-align:center">LEVEL 1 COMPLETE · LEVELS 2–4 AWAIT · THE PATH IS CLEAR</p>
+        <div class="ts fade-in">We've designed this so the only risk<br><em>is the one you take by walking away.</em></div>
+        <div class="confidence-stat fade-in"><div class="conf-num">97%</div><div class="conf-text"><strong>of members never request a refund</strong>Because they build a working AI agent within the first 14 days — and the system pays for itself before the month ends. The question was never "does this work?" — it was "am I willing to try?"</div></div>
         <div class="tg fade-in">
-          <div class="tc"><div class="tc-i">🛡️</div><div class="tc-c"><strong>30-Day Full Refund Guarantee</strong>No questions. No forms. One message and every dollar is returned.</div></div>
-          <div class="tc"><div class="tc-i">⚡</div><div class="tc-c"><strong>Instant Access — Zero Wait</strong>Everything unlocks the moment payment clears. Start building in under 60 seconds.</div></div>
-          <div class="tc"><div class="tc-i">🔒</div><div class="tc-c"><strong>Bank-Grade Encryption</strong>Same security standard used by financial institutions. Your data stays yours.</div></div>
-          <div class="tc"><div class="tc-i">∞</div><div class="tc-c"><strong>Lifetime Access — Never Pay Again</strong>Every path. Every future update. Every new feature. Included forever.</div></div>
-          <div class="tc"><div class="tc-i">🚫</div><div class="tc-c"><strong>No Hidden Fees — Ever</strong>$19 once. That is the complete price. No upsells, no surprises, no fine print.</div></div>
+          <div class="tc"><div class="tc-i">🛡️</div><div class="tc-c"><strong>30-Day Full Refund Guarantee</strong>No questions. No forms. One message and every dollar is returned. The risk is entirely ours.</div></div>
+          <div class="tc"><div class="tc-i">⚡</div><div class="tc-c"><strong>Instant Access — Zero Wait</strong>Everything unlocks the moment payment clears. You could be building your first agent in under 60 seconds.</div></div>
+          <div class="tc"><div class="tc-i">🔒</div><div class="tc-c"><strong>Bank-Grade Encryption</strong>Same security standard used by financial institutions. Your payment and data stay yours.</div></div>
+          <div class="tc"><div class="tc-i">∞</div><div class="tc-c"><strong>Lifetime Access — Never Pay Again</strong>Every level. Every future update. Every new feature. Every improvement. Included forever.</div></div>
+          <div class="tc"><div class="tc-i">🚫</div><div class="tc-c"><strong>No Hidden Fees — Ever</strong>$19 once. That is the complete and final price. No upsells, no surprises, no fine print.</div></div>
           <div class="tc"><div class="tc-i">📱</div><div class="tc-c"><strong>Works on Everything</strong>Any browser. Any device. Any time zone. Build from your phone if you want.</div></div>
         </div>
-        <div class="pain-callout fade-in" style="margin-top:1.2rem">
-          <div class="pc-label">Still unsure?</div>
-          <div class="pc-text">"I don't have time" — The system is designed for busy operators. Each module takes under 30 minutes. You build while you learn.<br><br>"I don't know if this works for my business" — That's exactly what the guarantee is for. Build an agent. If it doesn't run, you're refunded in full. <em>The risk is entirely ours.</em></div>
+        <div class="fade-in" style="margin-top:1.2rem;display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap">
+          <div class="limited-badge">⚠ ONLY 31 SPOTS LEFT AT $19</div>
+          <div class="early-badge">★ EARLY ACCESS — ENDS AT 500 REGISTRATIONS</div>
         </div>
-        <p class="tb fade-in" style="margin-top:1.1rem"><em>The only real risk left<br>is the cost of continuing without it.</em></p>
+        <div class="price-compare fade-in">
+          <div class="pc-col pc-now"><span class="pc-savings">SAVE $178</span><span class="pc-tag">✓ NOW — EARLY ACCESS</span><span class="pc-amount">$19</span><div class="pc-note">All 4 Levels · Lifetime<br>Everything Included</div></div>
+          <div class="pc-col pc-later"><span class="pc-tag">✗ LATER</span><span class="pc-amount">$197</span><div class="pc-note">Same Content<br>10× the Price</div></div>
+        </div>
+        <div class="pain-callout fade-in" style="margin-top:1.2rem">
+          <div class="pc-label">Still not sure? Consider this.</div>
+          <div class="pc-text">"I don't have time" — The system is designed for busy operators. Each lesson is under 30 minutes. You build while you learn. You don't need to block out hours — you need 20 minutes before bed.<br><br>"I don't know if this works for my business" — That's exactly what the guarantee is for. Build an agent. If it doesn't run in your business, you're refunded in full. <em>You literally cannot lose.</em><br><br>"What if I fall behind?" — There's no schedule. No deadlines. No pressure. You learn at your pace. The system is always there, waiting for you.</div>
+        </div>
+        <p class="tb fade-in" style="margin-top:1.1rem"><em>The safest move is to try. The riskiest move<br>is to do nothing and call it caution.</em></p>
+        <p class="fade-in" style="font-family:var(--fb);font-size:.42rem;letter-spacing:.16em;color:var(--red);margin-top:.8rem;text-align:center">Remember: <span style="color:var(--g0)">$19 today</span> unlocks all 4 levels. After the Early Access closes, the price becomes <span style="color:var(--red)">$197</span>. Only 31 spots remain.</p>
       `,
-      btn:'I am ready to step forward', cta:false
+      btn:'I am ready — unlock my full path', cta:false
     },
 
     /* STEP 7 — FINAL CTA */
     {
-      id:'cta', ey:'FULL ACCESS UNLOCKED — LIFETIME',
+      id:'cta', ey:'THE COMPLETE SYSTEM — ONE PAYMENT AWAY',
       html:`
-        <div class="ts fade-in">You've seen the divergence.<br>You've seen who decided.<br><em>One action separates you from your next version.</em></div>
+        <div class="early-badge fade-in">★ EARLY ACCESS — FOUNDATIONAL OFFER</div>
+        <div class="limited-badge fade-in">⚠ ONLY 31 SPOTS LEFT — THIS OFFER WILL NOT BE REPEATED</div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.82rem;color:var(--g1);font-style:italic;margin-bottom:.6rem;text-align:center;max-width:480px;line-height:1.5"><em>"The best time to build was yesterday. The second best time is right now."</em></p>
+        <div class="unlock-highlight fade-in" style="margin-bottom:.6rem">🔓 ONE PAYMENT OF $19 — UNLOCKS ALL 4 LEVELS COMPLETELY</div>
+        <div class="ts fade-in">Level 1 is complete.<br>Levels 2, 3, and 4 are built and waiting.<br><em>One payment of $19 opens the entire system.</em></div>
         <div class="fa-shell fade-in">
           <div class="fa-items">
-            <div class="fa-item"><span class="fa-ck">✓</span> Paths 2–5 · Complete automation systems, sales agents, multi-agent workflows</div>
-            <div class="fa-item"><span class="fa-ck">✓</span> All interactive labs · Build real agents as you learn — not after</div>
-            <div class="fa-item"><span class="fa-ck">✓</span> Lifetime access · Every future path and update, included forever</div>
+            <div class="fa-item"><span class="fa-ck">✓</span> Level 1 remaining (Lessons 2–4) — Complete Foundation</div>
+            <div class="fa-item"><span class="fa-ck">✓</span> Level 2 — Builder · Build your first real AI agent, no code</div>
+            <div class="fa-item"><span class="fa-ck">✓</span> Level 3 — Operator · Multi-agent systems & business automation</div>
+            <div class="fa-item"><span class="fa-ck">✓</span> Level 4 — Professional · Advanced systems and certification</div>
+            <div class="fa-item"><span class="fa-ck">✓</span> <strong style="color:var(--g0)">All 4 Levels — 4 complete levels with all lessons</strong></div>
+            <div class="fa-item"><span class="fa-ck">✓</span> Lifetime access · Every future level, update, and community feature</div>
             <div class="fa-item"><span class="fa-ck">✓</span> Community of 1,800+ SMB owners actively building AI systems</div>
           </div>
           <div class="fa-divider"></div>
-          <div class="fa-price-line"><div class="fa-price">$19</div><div class="fa-once">ONE-TIME<br>LIFETIME</div></div>
-          <div style="font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--tp);text-align:center;margin-bottom:.2rem">LAUNCH RATE · ENDS IN <span class="timer"></span></div>
+          <div class="fa-price-line"><div class="fa-price price-pulse">$19</div><div class="fa-once">ONE-TIME PAYMENT<br>UNLOCKS ALL 4 LEVELS</div></div>
+          <div style="font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--tp);text-align:center;margin-bottom:.2rem">EARLY ACCESS RATE · ENDS IN <span class="timer"></span></div>
+          <div style="font-family:var(--fb);font-size:.38rem;letter-spacing:.14em;color:var(--red);text-align:center;margin-top:.2rem">⚠ PRICE INCREASES TO $197 WHEN OFFER ENDS</div>
         </div>
-        <div class="spots-counter fade-in">◷ &nbsp; ONLY <span class="spots-num">1,247</span> SPOTS REMAINING AT THIS PRICE</div>
+        <div class="price-compare fade-in">
+          <div class="pc-col pc-now"><span class="pc-savings">SAVE $178</span><span class="pc-tag">✓ TODAY — EARLY ACCESS</span><span class="pc-amount">$19</span><div class="pc-note">All 4 Levels · All Lessons<br>Lifetime · Certification</div></div>
+          <div class="pc-col pc-later"><span class="pc-tag">✗ AFTER OFFER ENDS</span><span class="pc-amount">$197</span><div class="pc-note">Same 4 Levels · Same Lessons<br>Same Access — 10× the price</div></div>
+        </div>
+        <div class="spots-progress fade-in">
+          <div class="sp-head"><span class="sp-label">EARLY ACCESS — LIMITED TO 500 FOUNDING MEMBERS</span><span class="sp-count"><span class="spots-num">31</span> SPOTS LEFT</span></div>
+          <div class="sp-track"><div class="sp-fill sp-fill-inner" style="width:93.8%"></div></div>
+        </div>
+        <div class="warning-glow fade-in">◷ &nbsp; ONLY 31 SPOTS REMAINING — ONCE 500 PEOPLE REGISTER, $19 BECOMES $197 PERMANENTLY</div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.82rem;color:var(--cr);font-style:italic;text-align:center;margin-top:1.1rem;max-width:440px;line-height:1.55">You've already invested the hardest thing — <em>your attention and your time.</em> Don't let that investment go to waste. <strong style="color:var(--g0)">$19</strong> turns it into a professional system that compounds for years. <em style="color:var(--red)">Waiting means paying $197 later.</em></p>
+        <div class="spots-counter fade-in">◷ &nbsp; ONLY <span class="spots-num">31</span> OF 500 SPOTS REMAINING AT THIS PRICE</div>
         <div class="last-purchase fade-in"><span class="lp-dot"></span><span class="lp-name">James R.</span> from <span class="lp-city">London</span> purchased <span class="lp-time">4 min ago</span></div>
-        <div class="final-push fade-in">Start building your real AI system today</div>
-        <p class="cta-above fade-in">You've already done the hard part — <em>now make it real.</em></p>
-        <div class="trust-shield fade-in"><div class="ts-item"><span>🔒</span> Encrypted</div><div class="ts-item"><span>🛡️</span> 30-day guarantee</div><div class="ts-item"><span>⚡</span> Instant delivery</div><div class="ts-item"><span>🚫</span> No subscription</div></div>
-        <div class="fear-strip fade-in"><div class="fs-item"><span>✓</span> No hidden fees</div><div class="fs-item"><span>✓</span> Refund anytime</div><div class="fs-item"><span>✓</span> One payment</div></div>
+        <div class="final-push fade-in philosophical-line">$19 Now · $197 Later · Choose Wisely</div>
+        <p class="cta-above fade-in">Level 1 proved you can do this. <em>Now commit to the full path — all 4 levels for $19.</em></p>
+        <div class="trust-shield fade-in"><div class="ts-item"><span>🔒</span> Encrypted checkout</div><div class="ts-item"><span>🛡️</span> 30-day guarantee</div><div class="ts-item"><span>⚡</span> Instant access</div><div class="ts-item"><span>🚫</span> No subscription</div></div>
+        <div class="fear-strip fade-in"><div class="fs-item"><span>✓</span> No hidden fees</div><div class="fs-item"><span>✓</span> Refund anytime</div><div class="fs-item"><span>✓</span> One payment only</div></div>
+        <p class="fade-in" style="font-family:var(--fb);font-size:.36rem;letter-spacing:.14em;color:var(--tp);margin-top:.9rem;text-align:center">This Early Access pricing is a foundational offer available to the first 500 registrants only. After 500 people register, this price will permanently increase to $197 and will never be offered again at $19.</p>
       `,
-      btn:'Unlock Full Access — $19', cta:true, isPaywall:true
+      btn:'Unlock All 4 Levels — $19', cta:true, isPaywall:true
     },
 
     /* STEP 8 — UNLOCK */
@@ -1164,13 +1454,13 @@ button:focus-visible{
       id:'unlock', ey:null,
       html:`
         <div class="ur">◈</div>
-        <div class="ub"><span>◆</span> FULL ACCESS UNLOCKED</div>
-        <div class="td" style="font-size:clamp(1.4rem,4vw,2.2rem)">You're on<br>the green line now.</div>
-        <p class="tb">Every path. Every lab. Every automation system.<br><em>Yours — and compounding from this moment forward.</em></p>
-        <div class="st-trio"><div class="st"><span class="st-n">5</span><div class="st-l">PATHS UNLOCKED</div></div><div class="st"><span class="st-n" id="sc1">—</span><div class="st-l">HRS TO FIRST AGENT</div></div><div class="st"><span class="st-n">∞</span><div class="st-l">LIFETIME ACCESS</div></div></div>
-        <p class="tb" style="margin-top:1.1rem"><em>Go build your first automation.</em><br>The momentum you have right now is your most valuable asset.</p>
+        <div class="ub"><span>◆</span> ALL 4 LEVELS UNLOCKED — LEVEL 2 IS READY</div>
+        <div class="td" style="font-size:clamp(1.4rem,4vw,2.2rem)">The full system<br>is now yours.</div>
+        <p class="tb">Every level. Every lesson. Every lab. Your professional certificate.<br><em>You didn't just buy access — you invested in a system that compounds. Now let's build.</em></p>
+        <div class="st-trio"><div class="st"><span class="st-n">3</span><div class="st-l">LEVELS REMAINING</div></div><div class="st"><span class="st-n" id="sc1">—</span><div class="st-l">HRS TO FIRST AGENT</div></div><div class="st"><span class="st-n">∞</span><div class="st-l">LIFETIME ACCESS</div></div></div>
+        <p class="fade-in" style="font-family:var(--fd);font-size:.82rem;color:var(--g1);font-style:italic;margin-top:1.1rem;text-align:center;max-width:440px;line-height:1.55"><em>"The journey of a thousand miles begins with a single step." You've taken it. Now take the next one — Level 2 is waiting.</em></p>
       `,
-      btn:'Start Path 2 Now →', cta:true, isLast:true, onEnter:()=>setTimeout(()=>{ const el=document.getElementById('sc1'); if(el) el.textContent='1'; },500)
+      btn:'Continue to Level 2 →', cta:true, isLast:true, onEnter:()=>setTimeout(()=>{ const el=document.getElementById('sc1'); if(el) el.textContent='1'; },500)
     },
   ];
 

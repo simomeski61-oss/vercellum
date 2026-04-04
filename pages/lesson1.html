@@ -1008,6 +1008,31 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
 @keyframes expandPulse{0%{box-shadow:0 0 0 0 rgba(201,163,74,.15)}50%{box-shadow:0 0 20px 4px rgba(201,163,74,.08)}100%{box-shadow:0 0 0 0 rgba(201,163,74,0)}}
 .spar-card.expand-pulse{animation:expandPulse .6s ease-out}
 
+/* ══════════════════════════════════════════════
+   ADDITIVE ANIMATION CLASSES — Conversion Enhancements
+══════════════════════════════════════════════ */
+
+/* 1. Gold glow pulse — for important CTA elements */
+.glow-pulse{animation:glowPulse 2.5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 8px rgba(201,163,74,.15),0 0 20px rgba(201,163,74,.06)}50%{box-shadow:0 0 16px rgba(201,163,74,.35),0 0 40px rgba(201,163,74,.12),0 0 60px rgba(201,163,74,.04)}}
+
+/* 2. Text shimmer — gradient sweep for key phrases */
+.text-shimmer{background:linear-gradient(110deg,var(--cr) 0%,var(--cr) 40%,var(--g0) 50%,var(--cr) 60%,var(--cr) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:textShimmer 3.5s ease-in-out infinite}
+@keyframes textShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+
+/* 3. Float-in from bottom — entrance animation */
+.float-in{opacity:0;transform:translateY(30px);animation:floatIn .8s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes floatIn{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+
+/* 4. Typewriter reveal — for emphasis text */
+.typewriter-reveal{overflow:hidden;border-right:2px solid var(--g1);white-space:nowrap;animation:typewriterReveal 2.2s steps(44,end) forwards,typewriterBlink .7s step-end infinite}
+@keyframes typewriterReveal{0%{width:0}100%{width:100%}}
+@keyframes typewriterBlink{50%{border-color:transparent}}
+
+/* 5. Urgency flash — subtle border flash for urgency elements */
+.urgency-flash{animation:urgencyFlash 2s ease-in-out infinite}
+@keyframes urgencyFlash{0%,100%{border-color:rgba(239,68,68,.25)}50%{border-color:rgba(239,68,68,.55)}}
+
 /* Stat card click sound feedback */
 .stat-card:active{transform:scale(.97)!important}
 
@@ -1213,7 +1238,9 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
       <h1 class="hero-h1" id="hero-heading"></h1>
       <blockquote class="hero-tagline">
         In 2023, you typed prompts hoping AI would save you time.<br>
-        In 2026, successful SMB owners wake up to: <strong>"3 new leads qualified, 7 follow-ups sent, 2 meetings booked — while you slept."</strong>
+        In 2026, the businesses winning don't work harder — they <strong>think differently</strong>.<br>
+        They wake up to: <strong>"Leads qualified. Follow-ups sent. Meetings booked — while you slept."</strong><br>
+        The question isn't whether AI will transform your industry. It already has. The question is whether <strong>you'll be the one leading that transformation — or reading about it from behind.</strong>
       </blockquote>
       <div class="hero-cta-row">
         <button class="hero-primary-btn" id="transform-btn" aria-haspopup="dialog">
@@ -1239,6 +1266,24 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
       </div>
     </section>
 
+    <!-- ══ PHILOSOPHICAL PHRASE ══ -->
+    <div class="float-in" style="padding:2.5rem 0;text-align:center;position:relative" aria-label="Philosophical insight">
+      <div style="max-width:620px;margin:0 auto">
+        <div style="font-family:var(--fb);font-size:.38rem;letter-spacing:.32em;color:var(--g3);text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;gap:.65rem">
+          <span style="flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--g4),transparent)"></span>
+          A PRINCIPLE WORTH REMEMBERING
+          <span style="flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--g4),transparent)"></span>
+        </div>
+        <p class="text-shimmer" style="font-family:var(--fd);font-size:clamp(1.05rem,2vw,1.35rem);font-weight:300;line-height:1.55;letter-spacing:.01em">
+          "The businesses that outlast every trend don't chase technology —
+          they <em>redefine what 'enough effort' means.</em>
+          Your competitors are still grinding.
+          You're about to learn why grinding is the trap."
+        </p>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--as);margin-top:1.1rem">— THE STRATEGIST'S EDGE</div>
+      </div>
+    </div>
+
     <!-- PROGRESSIVE LESSON BODY -->
     <div class="lesson-body" id="lesson-body">
       <div class="step-tracker" id="step-tracker" aria-label="Lesson progress">
@@ -1251,9 +1296,9 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <section class="section-block reveal" aria-labelledby="problem-heading">
           <div class="sec-badge red">⚠ YOUR REAL CHALLENGE</div>
           <div class="eyebrow"><span class="ey-dot"></span>WHY THIS MATTERS NOW</div>
-          <h2 class="sec-title" id="problem-heading">The Reason You're Working <span style="color:var(--red)">60-Hour Weeks</span> — And What the Smartest SMB Owners Just Discovered</h2>
-          <p class="body-text">If you're running a small or medium-sized business and the AI conversation feels like a firehose aimed directly at your face — you're not alone, and you're not behind. You're exactly where most business owners are: aware that something significant is happening, but unable to cut through the noise to find what's actually useful for your operations, your team, your revenue goals.</p>
-          <p class="body-text">Here's what almost nobody in the AI space is willing to say plainly: <strong class="highlight-red">90% of what's marketed as "AI for business" is just a sophisticated text editor.</strong> The real shift — the one already separating growing businesses from stagnant ones — is barely covered in mainstream media.</p>
+          <h2 class="sec-title" id="problem-heading">The Reason You're Working <span style="color:var(--red)">60-Hour Weeks</span> — And Why <span style="color:var(--gold)">Working Harder Isn't the Answer</span></h2>
+          <p class="body-text">You didn't start your business to spend your evenings answering emails, your weekends updating spreadsheets, and your mornings dreading the backlog. But here you are — aware that something significant is happening with AI, drowning in noise, and unable to find what's <em>actually</em> useful for your operations, your team, and your revenue. You're not behind. You're exactly where most owners are: overloaded, under-leveraged, and running out of hours.</p>
+          <p class="body-text">Here's what almost nobody in the AI space is willing to say plainly: <strong class="highlight-red">90% of what's marketed as "AI for business" is just a sophisticated text editor wearing a tuxedo.</strong> It's still you doing the thinking, the prompting, the copying, the pasting. The real shift — the one already separating growing businesses from stagnant ones — operates on a fundamentally different principle. And once you see it, <strong>you'll never unsee it.</strong></p>
         </section>
         <div class="step-continue-wrap">
           <button class="step-continue-btn" data-next="1">Continue<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1268,7 +1313,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           <h2 class="sec-title">Three Numbers That Explain <span class="gold">Everything</span> About Where Your Business Stands</h2>
           <div class="stats-grid" role="list">
             <div class="stat-card red-card" role="listitem" tabindex="0"><div class="stat-num">84%</div><div class="stat-label">of business owners spend 1 in 4 working hours on tasks a trained agent could handle automatically</div><div class="stat-src">McKinsey Global Survey, 2024</div></div>
-            <div class="stat-card gold-card" role="listitem" tabindex="0"><div class="stat-num">5%</div><div class="stat-label">of SMBs use AI for real workflow automation — leaving 95% of competitors an open field to dominate</div><div class="stat-src">Salesforce SMB Trends, 2024</div></div>
+            <div class="stat-card gold-card urgency-flash" role="listitem" tabindex="0"><div class="stat-num">5%</div><div class="stat-label">of SMBs use AI for real workflow automation — leaving 95% of competitors an open field to dominate</div><div class="stat-src">Salesforce SMB Trends, 2024</div></div>
             <div class="stat-card green-card" role="listitem" tabindex="0"><div class="stat-num">40%</div><div class="stat-label">average time reclaimed per week after deploying a first AI agent — the equivalent of 2 full working days</div><div class="stat-src">Harvard Business Review, 2025</div></div>
           </div>
 
@@ -1301,8 +1346,8 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <section class="section-block reveal">
           <div class="sec-badge red">🚨 YOUR WINDOW IS OPEN — FOR NOW</div>
           <div class="eyebrow"><span class="ey-dot"></span>A MOMENT OF HONEST REFLECTION</div>
-          <h2 class="sec-title">The Businesses Moving Now Are <span class="gold">Compressing Weeks Into Hours</span> — Where Are You?</h2>
-          <div class="warning-box"><span class="wb-icon">🚨</span><div class="wb-content"><div class="wb-label">THE WINDOW IS CLOSING — BUT IT'S STILL OPEN FOR YOU</div><p class="wb-text">Right now, businesses deploying AI agents are compressing weeks of work into hours. Every day without one is a day competitors gain ground. <strong>The good news — and this is real — is that you're still early.</strong> Being in this lesson puts you in the top tier of SMB owners who are actually doing something about it.</p></div></div>
+          <h2 class="sec-title">The Businesses Moving Now Are <span class="gold">Compressing Weeks Into Hours</span> — <span style="color:var(--red)">While You Read This, Someone Just Deployed Their First Agent</span></h2>
+          <div class="warning-box urgency-flash"><span class="wb-icon">🚨</span><div class="wb-content"><div class="wb-label">THE WINDOW IS CLOSING — AND IT'S MEASURED IN MONTHS, NOT YEARS</div><p class="wb-text">Right now, the first wave of SMBs deploying AI agents are compressing weeks of manual work into hours. Every day without one is a day your competitors compound their advantage — not incrementally, but <strong>exponentially</strong>. The gap between "using AI" and "deploying agents" is the gap between dabbling and dominating. <strong>The good news — and it's real — is that the door is still open. But it won't stay open forever, and it certainly won't wait for you to feel ready.</strong> Being in this lesson, right now, puts you ahead of 95% of business owners. Don't waste that head start.</p></div></div>
           <div class="checkin" role="group" aria-labelledby="checkin-q-label">
             <p class="checkin-q" id="checkin-q-label">Before we go further — be honest: How much of your week is consumed by tasks that feel predictable, repetitive, and beneath what you should be spending your time on?</p>
             <div class="checkin-opts">
@@ -1385,8 +1430,8 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
       <div class="prog-step" data-step="4" id="prog-step-4">
         <div style="padding:2.75rem 0">
           <div class="sec-badge gold" style="margin-bottom:1.25rem">💡 THE INSIGHT THAT CHANGES EVERYTHING</div>
-          <div class="key-insight"><span class="ki-icon">💡</span><div class="ki-content"><div class="ki-label">THE INSIGHT THAT CHANGES YOUR PERSPECTIVE</div><p class="ki-text">The gap between a tool and an agent isn't technical complexity — it's <strong>who carries the cognitive load</strong>. A tool amplifies the work you're already doing. An agent takes ownership of entire workflows through the SPAR cycle: <strong>Sense → Plan → Act → Reflect</strong>. That shift — from amplifying your effort to replacing it — is the only AI development worth your attention right now.</p></div></div>
-          <p class="body-text" style="margin-top:1.35rem">This is the lens that will define your entire AI strategy from this point forward. Every AI product you evaluate, every automation opportunity you spot — you'll ask one question: <strong>Does this carry the cognitive load, or does it still require me to carry it?</strong></p>
+          <div class="key-insight"><span class="ki-icon">💡</span><div class="ki-content"><div class="ki-label">THE INSIGHT THAT CHANGES YOUR PERSPECTIVE</div><p class="ki-text">The gap between a tool and an agent isn't technical complexity — it's <strong>who carries the cognitive load</strong>. A tool amplifies the work you're already doing — it's a faster horse. An agent takes ownership of entire workflows through the SPAR cycle: <strong>Sense → Plan → Act → Reflect</strong>. That shift — from amplifying your effort to replacing it — is not an incremental improvement. It's a <strong>fundamental redefinition of what your business can achieve with the same hours in the day.</strong> This is the single insight that will reshape how you evaluate every AI product, every automation opportunity, and every hire you consider from this moment forward.</p></div></div>
+          <p class="body-text" style="margin-top:1.35rem">This is the lens that will define your entire AI strategy from this point forward. Every AI product you evaluate, every automation opportunity you spot, every vendor pitch you sit through — you'll ask one devastatingly simple question: <strong>"Does this carry the cognitive load, or does it still require me to carry it?"</strong> The answer to that question tells you everything you need to know about whether something will genuinely transform your business — or just give you a faster way to do the same exhausting work.</p>
         </div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="5">Discover the SPAR Framework<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
@@ -1461,12 +1506,12 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <section class="section-block reveal" aria-labelledby="value-heading">
           <div class="sec-badge green">✓ WHAT YOU'VE JUST GAINED</div>
           <div class="eyebrow"><span class="ey-dot"></span>YOUR RETURN ON THESE 15 MINUTES</div>
-          <h2 class="sec-title" id="value-heading">By the End of This Lesson, <span class="gold">You Have</span> Something Most Business Owners Don't:</h2>
+          <h2 class="sec-title" id="value-heading">By the End of This Lesson, <span class="gold">You Possess</span> Something Your Competitors Won't Learn for Years:</h2>
           <ul class="outcome-list" role="list">
-            <li class="outcome-item"><span class="outcome-ic">🧠</span><div class="outcome-txt"><strong>The Vocabulary That Gives You Strategic Authority</strong>A precise, data-backed distinction between AI tools and AI agents — so next time a vendor pitches "AI-powered" anything, you'll ask the right question immediately.</div></li>
-            <li class="outcome-item"><span class="outcome-ic">🔍</span><div class="outcome-txt"><strong>The Ability to See What Others Miss</strong>You can now look at any AI system and instantly categorise it. Does it just execute, or does it sense, plan, act, and reflect? This is how forward-thinking operators think.</div></li>
-            <li class="outcome-item"><span class="outcome-ic">🧩</span><div class="outcome-txt"><strong>A Framework You'll Use in Every Business Decision</strong>The SPAR loop — Sense → Plan → Act → Reflect — reveals which parts of your business are running on human effort that could run on agent intelligence. You'll see it everywhere.</div></li>
-            <li class="outcome-item"><span class="outcome-ic">💡</span><div class="outcome-txt"><strong>Your First Identified Automation Opportunity</strong>A specific, concrete workflow in your own business that an agent could own — not a hypothetical, but a real starting point for Lesson 2.</div></li>
+            <li class="outcome-item"><span class="outcome-ic">🧠</span><div class="outcome-txt"><strong>The Strategic Vocabulary of a Business Leader, Not a Technology Follower</strong>A precise, battle-tested distinction between AI tools and AI agents — so next time a vendor pitches "AI-powered" anything, you'll cut through the marketing in seconds and ask the one question that reveals everything.</div></li>
+            <li class="outcome-item"><span class="outcome-ic">🔍</span><div class="outcome-txt"><strong>X-Ray Vision for Every AI Product You'll Ever Evaluate</strong>You can now look at any AI system and instantly categorize it: tool or agent? Passenger or pilot? Cost center or competitive weapon? This is how the 5% think — and now it's how you think.</div></li>
+            <li class="outcome-item"><span class="outcome-ic">🧩</span><div class="outcome-txt"><strong>The SPAR Framework — Your Permanent Decision-Making Engine</strong>Sense → Plan → Act → Reflect. This isn't theory you'll forget by next week. It's a lens you'll use to audit every workflow, every hire, every software purchase. You'll see automation opportunities your competitors are blind to — because they never learned the framework.</div></li>
+            <li class="outcome-item"><span class="outcome-ic">💡</span><div class="outcome-txt"><strong>A Specific, Personal Automation Opportunity — Written in Your Own Words</strong>Not a hypothetical. Not a case study about someone else's business. A concrete workflow in <em>your</em> operation that an agent could own by Lesson 2. You've already identified the first domino — everything else follows.</div></li>
           </ul>
 
           <!-- DONUT CHART: Where the 40% time reclaimed comes from -->
@@ -1542,8 +1587,8 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <section class="section-block">
           <div class="final-cta">
             <div class="final-badge">🎯 Lesson 1 Complete — You're Already Ahead</div>
-            <h2 class="final-h2">You Understand SPAR.<br>Now It's Time to Build What Others Are Still Waiting to Understand.</h2>
-            <p class="final-sub">Most business owners will read a headline about AI agents this week and still not know what to do.<br><strong>You're past that point.</strong><br><br>In Lesson 2, you go inside the architecture: how agents plan complex tasks, store memory, and how the Reflect loop compounds into genuine competitive advantage.<br><em>You'll leave with a blueprint of the first agent you'll actually deploy.</em></p>
+            <h2 class="final-h2">You Understand SPAR.<br>Now It's Time to <span class="text-shimmer">Build What Others Are Still Waiting to Understand.</span></h2>
+            <p class="final-sub">Most business owners will read a headline about AI agents this week and still not know what to do.<br><strong>You're past that point — and you know it.</strong><br><br>In Lesson 2, you go inside the architecture: how agents plan complex tasks, store memory, and how the Reflect loop compounds into genuine competitive advantage.<br><em>You'll leave with a blueprint of the first agent you'll actually deploy.</em></p>
             <div class="final-next-card"><div class="final-next-label">UP NEXT — LESSON 2</div><div class="final-next-title">Anatomy of an AI Agent</div><div class="final-next-duration">How It Plans, Remembers, and Compounds · ~14 min</div></div>
             <div class="teaser-next-box">
               <div class="teaser-next-label">NEXT LESSON — WHAT'S COMING</div>
@@ -1554,9 +1599,14 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
               </div>
               <div class="teaser-badge">Next: Lesson 2 — Anatomy of an AI Agent · ~14 min</div>
             </div>
-            <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap">
-              <button class="final-btn" id="complete-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Complete this lesson and start the next one immediately →</button>
-              <button class="final-btn-ghost" id="save-exit-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SAVE &amp; COME BACK LATER</button>
+            <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;align-items:center">
+              <a href="preview2.html" class="final-btn glow-pulse" id="complete-btn" style="text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlock Lesson 2 — Build Your First Real Agent →</a>
+              <button class="final-btn-ghost" id="save-exit-btn" style="opacity:.5;font-size:.5rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SAVE &amp; COME BACK LATER</button>
+            </div>
+            <!-- Scarcity element -->
+            <div style="margin-top:1.75rem;padding:.7rem 1.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.03);display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.4rem;letter-spacing:.18em;color:var(--g3);text-transform:uppercase">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite"></span>
+              318 owners building now · Path 1 access is open · Early adopter pricing available
             </div>
           </div>
         </section>
@@ -1626,7 +1676,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ══ TYPEWRITER ══ */
 const tw=document.getElementById('hero-heading');
-const twTxt='Are you ready to stop trading time for tasks — and start building a business that runs itself?';
+const twTxt='The Business Owners Who Win in 2026 Share One Trait — And It Has Nothing to Do With Working Harder';
 let twI=0;
 function typewrite(){if(twI<=twTxt.length){tw.innerHTML=twTxt.substring(0,twI)+(twI<twTxt.length?'<span style="display:inline-block;width:2px;height:.85em;background:var(--g1);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:-.1em" aria-hidden="true"></span>':'');twI++;setTimeout(typewrite,twI<twTxt.length?50:0);}}
 document.head.insertAdjacentHTML('beforeend','<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>');
@@ -1723,13 +1773,14 @@ if(qwBtn)qwBtn.addEventListener('click',function(){
 
 /* ══ COMPLETE ══ */
 const lvlBanner=document.getElementById('levelup-banner');
-document.getElementById('complete-btn').addEventListener('click',()=>{
+document.getElementById('complete-btn').addEventListener('click',function(e){
+  e.preventDefault();
   localStorage.setItem('vrc_path1_progress','25');
   localStorage.setItem('vrc_l1_complete','1');
   setProgress(100);playLevelUp();
   lvlBanner.classList.add('show');
   setTimeout(()=>lvlBanner.classList.remove('show'),4000);
-  setTimeout(()=>{window.location.href='path.html';},4300);
+  setTimeout(()=>{window.location.href='preview2.html';},4300);
 });
 
 /* ══ SAVE & EXIT ══ */

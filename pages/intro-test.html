@@ -770,6 +770,628 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 .step:hover .step-card::after{color:rgba(201,163,74,.07);transform:scale(1.05)}
 
 .path-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 110%,rgba(201,163,74,.052),transparent 55%)}
+
+/* ═══════════════════════════════════════════
+   RESULT CELEBRATION (Section 2 — High Value Moment)
+═══════════════════════════════════════════ */
+.result-celebration {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  background: rgba(201,163,74,.04);
+  border: 1px solid rgba(201,163,74,.14);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+}
+.result-celebration::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--g0), var(--g1), var(--g0), transparent);
+}
+.result-celebration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem 1rem;
+  border-radius: 50px;
+  background: rgba(201,163,74,.1);
+  border: 1px solid rgba(201,163,74,.25);
+  font-family: var(--fb);
+  font-size: .5rem;
+  letter-spacing: .22em;
+  color: var(--g1);
+  margin-bottom: 1.25rem;
+}
+.result-celebration-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+}
+.result-celebration-score {
+  font-family: var(--fb);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--g0), var(--g1), var(--g2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  margin-bottom: .5rem;
+}
+.result-celebration-title {
+  font-family: var(--fd);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-style: italic;
+  color: var(--cr);
+  line-height: 1.5;
+  margin-bottom: .75rem;
+}
+.result-celebration-desc {
+  font-size: .84rem;
+  color: var(--bn);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.result-celebration-desc strong {
+  color: var(--cr);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   AHA MOMENT DEMO PREVIEW (Section 3)
+═══════════════════════════════════════════ */
+.aha-moment {
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+.aha-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .65rem 1.4rem;
+  border-radius: 50px;
+  border: 1px solid rgba(201,163,74,.25);
+  background: rgba(201,163,74,.06);
+  color: var(--g1);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  cursor: none;
+  transition: all .3s var(--ex);
+}
+.aha-trigger:hover {
+  background: rgba(201,163,74,.12);
+  border-color: var(--g1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.aha-trigger svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+  transition: transform .3s;
+}
+.aha-trigger:hover svg {
+  transform: rotate(15deg) scale(1.1);
+}
+.aha-demo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .6s var(--ex), opacity .5s var(--ex), margin .5s var(--ex);
+  opacity: 0;
+  margin-top: 0;
+}
+.aha-demo.active {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+.aha-demo-inner {
+  border-radius: 16px;
+  background: rgba(9,7,5,.85);
+  border: 1px solid rgba(201,163,74,.12);
+  padding: 1.25rem;
+  max-width: 460px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.aha-demo-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  opacity: .4;
+}
+.aha-demo-label {
+  font-family: var(--fb);
+  font-size: .44rem;
+  letter-spacing: .22em;
+  color: var(--g3);
+  margin-bottom: .75rem;
+  text-align: left;
+}
+.aha-chat {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.aha-chat-msg {
+  padding: .65rem .9rem;
+  border-radius: 12px;
+  font-size: .78rem;
+  line-height: 1.5;
+  max-width: 85%;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s var(--ex), transform .4s var(--ex);
+}
+.aha-chat-msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.aha-chat-msg.incoming {
+  background: rgba(201,163,74,.08);
+  border: 1px solid rgba(201,163,74,.15);
+  color: var(--cr);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.aha-chat-msg.outgoing {
+  background: rgba(201,163,74,.12);
+  border: 1px solid rgba(201,163,74,.2);
+  color: var(--g1);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  font-weight: 500;
+}
+.aha-chat-typing {
+  display: flex;
+  gap: 4px;
+  padding: .4rem;
+  align-self: flex-start;
+}
+.aha-chat-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--g3);
+  animation: typingDot 1.2s ease-in-out infinite;
+}
+.aha-chat-typing span:nth-child(2) { animation-delay: .2s; }
+.aha-chat-typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: .3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* ═══════════════════════════════════════════
+   DUAL ACTION BUTTONS (Section 4)
+═══════════════════════════════════════════ */
+.dual-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 2.5rem;
+}
+.dual-actions .btn-p {
+  width: 100%;
+  max-width: 340px;
+  justify-content: center;
+}
+.dual-actions .btn-save {
+  font-size: .78rem;
+  color: var(--tp);
+  letter-spacing: .04em;
+  padding: .5rem 1rem;
+  border: none;
+  background: none;
+  cursor: none;
+  transition: color .25s;
+  font-family: var(--fs);
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+.dual-actions .btn-save:hover {
+  color: var(--g1);
+}
+.dual-actions .btn-save svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* ═══════════════════════════════════════════
+   MICRO TRUST STRIP (Section 6)
+═══════════════════════════════════════════ */
+.trust-micro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.trust-micro-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .62rem;
+  color: var(--tp);
+  letter-spacing: .04em;
+  opacity: .75;
+}
+.trust-micro-item svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--grn);
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* ═══════════════════════════════════════════
+   TRANSITION MESSAGE (Section 7)
+═══════════════════════════════════════════ */
+.transition-msg {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background: rgba(201,163,74,.04);
+  border: 1px solid rgba(201,163,74,.12);
+  position: relative;
+  overflow: hidden;
+}
+.transition-msg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  opacity: .4;
+}
+.transition-msg-label {
+  font-family: var(--fb);
+  font-size: .44rem;
+  letter-spacing: .24em;
+  color: var(--g3);
+  margin-bottom: .6rem;
+}
+.transition-msg-title {
+  font-family: var(--fd);
+  font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+  font-style: italic;
+  color: var(--cr);
+  line-height: 1.5;
+  margin-bottom: .5rem;
+}
+.transition-msg-title em {
+  font-style: normal;
+  font-weight: 500;
+  background: linear-gradient(115deg, var(--g0), var(--g1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.transition-msg-desc {
+  font-size: .8rem;
+  color: var(--bn);
+  line-height: 1.65;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════
+   PHILOSOPHICAL HOOK LINE — Repeated Signature
+═══════════════════════════════════════════ */
+.phil-line {
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(201,163,74,.035);
+  border: 1px solid rgba(201,163,74,.1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.75rem;
+}
+.phil-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  opacity: .5;
+}
+.phil-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--g1), transparent);
+  opacity: .3;
+}
+.phil-quote {
+  font-family: var(--fd);
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  font-style: italic;
+  color: var(--cr);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+.phil-quote em {
+  font-style: normal;
+  font-weight: 500;
+  background: linear-gradient(115deg, var(--g0), var(--g1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.phil-attribution {
+  font-family: var(--fb);
+  font-size: .46rem;
+  letter-spacing: .22em;
+  color: var(--g3);
+  margin-top: .65rem;
+  opacity: .7;
+}
+
+/* ═══════════════════════════════════════════
+   ENHANCED HOOK — Multi-part dramatic reveal
+═══════════════════════════════════════════ */
+.hook-container {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  min-height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.hook-counter {
+  font-family: var(--fb);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--g0) 0%, var(--g1) 50%, var(--g2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s var(--ex), transform 0.6s var(--bk);
+  letter-spacing: -0.04em;
+}
+.hook-counter.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.hook-subtitle {
+  font-family: var(--fs);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--bn);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ex) 0.1s, transform 0.5s var(--ex) 0.1s;
+  line-height: 1.5;
+}
+.hook-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hook-punchline {
+  font-family: var(--fd);
+  font-size: clamp(1.1rem, 2.8vw, 1.55rem);
+  font-style: italic;
+  color: var(--g1);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  border-right: 2px solid var(--g1);
+  padding-right: 3px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: inline;
+}
+.hook-punchline.visible {
+  opacity: 1;
+  animation: hookBlink 0.7s step-end infinite;
+}
+.hook-punchline.done {
+  border-right-color: transparent;
+  animation: none;
+}
+@keyframes hookBlink {
+  0%, 100% { border-right-color: var(--g1); }
+  50% { border-right-color: transparent; }
+}
+
+/* ═══════════════════════════════════════════
+   CTA BUTTON GLOW PULSE
+═══════════════════════════════════════════ */
+.btn-p-glow {
+  position: relative;
+}
+.btn-p-glow::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 64px;
+  background: rgba(201,163,74,.15);
+  filter: blur(12px);
+  z-index: -1;
+  animation: btnPulse 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes btnPulse {
+  0%, 100% { opacity: 0; transform: scale(.95); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* ═══════════════════════════════════════════
+   STAGGER REVEAL FOR CHILDREN
+═══════════════════════════════════════════ */
+.stagger-in > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .5s var(--ex), transform .5s var(--ex);
+}
+.stagger-in.visible > *:nth-child(1) { transition-delay: .05s; opacity: 1; transform: translateY(0); }
+.stagger-in.visible > *:nth-child(2) { transition-delay: .15s; opacity: 1; transform: translateY(0); }
+.stagger-in.visible > *:nth-child(3) { transition-delay: .25s; opacity: 1; transform: translateY(0); }
+.stagger-in.visible > *:nth-child(4) { transition-delay: .35s; opacity: 1; transform: translateY(0); }
+.stagger-in.visible > *:nth-child(5) { transition-delay: .45s; opacity: 1; transform: translateY(0); }
+.stagger-in.visible > *:nth-child(6) { transition-delay: .55s; opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   ENHANCED MICRO-ECHO (repeated phrases)
+═══════════════════════════════════════════ */
+.micro-echo {
+  text-align: center;
+  font-family: var(--fd);
+  font-size: .88rem;
+  font-style: italic;
+  color: var(--g3);
+  letter-spacing: .03em;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba(201,163,74,.025);
+  border: 1px solid rgba(201,163,74,.06);
+  opacity: 0;
+  animation: fU .6s var(--ex) .3s both;
+}
+.micro-echo em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--g2);
+}
+
+/* ═══════════════════════════════════════════
+   FLOATING INDICATORS (Visual entertainment)
+═══════════════════════════════════════════ */
+.floating-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+.float-ind {
+  font-family: var(--fb);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--g3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  border: 1px solid rgba(201,163,74,0.1);
+  background: rgba(201,163,74,0.03);
+  animation: floatY 3s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(var(--y, -8px)); }
+}
+
+/* ═══════════════════════════════════════════
+   CTA WRAP WITH URGENCY
+═══════════════════════════════════════════ */
+.cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+.cta-urgency {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  color: var(--tp);
+  letter-spacing: 0.04em;
+  animation: urgPulse 3s ease-in-out infinite;
+}
+.cta-urgency svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--g1);
+  stroke-width: 2;
+  fill: none;
+  animation: urgSpin 4s linear infinite;
+}
+@keyframes urgPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes urgSpin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════
+   STAGE FLASH TRANSITION
+═══════════════════════════════════════════ */
+.stage-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201,163,74,0.08) 0%, transparent 70%);
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0;
+  animation: stageFlash 0.6s ease-out forwards;
+}
+@keyframes stageFlash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════
+   PULSE RING ON CTA BUTTONS
+═══════════════════════════════════════════ */
+.btn-p-glow {
+  transition: transform 0.35s cubic-bezier(.16,1,.3,1), box-shadow 0.35s;
+}
+.btn-p-glow .pulse-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 68px;
+  border: 1px solid rgba(201,163,74,0.3);
+  animation: pulseRing 2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
 </style>
 </head>
 <body>
@@ -802,10 +1424,7 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="hdots" id="hdots" aria-hidden="true"></div>
     <!-- NEW: step counter and skip test link -->
     <span class="step-counter" id="stepCounter" aria-label="Current step">1/6</span>
-    <div class="skip-test-wrap">
-      <a href="Gmail Login.html" class="skip-test-link" id="skipTestLink">Get instant recommendation (without test) →</a>
-      <span class="skip-warning">Less accurate result</span>
-    </div>
+
   </div>
 </header>
 
@@ -815,25 +1434,45 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <!-- ════════════════ S1: INTRO ════════════════ -->
 <section class="stage active" id="s1" aria-label="Introduction">
   <div class="s1">
-    <div class="ey fu"><div class="ey-dot"></div>BUSINESS AI ASSESSMENT · FREE · 2 MINUTES</div>
-    <h1 class="s1-h fu d1">Your competitors are automating.<br><em>Most business owners don't know where to start.</em></h1>
+    <div class="ey fu"><div class="ey-dot"></div>BUSINESS AI READINESS ASSESSMENT · FREE · 2 MINUTES</div>
+
+    <!-- Enhanced 3-second animated hook -->
+    <div class="hook-container fu d1">
+      <div class="hook-counter">0%</div>
+      <div class="hook-subtitle">% of business owners who say AI matters — never act.</div>
+      <div class="hook-punchline" id="hookPunchline"></div>
+    </div>
+
+    <h1 class="s1-h fu d2">Your competitors are already building<br>AI systems that <em>never sleep.</em><br>Are you still doing everything yourself?</h1>
     <div class="gl fu d2"></div>
     <div class="s1-body fu d3">
-      <!-- NEW: welcome message and explanation -->
-      <p><strong>Welcome to VERCELLUM.</strong> This quick assessment will pinpoint your business's AI readiness and recommend the best learning path.</p>
-      <p>AI agents are no longer a future possibility — they are running operations, closing sales, and handling customer support inside businesses right now. The gap between early movers and late adopters is widening every month.</p>
-      <p>Most SMB owners understand this is important. Very few know the right first step for their specific business.</p>
-      <p><strong>This assessment will show you exactly where your business stands — and the precise path to get ahead.</strong></p>
+      <p>Right now, your competitors are deploying AI agents that work around the clock — qualifying leads at midnight, following up before your team wakes, and turning the chaos of daily operations into systems that <strong>run themselves without you.</strong></p>
+      <p>This isn't a prediction about what AI will do. It's a description of what it's already doing — inside the businesses that stopped waiting and started building. The gap between those who automate and those who don't is no longer closing. <strong>It's compounding.</strong></p>
+      <p>You don't need to understand the technology. You need to understand <strong>where to start — and that starting today is worth more than starting perfectly next quarter.</strong></p>
+      <p>This assessment was designed to give you exactly that: a clear, honest map of where your business stands — and <strong>the precise first step that turns AI from a buzzword into a working system inside your operations.</strong></p>
     </div>
     <div class="s1-stats fu d4">
-      <div class="s1-st"><span class="s1-st-n">2min</span><span class="s1-st-l">TO COMPLETE</span></div>
-      <div class="s1-st"><span class="s1-st-n">6</span><span class="s1-st-l">QUESTIONS</span></div>
-      <div class="s1-st"><span class="s1-st-n">Free</span><span class="s1-st-l">NO SIGN UP</span></div>
+      <div class="s1-st"><span class="s1-st-n" data-count="120">0</span><span class="s1-st-l">SECONDS TO CLARITY</span></div>
+      <div class="s1-st"><span class="s1-st-n" data-count="94">0</span><span class="s1-st-l">AVERAGE SCORE</span></div>
+      <div class="s1-st"><span class="s1-st-n">∞</span><span class="s1-st-l">ROI POTENTIAL</span></div>
+    </div>
+    <div class="floating-indicators fu d5">
+      <div class="float-ind" style="--delay:0s;--y:0px">24/7</div>
+      <div class="float-ind" style="--delay:0.5s;--y:-8px">+340%</div>
+      <div class="float-ind" style="--delay:1s;--y:4px">→ Zero</div>
+      <div class="float-ind" style="--delay:1.5s;--y:-12px">40h/week</div>
     </div>
     <div class="s1-trust fu d5">
       <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No coding required</span>
       <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Built for SMB owners</span>
       <span class="s1-trust-it"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Real business results</span>
+    </div>
+    <!-- Micro trust text (Section 6) -->
+    <div class="trust-micro fu d5">
+      <span class="trust-micro-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Takes less than 60 seconds</span>
+      <span class="trust-micro-item"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>No signup required</span>
+      <span class="trust-micro-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Free assessment</span>
+      <span class="trust-micro-item"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Instant results</span>
     </div>
 
     <!-- Motivational block (UX Enhancement #1: Clear reward at the start) -->
@@ -862,8 +1501,18 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       </ul>
     </div>
 
-    <div class="bw fu d6">
-      <button class="btn-p" id="s1btn"><span>Start Business Assessment</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <!-- Philosophical phrase (repeated signature) -->
+    <div class="phil-line fu d6 stagger-in" id="philLine1">
+      <div class="phil-quote">"The distance between where you are and where you want to be is measured in <em>decisions</em> — not time."</div>
+      <div class="phil-attribution">— THE CHOICE THAT CHANGES EVERYTHING</div>
+    </div>
+
+    <div class="cta-wrap fu d7">
+      <div class="cta-urgency">
+        <svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Only 2% of visitors take this step — be the one who does
+      </div>
+      <button class="btn-p btn-p-glow" id="s1btn"><span>Take the 2-Minute Assessment</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
@@ -880,6 +1529,8 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="q-ctr"><span id="qctr">QUESTION 1 OF 6</span><div class="q-ctr-bar"><div class="q-ctr-fill" id="qcf" style="width:0%"></div></div></div>
     <!-- Reinforcement microcopy slot (UX Enhancement #1 & #6) -->
     <div id="reinforcementSlot"></div>
+    <!-- Philosophical phrase echo (S2) -->
+    <div class="micro-echo" id="philEcho2">"Decisions, not time. This is yours to make."</div>
     <h2 class="q-txt" id="qtxt"></h2>
     <p class="q-hint">Choose the answer that best reflects your business today</p>
     <div class="q-opts" id="qopts"></div>
@@ -1024,8 +1675,68 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       </div>
     </div>
 
-    <div class="bw fu d9">
-      <button class="btn-g" id="s3btn">See What AI Can Do for Your Business<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <!-- Result celebration block (Section 2 — High Value Moment) -->
+    <div class="result-celebration fu d8" id="resultCelebration">
+      <div class="result-celebration-badge">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        YOUR AUTOMATION READINESS SCORE
+      </div>
+      <div class="result-celebration-score" id="celebrationScore">94 / 100</div>
+      <div class="result-celebration-title">You're in the top 8% — and you haven't even started yet.</div>
+      <p class="result-celebration-desc">Your instincts are sharp. You already see what most business owners won't see for another two years. The question isn't <em>if</em> you should automate — it's <strong>how fast you can turn this understanding into a system that works while you sleep.</strong></p>
+    </div>
+
+    <!-- Philosophical phrase echo (S3) -->
+    <div class="micro-echo fu d8">"The gap between knowing and doing is where every business dies — or <em>thrives</em>."</div>
+
+    <!-- Philosophical line before CTA (S3) -->
+    <div class="phil-line" style="margin-top:1.5rem;margin-bottom:1.5rem">
+      <div class="phil-quote">"Your score isn't a number. It's a <em>mirror</em> — and the reflection is asking you to move."</div>
+      <div class="phil-attribution">— DECIDE WHAT THE MIRROR SHOWS TOMORROW</div>
+    </div>
+
+    <!-- AHA Moment Demo Preview (Section 3) -->
+    <div class="aha-moment fu d9" id="ahaMoment">
+      <button class="aha-trigger" id="ahaTrigger">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        See how automation actually works
+      </button>
+      <div class="aha-demo" id="ahaDemo">
+        <div class="aha-demo-inner">
+          <div class="aha-demo-label">LIVE AUTOMATION PREVIEW</div>
+          <div class="aha-chat" id="ahaChat">
+            <div class="aha-chat-msg incoming" data-delay="0">
+              <div style="font-size:.6rem;color:var(--tp);margin-bottom:.2rem;letter-spacing:.04em">New lead inquiry</div>
+              Hi, I'm interested in your services. Can you help me?
+            </div>
+            <div class="aha-chat-msg outgoing" data-delay="800">
+              <div style="font-size:.6rem;color:var(--g3);margin-bottom:.2rem;letter-spacing:.04em">Your AI agent responds instantly</div>
+              Hello! Thanks for reaching out. I'd love to help. Let me grab a few details so we can get started right away.
+            </div>
+            <div class="aha-chat-msg outgoing" data-delay="1600">
+              <div style="font-size:.6rem;color:var(--g3);margin-bottom:.2rem;letter-spacing:.04em">Agent qualifies the lead automatically</div>
+              Based on what you've shared, I recommend our Growth package. Shall I book a 15-minute call for tomorrow at 10am?
+            </div>
+          </div>
+          <div class="aha-chat-typing" id="ahaTyping" style="display:none">
+            <span></span><span></span><span></span>
+          </div>
+          <p style="text-align:center;font-size:.68rem;color:var(--tp);margin-top:.75rem;letter-spacing:.03em;font-style:italic">This runs 24/7 — even while you sleep.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual action buttons (Section 4) -->
+    <div class="cta-wrap fu d9">
+      <div class="cta-urgency">
+        <svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Your score places you in the top 8% — take the next step now
+      </div>
+      <button class="btn-p btn-p-glow" id="s3btn"><span>See What AI Can Actually Do For You</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn-save" id="saveResultsBtn">
+        <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save my results
+      </button>
     </div>
   </div>
 </section>
@@ -1034,8 +1745,8 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <section class="stage" id="s4" aria-label="AI Capabilities for SMBs" style="display:none">
   <div class="cap-header">
     <div class="cap-header-ey fu">REAL CAPABILITIES · DEPLOYABLE IN YOUR BUSINESS TODAY</div>
-    <h2 class="cap-header-t fu d1">What AI agents can <em>actually do</em> for your business</h2>
-    <p class="cap-header-s fu d2">Not hypothetical. Not promises. Systems you can deploy inside your operations right now — with the right structured knowledge.</p>
+    <h2 class="cap-header-t fu d1">What your competitors are already deploying — <em>and what it costs you to wait</em></h2>
+    <p class="cap-header-s fu d2">Every system below is live inside real businesses right now — handling operations, closing deals, and growing revenue while their owners sleep.</p>
   </div>
 
   <div class="bento">
@@ -1104,9 +1815,15 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     </div>
   </div>
 
-  <div class="bw fu d7">
-    <button class="btn-g" id="s4btn">Why the Timing Matters for Your Business<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+  <div class="cta-wrap fu d7">
+    <div class="cta-urgency">
+      <svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Every system below already exists — the only variable is you
+    </div>
+    <button class="btn-g" id="s4btn">Why Every Day You Wait Costs You More<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
+  <!-- Philosophical phrase echo (S4) -->
+  <div class="micro-echo">"Every tool you just saw exists right now. The only variable is <em>you</em>."</div>
 </section>
 
 <!-- ════════════════ S5: TIMING — LINE CHART ════════════════ -->
@@ -1114,8 +1831,8 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   <div class="timing-wrap">
     <div class="timing-header">
       <div class="timing-ey fu">THE FIRST-MOVER BUSINESS ADVANTAGE</div>
-      <h2 class="timing-title fu d1">Businesses that automate now<br><em>build leads that cannot be closed.</em></h2>
-      <p class="timing-sub fu d2">Every major technology shift rewards the businesses that move first with structural advantages that late adopters simply cannot replicate — no matter how hard they try later.</p>
+      <h2 class="timing-title fu d1">Every day you wait, the gap widens.<br><em>And it never shrinks back.</em></h2>
+      <p class="timing-sub fu d2">Every major technology shift created a window where early movers built advantages that late adopters could never close — regardless of budget or resources.</p>
     </div>
 
     <div class="chart-shell fu d3">
@@ -1152,8 +1869,14 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 
     <p class="timing-close fu d5">Businesses that build AI workflows now will not just operate more efficiently — they will develop <em>structural competitive advantages</em> that become impossible to replicate.</p>
   </div>
-  <div class="bw fu d6">
-    <button class="btn-g" id="s5btn">Show Me My Business Path<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+  <!-- Philosophical phrase echo (S5) -->
+  <div class="micro-echo" style="margin-bottom:1rem">"The window is still open. Not forever. <em>Now.</em>"</div>
+  <div class="cta-wrap fu d6">
+    <div class="cta-urgency">
+      <svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      The 18-month window is closing — your move
+    </div>
+    <button class="btn-g" id="s5btn">Show Me My Exact Next Step<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
@@ -1164,8 +1887,8 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 
     <div class="path-header">
       <div class="path-ey fu">YOUR BUSINESS TRANSFORMATION ROADMAP</div>
-      <h2 class="path-title fu d1">Four levels.<br>One <em>path to AI-powered operations.</em></h2>
-      <p class="path-sub fu d2">Each level delivers measurable improvements to your business — practical, progressive, and producing results from your very first session.</p>
+      <h2 class="path-title fu d1">Four levels.<br>One <em>irreversible transformation.</em></h2>
+      <p class="path-sub fu d2">Each level delivers real, measurable changes to your operations — practical, progressive, and producing results from your very first session. No theory. No fluff. Just systems that work.</p>
     </div>
 
     <div class="staircase fu d3">
@@ -1227,8 +1950,25 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 
     </div>
 
-    <div class="bw fu d6" style="position:relative;z-index:1">
-      <button class="btn-p" id="finalBtn"><span>Start Building — It's Free</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <!-- Transition message (Section 7) -->
+    <div class="transition-msg fu d5" style="position:relative;z-index:1">
+      <div class="transition-msg-label">WHAT HAPPENS NEXT</div>
+      <div class="transition-msg-title">The distance between knowing and doing ends <em>right here</em>.</div>
+      <p class="transition-msg-desc">You've seen your score. You've seen what's possible. There is only one thing standing between you and the business you just imagined: <strong>the decision to start.</strong> Not next quarter. Not "when things calm down." The businesses you admire never waited for the perfect moment. They created it.</p>
+    </div>
+
+    <!-- Philosophical phrase echo (S6) -->
+    <div class="phil-line fu d5" style="position:relative;z-index:1;margin-bottom:1.75rem">
+      <div class="phil-quote">"The distance between where you are and where you want to be is measured in <em>one decision</em> — this one."</div>
+      <div class="phil-attribution">— THE FUTURE BELONGS TO THOSE WHO BUILD IT</div>
+    </div>
+
+    <div class="cta-wrap fu d6" style="position:relative;z-index:1">
+      <div class="cta-urgency">
+        <svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        This is your moment — 97% of visitors leave without taking action
+      </div>
+      <button class="btn-p btn-p-glow" id="finalBtn"><span>I'm Ready to Build — Start Free</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
@@ -1320,6 +2060,7 @@ function updateUI(){
 updateUI();
 
 function goTo(id){
+  flashStage();
   const from=document.querySelector('.stage.active'),to=document.getElementById(id);
   if(!to||!from||from===to)return;
   from.classList.add('out-up');to.style.display='';
@@ -1597,6 +2338,146 @@ document.getElementById('skipTestLink').addEventListener('click', function(e) {
   SND.click();
   burst(e.clientX, e.clientY);
   setTimeout(() => { location.href = 'Gmail Login.html'; }, 200);
+});
+
+/* ══ ENHANCED MULTI-PART HOOK (3-second attention grab) ══ */
+(function initEnhancedHook() {
+  const counterEl = document.querySelector('.hook-counter');
+  const subtitleEl = document.querySelector('.hook-subtitle');
+  const punchlineEl = document.querySelector('.hook-punchline');
+  if (!counterEl || !subtitleEl || !punchlineEl) return;
+
+  const TARGET = 87;
+  const punchPhrase = "This is where you become different.";
+  let punchIdx = 0;
+
+  // Step 1: Animate counter from 0 to 87
+  setTimeout(() => {
+    counterEl.classList.add('visible');
+    let count = 0;
+    const counterIv = setInterval(() => {
+      count += Math.ceil((TARGET - count) * 0.15) || 1;
+      if (count >= TARGET) { count = TARGET; clearInterval(counterIv); }
+      counterEl.textContent = count + '%';
+    }, 25);
+  }, 400);
+
+  // Step 2: Show subtitle after counter
+  setTimeout(() => {
+    subtitleEl.classList.add('visible');
+  }, 1500);
+
+  // Step 3: Type punchline
+  setTimeout(() => {
+    punchlineEl.classList.add('visible');
+    function typePunch() {
+      if (punchIdx <= punchPhrase.length) {
+        punchlineEl.textContent = punchPhrase.substring(0, punchIdx);
+        punchIdx++;
+        setTimeout(typePunch, 30);
+      } else {
+        punchlineEl.classList.add('done');
+        // Burst gold particles
+        const rect = punchlineEl.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        burst(cx, cy);
+        burst(cx - 30, cy + 10);
+        burst(cx + 30, cy - 10);
+      }
+    }
+    typePunch();
+  }, 2800);
+})();
+
+/* ══ STAGGER REVEAL OBSERVER ══ */
+const staggerEls = document.querySelectorAll('.stagger-in');
+const staggerObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      staggerObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+staggerEls.forEach(el => staggerObs.observe(el));
+
+/* ══ AHA MOMENT DEMO (Section 3) ══ */
+const ahaTrigger = document.getElementById('ahaTrigger');
+const ahaDemo = document.getElementById('ahaDemo');
+let ahaPlayed = false;
+
+ahaTrigger?.addEventListener('click', function(e) {
+  SND.click();
+  burst(e.clientX, e.clientY);
+  
+  if (ahaDemo.classList.contains('active')) {
+    ahaDemo.classList.remove('active');
+    ahaTrigger.innerHTML = '<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> See how automation actually works';
+    return;
+  }
+  
+  ahaDemo.classList.add('active');
+  ahaTrigger.innerHTML = '<svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Hide preview';
+  
+  if (!ahaPlayed) {
+    ahaPlayed = true;
+    const chatMsgs = document.querySelectorAll('#ahaChat .aha-chat-msg');
+    chatMsgs.forEach((msg, i) => {
+      const delay = parseInt(msg.dataset.delay) || (i * 800);
+      setTimeout(() => {
+        msg.classList.add('visible');
+      }, delay);
+    });
+  } else {
+    document.querySelectorAll('#ahaChat .aha-chat-msg').forEach(msg => {
+      msg.classList.add('visible');
+    });
+  }
+});
+
+/* ══ SAVE RESULTS (Section 4) ══ */
+document.getElementById('saveResultsBtn')?.addEventListener('click', function(e) {
+  SND.click();
+  burst(e.clientX, e.clientY);
+  
+  // Generate a simple text summary
+  const summary = `VERCELLUM — Business AI Readiness Assessment\n${'═'.repeat(45)}\n\nYour Automation Readiness Score: 94 / 100\nReadiness Level: Advanced\nRecommended Path: Operations Automation\nFirst Step: Build a client follow-up agent\n\nTop 8% of SMB owners assessed\n\nNext: Start your free lesson at VERCELLUM`;
+  
+  const blob = new Blob([summary], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'vercellum-ai-readiness-results.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  // Visual feedback
+  const btn = document.getElementById('saveResultsBtn');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Results saved!';
+  btn.style.color = 'var(--g1)';
+  setTimeout(() => {
+    btn.innerHTML = originalHTML;
+    btn.style.color = '';
+  }, 2000);
+});
+
+/* ══ STAGE FLASH TRANSITION ══ */
+function flashStage() {
+  const flash = document.createElement('div');
+  flash.className = 'stage-flash';
+  document.body.appendChild(flash);
+  setTimeout(() => flash.remove(), 700);
+}
+
+/* ══ PULSE RINGS ON CTA BUTTONS ══ */
+document.querySelectorAll('.btn-p-glow').forEach(btn => {
+  const ring = document.createElement('span');
+  ring.className = 'pulse-ring';
+  btn.appendChild(ring);
 });
 
 })();

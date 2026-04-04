@@ -610,8 +610,235 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   50%{opacity:.7}
 }
 
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Free / Preview / Locked Badges
+════════════════════════════════════════════════════ */
+.cv-badges{display:flex;align-items:center;gap:.4rem;margin-bottom:.5rem;flex-wrap:wrap}
+.cv-badge{display:inline-flex;align-items:center;gap:4px;padding:.2rem .55rem;border-radius:5px;font-family:var(--fb);font-size:.38rem;letter-spacing:.18em;text-transform:uppercase}
+.cv-free{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:var(--grn)}
+.cv-free svg{width:9px;height:9px;stroke:var(--grn);stroke-width:2;fill:none}
+.cv-preview{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.25);color:var(--g1)}
+.cv-preview svg{width:9px;height:9px;stroke:var(--g1);stroke-width:2;fill:none}
+.cv-locked-badge{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--tp)}
+.cv-locked-badge svg{width:9px;height:9px;stroke:var(--tp);stroke-width:2;fill:none;opacity:.5}
+.node-card.completed .cv-badge,.node-card.unlocked .cv-badge{display:none}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Lesson Value Descriptions
+════════════════════════════════════════════════════ */
+.node-value{font-family:var(--fs);font-size:.72rem;color:var(--g2);font-style:italic;margin-top:-.6rem;margin-bottom:.85rem;line-height:1.5;display:flex;align-items:center;gap:.35rem}
+.node-value svg{width:11px;height:11px;stroke:var(--g2);stroke-width:2;fill:none;flex-shrink:0}
+.node-card.locked .node-value{color:var(--as)}
+.node-card.locked .node-value svg{stroke:var(--as)}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Preview Button
+════════════════════════════════════════════════════ */
+.cv-preview-btn{display:inline-flex;align-items:center;gap:6px;padding:.4rem .85rem;border-radius:6px;font-family:var(--fb);font-size:.42rem;letter-spacing:.15em;color:var(--g1);background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.2);transition:all .3s var(--ex);margin-top:.5rem;cursor:none}
+.cv-preview-btn:hover{background:rgba(201,163,74,.12);border-color:rgba(201,163,74,.4);box-shadow:0 2px 12px rgba(201,163,74,.1)}
+.cv-preview-btn svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none}
+.node-card.unlocked .cv-preview-btn,.node-card.completed .cv-preview-btn{display:none}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Access Clarity Bar
+════════════════════════════════════════════════════ */
+.cv-access-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem 1rem;border-radius:10px;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.12);margin-top:.75rem;margin-bottom:0;animation:fadeSlideIn .6s .3s var(--ex) both}
+.cv-access-left{display:flex;align-items:center;gap:.5rem}
+.cv-access-icon{font-size:.85rem;opacity:.7}
+.cv-access-text{font-family:var(--fs);font-size:.7rem;color:var(--grn);line-height:1.4}
+.cv-access-text strong{color:var(--grn);font-weight:600}
+.cv-access-right{font-family:var(--fb);font-size:.48rem;letter-spacing:.18em;color:var(--g2);text-align:right;line-height:1.4}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Upgrade CTA Section
+════════════════════════════════════════════════════ */
+.cv-upgrade{max-width:600px;margin:3rem auto 0;padding:2rem 2rem 1.75rem;border-radius:20px;background:linear-gradient(135deg,rgba(201,163,74,.06) 0%,rgba(201,163,74,.02) 100%);border:1px solid rgba(201,163,74,.18);text-align:center;position:relative;overflow:hidden;animation:fadeSlideIn .8s var(--ex) both}
+.cv-upgrade::before{content:'';position:absolute;top:-40%;right:-15%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(201,163,74,.05),transparent 70%);pointer-events:none}
+.cv-upgrade-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.28em;color:var(--g2);margin-bottom:.85rem;text-transform:uppercase}
+.cv-upgrade-title{font-family:var(--fd);font-size:1.4rem;color:var(--cr);font-weight:500;margin-bottom:.5rem}
+.cv-upgrade-sub{font-family:var(--fs);font-size:.8rem;color:var(--bn);margin-bottom:1.5rem;line-height:1.6}
+.cv-value-stack{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem;text-align:left;max-width:280px;margin-left:auto;margin-right:auto}
+.cv-value-item{display:flex;align-items:center;gap:.5rem;font-family:var(--fs);font-size:.72rem;color:var(--bn)}
+.cv-value-item svg{width:12px;height:12px;stroke:var(--g1);stroke-width:2;fill:none;flex-shrink:0}
+.cv-upgrade-cta{display:inline-flex;align-items:center;gap:8px;padding:.75rem 2rem;border-radius:10px;font-family:var(--fb);font-size:.6rem;letter-spacing:.2em;color:var(--wh);background:linear-gradient(135deg,var(--g3),var(--g1));border:1px solid rgba(201,163,74,.5);box-shadow:0 4px 24px rgba(201,163,74,.2);transition:all .3s var(--ex);cursor:none;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.cv-upgrade-cta:hover{background:linear-gradient(135deg,var(--g2),var(--g0));box-shadow:0 6px 32px rgba(201,163,74,.35);transform:translateY(-2px);border-color:rgba(201,163,74,.7)}
+.cv-upgrade-cta svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
+.cv-upgrade-price{font-family:var(--fd);font-size:.85rem;color:var(--g1);font-style:italic;margin-top:.75rem}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Social Proof Micro Text
+════════════════════════════════════════════════════ */
+.cv-social-proof{text-align:center;max-width:500px;margin:2rem auto 0;animation:fadeSlideIn .9s var(--ex) both}
+.cv-social-proof p{font-family:var(--fd);font-size:.9rem;color:var(--tp);font-style:italic;line-height:1.6}
+.cv-social-proof p span{color:var(--g2);font-style:normal}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Progression Hint
+════════════════════════════════════════════════════ */
+.cv-progression{text-align:center;margin-top:1.75rem;animation:fadeSlideIn .7s .2s var(--ex) both}
+.cv-progression p{font-family:var(--fs);font-size:.68rem;color:var(--as);letter-spacing:.04em;line-height:1.5}
+.cv-progression p span{color:var(--g2)}
+
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Responsive additions
+════════════════════════════════════════════════════ */
+@media(max-width:680px){
+  .cv-upgrade{padding:1.5rem 1.25rem 1.25rem}
+  .cv-value-stack{max-width:100%}
+  .cv-access-bar{flex-direction:column;align-items:flex-start;gap:.35rem}
+  .cv-access-right{text-align:left}
+  .cv-badges{gap:.3rem}
+}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: The Anchor Phrase System
+════════════════════════════════════════════════════ */
+.phil-anchor{
+  text-align:center;
+  padding:2.25rem 1.5rem;
+  margin:0 0 2rem;
+  position:relative;
+}
+.phil-line{
+  font-family:var(--fd);
+  font-size:clamp(1.2rem,3.5vw,1.8rem);
+  font-weight:400;
+  font-style:italic;
+  color:var(--cr);
+  line-height:1.5;
+  letter-spacing:.01em;
+  position:relative;
+  display:inline-block;
+}
+.phil-line .phil-emp{
+  color:transparent;
+  background:linear-gradient(135deg,var(--g0),var(--g1),var(--g2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  font-weight:500;
+}
+.phil-line .phil-emp-shimmer{
+  color:transparent;
+  background:linear-gradient(90deg,var(--g0) 0%,var(--g0) 40%,var(--wh) 50%,var(--g1) 60%,var(--g1) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  font-weight:500;
+  animation:shimmerText 3s ease-in-out infinite;
+}
+@keyframes shimmerText{
+  0%{background-position:100% 50%}
+  100%{background-position:-100% 50%}
+}
+.phil-attr{
+  display:block;
+  font-family:var(--fb);
+  font-size:.45rem;
+  letter-spacing:.3em;
+  color:var(--g3);
+  margin-top:.75rem;
+  text-transform:uppercase;
+}
+.phil-cursor{
+  display:inline-block;
+  width:2px;
+  height:1.1em;
+  background:var(--g1);
+  margin-left:3px;
+  vertical-align:text-bottom;
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: Echo Divider (repeated between sections)
+════════════════════════════════════════════════════ */
+.phil-echo{
+  text-align:center;
+  padding:1.25rem 1rem;
+  margin:2.5rem 0;
+  position:relative;
+}
+.phil-echo::before{
+  content:'';position:absolute;left:50%;top:0;width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--g3),transparent);transform:translateX(-50%);
+}
+.phil-echo-text{
+  font-family:var(--fd);font-size:.88rem;font-style:italic;color:var(--as);letter-spacing:.04em;line-height:1.5;
+}
+.phil-echo-text strong{color:var(--g2);font-weight:500;font-style:normal}
+.phil-echo-fade{opacity:0;transform:translateY(10px);transition:opacity .8s var(--ex),transform .8s var(--ex)}
+.phil-echo-fade.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   HOOK: 3-Second Attention Grabber
+════════════════════════════════════════════════════ */
+.hook-strip{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.55rem 1rem;margin-bottom:2rem;border-radius:50px;
+  background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.15);
+  animation:hookPulse 3s ease-in-out infinite,fadeSlideIn .5s var(--ex) both;
+  position:relative;overflow:hidden;
+}
+.hook-strip::after{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(201,163,74,.08),transparent);
+  animation:hookSweep 4s ease-in-out infinite 1s;
+}
+@keyframes hookSweep{0%{left:-60%}100%{left:120%}}
+@keyframes hookPulse{0%,100%{box-shadow:0 0 0 rgba(201,163,74,0)}50%{box-shadow:0 0 20px rgba(201,163,74,.08)}}
+.hook-icon{font-size:.9rem;flex-shrink:0;animation:hookGlow 2s ease-in-out infinite}
+@keyframes hookGlow{0%,100%{filter:drop-shadow(0 0 2px rgba(201,163,74,.3));transform:scale(1)}50%{filter:drop-shadow(0 0 6px rgba(201,163,74,.6));transform:scale(1.1)}}
+.hook-text{font-family:var(--fs);font-size:.72rem;font-weight:500;color:var(--g1);letter-spacing:.06em;white-space:nowrap}
+.hook-text .hook-highlight{color:var(--g0);font-weight:600}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Scroll Reveal System
+════════════════════════════════════════════════════ */
+.scroll-reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ex),transform .7s var(--ex)}
+.scroll-reveal.revealed{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Floating Particles
+════════════════════════════════════════════════════ */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--g1);opacity:0;animation:particleFloat linear infinite}
+@keyframes particleFloat{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.4}90%{opacity:.4}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Glow Border on Next Lesson Card
+════════════════════════════════════════════════════ */
+.node-card.unlocked.next-lesson::after{
+  content:'';position:absolute;inset:-1px;border-radius:18px;
+  background:conic-gradient(from var(--glow-angle,0deg),transparent 0%,rgba(201,163,74,.3) 10%,transparent 20%);
+  z-index:-1;animation:rotateGlow 4s linear infinite;
+}
+@property --glow-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes rotateGlow{to{--glow-angle:360deg}}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: Upgrade CTA Closing Quote
+════════════════════════════════════════════════════ */
+.cv-upgrade-quote{
+  font-family:var(--fd);font-size:1rem;font-style:italic;color:var(--g2);
+  margin-top:1.25rem;line-height:1.6;position:relative;padding-top:1rem;
+}
+.cv-upgrade-quote::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--g3),transparent);
+}
+
 /* ══ RESPONSIVE ══ */
 @media(max-width:680px){
+  .cv-upgrade{padding:1.5rem 1.25rem 1.25rem}
+  .cv-value-stack{max-width:100%}
+  .cv-access-bar{flex-direction:column;align-items:flex-start;gap:.35rem}
+  .cv-access-right{text-align:left}
+  .cv-badges{gap:.3rem}
+  .phil-line{font-size:clamp(1rem,4vw,1.4rem)}
+  .hook-text{font-size:.65rem;white-space:normal;text-align:center}
+  .hook-strip{flex-wrap:wrap;justify-content:center}
+  .particles{display:none}
   .node-card{width:calc(100% - 4rem) !important;margin-left:2rem !important;margin-right:0 !important}
   .node-row.right .node-card{margin-right:0;margin-left:2rem}
   .node-row.left .node-indicator,.node-row.right .node-indicator{left:-.5rem;right:auto;transform:translate(-50%,-50%)}
@@ -623,6 +850,91 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   .recommended-indicator{flex-wrap:wrap}
   .continue-badge{margin-left:0;margin-top:.25rem}
 }
+
+/* ═══════════════════════════════════════════════════
+   PAYWALL MODAL: Locked Lesson Access
+════════════════════════════════════════════════════ */
+.paywall-overlay{
+  position:fixed;inset:0;z-index:9990;
+  background:rgba(4,3,2,.85);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s var(--ex);
+}
+.paywall-overlay.active{opacity:1;pointer-events:all}
+.paywall-modal{
+  background:var(--ob);border:1px solid rgba(201,163,74,.2);
+  border-radius:20px;padding:2.5rem 2rem 2rem;
+  max-width:420px;width:90%;text-align:center;
+  position:relative;overflow:hidden;
+  transform:translateY(20px) scale(.97);
+  transition:transform .5s var(--ex);
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,163,74,.05) inset;
+}
+.paywall-overlay.active .paywall-modal{
+  transform:translateY(0) scale(1);
+}
+.paywall-modal::before{
+  content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,163,74,.3),transparent);
+}
+.paywall-modal-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.paywall-modal-title{
+  font-family:var(--fd);font-size:1.3rem;color:var(--cr);
+  font-weight:500;margin-bottom:.5rem;
+}
+.paywall-modal-desc{
+  font-family:var(--fs);font-size:.82rem;color:var(--bn);
+  line-height:1.7;margin-bottom:1.5rem;
+}
+.paywall-modal-desc strong{color:var(--g1);font-weight:600}
+.paywall-modal-list{
+  list-style:none;margin-bottom:1.75rem;
+  display:flex;flex-direction:column;gap:.45rem;
+  text-align:left;max-width:280px;margin-left:auto;margin-right:auto;
+}
+.paywall-modal-list li{
+  font-family:var(--fs);font-size:.72rem;color:var(--bn);
+  display:flex;align-items:center;gap:.5rem;line-height:1.5;
+}
+.paywall-modal-list li svg{width:14px;height:14px;stroke:var(--g1);stroke-width:2;fill:none;flex-shrink:0}
+.paywall-modal-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.85rem 2rem;border-radius:12px;
+  font-family:var(--fb);font-size:.58rem;letter-spacing:.2em;
+  color:var(--wh);cursor:none;
+  background:linear-gradient(135deg,var(--g3),var(--g1));
+  border:1px solid rgba(201,163,74,.5);
+  box-shadow:0 4px 24px rgba(201,163,74,.2);
+  transition:all .3s var(--ex);
+  text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.paywall-modal-btn:hover{
+  background:linear-gradient(135deg,var(--g2),var(--g0));
+  box-shadow:0 6px 32px rgba(201,163,74,.35);
+  transform:translateY(-2px);
+  border-color:rgba(201,163,74,.7);
+}
+.paywall-modal-btn svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
+.paywall-modal-close{
+  position:absolute;top:1rem;right:1rem;
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:var(--tp);cursor:none;transition:all .2s;
+  font-size:.7rem;
+}
+.paywall-modal-close:hover{background:rgba(255,255,255,.1);color:var(--cr)}
+.paywall-modal-note{
+  font-family:var(--fs);font-size:.62rem;color:var(--tp);
+  margin-top:1rem;line-height:1.5;
+}
+.node-card.locked.paywall-clickable{cursor:pointer}
+.node-card.locked.paywall-clickable:hover{opacity:.7;border-color:rgba(201,163,74,.2)}
+.final-card.locked.paywall-clickable{cursor:pointer}
+.final-card.locked.paywall-clickable:hover{opacity:.7;border-color:rgba(201,163,74,.2)}
+@media(hover:none){.node-card.locked.paywall-clickable,.final-card.locked.paywall-clickable{cursor:pointer}}
 </style>
 </head>
 <body>
@@ -636,6 +948,9 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <div class="orb o1" aria-hidden="true"></div>
 <div class="orb o2" aria-hidden="true"></div>
 <div class="orb o3" aria-hidden="true"></div>
+
+<!-- FLOATING PARTICLES -->
+<div class="particles" id="particles" aria-hidden="true"></div>
 
 <!-- HEADER -->
 <header class="hdr">
@@ -656,6 +971,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
 <!-- MAIN -->
 <main class="wrap">
 
+  <!-- 3-SECOND HOOK -->
+  <div class="hook-strip">
+    <span class="hook-icon">⚡</span>
+    <span class="hook-text"><span class="hook-highlight">97% of businesses</span> will use AI by 2027. The question is: will you build it — or be replaced by it?</span>
+  </div>
+
   <!-- PATH HEADER -->
   <div class="path-eyebrow">
     <span class="ey-dot"></span>
@@ -663,6 +984,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   </div>
   <h1 class="path-title">Understanding<br>the New Intelligence</h1>
   <p class="path-sub">Four lessons. One fundamental shift in how you see AI.</p>
+
+  <!-- PHILOSOPHICAL ANCHOR — Typewriter -->
+  <div class="phil-anchor" id="phil-anchor">
+    <p class="phil-line" id="phil-main-line"><span id="phil-typed"></span><span class="phil-cursor" id="phil-cursor"></span></p>
+    <span class="phil-attr" id="phil-attr" style="opacity:0">— The VERCELLUM Principle</span>
+  </div>
 
   <!-- ENHANCEMENT: Journey Context -->
   <div class="journey-context" id="journey-context">
@@ -693,13 +1020,13 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
   <div class="motivational-wrap" id="motivational-wrap">
     <div class="motivational-msg" id="motivational-msg">
       <span class="motiv-icon">✦</span>
-      <span class="motiv-text" id="motiv-text">Ready to explore? Your first lesson awaits.</span>
+      <span class="motiv-text" id="motiv-text">The future belongs to those who build systems — not those who operate them.</span>
     </div>
   </div>
 
   <div class="guide-msg">
-    <p>Welcome to your first learning path. In this path you will explore the <em>fundamentals of the new intelligence era</em> — what AI actually is, how it works, and how it already shapes every business decision you make. Complete each lesson to unlock the next one and progress toward the final knowledge check.</p>
-    <p style="margin-top:.85rem;font-size:.9rem;color:var(--bn);">⟶ After finishing each lesson, return here and click <em>"Complete Lesson"</em> on the lesson card to unlock the next one. Your progress is saved automatically.</p>
+    <p>This is not another AI course. This is the <em>only place</em> where you'll learn how the new intelligence actually works — not as hype, not as theory, but as a <em>tool you deploy inside your business today</em>. Every lesson is built around one principle: <em>if you can understand it, you can automate it</em>. Start with Lesson 1 — it's free. No signup. No gate. Just the truth about what's coming and how to use it.</p>
+    <p style="margin-top:.85rem;font-size:.9rem;color:var(--bn);">⟶ Complete each lesson to unlock the next. Your progress is saved automatically. <em>Finish the full track to earn your VERCELLUM certificate — proof that you understand what most people still ignore.</em></p>
   </div>
 
   <!-- PROGRESS BAR -->
@@ -775,8 +1102,12 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="node-row left" id="row-1" style="animation-delay:.1s">
       <div class="node-card" id="card-1">
         <p class="node-tag" id="tag-1">LESSON 1</p>
+        <div class="cv-badges" id="cv-badge-1">
+          <span class="cv-badge cv-free"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Free</span>
+        </div>
         <h2 class="node-title">The Moment AI Stopped Being Just a Tool</h2>
         <p class="node-desc">Discover the exact moment AI crossed from tool to autonomous agent — and why this shift is the most important thing a business owner can understand in 2026.</p>
+        <p class="node-value"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Understand why automation is no longer optional — it's the difference between growing and disappearing</p>
         <div id="action-1"></div>
         <p class="lesson1-hint" id="hint-1">✦ Once you've finished the lesson, come back and click <strong>"Complete Lesson 1"</strong> above to unlock Lesson 2.</p>
         <div class="node-indicator" id="ni-1">
@@ -785,25 +1116,45 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
       </div>
     </div>
 
+    <!-- PHILOSOPHICAL ECHO 1 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"The future belongs to those who build systems</strong> — not those who operate them."</p>
+    </div>
+
     <!-- LESSON 2 — RIGHT -->
     <div class="node-row right" id="row-2" style="animation-delay:.25s">
       <div class="node-card" id="card-2">
         <p class="node-tag" id="tag-2">LESSON 2</p>
+        <div class="cv-badges" id="cv-badge-2">
+          <span class="cv-badge cv-preview"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> Preview Available</span>
+          <span class="cv-badge cv-locked-badge" id="cv-lock-2"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Unlock Required</span>
+        </div>
         <h2 class="node-title">Anatomy of an AI Agent: How It Thinks, Plans, and Acts</h2>
         <p class="node-desc">Open the hood on AI agents. Master the PEAS framework — the foundational model that explains exactly how agents perceive, evaluate, and act autonomously inside your business.</p>
+        <p class="node-value"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Build a lead qualification automation — your first system that works while you sleep</p>
         <div id="action-2"></div>
+        <a class="cv-preview-btn" id="cv-preview-2" href="Preview2.html"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> Watch Preview</a>
         <div class="node-indicator" id="ni-2">
           <span class="ni-num">02</span>
         </div>
       </div>
     </div>
 
+    <!-- PHILOSOPHICAL ECHO 2 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"Stop doing everything yourself.</strong> Start building systems that think for you."</p>
+    </div>
+
     <!-- LESSON 3 — LEFT -->
     <div class="node-row left" id="row-3" style="animation-delay:.4s">
       <div class="node-card" id="card-3">
         <p class="node-tag" id="tag-3">LESSON 3</p>
+        <div class="cv-badges" id="cv-badge-3">
+          <span class="cv-badge cv-locked-badge"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Locked</span>
+        </div>
         <h2 class="node-title">The 3 Business Problems AI Solves Instantly</h2>
         <p class="node-desc">Discover how AI agents solve the three problems draining your business — high operating costs, low team productivity, and lost sales — with real case studies and an interactive ROI calculator.</p>
+        <p class="node-value"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Identify the 3 problems silently killing your revenue — and eliminate them with AI</p>
         <div id="action-3"></div>
         <div class="node-indicator" id="ni-3">
           <span class="ni-num">03</span>
@@ -815,13 +1166,22 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
     <div class="node-row right" id="row-4" style="animation-delay:.55s">
       <div class="node-card" id="card-4">
         <p class="node-tag" id="tag-4">LESSON 4</p>
+        <div class="cv-badges" id="cv-badge-4">
+          <span class="cv-badge cv-locked-badge"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Locked</span>
+        </div>
         <h2 class="node-title">Build Your First AI Worker (And Keep It Safe)</h2>
         <p class="node-desc">Build your first AI automation agent from scratch — step by step. Then apply the safety framework that separates professional deployments from risky experiments.</p>
+        <p class="node-value"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Deploy your first autonomous AI worker — and keep it safe with the framework professionals use</p>
         <div id="action-4"></div>
         <div class="node-indicator" id="ni-4">
           <span class="ni-num">04</span>
         </div>
       </div>
+    </div>
+
+    <!-- PHILOSOPHICAL ECHO 3 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"You don't need to know everything about AI.</strong> You just need to know how to <strong>direct it.</strong>"</p>
     </div>
 
     <!-- FINAL TEST -->
@@ -831,16 +1191,86 @@ body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
         <div class="final-icon" id="final-icon">⬡</div>
         <h2 class="final-title">Final Knowledge Check</h2>
         <p class="final-desc">Test your understanding of the fundamentals of the new intelligence. Prove what you have learned across all four lessons.</p>
+        <div class="cv-badges" id="cv-badge-test" style="justify-content:center;margin-bottom:1rem">
+          <span class="cv-badge cv-locked-badge" id="cv-lock-test"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Locked</span>
+          <span class="cv-badge cv-preview" id="cv-cert-badge" style="display:none"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Earn Certificate</span>
+        </div>
         <div id="action-test"></div>
       </div>
     </div>
 
   </div><!-- /timeline -->
 
+  <!-- CONVERSION: Progression Hint -->
+  <div class="cv-progression" id="cv-progression">
+    <p><span>Step 1:</span> Start free → <span>Step 2:</span> Preview Lesson 2 → <span>Step 3:</span> Unlock the full path</p>
+  </div>
+
+  <!-- CONVERSION: Access Clarity Bar -->
+  <div class="cv-access-bar" id="cv-access-bar">
+    <div class="cv-access-left">
+      <span class="cv-access-icon">✦</span>
+      <span class="cv-access-text"><strong>Lesson 1 is free</strong> — start learning now, no signup required</span>
+    </div>
+    <span class="cv-access-right" id="cv-access-right">75% requires unlock</span>
+  </div>
+
+  <!-- CONVERSION: Upgrade CTA Section -->
+  <div class="cv-upgrade scroll-reveal" id="cv-upgrade">
+    <p class="cv-upgrade-label">Unlock Full Path</p>
+    <h2 class="cv-upgrade-title">Stop Operating. Start Building.</h2>
+    <p class="cv-upgrade-sub">The future belongs to those who build systems. Unlock the full path and gain the skills that separate the ones who adapt from the ones who get left behind.</p>
+    <div class="cv-value-stack">
+      <div class="cv-value-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lessons 2–4 fully unlocked</div>
+      <div class="cv-value-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Final knowledge check access</div>
+      <div class="cv-value-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> VERCELLUM completion certificate</div>
+      <div class="cv-value-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lifetime access to all materials</div>
+    </div>
+    <a class="cv-upgrade-cta" href="paywall.html">
+      Unlock the Full Path
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="cv-upgrade-quote">"The people who win tomorrow are the ones who stop doing everything themselves today."</p>
+  </div>
+
+  <!-- PHILOSOPHICAL ECHO 4 — Final -->
+  <div class="phil-echo scroll-reveal">
+    <p class="phil-echo-text phil-echo-fade"><strong>"The question isn't whether AI will change your business.</strong> It's whether you'll be the one <strong>directing it.</strong>"</p>
+  </div>
+
+  <!-- CONVERSION: Social Proof Micro Text -->
+  <div class="cv-social-proof scroll-reveal">
+    <p><span>"</span>I built my first automation in lesson 2. Within a week, it was handling 40% of my lead qualification — <span>while I slept.</span><span>"</span></p>
+  </div>
+
 </main>
 
 <!-- UNLOCK TOAST -->
 <div id="unlock-toast" role="status" aria-live="polite"></div>
+
+<!-- PAYWALL MODAL: Locked Content Access -->
+<div class="paywall-overlay" id="paywall-overlay" role="dialog" aria-modal="true" aria-labelledby="paywall-title">
+  <div class="paywall-modal">
+    <button class="paywall-modal-close" id="paywall-close" aria-label="Close">✕</button>
+    <span class="paywall-modal-icon">🔒</span>
+    <h3 class="paywall-modal-title" id="paywall-title">Content Locked</h3>
+    <p class="paywall-modal-desc">
+      <strong>Lesson 1</strong> is available for free so you can start learning right away. 
+      All other lessons and <strong>all 4 levels</strong> are paid content — unlock the full course to continue your journey.
+    </p>
+    <ul class="paywall-modal-list">
+      <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lessons 2, 3 &amp; 4 — fully unlocked</li>
+      <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> All 4 levels — complete access</li>
+      <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Final knowledge check &amp; certificate</li>
+      <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lifetime access to all materials</li>
+    </ul>
+    <a class="paywall-modal-btn" href="paywall.html">
+      Unlock Full Course
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="paywall-modal-note">One-time payment · Instant access · No subscription</p>
+  </div>
+</div>
 
 <!-- DEV PANEL (for demo / testing only) -->
 <div id="dev-panel" role="complementary" aria-label="Demo Controls">
@@ -944,6 +1374,7 @@ function attachSounds(){
 /* ══ DEV PANEL STATE SYNC ══ */
 function syncDevBtns(){
   const state=getState();
+  const paid=hasPaid();
   for(let i=0;i<4;i++){
     const btn=document.getElementById('dbtn-'+(i+1));
     if(!btn)continue;
@@ -951,10 +1382,18 @@ function syncDevBtns(){
       btn.textContent='✓ Done';
       btn.className='dev-row-btn done-row';
       btn.disabled=true;
+      btn.style.opacity='';btn.style.cursor='';
+    } else if(i>0 && !paid){
+      btn.textContent='🔒 Locked';
+      btn.className='dev-row-btn';
+      btn.disabled=true;
+      btn.style.opacity='.4';
+      btn.style.cursor='not-allowed';
     } else {
       btn.textContent='Complete';
       btn.className='dev-row-btn';
       btn.disabled=false;
+      btn.style.opacity='';btn.style.cursor='';
     }
   }
 }
@@ -990,6 +1429,11 @@ function getState(){
 
 function completedCount(){
   return getState().filter(Boolean).length;
+}
+
+/* ══ PAYMENT STATE ══ */
+function hasPaid(){
+  return localStorage.getItem('vercellum_paid')==='true';
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1086,6 +1530,84 @@ function getNextLessonIndex(state){
   return -1;
 }
 
+/* ═══════════════════════════════════════════════════
+   CONVERSION: Badge & Access State Management
+════════════════════════════════════════════════════ */
+function updateConversionUI(state, count, nextIdx){
+  // Lesson badges visibility
+  for(let i=0;i<4;i++){
+    const badgeEl=document.getElementById('cv-badge-'+(i+1));
+    if(!badgeEl) continue;
+    if(state[i]||(i===0)||nextIdx===i){
+      badgeEl.style.display='none';
+    } else {
+      badgeEl.style.display='flex';
+    }
+  }
+
+  // Lesson 2 special: show preview badge when locked, hide lock badge when preview
+  const lock2=document.getElementById('cv-lock-2');
+  if(lock2){
+    if(state[1]||nextIdx===1){
+      lock2.style.display='none';
+    } else {
+      lock2.style.display='inline-flex';
+    }
+  }
+
+  // Preview button for lesson 2
+  const previewBtn=document.getElementById('cv-preview-2');
+  if(previewBtn){
+    if(state[1]||nextIdx===1){
+      previewBtn.style.display='none';
+    } else {
+      previewBtn.style.display='inline-flex';
+    }
+  }
+
+  // Final test badges
+  const lockTest=document.getElementById('cv-lock-test');
+  const certBadge=document.getElementById('cv-cert-badge');
+  const testUnlocked=state[3];
+  if(lockTest){ lockTest.style.display=testUnlocked?'none':'inline-flex'; }
+  if(certBadge){ certBadge.style.display=testUnlocked?'inline-flex':'none'; }
+
+  // Access bar — update based on progress
+  const accessRight=document.getElementById('cv-access-right');
+  const accessBar=document.getElementById('cv-access-bar');
+  if(accessRight && accessBar){
+    if(count>=4){
+      accessBar.style.display='none';
+    } else if(count===1){
+      accessRight.textContent='50% requires unlock';
+    } else if(count===2){
+      accessRight.textContent='25% requires unlock';
+    } else if(count===3){
+      accessRight.textContent='Almost there — unlock remaining';
+    } else {
+      accessRight.textContent='75% requires unlock';
+    }
+  }
+
+  // Upgrade CTA — hide when all unlocked
+  const upgrade=document.getElementById('cv-upgrade');
+  if(upgrade){
+    if(count>=3){
+      upgrade.style.display='none';
+    } else {
+      upgrade.style.display='block';
+    }
+  }
+
+  // Progression hint — hide when lessons completed
+  const progHint=document.getElementById('cv-progression');
+  if(progHint){
+    if(count>=2){
+      progHint.style.display='none';
+    }
+  }
+}
+
 /* ══ RENDER NODES ══ */
 function renderAll(){
   const state=getState();
@@ -1094,7 +1616,7 @@ function renderAll(){
 
   for(let i=0;i<4;i++){
     const done=state[i];
-    const unlocked=i===0||state[i-1];
+    const unlocked=i===0||(hasPaid()&&state[i-1]);
     const isNext=(i===nextIdx);
     const card=document.getElementById('card-'+(i+1));
     const tag=document.getElementById('tag-'+(i+1));
@@ -1158,12 +1680,12 @@ function renderAll(){
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>`;
     } else {
-      action.innerHTML=`<button class="node-btn locked-btn" disabled>🔒 Locked</button>`;
+      action.innerHTML=`<button class="node-btn locked-btn" onclick="showPaywallModal()" style="cursor:pointer">🔒 Locked — Unlock to Access</button>`;
     }
   }
 
   // Final test
-  const testUnlocked=state[3];
+  const testUnlocked=hasPaid()&&state[3];
   const testIsNext=(nextIdx===-1 && !localStorage.getItem('test1_completed'));
   const finalCard=document.getElementById('final-card');
   const finalIcon=document.getElementById('final-icon');
@@ -1184,7 +1706,7 @@ function renderAll(){
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>`;
   } else {
-    actionTest.innerHTML=`<button class="node-btn locked-btn" disabled style="width:100%;justify-content:center">🔒 Complete All Lessons to Unlock</button>`;
+    actionTest.innerHTML=`<button class="node-btn locked-btn" onclick="showPaywallModal()" style="width:100%;justify-content:center;cursor:pointer">🔒 Complete All Lessons to Unlock</button>`;
   }
 
   // Progress bar
@@ -1194,6 +1716,9 @@ function renderAll(){
   updateProgressHero(count);
   updateMotivation(count);
   updateJourneyContext(count);
+
+  // CONVERSION: Update badge/access/upgrade states
+  updateConversionUI(state, count, nextIdx);
 
   // ENHANCEMENT: Auto-scroll to next lesson on return
   autoScrollToNext(nextIdx);
@@ -1255,8 +1780,70 @@ function showToast(msg){
   toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
+/* ══ PAYWALL MODAL ══ */
+function showPaywallModal(){
+  const overlay=document.getElementById('paywall-overlay');
+  if(!overlay)return;
+  overlay.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function hidePaywallModal(){
+  const overlay=document.getElementById('paywall-overlay');
+  if(!overlay)return;
+  overlay.classList.remove('active');
+  document.body.style.overflow='';
+}
+window.showPaywallModal=showPaywallModal;
+window.hidePaywallModal=hidePaywallModal;
+// Close modal events
+document.getElementById('paywall-close').addEventListener('click',hidePaywallModal);
+document.getElementById('paywall-overlay').addEventListener('click',function(e){
+  if(e.target===this) hidePaywallModal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') hidePaywallModal();
+});
+
+/* ══ PAYWALL: Click handlers for locked cards ══ */
+function attachPaywallClickHandlers(){
+  // Locked lesson cards → show paywall modal
+  for(let i=0;i<4;i++){
+    const card=document.getElementById('card-'+(i+1));
+    if(!card)continue;
+    // Remove old handler by cloning
+    const clone=card.cloneNode(true);
+    card.parentNode.replaceChild(clone,card);
+    if(!clone.classList.contains('locked'))continue;
+    clone.classList.add('paywall-clickable');
+    clone.addEventListener('click',function(e){
+      // Allow preview button clicks to pass through
+      if(e.target.closest('.cv-preview-btn'))return;
+      // Prevent default link/button behavior
+      if(e.target.closest('a,button'))e.preventDefault();
+      e.stopPropagation();
+      showPaywallModal();
+    });
+  }
+  // Locked final test card → show paywall modal
+  var finalCard=document.getElementById('final-card');
+  if(finalCard && finalCard.classList.contains('locked')){
+    var fcClone=finalCard.cloneNode(true);
+    finalCard.parentNode.replaceChild(fcClone,finalCard);
+    fcClone.classList.add('paywall-clickable');
+    fcClone.addEventListener('click',function(e){
+      if(e.target.closest('a,button'))e.preventDefault();
+      e.stopPropagation();
+      showPaywallModal();
+    });
+  }
+}
+
 /* ══ DEV CONTROLS ══ */
 window.devComplete=function(n){
+  if(n>0 && !hasPaid()){
+    showPaywallModal();
+    return;
+  }
   localStorage.setItem('lesson'+n+'_completed','true');
   renderAll();
   syncDevBtns();
@@ -1270,6 +1857,7 @@ window.devReset=function(){
   renderAll();
   syncDevBtns();
   attachSounds();
+  attachPaywallClickHandlers();
   showToast('Progress Reset');
 };
 
@@ -1286,10 +1874,11 @@ cards.forEach(c=>observer.observe(c));
    ENHANCEMENT: Cross-tab localStorage sync
 ════════════════════════════════════════════════════ */
 window.addEventListener('storage',function(e){
-  if(KEYS.indexOf(e.key)!==-1 || e.key==='test1_completed'){
+  if(KEYS.indexOf(e.key)!==-1 || e.key==='test1_completed' || e.key==='vercellum_paid'){
     renderAll();
     syncDevBtns();
     attachSounds();
+    attachPaywallClickHandlers();
   }
 });
 
@@ -1307,6 +1896,7 @@ window.addEventListener('storage',function(e){
 renderAll();
 syncDevBtns();
 attachSounds();
+attachPaywallClickHandlers();
 
 // Animate progress bar on load with delay
 setTimeout(()=>{
@@ -1314,6 +1904,89 @@ setTimeout(()=>{
   const realPct=Math.round((count/4)*100);
   document.getElementById('prog-fill').style.width=realPct+'%';
 },300);
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: Typewriter Effect for Anchor Phrase
+════════════════════════════════════════════════════ */
+(function initTypewriter(){
+  const el=document.getElementById('phil-typed');
+  const cursor=document.getElementById('phil-cursor');
+  const attr=document.getElementById('phil-attr');
+  if(!el) return;
+
+  const fullText='The future belongs to those who build systems — not those who operate them.';
+  let i=0;
+
+  // Find the word to emphasize
+  const empStart=fullText.indexOf('build systems');
+  const empEnd=empStart+'build systems'.length;
+
+  function type(){
+    if(i<=fullText.length){
+      let html='';
+      if(i>0){
+        const visible=fullText.substring(0,i);
+        if(i>empStart && i<=empEnd){
+          // We're inside the emphasized portion
+          html=fullText.substring(0,empStart)+
+            '<span class="phil-emp-shimmer">'+fullText.substring(empStart,i)+'</span>';
+        } else if(i>empEnd){
+          html=fullText.substring(0,empStart)+
+            '<span class="phil-emp-shimmer">'+fullText.substring(empStart,empEnd)+'</span>'+
+            fullText.substring(empEnd,i);
+        } else {
+          html=visible;
+        }
+      }
+      el.innerHTML=html;
+      i++;
+      setTimeout(type, 38+Math.random()*25);
+    } else {
+      // Typing complete — show attribution
+      if(attr){
+        setTimeout(function(){ attr.style.transition='opacity .8s'; attr.style.opacity='1'; },400);
+      }
+    }
+  }
+
+  // Start after a brief pause for page load
+  setTimeout(type, 800);
+})();
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Floating Particles Generator
+════════════════════════════════════════════════════ */
+(function initParticles(){
+  const container=document.getElementById('particles');
+  if(!container) return;
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(8+Math.random()*14)+'s';
+    p.style.animationDelay=(Math.random()*10)+'s';
+    p.style.width=p.style.height=(1+Math.random()*2)+'px';
+    p.style.opacity=0;
+    container.appendChild(p);
+  }
+})();
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Scroll Reveal Observer
+════════════════════════════════════════════════════ */
+(function initScrollReveal(){
+  const els=document.querySelectorAll('.scroll-reveal,.phil-echo-fade');
+  if(!els.length) return;
+  const obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('revealed','visible');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
 
 })();
 </script>
