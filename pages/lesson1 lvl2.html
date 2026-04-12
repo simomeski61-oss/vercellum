@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Level 2 · Lesson 1: Lead & Sales Automation Agent — VERCELLUM | Agentic AI for SMBs 2026</title>
+<meta name="description" content="Build a Lead & Sales Automation Agent in 13 focused steps. Learn to qualify, score, and route leads automatically — 24/7, without you touching a thing.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="VERCELLUM">
+<meta name="theme-color" content="#040302">
+<meta name="keywords" content="lead automation agent, sales agent AI, SMB automation, lead scoring, CRM automation, qualify leads, route leads, no-code agent, agentic AI, business automation 2026">
+<meta name="author" content="VERCELLUM">
+<link rel="canonical" href="https://vercellum.com/level-2/lesson-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Build a Lead & Sales Automation Agent in 12 Minutes — VERCELLUM Level 2">
+<meta property="og:description" content="Qualify, score, and route leads automatically 24/7. No code required. Walk through a real simulation and deploy your first AI agent this week.">
+<meta property="og:url" content="https://vercellum.com/level-2/lesson-1">
+<meta property="og:site_name" content="VERCELLUM">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Build a Lead & Sales Automation Agent — VERCELLUM Level 2">
+<meta name="twitter:description" content="78% of customers buy from the first company that responds. Deploy your agent in one afternoon.">
+<meta name="twitter:creator" content="@vercellum">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23040302'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-size='18' font-weight='700' fill='%23C9A34A'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   VERCELLUM · LEVEL 2 · LESSON 1 · Lead & Sales Agent
+   Architecture: Top Bar + Nav Rail + Progressive Content
+   Design: Dark Luxury · Gold Accents · Immersion-First
+═══════════════════════════════════════════════════════════ */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --v:#040302;--ab:#070604;--ob:#0C0A08;--on:#131009;--cb:#1B1710;
+  --as:#423B30;--tp:#6A6050;--bn:#AFA79C;--cr:#F1ECE2;--wh:#FDFAF5;
+  --g0:#F2D668;--g1:#C9A34A;--g2:#A88532;--g3:#7B611E;--g4:#54420F;
+  --gg:rgba(201,163,74,.5);--gm:rgba(201,163,74,.18);--gf:rgba(201,163,74,.08);--gt:rgba(201,163,74,.04);
+  --grn:#34D399;--grn2:#10B981;--grnd:rgba(52,211,153,.12);--grns:rgba(52,211,153,.06);--grnb:rgba(52,211,153,.25);
+  --red:#EF4444;--redt:rgba(239,68,68,.12);--reds:rgba(239,68,68,.06);--redb:rgba(239,68,68,.25);
+  --blu:#60A5FA;--blud:rgba(96,165,250,.12);--blub:rgba(96,165,250,.25);
+  --purp:#A78BFA;--purpd:rgba(167,139,250,.12);--purpb:rgba(167,139,250,.25);
+  --ora:#F97316;--orad:rgba(249,115,22,.12);--orab:rgba(249,115,22,.25);
+  --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
+  --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);
+  --topbar-h:52px;--rail-w:64px;--rail-expanded:268px;
+  --content-max:820px;--content-focus-max:720px;--ai-panel-w:380px;
+}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--g4);border-radius:2px}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--v);color:var(--cr);line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;padding-top:var(--topbar-h);padding-left:var(--rail-w);transition:padding .4s var(--ex)}
+@media(hover:none){body{cursor:auto}button,a,input,textarea{cursor:auto}}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--fs);cursor:none;border:none;background:none}
+input,textarea,select{font-family:var(--fs)}
+body.ai-open{padding-right:var(--ai-panel-w)}
+body.focus-mode{padding-left:0;padding-right:0}
+
+/* ── SKIP LINK ── */
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:99999;padding:.6rem 1.2rem;background:var(--g1);color:var(--v);font-family:var(--fb);font-size:.65rem;letter-spacing:.18em;border-radius:6px;transition:top .2s;font-weight:700}
+.skip-link:focus{top:calc(var(--topbar-h) + .5rem)}
+
+/* ── AMBIENT ── */
+body::before{content:'';position:fixed;inset:0;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;pointer-events:none;z-index:0}
+#cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--g1);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s var(--ex),height .2s var(--ex),opacity .2s}
+#cur-r{position:fixed;width:26px;height:26px;border-radius:50%;border:1px solid rgba(201,163,74,.4);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .3s var(--ex),height .3s var(--ex),border-color .3s}
+#blob{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(201,163,74,.03) 0%,transparent 70%);transform:translate(-50%,-50%);filter:blur(50px);transition:transform .9s var(--ex)}
+body.hov #cur{width:14px;height:14px;background:var(--g0)}
+body.hov #cur-r{width:46px;height:46px;border-color:rgba(201,163,74,.2)}
+body.clk #cur{transform:translate(-50%,-50%) scale(.4)}
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:0}
+.o1{width:600px;height:600px;top:-180px;right:-160px;background:radial-gradient(circle,rgba(201,163,74,.045),transparent 70%);animation:oF1 18s ease-in-out infinite}
+.o2{width:500px;height:500px;bottom:-120px;left:-160px;background:radial-gradient(circle,rgba(201,163,74,.035),transparent 70%);animation:oF2 22s ease-in-out infinite}
+.o3{width:300px;height:300px;top:40%;right:12%;background:radial-gradient(circle,rgba(34,197,94,.025),transparent 70%);animation:oF3 14s ease-in-out infinite;filter:blur(120px)}
+@keyframes oF1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-35px,25px) scale(1.05)}}
+@keyframes oF2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-32px) scale(1.07)}}
+@keyframes oF3{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4}
+
+/* ── TOP BAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);z-index:900;display:flex;align-items:center;padding:0 1.5rem 0 calc(var(--rail-w) + 1.5rem);background:rgba(4,3,2,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,163,74,.06);transition:padding .4s var(--ex),background .4s}
+body.focus-mode #topbar{padding-left:1.5rem;background:rgba(4,3,2,.7);border-bottom-color:transparent}
+.tb-left{display:flex;align-items:center;gap:.75rem;flex:1}
+.tb-lesson-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.tb-lesson-label span{color:var(--g2)}
+.tb-progress-wrap{flex:1;max-width:240px;display:flex;align-items:center;gap:.75rem}
+.tb-progress-track{flex:1;height:2px;background:rgba(201,163,74,.08);border-radius:2px;overflow:hidden}
+.tb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:2px;width:0%;transition:width .8s var(--ex)}
+.tb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.62rem;color:var(--g2);white-space:nowrap;min-width:2.2rem;text-align:right}
+.tb-right{display:flex;align-items:center;gap:.5rem}
+#focus-btn{display:flex;align-items:center;gap:.55rem;padding:.46rem 1.1rem;border-radius:7px;border:1px solid var(--g2);background:linear-gradient(135deg,rgba(84,66,15,.85),rgba(123,97,30,.75));color:var(--g0);font-family:var(--fb);font-size:.46rem;letter-spacing:.18em;cursor:pointer;transition:all .28s var(--ex);white-space:nowrap;box-shadow:0 2px 10px rgba(201,163,74,.18),inset 0 1px 0 rgba(242,214,104,.12);position:relative;overflow:hidden}
+#focus-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(242,214,104,.08),transparent);opacity:0;transition:opacity .2s}
+#focus-btn:hover{border-color:var(--g1);background:linear-gradient(135deg,rgba(123,97,30,.9),rgba(168,133,50,.8));box-shadow:0 4px 18px rgba(201,163,74,.32),inset 0 1px 0 rgba(242,214,104,.15);transform:translateY(-1px)}
+#focus-btn:hover::before{opacity:1}
+#focus-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+body.focus-mode #focus-btn{border-color:var(--g0);background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--v);box-shadow:0 4px 22px rgba(201,163,74,.42)}
+.tb-save-btn{width:32px;height:32px;border-radius:6px;border:1px solid rgba(201,163,74,.1);display:flex;align-items:center;justify-content:center;color:var(--tp);cursor:pointer;transition:all .25s}
+.tb-save-btn:hover{border-color:rgba(201,163,74,.3);color:var(--g1);background:var(--gf)}
+.tb-save-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#read-progress{position:fixed;top:var(--topbar-h);left:0;right:0;height:1px;z-index:901;background:linear-gradient(90deg,var(--g3),var(--g1));transform-origin:left;transform:scaleX(0);transition:transform .1s linear;pointer-events:none}
+
+/* ── NAV RAIL ── */
+#nav-rail{position:fixed;left:0;top:var(--topbar-h);bottom:0;width:var(--rail-w);z-index:800;background:rgba(4,3,2,.96);backdrop-filter:blur(20px);border-right:1px solid rgba(201,163,74,.06);display:flex;flex-direction:column;overflow:hidden;transition:width .35s var(--ex),opacity .35s var(--ex),transform .35s var(--ex)}
+body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:none}
+@media(min-width:900px){#nav-rail:hover,#nav-rail.pinned{width:var(--rail-expanded)}}
+@media(max-width:900px){#nav-rail{display:none}}
+.rail-logo-area{display:flex;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(201,163,74,.06);overflow:hidden;flex-shrink:0}
+.rail-logo-icon{width:var(--rail-w);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rail-logo-mark{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,var(--g4),var(--g2));border:1px solid rgba(201,163,74,.3);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:.55rem;color:var(--v);font-weight:700;letter-spacing:0;flex-shrink:0}
+.rail-logo-text{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-8px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
+#nav-rail:hover .rail-logo-text,#nav-rail.pinned .rail-logo-text{opacity:1;transform:translateX(0)}
+.rail-wordmark{font-family:'Cinzel Decorative',serif;font-size:.78rem;color:var(--g1);letter-spacing:.06em;display:block}
+.rail-tagline{font-size:.58rem;color:var(--tp);margin-top:.15rem;letter-spacing:.04em}
+.rail-nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.75rem 0;scrollbar-width:none}
+.rail-nav::-webkit-scrollbar{display:none}
+.rail-lesson{display:flex;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;border:none;background:none;width:100%;text-align:left}
+.rail-lesson:hover{background:rgba(201,163,74,.04)}
+.rail-lesson.active{background:rgba(201,163,74,.07)}
+.rail-lesson.done{background:rgba(52,211,153,.04)}
+.rail-lesson.upcoming{opacity:.5}
+.rail-lesson-icon{width:var(--rail-w);height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.rail-lesson-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.48rem;letter-spacing:.1em;border:1px solid;flex-shrink:0;transition:all .25s}
+.rail-lesson.active .rail-lesson-num{background:var(--g1);border-color:var(--g1);color:var(--v);font-weight:700}
+.rail-lesson.done .rail-lesson-num{background:var(--grns);border-color:var(--grnb);color:var(--grn)}
+.rail-lesson.upcoming .rail-lesson-num{border-color:rgba(201,163,74,.2);color:var(--tp)}
+.rail-lesson.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--g3),var(--g1));border-radius:0 2px 2px 0}
+.rail-lesson-body{padding:.6rem 1rem .6rem 0;flex:1;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ex),transform .2s var(--ex);overflow:hidden}
+#nav-rail:hover .rail-lesson-body,#nav-rail.pinned .rail-lesson-body{opacity:1;transform:translateX(0)}
+.rail-lesson-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.rail-lesson.active .rail-lesson-tag{color:var(--g2)}
+.rail-lesson.done .rail-lesson-tag{color:var(--grn2)}
+.rail-lesson-name{font-size:.76rem;color:var(--bn);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
+.rail-lesson.active .rail-lesson-name{color:var(--cr);font-weight:500}
+.rail-lesson.done .rail-lesson-name{color:var(--tp)}
+.rail-bottom{border-top:1px solid rgba(201,163,74,.06);padding:.75rem 0;flex-shrink:0;overflow:hidden}
+.rail-live{display:flex;align-items:center;height:36px;padding:0 calc((var(--rail-w) - 8px)/2)}
+.rail-live-dot{width:8px;height:8px;border-radius:50%;background:var(--grn);animation:rldot 2s infinite;flex-shrink:0}
+@keyframes rldot{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.rail-live-text{white-space:nowrap;overflow:hidden;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;color:var(--grn);padding-left:.75rem;opacity:0;transition:opacity .2s var(--ex)}
+#nav-rail:hover .rail-live-text,#nav-rail.pinned .rail-live-text{opacity:1}
+.rail-pin-btn{display:none;width:var(--rail-w);height:32px;align-items:center;justify-content:center;cursor:pointer;color:var(--tp);transition:color .2s}
+@media(min-width:900px){.rail-pin-btn{display:flex}}
+.rail-pin-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#nav-rail.pinned .rail-pin-btn{color:var(--g2)}
+
+/* ── MAIN CONTENT ── */
+.content-shell{min-height:calc(100vh - var(--topbar-h));position:relative;z-index:10;transition:all .4s var(--ex)}
+.content-inner{max-width:var(--content-max);margin:0 auto;padding:0 3rem 5rem;transition:max-width .4s var(--ex),padding .4s var(--ex)}
+@media(max-width:1100px){.content-inner{padding:0 2rem 4rem}}
+@media(max-width:700px){.content-inner{padding:0 1.25rem 3rem}}
+body.focus-mode .content-inner{max-width:var(--content-focus-max);padding:0 2.5rem 5rem}
+
+/* ── HERO ── */
+.lesson-hero{padding:3.5rem 0 3rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,163,74,.06)}
+.hero-breadcrumb{display:flex;align-items:center;gap:.45rem;margin-bottom:1.75rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--tp);text-transform:uppercase}
+.hero-breadcrumb a:hover{color:var(--g1);transition:color .2s}
+.hero-breadcrumb-sep{color:var(--as);margin:0 .1rem}
+.hero-badges{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.hero-lesson-num{padding:.28rem .75rem;border-radius:4px;background:var(--gf);border:1px solid rgba(201,163,74,.15);font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g2);text-transform:uppercase}
+.hero-lab-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.28rem .7rem;border-radius:4px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.18);font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--grn);text-transform:uppercase}
+.hero-lab-badge::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.hero-h1{font-family:var(--fd);font-size:clamp(1.9rem,4vw,3.2rem);font-weight:300;line-height:1.1;color:var(--wh);letter-spacing:-.02em;margin-bottom:1rem;min-height:2em}
+.hero-tagline{font-size:clamp(.85rem,1.4vw,.98rem);color:var(--bn);max-width:540px;line-height:1.75;margin-bottom:2rem}
+.hero-tagline strong{color:var(--cr)}
+.hero-cta-row{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-primary-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.85rem;border-radius:8px;background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s var(--ex);box-shadow:0 4px 20px rgba(201,163,74,.22);border:none}
+.hero-primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,163,74,.38)}
+.hero-primary-btn svg{width:12px;height:12px;stroke:var(--v);fill:none;stroke-width:2.5}
+.hero-ghost-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:8px;border:1px solid rgba(201,163,74,.18);background:rgba(201,163,74,.04);color:var(--g1);font-family:var(--fb);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.hero-ghost-btn:hover{background:rgba(201,163,74,.08);border-color:rgba(201,163,74,.32)}
+.hero-meta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--tp)}
+.hero-meta-item svg{width:12px;height:12px;stroke:var(--g2);fill:none;stroke-width:1.8;flex-shrink:0}
+.hero-meta-sep{width:1px;height:12px;background:rgba(201,163,74,.1)}
+
+/* ── TYPOGRAPHY ── */
+.sec-badge{display:inline-flex;align-items:center;gap:5px;padding:.2rem .6rem;border-radius:4px;font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;margin-bottom:.5rem}
+.sec-badge.red{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.sec-badge.green{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.sec-badge.gold{background:var(--gf);border:1px solid rgba(201,163,74,.18);color:var(--g1)}
+.sec-badge.blue{background:var(--blud);border:1px solid var(--blub);color:var(--blu)}
+.sec-badge.purple{background:var(--purpd);border:1px solid var(--purpb);color:var(--purp)}
+.sec-badge.orange{background:var(--orad);border:1px solid var(--orab);color:var(--ora)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:.35rem 1rem;border-radius:50px;border:1px solid rgba(201,163,74,.18);background:rgba(201,163,74,.04);font-family:var(--fb);font-size:.52rem;letter-spacing:.24em;color:var(--g1);margin-bottom:1.25rem;backdrop-filter:blur(8px)}
+.ey-dot{width:4px;height:4px;border-radius:50%;background:var(--g1);animation:dpls 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes dpls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
+h2.sec-title{font-family:var(--fb);font-size:clamp(.95rem,2.5vw,1.28rem);font-weight:600;letter-spacing:.05em;color:var(--cr);margin-bottom:1.1rem;line-height:1.3}
+h2.sec-title .gold{color:var(--g1)}
+h2.sec-title .red{color:var(--red)}
+h2.sec-title .green{color:var(--grn)}
+h3.card-title{font-family:var(--fb);font-size:.82rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.55rem}
+p.body-text{font-size:.93rem;color:var(--bn);line-height:1.78;margin-bottom:.9rem}
+p.body-text strong{color:var(--cr);font-weight:500}
+p.body-text .highlight-red{color:var(--red);font-weight:500}
+p.body-text .highlight-green{color:var(--grn);font-weight:500}
+
+/* ── BUTTONS ── */
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.85rem;border-radius:8px;background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.64rem;letter-spacing:.16em;font-weight:600;cursor:pointer;transition:transform .3s var(--bk),box-shadow .3s;box-shadow:0 4px 20px rgba(201,163,74,.2);border:none}
+.btn-gold:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 28px rgba(201,163,74,.38)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.5rem;border-radius:8px;border:1px solid rgba(201,163,74,.22);background:var(--gf);color:var(--bn);font-family:var(--fb);font-size:.6rem;letter-spacing:.16em;cursor:pointer;transition:all .25s}
+.btn-ghost:hover{border-color:var(--gg);color:var(--g1);background:var(--gm)}
+.btn-green{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.5rem;border-radius:8px;border:1px solid var(--grnb);background:var(--grns);color:var(--grn);font-family:var(--fb);font-size:.6rem;letter-spacing:.16em;cursor:pointer;transition:all .3s var(--bk)}
+.btn-green:hover{border-color:var(--grn);background:var(--grnd);transform:translateY(-1px)}
+.btn-green svg,.btn-gold svg,.btn-ghost svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+
+/* ── CONTENT MODULES ── */
+.key-insight{display:flex;gap:.9rem;padding:1.1rem 1.35rem;border-radius:12px;margin:1.5rem 0;border-left:2px solid var(--grn);background:linear-gradient(135deg,rgba(52,211,153,.05),rgba(52,211,153,.02));border-right:1px solid var(--grnb);border-top:1px solid var(--grnb);border-bottom:1px solid var(--grnb)}
+.ki-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
+.ki-content{flex:1}
+.ki-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--grn);margin-bottom:.3rem}
+.ki-text{font-size:.88rem;color:var(--bn);line-height:1.65}
+.ki-text strong{color:var(--cr)}
+.warning-box{display:flex;gap:.9rem;padding:1.1rem 1.35rem;border-radius:12px;margin:1.5rem 0;border-left:2px solid var(--red);background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(239,68,68,.02));border-right:1px solid var(--redb);border-top:1px solid var(--redb);border-bottom:1px solid var(--redb)}
+.wb-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
+.wb-content{flex:1}
+.wb-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--red);margin-bottom:.3rem}
+.wb-text{font-size:.88rem;color:var(--bn);line-height:1.65}
+.wb-text strong{color:var(--cr)}
+
+/* Stat cards */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin:1.25rem 0}
+@media(max-width:580px){.stats-grid{grid-template-columns:1fr}}
+.stat-card{padding:1.35rem;border-radius:12px;background:var(--ab);border-width:1px;border-style:solid;text-align:center;transition:border-color .3s,transform .3s var(--ex);cursor:default;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.stat-card.red-card{border-color:rgba(239,68,68,.15)}.stat-card.red-card::before{background:linear-gradient(90deg,transparent,var(--red),transparent)}.stat-card.red-card:hover{border-color:var(--redb);transform:translateY(-2px)}
+.stat-card.gold-card{border-color:rgba(201,163,74,.15)}.stat-card.gold-card::before{background:linear-gradient(90deg,transparent,var(--g1),transparent)}.stat-card.gold-card:hover{border-color:rgba(201,163,74,.32);transform:translateY(-2px)}
+.stat-card.green-card{border-color:rgba(52,211,153,.15)}.stat-card.green-card::before{background:linear-gradient(90deg,transparent,var(--grn),transparent)}.stat-card.green-card:hover{border-color:var(--grnb);transform:translateY(-2px)}
+.stat-num{font-family:'Cinzel Decorative',serif;font-size:2rem;font-weight:700;line-height:1}
+.stat-card.red-card .stat-num{color:var(--red)}
+.stat-card.gold-card .stat-num{color:transparent;background:linear-gradient(135deg,var(--g0),var(--g1));-webkit-background-clip:text;background-clip:text}
+.stat-card.green-card .stat-num{color:var(--grn)}
+.stat-label{font-size:.73rem;color:var(--tp);margin-top:.35rem;line-height:1.4}
+
+/* Comparison */
+.comparison-wrap{margin:1.75rem 0;display:grid;grid-template-columns:1fr auto 1fr;border-radius:14px;overflow:hidden;border:1px solid rgba(201,163,74,.08)}
+@media(max-width:580px){.comparison-wrap{grid-template-columns:1fr}}
+.comp-col{padding:1.5rem 1.35rem;display:flex;flex-direction:column;gap:.85rem}
+.comp-col.problem-col{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(239,68,68,.02));border-right:1px solid rgba(201,163,74,.06)}
+.comp-col.solution-col{background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(52,211,153,.02))}
+.comp-divider{display:flex;align-items:center;justify-content:center;padding:0 .65rem;background:var(--ab)}
+.comp-divider::after{content:'VS';font-family:'Cinzel Decorative',serif;font-size:.7rem;font-weight:700;color:var(--g1)}
+@media(max-width:580px){.comp-divider{display:none}}
+.comp-header{display:flex;align-items:center;gap:.65rem;padding-bottom:.7rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.comp-icon{width:32px;height:32px;border-radius:7px;display:grid;place-items:center;font-size:1rem;flex-shrink:0}
+.problem-col .comp-icon{background:var(--reds);border:1px solid var(--redb)}
+.solution-col .comp-icon{background:var(--grns);border:1px solid var(--grnb)}
+.comp-title{font-family:var(--fb);font-size:.7rem;letter-spacing:.14em}
+.problem-col .comp-title{color:var(--red)}
+.solution-col .comp-title{color:var(--grn)}
+.comp-subtitle{font-size:.68rem;color:var(--as);font-style:italic;margin-top:.08rem}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.comp-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.8rem;color:var(--bn);line-height:1.42}
+.comp-item::before{content:'';flex-shrink:0;width:14px;height:14px;border-radius:50%;display:grid;place-items:center;margin-top:.06rem;font-size:.55rem;font-weight:700}
+.problem-col .comp-item::before{content:'✕';background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.solution-col .comp-item::before{content:'✓';background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+
+/* Task / Quiz blocks */
+.quiz{background:var(--ab);border:1px solid rgba(201,163,74,.12);border-radius:14px;padding:1.75rem;margin:1.75rem 0}
+.quiz-q{font-family:var(--fd);font-size:1.1rem;font-style:italic;color:var(--cr);margin-bottom:1.25rem;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:.55rem}
+.quiz-opt{display:flex;align-items:flex-start;gap:.8rem;padding:.85rem 1.1rem;border-radius:8px;border:1px solid rgba(201,163,74,.1);background:var(--gt);cursor:pointer;transition:all .25s var(--ex)}
+.quiz-opt:hover:not(.answered){border-color:rgba(201,163,74,.32);background:var(--gf);transform:translateX(3px)}
+.quiz-opt .opt-txt{font-size:.85rem;color:var(--bn);flex:1}
+.quiz-opt.selected{border-color:var(--g1);background:var(--gm)}
+.quiz-opt.selected .opt-txt{color:var(--cr)}
+.quiz-feedback{margin-top:.9rem;padding:.8rem 1rem;border-radius:8px;font-size:.83rem;display:none;animation:fadeUp .4s var(--ex) both;line-height:1.55}
+.quiz-feedback.show{display:block;background:var(--grnd);border:1px solid var(--grnb);color:var(--grn)}
+
+.task-box{background:var(--ab);border:1px solid rgba(201,163,74,.12);border-radius:14px;padding:1.75rem;margin:1.75rem 0;position:relative;overflow:hidden}
+.task-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
+.task-label{font-family:var(--fb);font-size:.56rem;letter-spacing:.22em;color:var(--grn2);margin-bottom:.65rem}
+.task-prompt{font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--cr);margin-bottom:1.1rem;line-height:1.5}
+.task-input{width:100%;padding:.9rem 1.1rem;background:rgba(4,3,2,.7);border:1px solid rgba(201,163,74,.18);border-radius:8px;color:var(--cr);font-size:.88rem;line-height:1.6;resize:vertical;min-height:88px;transition:border-color .25s,box-shadow .25s;outline:none}
+.task-input:focus{border-color:var(--grn);box-shadow:0 0 0 2px rgba(52,211,153,.07)}
+.task-input::placeholder{color:var(--as)}
+.task-saved{margin-top:.65rem;padding:.75rem .9rem;border-radius:7px;background:var(--grnd);border:1px solid var(--grnb);font-size:.81rem;color:var(--grn);display:none;animation:fadeUp .4s var(--ex) both}
+.task-saved.show{display:block}
+.badge-earned{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem .35rem .5rem;border-radius:50px;background:rgba(52,211,153,.1);border:1px solid var(--grnb);font-family:var(--fb);font-size:.55rem;letter-spacing:.14em;color:var(--grn);margin-top:.5rem}
+.badge-earned .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:dpls 2s ease-in-out infinite}
+
+/* Expandable Cards */
+.exp-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:600px){.exp-cards-grid{grid-template-columns:1fr}}
+.exp-card{background:var(--ab);border:1px solid rgba(201,163,74,.1);border-radius:12px;cursor:pointer;transition:all .3s var(--ex);position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;opacity:0;transition:opacity .3s}
+.exp-card:hover{border-color:rgba(201,163,74,.25);transform:translateY(-2px);box-shadow:0 10px 32px rgba(201,163,74,.08)}
+.exp-card.open{border-color:var(--g1);box-shadow:0 0 28px rgba(201,163,74,.1)}
+.exp-card.open::before{opacity:1;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.exp-card-header{display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.25rem}
+.exp-card-icon{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:1.15rem;flex-shrink:0;transition:transform .3s var(--bk)}
+.exp-card.open .exp-card-icon{transform:scale(1.08)}
+.exp-card-title{flex:1}
+.exp-card-name{font-family:var(--fb);font-size:.72rem;letter-spacing:.12em;color:var(--cr)}
+.exp-card.open .exp-card-name{color:var(--g1)}
+.exp-card-sub{font-size:.7rem;color:var(--tp);margin-top:.12rem}
+.exp-card-chevron{width:18px;height:18px;border-radius:50%;border:1px solid rgba(201,163,74,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ex)}
+.exp-card.open .exp-card-chevron{background:var(--gm);border-color:var(--gg);transform:rotate(180deg)}
+.exp-card-chevron svg{width:9px;height:9px;stroke:var(--g1);fill:none;stroke-width:2.5}
+.exp-card-body{max-height:0;overflow:hidden;transition:max-height .45s var(--ex),padding .45s var(--ex)}
+.exp-card.open .exp-card-body{max-height:400px;padding-bottom:1.25rem}
+.exp-card-content{padding:0 1.25rem;font-size:.85rem;color:var(--bn);line-height:1.72;border-top:1px solid rgba(201,163,74,.07);padding-top:.9rem}
+.exp-card-content strong{color:var(--cr)}
+.exp-card-tip{margin-top:.75rem;padding:.65rem .9rem;border-radius:7px;font-size:.78rem;font-style:italic;background:rgba(201,163,74,.05);border:1px solid rgba(201,163,74,.1);color:var(--g2)}
+
+/* Flowchart */
+.flowchart{display:flex;align-items:center;gap:.5rem;padding:1.35rem;background:var(--ab);border-radius:12px;border:1px solid rgba(201,163,74,.1);margin:1.5rem 0;flex-wrap:wrap;justify-content:center}
+@media(max-width:600px){.flowchart{flex-direction:column}}
+.flow-node{padding:.7rem 1.1rem;border-radius:8px;text-align:center;flex-shrink:0;transition:transform .25s var(--bk)}
+.flow-node:hover{transform:translateY(-2px)}
+.flow-node-icon{font-size:1.4rem;display:block;margin-bottom:.25rem}
+.flow-node-label{font-family:var(--fb);font-size:.54rem;letter-spacing:.14em;white-space:nowrap}
+.flow-node-sub{font-size:.68rem;margin-top:.15rem;opacity:.75}
+.flow-node.capture{background:var(--blud);border:1px solid var(--blub)}
+.flow-node.capture .flow-node-label{color:var(--blu)}
+.flow-node.qualify{background:var(--gf);border:1px solid rgba(201,163,74,.2)}
+.flow-node.qualify .flow-node-label{color:var(--g1)}
+.flow-node.score{background:var(--purpd);border:1px solid var(--purpb)}
+.flow-node.score .flow-node-label{color:var(--purp)}
+.flow-node.route{background:var(--grns);border:1px solid var(--grnb)}
+.flow-node.route .flow-node-label{color:var(--grn)}
+.flow-arrow{color:var(--g3);font-size:1.1rem;flex-shrink:0;padding:0 .15rem}
+@media(max-width:600px){.flow-arrow{transform:rotate(90deg)}}
+
+/* Build stepper */
+.build-stepper{margin:1.75rem 0;display:flex;flex-direction:column;gap:0}
+.build-step-item{display:flex;gap:1.25rem;padding:1.1rem 0;position:relative}
+.build-step-item:not(:last-child)::before{content:'';position:absolute;left:16px;top:52px;bottom:-8px;width:1px;background:linear-gradient(180deg,rgba(201,163,74,.25),rgba(201,163,74,.04))}
+.build-step-num{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--g1);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:.6rem;color:var(--g1);flex-shrink:0;background:var(--gf);transition:all .3s var(--bk)}
+.build-step-item.active-build .build-step-num{background:var(--g1);color:var(--v);border-color:var(--g1);transform:scale(1.1);box-shadow:0 0 14px rgba(201,163,74,.3)}
+.build-step-content{flex:1;padding-top:.3rem}
+.build-step-title{font-family:var(--fb);font-size:.68rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.35rem}
+.build-step-item.active-build .build-step-title{color:var(--g1)}
+.build-step-text{font-size:.82rem;color:var(--tp);line-height:1.58;margin-bottom:.6rem}
+.prompt-box{background:rgba(4,3,2,.6);border:1px solid rgba(201,163,74,.15);border-radius:8px;padding:.8rem 1rem;font-family:'DM Mono',monospace,var(--fs);font-size:.75rem;color:var(--g2);line-height:1.55;margin-top:.6rem;position:relative;overflow:hidden}
+.prompt-box::before{content:'PROMPT';position:absolute;top:.4rem;right:.7rem;font-family:var(--fb);font-size:.38rem;letter-spacing:.2em;color:var(--as);background:var(--gf);padding:.1rem .4rem;border-radius:3px}
+
+/* Chat simulation */
+.sim-container{background:var(--ab);border:1px solid rgba(201,163,74,.12);border-radius:14px;overflow:hidden;margin:1.75rem 0}
+.sim-header{padding:.9rem 1.25rem;border-bottom:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.75rem;background:rgba(201,163,74,.03)}
+.sim-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,rgba(201,163,74,.25),rgba(201,163,74,.1));border:1px solid rgba(201,163,74,.3);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.sim-name{font-family:var(--fb);font-size:.56rem;letter-spacing:.14em;color:var(--g1)}
+.sim-status{font-size:.66rem;color:var(--grn);margin-top:.06rem;display:flex;align-items:center;gap:.35rem}
+.sim-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+.sim-messages{padding:1rem 1.25rem;min-height:240px;display:flex;flex-direction:column;gap:.75rem}
+.sim-msg{padding:.7rem .95rem;border-radius:10px;font-size:.83rem;line-height:1.58;max-width:88%;animation:fadeUp .4s var(--ex) both;display:none}
+.sim-msg.show{display:block}
+.sim-msg.incoming{background:rgba(96,165,250,.09);border:1px solid rgba(96,165,250,.18);color:var(--bn);align-self:flex-start;border-bottom-left-radius:3px}
+.sim-msg.agent{background:rgba(201,163,74,.09);border:1px solid rgba(201,163,74,.2);color:var(--cr);align-self:flex-end;border-bottom-right-radius:3px}
+.sim-msg .sim-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.18em;margin-bottom:.3rem;opacity:.7}
+.sim-msg.incoming .sim-tag{color:var(--blu)}
+.sim-msg.agent .sim-tag{color:var(--g2)}
+.sim-stage{padding:.55rem 1.25rem;background:rgba(4,3,2,.4);border-top:1px solid rgba(201,163,74,.07);font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--tp);display:flex;align-items:center;gap:.5rem;display:none}
+.sim-stage.show{display:flex}
+.sim-stage-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.sim-actions{padding:1rem 1.25rem;border-top:1px solid rgba(201,163,74,.08)}
+
+/* Key insights cards */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:680px){.insights-grid{grid-template-columns:1fr}}
+.insight-card{padding:1.35rem 1.25rem;border-radius:12px;background:var(--ab);border:1px solid rgba(201,163,74,.1);position:relative;overflow:hidden;transition:all .3s var(--ex)}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.insight-card:hover{border-color:rgba(201,163,74,.28);transform:translateY(-3px);box-shadow:0 12px 36px rgba(201,163,74,.09)}
+.insight-num{font-family:'Cinzel Decorative',serif;font-size:1.8rem;color:var(--g3);line-height:1;margin-bottom:.6rem}
+.insight-title{font-family:var(--fb);font-size:.66rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.45rem}
+.insight-text{font-size:.8rem;color:var(--tp);line-height:1.6}
+
+/* Achievement */
+.achievement-box{background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.2);border-radius:14px;padding:2rem;text-align:center;position:relative;overflow:hidden;margin:1.75rem 0}
+.achievement-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),var(--g0),var(--g1),transparent)}
+.achievement-icon{font-size:3rem;margin-bottom:.75rem;display:block}
+.achievement-msg{font-family:var(--fd);font-size:1.35rem;font-weight:300;color:var(--wh);margin-bottom:1.25rem;line-height:1.3}
+.achievement-list{display:flex;flex-direction:column;gap:.55rem;text-align:left;max-width:380px;margin:0 auto 1.25rem}
+.achievement-item{display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:var(--bn)}
+.achievement-item::before{content:'✓';color:var(--grn);font-weight:700;font-size:.9rem;flex-shrink:0}
+
+/* Summary */
+.summary-list{display:flex;flex-direction:column;gap:1rem;margin:1.5rem 0}
+.summary-item{display:flex;gap:1.1rem;padding:1.1rem 1.35rem;border-radius:12px;background:var(--ab);border:1px solid rgba(201,163,74,.08);transition:all .25s var(--ex);align-items:flex-start}
+.summary-item:hover{border-color:rgba(201,163,74,.2);transform:translateX(3px)}
+.summary-item:nth-child(1){border-left:2px solid var(--blu)}
+.summary-item:nth-child(2){border-left:2px solid var(--g1)}
+.summary-item:nth-child(3){border-left:2px solid var(--grn)}
+.summary-icon{font-size:1.25rem;flex-shrink:0;margin-top:.05rem}
+.summary-content{}
+.summary-title{font-family:var(--fb);font-size:.66rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.3rem}
+.summary-text{font-size:.82rem;color:var(--bn);line-height:1.55}
+
+/* Next lesson card */
+.next-lesson-card{background:linear-gradient(135deg,rgba(52,211,153,.05),rgba(201,163,74,.04));border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:1.75rem;margin:1.75rem 0;position:relative;overflow:hidden}
+.next-lesson-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
+.nlc-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.26em;color:var(--grn2);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.nlc-label::before{content:'🚀';font-size:.85rem}
+.nlc-title{font-family:var(--fd);font-size:1.6rem;font-weight:300;color:var(--wh);margin-bottom:.5rem}
+.nlc-desc{font-size:.86rem;color:var(--bn);line-height:1.65;margin-bottom:1rem}
+.nlc-meta{font-size:.74rem;color:var(--tp);display:flex;align-items:center;gap:.5rem}
+.nlc-meta svg{width:11px;height:11px;stroke:var(--g2);fill:none;stroke-width:2}
+
+/* Recap / Summary boxes */
+.recap-box{background:linear-gradient(135deg,rgba(201,163,74,.05),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.15);border-radius:12px;padding:1.35rem 1.5rem;margin:1.5rem 0;position:relative;overflow:hidden}
+.recap-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.recap-title{font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g2);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.recap-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite}
+.recap-items{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem}
+.recap-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55}
+.recap-item::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.recap-motivation{font-size:.82rem;color:var(--g1);font-style:italic;line-height:1.55;padding-top:.75rem;border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.5rem}
+.recap-motivation::before{content:'🔥';font-size:.85rem;flex-shrink:0}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.12),transparent);margin:2.5rem 0}
+.section-block{padding:3rem 0;border-bottom:1px solid rgba(201,163,74,.05);position:relative}
+.section-block:last-child{border-bottom:none}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ex),transform .55s var(--ex)}
+.reveal.in{opacity:1;transform:translateY(0)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-motivation{font-size:.78rem;color:var(--g2);margin-top:1rem;padding:.6rem 0;text-align:center;letter-spacing:.03em;opacity:.85;animation:fadeUp .6s var(--ex) both}
+.motivation-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .75rem;border-radius:50px;background:var(--gf);border:1px solid rgba(201,163,74,.15);font-size:.76rem;color:var(--g2);margin-top:.75rem;animation:fadeUp .5s var(--ex) both;font-style:italic}
+
+/* ── STEP SYSTEM ── */
+.lesson-body{padding-top:1rem}
+.step-tracker{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0 .5rem;border-bottom:1px solid rgba(201,163,74,.06);margin-bottom:.25rem;position:sticky;top:var(--topbar-h);background:var(--v);z-index:50}
+.step-counter{font-family:var(--fb);font-size:.44rem;letter-spacing:.26em;color:var(--tp)}
+.step-dots{display:flex;gap:.3rem;align-items:center}
+.step-dot{width:5px;height:5px;border-radius:50%;background:rgba(201,163,74,.12);transition:background .4s,transform .3s var(--bk),width .3s}
+.step-dot.done{background:var(--grn);width:8px;border-radius:2px}
+.step-dot.active{background:var(--g1);transform:scale(1.5)}
+.prog-step{display:none;opacity:0;transform:translateY(16px);animation:stepReveal .5s var(--ex) both}
+.prog-step.active{display:block;opacity:1;transform:translateY(0)}
+@keyframes stepReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.step-continue-wrap{display:flex;align-items:center;justify-content:center;padding:2.25rem 0 .75rem;gap:.85rem;flex-wrap:wrap}
+.step-continue-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.28);background:rgba(201,163,74,.05);color:var(--g1);font-family:var(--fb);font-size:.58rem;letter-spacing:.18em;cursor:pointer;transition:all .3s var(--ex);position:relative;overflow:hidden}
+.step-continue-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,74,.1),transparent);opacity:0;transition:opacity .25s}
+.step-continue-btn:hover{border-color:var(--g1);transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,163,74,.16)}
+.step-continue-btn:hover::after{opacity:1}
+.step-continue-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.step-continue-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .25s var(--bk)}
+.step-continue-btn:hover svg{transform:translateX(3px)}
+
+/* ── MILESTONE / LEVELUP ── */
+.milestone-flash{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);z-index:9500;background:var(--ob);border:1px solid rgba(201,163,74,.25);border-radius:16px;padding:1.75rem 2.75rem;text-align:center;pointer-events:none;opacity:0;transition:all .4s var(--bk);box-shadow:0 0 60px rgba(201,163,74,.15)}
+.milestone-flash.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.milestone-icon{font-size:2.2rem;margin-bottom:.4rem}
+.milestone-text{font-family:var(--fb);font-size:.64rem;letter-spacing:.22em;color:var(--g1)}
+#levelup-banner{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(120px);z-index:9000;background:linear-gradient(135deg,var(--g3),var(--g1),var(--g0));color:var(--v);padding:.9rem 2rem;border-radius:50px;font-family:var(--fb);font-size:.7rem;letter-spacing:.2em;box-shadow:0 8px 36px rgba(201,163,74,.48);transition:transform .5s var(--bk);display:flex;align-items:center;gap:.7rem}
+#levelup-banner.show{transform:translateX(-50%) translateY(0)}
+#levelup-banner svg{width:14px;height:14px;fill:var(--v)}
+#back-top{position:fixed;bottom:2.25rem;right:1.75rem;width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,163,74,.25);background:rgba(4,3,2,.88);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:500;opacity:0;transform:translateY(16px);transition:all .35s var(--ex);pointer-events:none}
+#back-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+#back-top:hover{border-color:var(--gg);box-shadow:0 4px 16px rgba(201,163,74,.18)}
+#back-top svg{width:13px;height:13px;stroke:var(--g1);stroke-width:2.5;fill:none}
+
+/* ── FOCUS MODE HINT ── */
+.focus-hint{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%) translateY(80px);z-index:650;background:rgba(4,3,2,.88);backdrop-filter:blur(12px);border:1px solid rgba(201,163,74,.18);border-radius:50px;padding:.55rem 1.25rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--tp);display:flex;align-items:center;gap:.6rem;transition:transform .4s var(--bk),opacity .3s;opacity:0;pointer-events:none}
+body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.focus-hint kbd{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);padding:.12rem .5rem;border-radius:4px;font-size:.5rem;color:var(--g2);font-family:var(--fs)}
+
+/* ── AI ASSISTANT ── */
+#ai-beacon{position:fixed;bottom:2.25rem;right:5.5rem;z-index:600;display:flex;align-items:center;gap:.7rem;cursor:pointer}
+body.ai-open #ai-beacon{right:calc(var(--ai-panel-w) + 1.5rem)}
+.ai-beacon-btn{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,rgba(96,165,250,.18),rgba(167,139,250,.12));border:1px solid rgba(96,165,250,.35);display:flex;align-items:center;justify-content:center;transition:all .3s var(--bk);position:relative;box-shadow:0 4px 20px rgba(96,165,250,.15)}
+.ai-beacon-btn::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(96,165,250,.2);animation:beaconPulse 2.5s ease-in-out infinite}
+@keyframes beaconPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.12);opacity:0}}
+.ai-beacon-btn:hover{transform:scale(1.08);border-color:rgba(96,165,250,.6);box-shadow:0 6px 28px rgba(96,165,250,.28)}
+body.ai-open .ai-beacon-btn{background:rgba(96,165,250,.25);border-color:var(--blu);transform:scale(1.05)}
+.ai-beacon-btn svg{width:18px;height:18px;stroke:var(--blu);fill:none;stroke-width:1.8}
+.ai-beacon-label{background:var(--ob);border:1px solid rgba(96,165,250,.2);padding:.4rem .85rem;border-radius:20px;font-family:var(--fb);font-size:.44rem;letter-spacing:.16em;color:var(--blu);white-space:nowrap;opacity:0;transform:translateX(6px);transition:all .25s var(--ex);pointer-events:none}
+#ai-beacon:hover .ai-beacon-label{opacity:1;transform:translateX(0)}
+body.ai-open .ai-beacon-label{opacity:0!important}
+#ai-panel{position:fixed;top:var(--topbar-h);right:0;bottom:0;width:var(--ai-panel-w);z-index:700;background:var(--ob);border-left:1px solid rgba(96,165,250,.1);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ex);box-shadow:-20px 0 60px rgba(0,0,0,.4)}
+body.ai-open #ai-panel{transform:translateX(0)}
+@media(max-width:700px){#ai-panel{width:100vw}body.ai-open{padding-right:0}}
+.ai-panel-header{padding:1.1rem 1.25rem;border-bottom:1px solid rgba(96,165,250,.08);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:rgba(96,165,250,.04)}
+.ai-panel-id{display:flex;align-items:center;gap:.75rem}
+.ai-avatar-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(167,139,250,.15));border:1px solid rgba(96,165,250,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;position:relative}
+.ai-avatar-ring::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--grn);border:1.5px solid var(--ob);position:absolute;bottom:-1px;right:-1px}
+.ai-name{font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--blu)}
+.ai-subtitle{font-size:.66rem;color:var(--tp);margin-top:.06rem}
+.ai-close{width:28px;height:28px;border-radius:7px;border:1px solid rgba(96,165,250,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--tp);transition:all .2s}
+.ai-close:hover{border-color:rgba(96,165,250,.35);color:var(--blu);background:rgba(96,165,250,.07)}
+.ai-close svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5}
+.ai-context-chip{margin:.75rem 1.25rem 0;padding:.55rem 1rem;border-radius:7px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.1);font-size:.72rem;color:var(--tp);flex-shrink:0;display:flex;align-items:center;gap:.5rem}
+.ai-context-chip::before{content:'📍';font-size:.75rem}
+.ai-messages{flex:1;overflow-y:auto;overflow-x:hidden;padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;scrollbar-width:thin;scrollbar-color:rgba(96,165,250,.15) transparent}
+.ai-messages::-webkit-scrollbar{width:2px}
+.ai-messages::-webkit-scrollbar-thumb{background:rgba(96,165,250,.18);border-radius:2px}
+.ai-msg{max-width:92%;font-size:.84rem;line-height:1.58;padding:.72rem .95rem;border-radius:12px;animation:fadeUp .3s var(--ex) both}
+.ai-msg.bot{background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.12);color:var(--bn);align-self:flex-start;border-bottom-left-radius:3px}
+.ai-msg.bot strong{color:var(--cr)}
+.ai-msg.user{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.15);color:var(--cr);align-self:flex-end;border-bottom-right-radius:3px;font-size:.82rem}
+.ai-typing-indicator{display:flex;gap:4px;padding:.72rem .95rem;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.1);border-radius:12px 12px 12px 3px;align-self:flex-start;width:54px;animation:fadeUp .25s var(--ex) both}
+.ai-typing-indicator span{width:6px;height:6px;border-radius:50%;background:var(--blu);opacity:.5;animation:typBounce 1.2s ease-in-out infinite}
+.ai-typing-indicator span:nth-child(2){animation-delay:.14s}
+.ai-typing-indicator span:nth-child(3){animation-delay:.28s}
+@keyframes typBounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:.9}}
+.ai-suggestions{padding:.75rem 1.1rem .85rem;border-top:1px solid rgba(96,165,250,.07);flex-shrink:0}
+.ai-suggest-header{font-family:var(--fb);font-size:.4rem;letter-spacing:.2em;color:var(--as);margin-bottom:.5rem}
+.ai-suggest-list{display:flex;flex-direction:column;gap:.35rem;transition:opacity .22s ease,transform .22s ease}
+.ai-suggest-q{text-align:left;padding:.52rem .9rem;border-radius:7px;border:1px solid rgba(96,165,250,.12);background:rgba(96,165,250,.04);color:var(--bn);font-size:.78rem;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:.55rem;line-height:1.38}
+.ai-suggest-q::before{content:'›';color:var(--blu);font-size:.9rem;flex-shrink:0;line-height:1}
+.ai-suggest-q:hover{border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.09);color:var(--cr)}
+.ai-suggest-q.used{opacity:.3;pointer-events:none}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:4rem 0;text-align:center;position:relative}
+.final-cta::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:100%;background:linear-gradient(180deg,rgba(201,163,74,.12),transparent)}
+.final-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border:1px solid rgba(201,163,74,.2);border-radius:4px;background:var(--gf);font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;margin-bottom:1.5rem}
+.final-h2{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.75rem);font-weight:300;color:var(--wh);line-height:1.2;margin-bottom:.9rem;letter-spacing:-.01em;max-width:620px;margin-left:auto;margin-right:auto}
+.final-sub{font-size:.86rem;color:var(--bn);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
+.final-btn{display:inline-flex;align-items:center;gap:.75rem;padding:1.05rem 2.5rem;border-radius:10px;background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .35s var(--ex);box-shadow:0 5px 28px rgba(201,163,74,.32);border:none;position:relative;overflow:hidden}
+.final-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);opacity:0;transition:opacity .25s}
+.final-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(201,163,74,.48)}
+.final-btn:hover::before{opacity:1}
+.final-btn svg{width:14px;height:14px;stroke:var(--v);fill:none;stroke-width:2.5}
+.glow-pulse{animation:glowPulse 2.5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 8px rgba(201,163,74,.15),0 0 20px rgba(201,163,74,.06)}50%{box-shadow:0 0 16px rgba(201,163,74,.35),0 0 40px rgba(201,163,74,.12)}}
+.text-shimmer{background:linear-gradient(110deg,var(--cr) 0%,var(--cr) 40%,var(--g0) 50%,var(--cr) 60%,var(--cr) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:textShimmer 3.5s ease-in-out infinite}
+@keyframes textShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.float-in{opacity:0;transform:translateY(30px);animation:floatIn .8s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes floatIn{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+.urgency-flash{animation:urgencyFlash 2s ease-in-out infinite}
+@keyframes urgencyFlash{0%,100%{border-color:rgba(239,68,68,.25)}50%{border-color:rgba(239,68,68,.55)}}
+@media print{#cur,#cur-r,#blob,.orb,#particles,#read-progress,#back-top,#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.milestone-flash,.focus-hint{display:none!important}body{padding:0}.content-inner{max-width:100%}}
+
+/* ═══════════════════════════════════════════════════════════
+   REDESIGNED SECTIONS — Enhanced UI/UX & Animations
+═══════════════════════════════════════════════════════════ */
+
+/* ── HOOK SECTION (Step 0) ── */
+.hook-headline-wrap{text-align:center;padding:1rem 0 .5rem;margin-bottom:1.75rem;position:relative}
+.hook-headline-wrap::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
+.hook-big-num{display:block;font-family:'Cinzel Decorative',serif;font-size:clamp(4.5rem,11vw,8rem);font-weight:700;line-height:.95;margin-bottom:.35rem;color:var(--red);opacity:0;animation:hookNumIn 1s var(--ex) .1s both}
+@keyframes hookNumIn{from{opacity:0;transform:translateY(30px) scale(.85);filter:blur(6px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.hook-big-label{display:block;font-family:var(--fd);font-size:clamp(1.05rem,2.4vw,1.55rem);color:var(--cr);letter-spacing:-.01em;line-height:1.3;opacity:0;animation:fadeUp .7s var(--ex) .4s both}
+.hook-highlight{display:block;font-family:var(--fb);font-size:clamp(1.15rem,2.8vw,1.7rem);letter-spacing:.06em;color:var(--g0);margin-top:.35rem;opacity:0;animation:fadeUp .7s var(--ex) .55s both}
+.hook-sub{text-align:center;font-family:var(--fd);font-size:clamp(1.05rem,2vw,1.35rem);color:var(--tp);font-style:italic;margin-bottom:2.25rem;opacity:0;animation:fadeUp .6s var(--ex) .7s both}
+.hook-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:580px){.hook-stats-row{grid-template-columns:1fr}}
+.hook-card{padding:1.75rem 1.35rem;border-radius:16px;background:var(--ab);border:1px solid;text-align:center;position:relative;overflow:hidden;cursor:default;opacity:0;transform:translateY(28px);transition:transform .35s var(--ex),box-shadow .35s var(--ex)}
+.hook-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.7;transition:opacity .3s}
+.hook-card:hover{transform:translateY(-4px)}
+.hook-card:hover::before{opacity:1}
+.hook-card.hc-red{border-color:rgba(239,68,68,.18);animation:hookCardIn .8s var(--ex) .85s both}
+.hook-card.hc-red::before{background:linear-gradient(90deg,transparent,var(--red),transparent)}
+.hook-card.hc-red:hover{box-shadow:0 12px 40px rgba(239,68,68,.12)}
+.hook-card.hc-gold{border-color:rgba(201,163,74,.2);animation:hookCardIn .8s var(--ex) 1.05s both}
+.hook-card.hc-gold::before{background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.hook-card.hc-gold:hover{box-shadow:0 12px 40px rgba(201,163,74,.1)}
+.hook-card.hc-green{border-color:var(--grnb);animation:hookCardIn .8s var(--ex) 1.25s both}
+.hook-card.hc-green::before{background:linear-gradient(90deg,transparent,var(--grn),transparent)}
+.hook-card.hc-green:hover{box-shadow:0 12px 40px rgba(52,211,153,.1)}
+@keyframes hookCardIn{from{opacity:0;transform:translateY(28px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hook-card-num{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1;margin-bottom:.45rem}
+.hc-red .hook-card-num{color:var(--red)}
+.hc-gold .hook-card-num{background:linear-gradient(135deg,var(--g0),var(--g1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hc-green .hook-card-num{color:var(--grn)}
+.hook-card-label{font-size:.78rem;color:var(--tp);line-height:1.5}
+.hook-body{opacity:0;animation:fadeUp .6s var(--ex) 1.4s both}
+.hook-dramatic-warning{display:flex;gap:1rem;padding:1.5rem 1.75rem;border-radius:16px;margin:2rem 0;border-left:3px solid var(--red);background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(239,68,68,.02));border-right:1px solid var(--redb);border-top:1px solid var(--redb);border-bottom:1px solid var(--redb);position:relative;overflow:hidden;opacity:0;animation:fadeUp .7s var(--ex) 1.6s both}
+.hook-dramatic-warning::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
+.hook-dramatic-warning .hw-icon{font-size:1.6rem;flex-shrink:0;line-height:1;animation:hwPulse 2s ease-in-out infinite}
+@keyframes hwPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.hook-dramatic-warning .hw-content{flex:1}
+.hook-dramatic-warning .hw-label{font-family:var(--fb);font-size:.52rem;letter-spacing:.26em;color:var(--red);margin-bottom:.4rem;text-transform:uppercase}
+.hook-dramatic-warning .hw-text{font-size:.9rem;color:var(--bn);line-height:1.7}
+.hook-dramatic-warning .hw-text strong{color:var(--cr)}
+
+/* ── BUILDING SECTION (Step 1) ── */
+.build-section{opacity:0;animation:fadeUp .6s var(--ex) .1s both}
+.build-agent-visual{display:flex;align-items:stretch;gap:0;border-radius:16px;overflow:hidden;margin:2rem 0;border:1px solid rgba(201,163,74,.1);background:var(--ab)}
+.build-agent-visual-item{flex:1;padding:1.5rem 1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;position:relative;transition:background .3s var(--ex)}
+.build-agent-visual-item:not(:last-child)::after{content:'';position:absolute;right:0;top:15%;bottom:15%;width:1px;background:linear-gradient(180deg,transparent,rgba(201,163,74,.15),transparent)}
+.build-agent-visual-item:hover{background:rgba(201,163,74,.03)}
+.build-agent-visual-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;transition:transform .35s var(--bk);flex-shrink:0}
+.build-agent-visual-item:hover .build-agent-visual-icon{transform:scale(1.1) rotate(-3deg)}
+.bav-capture .build-agent-visual-icon{background:var(--blud);border:1px solid var(--blub)}
+.bav-qualify .build-agent-visual-icon{background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.2)}
+.bav-respond .build-agent-visual-icon{background:var(--grns);border:1px solid var(--grnb)}
+.build-agent-visual-step{font-family:'Cinzel Decorative',serif;font-size:.65rem;color:var(--g3);letter-spacing:.15em}
+.build-agent-visual-name{font-family:var(--fb);font-size:.72rem;letter-spacing:.12em;color:var(--cr)}
+.bav-capture .build-agent-visual-name{color:var(--blu)}
+.bav-respond .build-agent-visual-name{color:var(--grn)}
+.build-agent-visual-desc{font-size:.78rem;color:var(--tp);line-height:1.55}
+.build-agent-visual-check{display:inline-flex;align-items:center;gap:.3rem;font-size:.65rem;color:var(--grn);margin-top:.25rem;font-family:var(--fb);letter-spacing:.08em}
+.build-result-insight{display:flex;gap:1rem;padding:1.35rem 1.75rem;border-radius:14px;margin:1.5rem 0;border:1px solid var(--grnb);background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(52,211,153,.02));position:relative;overflow:hidden;opacity:0;animation:fadeUp .6s var(--ex) .6s both}
+.build-result-insight::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--grn),transparent)}
+.build-result-insight .bri-icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.build-result-insight .bri-label{font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--grn);margin-bottom:.3rem}
+.build-result-insight .bri-text{font-size:.88rem;color:var(--bn);line-height:1.65}
+.build-result-insight .bri-text strong{color:var(--cr)}
+
+/* ── BEFORE & AFTER (Step 2) ── */
+.bfa-wrap{display:grid;grid-template-columns:1fr;gap:1.25rem;margin:2rem 0;position:relative}
+.bfa-col{border-radius:16px;padding:1.75rem 1.5rem;position:relative;overflow:hidden;opacity:0;animation:bfaSlideIn .7s var(--ex) both}
+.bfa-col.bfa-before{background:linear-gradient(145deg,rgba(239,68,68,.08),rgba(239,68,68,.02));border:1px solid var(--redb);animation-delay:.15s}
+.bfa-col.bfa-after{background:linear-gradient(145deg,rgba(52,211,153,.08),rgba(52,211,153,.02));border:1px solid var(--grnb);animation-delay:.45s}
+@keyframes bfaSlideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.bfa-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.bfa-before::before{background:linear-gradient(90deg,var(--red),transparent 70%)}
+.bfa-after::before{background:linear-gradient(90deg,var(--grn),transparent 70%)}
+.bfa-header{display:flex;align-items:center;gap:.85rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.bfa-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:1.25rem;flex-shrink:0}
+.bfa-before .bfa-icon{background:var(--reds);border:1px solid var(--redb)}
+.bfa-after .bfa-icon{background:var(--grns);border:1px solid var(--grnb)}
+.bfa-title{font-family:var(--fb);font-size:.76rem;letter-spacing:.14em}
+.bfa-before .bfa-title{color:var(--red)}
+.bfa-after .bfa-title{color:var(--grn)}
+.bfa-subtitle{font-size:.7rem;color:var(--as);font-style:italic;margin-top:.1rem}
+.bfa-items{display:flex;flex-direction:column;gap:.65rem}
+.bfa-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.5;padding:.55rem .75rem;border-radius:8px;transition:background .25s var(--ex)}
+.bfa-item:hover{background:rgba(255,255,255,.02)}
+.bfa-item-mark{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:.06rem}
+.bfa-before .bfa-item-mark{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.bfa-after .bfa-item-mark{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.bfa-divider-row{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:.5rem 0;opacity:0;animation:fadeUp .5s var(--ex) .3s both}
+.bfa-divider-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--g3),var(--g1));display:grid;place-items:center;font-size:1.1rem;box-shadow:0 4px 20px rgba(201,163,74,.2);animation:bfaPulse 2.5s ease-in-out infinite}
+@keyframes bfaPulse{0%,100%{box-shadow:0 4px 20px rgba(201,163,74,.2)}50%{box-shadow:0 4px 30px rgba(201,163,74,.4)}}
+.bfa-divider-text{font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g1)}
+.bfa-recap{background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.18);border-radius:14px;padding:1.5rem 1.75rem;margin-top:1.75rem;position:relative;overflow:hidden;opacity:0;animation:fadeUp .6s var(--ex) .8s both}
+.bfa-recap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.bfa-recap-title{font-family:var(--fb);font-size:.55rem;letter-spacing:.24em;color:var(--g2);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.bfa-recap-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite}
+.bfa-recap-items{display:flex;flex-direction:column;gap:.6rem}
+.bfa-recap-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55}
+.bfa-recap-item::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.bfa-recap-motivation{font-size:.84rem;color:var(--g1);font-style:italic;line-height:1.55;padding-top:.85rem;border-top:1px solid rgba(201,163,74,.08);margin-top:.85rem}
+
+/* ── HOW IT'S BUILT (Step 5) ── */
+.hib-intro{opacity:0;animation:fadeUp .6s var(--ex) .1s both}
+.hib-stepper{margin:2rem 0;display:flex;flex-direction:column;gap:0}
+.hib-step{display:flex;gap:1.5rem;padding:1.25rem 0;position:relative;opacity:0;animation:fadeUp .6s var(--ex) both}
+.hib-step:nth-child(1){animation-delay:.2s}
+.hib-step:nth-child(2){animation-delay:.45s}
+.hib-step:nth-child(3){animation-delay:.7s}
+.hib-step:not(:last-child)::before{content:'';position:absolute;left:19px;top:58px;bottom:-10px;width:1px;background:linear-gradient(180deg,rgba(201,163,74,.3),rgba(201,163,74,.05))}
+.hib-step-num{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--g1);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:.7rem;color:var(--g1);flex-shrink:0;background:var(--gf);transition:all .35s var(--bk);position:relative;z-index:1}
+.hib-step-num::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(201,163,74,.1);opacity:0;transition:opacity .3s}
+.hib-step:hover .hib-step-num{background:var(--g1);color:var(--v);border-color:var(--g1);transform:scale(1.12);box-shadow:0 0 20px rgba(201,163,74,.25)}
+.hib-step:hover .hib-step-num::after{opacity:1}
+.hib-step-body{flex:1;padding-top:.15rem}
+.hib-step-title{font-family:var(--fb);font-size:.72rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.4rem;transition:color .25s}
+.hib-step:hover .hib-step-title{color:var(--g1)}
+.hib-step-desc{font-size:.84rem;color:var(--tp);line-height:1.6;margin-bottom:.75rem}
+.hib-prompt{background:rgba(4,3,2,.65);border:1px solid rgba(201,163,74,.15);border-radius:10px;padding:1rem 1.15rem;font-family:'DM Mono',monospace,var(--fs);font-size:.73rem;color:var(--g2);line-height:1.6;margin-top:.5rem;position:relative;overflow:hidden;transition:border-color .3s}
+.hib-step:hover .hib-prompt{border-color:rgba(201,163,74,.3)}
+.hib-prompt::before{content:'PROMPT';position:absolute;top:.45rem;right:.75rem;font-family:var(--fb);font-size:.36rem;letter-spacing:.22em;color:var(--as);background:var(--gf);padding:.1rem .45rem;border-radius:3px}
+.hib-footer{opacity:0;animation:fadeUp .5s var(--ex) 1s both}
+
+/* ── WATCH IT WORK (Step 7) ── */
+.wiw-section{opacity:0;animation:fadeUp .6s var(--ex) .1s both}
+.wiw-container{background:var(--ab);border:1px solid rgba(201,163,74,.14);border-radius:18px;overflow:hidden;margin:2rem 0;box-shadow:0 8px 40px rgba(0,0,0,.25);position:relative}
+.wiw-container::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),var(--blu),var(--g1),transparent)}
+.wiw-header{padding:1.1rem 1.5rem;border-bottom:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.85rem;background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(96,165,250,.03))}
+.wiw-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.12));border:1.5px solid rgba(201,163,74,.35);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;position:relative}
+.wiw-avatar::after{content:'';position:absolute;bottom:-1px;right:-1px;width:10px;height:10px;border-radius:50%;background:var(--grn);border:2px solid var(--ab);animation:pulse 2s infinite}
+.wiw-identity{flex:1}
+.wiw-name{font-family:var(--fb);font-size:.62rem;letter-spacing:.16em;color:var(--g1)}
+.wiw-status{font-size:.7rem;color:var(--grn);margin-top:.08rem;display:flex;align-items:center;gap:.4rem}
+.wiw-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+.wiw-pipeline-bar{padding:.5rem 1.5rem;background:rgba(4,3,2,.4);border-bottom:1px solid rgba(201,163,74,.06);display:flex;align-items:center;gap:.4rem;overflow-x:auto;scrollbar-width:none}
+.wiw-pipeline-bar::-webkit-scrollbar{display:none}
+.wiw-pipe-step{padding:.3rem .65rem;border-radius:20px;font-family:var(--fb);font-size:.38rem;letter-spacing:.14em;white-space:nowrap;border:1px solid rgba(201,163,74,.1);color:var(--as);transition:all .4s var(--ex);background:transparent}
+.wiw-pipe-step.wiw-pipe-active{border-color:var(--g1);color:var(--g1);background:var(--gm);box-shadow:0 0 12px rgba(201,163,74,.15)}
+.wiw-pipe-step.wiw-pipe-done{border-color:var(--grnb);color:var(--grn);background:var(--grns)}
+.wiw-pipe-arrow{color:var(--g4);font-size:.6rem;flex-shrink:0}
+.wiw-messages{padding:1.15rem 1.5rem;min-height:280px;display:flex;flex-direction:column;gap:.75rem}
+.wiw-messages .sim-msg{border-radius:12px;padding:.85rem 1.1rem}
+.wiw-messages .sim-msg.incoming{border-bottom-left-radius:4px}
+.wiw-messages .sim-msg.agent{border-bottom-right-radius:4px}
+.wiw-stage-bar{padding:.65rem 1.5rem;background:rgba(4,3,2,.5);border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.55rem}
+.wiw-stage-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;animation:pulse 1.5s infinite}
+.wiw-actions{padding:1.15rem 1.5rem;border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.85rem;background:rgba(201,163,74,.02)}
+.wiw-run-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.1rem;border-radius:50px;background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));color:var(--v);font-family:var(--fb);font-size:.58rem;letter-spacing:.18em;font-weight:600;cursor:pointer;transition:all .35s var(--ex);box-shadow:0 4px 22px rgba(201,163,74,.22);border:none;position:relative;overflow:hidden}
+.wiw-run-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .25s}
+.wiw-run-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,163,74,.38)}
+.wiw-run-btn:hover::before{opacity:1}
+.wiw-run-btn svg{width:13px;height:13px;stroke:var(--v);fill:none;stroke-width:2.5;flex-shrink:0}
+.wiw-run-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.wiw-note{margin-top:1.5rem;padding:1.1rem 1.5rem;border-radius:12px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.15);opacity:0;animation:fadeUp .5s var(--ex) .3s both}
+.wiw-note-text{font-size:.82rem;color:var(--bn);line-height:1.65;display:flex;align-items:flex-start;gap:.7rem}
+.wiw-note-text::before{content:'💡';font-size:1rem;flex-shrink:0;margin-top:.05rem}
+
+/* ── HIB ACTIVE STATE (IntersectionObserver) ── */
+.hib-step.active-build .hib-step-num{background:var(--g1);color:var(--v);border-color:var(--g1);transform:scale(1.12);box-shadow:0 0 18px rgba(201,163,74,.3)}
+.hib-step.active-build .hib-step-title{color:var(--g1)}
+.hib-step.active-build .hib-prompt{border-color:rgba(201,163,74,.28)}
+/* ═══════════════════════════════════════════════════════════
+   PERSUASION PSYCHOLOGY · EMOTIONAL DESIGN · UX POLISH
+═══════════════════════════════════════════════════════════ */
+
+/* ── Social Proof Ribbon ── */
+.social-proof-bar{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.55rem 1rem;margin:1.25rem 0;border-radius:50px;background:var(--gf);border:1px solid rgba(201,163,74,.12);opacity:0;animation:fadeUp .6s var(--ex) .9s both}
+.sp-avatars{display:flex;margin-right:.35rem}
+.sp-avatar{width:24px;height:24px;border-radius:50%;border:2px solid var(--v);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:.55rem;background:var(--ab);flex-shrink:0}
+.sp-avatar:first-child{margin-left:0}
+.sp-avatar:nth-child(1){background:linear-gradient(135deg,rgba(96,165,250,.3),rgba(96,165,250,.15))}
+.sp-avatar:nth-child(2){background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.15))}
+.sp-avatar:nth-child(3){background:linear-gradient(135deg,rgba(52,211,153,.3),rgba(52,211,153,.15))}
+.sp-avatar:nth-child(4){background:linear-gradient(135deg,rgba(167,139,250,.3),rgba(167,139,250,.15))}
+.sp-text{font-size:.72rem;color:var(--bn);line-height:1.4}
+.sp-text strong{color:var(--g1);font-weight:600}
+
+/* ── Emotional Anchor Text ── */
+.emotional-anchor{font-family:var(--fd);font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--bn);font-style:italic;text-align:center;padding:1rem 1.5rem;border-left:2px solid var(--g2);border-right:2px solid var(--g2);margin:1.5rem auto;max-width:520px;line-height:1.65;position:relative;background:linear-gradient(135deg,var(--gf),transparent)}
+.emotional-anchor::before{content:'\201C';position:absolute;top:-.3rem;left:.5rem;font-size:2.5rem;color:var(--g3);font-family:var(--fd);line-height:1}
+.emotional-anchor::after{content:'\201D';position:absolute;bottom:-1.2rem;right:.5rem;font-size:2.5rem;color:var(--g3);font-family:var(--fd);line-height:1}
+
+/* ── Commitment Progress Tracker ── */
+.commitment-tracker{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.6rem 1rem;border-radius:50px;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1);margin:1rem 0}
+.ct-step{display:flex;align-items:center;gap:.3rem;font-size:.65rem;color:var(--tp);font-family:var(--fb);letter-spacing:.08em;transition:color .3s}
+.ct-step.ct-done{color:var(--grn)}
+.ct-step.ct-active{color:var(--g1)}
+.ct-sep{width:12px;height:1px;background:rgba(201,163,74,.15)}
+
+/* ── Psychological "Future Self" Block ── */
+.future-self{display:flex;gap:1rem;padding:1.25rem 1.5rem;border-radius:14px;background:linear-gradient(145deg,rgba(201,163,74,.06),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.15);margin:1.5rem 0;position:relative;overflow:hidden}
+.future-self::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.fs-icon{font-size:1.8rem;flex-shrink:0;line-height:1;animation:fsFloat 3s ease-in-out infinite}
+@keyframes fsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.fs-content{flex:1}
+.fs-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.24em;color:var(--g2);margin-bottom:.35rem;text-transform:uppercase}
+.fs-text{font-size:.85rem;color:var(--bn);line-height:1.65}
+.fs-text strong{color:var(--cr)}
+
+/* ── Identity Shift Block ── */
+.identity-shift{padding:1.5rem;border-radius:14px;border:1px solid rgba(201,163,74,.12);margin:1.5rem 0;text-align:center;position:relative;overflow:hidden;background:var(--ab)}
+.identity-shift::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g3),var(--g1),var(--g0),var(--g1),var(--g3))}
+.is-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.26em;color:var(--g2);margin-bottom:.85rem;text-transform:uppercase}
+.is-comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
+@media(max-width:500px){.is-comparison{grid-template-columns:1fr}}
+.is-col{text-align:center}
+.is-label-before{font-size:.68rem;color:var(--tp);font-style:italic;margin-bottom:.35rem}
+.is-text{font-size:.92rem;line-height:1.4}
+.is-before .is-text{color:var(--red);text-decoration:line-through;opacity:.6}
+.is-after .is-text{color:var(--grn);font-weight:600}
+.is-arrow{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--g1);animation:isPulse 2s ease-in-out infinite}
+@keyframes isPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+
+/* ── Scarcity Signal ── */
+.scarcity-signal{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:50px;background:var(--reds);border:1px solid var(--redb);font-size:.65rem;color:var(--red);font-family:var(--fb);letter-spacing:.1em;margin-left:.5rem}
+.scarcity-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite}
+
+/* ── Enhanced Section Transitions ── */
+.section-transition{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:1rem 0;margin:0}
+.st-line{flex:1;height:1px;max-width:80px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.15),transparent)}
+.st-icon{font-size:.85rem;opacity:.5}
+.st-text{font-family:var(--fb);font-size:.42rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+
+/* ── Micro-Interaction Polish ── */
+.step-continue-btn{position:relative;overflow:hidden}
+.step-continue-btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(201,163,74,.1);transform:translate(-50%,-50%);transition:width .4s ease,height .4s ease}
+.step-continue-btn:active::after{width:300px;height:300px}
+
+.hero-primary-btn{position:relative;overflow:hidden}
+.hero-primary-btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.15);transform:translate(-50%,-50%);transition:width .5s ease,height .5s ease}
+.hero-primary-btn:active::after{width:400px;height:400px}
+
+.exp-card{will-change:transform,box-shadow}
+.insight-card{will-change:transform}
+.hook-card{will-change:transform}
+
+/* ── Parallax Scroll Effect ── */
+.parallax-slow{will-change:transform;transition:transform .1s linear}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Lead & Sales Automation Agent — Build Your First AI Agent",
+  "description": "Learn to build a Lead & Sales Automation Agent that qualifies, scores, and routes leads automatically 24/7. No code required. Includes real simulation and deployable prompts.",
+  "provider": {
+    "@type": "Organization",
+    "name": "VERCELLUM",
+    "url": "https://vercellum.com"
+  },
+  "educationalLevel": "Beginner",
+  "inLanguage": "en",
+  "timeRequired": "PT12M",
+  "learningResourceType": "interactive tutorial",
+  "coursePrerequisites": "Level 1: The Decision Point",
+  "hasPart": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "instructor": {
+      "@type": "Organization",
+      "name": "VERCELLUM AI Academy"
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+<div id="blob" aria-hidden="true"></div>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<div id="levelup-banner" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  LESSON COMPLETE · YOUR SALES AGENT IS READY TO DEPLOY
+</div>
+
+<button id="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="milestone-flash" id="milestone-flash" aria-live="polite" aria-hidden="true">
+  <div class="milestone-icon" id="milestone-icon">🎯</div>
+  <div class="milestone-text" id="milestone-text">GREAT PROGRESS</div>
+</div>
+
+<div class="focus-hint" aria-live="polite">
+  Press <kbd>Esc</kbd> or click <kbd>Focus</kbd> again to exit deep work mode
+</div>
+
+<!-- TOP BAR -->
+<header id="topbar" role="banner">
+  <div class="tb-left">
+    <span class="tb-lesson-label">Level 2 · <span>Lesson 01</span></span>
+    <div class="tb-progress-wrap">
+      <div class="tb-progress-track"><div class="tb-progress-fill" id="tb-progress-fill"></div></div>
+      <span class="tb-progress-pct" id="tb-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button id="focus-btn" aria-label="Toggle focus mode" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span id="focus-btn-label">Focus Mode</span>
+    </button>
+    <button class="tb-save-btn" id="tb-save-btn" aria-label="Save progress">
+      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+    </button>
+  </div>
+</header>
+<div id="read-progress" aria-hidden="true"></div>
+
+<!-- NAV RAIL -->
+<nav id="nav-rail" aria-label="Course navigation">
+  <div class="rail-logo-area">
+    <div class="rail-logo-icon"><div class="rail-logo-mark">V</div></div>
+    <div class="rail-logo-text">
+      <span class="rail-wordmark">VERCELLUM</span>
+      <span class="rail-tagline">Agentic AI · Level 2</span>
+    </div>
+  </div>
+  <div class="rail-nav" role="list">
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L1</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Done · Level 1</div>
+        <div class="rail-lesson-name">The Decision Point</div>
+      </div>
+    </div>
+    <div class="rail-lesson active" role="listitem" aria-current="page">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">01</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Active · Lesson 1</div>
+        <div class="rail-lesson-name">Lead & Sales Agent</div>
+      </div>
+    </div>
+    <a class="rail-lesson upcoming" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">02</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Upcoming · Lesson 2</div>
+        <div class="rail-lesson-name">Customer Support Agent</div>
+      </div>
+    </a>
+    <a class="rail-lesson upcoming" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">03</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Upcoming · Lesson 3</div>
+        <div class="rail-lesson-name">Operations Agent</div>
+      </div>
+    </a>
+    <a class="rail-lesson upcoming" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">04</div></div>
+      <div class="rail-lesson-body">
+        <div class="rail-lesson-tag">Upcoming · Lesson 4</div>
+        <div class="rail-lesson-name">Deploy Your Agent Stack</div>
+      </div>
+    </a>
+  </div>
+  <div class="rail-bottom">
+    <div class="rail-live">
+      <div class="rail-live-dot"></div>
+      <span class="rail-live-text">241 owners building now</span>
+    </div>
+    <button class="rail-pin-btn" id="rail-pin-btn" aria-label="Pin navigation open">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- AI ASSISTANT PANEL -->
+<aside id="ai-panel" aria-label="AI Learning Assistant" aria-hidden="true">
+  <div class="ai-panel-header">
+    <div class="ai-panel-id">
+      <div class="ai-avatar-ring">✦</div>
+      <div>
+        <div class="ai-name">Kira · Your Learning Guide</div>
+        <div class="ai-subtitle">Powered by VERCELLUM AI</div>
+      </div>
+    </div>
+    <button class="ai-close" id="ai-close-btn" aria-label="Close assistant">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="ai-context-chip" id="ai-context-chip">Reading your current section…</div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-suggestions">
+    <div class="ai-suggest-header">ASK KIRA ABOUT THIS SECTION</div>
+    <div class="ai-suggest-list" id="ai-suggest-list"></div>
+  </div>
+</aside>
+
+<button id="ai-beacon" aria-label="Open AI learning assistant" aria-expanded="false">
+  <div class="ai-beacon-btn">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </div>
+  <span class="ai-beacon-label">Ask Kira</span>
+</button>
+
+<!-- MAIN CONTENT -->
+<div class="content-shell">
+  <div class="content-inner" id="main-content">
+
+    <!-- HERO -->
+    <section class="lesson-hero">
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="https://vercellum.com">VERCELLUM</a>
+        <span class="hero-breadcrumb-sep">›</span>
+        <a href="path.html">Level 2</a>
+        <span class="hero-breadcrumb-sep">›</span>
+        <span aria-current="page">Lesson 1</span>
+      </nav>
+      <div class="hero-badges">
+        <div class="hero-lesson-num">Level 2 · Lesson 01 of 04</div>
+        <div class="hero-lab-badge">🤖 Build Mode · 13 Steps · 12 min</div>
+      </div>
+      <h1 class="hero-h1" id="hero-heading"></h1>
+      <p class="hero-tagline">
+        Right now, a potential customer just visited your website, spent 4 minutes reading your services page — and left.<br>
+        No follow-up. No qualified lead. No sale. That loss was <strong>completely preventable.</strong><br>
+        In the next 12 minutes, you'll build the system that catches every one of those moments — automatically.
+      </p>
+      <div class="hero-cta-row">
+        <button class="hero-primary-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          START BUILDING
+        </button>
+        <button class="hero-ghost-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">
+          WHAT I'LL BUILD
+        </button>
+      </div>
+      <div class="hero-meta-row">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12–14 min · Practical build lesson
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 Agent simulation included
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="rail-live-dot" style="margin-right:.35rem"></span><span class="rail-live-text">241 owners building now</span>
+        </div>
+      </div>
+      <div class="social-proof-bar">
+        <div class="sp-avatars">
+          <div class="sp-avatar">👨‍💼</div>
+          <div class="sp-avatar">👩‍💻</div>
+          <div class="sp-avatar">👨‍🔧</div>
+          <div class="sp-avatar">👩‍🎨</div>
+        </div>
+        <div class="sp-text"><strong>241 business owners</strong> are building their agent right now — join them</div>
+      </div>
+    </section>
+
+    <!-- LESSON BODY -->
+    <div class="lesson-body" id="lesson-body">
+      <div class="step-tracker" id="step-tracker">
+        <div class="step-counter" id="step-counter">STEP 1 OF 13</div>
+        <div class="step-dots" id="step-dots" aria-hidden="true"></div>
+      </div>
+
+      <!-- STEP 0: THE HOOK -->
+      <div class="prog-step active" data-step="0" id="prog-step-0">
+        <section class="section-block reveal">
+          <div class="sec-badge red" style="opacity:0;animation:fadeUp .5s var(--ex) both">📊 THE NUMBER THAT CHANGES EVERYTHING</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE HOOK</div>
+          <div class="hook-headline-wrap">
+            <span class="hook-big-num">78%</span>
+            <span class="hook-big-label">of customers buy from the</span>
+            <span class="hook-highlight">first company that responds.</span>
+          </div>
+          <div class="hook-sub">Are you that company?</div>
+          <div class="hook-stats-row">
+            <div class="hook-card hc-red">
+              <div class="hook-card-num">78%</div>
+              <div class="hook-card-label">of customers buy from the first business that responds to their inquiry</div>
+            </div>
+            <div class="hook-card hc-gold">
+              <div class="hook-card-num">5 min</div>
+              <div class="hook-card-label">is the critical window — leads contacted within 5 minutes convert 9x more often</div>
+            </div>
+            <div class="hook-card hc-green">
+              <div class="hook-card-num">+25%</div>
+              <div class="hook-card-label">average revenue increase reported by SMBs that deploy a lead automation agent</div>
+            </div>
+          </div>
+          <p class="body-text hook-body">Right now, while you're reading this, leads are arriving at your competitors' desks — and getting a response before you've even seen the notification. The businesses pulling ahead aren't working harder. They've deployed a <strong>Sales Agent</strong> that never sleeps, never misses a lead, and never lets a qualified prospect go cold.</p>
+          <div class="hook-dramatic-warning">
+            <span class="hw-icon">💸</span>
+            <div class="hw-content">
+              <div class="hw-label">THE SILENT REVENUE DRAIN</div>
+              <p class="hw-text">For a business receiving 10 leads per week with a $2,000 average deal value, a 2-hour average response time means losing roughly 6 qualified leads per month to faster competitors. That's <strong>$12,000 in preventable lost revenue — every single month.</strong> The agent you're about to build eliminates this entirely.</p>
+            </div>
+          </div>
+          <div class="emotional-anchor">The question isn't whether you can afford to build this agent. It's whether you can afford not to.</div>
+          <div class="social-proof-bar">
+            <div class="sp-avatars">
+              <div class="sp-avatar">📊</div>
+              <div class="sp-avatar">📈</div>
+              <div class="sp-avatar">💰</div>
+            </div>
+            <div class="sp-text">Based on data from <strong>1,247 SMBs</strong> who deployed lead automation in 2025–2026</div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="1">Discover the Solution<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 1: LESSON GOAL -->
+      <div class="prog-step" data-step="1" id="prog-step-1">
+        <section class="section-block reveal">
+          <div class="sec-badge gold build-section">🎯 LESSON GOAL</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT YOU'RE BUILDING</div>
+          <h2 class="sec-title build-section" style="animation-delay:.15s">By the end of this lesson, you'll have built a <span class="gold">Sales Agent</span> that works <span class="green">24/7 — without you</span></h2>
+          <p class="body-text build-section" style="animation-delay:.25s">This isn't theory. This is a practical build session. You'll walk away with a working blueprint for an agent that handles your entire lead pipeline — from first contact to qualified meeting — automatically.</p>
+          <div style="font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--tp);text-align:center;margin:1.75rem 0 .85rem;opacity:0;animation:fadeUp .5s var(--ex) .35s both">YOUR AGENT WILL AUTOMATICALLY:</div>
+          <div class="build-agent-visual" style="opacity:0;animation:fadeUp .7s var(--ex) .45s both">
+            <div class="build-agent-visual-item bav-capture">
+              <div class="build-agent-visual-icon">🔍</div>
+              <div class="build-agent-visual-step">STEP 01</div>
+              <div class="build-agent-visual-name">QUALIFY</div>
+              <div class="build-agent-visual-desc">Ask the right questions and determine if a lead is worth pursuing</div>
+              <div class="build-agent-visual-check">✓ Automated</div>
+            </div>
+            <div class="build-agent-visual-item bav-qualify">
+              <div class="build-agent-visual-icon">📊</div>
+              <div class="build-agent-visual-step">STEP 02</div>
+              <div class="build-agent-visual-name">CLASSIFY</div>
+              <div class="build-agent-visual-desc">Score and categorize leads so your team focuses only on high-value prospects</div>
+              <div class="build-agent-visual-check">✓ Automated</div>
+            </div>
+            <div class="build-agent-visual-item bav-respond">
+              <div class="build-agent-visual-icon">⚡</div>
+              <div class="build-agent-visual-step">STEP 03</div>
+              <div class="build-agent-visual-name">RESPOND</div>
+              <div class="build-agent-visual-desc">Send personalized follow-ups instantly — before any competitor can blink</div>
+              <div class="build-agent-visual-check">✓ Automated</div>
+            </div>
+          </div>
+          <div class="build-result-insight">
+            <span class="bri-icon">⏱️</span>
+            <div>
+              <div class="bri-label">THE RESULT</div>
+              <p class="bri-text">An agent running <strong>24 hours a day, 7 days a week</strong> — qualifying leads, updating your CRM, routing hot prospects, and making sure no opportunity ever slips through the cracks. While you sleep.</p>
+            </div>
+          </div>
+          <div class="commitment-tracker">
+            <div class="ct-step ct-done">✓ Understand the problem</div>
+            <div class="ct-sep"></div>
+            <div class="ct-step ct-active">✓ Know what you're building</div>
+            <div class="ct-sep"></div>
+            <div class="ct-step">○ See the transformation</div>
+            <div class="ct-sep"></div>
+            <div class="ct-step">○ Build the agent</div>
+            <div class="ct-sep"></div>
+            <div class="ct-step">○ Deploy this week</div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="2">How does it work?<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: WHY THIS MATTERS -->
+      <div class="prog-step" data-step="2" id="prog-step-2">
+        <section class="section-block reveal">
+          <div class="sec-badge red">💡 WHY THIS MATTERS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE BEFORE & AFTER</div>
+          <h2 class="sec-title">The <span class="red">Problem</span> Every SMB Faces — and the <span class="gold">Solution</span> Only 5% Have Deployed</h2>
+          <div class="bfa-wrap">
+            <div class="bfa-col bfa-before">
+              <div class="bfa-header">
+                <div class="bfa-icon">😓</div>
+                <div><div class="bfa-title">WITHOUT AN AGENT</div><div class="bfa-subtitle">Manual, slow, inconsistent</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Leads wait hours — or days — for a response</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Qualification is inconsistent across your team</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Hot prospects go cold while you're in meetings</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>CRM data is always out of date</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>You're the bottleneck in your own pipeline</div>
+              </div>
+            </div>
+            <div class="bfa-divider-row">
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(239,68,68,.2))"></div>
+              <div class="bfa-divider-icon">→</div>
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(52,211,153,.2),transparent)"></div>
+            </div>
+            <div class="bfa-col bfa-after">
+              <div class="bfa-header">
+                <div class="bfa-icon">🤖</div>
+                <div><div class="bfa-title">WITH YOUR SALES AGENT</div><div class="bfa-subtitle">Fast, consistent, automatic</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>Every lead gets a personalized response in 60 seconds</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>Qualification follows the same criteria every time</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>High-score leads are escalated instantly to your team</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>CRM is updated automatically after every interaction</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>You only see leads that are genuinely ready to buy</div>
+              </div>
+            </div>
+          </div>
+          <div class="bfa-recap">
+            <div class="bfa-recap-title">THE CORE SHIFT</div>
+            <div class="bfa-recap-items">
+              <div class="bfa-recap-item">Without an agent: you are the system — and you have limits</div>
+              <div class="bfa-recap-item">With an agent: the system runs itself — and it has no limits</div>
+              <div class="bfa-recap-item">The agent is not a replacement for you — it's your first employee that never takes a day off</div>
+            </div>
+            <div class="bfa-recap-motivation">This comparison isn't hypothetical — it's the daily reality for the 5% of SMBs already running agents.</div>
+          </div>
+          <div class="section-transition">
+            <div class="st-line"></div>
+            <div class="st-text">This is the moment you decide which side of the comparison you're on</div>
+            <div class="st-line"></div>
+          </div>
+          <div class="future-self">
+            <div class="fs-icon">🔮</div>
+            <div class="fs-content">
+              <div class="fs-label">IMAGINE THIS IS YOUR TUESDAY MORNING — 30 DAYS FROM NOW</div>
+              <p class="fs-text">You open your CRM. Overnight, 8 new leads came in. Four were qualified and scored automatically. Two are hot — your calendar already has discovery calls booked for this afternoon. You didn't send a single email. You didn't make a single call. The agent did it all. <strong>Your only job today: show up and close.</strong></p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="3">How does the agent work?<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 3: AGENT CONCEPT -->
+      <div class="prog-step" data-step="3" id="prog-step-3">
+        <section class="section-block reveal">
+          <div class="sec-badge blue">🤖 AGENT CONCEPT</div>
+          <div class="eyebrow"><span class="ey-dot"></span>SIMPLE EXPLANATION</div>
+          <h2 class="sec-title">Think of It as Your <span class="gold">Best Receptionist + Your Best Salesperson</span> — Combined, in One System</h2>
+          <p class="body-text">Your best receptionist never misses a call and always sounds professional. Your best salesperson knows exactly what questions to ask and who to escalate to. Your Lead & Sales Agent combines both — and it works every hour of every day without training, sick days, or salary reviews.</p>
+          <div style="background:var(--ab);border:1px solid rgba(201,163,74,.1);border-radius:12px;padding:1.25rem;margin:1.25rem 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div style="padding:.9rem 1rem;border-radius:8px;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18)">
+              <div style="font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--blu);margin-bottom:.45rem">🤝 THE RECEPTIONIST PART</div>
+              <div style="font-size:.8rem;color:var(--bn);line-height:1.58">Greets every visitor, captures their details, and makes sure nobody slips through unnoticed — any time of day</div>
+            </div>
+            <div style="padding:.9rem 1rem;border-radius:8px;background:rgba(201,163,74,.05);border:1px solid rgba(201,163,74,.18)">
+              <div style="font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.45rem">💼 THE SALESPERSON PART</div>
+              <div style="font-size:.8rem;color:var(--bn);line-height:1.58">Asks qualifying questions, scores each lead by potential value, and routes high-priority prospects to your team immediately</div>
+            </div>
+          </div>
+          <div style="font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g2);text-align:center;margin:1.75rem 0 .85rem">THE 4-STEP PIPELINE YOUR AGENT RUNS AUTOMATICALLY</div>
+          <div class="flowchart">
+            <div class="flow-node capture">
+              <span class="flow-node-icon">📥</span>
+              <div class="flow-node-label">CAPTURE</div>
+              <div class="flow-node-sub" style="color:var(--blu)">Form · Chat · Email</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-node qualify">
+              <span class="flow-node-icon">🧠</span>
+              <div class="flow-node-label">QUALIFY</div>
+              <div class="flow-node-sub" style="color:var(--g1)">Ask + Analyse</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-node score">
+              <span class="flow-node-icon">🏆</span>
+              <div class="flow-node-label">SCORE</div>
+              <div class="flow-node-sub" style="color:var(--purp)">Rate 1–100</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-node route">
+              <span class="flow-node-icon">➡️</span>
+              <div class="flow-node-label">ROUTE</div>
+              <div class="flow-node-sub" style="color:var(--grn)">Notify + Book</div>
+            </div>
+          </div>
+          <p class="body-text" style="margin-top:1rem">Each of these four steps happens automatically, in sequence, without any human intervention. The moment a lead makes contact — through your website, email, or chat — the pipeline starts. By the time you look at your CRM, the qualification is done.</p>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="4">Delve into Components<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 4: COMPONENTS -->
+      <div class="prog-step" data-step="4" id="prog-step-4">
+        <section class="section-block reveal">
+          <div class="sec-badge purple">🧩 COMPONENTS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE FOUR BUILDING BLOCKS</div>
+          <h2 class="sec-title">Your Sales Agent Has <span class="gold">4 Components</span> — Click Each One to Understand It</h2>
+          <p class="body-text">Each component is a module your agent uses. Together, they create a seamless pipeline. Individually, each one is simple enough to explain to a ten-year-old. Click any card to see what it does in your business.</p>
+          <div class="exp-cards-grid">
+            <div class="exp-card" id="ec-0">
+              <div class="exp-card-header">
+                <div class="exp-card-icon" style="background:var(--blud);border:1px solid var(--blub)">📥</div>
+                <div class="exp-card-title">
+                  <div class="exp-card-name">1. CAPTURE</div>
+                  <div class="exp-card-sub">How leads enter the pipeline</div>
+                </div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-card-content">The Capture module connects to every entry point in your business: your website contact form, your live chat widget, email inquiries, even social media DMs. Whenever someone expresses interest, the agent captures their details — <strong>name, contact, company, intent</strong> — and opens a lead record automatically.
+                  <div class="exp-card-tip">💡 <strong>Real example:</strong> A visitor fills your "Get a Quote" form at 11 PM. Within 3 seconds, a lead record is created in your CRM, the agent begins analysing the request, and a personalised acknowledgement is on its way.</div>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card" id="ec-1">
+              <div class="exp-card-header">
+                <div class="exp-card-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.2)">🧠</div>
+                <div class="exp-card-title">
+                  <div class="exp-card-name">2. QUALIFY</div>
+                  <div class="exp-card-sub">Does this lead fit your ideal customer?</div>
+                </div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-card-content">Qualification means determining if a lead is worth pursuing. Your agent uses the criteria you define — budget range, industry, company size, project timeline — and asks targeted follow-up questions or analyses the information already available. It maps every lead against your <strong>ideal customer profile</strong>.
+                  <div class="exp-card-tip">💡 <strong>Real example:</strong> A lead mentions "we're looking to start within the month." The agent flags this as time-sensitive and moves it to high-priority immediately — no human review needed.</div>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card" id="ec-2">
+              <div class="exp-card-header">
+                <div class="exp-card-icon" style="background:var(--purpd);border:1px solid var(--purpb)">🏆</div>
+                <div class="exp-card-title">
+                  <div class="exp-card-name">3. SCORE</div>
+                  <div class="exp-card-sub">How valuable is this lead?</div>
+                </div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-card-content">Scoring converts qualification data into a number — typically 1 to 100 — so your team always knows which leads to call first. Points are assigned based on factors like budget fit, decision-making authority, urgency, and alignment with your services. <strong>High scores = human follow-up immediately. Low scores = nurture sequence.</strong>
+                  <div class="exp-card-tip">💡 <strong>Real example:</strong> A lead who mentions a $50K budget, is the CEO, needs the work done this quarter, and matches your target industry perfectly scores 94/100. Your team gets an instant alert.</div>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card" id="ec-3">
+              <div class="exp-card-header">
+                <div class="exp-card-icon" style="background:var(--grns);border:1px solid var(--grnb)">➡️</div>
+                <div class="exp-card-title">
+                  <div class="exp-card-name">4. ROUTE</div>
+                  <div class="exp-card-sub">What happens next — automatically</div>
+                </div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-card-content">Routing is what happens after scoring. Hot leads (score 70+) trigger an immediate notification to your sales team and optionally offer a calendar booking link. Warm leads (40–69) enter a personalised email sequence. Cold leads (under 40) go into a long-term nurture track. <strong>Every lead gets the right attention — automatically.</strong>
+                  <div class="exp-card-tip">💡 <strong>Real example:</strong> A 94-score lead gets a personal email from your sales rep (drafted by the agent), plus an offer to book a call — all sent while the rep is in a different meeting.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="5">Let's Start Building<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 5: BUILD STEPS -->
+      <div class="prog-step" data-step="5" id="prog-step-5">
+        <section class="section-block reveal">
+          <div class="sec-badge green hib-intro">🔨 BUILD STEPS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>HOW IT'S BUILT</div>
+          <h2 class="sec-title hib-intro" style="animation-delay:.15s">3 Practical Steps to <span class="gold">Build Your Sales Agent</span> — No Code Required</h2>
+          <p class="body-text hib-intro" style="animation-delay:.25s">This is how real agents are built for SMBs using modern no-code platforms. Each step has a corresponding prompt you can use directly in platforms like Make.com, HubSpot, or a custom agent builder.</p>
+          <div class="hib-stepper">
+            <div class="hib-step" id="bs-0">
+              <div class="hib-step-num">1</div>
+              <div class="hib-step-body">
+                <div class="hib-step-title">SET UP CAPTURE — Connect Your Entry Points</div>
+                <div class="hib-step-desc">Connect your website form, chat widget, and email inbox to your agent platform. Define what data you need: name, email, company, project description, and budget. Set up a CRM record to be created automatically on every submission.</div>
+                <div class="hib-prompt">When a new inquiry arrives from [website form / chat / email], create a CRM record with: name, email, company, inquiry type, and timestamp. Send an immediate acknowledgement: "Thanks [Name] — we've received your enquiry and our team will be in touch within 2 hours." Log the lead status as "New."</div>
+              </div>
+            </div>
+            <div class="hib-step" id="bs-1">
+              <div class="hib-step-num">2</div>
+              <div class="hib-step-body">
+                <div class="hib-step-title">QUALIFICATION & SCORING — Define Your Ideal Customer</div>
+                <div class="hib-step-desc">Write down the 3–5 criteria that define a great customer for your business. Budget threshold, decision-making authority, industry fit, timeline urgency. Assign point values to each and configure the scoring logic in your agent.</div>
+                <div class="hib-prompt">Analyse this lead against our ideal customer criteria: Budget ≥ $5,000 (+30 pts), Decision-maker contact (+25 pts), Project starts within 90 days (+20 pts), Industry match (+15 pts), Previous engagement (+10 pts). Calculate total score (max 100). If score ≥ 70, tag as HOT. If 40–69, tag as WARM. If &lt;40, tag as COLD.</div>
+              </div>
+            </div>
+            <div class="hib-step" id="bs-2">
+              <div class="hib-step-num">3</div>
+              <div class="hib-step-body">
+                <div class="hib-step-title">ROUTING — Automate What Happens Next</div>
+                <div class="hib-step-desc">Map your routing logic: HOT leads trigger immediate sales team notification and a personalised email with a booking link. WARM leads enter a 3-email nurture sequence. COLD leads receive a resources email and are added to a monthly newsletter.</div>
+                <div class="hib-prompt">If lead score ≥ 70 (HOT): notify sales team via Slack/email with lead summary, send personalised email with calendar link, update CRM to "Sales Follow-Up Required." If score 40–69 (WARM): enrol in 3-step email sequence, first email within 1 hour. If score &lt;40 (COLD): send helpful resources email, add to newsletter list, set 30-day re-check reminder.</div>
+              </div>
+            </div>
+          </div>
+          <p class="body-text hib-footer" style="margin-top:1rem;font-size:.82rem;color:var(--tp)"><em>These three prompts — configured in your chosen platform — are the foundation of a fully operational Lead & Sales Agent. The entire setup can be completed in an afternoon.</em></p>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="6">See a Real Example<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 6: EXAMPLE (SARAH) -->
+      <div class="prog-step" data-step="6" id="prog-step-6">
+        <section class="section-block reveal">
+          <div class="sec-badge orange">📝 REAL EXAMPLE</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE STORY OF SARAH</div>
+          <h2 class="sec-title">How a Marketing Agency Owner Added <span class="gold">+25% Revenue</span> — Without Hiring Anyone</h2>
+          <div style="background:var(--ab);border:1px solid rgba(201,163,74,.12);border-radius:14px;overflow:hidden;margin:1.5rem 0">
+            <div style="padding:1.35rem 1.5rem;border-bottom:1px solid rgba(201,163,74,.08);background:rgba(201,163,74,.03);display:flex;align-items:center;gap:.85rem">
+              <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.1));border:1px solid rgba(201,163,74,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">👩</div>
+              <div>
+                <div style="font-family:var(--fb);font-size:.66rem;letter-spacing:.12em;color:var(--cr)">SARAH HENDERSON</div>
+                <div style="font-size:.74rem;color:var(--tp);margin-top:.1rem">Owner, Bright Spark Digital · London · 8-person marketing agency</div>
+              </div>
+            </div>
+            <div style="padding:1.35rem 1.5rem">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div style="padding:.9rem 1rem;border-radius:8px;background:var(--reds);border:1px solid var(--redb)">
+                  <div style="font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;color:var(--red);margin-bottom:.4rem">BEFORE THE AGENT</div>
+                  <div style="font-size:.8rem;color:var(--bn);line-height:1.55">Sarah spent 3 hours every morning sorting leads, writing follow-up emails, and manually updating her CRM. She estimated losing 2–3 qualified leads per week to slower response times.</div>
+                </div>
+                <div style="padding:.9rem 1rem;border-radius:8px;background:var(--grns);border:1px solid var(--grnb)">
+                  <div style="font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;color:var(--grn);margin-bottom:.4rem">AFTER THE AGENT</div>
+                  <div style="font-size:.8rem;color:var(--bn);line-height:1.55">Setup took one afternoon. The agent now handles all lead capture, scoring, and routing. Sarah's mornings start with a prioritised list of hot leads — already qualified and ready to close.</div>
+                </div>
+              </div>
+              <p class="body-text">"The first week, I thought something had gone wrong because my inbox was quiet. Then I checked the CRM — 14 leads had been captured, qualified, and responded to while I was asleep. Three were already booked for discovery calls."</p>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1rem">
+                <div style="text-align:center;padding:.9rem;border-radius:8px;background:var(--gf);border:1px solid rgba(201,163,74,.15)">
+                  <div style="font-family:'Cinzel Decorative',serif;font-size:1.35rem;color:var(--g1)">+25%</div>
+                  <div style="font-size:.7rem;color:var(--tp);margin-top:.25rem">Revenue in 90 days</div>
+                </div>
+                <div style="text-align:center;padding:.9rem;border-radius:8px;background:var(--grns);border:1px solid var(--grnb)">
+                  <div style="font-family:'Cinzel Decorative',serif;font-size:1.35rem;color:var(--grn)">3hrs</div>
+                  <div style="font-size:.7rem;color:var(--tp);margin-top:.25rem">Saved every morning</div>
+                </div>
+                <div style="text-align:center;padding:.9rem;border-radius:8px;background:var(--blud);border:1px solid var(--blub)">
+                  <div style="font-family:'Cinzel Decorative',serif;font-size:1.35rem;color:var(--blu)">0</div>
+                  <div style="font-size:.7rem;color:var(--tp);margin-top:.25rem">Leads missed since launch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="7">View Agent in Action<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 7: SIMULATION -->
+      <div class="prog-step" data-step="7" id="prog-step-7">
+        <section class="section-block reveal">
+          <div class="sec-badge blue wiw-section">🎬 LIVE SIMULATION</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WATCH IT WORK</div>
+          <h2 class="sec-title wiw-section" style="animation-delay:.15s">Run the <span class="gold">Agent Simulation</span> — See Every Step in Real Time</h2>
+          <p class="body-text wiw-section" style="animation-delay:.25s">This simulation shows exactly what your agent does from the moment a lead makes contact. Watch each step fire automatically — no human input required.</p>
+          <div class="wiw-container" style="opacity:0;animation:fadeUp .7s var(--ex) .35s both">
+            <div class="wiw-header">
+              <div class="wiw-avatar">🤖</div>
+              <div class="wiw-identity">
+                <div class="wiw-name">SALES AGENT · YOUR BUSINESS</div>
+                <div class="wiw-status">Online — Monitoring all channels</div>
+              </div>
+            </div>
+            <div class="wiw-pipeline-bar">
+              <div class="wiw-pipe-step" id="wiw-pipe-0">📥 CAPTURE</div>
+              <span class="wiw-pipe-arrow">›</span>
+              <div class="wiw-pipe-step" id="wiw-pipe-1">🧠 QUALIFY</div>
+              <span class="wiw-pipe-arrow">›</span>
+              <div class="wiw-pipe-step" id="wiw-pipe-2">🏆 SCORE</div>
+              <span class="wiw-pipe-arrow">›</span>
+              <div class="wiw-pipe-step" id="wiw-pipe-3">➡️ ROUTE</div>
+            </div>
+            <div class="sim-messages" id="sim-messages">
+              <div style="font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--tp);text-align:center;padding:2rem 0">CLICK "RUN SIMULATION" TO BEGIN</div>
+            </div>
+            <div class="sim-stage" id="sim-stage"></div>
+            <div class="wiw-actions">
+              <button class="wiw-run-btn" id="sim-run-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>RUN SIMULATION</button>
+              <button class="btn-ghost" id="sim-reset-btn" style="display:none">↺ Reset</button>
+            </div>
+          </div>
+          <div class="wiw-note">
+            <div class="wiw-note-text">This simulation mirrors a real deployment. From inquiry to personalised response, the full pipeline completes in under 90 seconds — without any human touching a single key.</div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="8" id="sim-continue-btn" disabled>See Key Insights<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 8: KEY INSIGHTS -->
+      <div class="prog-step" data-step="8" id="prog-step-8">
+        <section class="section-block reveal">
+          <div class="sec-badge gold">🔑 KEY INSIGHTS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THREE THINGS TO REMEMBER FOREVER</div>
+          <h2 class="sec-title">The <span class="gold">3 Principles</span> Behind Every Effective Sales Agent</h2>
+          <div class="insights-grid">
+            <div class="insight-card">
+              <div class="insight-num">01</div>
+              <div class="insight-title">GOAL = QUALIFICATION, NOT CONVERSATION</div>
+              <div class="insight-text">Your agent's job isn't to chat — it's to determine quickly whether a lead is worth your team's time. Every question it asks, every email it sends, is designed to reveal one thing: is this person a genuine buyer?</div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-num">02</div>
+              <div class="insight-title">SPEED = VALUE. ALWAYS.</div>
+              <div class="insight-text">The business that responds first wins the deal 78% of the time. Speed is your competitive advantage. An agent that responds in 60 seconds beats a human following up in 2 hours — every single time, without exception.</div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-num">03</div>
+              <div class="insight-title">AUTOMATION STARTS WITH ONE RULE</div>
+              <div class="insight-text">Don't try to automate everything at once. The most effective sales agents started with one simple rule: "When a lead arrives, respond immediately." From there, each layer adds intelligence. Start simple, expand relentlessly.</div>
+            </div>
+          </div>
+          <div class="key-insight">
+            <span class="ki-icon">🔑</span>
+            <div class="ki-content">
+              <div class="ki-label">THE COMPOUNDING TRUTH</div>
+              <p class="ki-text">These three principles don't just apply to sales agents — they apply to every agent you'll ever build. <strong>Clear goal. Instant response. One rule at a time.</strong> Master this pattern and you can replicate it across every department in your business.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="9">What Did You Accomplish?<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 9: ACHIEVEMENT -->
+      <div class="prog-step" data-step="9" id="prog-step-9">
+        <div class="achievement-box">
+          <span class="achievement-icon">🏆</span>
+          <div class="achievement-msg">You've Just Built Something<br>Most Business Owners Never Will</div>
+          <div class="achievement-list">
+            <div class="achievement-item">You understand how Lead & Sales Agents work end-to-end</div>
+            <div class="achievement-item">You can map the 4-step pipeline: Capture → Qualify → Score → Route</div>
+            <div class="achievement-item">You've seen a real deployment story with measurable results</div>
+            <div class="achievement-item">You have the prompts to build your own agent this week</div>
+          </div>
+          <div class="motivation-pill" style="margin:0 auto;display:inline-flex">🚀 You're now in the top 5% of SMB owners who understand this technology at this level</div>
+          <div class="identity-shift" style="margin-top:1.5rem">
+            <div class="is-label">THE IDENTITY SHIFT YOU JUST MADE</div>
+            <div class="is-comparison">
+              <div class="is-col is-before">
+                <div class="is-label-before">Before this lesson</div>
+                <div class="is-text">"I don't know how agents work"</div>
+              </div>
+              <div class="is-arrow">→</div>
+              <div class="is-col is-after">
+                <div class="is-label-before">After this lesson</div>
+                <div class="is-text">"I can build and deploy my own agent"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="10">Take the Challenge<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 10: CHALLENGE -->
+      <div class="prog-step" data-step="10" id="prog-step-10">
+        <section class="section-block reveal">
+          <div class="sec-badge purple">⚡ YOUR CHALLENGE</div>
+          <div class="eyebrow"><span class="ey-dot"></span>APPLY IT TO YOUR BUSINESS</div>
+          <h2 class="sec-title">What Are Your <span class="gold">Top 3 Criteria</span> for an Excellent Customer?</h2>
+          <p class="body-text">This is the most important exercise in this lesson. Your agent's scoring logic is only as good as your criteria. Think carefully: what makes a lead genuinely valuable to your business? Not just any sale — your best possible customer.</p>
+          <div class="task-box">
+            <div class="task-label">⚡ YOUR QUALIFICATION CRITERIA</div>
+            <p class="task-prompt">"Describe your top 3 criteria for a truly excellent customer — the kind you'd love to work with every time. Be specific: budget range, industry, timing, company size, or whatever matters most in your business."</p>
+            <textarea class="task-input" id="challenge-input" placeholder="1. Budget of at least $X — because smaller projects don't justify the onboarding time
+2. Decision-maker with authority to say yes — no committee approvals
+3. Ready to start within 30 days — they have urgency and we have capacity..." rows="5"></textarea>
+            <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+              <button class="btn-green" id="challenge-save-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+                SAVE MY CRITERIA
+              </button>
+              <span class="scarcity-signal"><span class="scarcity-dot"></span>This becomes your agent's brain — don't skip it</span>
+            </div>
+            <div class="task-saved" id="challenge-saved">
+              ✅ Saved. These three criteria are the foundation of your agent's scoring logic. In your next session, you'll translate them directly into qualification rules.
+              <div class="badge-earned"><span class="badge-dot"></span>QUALIFICATION CRITERIA · DEFINED</div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="11">See the Summary<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 11: SUMMARY -->
+      <div class="prog-step" data-step="11" id="prog-step-11">
+        <section class="section-block reveal">
+          <div class="sec-badge green">📋 SUMMARY</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT YOU NOW KNOW</div>
+          <h2 class="sec-title">Your <span class="gold">3-Point Summary</span> — Everything That Matters from This Lesson</h2>
+          <div class="summary-list">
+            <div class="summary-item">
+              <div class="summary-icon">🤖</div>
+              <div class="summary-content">
+                <div class="summary-title">A SALES AGENT = CAPTURE + QUALIFY + SCORE + ROUTE</div>
+                <div class="summary-text">Your agent runs a four-step pipeline automatically. Every lead that enters your business goes through this cycle — instantly, consistently, and without human input. The result: your team only sees opportunities that are genuinely worth their time.</div>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-icon">⚡</div>
+              <div class="summary-content">
+                <div class="summary-title">SPEED IS YOUR SINGLE MOST POWERFUL COMPETITIVE ADVANTAGE</div>
+                <div class="summary-text">78% of deals go to the first responder. An agent that replies in 60 seconds will win more business than a skilled salesperson who responds in 2 hours. Speed isn't just a feature — it's the core mechanism that makes your agent commercially valuable.</div>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-icon">🏗️</div>
+              <div class="summary-content">
+                <div class="summary-title">BUILD WITH ONE RULE AND EXPAND — ALWAYS START SIMPLE</div>
+                <div class="summary-text">The most effective agents are built in layers. You don't need to automate everything on day one. Start with one rule — "respond to every inquiry immediately" — and add scoring, routing, and follow-up sequences as you validate each layer works. This is how Sarah built her agent. This is how you'll build yours.</div>
+              </div>
+            </div>
+          </div>
+          <div class="recap-box" style="margin-top:1.75rem">
+            <div class="recap-title">YOUR LESSON TAKEAWAY</div>
+            <div class="recap-items">
+              <div class="recap-item">You have the conceptual framework for a Sales Agent that works 24/7</div>
+              <div class="recap-item">You have the three build prompts ready to use in your platform of choice</div>
+              <div class="recap-item">You have your qualification criteria — the most important ingredient of all</div>
+            </div>
+            <div class="recap-motivation">The gap between this lesson and a running agent is one afternoon of setup. You're closer than you think.</div>
+          </div>
+          <div class="future-self" style="margin-top:2rem">
+            <div class="fs-icon">⚡</div>
+            <div class="fs-content">
+              <div class="fs-label">THE COMPOUND EFFECT STARTS NOW</div>
+              <p class="fs-text">This lesson isn't just information — it's a decision point. You now know what 95% of business owners don't: exactly how to build a system that works while you sleep. The gap between knowing and doing is one afternoon. <strong>Every day you wait is a day your competitors respond faster than you.</strong></p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="12">See What's Next<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 12: NEXT LESSON -->
+      <div class="prog-step" data-step="12" id="prog-step-12">
+        <div class="divider"></div>
+        <section class="section-block">
+          <div class="final-cta">
+            <div class="final-badge">🏆 Level 2 · Lesson 1 Complete</div>
+            <h2 class="final-h2">Your Sales Agent Blueprint Is Ready.<br><span class="text-shimmer">The Next Agent Takes Care of Your Customers.</span></h2>
+            <p class="final-sub">You've learned to capture, qualify, score, and route leads automatically. In Lesson 2, you'll build the second critical agent every SMB needs — the one that handles customer support, resolves issues, and retains clients while you focus on growth.</p>
+
+            <div class="next-lesson-card" style="max-width:460px;margin:0 auto 2rem">
+              <div class="nlc-label">NEXT UP — LESSON 2</div>
+              <div class="nlc-title">Customer Support Agent</div>
+              <div class="nlc-desc">Build an agent that handles FAQs, resolves common issues, and escalates complex cases to your team — creating a customer experience that feels personal even at scale.</div>
+              <div class="nlc-meta">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~13 minutes · No code required
+              </div>
+            </div>
+
+            <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;align-items:center">
+              <a href="path.html" class="final-btn glow-pulse" id="complete-btn" style="text-decoration:none">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Finish Lesson → Unlock Support Agent
+              </a>
+            </div>
+            <div class="emotional-anchor" style="max-width:480px;margin:0 auto 1.5rem">The agent you just designed doesn't exist yet — but everything you need to build it does. The only thing missing is the decision to start.</div>
+            <div style="margin-top:1.75rem;padding:.7rem 1.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.03);display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.4rem;letter-spacing:.18em;color:var(--g3);text-transform:uppercase">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite"></span>
+              241 owners building now · Level 2 access is open
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div><!-- /lesson-body -->
+  </div><!-- /content-inner -->
+</div><!-- /content-shell -->
+
+<script>
+(function(){
+'use strict';
+
+/* ══ AUDIO ══ */
+const AC=window.AudioContext||window.webkitAudioContext;let ctx=null;
+function getCtx(){if(!ctx&&AC)ctx=new AC();return ctx;}
+function playTone(f,d,t='sine',v=.12){const c=getCtx();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.type=t;o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(v,c.currentTime+.01);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+d);o.start(c.currentTime);o.stop(c.currentTime+d);}
+function playSuccess(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>playTone(f,.3,'sine',.1),i*85));}
+function playError(){playTone(200,.2,'sawtooth',.08);setTimeout(()=>playTone(180,.3,'sawtooth',.07),140);}
+function playLevelUp(){[523,587,659,698,784,880,988,1047].forEach((f,i)=>setTimeout(()=>playTone(f,.22,'sine',.1),i*65));}
+function playSwoosh(){const c=getCtx();if(!c)return;const b=c.createOscillator(),g=c.createGain();b.connect(g);g.connect(c.destination);b.type='sine';b.frequency.setValueAtTime(700,c.currentTime);b.frequency.exponentialRampToValueAtTime(220,c.currentTime+.35);g.gain.setValueAtTime(.08,c.currentTime);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+.35);b.start(c.currentTime);b.stop(c.currentTime+.35);}
+function playContinue(){playTone(528,.18,'sine',.08);setTimeout(()=>playTone(660,.28,'sine',.07),110);}
+
+/* ══ READ PROGRESS ══ */
+const rpBar=document.getElementById('read-progress');
+function updateReadProg(){const e=document.documentElement,s=e.scrollTop||document.body.scrollTop,t=e.scrollHeight-e.clientHeight;rpBar.style.transform=`scaleX(${t>0?s/t:0})`;}
+window.addEventListener('scroll',updateReadProg,{passive:true});
+
+/* ══ BACK TO TOP ══ */
+const backTop=document.getElementById('back-top');
+window.addEventListener('scroll',()=>{backTop.classList.toggle('visible',window.scrollY>400);},{passive:true});
+backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});playTone(440,.18,'sine',.07);});
+
+/* ══ CURSOR ══ */
+const cur=document.getElementById('cur'),curR=document.getElementById('cur-r'),blob=document.getElementById('blob');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';blob.style.left=mx+'px';blob.style.top=my+'px';});
+(function a(){curR.style.left=tx+(mx-tx)*.11+'px';curR.style.top=ty+(my-ty)*.11+'px';tx=parseFloat(curR.style.left)||mx;ty=parseFloat(curR.style.top)||my;requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.exp-card,.stat-card').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));});
+document.addEventListener('mousedown',()=>document.body.classList.add('clk'));
+document.addEventListener('mouseup',()=>document.body.classList.remove('clk'));
+
+/* ══ PARTICLES ══ */
+const canvas=document.getElementById('particles');
+const pctx=canvas.getContext('2d');let W,H,parts=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize,{passive:true});
+const pCol=[[201,163,74],[34,197,94],[201,163,74],[201,163,74]];
+(function init(){parts=[];const N=Math.min(70,Math.floor(W*H/14000));for(let i=0;i<N;i++){const c=pCol[Math.floor(Math.random()*pCol.length)];parts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.9+.2,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12,o:Math.random()*.35+.08,c});}})();
+(function anim(){pctx.clearRect(0,0,W,H);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;pctx.beginPath();pctx.arc(p.x,p.y,p.r,0,Math.PI*2);pctx.fillStyle=`rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.o})`;pctx.fill();});requestAnimationFrame(anim);})();
+
+/* ══ INTERSECTION OBSERVER ══ */
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ══ TYPEWRITER ══ */
+const tw=document.getElementById('hero-heading');
+const twTxt='Lead & Sales Automation Agent: The System That Qualifies, Scores & Closes — While You Sleep';
+let twI=0;
+function typewrite(){if(twI<=twTxt.length){tw.innerHTML=twTxt.substring(0,twI)+(twI<twTxt.length?'<span style="display:inline-block;width:2px;height:.85em;background:var(--g1);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:-.1em"></span>':'');twI++;setTimeout(typewrite,twI<twTxt.length?42:0);}}
+document.head.insertAdjacentHTML('beforeend','<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>');
+setTimeout(()=>{typewrite();},400);
+
+/* ══ PROGRESS ══ */
+let progress=parseInt(localStorage.getItem('vrc_l2l1_progress')||'0');
+function setProgress(p){progress=Math.max(progress,p);localStorage.setItem('vrc_l2l1_progress',progress);document.getElementById('tb-progress-fill').style.width=progress+'%';document.getElementById('tb-progress-pct').textContent=progress+'%';}
+setProgress(progress);
+
+/* ══ FOCUS MODE ══ */
+let isFocused=false;
+const focusBtn=document.getElementById('focus-btn');
+document.getElementById('focus-btn').addEventListener('click',function(){
+  isFocused=!isFocused;document.body.classList.toggle('focus-mode',isFocused);
+  focusBtn.setAttribute('aria-pressed',isFocused);
+  document.getElementById('focus-btn-label').textContent=isFocused?'Exit Focus':'Focus Mode';
+  if(isFocused)playSwoosh();else playContinue();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isFocused){isFocused=false;document.body.classList.remove('focus-mode');document.getElementById('focus-btn-label').textContent='Focus Mode';}});
+
+/* ══ RAIL PIN ══ */
+document.getElementById('rail-pin-btn').addEventListener('click',()=>{document.getElementById('nav-rail').classList.toggle('pinned');playTone(440,.15,'sine',.07);});
+
+/* ══ EXPANDABLE CARDS ══ */
+document.querySelectorAll('.exp-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const isOpen=card.classList.contains('open');
+    document.querySelectorAll('.exp-card').forEach(c=>c.classList.remove('open'));
+    if(!isOpen){card.classList.add('open');playTone(440,.18,'sine',.07);setProgress(Math.max(progress,48));}
+  });
+});
+
+/* ══ BUILD STEPPER — highlight on scroll ══ */
+const buildSteps=document.querySelectorAll('.hib-step');
+if(buildSteps.length){
+  const bsObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        buildSteps.forEach(s=>s.classList.remove('active-build'));
+        e.target.classList.add('active-build');
+      }
+    });
+  },{threshold:.5});
+  buildSteps.forEach(s=>bsObs.observe(s));
+}
+
+/* ══ SIMULATION ══ */
+const simMsgs=document.getElementById('sim-messages');
+const simStage=document.getElementById('sim-stage');
+const simRunBtn=document.getElementById('sim-run-btn');
+const simResetBtn=document.getElementById('sim-reset-btn');
+const simContinueBtn=document.getElementById('sim-continue-btn');
+let simRunning=false;
+
+const SIM_STEPS=[
+  {type:'stage',color:'var(--blu)',label:'📥 STEP 1 — CAPTURE · Inquiry detected'},
+  {type:'incoming',tag:'📥 NEW INQUIRY · 11:47 PM',text:'Hi, I found you through Google. We\'re a 12-person accountancy firm and we need a full website redesign plus ongoing SEO. Budget around £8,000–12,000. Can someone get back to me tomorrow?'},
+  {type:'stage',color:'var(--g1)',label:'🧠 STEP 2 — QUALIFY & ANALYSE · Processing lead data'},
+  {type:'agent',tag:'🧠 AGENT · Qualification complete',text:'✅ Lead analysed. Company size: 12 people (SMB match). Service request: Web + SEO (core offering). Budget: £8–12K (above £5K threshold). Contact method: direct email. No prior contact in CRM. <strong>Qualification score: 87/100 — HOT LEAD.</strong>'},
+  {type:'stage',color:'var(--purp)',label:'🏆 STEP 3 — SCORE & CLASSIFY · Routing decision made'},
+  {type:'agent',tag:'🏆 SCORING · Breakdown',text:'Budget fit: +30 pts · Decision-maker likely (firm owner email): +25 pts · Ready to start (implied urgency): +20 pts · Industry match (professional services): +12 pts · Total: 87/100 → Classified as HOT → Routing to immediate follow-up.'},
+  {type:'stage',color:'var(--grn)',label:'➡️ STEP 4 — ROUTE · Notifications + response triggered'},
+  {type:'agent',tag:'📧 AGENT · Personalised response sent — 11:47:38 PM',text:'Hi there, thank you for reaching out! Your project sounds like a great fit — we\'ve worked with several professional services firms on exactly this kind of engagement. I\'ve reserved a 30-minute discovery call for you this week. <strong>[BOOK A CALL →]</strong> Looking forward to learning more about your goals. — [Your Name]'},
+  {type:'incoming',tag:'🔔 CRM UPDATE · Automated',text:'Lead record created ✓ · Score: 87/100 · Status: HOT ✓ · Sales rep notified via Slack ✓ · Calendar link sent ✓ · Follow-up reminder set for 48h if no booking ✓'},
+];
+
+async function runSimulation(){
+  if(simRunning)return;simRunning=true;
+  simRunBtn.disabled=true;simRunBtn.textContent='Running…';
+  simMsgs.innerHTML='';simStage.className='sim-stage';simStage.textContent='';
+  let delay=0;
+  for(const step of SIM_STEPS){
+    await new Promise(r=>setTimeout(r,delay));
+    if(step.type==='stage'){
+      simStage.innerHTML=`<div class="sim-stage-dot" style="background:${step.color}"></div>${step.label}`;
+      simStage.className='sim-stage show';
+      // Update pipeline bar
+      const pipeIdx={1:0,3:1,5:2,7:3};
+      const idx=pipeIdx[SIM_STEPS.indexOf(step)];
+      if(idx!==undefined){
+        for(let p=0;p<4;p++){
+          const pe=document.getElementById('wiw-pipe-'+p);
+          if(!pe)continue;
+          pe.classList.remove('wiw-pipe-active','wiw-pipe-done');
+          if(p<idx)pe.classList.add('wiw-pipe-done');
+          else if(p===idx)pe.classList.add('wiw-pipe-active');
+        }
+      }
+      playTone(440,.12,'sine',.06);
+      delay=900;
+    }else{
+      const el=document.createElement('div');
+      el.className=`sim-msg ${step.type}`;
+      el.innerHTML=`<div class="sim-tag">${step.tag}</div>${step.text}`;
+      simMsgs.appendChild(el);
+      void el.offsetWidth;el.classList.add('show');
+      simMsgs.scrollTop=simMsgs.scrollHeight;
+      if(step.type==='agent')playTone(660,.14,'sine',.07);
+      else playTone(330,.14,'sine',.06);
+      delay=step.text.length>200?1800:1300;
+    }
+  }
+  await new Promise(r=>setTimeout(r,600));
+  simRunBtn.style.display='none';
+  simResetBtn.style.display='';
+  simContinueBtn.disabled=false;
+  simContinueBtn.style.opacity='1';
+  playSuccess();setProgress(Math.max(progress,74));
+}
+
+simRunBtn.addEventListener('click',runSimulation);
+simResetBtn.addEventListener('click',()=>{
+  simMsgs.innerHTML='<div style="font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--tp);text-align:center;padding:2rem 0">CLICK "RUN SIMULATION" TO BEGIN</div>';
+  for(let p=0;p<4;p++){const pe=document.getElementById('wiw-pipe-'+p);if(pe)pe.classList.remove('wiw-pipe-active','wiw-pipe-done');}
+  simStage.className='sim-stage';simRunBtn.style.display='';simRunning=false;
+  simRunBtn.disabled=false;simRunBtn.textContent='';
+  simRunBtn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>RUN SIMULATION';
+  simResetBtn.style.display='none';
+});
+
+/* ══ CHALLENGE SAVE ══ */
+document.getElementById('challenge-save-btn').addEventListener('click',()=>{
+  const v=document.getElementById('challenge-input').value.trim();
+  if(!v){playError();document.getElementById('challenge-input').focus();return;}
+  localStorage.setItem('vrc_l2l1_criteria',v);
+  document.getElementById('challenge-saved').classList.add('show');
+  playSuccess();setProgress(Math.max(progress,86));
+});
+
+/* ══ RESTORE ══ */
+(function(){const c=localStorage.getItem('vrc_l2l1_criteria');if(c){document.getElementById('challenge-input').value=c;document.getElementById('challenge-saved').classList.add('show');}})();
+
+/* ══ COMPLETE ══ */
+const lvlBanner=document.getElementById('levelup-banner');
+document.getElementById('complete-btn').addEventListener('click',function(e){
+  e.preventDefault();
+  localStorage.setItem('vrc_l2l1_complete','1');
+  setProgress(100);playLevelUp();
+  lvlBanner.classList.add('show');
+  setTimeout(()=>lvlBanner.classList.remove('show'),4000);
+  setTimeout(()=>{window.location.href='path.html';},4300);
+});
+
+/* ══ TOP BAR SAVE ══ */
+document.getElementById('tb-save-btn').addEventListener('click',function(){
+  this.style.color='var(--g1)';playSuccess();
+  setTimeout(()=>this.style.color='',2500);
+  localStorage.setItem('vrc_l2l1_progress',progress);
+});
+
+/* ══════════════════════════════════════
+   PROGRESSIVE STEP SYSTEM
+══════════════════════════════════════ */
+const STEPS=['0','1','2','3','4','5','6','7','8','9','10','11','12'];
+let stepIdx=0;
+
+const dotsEl=document.getElementById('step-dots');
+STEPS.forEach((k,i)=>{
+  const d=document.createElement('div');
+  d.className='step-dot'+(i===0?' active':'');
+  dotsEl.appendChild(d);
+});
+
+function updateTracker(){
+  const k=STEPS[stepIdx];
+  document.getElementById('step-counter').textContent=k==='12'?'LESSON COMPLETE ✓':`STEP ${stepIdx+1} OF ${STEPS.length}`;
+  document.querySelectorAll('.step-dot').forEach((d,i)=>{
+    d.classList.remove('active','done');
+    if(i<stepIdx)d.classList.add('done');
+    else if(i===stepIdx)d.classList.add('active');
+  });
+}
+
+function showMilestone(icon,txt){
+  const f=document.getElementById('milestone-flash');
+  document.getElementById('milestone-icon').textContent=icon;
+  document.getElementById('milestone-text').textContent=txt;
+  f.setAttribute('aria-hidden','false');f.classList.add('show');
+  setTimeout(()=>{f.classList.remove('show');f.setAttribute('aria-hidden','true');},2000);
+}
+
+function goTo(nextKey){
+  const curEl=document.getElementById('prog-step-'+STEPS[stepIdx]);
+  if(curEl){curEl.classList.remove('active');curEl.style.display='none';}
+  const ni=STEPS.indexOf(nextKey);if(ni<0)return;
+  stepIdx=ni;
+  const nextEl=document.getElementById('prog-step-'+nextKey);
+  if(nextEl){nextEl.style.display='';void nextEl.offsetWidth;nextEl.classList.add('active');}
+  setTimeout(()=>nextEl?.scrollIntoView({behavior:'smooth',block:'start'}),70);
+  updateTracker();playContinue();
+  updateAiContext(nextKey);
+  const ms={'3':['🤖','AGENT CONCEPT'],'5':['🔨','BUILD MODE'],'7':['🎬','SIMULATION'],'9':['🏆','ACHIEVEMENT UNLOCKED'],'12':['🚀','LESSON COMPLETE']};
+  if(ms[nextKey])setTimeout(()=>showMilestone(ms[nextKey][0],ms[nextKey][1]),250);
+  const pm={'0':5,'1':12,'2':20,'3':30,'4':40,'5':50,'6':60,'7':65,'8':76,'9':82,'10':88,'11':93,'12':97};
+  if(pm[nextKey])setProgress(pm[nextKey]);
+}
+
+document.querySelectorAll('.step-continue-btn[data-next]').forEach(btn=>{
+  btn.addEventListener('click',function(){if(!this.disabled)goTo(this.dataset.next);});
+});
+
+updateTracker();
+
+/* ══════════════════════════════════════
+   AI ASSISTANT — KIRA
+══════════════════════════════════════ */
+const STEP_DATA={
+  '0':{ctx:'The 78% stat and why lead response speed is the single biggest revenue lever',qs:['Why does response time matter so much for sales?','How do I calculate how much revenue I\'m losing from slow responses?','What types of leads benefit most from instant response?','Is the 78% statistic really accurate for all industries?']},
+  '1':{ctx:'What this lesson builds: a 24/7 Sales Agent that qualifies, classifies, and responds',qs:['What\'s the difference between qualifying and classifying leads?','How realistic is it to set this up as a non-technical business owner?','What does "works 24/7" actually mean in practice?','Which part of this is hardest to build?']},
+  '2':{ctx:'The before/after comparison: manual pipeline vs automated agent',qs:['How do I convince my team this won\'t replace them?','What\'s the first thing to automate — capture, qualify, score, or route?','How long does the manual-to-agent transition take?','What if my leads are too complex to automate?']},
+  '3':{ctx:'The agent as receptionist + salesperson, and the 4-step pipeline',qs:['Walk me through the 4-step pipeline with a concrete example','How does capture work if I don\'t have a website form?','What\'s the difference between qualifying and scoring?','Can the agent handle phone calls as well as emails?']},
+  '4':{ctx:'The four components: Capture, Qualify, Score, Route',qs:['What scoring criteria work best for a service business?','How do I set up the routing logic without coding?','What if a lead doesn\'t fit neatly into hot/warm/cold?','Which component should I build first?']},
+  '5':{ctx:'The 3 build steps with prompts for Capture, Qualify/Score, and Route',qs:['What platform should I use to build this agent?','Can I use these prompts in HubSpot or ActiveCampaign?','How do I write my own qualification criteria?','What happens if the agent makes a wrong qualification decision?']},
+  '6':{ctx:'Sarah\'s story: +25% revenue from a marketing agency sales agent',qs:['How long did Sarah\'s setup actually take?','What platform did Sarah use?','Could this work for my industry?','What was the first thing she automated?']},
+  '7':{ctx:'The live simulation: watching the 4-step pipeline run in real time',qs:['What happened in the simulation step-by-step?','How fast does a real agent respond compared to the simulation?','What if the lead emails outside business hours?','How does the agent personalise responses?']},
+  '8':{ctx:'Three key principles: Goal=Qualification, Speed=Value, Start Simple',qs:['What does "qualification not conversation" mean in practice?','How do I measure whether my agent is actually performing?','What\'s the simplest first rule I could deploy today?','How do I know when to expand beyond the basic rules?']},
+  '9':{ctx:'Achievement: completing the lead agent framework',qs:['What should I do immediately after this lesson?','How do I get started with the build prompts?','What\'s the most common mistake at this stage?']},
+  '10':{ctx:'The challenge: defining your top 3 ideal customer criteria',qs:['How specific should my qualification criteria be?','What if my ideal customer varies by service type?','Can I have more than 3 criteria?','What if I\'m not sure what my best customer looks like?']},
+  '11':{ctx:'Summary of the three core lesson takeaways',qs:['How long will this agent take to set up in real life?','What tools do I need to get started?','What should Lesson 2 cover to complement this?']},
+  '12':{ctx:'Next lesson: Customer Support Agent',qs:['What will the Customer Support Agent do differently from the Sales Agent?','Can the two agents work together?','How complex is the Support Agent to build?']},
+};
+
+const KIRA_ANSWERS={
+  '0':{
+    'Why does response time matter so much for sales?':[
+      'Here\'s the psychology behind it: when someone submits an inquiry, they\'re in an active decision-making state. Their intent is at its highest point. Every hour that passes without a response dilutes that intent — they get distracted, reconsider, or contact a competitor. <br><br>The 78% statistic reflects a fundamental truth about buyer behaviour: <strong>people aren\'t just buying a service — they\'re buying responsiveness.</strong> A fast response signals that your business is organised, attentive, and reliable. It creates the impression of competence before you\'ve said a single thing about your actual capabilities. <br><br><strong>Takeaway:</strong> Speed of response is a proxy for quality of service. The agent eliminates that as a variable entirely.',
+      'The data is clear: contacted within 1 minute = 9x more likely to convert. Within 5 minutes = 4x more likely. Within 1 hour = 2x more likely. After 1 hour: conversion probability drops to roughly 1x — essentially average. <br><br>What this means practically: for every 10 hot leads you currently respond to in 2+ hours, you could be converting 6–7 more with instant response. That\'s not a marginal improvement — it\'s a fundamentally different business. <br><br><strong>Takeaway:</strong> Response time isn\'t a customer service metric. It\'s a revenue metric. Treat it as such.'
+    ],
+    'How do I calculate how much revenue I\'m losing from slow responses?':[
+      'Here\'s the calculation: <strong>Monthly leads × average response time penalty × average deal value.</strong> <br><br>Example: 20 leads/month × 40% conversion drop (from 2-hour average response vs instant) × $3,000 average deal = $24,000 in preventable lost revenue per month. <br><br>The 40% conversion drop figure is conservative — actual data suggests it\'s often higher for service businesses with competitive markets. Even a 20% improvement in conversion rate from faster response can be worth $8,000–15,000 per month for a small business. <br><br><strong>Takeaway:</strong> The agent doesn\'t cost you money — delayed responses do. Calculate your number and the ROI becomes obvious.'
+    ],
+  },
+  '1':{
+    'What\'s the difference between qualifying and classifying leads?':[
+      'Qualifying = determining if a lead meets your minimum requirements. Classifying = categorising them by tier. <br><br>Qualifying asks: "Is this person a potential customer at all?" — Do they have the budget? Do they need what I offer? Are they the decision-maker? <br><br>Classifying asks: "How valuable is this lead relative to others?" — Are they hot (ready to buy, high budget, urgent)? Warm (interested but not immediately ready)? Cold (long-term potential)? <br><br><strong>Real consequence:</strong> Without qualification, you waste time on people who can\'t buy. Without classification, you treat your best prospects the same as your least promising ones. The agent does both — instantly and consistently.'
+    ],
+    'How realistic is it to set this up as a non-technical business owner?':[
+      'Very realistic — and this is the most important thing to understand about modern AI agents. In 2026, the setup requires <strong>no coding whatsoever</strong>. The main platforms (Make.com, HubSpot, ActiveCampaign, Zapier) use visual drag-and-drop builders. <br><br>What you actually need: (1) clarity about your qualification criteria — which you\'re defining in this lesson, (2) a free or low-cost account on one of these platforms, (3) about 3–4 hours to set up the initial rules. <br><br>The "technical" part of the lesson (the prompts in Step 5) are the actual building blocks — and they\'re written in plain English, not code. <strong>If you can explain it to a new employee, you can configure it in an agent builder.</strong>'
+    ],
+  },
+  '2':{
+    'How do I convince my team this won\'t replace them?':[
+      'Frame it correctly from the start: <strong>the agent handles the work your team finds most tedious so they can focus on the work they find most rewarding.</strong> Nobody joined a sales team to update CRM records and send acknowledgement emails. <br><br>Concretely: the agent takes away data entry, basic qualification, and routine follow-ups. It gives back: more qualified leads, more prepared meetings, more deals to close. Your team\'s output increases without their workload increasing. That\'s the framing that works. <br><br><strong>Practical tip:</strong> Involve your team in defining the qualification criteria. When they write the rules the agent follows, they trust it and see it as their system — not a replacement for them.'
+    ],
+  },
+  '3':{
+    'Walk me through the 4-step pipeline with a concrete example':[
+      '<strong>Capture:</strong> A prospect visits your website at midnight and fills in your "Get a Quote" form. Your agent receives the submission instantly — no human needed to be awake. <br><br><strong>Qualify:</strong> The agent reads the form: "small business, 8 employees, needs monthly bookkeeping + quarterly VAT returns, budget £400–600/month." It checks this against your ideal customer profile. Budget: ✓ (above threshold). Ongoing work: ✓ (matches service). Company size: ✓ (SMB target). <br><br><strong>Score:</strong> Budget fit (+28), decision-maker email (+25), ongoing service request (+18), company size match (+12). Score: 83/100 → HOT. <br><br><strong>Route:</strong> Your sales rep receives a Slack notification at 12:01 AM with the lead summary. The prospect receives a personal email from "your business" within 90 seconds, with a calendar link for a discovery call. <br><br><strong>You wake up to a booked meeting.</strong> That\'s the pipeline.',
+    ],
+  },
+  '4':{
+    'What scoring criteria work best for a service business?':[
+      'For most service businesses, the highest-value criteria are: <br><br><strong>1. Budget alignment (25–30 pts)</strong> — Does their stated or implied budget meet your minimum? Budget misalignment is the #1 time-waster. <br><br><strong>2. Decision-making authority (20–25 pts)</strong> — Is this person the final decision-maker, or will there be committee approvals? Longer chains = longer sales cycles. <br><br><strong>3. Urgency / timeline (15–20 pts)</strong> — Are they looking to start immediately, in 1–3 months, or "someday"? Urgency correlates strongly with conversion probability. <br><br><strong>4. Industry / service fit (10–15 pts)</strong> — How closely does their need match your ideal project? <br><br><strong>5. Prior engagement (5–10 pts)</strong> — Have they been on your website before, opened past emails, or come via referral? Familiarity = higher trust = faster close. <br><br><strong>Takeaway:</strong> Build your scoring from these five, adjusted for your specific business. You can always refine the weights as your agent accumulates data.'
+    ],
+  },
+  '5':{
+    'What platform should I use to build this agent?':[
+      'The right platform depends on what you already use: <br><br><strong>If you use HubSpot:</strong> HubSpot\'s Workflows feature can do everything in this lesson natively. It\'s the easiest starting point if you\'re already in their ecosystem. <br><br><strong>If you want maximum flexibility:</strong> Make.com (formerly Integromat) is the best no-code choice. It connects to 1,000+ apps, supports conditional logic, and has AI decision steps. <br><br><strong>If you want something ultra-simple:</strong> Zapier\'s Interfaces + Tables can build a basic version in under 2 hours. <br><br><strong>If you want native AI:</strong> Voiceflow or Chatbase for a conversational qualification agent on your website, connected to your CRM via Make.com. <br><br><strong>My recommendation for most SMBs starting out:</strong> Begin with your existing CRM\'s automation features. Zero new tools to learn. Once you outgrow it, move to Make.com.'
+    ],
+  },
+  '6':{
+    'How long did Sarah\'s setup actually take?':[
+      'Based on the setup described — connecting a website form, building qualification rules, configuring routing logic — a realistic timeline for a non-technical business owner using Make.com or HubSpot is: <br><br><strong>Planning (1–2 hours):</strong> Defining your qualification criteria, mapping out the routing logic, writing your email templates. This is the most important step — the clarity you create here directly determines how well the agent performs. <br><br><strong>Build (2–3 hours):</strong> Connecting the form, configuring the scoring rules, setting up the routing automations, writing the Slack notification. <br><br><strong>Test (30–60 mins):</strong> Submitting test leads through your own form and verifying that each step fires correctly. <br><br><strong>Total: one solid afternoon</strong> — 4–6 hours of focused work. After that, it runs without you.'
+    ],
+    'Could this work for my industry?':[
+      'The Lead & Sales Agent structure works for any business where: (1) you receive inbound inquiries, (2) not every inquiry is equally valuable, and (3) you have consistent criteria for what makes a good customer. That description covers approximately 90% of SMBs. <br><br>Industries where it works exceptionally well: professional services (accounting, law, consulting), home services (construction, cleaning, landscaping), digital agencies, healthcare (private clinics, therapy practices), property, B2B SaaS sales. <br><br>The only industries where it\'s trickier: very bespoke, relationship-driven sales where every inquiry requires a manual touch before any qualification can happen — but even then, the Capture and Routing steps add value. <br><br><strong>Takeaway:</strong> Adapt the qualification criteria to your specific business, and the framework works universally.'
+    ],
+  },
+  '7':{
+    'What happened in the simulation step-by-step?':[
+      'The simulation showed your agent completing the full 4-step pipeline in real time: <br><br><strong>Step 1 — Capture:</strong> A lead submitted an inquiry (website, midnight). The agent detected it immediately and created a CRM record. <br><br><strong>Step 2 — Qualify & Analyse:</strong> The agent read the inquiry, mapped it against the ideal customer profile (company size, service match, budget), and confirmed it met qualification criteria. <br><br><strong>Step 3 — Score & Classify:</strong> Points were assigned for each qualifying criterion. Total: 87/100 → HOT lead. Routing decision made automatically. <br><br><strong>Step 4 — Route:</strong> Two things happened simultaneously: (a) your sales rep received an instant notification with the full lead summary, and (b) the prospect received a personalised email with a calendar booking link — all within 90 seconds of the original inquiry. <br><br><strong>That entire pipeline runs without human input.</strong>'
+    ],
+  },
+  '8':{
+    'What\'s the simplest first rule I could deploy today?':[
+      'The absolute minimum viable agent: <strong>"When someone submits my contact form, send them an acknowledgement email within 60 seconds."</strong> <br><br>That\'s one rule. One trigger, one action. You can set this up in 30 minutes using HubSpot, Mailchimp, or even a simple automation in your email provider. <br><br>It does one thing — eliminates the silent void that follows every inquiry. Prospects no longer wonder "did they get my message?" They know immediately. And they have a positive first impression of your business before a human has even seen their email. <br><br><strong>Once that\'s running</strong>, you add qualification (round 2), scoring (round 3), and routing (round 4). Each layer is a separate build session. <br><br><strong>The key:</strong> don\'t try to build the full agent in one session. Start with the acknowledgement. Let it run for a week. Then add the next layer.'
+    ],
+  },
+  '9':{
+    'What should I do immediately after this lesson?':[
+      'Three things, in order: <br><br><strong>1. Define your criteria:</strong> You did this in the Challenge step. If you haven\'t, do it before you leave this lesson. Your qualification criteria are the most important decision you\'ll make in the entire build. <br><br><strong>2. Choose your platform:</strong> Based on what you already use (CRM, email tool), pick the platform where you\'ll build. Don\'t overthink this — start where you already have an account. <br><br><strong>3. Build the acknowledgement rule:</strong> This is your first 30-minute session. Set up the trigger (form submission) and the action (immediate email). Test it. If it works, you have your first agent live. <br><br><strong>Don\'t plan to do this "next week."</strong> The value of this lesson compounds with action, not reflection. Schedule 2 hours this week and ship your first agent.'
+    ],
+  },
+  '10':{
+    'How specific should my qualification criteria be?':[
+      'Specific enough to make a binary decision. Each criterion should answer: yes or no, above or below a threshold. Vague criteria ("they seem interested") can\'t be coded into an agent. Specific criteria ("budget above £3,000") can. <br><br>Examples of too vague: "they have a real need," "they seem motivated," "they\'d be a good fit." <br><br>Examples of appropriately specific: "budget above $5,000 (or implied by company size)," "decision-maker or director-level contact," "project start within 90 days," "industry: professional services, healthcare, or digital." <br><br><strong>A useful test:</strong> if you can\'t decide yes/no on your criterion within 5 seconds of reading a lead\'s inquiry, it\'s too vague. Rewrite it until the decision is automatic.'
+    ],
+  },
+  '11':{
+    'How long will this agent take to set up in real life?':[
+      'With your criteria defined (from the Challenge step) and your platform chosen, here\'s the realistic timeline: <br><br><strong>Session 1 (2 hrs):</strong> Set up Capture — connect your form, create CRM records automatically, deploy the acknowledgement email. <br><br><strong>Session 2 (2 hrs):</strong> Configure scoring — enter your criteria and point values, test with 3–5 sample leads. <br><br><strong>Session 3 (1–2 hrs):</strong> Build routing — configure the HOT/WARM/COLD branches, write your follow-up email sequences, set up the sales team notification. <br><br><strong>Total: 5–6 hours across 3 sessions</strong>. After that, the agent runs indefinitely without maintenance. <br><br>That\'s 6 hours of setup to save 10–15 hours per week. The ROI calculation is straightforward.'
+    ],
+  },
+  '12':{
+    'What will the Customer Support Agent do differently from the Sales Agent?':[
+      'The Sales Agent focuses on acquisition — converting strangers into customers. The Customer Support Agent focuses on retention — keeping existing customers happy, informed, and renewed. <br><br>Specifically, the Support Agent handles: frequently asked questions (without human intervention), issue classification and routing (technical, billing, feature request), status updates and follow-through, and escalation to human support when an issue exceeds its capability. <br><br>The two agents <strong>work in sequence</strong>: the Sales Agent converts the lead, the Support Agent retains the customer. Together, they create a complete automated customer lifecycle — from first inquiry to long-term loyalty. <br><br><strong>In Lesson 2</strong>, you\'ll use the same Capture → Qualify → Route logic from this lesson — but adapted for support tickets instead of sales inquiries. The framework is the same; the criteria and routing rules are different.'
+    ],
+  },
+};
+
+function getSmartFallback(q){
+  const fallbacks={
+    '0':['The 78% statistic is the fundamental starting point for understanding why this matters. <strong>Speed of response is the single variable with the highest direct impact on revenue</strong> for most SMBs — more than pricing, more than marketing spend, more than product quality in the initial purchase decision.','Response time and lead conversion are directly correlated. <strong>Every hour without a response is a window for a competitor to step in.</strong> The agent closes that window permanently.'],
+    '1':['The Sales Agent\'s three functions — qualify, classify, respond — are not three separate tools. They\'re one integrated pipeline that runs autonomously. <strong>The magic is in the integration</strong>, not any individual step.','What matters most here: your agent doesn\'t just save time. It ensures <strong>consistency</strong>. Every lead gets the same quality of initial response, regardless of what your team is doing.'],
+    '2':['The before/after comparison exists to make the cost of inaction concrete. <strong>Not having an agent is a choice — and it has a measurable price tag</strong> in lost leads and slower conversions.','The key insight from this comparison: the problem isn\'t that you don\'t work hard enough. <strong>The problem is that you are the system</strong> — and you have limits that an agent doesn\'t.'],
+    '3':['The receptionist + salesperson analogy is the simplest way to understand the agent. <strong>One handles access (capture), one handles conversion (qualify, score, route)</strong>. Your agent does both simultaneously, at scale.','The 4-step pipeline — Capture, Qualify, Score, Route — is your mental model for any agent you build. <strong>Every lead pipeline, regardless of industry, maps onto this structure.</strong>'],
+    '4':['Each component of the agent has a clear, singular job. <strong>The power comes from combining them</strong> — not from any individual component. A capture tool without scoring is just a form. Scoring without routing is just a spreadsheet. Together, they\'re an agent.','When building your first agent, always start with Capture. You can\'t qualify what you haven\'t captured. <strong>The sequence matters — Capture → Qualify → Score → Route is not arbitrary.</strong>'],
+    '5':['The three build prompts in this step are the skeleton of your agent. <strong>Fill in the blanks with your business-specific criteria and you have a working agent brief</strong> ready to configure in your platform of choice.','The key to using these prompts effectively: be specific. "Budget above $X" works better than "reasonable budget." <strong>Specificity is what separates effective agents from vague automations.</strong>'],
+    '6':['Sarah\'s results (+25% revenue, 3 hours saved daily, zero missed leads) represent the typical outcome for an SMB that deploys this correctly. <strong>The numbers aren\'t exceptional — they\'re standard</strong> for a well-configured lead agent.','The most important detail in Sarah\'s story: she didn\'t change her service, her pricing, or her team. <strong>She changed one operational system</strong> — how leads are handled — and the result was measurable revenue growth within 90 days.'],
+    '7':['The simulation is designed to make the abstract concrete. <strong>Every message you saw represents a real system action</strong> that fires automatically when configured correctly. This is what runs while you sleep.','Notice the speed in the simulation: from inquiry to personalised response in under 90 seconds. <strong>That\'s not aspirational — that\'s the default performance of a properly configured lead agent.</strong>'],
+    '8':['The three principles — Goal = Qualification, Speed = Value, Start Simple — are the operating principles for every agent you\'ll build. <strong>They\'re not specific to sales; they apply universally.</strong>','Starting simple is the most counterintuitive but most important principle. <strong>A simple agent that runs reliably beats a complex agent that takes months to build.</strong> Start with one rule and expand systematically.'],
+    '9':['The achievement isn\'t just completion — it\'s <strong>the mental model shift</strong>. You now see lead management as an agent problem, not a staffing problem. That perspective change is more valuable than any specific tool.','What you\'ve built here is a framework that transfers. <strong>The same structure — capture, qualify, score, route — applies to customer support, operations, content, and more.</strong> Lesson 2 proves this immediately.'],
+    '10':['Your qualification criteria are the most important variable in your agent\'s effectiveness. <strong>An agent with clear, specific criteria outperforms one with vague rules by an enormous margin.</strong>','Take time with this. <strong>Your criteria define your ideal customer</strong> — not just for the agent, but for your business strategy. This exercise often reveals assumptions owners have never explicitly stated.'],
+    '11':['The three takeaways from this lesson are the complete picture: architecture (the pipeline), principle (speed = value), and method (start simple, expand). <strong>All three are needed. None is sufficient alone.</strong>','The summary exists to help you retain the most important points. <strong>Most business owners forget 80% of what they learn within 24 hours</strong> — these three points are what to hold onto.'],
+    '12':['The Customer Support Agent is the natural continuation of this lesson. <strong>Where the Sales Agent acquires customers, the Support Agent retains them.</strong> Together they create a complete automated customer lifecycle.','Every lesson in Level 2 adds one agent to your stack. <strong>By the end of Level 2, you\'ll have a complete, interconnected agent system</strong> handling lead acquisition, customer support, and operations automatically.'],
+  };
+  const arr=fallbacks[currentAiStep]||fallbacks['0'];
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
+let aiOpen=false;
+let currentAiStep='0';
+const aiPanel=document.getElementById('ai-panel');
+const aiMsgs=document.getElementById('ai-messages');
+const aiBeacon=document.getElementById('ai-beacon');
+
+function updateAiContext(stepKey){
+  currentAiStep=stepKey;
+  const d=STEP_DATA[stepKey]||STEP_DATA['0'];
+  const chip=document.getElementById('ai-context-chip');
+  chip.style.opacity='0';chip.style.transform='translateY(-3px)';
+  setTimeout(()=>{chip.textContent=d.ctx;chip.style.opacity='1';chip.style.transform='translateY(0)';},200);
+  const list=document.getElementById('ai-suggest-list');
+  list.style.opacity='0';list.style.transform='translateY(5px)';
+  setTimeout(()=>{renderSuggestions(stepKey);list.style.opacity='1';list.style.transform='translateY(0)';},230);
+}
+
+function renderSuggestions(stepKey){
+  const d=STEP_DATA[stepKey]||STEP_DATA['0'];
+  const list=document.getElementById('ai-suggest-list');
+  list.innerHTML='';
+  d.qs.slice(0,4).forEach(q=>{
+    const btn=document.createElement('button');
+    btn.className='ai-suggest-q';btn.textContent=q;
+    btn.addEventListener('click',function(){if(this.classList.contains('used'))return;this.classList.add('used');askKira(q);});
+    list.appendChild(btn);
+  });
+}
+
+function openAI(){
+  aiOpen=true;document.body.classList.add('ai-open');aiPanel.setAttribute('aria-hidden','false');aiBeacon.setAttribute('aria-expanded','true');
+  if(aiMsgs.children.length===0)addMsg('bot','Hi! I\'m Kira — I\'m following along with exactly where you are in the lesson. Ask me anything about the Lead & Sales Agent you\'re building. I\'ll keep my answers practical and specific to your business.');
+  renderSuggestions(currentAiStep);playSwoosh();
+}
+function closeAI(){aiOpen=false;document.body.classList.remove('ai-open');aiPanel.setAttribute('aria-hidden','true');aiBeacon.setAttribute('aria-expanded','false');}
+aiBeacon.addEventListener('click',()=>aiOpen?closeAI():openAI());
+document.getElementById('ai-close-btn').addEventListener('click',closeAI);
+
+function addMsg(type,html){
+  const m=document.createElement('div');m.className='ai-msg '+type;
+  m.innerHTML=type==='bot'?html:html.replace(/</g,'&lt;');
+  aiMsgs.appendChild(m);aiMsgs.scrollTop=aiMsgs.scrollHeight;
+}
+function showTyping(){const t=document.createElement('div');t.className='ai-typing-indicator';t.id='ai-typ';t.innerHTML='<span></span><span></span><span></span>';aiMsgs.appendChild(t);aiMsgs.scrollTop=aiMsgs.scrollHeight;}
+function hideTyping(){const t=document.getElementById('ai-typ');if(t)t.remove();}
+
+async function askKira(q){
+  addMsg('user',q);showTyping();
+  document.getElementById('ai-suggest-list').style.opacity='.45';
+  document.getElementById('ai-suggest-list').style.pointerEvents='none';
+  const delay=Math.floor(Math.random()*601)+400;
+  await new Promise(r=>setTimeout(r,delay));
+  hideTyping();
+  const stepAnswers=KIRA_ANSWERS[currentAiStep];
+  let answer='';
+  if(stepAnswers&&stepAnswers[q]){
+    const variants=stepAnswers[q];answer=variants[Math.floor(Math.random()*variants.length)];
+  }else{
+    // fuzzy match
+    const ql=q.toLowerCase();let bestMatch=null,bestScore=0;
+    if(stepAnswers){for(const[qText,variants]of Object.entries(stepAnswers)){const qtl=qText.toLowerCase();const qWords=ql.split(/\s+/).filter(w=>w.length>3);const matchWords=qWords.filter(w=>qtl.includes(w));const score=matchWords.length/qWords.length;if(score>bestScore&&score>0.4){bestScore=score;bestMatch=variants[Math.floor(Math.random()*variants.length)];}}}
+    answer=bestMatch||getSmartFallback(q);
+  }
+  addMsg('bot',answer);
+  document.getElementById('ai-suggest-list').style.opacity='1';
+  document.getElementById('ai-suggest-list').style.pointerEvents='';
+}
+
+updateAiContext('0');
+
+/* ══════════════════════════════════════
+   PERSUASION: Scroll-based Parallax
+══════════════════════════════════════ */
+window.addEventListener('scroll',function(){
+  const sy=window.scrollY;
+  document.querySelectorAll('.parallax-slow').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    const speed=.03;
+    el.style.transform='translateY('+(sy*speed)+'px)';
+  });
+},{passive:true});
+
+/* ══════════════════════════════════════
+   PERSUASION: Time-spent social proof
+══════════════════════════════════════ */
+(function(){
+  const startTime=Date.now();
+  const liveTexts=document.querySelectorAll('.rail-live-text');
+  setInterval(function(){
+    const mins=Math.floor((Date.now()-startTime)/60000);
+    const base=241;
+    const delta=Math.floor(mins/7);
+    const count=base+delta;
+    liveTexts.forEach(t=>t.textContent=count+' owners building now');
+  },30000);
+})();
+
+})();
+</script>
+</body>
+</html>

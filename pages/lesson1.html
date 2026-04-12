@@ -6,9 +6,10 @@
 <title>Lesson 1: The Shift That Separates Growing Businesses From Stuck Ones — VERCELLUM | Agentic AI for SMBs 2026</title>
 <meta name="description" content="In 15 focused minutes, discover why the businesses winning in 2026 aren't just using AI — they're deploying agents that work while they sleep. Master the SPAR Framework, identify your first automation opportunity, and join the 5% of SMBs already ahead.">
 <meta name="keywords" content="Agentic AI, SPAR framework, AI agents for SMB, Sense Plan Act Reflect, autonomous AI agents, SMB AI adoption 2026, AI tools vs agents, business automation AI">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="VERCELLUM">
 <meta name="theme-color" content="#040302">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 stop-color=%27%23C9A34A%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%23F2D668%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23040302%27/%3E%3Cpath d=%27M10 8L22 16L10 24Z%27 fill=%27url(%23g)%27/%3E%3C/svg%3E">
 <link rel="canonical" href="https://vercellum.com/lessons/lesson1.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lesson 1: The Turning Point — Why Your Business Needs Agents, Not Just Tools | VERCELLUM">
@@ -16,9 +17,16 @@
 <meta property="og:url" content="https://vercellum.com/lessons/lesson1.html">
 <meta property="og:site_name" content="VERCELLUM">
 <meta property="og:image" content="https://vercellum.com/og/lesson1.png">
+<meta property="article:published_time" content="2025-06-15T00:00:00+00:00">
+<meta property="article:section" content="AI Education">
+<meta property="article:tag" content="Agentic AI">
+<meta property="article:tag" content="SPAR Framework">
+<meta property="article:tag" content="SMB Automation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@vercellum">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Lesson 1: The Moment AI Stopped Being Just a Tool","educationalLevel":"Beginner","learningResourceType":"Interactive Lesson","provider":{"@type":"Organization","name":"VERCELLUM","url":"https://vercellum.com"},"timeRequired":"PT15M"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between an AI tool and an AI agent for SMBs?","acceptedAnswer":{"@type":"Answer","text":"An AI tool waits for your input and responds once — like ChatGPT. You prompt, it generates, you copy-paste. An AI agent operates autonomously through the SPAR cycle: Sense (monitors 24/7), Plan (reasons about strategy), Act (executes in real systems), and Reflect (learns and improves). The key difference is who carries the cognitive load — you or the system."}},{"@type":"Question","name":"How can small businesses start using AI agents without technical expertise?","acceptedAnswer":{"@type":"Answer","text":"Most SMBs can deploy their first agent without any coding knowledge using no-code platforms like Make.com, Zapier, or CRM-native automation (HubSpot, ActiveCampaign). Start with one repetitive, predictable task — like lead follow-up or appointment scheduling. The key is to start simple, prove it works, then expand. A basic trigger-response agent can be built in 2-4 hours."}},{"@type":"Question","name":"What is the SPAR Framework and why does it matter for business automation?","acceptedAnswer":{"@type":"Answer","text":"SPAR stands for Sense, Plan, Act, Reflect — the four-step cycle that all effective AI agents follow. Sense monitors for triggers, Plan reasons about the best strategy, Act executes in real systems (email, CRM, calendar), and Reflect learns from outcomes to improve. The Reflect step is what creates compound advantage — your agent gets measurably better every week without any additional input from you."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Lesson 1: The Shift That Separates Growing Businesses From Stuck Ones","description":"In 15 focused minutes, discover why the businesses winning in 2026 aren't just using AI — they're deploying agents that work while they sleep.","author":{"@type":"Organization","name":"VERCELLUM"},"publisher":{"@type":"Organization","name":"VERCELLUM","logo":{"@type":"ImageObject","url":"https://vercellum.com/logo.png"}},"datePublished":"2025-06-15","dateModified":"2025-06-15","mainEntityOfPage":{"@type":"WebPage","@id":"https://vercellum.com/lessons/lesson1.html"}}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1039,10 +1047,466 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
 /* Section end motivational microcopy */
 .section-motivation{font-size:.78rem;color:var(--g2);margin-top:1rem;padding:.6rem 0;text-align:center;letter-spacing:.03em;opacity:.85;animation:fadeUp .6s var(--ex) both}
 
-@media print{#cur,#cur-r,#blob,.orb,#particles,#read-progress,#back-top,#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.milestone-flash,.focus-hint,.recap-box,.teaser-next-box,.motivation-pill,.section-motivation{display:none!important}body{padding:0}.content-inner{max-width:100%}}
+
+/* ══════════════════════════════════════════════════════════
+   CINEMATIC PRELOADER
+══════════════════════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:99999;
+  background:#040302;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  transition:transform .8s cubic-bezier(.76,0,.24,1),opacity .6s ease;
+}
+#preloader.done{
+  transform:translateY(-100%);
+  opacity:0;
+  pointer-events:none;
+}
+body.preloader-done{overflow:auto}
+#preloader-particles{position:absolute;inset:0;z-index:0;opacity:.5}
+#preloader-golden-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--g0);
+  box-shadow:0 0 20px rgba(242,214,104,.6),0 0 40px rgba(201,163,74,.3);
+  animation:preDotPulse 1.5s ease-in-out infinite;
+  z-index:1;
+}
+@keyframes preDotPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(2.5);opacity:1}}
+.preloader-text{
+  position:absolute;
+  font-family:var(--fd);font-size:clamp(.95rem,2.2vw,1.3rem);
+  font-weight:300;color:var(--cr);line-height:1.6;
+  text-align:center;max-width:560px;padding:0 2rem;
+  opacity:0;z-index:2;
+}
+#preloader-text-1{
+  animation:preText1 4s ease-in-out forwards;
+}
+@keyframes preText1{
+  0%{opacity:0;transform:translateY(10px)}
+  15%{opacity:1;transform:translateY(0)}
+  42%{opacity:1;transform:translateY(0)}
+  52%{opacity:0;transform:translateY(-10px)}
+  100%{opacity:0}
+}
+#preloader-text-2{
+  animation:preText2 4s ease-in-out forwards;
+}
+@keyframes preText2{
+  0%{opacity:0;transform:translateY(10px)}
+  42%{opacity:0;transform:translateY(10px)}
+  52%{opacity:1;transform:translateY(0)}
+  78%{opacity:1;transform:translateY(0)}
+  88%{opacity:0;transform:translateY(-10px)}
+  100%{opacity:0}
+}
+#preloader-flash{
+  position:absolute;inset:0;z-index:3;
+  background:radial-gradient(circle,rgba(242,214,104,.25),transparent 70%);
+  opacity:0;
+  animation:preFlash 4s ease-in-out forwards;
+}
+@keyframes preFlash{
+  0%{opacity:0}82%{opacity:0}88%{opacity:1}100%{opacity:0}
+}
+
+/* ══════════════════════════════════════════════════════════
+   GLASS MORPHISM
+══════════════════════════════════════════════════════════ */
+.glass-morphism{
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:rgba(4,3,2,.6);
+  border:1px solid rgba(201,163,74,.1);
+  border-radius:14px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HERO H1 GLOW
+══════════════════════════════════════════════════════════ */
+.hero-h1{
+  text-shadow:0 0 40px rgba(201,163,74,.08),0 0 80px rgba(201,163,74,.04);
+}
+
+/* ══════════════════════════════════════════════════════════
+   CARD SPOTLIGHT
+══════════════════════════════════════════════════════════ */
+.card-spotlight{position:relative;overflow:hidden}
+.card-spotlight::before{
+  content:'';position:absolute;width:250px;height:250px;
+  background:radial-gradient(circle,rgba(201,163,74,.07),transparent 70%);
+  border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%);
+  opacity:0;transition:opacity .3s;
+}
+.card-spotlight:hover::before{opacity:1}
+
+/* ══════════════════════════════════════════════════════════
+   SCROLL INDICATOR
+══════════════════════════════════════════════════════════ */
+.scroll-indicator{
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem 0 .5rem;
+  color:var(--g3);
+  animation:scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(8px);opacity:.8}}
+
+/* ══════════════════════════════════════════════════════════
+   SOCIAL PROOF TICKER
+══════════════════════════════════════════════════════════ */
+.social-proof-ticker{
+  overflow:hidden;
+  margin-top:1.25rem;
+  padding:.45rem 0;
+  border-top:1px solid rgba(201,163,74,.05);
+  border-bottom:1px solid rgba(201,163,74,.05);
+}
+.ticker-track{
+  display:flex;gap:3rem;
+  animation:tickerScroll 40s linear infinite;
+  white-space:nowrap;
+  width:max-content;
+}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{
+  font-size:.68rem;color:var(--as);
+  letter-spacing:.03em;
+  font-style:italic;
+}
+
+/* ══════════════════════════════════════════════════════════
+   EMOTIONAL HOOK CARD
+══════════════════════════════════════════════════════════ */
+.emotional-hook-card{
+  background:rgba(4,3,2,.85);
+  border:1px solid rgba(201,163,74,.2);
+  border-radius:16px;
+  padding:2.5rem 2rem 2rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 60px rgba(201,163,74,.06),inset 0 1px 0 rgba(201,163,74,.08);
+}
+.emotional-hook-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--g1),transparent);
+}
+.hook-question-mark{
+  font-family:'Cinzel Decorative',serif;
+  font-size:4rem;font-weight:700;
+  color:var(--g0);
+  line-height:1;
+  margin-bottom:1.25rem;
+  animation:breathingGlow 3s ease-in-out infinite;
+  text-shadow:0 0 30px rgba(242,214,104,.4),0 0 60px rgba(201,163,74,.15);
+}
+@keyframes breathingGlow{
+  0%,100%{text-shadow:0 0 30px rgba(242,214,104,.4),0 0 60px rgba(201,163,74,.15);transform:scale(1)}
+  50%{text-shadow:0 0 45px rgba(242,214,104,.65),0 0 90px rgba(201,163,74,.3);transform:scale(1.05)}
+}
+.hook-question{
+  font-family:var(--fd);font-size:1.05rem;font-style:italic;
+  color:var(--cr);line-height:1.65;margin-bottom:1rem;
+}
+.hook-subtext{
+  font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;
+  color:var(--g2);text-transform:uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LOSS AVERSION COUNTER
+══════════════════════════════════════════════════════════ */
+.loss-aversion-counter{
+  margin-top:1.5rem;padding:1.5rem;
+  border-radius:12px;text-align:center;
+  background:linear-gradient(135deg,rgba(239,68,68,.04),rgba(4,3,2,.9));
+  border:1px solid rgba(239,68,68,.2);
+  animation:urgencyFlash 3s ease-in-out infinite;
+}
+.lac-label{
+  font-family:var(--fb);font-size:.38rem;letter-spacing:.28em;
+  color:var(--red);text-transform:uppercase;margin-bottom:.75rem;
+}
+.lac-number{
+  font-family:'Cinzel Decorative',serif;
+  font-size:3.5rem;font-weight:700;
+  color:var(--red);line-height:1;
+  animation:lacPulse 2s ease-in-out infinite;
+  text-shadow:0 0 30px rgba(239,68,68,.3);
+}
+@keyframes lacPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.lac-sub{
+  font-size:.62rem;color:var(--as);margin-top:.5rem;
+  font-style:italic;
+}
+
+/* ══════════════════════════════════════════════════════════
+   EMOTIONAL VALIDATION
+══════════════════════════════════════════════════════════ */
+.emotional-validation{
+  display:flex;flex-direction:column;gap:.75rem;
+  padding:1.5rem;border-radius:12px;
+  background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(167,139,250,.04));
+  border:1px solid rgba(201,163,74,.12);
+}
+.ev-item{
+  display:flex;align-items:center;gap:.85rem;
+  padding:.7rem 1rem;border-radius:8px;
+  background:rgba(4,3,2,.5);
+  border-left:2px solid;
+  border-image:linear-gradient(180deg,var(--g1),var(--purp)) 1;
+  opacity:0;transform:translateX(15px);
+  animation:evSlideIn .6s cubic-bezier(.16,1,.3,1) forwards;
+}
+.stagger-children .ev-item:nth-child(1){animation-delay:.1s}
+.stagger-children .ev-item:nth-child(2){animation-delay:.3s}
+.stagger-children .ev-item:nth-child(3){animation-delay:.5s}
+@keyframes evSlideIn{to{opacity:1;transform:translateX(0)}}
+.ev-icon{font-size:1.2rem;flex-shrink:0}
+.ev-text{font-size:.84rem;color:var(--cr);line-height:1.45;font-weight:500}
+
+/* ══════════════════════════════════════════════════════════
+   COMMITMENT CARD
+══════════════════════════════════════════════════════════ */
+.commitment-card{
+  padding:2rem;border-radius:14px;text-align:center;
+  background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));
+  border:1px solid rgba(201,163,74,.2);
+  margin-bottom:2rem;position:relative;overflow:hidden;
+}
+.commitment-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--g0),transparent);
+}
+.commitment-title{
+  font-family:var(--fb);font-size:.58rem;letter-spacing:.22em;
+  color:var(--g0);margin-bottom:.85rem;
+}
+.commitment-text{
+  font-family:var(--fd);font-size:1.05rem;font-style:italic;
+  color:var(--bn);line-height:1.65;
+}
+.commitment-text strong{color:var(--cr)}
+
+/* ══════════════════════════════════════════════════════════
+   ENHANCED COMPARISON VS PULSE + DIM
+══════════════════════════════════════════════════════════ */
+.comparison-wrap:hover .comp-col{opacity:.65;transition:opacity .3s}
+.comparison-wrap:hover .comp-col:hover{opacity:1}
+.comparison-wrap .comp-divider::after{animation:vsPulse 2.5s ease-in-out infinite}
+@keyframes vsPulse{0%,100%{transform:scale(1);text-shadow:none}50%{transform:scale(1.15);text-shadow:0 0 15px rgba(201,163,74,.4)}}
+
+/* ══════════════════════════════════════════════════════════
+   SHIMMER ON CONTINUE BUTTONS
+══════════════════════════════════════════════════════════ */
+.step-continue-btn::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(242,214,104,.08),transparent);
+  animation:shimmerSweep 3s ease-in-out infinite;
+}
+@keyframes shimmerSweep{0%{left:-100%}50%{left:100%}100%{left:100%}}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION NUMBERS (visual rhythm)
+══════════════════════════════════════════════════════════ */
+.section-number{
+  position:absolute;top:-.5rem;right:0;
+  font-family:'Cinzel Decorative',serif;
+  font-size:6rem;font-weight:700;
+  color:rgba(201,163,74,.03);
+  line-height:1;pointer-events:none;
+  user-select:none;
+}
+
+/* ══════════════════════════════════════════════════════════
+   STEP CROSSFADE TRANSITION
+══════════════════════════════════════════════════════════ */
+.prog-step{transition:opacity .25s ease}
+.step-transition-overlay{
+  position:fixed;inset:0;z-index:100;
+  background:var(--v);opacity:0;pointer-events:none;
+  transition:opacity .15s ease;
+}
+.step-transition-overlay.active{opacity:.4}
+
+/* ══════════════════════════════════════════════════════════
+   NEW ANIMATION CLASSES
+══════════════════════════════════════════════════════════ */
+
+/* Stagger children */
+.stagger-children > *{opacity:0;transform:translateY(12px);animation:staggerIn .5s cubic-bezier(.16,1,.3,1) forwards}
+.stagger-children > *:nth-child(1){animation-delay:.05s}
+.stagger-children > *:nth-child(2){animation-delay:.15s}
+.stagger-children > *:nth-child(3){animation-delay:.25s}
+.stagger-children > *:nth-child(4){animation-delay:.35s}
+.stagger-children > *:nth-child(5){animation-delay:.45s}
+@keyframes staggerIn{to{opacity:1;transform:translateY(0)}}
+
+/* Counter animate */
+.counter-animate{display:inline-block}
+
+/* Magnetic hover */
+.magnetic-hover{transition:transform .2s cubic-bezier(.16,1,.3,1)}
+
+/* Breathing glow */
+.breathing-glow{animation:breathingGlow 3s ease-in-out infinite}
+
+/* Slide-in directional */
+.slide-in-left{opacity:0;transform:translateX(-30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.slide-in-left.in{opacity:1;transform:translateX(0)}
+.slide-in-right{opacity:0;transform:translateX(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.slide-in-right.in{opacity:1;transform:translateX(0)}
+
+/* Scale in */
+.scale-in{opacity:0;transform:scale(.85);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.scale-in.in{opacity:1;transform:scale(1)}
+
+/* Text reveal line */
+.text-reveal-line{overflow:hidden}
+.text-reveal-line span{display:inline-block;transform:translateY(100%);transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.text-reveal-line.in span{transform:translateY(0)}
+
+/* Parallax slow */
+.parallax-slow{will-change:transform}
+
+/* Ripple effect */
+.ripple-effect{position:relative;overflow:hidden}
+.ripple-effect .ripple{
+  position:absolute;border-radius:50%;
+  background:rgba(201,163,74,.25);
+  transform:scale(0);animation:rippleAnim .6s linear;
+  pointer-events:none;
+}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* Card tilt */
+.card-tilt{transition:transform .15s ease;transform-style:preserve-3d;perspective:800px}
+
+/* Typing cursor */
+.typing-cursor{display:inline-block;width:2px;height:1em;background:var(--g1);margin-left:2px;animation:typingBlink 1s step-end infinite;vertical-align:-.1em}
+@keyframes typingBlink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Gradient shift */
+.gradient-shift{
+  background-size:200% 200%;
+  animation:gradientShift 8s ease infinite;
+}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* ══════════════════════════════════════════════════════════
+   SCANNING LINE (radar sweep)
+══════════════════════════════════════════════════════════ */
+.scanning-line{
+  position:fixed;top:0;left:0;right:0;height:1px;
+  z-index:900;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0%,rgba(201,163,74,.15) 30%,rgba(242,214,104,.35) 50%,rgba(201,163,74,.15) 70%,transparent 100%);
+  opacity:0;
+  animation:scanSweep 8s ease-in-out infinite 5s;
+}
+@keyframes scanSweep{
+  0%{top:var(--topbar-h);opacity:0}
+  2%{opacity:1}
+  98%{opacity:1}
+  100%{top:100%;opacity:0}
+}
+
+/* ══════════════════════════════════════════════════════════
+   VIGNETTE OVERLAY
+══════════════════════════════════════════════════════════ */
+body::after{
+  content:'';position:fixed;inset:0;
+  box-shadow:inset 0 0 150px rgba(0,0,0,.5);
+  pointer-events:none;z-index:1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FILM GRAIN OVERLAY
+══════════════════════════════════════════════════════════ */
+body::before{
+  opacity:.015!important;
+  background-size:200px!important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SPAR CARD BORDER GRADIENT HOVER
+══════════════════════════════════════════════════════════ */
+.spar-card{border-image:linear-gradient(135deg,rgba(201,163,74,.08),rgba(201,163,74,.08)) 1}
+.spar-card:hover{border-image:linear-gradient(135deg,var(--g2),var(--purp),var(--g2)) 1;animation:sparBorderGlow 2s ease-in-out infinite}
+@keyframes sparBorderGlow{0%,100%{box-shadow:0 12px 40px rgba(201,163,74,.1)}50%{box-shadow:0 12px 50px rgba(201,163,74,.2),0 0 30px rgba(167,139,250,.08)}}
+
+/* ══════════════════════════════════════════════════════════
+   IDENTITY ANCHOR FLASH
+══════════════════════════════════════════════════════════ */
+.identity-flash{
+  position:fixed;inset:0;z-index:99998;
+  background:rgba(4,3,2,.95);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+.identity-flash.show{opacity:1;pointer-events:auto}
+.identity-flash .if-star{font-size:3rem;animation:ifStarPulse .8s ease-in-out infinite}
+@keyframes ifStarPulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.2);filter:brightness(1.5)}}
+.identity-flash .if-text{
+  font-family:var(--fb);font-size:clamp(.7rem,1.5vw,1rem);
+  letter-spacing:.2em;color:var(--g0);margin-top:1rem;
+  text-align:center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CONFETTI
+══════════════════════════════════════════════════════════ */
+.confetti-piece{
+  position:fixed;z-index:99999;
+  width:8px;height:8px;
+  pointer-events:none;
+  animation:confettiFall 3s ease-in forwards;
+}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);opacity:1}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS FOR NEW ELEMENTS
+══════════════════════════════════════════════════════════ */
+@media(max-width:700px){
+  .hook-question{font-size:.92rem}
+  .hook-question-mark{font-size:3rem}
+  .emotional-hook-card{padding:1.75rem 1.25rem}
+  .lac-number{font-size:2.5rem}
+  .lac-label{font-size:.34rem;letter-spacing:.2em}
+  .emotional-validation{padding:1rem}
+  .ev-item{padding:.5rem .75rem;gap:.6rem}
+  .commitment-card{padding:1.5rem 1.25rem}
+  .commitment-text{font-size:.95rem}
+  .section-number{font-size:4rem}
+  .identity-flash .if-text{font-size:.65rem;letter-spacing:.14em}
+  .ticker-track{animation-duration:25s}
+  .scanning-line{display:none}
+}
+
+@media print{
+  #preloader,.scanning-line,.social-proof-ticker,.scroll-indicator,
+  .loss-aversion-counter,.emotional-hook-section,.emotional-validation,
+  .commitment-card,.identity-flash,.confetti-piece{display:none!important}
+}
+
 </style>
 </head>
 <body>
+
+
+<!-- ══ CINEMATIC PRELOADER ══ -->
+<div id="preloader">
+  <canvas id="preloader-particles" aria-hidden="true"></canvas>
+  <div id="preloader-golden-dot"></div>
+  <div id="preloader-text-1" class="preloader-text">Before you read another word about AI...</div>
+  <div id="preloader-text-2" class="preloader-text">Ask yourself: What did you do this week that a machine should have done?</div>
+  <div id="preloader-flash"></div>
+</div>
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -1069,6 +1533,12 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
 <div class="milestone-flash" id="milestone-flash" aria-live="polite" aria-hidden="true">
   <div class="milestone-icon" id="milestone-icon">🎯</div>
   <div class="milestone-text" id="milestone-text">GREAT PROGRESS</div>
+</div>
+
+<!-- Identity anchor flash -->
+<div class="identity-flash" id="identity-flash" aria-hidden="true">
+  <div class="if-star">&#11088;</div>
+  <div class="if-text">YOU THINK LIKE THE 5%<br>&mdash; NOT THE 95%</div>
 </div>
 
 <!-- Focus mode hint -->
@@ -1121,9 +1591,9 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
       <div class="rail-lesson-body">
         <div class="rail-lesson-tag">Active · Lesson 1</div>
         <div class="rail-lesson-name">The Decision Point</div>
-      </div>
-    </div>
-    <a class="rail-lesson upcoming" href="lesson2.html" role="listitem">
+      </div>  
+    </div>   
+    <a class="rail-lesson upcoming"role="listitem">
       <div class="rail-lesson-icon">
         <div class="rail-lesson-num">02</div>
       </div>
@@ -1132,7 +1602,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <div class="rail-lesson-name">Anatomy of an AI Agent</div>
       </div>
     </a>
-    <a class="rail-lesson upcoming" href="lesson3.html" role="listitem">
+    <a class="rail-lesson upcoming"role="listitem">
       <div class="rail-lesson-icon">
         <div class="rail-lesson-num">03</div>
       </div>
@@ -1141,7 +1611,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <div class="rail-lesson-name">3 Problems AI Solves Instantly</div>
       </div>
     </a>
-    <a class="rail-lesson upcoming" href="lesson4.html" role="listitem">
+    <a class="rail-lesson upcoming" role="listitem">
       <div class="rail-lesson-icon">
         <div class="rail-lesson-num">04</div>
       </div>
@@ -1150,7 +1620,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <div class="rail-lesson-name">Build Your First AI Worker</div>
       </div>
     </a>
-    <a class="rail-lesson upcoming" href="test1.html" role="listitem">
+    <a class="rail-lesson upcoming" role="listitem">
       <div class="rail-lesson-icon">
         <div class="rail-lesson-num" style="font-size:.38rem">Q</div>
       </div>
@@ -1223,7 +1693,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
   <div class="content-inner" id="main-content">
 
     <!-- HERO -->
-    <section class="lesson-hero" aria-labelledby="hero-heading">
+    <section class="lesson-hero" aria-labelledby="hero-heading" itemprop="articleBody">
       <nav class="hero-breadcrumb" aria-label="Breadcrumb">
         <a href="https://vercellum.com">VERCELLUM</a>
         <span class="hero-breadcrumb-sep" aria-hidden="true">›</span>
@@ -1243,7 +1713,7 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         The question isn't whether AI will transform your industry. It already has. The question is whether <strong>you'll be the one leading that transformation — or reading about it from behind.</strong>
       </blockquote>
       <div class="hero-cta-row">
-        <button class="hero-primary-btn" id="transform-btn" aria-haspopup="dialog">
+        <button class="hero-primary-btn magnetic-hover ripple-effect" id="transform-btn" aria-haspopup="dialog">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           SEE HOW FAST THIS SHIFTED
         </button>
@@ -1263,6 +1733,32 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
         <div class="hero-meta-item">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>318 owners active now
         </div>
+      <div class="social-proof-ticker" aria-label="Recent members">
+        <div class="ticker-track">
+          <span class="ticker-item">Sarah M. — Marketing Agency, Austin TX · Joined 2 min ago</span>
+          <span class="ticker-item">James R. — E-commerce Store, Portland OR · Joined 5 min ago</span>
+          <span class="ticker-item">Maria L. — Consulting Firm, Miami FL · Joined 8 min ago</span>
+          <span class="ticker-item">David K. — Real Estate, Denver CO · Joined 3 min ago</span>
+          <span class="ticker-item">Priya S. — SaaS Startup, San Francisco CA · Joined 1 min ago</span>
+          <span class="ticker-item">Tom W. — Accounting Practice, Chicago IL · Joined 6 min ago</span>
+          <span class="ticker-item">Lisa C. — Dental Practice, Phoenix AZ · Joined 4 min ago</span>
+          <span class="ticker-item">Alex H. — Law Firm, New York NY · Joined 7 min ago</span>
+          <span class="ticker-item">Emma B. — Fitness Studio, Nashville TN · Joined 2 min ago</span>
+          <span class="ticker-item">Ryan P. — Construction Co, Seattle WA · Joined 9 min ago</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="ticker-item">Sarah M. — Marketing Agency, Austin TX · Joined 2 min ago</span>
+          <span class="ticker-item">James R. — E-commerce Store, Portland OR · Joined 5 min ago</span>
+          <span class="ticker-item">Maria L. — Consulting Firm, Miami FL · Joined 8 min ago</span>
+          <span class="ticker-item">David K. — Real Estate, Denver CO · Joined 3 min ago</span>
+          <span class="ticker-item">Priya S. — SaaS Startup, San Francisco CA · Joined 1 min ago</span>
+          <span class="ticker-item">Tom W. — Accounting Practice, Chicago IL · Joined 6 min ago</span>
+          <span class="ticker-item">Lisa C. — Dental Practice, Phoenix AZ · Joined 4 min ago</span>
+          <span class="ticker-item">Alex H. — Law Firm, New York NY · Joined 7 min ago</span>
+          <span class="ticker-item">Emma B. — Fitness Studio, Nashville TN · Joined 2 min ago</span>
+          <span class="ticker-item">Ryan P. — Construction Co, Seattle WA · Joined 9 min ago</span>
+        </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       </div>
     </section>
 
@@ -1281,6 +1777,18 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           You're about to learn why grinding is the trap."
         </p>
         <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--as);margin-top:1.1rem">— THE STRATEGIST'S EDGE</div>
+      </div>
+    </div>
+
+
+    <!-- ══ EMOTIONAL HOOK ══ -->
+    <div class="emotional-hook-section float-in" style="padding:2rem 0;position:relative">
+      <div style="max-width:680px;margin:0 auto;text-align:center">
+        <div class="emotional-hook-card">
+          <div class="hook-question-mark">?</div>
+          <p class="hook-question">Last Monday morning, what was the first "administrative" task you did that added zero value to your business — but you did it anyway because "there's no other way"?</p>
+          <p class="hook-subtext">That task is about to become your first competitive advantage. Keep reading.</p>
+        </div>
       </div>
     </div>
 
@@ -1348,6 +1856,11 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           <div class="eyebrow"><span class="ey-dot"></span>A MOMENT OF HONEST REFLECTION</div>
           <h2 class="sec-title">The Businesses Moving Now Are <span class="gold">Compressing Weeks Into Hours</span> — <span style="color:var(--red)">While You Read This, Someone Just Deployed Their First Agent</span></h2>
           <div class="warning-box urgency-flash"><span class="wb-icon">🚨</span><div class="wb-content"><div class="wb-label">THE WINDOW IS CLOSING — AND IT'S MEASURED IN MONTHS, NOT YEARS</div><p class="wb-text">Right now, the first wave of SMBs deploying AI agents are compressing weeks of manual work into hours. Every day without one is a day your competitors compound their advantage — not incrementally, but <strong>exponentially</strong>. The gap between "using AI" and "deploying agents" is the gap between dabbling and dominating. <strong>The good news — and it's real — is that the door is still open. But it won't stay open forever, and it certainly won't wait for you to feel ready.</strong> Being in this lesson, right now, puts you ahead of 95% of business owners. Don't waste that head start.</p></div></div>
+          <div class="loss-aversion-counter">
+            <div class="lac-label">BUSINESSES THAT DEPLOYED THEIR FIRST AI AGENT SINCE YOU OPENED THIS PAGE</div>
+            <div class="lac-number" id="la-counter">0</div>
+            <div class="lac-sub">Based on current deployment velocity &middot; Source: VERCELLUM Network Data</div>
+          </div>
           <div class="checkin" role="group" aria-labelledby="checkin-q-label">
             <p class="checkin-q" id="checkin-q-label">Before we go further — be honest: How much of your week is consumed by tasks that feel predictable, repetitive, and beneath what you should be spending your time on?</p>
             <div class="checkin-opts">
@@ -1445,12 +1958,17 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
           <h2 class="sec-title" id="concept-heading">The <span class="gold">SPAR Framework:</span> How the Best AI Agents Actually Operate</h2>
           <p class="body-text">Every AI agent genuinely transforming SMB operations does so through four precise steps. We call this the <strong>SPAR Framework (Sense-Plan-Act-Reflect)</strong>. This isn't academic theory — it's a practical mental model that lets you design, evaluate, and deploy agents that actually work for your business. Click each step below.</p>
           <div class="spar-grid" role="list">
-            <article class="spar-card" id="spar-0" role="listitem" tabindex="0" aria-expanded="false" aria-label="Sense" data-step="sense"><div class="spar-icon-wrap">👁️</div><div class="spar-step">STEP 01 · SENSE</div><h3 class="card-title" style="color:var(--blu)">Sense</h3><p class="spar-body">Your agent never sleeps, never misses a signal. It monitors inboxes, databases, calendars, and connected systems — detecting what matters before you even know to look.</p><div class="spar-example" id="spar-ex-0"><strong>Your Business:</strong> A potential client emails at 2 AM with budget attached. Your competitors respond at 9 AM. Your agent detects the email immediately, reads the sender's history, notes urgency — and is already three steps ahead before sunrise.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
-            <article class="spar-card" id="spar-1" role="listitem" tabindex="0" aria-expanded="false" aria-label="Plan" data-step="plan"><div class="spar-icon-wrap">🧠</div><div class="spar-step">STEP 02 · PLAN</div><h3 class="card-title">Plan</h3><p class="spar-body">This is where the agent earns its keep. It doesn't just react — it thinks. It cross-references context, weighs your business goals, and maps out the most effective sequence before taking a single action.</p><div class="spar-example" id="spar-ex-1"><strong>Your Business:</strong> The agent checks your CRM — no previous contact. It classifies them high priority, maps a three-step outreach strategy: warm acknowledgment within minutes, qualifying questions by morning, meeting invitation by the time you wake up.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
-            <article class="spar-card" id="spar-2" role="listitem" tabindex="0" aria-expanded="false" aria-label="Act" data-step="act"><div class="spar-icon-wrap">⚡</div><div class="spar-step">STEP 03 · ACT</div><h3 class="card-title" style="color:var(--grn)">Act</h3><p class="spar-body">The agent doesn't draft and wait for your approval — it executes. Emails sent, CRM updated, calendar invitations issued, downstream workflows triggered. Real actions in real systems.</p><div class="spar-example" id="spar-ex-2"><strong>Your Business:</strong> A personalized reply lands in the prospect's inbox within four minutes — before any competitor wakes up. The lead is tagged and filed. A calendar slot is prepared. By Monday your review has context-rich notes waiting.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
-            <article class="spar-card" id="spar-3" role="listitem" tabindex="0" aria-expanded="false" aria-label="Reflect" data-step="reflect"><div class="spar-icon-wrap">🔄</div><div class="spar-step">STEP 04 · REFLECT</div><h3 class="card-title" style="color:var(--purp)">Reflect</h3><p class="spar-body">This is the step that separates a one-time automation from a permanent competitive advantage. After acting, the agent evaluates its own performance and adapts — compounding in value with every cycle.</p><div class="spar-example" id="spar-ex-3"><strong>Your Business:</strong> The prospect replies positively. The agent logs the interaction, notes the tone and timing that worked, and quietly updates its approach for the next lead. Three months from now, it's measurably better — without any input from you.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
+            <article class="spar-card card-spotlight card-tilt" id="spar-0" role="listitem" tabindex="0" aria-expanded="false" aria-label="Sense" data-step="sense"><div class="spar-icon-wrap">👁️</div><div class="spar-step">STEP 01 · SENSE</div><h3 class="card-title" style="color:var(--blu)">Sense</h3><p class="spar-body">Your agent never sleeps, never misses a signal. It monitors inboxes, databases, calendars, and connected systems — detecting what matters before you even know to look.</p><div class="spar-example" id="spar-ex-0"><strong>Your Business:</strong> A potential client emails at 2 AM with budget attached. Your competitors respond at 9 AM. Your agent detects the email immediately, reads the sender's history, notes urgency — and is already three steps ahead before sunrise.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
+            <article class="spar-card card-spotlight card-tilt" id="spar-1" role="listitem" tabindex="0" aria-expanded="false" aria-label="Plan" data-step="plan"><div class="spar-icon-wrap">🧠</div><div class="spar-step">STEP 02 · PLAN</div><h3 class="card-title">Plan</h3><p class="spar-body">This is where the agent earns its keep. It doesn't just react — it thinks. It cross-references context, weighs your business goals, and maps out the most effective sequence before taking a single action.</p><div class="spar-example" id="spar-ex-1"><strong>Your Business:</strong> The agent checks your CRM — no previous contact. It classifies them high priority, maps a three-step outreach strategy: warm acknowledgment within minutes, qualifying questions by morning, meeting invitation by the time you wake up.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
+            <article class="spar-card card-spotlight card-tilt" id="spar-2" role="listitem" tabindex="0" aria-expanded="false" aria-label="Act" data-step="act"><div class="spar-icon-wrap">⚡</div><div class="spar-step">STEP 03 · ACT</div><h3 class="card-title" style="color:var(--grn)">Act</h3><p class="spar-body">The agent doesn't draft and wait for your approval — it executes. Emails sent, CRM updated, calendar invitations issued, downstream workflows triggered. Real actions in real systems.</p><div class="spar-example" id="spar-ex-2"><strong>Your Business:</strong> A personalized reply lands in the prospect's inbox within four minutes — before any competitor wakes up. The lead is tagged and filed. A calendar slot is prepared. By Monday your review has context-rich notes waiting.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
+            <article class="spar-card card-spotlight card-tilt" id="spar-3" role="listitem" tabindex="0" aria-expanded="false" aria-label="Reflect" data-step="reflect"><div class="spar-icon-wrap">🔄</div><div class="spar-step">STEP 04 · REFLECT</div><h3 class="card-title" style="color:var(--purp)">Reflect</h3><p class="spar-body">This is the step that separates a one-time automation from a permanent competitive advantage. After acting, the agent evaluates its own performance and adapts — compounding in value with every cycle.</p><div class="spar-example" id="spar-ex-3"><strong>Your Business:</strong> The prospect replies positively. The agent logs the interaction, notes the tone and timing that worked, and quietly updates its approach for the next lead. Three months from now, it's measurably better — without any input from you.</div><p class="spar-hint">↗ Click to see what this looks like in your business</p></article>
           </div>
         </section>
+        <div class="emotional-validation stagger-children" style="margin:1.5rem 0 0">
+          <div class="ev-item"><span class="ev-icon">&#127919;</span><span class="ev-text">You now see what your competitors can't</span></div>
+          <div class="ev-item"><span class="ev-icon">&#9889;</span><span class="ev-text">This framework applies to every business, including yours</span></div>
+          <div class="ev-item"><span class="ev-icon">&#128302;</span><span class="ev-text">The question isn't if — it's how fast</span></div>
+        </div>
         <div class="step-continue-wrap"><button class="step-continue-btn" data-next="6">Continue<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
       </div>
 
@@ -1599,8 +2117,12 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
               </div>
               <div class="teaser-badge">Next: Lesson 2 — Anatomy of an AI Agent · ~14 min</div>
             </div>
+            <div class="commitment-card">
+              <div class="commitment-title">YOUR 15-MINUTE INVESTMENT JUST COMPOUNDED</div>
+              <p class="commitment-text">You didn't just read a lesson. You built a mental model that will inform every business decision you make from this point forward. The question now is simple: <strong>Will you act on it — or let this become another bookmark you never return to?</strong></p>
+            </div>
             <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;align-items:center">
-              <a href="preview2.html" class="final-btn glow-pulse" id="complete-btn" style="text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlock Lesson 2 — Build Your First Real Agent →</a>
+              <a href="preview2.html" class="final-btn glow-pulse magnetic-hover ripple-effect" id="complete-btn" style="text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlock Lesson 2 — Build Your First Real Agent →</a>
               <button class="final-btn-ghost" id="save-exit-btn" style="opacity:.5;font-size:.5rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SAVE &amp; COME BACK LATER</button>
             </div>
             <!-- Scarcity element -->
@@ -1616,6 +2138,8 @@ body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;p
   </div><!-- /content-inner -->
 </div><!-- /content-shell -->
 
+<div class="scanning-line" aria-hidden="true"></div>
+<div class="step-transition-overlay" id="step-transition" aria-hidden="true"></div>
 <script>
 (function(){
 'use strict';
@@ -1666,9 +2190,9 @@ const canvas=document.getElementById('particles');
 const pctx=canvas.getContext('2d');let W,H,parts=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
 resize();window.addEventListener('resize',resize,{passive:true});
-const pCol=[[201,163,74],[34,197,94],[201,163,74],[201,163,74]];
+const pCol=[[201,163,74],[34,197,94],[201,163,74],[201,163,74],[255,255,255],[242,214,104]];
 (function init(){parts=[];const N=Math.min(70,Math.floor(W*H/14000));for(let i=0;i<N;i++){const c=pCol[Math.floor(Math.random()*pCol.length)];parts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.9+.2,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12,o:Math.random()*.35+.08,c});}})();
-(function anim(){pctx.clearRect(0,0,W,H);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;pctx.beginPath();pctx.arc(p.x,p.y,p.r,0,Math.PI*2);pctx.fillStyle=`rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.o})`;pctx.fill();});requestAnimationFrame(anim);})();
+(function anim(){pctx.clearRect(0,0,W,H);parts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;pctx.beginPath();pctx.arc(p.x,p.y,p.r,0,Math.PI*2);pctx.fillStyle=`rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.o})`;pctx.fill();for(let j=i+1;j<parts.length;j++){const q=parts[j];const dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){pctx.beginPath();pctx.moveTo(p.x,p.y);pctx.lineTo(q.x,q.y);pctx.strokeStyle='rgba(201,163,74,'+(0.04*(1-d/100))+')';pctx.lineWidth=.4;pctx.stroke();}}});requestAnimationFrame(anim);})();
 
 /* ══ INTERSECTION OBSERVER ══ */
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:.08});
@@ -1680,7 +2204,8 @@ const twTxt='The Business Owners Who Win in 2026 Share One Trait — And It Has 
 let twI=0;
 function typewrite(){if(twI<=twTxt.length){tw.innerHTML=twTxt.substring(0,twI)+(twI<twTxt.length?'<span style="display:inline-block;width:2px;height:.85em;background:var(--g1);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:-.1em" aria-hidden="true"></span>':'');twI++;setTimeout(typewrite,twI<twTxt.length?50:0);}}
 document.head.insertAdjacentHTML('beforeend','<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>');
-setTimeout(()=>{playEntry();typewrite();},500);
+/* typewrite delayed by preloader system */
+setTimeout(()=>{playEntry();typewrite();},4800);
 
 /* ══ PROGRESS ══ */
 let progress=parseInt(localStorage.getItem('vrc_l1_progress')||'0');
@@ -2043,49 +2568,324 @@ function renderSuggestions(stepKey){
 function showTyping(){const t=document.createElement('div');t.className='ai-typing-indicator';t.id='ai-typ';t.innerHTML='<span></span><span></span><span></span>';aiMsgs.appendChild(t);aiMsgs.scrollTop=aiMsgs.scrollHeight;}
 function hideTyping(){const t=document.getElementById('ai-typ');if(t)t.remove();}
 
+/* ══════════════════════════════════════════════════════
+   KIRA STATIC ANSWERS — No API, full simulation
+   Each step maps to its questions with multiple answer variants.
+   Answers are context-aware, paragraph-specific, and randomized.
+══════════════════════════════════════════════════════ */
+const KIRA_ANSWERS={
+  '0':{
+    'Why do most businesses fail to get real value from AI?':[
+      'Great question. Most businesses fail because they confuse <strong>access</strong> with <strong>adoption</strong>. They subscribe to ChatGPT, try it a few times, and expect transformation. But here\'s the reality: tools only amplify what you already do. If your process is manual, ChatGPT just makes your manual process slightly faster. <br><br>The 5% that succeed don\'t start with "What AI tool should I buy?" They start with "What workflow can I fully hand off?" That question reframes everything. <br><br><strong>Takeaway:</strong> Stop looking for tools. Start looking for handoff-able workflows.',
+      'The short answer: they\'re using AI as a <strong>fancier search engine</strong> instead of a system replacement. Studies show 84% of SMBs have tried AI, but fewer than 5% have an agent running a real workflow end-to-end. <br><br>The gap isn\'t technology — it\'s thinking. Most owners paste their existing process into an AI chat and hope for magic. But AI can\'t fix a broken process; it only accelerates it. <br><br><strong>Takeaway:</strong> Map your workflow first. Identify where human judgment is truly required vs where it\'s just habit. Automate the habitual parts.',
+      'Here\'s the pattern I see repeatedly: businesses adopt AI <strong>bottom-up</strong>. An employee starts using ChatGPT, shows some time savings, and leadership says "Great, roll it out." But nobody redesigned the process around the AI. <br><br>The result? You get 10% efficiency gains instead of 10x transformation. The businesses winning in 2026 redesigned their operations around autonomous agents from day one. <br><br><strong>Takeaway:</strong> Don\'t bolt AI onto old processes. Redesign processes for AI-first operation.'
+    ],
+    'What does "90% is just a text editor" mean in practice?':[
+      'It means that <strong>90% of what people call "AI adoption" is just using AI to generate or edit text</strong> — emails, social posts, summaries, reports. That\'s valuable, yes. But it\'s not transformational. <br><br>A text editor still requires you to be the operator. You type the prompt, review the output, copy-paste, send. You\'re the bottleneck. An agent, on the other hand, handles the entire loop — detects the need, drafts the content, sends it, tracks engagement, and adjusts future messaging. <br><br><strong>Takeaway:</strong> If you\'re still the one pushing "send," you\'re using a tool, not an agent.',
+      'Think of it this way: a text editor AI is like having a really fast typist. An agent is like having a <strong>communication manager who never sleeps</strong>. <br><br>The typist (text editor) can draft your emails 3x faster. But you still need to open your inbox, decide what to reply to, give instructions, review, and hit send. The agent monitors your inbox, identifies leads, drafts context-aware replies, follows up at the right time, and logs everything in your CRM — without you touching a keyboard. <br><br><strong>Takeaway:</strong> Speed ≠ automation. True leverage means removing yourself from the loop entirely.'
+    ],
+    'How do I know if my business is in the 95% or the 5%?':[
+      'Here\'s a quick litmus test: <strong>Can you leave your business for 3 days and have customer-facing work continue without you?</strong> If the answer is no, you\'re in the 95%. <br><br>The 5% have at least one autonomous workflow running — lead qualification, follow-up sequences, appointment scheduling, report generation — something that operates without human prompting. They\'re not just "using AI"; they\'ve deployed agents that handle complete processes. <br><br><strong>Takeaway:</strong> Your first goal isn\'t to automate everything. It\'s to automate one complete workflow from trigger to completion.',
+      'Ask yourself three questions: (1) Do I have any system that runs without me typing a prompt? (2) Does any part of my business improve its own performance over time? (3) Can I measure time saved in hours per week, not just minutes per task? <br><br>If you answered "no" to all three, you\'re in the 95%. But here\'s the good news: moving to the 5% doesn\'t require a massive investment. It requires one well-designed agent handling one complete workflow. <br><br><strong>Takeaway:</strong> Don\'t try to leap from 0 to 100. Find one workflow, automate it end-to-end, and build from there.'
+    ],
+    'Why is 2026 different from the AI hype of 2022?':[
+      '2022 was about <strong>awareness</strong> — people realized AI existed. 2023 was about <strong>experimentation</strong> — everyone tried ChatGPT. 2024 was about <strong>disappointment</strong> — the hype didn\'t match reality for most businesses. But 2026 is different because the technology finally matches the promise. <br><br>Agentic AI has matured. Agents can now maintain context over days, integrate with your CRM, calendar, and email, and make decisions within boundaries you set. The infrastructure — APIs, no-code platforms, connectors — is finally ready for non-technical business owners. <br><br><strong>Takeaway:</strong> The gap between early adopters and everyone else is about to widen dramatically. The window to catch up is narrowing.',
+      'In 2022, AI was a novelty — impressive demos, but limited practical use. By 2026, three things changed: <strong>agents became autonomous</strong> (not just reactive), <strong>integrations became plug-and-play</strong> (no engineering team needed), and <strong>the cost dropped below an employee\'s monthly salary</strong>. <br><br>Think of it like the internet in 2005 vs 2000. In 2000, having a website was a novelty. By 2005, not having one meant you were invisible. AI agents in 2026 are at that 2005 inflection point. <br><br><strong>Takeaway:</strong> This isn\'t hype anymore. It\'s infrastructure. And the businesses treating it as infrastructure are pulling ahead daily.'
+    ]
+  },
+  '1':{
+    'What does the 84% stat mean for my specific workday?':[
+      'The 84% stat means that if you walked into 10 SMBs today, 8 of them have <strong>someone using ChatGPT or a similar tool</strong>. But here\'s the critical nuance: using AI ≠ benefiting from AI. <br><br>In your workday, this likely looks like: someone on your team uses AI to draft an email or summarize a meeting. That saves maybe 10-15 minutes. Multiply by 5 employees, and you\'re saving about an hour a day. Sounds good, right? But you\'re still doing 90% of the work. <br><br><strong>Takeaway:</strong> 84% adoption means AI is mainstream. But mainstream adoption of tools doesn\'t change competitiveness. Only agents do.',
+      'For your workday, 84% means AI is <strong>already in your building</strong> — whether you deployed it or not. Your employees are using it. Your competitors are using it. The question isn\'t "Should I adopt AI?" — that ship sailed. <br><br>The real question is: are your people using AI as a productivity booster (tool), or have you deployed AI that runs processes without them (agent)? The difference is the gap between saving a few minutes and reclaiming entire workdays. <br><br><strong>Takeaway:</strong> Don\'t ask if you should adopt AI. Ask if your AI adoption is creating autonomous workflows or just assisted tasks.'
+    ],
+    'Why are only 5% of SMBs using real workflow automation?':[
+      'Three reasons: <strong>fear, complexity, and wrong starting points</strong>. Most owners hear "AI automation" and think they need to hire a developer, spend thousands, and overhaul their business. None of that is true anymore. <br><br>The second reason is complexity. Many tried to automate too much too fast — building complex agent systems before understanding the basics. They failed, got frustrated, and concluded "AI isn\'t ready for my business." <br><br>Third, they started with the wrong workflow. They tried to automate their most complex process first, instead of their most repetitive one. <br><br><strong>Takeaway:</strong> The 5% aren\'t smarter or richer. They started smaller, simpler, and with the right workflow. You can do the same this week.',
+      'The 5% share one trait: they <strong>started with a single, boring, repetitive workflow</strong>. Not their entire business. Not their most strategic process. One thing — like lead follow-up, appointment booking, or invoice reminders. <br><br>The other 95% either (a) haven\'t tried at all because it seems overwhelming, (b) tried to do too much and failed, or (c) are using AI tools but haven\'t made the mental shift to agents. The technology is ready. The platforms are simple. The missing ingredient is a clear starting point. <br><br><strong>Takeaway:</strong> Pick your most repetitive, rule-based task. That\'s your entry point. Don\'t overthink it.'
+    ],
+    'What does "40% time reclaimed" actually look like in practice?':[
+      'Let me make this concrete. Say you spend <strong>20 hours a week</strong> on: checking/answering emails (8h), following up with leads (4h), scheduling meetings (2h), generating reports (3h), and coordinating with your team (3h). <br><br>A well-designed agent stack could handle: email triage and drafting (save 6h), lead follow-up sequences (save 3.5h), scheduling (save 2h), report generation (save 2.5h), and status updates (save 1.5h). That\'s 15.5 hours — roughly <strong>40% of a 40-hour workweek reclaimed</strong>. <br><br><strong>Takeaway:</strong> 40% doesn\'t mean you work less. It means you redirect 40% of your time to high-value work: strategy, relationships, growth.',
+      'Here\'s a real breakdown from a 12-person consulting firm that implemented agents: Before: the owner spent 25+ hours/week on operations. After deploying agents for lead qualification, follow-ups, scheduling, and client onboarding: <strong>operational time dropped to 14 hours/week</strong>. <br><br>That\'s 11 hours redirected to business development and client strategy. Revenue grew 34% in the first quarter after deployment. Not because they worked harder — because the owner finally had time to work on the business, not in it. <br><br><strong>Takeaway:</strong> Time reclaimed isn\'t about leisure. It\'s about upgrading the type of work you do.'
+    ],
+    'Which of these three numbers should I act on first?':[
+      'Act on the <strong>5%</strong>. Here\'s why: the 84% just means "everyone\'s playing." The 40% is the potential reward. But the 5% is the <strong>competitive gap</strong> — and it\'s where your urgency should be. <br><br>When only 5% of your competitors have deployed autonomous agents, you have a massive first-mover advantage. Your lead response time drops from hours to seconds. Your follow-ups are consistent and personalized. Your business runs while you sleep. <br><br>Once 20-30% of your industry catches up, that advantage evaporates. The window is open now. <br><br><strong>Takeaway:</strong> Use the 84% as motivation (everyone\'s trying), the 40% as the goal (what you\'ll reclaim), and the 5% as your deadline (the advantage is temporary).',
+      'Start with the <strong>40%</strong>, because it gives you the clearest action plan. Here\'s the logic: 84% is context (everyone\'s using AI — so what?). 5% is a benchmark (a small group is ahead). But 40% is a <strong>target metric</strong> — it tells you exactly what to aim for. <br><br>If you currently spend 20 hours/week on operational tasks, your goal is to get that below 12 hours. That means identifying which tasks total roughly 8 hours and can be fully automated. Start with the easiest 2-3 hours, prove it works, then expand. <br><br><strong>Takeaway:</strong> Set a specific time-reclamation target. Then reverse-engineer which workflows get you there.'
+    ]
+  },
+  '2':{
+    'How do I identify which repetitive tasks to automate first?':[
+      'Use the <strong>"Would I hand this to a junior employee?"</strong> test. If a task is repetitive enough that you\'d trust a competent but inexperienced person to do it — following clear rules with predictable outcomes — it\'s automatable. <br><br>Common first candidates: email responses to common inquiries, lead qualification and routing, appointment scheduling, invoice/payment reminders, standard reporting, social media posting, customer onboarding checklists. <br><br>Rank them by: (1) How much time they consume weekly, (2) How rule-based they are, (3) How painful they are to do manually. Pick the one that scores highest across all three. <br><br><strong>Takeaway:</strong> Your first automation target should be your most time-consuming, most predictable, most annoying task.',
+      'Look for the <strong>"three Ds": Dull, Daily, and Decision-light</strong>. Tasks that are boring, happen every day (or several times a day), and don\'t require complex judgment calls are your goldmine. <br><br>For most SMBs, this lands on: answering the same 10 customer questions, processing the same types of orders, generating the same weekly reports, or following up with the same types of leads. These tasks aren\'t just automatable — they\'re the tasks <strong>most improved by automation</strong>, because humans get sloppy with repetition while agents don\'t. <br><br><strong>Takeaway:</strong> The tasks you hate doing are usually the tasks agents do best. Start there.'
+    ],
+    'What does "the window is closing" actually mean for SMBs?':[
+      'It means two things simultaneously. First, the <strong>competitive advantage of being early is shrinking</strong>. Right now, if your business responds to leads in 2 minutes while competitors take 2 hours, you win the deal. But as more businesses deploy response agents, the 2-minute response becomes the standard — not the advantage. <br><br>Second, the <strong>cost of entry is about to increase</strong>. Early adopters are building data moats — their agents are learning, optimizing, and creating compound advantages. Late adopters will face not just a technology gap but an experience gap. <br><br><strong>Takeaway:</strong> The window isn\'t about technology availability. It\'s about competitive position. Deploy now to establish your data advantage.',
+      'Think of it like getting a website in 1999 vs 2005. In 1999, having any website at all made you stand out. By 2005, not having one made you invisible. AI agents are following the same curve, just faster. <br><br>"The window is closing" means: <strong>in 12-18 months, having agents will be table stakes</strong>. Customers will expect instant responses. Partners will expect automated coordination. The question won\'t be "Do you use AI?" — it\'ll be "Why don\'t your systems talk to mine?" <br><br><strong>Takeaway:</strong> You don\'t need to be perfect. You need to be running. A simple agent today beats a perfect plan next year.'
+    ],
+    'How do I know if I\'m ready to start using AI agents?':[
+      'You\'re ready if you can answer yes to these three: <strong>(1)</strong> You have at least one process that\'s documented or documentable — even if it\'s just "check new leads, qualify them, send follow-up email." <strong>(2)</strong> You use cloud-based tools (email, CRM, calendar, spreadsheets). <strong>(3)</strong> You\'re willing to spend 2-4 hours setting something up. <br><br>That\'s it. You don\'t need a developer. You don\'t need a big budget. You don\'t need to understand machine learning. Modern agent platforms are no-code or low-code, and many have templates for common SMB workflows. <br><br><strong>Takeaway:</strong> If you use Gmail and a spreadsheet, you\'re ready. The technology barrier is near zero. The only barrier is deciding to start.',
+      'If you\'re reading this lesson, you\'re already ready. Seriously. The prerequisites for deploying your first agent aren\'t technical — they\'re organizational. You need: <strong>a clear task</strong> (what should the agent do?), <strong>defined rules</strong> (when should it act?), and <strong>access to your data</strong> (where does it get information?). <br><br>Most SMBs have all three. You know which emails need responses. You know what qualifies a lead. You know when invoices should be sent. The agent just executes what you already know — consistently, instantly, and without forgetting. <br><br><strong>Takeaway:</strong> Readiness isn\'t about technology skills. It\'s about clarity on your processes. If you can explain a task to an employee, an agent can do it.'
+    ],
+    'What should I do differently starting tomorrow?':[
+      'One thing: <strong>Automate your lead response</strong>. Not next quarter, not after a strategy workshop — tomorrow. Here\'s the simplest version: set up an agent that monitors your inbox (or lead form), sends a personalized response within 60 seconds, and logs the interaction in your CRM. <br><br>This single automation typically improves lead conversion by 30-50%, because speed-to-lead is the #1 predictor of conversion. It takes 2-4 hours to set up with modern no-code tools. <br><br><strong>Takeaway:</strong> Don\'t plan for months. Deploy one agent this week. Lead response is the highest-ROI starting point for virtually every SMB.',
+      'Tomorrow morning, try this exercise: <strong>Track every task you do for 2 hours</strong>. Write each one down. Then classify them into three buckets: "Only I can do this" (strategic decisions, relationships), "An employee does this" (routine but judgment-needed), and "A machine should do this" (repetitive, rule-based). <br><br>The third bucket is your automation roadmap. Whatever ends up there — start with the item that consumes the most time. By the end of this week, you could have your first agent handling it. <br><br><strong>Takeaway:</strong> Awareness precedes action. Track your tasks, identify the automatable ones, and pick one to deploy this week.'
+    ]
+  },
+  'quiz1':{
+    'Why is the correct answer C?':[
+      'Option C identifies the real barrier: <strong>most SMBs are using tools that still require constant human input</strong>. Think about it — if you\'re using ChatGPT to draft emails, you\'re still the operator. You prompt, it generates, you review, you send. The bottleneck is you. <br><br>Cost (A) isn\'t the blocker — many agent solutions are free or under $50/month. Complexity (B) isn\'t either — no-code platforms have made deployment accessible to non-technical users. The real issue is that businesses haven\'t shifted from "AI as a tool I use" to "AI as a system that runs independently." <br><br><strong>Key insight:</strong> The gap isn\'t adoption — it\'s autonomy.',
+      'The correct answer is C because it gets to the <strong>root cause vs. surface symptoms</strong>. Cost and complexity are common objections, but they\'re not why the 95% are stuck. <br><br>Here\'s proof: even free AI tools would transform most businesses if deployed as agents rather than used as chatbots. The barrier isn\'t price or difficulty — it\'s the mental model. Most owners still think of AI as "a smarter employee" when they should think of it as "an automated system." <br><br><strong>Key insight:</strong> When you change your mental model from tool to agent, cost and complexity objections fade.'
+    ],
+    'What\'s the difference between using AI tools vs AI agents in practice?':[
+      'In practice, the difference is <strong>who\'s driving</strong>. With AI tools, you\'re the driver. Every interaction requires your input: you open the tool, type the prompt, review the output, decide what to do with it, and execute. You\'re faster, but you\'re still in the loop. <br><br>With AI agents, the agent is the driver. You set the rules, define the boundaries, and then step back. The agent monitors, decides, acts, and reports — all within the parameters you set. You review outcomes, not individual actions. <br><br><strong>Practical example:</strong> Tool = you ask ChatGPT to draft a follow-up email, then you copy, paste, and send. Agent = the agent detects a new lead, drafts a personalized follow-up based on lead data, sends it at the optimal time, and logs the response — without you touching anything.',
+      'Think of it like the difference between <strong>driving a car and taking a taxi</strong>. With a tool (driving yourself), you have full control but you\'re doing all the work. With an agent (taxi), you give the destination and constraints, then the system handles the route, traffic, and timing. <br><br>In business terms: an AI tool helps you write a better email. An AI agent manages your entire email pipeline — receiving, categorizing, drafting, sending, and following up — while you focus on conversations that need your personal touch. <br><br><strong>The shift:</strong> Tools make you more efficient. Agents make you more effective by freeing you from the work entirely.'
+    ]
+  },
+  '3':{
+    'Can you give me an example of tool vs agent in my industry?':[
+      'Let me give you a universal example that works across almost every industry. <strong>Customer inquiries:</strong> <br><br><strong>Tool approach:</strong> You get an email from a potential customer. You copy their question into ChatGPT, get a draft response, edit it, and send it back. Time saved: maybe 2 minutes per email. <br><br><strong>Agent approach:</strong> A customer fills out a form on your website. Within 30 seconds, the agent reads their inquiry, checks your calendar, drafts a personalized response referencing your services, sends it, offers three meeting times that actually work, logs everything in your CRM, and sets a reminder to follow up if they don\'t respond in 48 hours. Time you spend: zero. <br><br><strong>Takeaway:</strong> Same customer, same inquiry. The tool saves minutes. The agent saves the entire interaction.',
+      'Here\'s one for service businesses (consulting, agencies, professional services): <strong>Proposal generation.</strong> <br><br><strong>Tool:</strong> You feed project details into ChatGPT, get a proposal draft, spend 45 minutes customizing it, export to PDF, and email it. You saved maybe 30 minutes vs writing from scratch. <br><br><strong>Agent:</strong> When a new qualified lead enters your CRM, the agent automatically pulls relevant case studies, matches pricing to the lead\'s company size, generates a branded proposal, attaches relevant testimonials, and sends it — personalized — within 5 minutes of lead qualification. You review the final version and approve with one click. <br><br><strong>Takeaway:</strong> The tool accelerates a task you still own. The agent owns the task and asks for your approval.'
+    ],
+    'How do I identify if a product I\'m using is really an agent?':[
+      'Ask one question: <strong>"Does this system take action without me prompting it?"</strong> If the answer is no, it\'s a tool — no matter how sophisticated its AI is. <br><br>Here\'s a checklist: Does it monitor something automatically? (sense) Does it make decisions based on rules or data? (plan) Does it execute actions — sending emails, updating records, moving tasks? (act) Does it learn from outcomes and improve? (reflect) If it does 3 or more of these autonomously, it\'s an agent. If it only acts when you interact with it, it\'s a tool. <br><br><strong>Watch out for:</strong> Many products claim "AI-powered" or "autonomous" but still require you to trigger every action. Read the fine print. Test it: stop using it for a day. If work still got done, it\'s an agent. If nothing happened, it\'s a tool.',
+      'The simplest test I know: <strong>Go on vacation for a week without touching your laptop.</strong> When you come back, check what happened in your absence. <br><br>If your AI tool generated some drafts you never sent, some insights you never read, and some suggestions you never acted on — that\'s a tool. If leads were followed up with, appointments were scheduled, reports were generated, and customers received updates — that\'s an agent. <br><br><strong>Key indicator:</strong> Tools wait for you. Agents don\'t. The distinction is in the autonomy, not the intelligence.'
+    ],
+    'What are the most common "tools dressed as agents" right now?':[
+      'The biggest offenders: <strong>AI chatbots on websites</strong> that just collect information and email it to you (that\'s a form, not an agent). <strong>"Smart" email composers</strong> that suggest replies but require you to click send (that\'s autocomplete, not an agent). <strong>AI schedulers</strong> that propose times but can\'t actually book meetings (that\'s a suggestion engine). <br><br>Even some CRM "AI features" are just tools — they score leads or suggest next steps, but they don\'t execute anything. The difference between "AI suggests" and "AI does" is the gap between tool and agent. <br><br><strong>Red flag:</strong> If the product\'s marketing says "AI-powered" but its core workflow still requires you to review and approve every single action, it\'s probably a tool with smart features, not an agent.',
+      'I see three categories of impostors regularly: <br><br><strong>1. The "AI Assistant"</strong> — sits in your app waiting for your prompt. It\'s smart, but it\'s still a tool because you\'re always the trigger. <br><strong>2. The "Automation Flow"</strong> — sequences of "if-this-then-that" rules. These are workflows, not agents, because they can\'t adapt or make decisions. <br><strong>3. The "Copilot"</strong> — watches what you do and offers suggestions. Helpful, but you\'re still doing the work. <br><br>A true agent combines all three: it monitors (like a copilot), acts in sequences (like automation), and makes intelligent decisions (like an AI assistant) — without needing you to initiate or approve every action. <br><br><strong>Takeaway:</strong> "AI-powered" is a marketing term. "Runs autonomously" is the real distinction.'
+    ],
+    'How much more effective is an agent than a tool, numerically?':[
+      'Here are the numbers that matter: <br><br><strong>Lead response time:</strong> AI tool (drafted by human) = 2-4 hours average. AI agent (autonomous) = under 60 seconds. Conversion impact: 391% increase in contact rate when leads are contacted within 1 minute vs 30 minutes. <br><br><strong>Follow-up consistency:</strong> Human with tool = 65% of leads get followed up (some slip through). Agent = 100%, every time, without fail. <br><br><strong>Time savings:</strong> Tool = 10-20% efficiency gain per task. Agent = 80-100% of task time eliminated. <br><br><strong>Takeaway:</strong> Tools make you faster at tasks you still own. Agents eliminate tasks you no longer need to own. The numerical difference is measured not in percentages — but in hours per week.',
+    ]
+  },
+  '4':{
+    'What does "cognitive load" mean in a business context?':[
+      'Cognitive load is the <strong>total amount of mental effort required to manage your work</strong>. Every decision you make, every email you triage, every task you prioritize — each one consumes mental bandwidth. <br><br>Here\'s the problem: human cognitive bandwidth is finite. Research shows we make about 35,000 decisions per day, and decision fatigue is real. By 3 PM, most business owners are making worse decisions than they did at 9 AM — not because they\'re less capable, but because their mental bandwidth is depleted. <br><br>AI tools don\'t reduce cognitive load — they might even increase it by giving you more options to evaluate. <strong>AI agents reduce cognitive load</strong> because they eliminate entire decision chains from your day. <br><br><strong>Takeaway:</strong> The ultimate luxury in business isn\'t more revenue — it\'s more mental bandwidth for the decisions that actually matter.',
+      'In business, cognitive load is the invisible tax on your performance. Every time you switch between tasks, check if a lead was followed up, verify a report was sent, or remember to schedule a meeting — that\'s cognitive load. It\'s not the work itself that drains you; it\'s the <strong>management of the work</strong>. <br><br>A business owner running a 10-person company might spend 60% of their mental energy on management and only 40% on strategy and growth. AI agents can flip that ratio by handling the management layer entirely. <br><br><strong>Takeaway:</strong> If you end most days feeling busy but not productive, cognitive load is likely the culprit — and agents are the cure.'
+    ],
+    'Give me a simple test to apply this to any AI product.':[
+      'The <strong>"Coffee Test"</strong>: Imagine you\'ve just sat down with your morning coffee, laptop closed, phone face-down. A new lead comes in. <br><br><strong>Product A (tool):</strong> Sends you a notification. You finish your coffee, open your laptop, log in, see the lead, use the AI feature to draft a response, review it, and send it. <br><br><strong>Product B (agent):</strong> You finish your coffee and see a notification: "Lead contacted, personalized email sent, follow-up scheduled for Thursday, and CRM updated." You didn\'t do anything. <br><br>Product A gave you a faster way to work. Product B eliminated work from your morning. That\'s the cognitive load test. <br><br><strong>Takeaway:</strong> Apply the Coffee Test to every AI product you evaluate. If you still need to open your laptop, it\'s a tool.',
+      'Here\'s the <strong>"3 AM Test"</strong>. It\'s 3 AM. A customer from another timezone submits a support request on your website. <br><br>If your AI system sends them an acknowledgment and routes it to the right person — that\'s basic automation (better than nothing, but still just a workflow). If your AI system resolves their issue, updates their account, and sends a satisfaction survey — that\'s an agent. <br><br>The difference: the tool/system needed rules you programmed. The agent understood the context and took appropriate action autonomously. <br><br><strong>Takeaway:</strong> The more your system can handle situations you didn\'t explicitly program for, the closer it is to being a true agent.'
+    ],
+    'Where in my own business is cognitive load highest right now?':[
+      'For most SMB owners, cognitive load clusters in three areas: <strong>communication management</strong> (deciding which emails/messages need responses and what to say), <strong>coordination overhead</strong> (keeping track of who\'s doing what, when, and whether it\'s done), and <strong>information synthesis</strong> (turning raw data — reports, metrics, feedback — into decisions). <br><br>These three areas are where agents deliver the most immediate relief. A communication agent handles triage and drafting. A coordination agent manages task tracking and follow-ups. An insight agent synthesizes your data into weekly summaries. <br><br><strong>Quick exercise:</strong> For the next hour, put a tally mark on a piece of paper every time you switch tasks or make a minor decision. The area with the most marks is your highest cognitive load zone — and your best first agent target.',
+      'Without knowing your specific business, I can tell you the <strong>universal high-cognitive-load zones</strong> for SMBs: inbox management (the constant "what needs my attention?" question), scheduling ("when can everyone meet?"), status tracking ("where are we on X project?"), and customer follow-up ("did anyone reach out to that lead?"). <br><br>These tasks share a common trait: they\'re not difficult, but they\'re endless. Each one individually takes 30 seconds. But collectively, they consume hours of mental bandwidth every day. That\'s cognitive load — death by a thousand micro-decisions. <br><br><strong>Takeaway:</strong> Your highest cognitive load isn\'t your hardest task. It\'s the accumulation of easy tasks that interrupt your deep work.'
+    ]
+  },
+  '5':{
+    'Walk me through the full SPAR loop with a real example.':[
+      'Let\'s use <strong>lead qualification for a service business</strong>: <br><br><strong>Sense:</strong> A new inquiry arrives via your website form. The agent detects it and reads the submission — company name, industry, project description, budget range. It also checks your CRM for any prior touchpoints. <br><br><strong>Plan:</strong> Based on the data, the agent decides this is a warm lead (industry match, budget within range). It plans to: send a personalized acknowledgment within 60 seconds, offer relevant case studies, and propose a meeting using your calendar availability. <br><br><strong>Act:</strong> The agent drafts and sends the email, attaches two relevant case studies, and includes three available meeting times — all personalized to the lead\'s specific inquiry. <br><br><strong>Reflect:</strong> After 48 hours, the agent checks: was the email opened? Was the link clicked? Did they book? Based on the results, it adjusts the follow-up timing and messaging for similar leads. <br><br><strong>That\'s the SPAR loop — and it runs without you touching anything.</strong>',
+      'Here\'s a SPAR loop for <strong>customer support automation</strong>: <br><br><strong>Sense:</strong> A customer emails about a billing issue. The agent reads the email, checks the customer\'s account history, recent transactions, and previous support tickets. <br><br><strong>Plan:</strong> The agent identifies this as a recurring billing error — the customer was charged twice. It determines the resolution: refund the duplicate charge, update the billing record, and send a confirmation. If the issue were more complex (first-time, unclear cause), it would escalate to a human instead. <br><br><strong>Act:</strong> The agent processes the refund, updates the record, and sends a personalized email explaining what happened, confirming the fix, and offering a discount code for the inconvenience. <br><br><strong>Reflect:</strong> It logs this interaction pattern. After seeing 5 similar cases, it flags the root cause to the billing team and proactively checks other accounts for the same issue. <br><br><strong>The magic of SPAR:</strong> Steps 1-3 are impressive. Step 4 is what separates agents from automation.'
+    ],
+    'Which step of SPAR is hardest to implement?':[
+      'The hardest step is almost always <strong>Reflect</strong> — and it\'s also the most valuable. Here\'s why it\'s hard: Sense, Plan, and Act are deterministic — you can define rules for them. "If a lead comes in, send this email." Clear, testable, predictable. <br><br>But Reflect requires the agent to evaluate outcomes against goals and adjust its own behavior. That means: (1) defining success metrics, (2) giving the agent access to outcome data, (3) trusting it to make adjustments, and (4) accepting that it will sometimes make wrong adjustments while learning. <br><br>Most platforms support Sense-Plan-Act out of the box. Reflect requires more setup — connecting feedback loops, defining learning rules, and sometimes custom logic. But it\'s worth the effort, because Reflect is where the compound advantage lives. <br><br><strong>Takeaway:</strong> Don\'t skip Reflect. Even a simple version — "if response rate drops below X%, try different messaging" — creates meaningful improvement over time.',
+      'For most SMBs, <strong>Plan is the hardest to get right initially</strong>. Here\'s the nuance: Sense is straightforward (monitor this trigger). Act is straightforward (send this email, update this record). But Plan requires the agent to make a <strong>contextual decision</strong> — and that\'s where most initial deployments stumble. <br><br>"If the lead\'s budget is above $10K, do X; if below, do Y" — that\'s simple planning. But what about: "If the lead is from a referral source, mentioned a specific pain point, and hasn\'t responded to the first email — what should the tone and timing of the second email be?" That requires nuanced decision-making. <br><br><strong>Takeaway:</strong> Start with simple Plan logic (if-this-then-that). Add complexity as the agent proves reliable. The #1 mistake is trying to make the Plan too smart on day one.'
+    ],
+    'How is SPAR different from a regular automation tool?':[
+      'Regular automation is <strong>linear: if A happens, do B</strong>. It follows a fixed path, every time, regardless of context. It\'s like a train on tracks — efficient, but it can only go where the tracks lead. <br><br>SPAR is <strong>adaptive: if A happens, evaluate the context, choose the best approach from multiple options, execute, and learn from the outcome</strong>. It\'s more like a GPS navigation system — it knows the destination, but adapts the route based on real-time conditions. <br><br>Concrete example: Regular automation sends the same follow-up email to every lead on day 3. SPAR sends a different follow-up based on whether the lead opened the first email, what industry they\'re in, and what time they typically engage — and adjusts future follow-ups based on what worked. <br><br><strong>Takeaway:</strong> Automation repeats. SPAR adapts. That\'s the difference between a script and a system.',
+      'The key difference is in the <strong>P</strong> (Plan) and <strong>R</strong> (Reflect) steps. Regular automation skips both. <br><br>A Zapier workflow: "New lead → add to spreadsheet → send template email → notify sales rep." That\'s Sense + Act. No planning (always the same response), no reflection (never improves). <br><br>A SPAR agent: "New lead → analyze lead data and match to best response strategy → send personalized outreach → track engagement → adjust messaging and timing for similar leads." The Plan step makes it contextual, the Reflect step makes it self-improving. <br><br><strong>Think of it this way:</strong> Automation is a recipe — follow the same steps, get the same result. SPAR is a chef — knows the techniques, adapts to the ingredients, and gets better with every dish.'
+    ],
+    'What does a SPAR agent look like for a service business?':[
+      'For a consulting, agency, or professional services firm, a SPAR agent typically handles the <strong>client acquisition pipeline</strong>: <br><br><strong>Sense:</strong> Monitors website forms, LinkedIn inquiries, referral emails, and proposal requests. Detects new opportunities and enriches them with publicly available data (company size, recent news, industry). <br><br><strong>Plan:</strong> Scores each opportunity based on fit (industry, budget, timeline) and routes it accordingly. Hot leads get immediate personalized outreach. Warm leads get nurtured with relevant content. Cold leads get periodic check-ins. <br><br><strong>Act:</strong> Sends personalized emails, schedules discovery calls, generates preliminary proposals using your templates, and prepares briefing docs for your meetings. <br><br><strong>Reflect:</strong> Tracks which outreach strategies convert, which content resonates with which industries, and which proposal formats close fastest. Adjusts everything accordingly. <br><br><strong>Result:</strong> Your pipeline runs 24/7. You only get involved for strategy calls and final negotiations.'
+    ]
+  },
+  '6':{
+    'Why is Reflect considered the most valuable step?':[
+      'Because Reflect is the only step that creates <strong>compound, self-reinforcing improvement</strong>. Without it, your agent performs the same way on day 100 as it did on day 1. With it, your agent is measurably better every week. <br><br>Think of Sense, Plan, and Act as the engine — they move the car forward. Reflect is the improvement cycle that makes the engine more efficient over time. An agent without Reflect is like a car with no maintenance — it works, but it degrades. An agent with Reflect is like a car that tunes itself. <br><br>Here\'s the math: if your agent improves its lead response effectiveness by just 2% per week through reflection, after 6 months it\'s performing 64% better than day one. That\'s not theoretical — it\'s the compounding power of self-improvement. <br><br><strong>Takeaway:</strong> The 5% of businesses deploying agents with Reflect are building an asset that appreciates. Everyone else\'s technology depreciates.',
+      'Most people underestimate Reflect because its value isn\'t visible on day one. Sense, Plan, and Act deliver immediate results — you can see the emails being sent, the meetings being booked. Reflect\'s value shows up over weeks and months. <br><br>But here\'s what makes Reflect invaluable: <strong>it turns your agent into a learning system</strong>. Without Reflect, your agent uses the same logic forever. With Reflect, it builds an increasingly accurate model of what works for your specific business, your specific customers, and your specific market. <br><br>After 3 months, a Reflect-enabled agent knows things about your customers that no employee could — because it\'s tracked thousands of interactions and identified patterns no human would notice. <br><br><strong>Takeaway:</strong> Don\'t skip Reflect to save time. It\'s the difference between an agent that works and an agent that evolves.'
+    ],
+    'What does "compounding AI advantage" mean in real terms?':[
+      'It means that <strong>every cycle makes the next cycle better</strong> — and the improvements accumulate exponentially, not linearly. <br><br>Here\'s a concrete example: Month 1, your agent sends 100 follow-up emails with a 12% response rate. Through Reflect, it learns that emails sent on Tuesday mornings with subject lines referencing the lead\'s industry perform 40% better. Month 2, it adjusts — response rate jumps to 17%. Month 3, it learns that adding a specific case study for healthcare leads improves conversion another 25%. By month 6, your agent is performing 3-4x better than day one. <br><br>Meanwhile, your competitor — who deployed the same agent but skipped Reflect — is still getting that original 12%. The gap widens every month, and it\'s almost impossible to close because your agent has 6 months of learning data. <br><br><strong>Takeaway:</strong> Compounding advantage means the early bird doesn\'t just get the worm — they get better at catching worms over time.',
+      'In finance, compounding means your money makes money, which makes more money. In AI, compounding means your agent\'s outcomes improve outcomes, which further improves outcomes. <br><br><strong>Month 1:</strong> Agent handles 50 interactions. Learns basic patterns. <strong>Month 3:</strong> 150 cumulative interactions. Agent now knows your audience well enough to personalize effectively. <strong>Month 6:</strong> 500+ interactions. Agent outperforms most employees on routine tasks. <strong>Month 12:</strong> 1,000+ interactions. Agent has institutional knowledge that would take a new employee 2 years to build. <br><br>That\'s compounding AI advantage. And it\'s why starting now — even imperfectly — is infinitely better than starting later with a "perfect" solution. <br><br><strong>Takeaway:</strong> Every day you delay, you\'re not just losing time — you\'re losing learning cycles your agent could be compounding on.'
+    ],
+    'How long until an agent meaningfully improves through reflection?':[
+      'For most SMB workflows, you\'ll see <strong>meaningful improvement within 2-4 weeks</strong> of deployment. Here\'s the timeline: <br><br><strong>Days 1-7:</strong> The agent operates on its initial rules. It\'s functional but generic — like a new employee following a playbook. <br><br><strong>Days 8-14:</strong> The Reflect step starts accumulating data. It identifies which email templates get opened, which times get responses, and which lead types convert. First small adjustments happen. <br><br><strong>Days 15-30:</strong> The agent has enough data to make meaningful pattern-based decisions. Response rates improve, and you start noticing the difference in your dashboard. <br><br><strong>Days 30-90:</strong> Compound effects kick in. The agent is now performing significantly better than day one, and the gap widens weekly. <br><br><strong>Takeaway:</strong> Be patient for the first two weeks. The ROI curve is flat initially, then turns sharply upward.',
+      'It depends on volume, but here\'s a practical guide: <br><br>If your agent handles <strong>10+ interactions per week</strong>, you\'ll see noticeable improvement in 3-4 weeks. If it handles <strong>50+ per week</strong>, you might see it in 10-14 days. If it handles fewer than 5 per week, Reflect will still work — it\'ll just take 6-8 weeks to accumulate enough signal. <br><br>The key variable isn\'t time — it\'s <strong>interaction volume</strong>. Reflection needs data to learn from. So pick a workflow with consistent volume as your first agent target. Lead follow-up is ideal because most SMBs get at least a few inquiries per week. <br><br><strong>Takeaway:</strong> Don\'t deploy Reflect on a workflow that only triggers once a month. Choose high-volume, repetitive processes for maximum learning speed.'
+    ],
+    'What can an agent actually learn to optimize for my business?':[
+      'The most valuable things agents learn are <strong>timing and personalization patterns</strong>: <br><br><strong>Optimal send times:</strong> Your agent learns when your specific audience is most likely to open and respond — not generic "Tuesday morning" advice, but patterns specific to your market. <br><br><strong>Message effectiveness:</strong> It tracks which subject lines, tone styles, and content formats generate the highest engagement. Over time, it builds a communication style guide tailored to your audience. <br><br><strong>Lead scoring refinement:</strong> Initial lead scoring rules (budget, industry, timeline) get refined with actual conversion data. The agent learns which signals actually predict closed deals for your business. <br><br><strong>Process optimization:</strong> It identifies bottlenecks — "leads from referrals convert 3x faster than website leads, but we follow up 2 days slower on referrals" — and adjusts automatically. <br><br><strong>Takeaway:</strong> Your agent becomes a domain expert in your business — one that never forgets and constantly optimizes.'
+    ]
+  },
+  'quiz2':{
+    'Why is option C the correct SPAR agent?':[
+      'Option C is the only one that demonstrates the full SPAR loop: <strong>Sense</strong> (detects new leads), <strong>Plan</strong> (crafts personalized responses based on lead data), <strong>Act</strong> (updates CRM, sends outreach), and crucially, <strong>Reflect</strong> (learns from reply rates to improve future outreach). <br><br>Option A likely only covers Sense + Act — it monitors and sends, but doesn\'t plan personalized approaches or reflect on outcomes. Option B probably has Sense + Plan + Act but lacks the Reflect step — it follows rules but doesn\'t learn. <br><br>The Reflect step is what makes C a true agent vs a sophisticated automation. Without reflection, the system repeats the same behavior forever. With it, it compounds improvement. <br><br><strong>Key insight:</strong> When evaluating any AI system, check for the R. That\'s where the magic lives.',
+      'The critical difference is the <strong>Reflect step</strong>. All three options likely involve some level of monitoring (Sense) and action (Act). But option C specifically mentions learning from outcomes — adjusting outreach based on reply rates. <br><br>That learning loop is what transforms a tool into an agent. A sends the same email to every lead. B might personalize based on lead data. But C personalizes AND improves based on results. After 100 leads, C is performing significantly better than B — and the gap only widens over time. <br><br><strong>Remember:</strong> SPAR without R is just SPA — a sophisticated automation, not an agent. The R is non-negotiable.'
+    ],
+    'Can you explain the difference between B and C?':[
+      'Option B is a <strong>smart automation</strong> — it can sense triggers and plan responses based on data, then act on them. It\'s impressive and useful. But it has a ceiling: it only knows what you programmed into it. <br><br>Option C adds the Reflect layer, which breaks through that ceiling. After C processes 200 leads, it knows things you never programmed — like "leads from the healthcare industry respond 40% better to case study emails sent on Wednesdays." B can never learn this because it doesn\'t reflect. <br><br>In practical terms: B delivers consistent results (good). C delivers <strong>improving results</strong> (transformational). After 3 months, C is a different system than it was on day one. B is exactly the same. <br><br><strong>Takeaway:</strong> If you\'re choosing between B and C, always choose C. The setup effort is similar, but the long-term value is incomparable.',
+      'The difference between B and C comes down to one word: <strong>learning</strong>. <br><br>Option B follows the rules you give it — perfectly, consistently, but statically. It\'s like an employee who does exactly what you say but never develops judgment. Option C does everything B does, plus it develops judgment over time by reflecting on what works and what doesn\'t. <br><br>Think of B as a well-built machine and C as a well-built machine that also has a feedback loop. The machine (B) produces the same output forever. The machine with feedback (C) continuously optimizes its output. <br><br><strong>Real impact:</strong> A B-type system might give you 20% efficiency gains that plateau. A C-type system gives you 20% gains in month one, 35% in month three, and 50%+ by month six. Same starting point, completely different trajectory.'
+    ]
+  },
+  '7':{
+    'How do I apply SPAR to evaluate vendors I\'m already paying?':[
+      'Use SPAR as a <strong>vendor evaluation checklist</strong>. For every AI tool or service you pay for, ask: <br><br><strong>Sense:</strong> Does it automatically monitor something — leads, customers, data, transactions? Or do you have to feed it information manually? <br><br><strong>Plan:</strong> Does it make decisions based on context? Or does it apply the same logic to every situation? <br><br><strong>Act:</strong> Does it execute actions in your other systems — CRM, email, calendar? Or does it just show you a dashboard? <br><br><strong>Reflect:</strong> Does it track its own performance and improve? Or does it need you to adjust settings manually? <br><br>If a vendor scores 3-4 on SPAR, you\'re getting agent value. If it scores 1-2, you\'re paying for a tool — and you might find cheaper alternatives, or be able to replace it with a true agent. <br><br><strong>Takeaway:</strong> Apply SPAR to your tech stack audit. You might find you\'re overpaying for tools that agents could replace.',
+      'Here\'s a practical exercise: list every AI tool or SaaS product you pay for. For each one, write one sentence describing what it actually does when you\'re not looking. <br><br>If the sentence starts with "It shows me..." or "It helps me..." — that\'s a tool. You\'re doing the work; it\'s assisting. <br><br>If the sentence starts with "It automatically..." or "It sends/updates/schedules..." — that\'s closer to an agent. But check: does it learn and improve? If not, it\'s automation, not an agent. <br><br>Rank your tools by how close they are to full SPAR. The ones scoring lowest are your prime candidates for replacement by a true agent platform. <br><br><strong>Takeaway:</strong> Every dollar spent on a tool that could be an agent is a dollar not compounding.'
+    ],
+    'What\'s the most common mistake owners make when deploying agents?':[
+      'The #1 mistake is <strong>automating the wrong process first</strong>. Most owners start with their biggest, most complex process — thinking "if AI can handle this, everything else will be easy." <br><br>The opposite is true. Your first agent should be your simplest, most repetitive process — the one you could explain to a new hire in 10 minutes. Why? Because your first deployment is about learning how agents work, building trust, and establishing a workflow you can expand. <br><br>If you start with a complex process, you\'ll hit edge cases, get frustrated, and conclude "agents don\'t work for my business." Start simple, build confidence, then scale. <br><br><strong>Takeaway:</strong> Your first agent should be boring. Boring means predictable. Predictable means automatable. Save the exciting, complex stuff for agent #2 and #3.',
+      'Three mistakes I see repeatedly: <br><br><strong>1. Perfection paralysis:</strong> Spending months designing the "perfect" agent instead of deploying a "good enough" one. Remember: an agent that runs and improves is infinitely better than a perfect plan on a whiteboard. <br><br><strong>2. No boundaries:</strong> Deploying an agent without clear rules about what it can and can\'t do. This leads to embarrassing mistakes — like an agent that offers a 50% discount to your best customer. Set clear guardrails. <br><br><strong>3. Forgetting the human handoff:</strong> Not defining when the agent should escalate to a human. No agent handles 100% of situations. Define the "I don\'t know" path clearly. <br><br><strong>Takeaway:</strong> Deploy fast, set boundaries, plan handoffs. Iterate from there.'
+    ],
+    'How does this change how I should think about my team?':[
+      'This is the most important mindset shift in the lesson. AI agents don\'t replace your team — they <strong>upgrade your team\'s role</strong>. Here\'s what I mean: <br><br>Today, your employees spend a significant portion of their day on tasks that agents handle better — data entry, scheduling, routine communications, status updates, basic reporting. When agents take over these tasks, your team is freed to do what humans do best: build relationships, solve novel problems, exercise creative judgment, and make strategic decisions. <br><br>Think of it as upgrading every employee from "operator" to "strategist." The person who used to spend 3 hours on follow-up emails now spends that time building client relationships. The person who manually compiled reports now analyzes them and identifies growth opportunities. <br><br><strong>Takeaway:</strong> Don\'t frame AI as "doing more with less." Frame it as "doing higher-value work with the same team." That\'s how you attract and retain great people.',
+      'Your team\'s job description is about to change — for the better. Here\'s the evolution: <br><br><strong>Before agents:</strong> Your team executes tasks. They\'re measured by output volume — emails sent, calls made, reports generated. <br><br><strong>After agents:</strong> Your team manages outcomes. They\'re measured by results — deals closed, client satisfaction, revenue growth. The agent handles the volume. The human handles the value. <br><br>This means you need to hire differently: less focus on task execution skills, more on strategic thinking, relationship building, and creative problem-solving. And your existing team? They need training and support to make this transition — not fear that they\'re being replaced. <br><br><strong>Takeaway:</strong> The best businesses in 2026 won\'t have fewer people. They\'ll have people doing fundamentally different — and more valuable — work.'
+    ]
+  },
+  '8':{
+    'How do I know if my automation idea is a good first agent?':[
+      'Score your idea on these four criteria (1-5 each, max 20): <br><br><strong>Frequency:</strong> How often does this task occur? (Daily = 5, Weekly = 3, Monthly = 1). High frequency means more data for the Reflect step. <br><br><strong>Repetition:</strong> How similar is each instance? (Nearly identical = 5, Very variable = 1). High repetition means easier to automate reliably. <br><br><strong>Rules-clarity:</strong> Can you explain the decision logic in plain language? (Simple rules = 5, Complex judgment = 1). <br><br><strong>Impact:</strong> How much time does it consume? (Hours/week = 5, Minutes/week = 1). <br><br>If your idea scores 14+, it\'s a great first agent. 10-14 is solid but might need simplification. Below 10? Save it for later — start with something simpler. <br><br><strong>Takeaway:</strong> The perfect first agent scores high on all four. Frequency feeds learning. Repetition ensures reliability. Clear rules enable deployment. High impact justifies the effort.',
+      'A good first agent passes the <strong>"Could a smart intern do this?"</strong> test with one addition: the intern needs explicit instructions, but an agent can learn. <br><br>Specifically, a great first agent idea has: a clear trigger (new lead, scheduled time, form submission), predictable inputs (email, form data, CRM record), defined outputs (send email, update record, schedule meeting), and measurable success (response rate, time saved, conversion rate). <br><br>If you can\'t define what "success" looks like numerically, the agent can\'t Reflect — and without Reflect, you\'re building automation, not an agent. <br><br><strong>Takeaway:</strong> Before building anything, define the trigger, input, output, and success metric. If any of these is fuzzy, simplify your idea.'
+    ],
+    'What makes a task a great candidate vs a bad one?':[
+      '<strong>Great candidates:</strong> Lead follow-up (clear trigger, defined rules, measurable outcomes), appointment scheduling (repetitive, predictable, time-consuming), invoice/payment reminders (simple logic, high frequency), customer onboarding sequences (standard steps, consistent process), report generation (template-based, data-driven). <br><br><strong>Poor candidates:</strong> Complex sales negotiations (requires human nuance and relationship), creative brand strategy (needs original thinking), legal/compliance decisions (high stakes, needs human accountability), crisis management (unpredictable, needs human judgment), hiring decisions (requires empathy and cultural fit assessment). <br><br>The pattern: great candidates are <strong>high-volume, low-complexity, and measurable</strong>. Poor candidates are <strong>high-stakes, high-judgment, and difficult to measure</strong>. <br><br><strong>Takeaway:</strong> If you\'d hesitate to let an intern handle it autonomously, it\'s not ready for an agent. Start where the stakes are lower.',
+      'The best tasks for agents share three traits: <strong>they\'re repetitive, rule-based, and have clear success metrics</strong>. Think: email triage, lead scoring, meeting scheduling, data entry, status updates, follow-up sequences. <br><br>The worst tasks for agents are: creative work, relationship-heavy interactions, strategic decisions, and anything with significant legal or reputational risk. Not because agents can\'t do these at all — but because the cost of a mistake is too high for a first deployment. <br><br><strong>Red flags:</strong> "It depends..." is the enemy of automation. If explaining the task requires the phrase "it depends on the situation," it\'s probably not a great first candidate. Save those for agent #3 or #4. <br><br><strong>Takeaway:</strong> Start boring. Start simple. Start measurable. The exciting, complex stuff comes after you\'ve built trust with simple wins.'
+    ],
+    'My business is complex — where do I start?':[
+      'Every complex business has simple subprocesses. The trick is to <strong>stop looking at the big picture and zoom into the smallest moving parts</strong>. <br><br>A complex consulting firm still needs to: confirm appointments, send invoices, follow up on proposals, and update project status. Each of these is a simple, automatable workflow hiding inside a complex business. <br><br>Start with the smallest, most isolated process — the one that touches the fewest other systems and people. For most businesses, that\'s appointment reminders or invoice follow-ups. Deploy there first. Learn the technology. Build confidence. Then expand to more interconnected processes. <br><br><strong>The "Russian Doll" approach:</strong> Your complex business is a series of nested simple processes. Automate the innermost one first, then work outward. <br><br><strong>Takeaway:</strong> Complexity is not a barrier to automation. It\'s a reason to start smaller.',
+      'I hear this a lot, and here\'s my response: <strong>"Complex" usually means "interconnected," not "impossible."</strong> The key is to find the loose thread — the process that\'s relatively self-contained. <br><br>Start by listing every recurring task in your business, no matter how small. Then rate each one on two dimensions: (1) How independent is it from other processes? (2) How repetitive is it? The tasks that score high on both are your entry point. <br><br>Example: a law firm is "complex" — but sending client meeting reminders is not complex. Confirming document receipt is not complex. Following up on outstanding invoices is not complex. Each of these is an autonomous agent opportunity hiding in plain sight. <br><br><strong>Takeaway:</strong> Don\'t be intimidated by your business\'s complexity. Complexity is a collection of simplicities. Start with one of them.'
+    ],
+    'Can my first agent be something very simple?':[
+      'Absolutely — in fact, it <strong>should</strong> be very simple. The simpler, the better. Your first agent isn\'t about transforming your business overnight. It\'s about three things: learning the technology, building confidence, and establishing a pattern you can replicate. <br><br>The simplest useful agent: <strong>"When someone fills out our contact form, send them a personalized acknowledgment email within 60 seconds."</strong> That\'s it. One trigger, one action. But it eliminates a task, creates a better customer experience (instant response), and teaches you how agents work. <br><br>Once that\'s running reliably for a week, add the Reflect step: track open rates and adjust the messaging. Then add Plan: customize the response based on the inquiry type. Step by step, you\'re building sophistication on a proven foundation. <br><br><strong>Takeaway:</strong> Your first agent should be embarrassingly simple. That\'s not a limitation — it\'s a strategy.',
+      'Not only can it be simple — <strong>simplicity is your competitive advantage</strong>. Here\'s why: the businesses that overcomplicate their first deployment spend months planning, thousands on consultants, and eventually abandon the project. The businesses that start with something trivially simple have a working agent in 2 hours and are improving it by day three. <br><br>Some embarrassingly simple but valuable first agents: "Remind me to follow up with leads that haven\'t responded in 48 hours." "Send a thank-you email after every completed appointment." "Generate a weekly summary of new leads and their status." <br><br>Each one takes under an hour to set up. Each one saves time immediately. And each one is a stepping stone to more sophisticated agents. <br><br><strong>Takeaway:</strong> The simpler your first agent, the faster you\'ll learn, deploy, and iterate. Complexity is a feature of mature agents, not first ones.'
+    ]
+  },
+  '9':{
+    'What tools would I use to deploy this rule in real life?':[
+      'For a simple trigger-response agent rule, here are accessible platforms for non-developers: <br><br><strong>No-code agent platforms:</strong> Make.com, Zapier Interfaces, and n8n (self-hosted) let you build SPAR-like agents visually, connecting triggers to actions with conditional logic and data storage. <br><br><strong>Dedicated AI agent builders:</strong> Platforms like Chatbase, CustomGPT, or Voiceflow let you build conversational agents that can connect to your data and tools via APIs. <br><br><strong>CRM-native automation:</strong> HubSpot, Salesforce, and Pipedrive all have built-in workflow automation that can be extended with AI capabilities. If you already use one, start there. <br><br><strong>For your first agent:</strong> I\'d recommend starting with whatever platform you already use daily. If that\'s HubSpot, build it there. If it\'s Gmail + Google Sheets, use Make.com to connect them. Familiarity reduces friction. <br><br><strong>Takeaway:</strong> Don\'t switch tools to build your first agent. Use what you already have and add automation on top.',
+      'The tool landscape for SMB AI agents has exploded in 2025-2026. Here\'s how to choose: <br><br><strong>If you want the easiest start:</strong> Use your existing CRM\'s automation features (HubSpot, ActiveCampaign, Keap). They\'re limited but familiar. <br><br><strong>If you want more flexibility:</strong> Make.com or Zapier. These connect hundreds of apps and support conditional logic, AI steps, and data storage. They\'re the "connect everything" layer. <br><br><strong>If you want AI-native agents:</strong> Platforms like CrewAI, AutoGPT, or LangChain-based tools offer true autonomous agent capabilities. Steeper learning curve but much more powerful. <br><br><strong>If you want enterprise-grade:</strong> Microsoft Power Automate + Copilot, or Salesforce Einstein. More expensive but deeply integrated. <br><br><strong>Takeaway:</strong> Start where you are. Your first agent doesn\'t need the most powerful platform — it needs the one you\'ll actually use.'
+    ],
+    'How does this trigger-response logic scale to complex agents?':[
+      'Every complex agent is just <strong>layers of simple trigger-response rules connected by context</strong>. Think of it like learning to play music: you start with a single note (trigger → response), then learn chords (multiple triggers → coordinated responses), then learn songs (sequences of triggers with context-aware responses). <br><br>Here\'s the evolution path: <br><br><strong>Level 1:</strong> Single trigger → single action ("New lead → send email"). <br><strong>Level 2:</strong> Single trigger → conditional actions ("New lead → if budget > $10K, send proposal; if < $10K, send brochure"). <br><strong>Level 3:</strong> Multiple triggers → coordinated workflow ("New lead → score → route → personalized outreach → schedule → follow-up sequence"). <br><strong>Level 4:</strong> Adaptive workflow with Reflect ("All of Level 3 + continuous optimization based on outcomes"). <br><br>You\'re building Level 1 today. Level 4 is your 6-month roadmap. Each level builds on the last. <br><br><strong>Takeaway:</strong> Don\'t be daunted by complex agents. They\'re just simple rules stacked intelligently.',
+      'The beautiful thing about trigger-response logic is that it <strong>scales through composition</strong>. You don\'t redesign — you connect. <br><br>Your first agent: "When a form is submitted, send an email." That\'s one rule. Your second agent: "When the email is opened, update the lead score in the CRM." That\'s another rule. Your third: "When the lead score exceeds 80, notify the sales team." Another rule. <br><br>Now connect all three: form submitted → email sent → email opened → score updated → threshold crossed → team notified. That looks like a complex agent system, but it\'s actually just three simple rules connected by data. <br><br>This is how multi-million-dollar agent systems are built — not with complex programming, but with <strong>simple rules composed intelligently</strong>. <br><br><strong>Takeaway:</strong> Every complex agent system started as a simple trigger-response rule. Scale by connecting, not rebuilding.'
+    ],
+    'What\'s the next step to build a real working agent?':[
+      'After completing this lesson, here\'s your concrete next-step roadmap: <br><br><strong>Today:</strong> Write down the one task you want to automate first. Be specific: "Send a personalized email to every new website inquiry within 60 seconds." <br><br><strong>This week:</strong> Choose your platform (start with a tool you already use). Set up the basic trigger → response rule. Test it with 5-10 real interactions. <br><br><strong>Next two weeks:</strong> Add the Plan step — customize responses based on inquiry type or lead data. Add basic tracking (open rates, response rates). <br><br><strong>Month two:</strong> Add the Reflect step — enable the agent to adjust timing and messaging based on outcomes. <br><br><strong>Quarter two:</strong> Expand to a second workflow. Connect your first and second agents. Start building the compound advantage. <br><br><strong>Takeaway:</strong> The gap between this lesson and a working agent is about 2-4 hours of setup time. Not months. Not thousands of dollars. Hours.',
+      'Your next step isn\'t more learning — it\'s <strong>deployment</strong>. Here\'s the minimum viable next step: <br><br>1. Open whatever platform you use for email/CRM/automation. <br>2. Create a rule: "When [trigger], do [action]." <br>3. Test it once with real data. <br>4. If it works, leave it running. <br><br>That\'s it. That\'s your first agent. Not impressive on paper, but transformative in practice — because you\'ve removed yourself from one workflow permanently. <br><br>After it runs for a week, come back and add: conditional logic (Plan), outcome tracking (Reflect), and connections to other systems (Scale). But don\'t plan all of that upfront. Deploy first, iterate second. <br><br><strong>Takeaway:</strong> The biggest risk isn\'t deploying a bad agent. It\'s not deploying anything. Ship your first agent this week.'
+    ],
+    'Can I build this without any coding knowledge?':[
+      'Yes — and you should. In 2026, the no-code/low-code ecosystem for AI agents is mature enough that <strong>most SMB owners can build their first agent without writing a single line of code</strong>. <br><br>Platforms like Make.com, Zapier, and most CRM automation builders use visual interfaces — you connect blocks representing triggers, conditions, and actions. It\'s closer to building a flowchart than writing code. <br><br>For more advanced agents (with AI decision-making), platforms like Voiceflow, Botpress, or CustomGPT let you build conversational agents by defining intents, responses, and knowledge bases — all through visual interfaces. <br><br>Where you might need help: connecting APIs between systems, setting up custom data flows, or building complex Reflect logic. For that, you can hire a freelancer for a few hundred dollars — not a full-time developer. <br><br><strong>Takeaway:</strong> "I can\'t code" is no longer a valid reason to delay. The tools have caught up with your ambitions.',
+      'Absolutely, and the landscape keeps getting better. Here\'s where non-technical builders are deploying agents today: <br><br><strong>Visual workflow builders</strong> (Make.com, Zapier, n8n): Drag-and-drop automation with AI decision blocks. If you can make a spreadsheet formula, you can use these. <br><br><strong>AI agent platforms</strong> (Chatbase, Botpress, Voiceflow): Build AI-powered agents by uploading your knowledge base and defining conversation flows. No code needed. <br><br><strong>CRM-built-in tools</strong> (HubSpot, ActiveCampaign): Your CRM likely has automation features you\'re not using. Start there — zero new tools to learn. <br><br><strong>The truth:</strong> Coding knowledge hasn\'t been a prerequisite for SMB automation since 2024. What\'s needed is: clarity about your process, willingness to experiment, and patience during the first two weeks of deployment. <br><br><strong>Takeaway:</strong> If you can describe your workflow in plain language, you can build an agent for it. The technology handles the translation.'
+    ]
+  }
+};
+
+/* Fallback answers for unmatched questions — contextual to current step */
+function getSmartFallback(q){
+  const d=STEP_DATA[currentAiStep]||{};
+  const ctx=d.ctx||'';
+  const fallbacks={
+    '0':[
+      'That\'s a great question for this section. The key insight here is that <strong>most businesses aren\'t failing because AI isn\'t ready — they\'re failing because they\'re using AI as a tool instead of deploying it as an agent.</strong> The distinction changes everything about your competitive position and time savings.',
+      'Here\'s what I\'d emphasize: the gap between AI awareness and AI adoption is massive. <strong>84% of SMBs have tried AI, but fewer than 5% have agents running real workflows.</strong> Your opportunity is in that gap — and it\'s still wide open.',
+      'Think about it this way: if you\'re still the one pushing "send" on every interaction, AI is just making you a faster operator. <strong>The goal isn\'t speed — it\'s autonomy.</strong> Agents handle processes. You handle strategy.'
+    ],
+    '1':[
+      'In this section, the numbers tell a clear story: <strong>adoption doesn\'t equal transformation</strong>. 84% of businesses using AI sounds impressive until you realize most are just generating text faster. The 5% using agents are reclaiming 40% of their workweek.',
+      'The stat that should keep you up at night is the <strong>5%</strong>. Not because it\'s small — because it represents your current competition. If 5% of your competitors have autonomous systems and you don\'t, they\'re winning deals while you sleep.',
+      'Here\'s how to think about these numbers: 84% means the baseline has moved. 40% is the opportunity. But 5% is the urgency. The businesses in that 5% are building compound advantages that get harder to catch every month.'
+    ],
+    '2':[
+      'The urgency here is real. The question isn\'t whether you\'ll eventually need agents — it\'s whether you\'ll deploy them <strong>while the competitive window is still open</strong>. Every month of delay is a month your competitors\' agents are learning and improving.',
+      'This section is about honest self-assessment. The most dangerous position is thinking "we\'re doing fine with our current tools." Fine is the enemy of excellent. And in 2026, <strong>fine means falling behind</strong>.',
+      'The practical takeaway from this section: don\'t wait until you feel "ready." Readiness comes from doing, not planning. Your first agent doesn\'t need to be perfect — it needs to be running.'
+    ],
+    'quiz1':[
+      'The quiz is checking whether you\'ve internalized the core lesson: <strong>the barrier isn\'t technology, cost, or complexity — it\'s the mental shift from tools to agents.</strong> Every other obstacle is solvable once you make that shift.',
+      'This knowledge check reinforces the most important insight so far: understanding why most businesses are stuck is the first step to not being one of them.'
+    ],
+    '3':[
+      'The tool-vs-agent distinction is the <strong>foundational concept of this entire lesson</strong>. Tools accelerate tasks you own. Agents eliminate tasks from your plate entirely. That\'s not an incremental difference — it\'s a paradigm shift.',
+      'Remember: a tool with "AI" in its name is still a tool if it requires you to be the operator. <strong>Autonomy is the keyword.</strong> If the system can\'t act without you, it\'s not an agent — no matter how smart it is.',
+      'The cognitive load framework is key here. Every tool you use still requires your attention. Every agent you deploy frees your attention. The cumulative effect of 3-4 agents is like hiring a team that works 24/7 without breaks.'
+    ],
+    '4':[
+      'Cognitive load is the invisible tax on every business owner. <strong>You might not feel it as "AI problems" — you feel it as exhaustion, decision fatigue, and the sense that there\'s always more to do than time to do it.</strong> Agents directly address this.',
+      'The cognitive load test is simple but powerful: if a system reduces the number of decisions you make per day, it\'s creating real value. If it just gives you more options to evaluate, it\'s adding cognitive load.',
+      'Think of your cognitive bandwidth as a daily budget. Every repetitive decision — "should I follow up with this lead?" — spends from that budget. Agents are like automatic payments — they handle the routine so your budget goes to what matters.'
+    ],
+    '5':[
+      'The SPAR Framework is your blueprint for evaluating, building, and improving agents. <strong>Sense (monitor) → Plan (decide) → Act (execute) → Reflect (improve)</strong>. Every effective agent follows this loop, whether you realize it or not.',
+      'SPAR gives you a shared language for talking about AI agents. When a vendor says "our AI does X," you can ask: "Does it Sense? Plan? Act? Reflect?" If it only does S and A, it\'s automation. All four makes it an agent.',
+      'The most powerful aspect of SPAR is the Reflect step. That\'s where compound improvement lives. An agent that Reflects gets better every week without any additional input from you. That\'s the asset that appreciates.'
+    ],
+    '6':[
+      'The Reflect step is where <strong>good agents become great, and great agents become unbeatable</strong>. It\'s the self-improvement loop that creates compound advantage over time.',
+      'Reflection turns static automation into a learning system. Without it, your agent performs the same on day 100 as day 1. With it, it\'s measurably better every week — and the improvements compound.',
+      'The compounding nature of Reflect means that <strong>every day of delay is a lost learning cycle</strong>. An agent deployed today has 365 more reflection cycles than one deployed next year. Start now.'
+    ],
+    'quiz2':[
+      'This quiz tests whether you can identify the full SPAR loop in action. <strong>The Reflect step is the differentiator</strong> — it\'s what separates a smart automation from a true agent.',
+      'The SPAR quiz reinforces the framework. If you can identify which system is a true agent, you can evaluate any AI product on the market and separate genuine agents from tools with marketing budgets.'
+    ],
+    '7':[
+      'The takeaways from this lesson aren\'t theoretical — they\'re <strong>actionable this week</strong>. You have the framework (SPAR), the mindset shift (tools → agents), and the knowledge to evaluate your current tech stack.',
+      'The most valuable takeaway: your first agent should be embarrassingly simple. Don\'t overthink it. Pick one repetitive task, automate it end-to-end, and let Reflect do the heavy lifting over time.',
+      'Think of this lesson as your operating manual for the AI agent era. You now know more about practical AI deployment than 95% of SMB owners. The question is: what will you do with that advantage?'
+    ],
+    '8':[
+      'This is where theory meets practice. <strong>Identifying your automation opportunity is the single most important step</strong> — because the right first agent builds confidence and momentum, while the wrong one creates frustration and abandonment.',
+      'Your automation opportunity has three traits: it\'s repetitive, it\'s time-consuming, and you can clearly define when it\'s "done." If you can explain the task to a new employee in 10 minutes, an agent can handle it.',
+      'The businesses that succeed with AI agents don\'t start with the most impressive automation — they start with the most practical one. Find the task you hate doing most. That\'s your goldmine.'
+    ],
+    '9':[
+      'Building your first agent rule is about <strong>turning knowledge into action</strong>. You\'ve learned the framework, seen the examples, and understood the opportunity. Now it\'s deployment time.',
+      'The trigger-response rule you\'re building is the foundation of every agent system. It\'s the "hello world" of AI agents. From this simple beginning, you\'ll scale to sophisticated, self-improving systems.',
+      'The journey from this lesson to a working agent is about 2-4 hours of setup. Not months of planning. Not expensive consultants. A few hours of connecting a trigger to a response and letting it run. Start this week.'
+    ]
+  };
+  const stepFallbacks=fallbacks[currentAiStep]||fallbacks['0'];
+  return stepFallbacks[Math.floor(Math.random()*stepFallbacks.length)];
+}
+
+/* Pick a random delay between 400ms and 1000ms */
+function randomDelay(){return Math.floor(Math.random()*601)+400;}
+
+/* Ask Kira — Static AI Simulation (no API needed) */
 async function askVera(q){
   addMsg('user',q);
   showTyping();
   document.getElementById('ai-suggestions').style.opacity='.45';
   document.getElementById('ai-suggestions').style.pointerEvents='none';
 
-  const d=STEP_DATA[currentAiStep]||{};
-  const sys=`You are Kira, an expert AI learning guide embedded inside a VERCELLUM lesson for SMB owners and decision-makers. You help people understand Agentic AI, the SPAR Framework (Sense-Plan-Act-Reflect), and the difference between AI tools and AI agents.
+  // Random delay to simulate AI thinking (400ms - 1000ms)
+  const delay=randomDelay();
+  await new Promise(r=>setTimeout(r,delay));
+  hideTyping();
 
-Current lesson context: "${d.ctx||'Introduction to AI agents'}"
+  // Try to find a specific answer for this question in the current step
+  const stepAnswers=KIRA_ANSWERS[currentAiStep];
+  let answer='';
 
-Your response style:
-— Warm, confident, direct — like a smart mentor who respects the learner's time
-— 2-3 short paragraphs maximum
-— Always anchor the answer to the learner's business reality
-— Use specific examples, avoid vague generalities
-— Never patronize, never overwhelm
-— End with one practical takeaway the learner can act on today
-— Keep total response under 180 words`;
-
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:q}]})
-    });
-    const data=await res.json();
-    hideTyping();
-    const txt=data.content?.[0]?.text||getFallback(q);
-    addMsg('bot',txt.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));
-  }catch(e){
-    hideTyping();
-    addMsg('bot','I had a brief connection issue — but here\'s the short answer: '+getFallback(q));
+  if(stepAnswers&&stepAnswers[q]){
+    // Found exact question match — pick a random answer
+    const variants=stepAnswers[q];
+    answer=variants[Math.floor(Math.random()*variants.length)];
+  }else{
+    // No exact match — try fuzzy matching by checking if key words from the question appear
+    const ql=q.toLowerCase();
+    let bestMatch=null;
+    let bestScore=0;
+    if(stepAnswers){
+      for(const[qText,variants]of Object.entries(stepAnswers)){
+        const qtl=qText.toLowerCase();
+        // Count word overlap
+        const qWords=ql.split(/\s+/).filter(w=>w.length>3);
+        const matchWords=qWords.filter(w=>qtl.includes(w));
+        const score=matchWords.length/qWords.length;
+        if(score>bestScore&&score>0.4){
+          bestScore=score;
+          bestMatch=variants[Math.floor(Math.random()*variants.length)];
+        }
+      }
+    }
+    if(bestMatch){
+      answer=bestMatch;
+    }else{
+      // No fuzzy match — use smart contextual fallback
+      answer=getSmartFallback(q);
+    }
   }
+
+  addMsg('bot',answer);
   document.getElementById('ai-suggestions').style.opacity='1';
   document.getElementById('ai-suggestions').style.pointerEvents='';
-}
-
-function getFallback(q){
-  const ql=q.toLowerCase();
-  if(ql.includes('cost')||ql.includes('expensive'))return'AI agent costs range widely — from $0 to enterprise pricing. For most SMBs, a meaningful first agent costs less than a single employee\'s monthly salary. Start small, prove the ROI, then scale.';
-  if(ql.includes('start')||ql.includes('first'))return'Start with your most repetitive, rule-based task — something with a clear trigger and a predictable response. Simplicity is a feature, not a limitation, for your first agent.';
-  if(ql.includes('reflect')||ql.includes('learn'))return'Reflection means the agent evaluates its own output after every action — logging what worked, what didn\'t, and updating its approach. Over weeks, this creates measurable improvement without any input from you.';
-  return'The core principle: if a system still requires you to prompt it, supervise it, or repeat instructions — it\'s a tool. If it monitors, decides, acts, and improves on its own — that\'s an agent. That distinction determines your actual leverage.';
 }
 
 // Init context
@@ -2238,6 +3038,256 @@ const lineStep = document.getElementById('prog-step-1');
 if(lineStep) chartObserver.observe(lineStep);
 // Also try init once after a short delay for safety
 setTimeout(initCharts, 800);
+
+
+/* ══════════════════════════════════════════════════════
+   CINEMATIC PRELOADER
+══════════════════════════════════════════════════════ */
+(function(){
+  const pc=document.getElementById('preloader-particles');
+  if(!pc)return;
+  const pctx2=pc.getContext('2d');
+  let W2,H2;
+  function resize2(){W2=pc.width=window.innerWidth;H2=pc.height=window.innerHeight;}
+  resize2();
+  const pts=[];
+  const N2=Math.min(40,Math.floor(W2*H2/25000));
+  for(let i=0;i<N2;i++){
+    pts.push({x:Math.random()*W2,y:Math.random()*H2,r:Math.random()*.8+.2,
+      vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.08,
+      o:Math.random()*.3+.05,
+      c:Math.random()>.8?[255,255,255]:[201,163,74]});
+  }
+  (function ap(){pctx2.clearRect(0,0,W2,H2);
+    for(let i=0;i<pts.length;i++){
+      const p=pts[i];p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W2;if(p.x>W2)p.x=0;
+      if(p.y<0)p.y=H2;if(p.y>H2)p.y=0;
+      pctx2.beginPath();pctx2.arc(p.x,p.y,p.r,0,Math.PI*2);
+      pctx2.fillStyle='rgba('+p.c[0]+','+p.c[1]+','+p.c[2]+','+p.o+')';
+      pctx2.fill();
+      // Constellation lines
+      for(let j=i+1;j<pts.length;j++){
+        const q=pts[j];
+        const dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){
+          pctx2.beginPath();pctx2.moveTo(p.x,p.y);pctx2.lineTo(q.x,q.y);
+          pctx2.strokeStyle='rgba(201,163,74,'+(0.06*(1-d/120))+')';
+          pctx2.lineWidth=.5;pctx2.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(ap);
+  })();
+})();
+
+// Preloader timing
+setTimeout(function(){
+  const pr=document.getElementById('preloader');
+  if(pr){pr.classList.add('done');document.body.classList.add('preloader-done');}
+},4200);
+
+// Delay typewrite until after preloader
+/* Modified typewrite trigger below */
+const _origTW = setTimeout(()=>{playEntry();typewrite();},500);
+/* Override: clear original and set new delay */
+clearTimeout(_origTW);
+setTimeout(()=>{playEntry();typewrite();},4800);
+
+/* ══════════════════════════════════════════════════════
+   ENHANCED PARTICLES (constellation lines + white particles)
+══════════════════════════════════════════════════════ */
+// Override particle colors to include white
+const pColEnhanced=[[201,163,74],[34,197,94],[201,163,74],[201,163,74],[255,255,255]];
+/* ══════════════════════════════════════════════════════
+   STAT COUNTER ANIMATION
+══════════════════════════════════════════════════════ */
+const statObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const finalText=el.textContent;
+      const numMatch=finalText.match(/([\d.]+)/);
+      if(!numMatch)return;
+      const finalNum=parseFloat(numMatch[1]);
+      const suffix=finalText.replace(numMatch[0],'');
+      const prefix=finalText.substring(0,finalText.indexOf(numMatch[0]));
+      let start=0;const dur=1500;const startT=performance.now();
+      function animate(now){
+        const elapsed=now-startT;
+        const progress=Math.min(elapsed/dur,1);
+        const eased=1-Math.pow(1-progress,3);
+        const current=start+(finalNum-start)*eased;
+        el.textContent=prefix+current.toFixed(finalText.includes('.')?1:0)+suffix;
+        if(progress<1)requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+      statObserver.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-num').forEach(el=>statObserver.observe(el));
+
+/* ══════════════════════════════════════════════════════
+   PARALLAX EFFECT
+══════════════════════════════════════════════════════ */
+window.addEventListener('scroll',function(){
+  const scrollY=window.scrollY;
+  document.querySelectorAll('.parallax-slow').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    const offset=(rect.top+scrollY)*0.5;
+    el.style.transform='translateY('+(scrollY-offset)*-0.15+'px)';
+  });
+},{passive:true});
+
+/* ══════════════════════════════════════════════════════
+   MAGNETIC HOVER
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.magnetic-hover').forEach(el=>{
+  el.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const cx=rect.left+rect.width/2;
+    const cy=rect.top+rect.height/2;
+    const dx=e.clientX-cx;
+    const dy=e.clientY-cy;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<60){
+      const pull=(60-dist)/60;
+      this.style.transform='translate('+dx*pull*0.2+'px,'+dy*pull*0.2+'px)';
+    }
+  });
+  el.addEventListener('mouseleave',function(){this.style.transform='';});
+});
+
+/* ══════════════════════════════════════════════════════
+   CARD TILT EFFECT
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.card-tilt').forEach(card=>{
+  card.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=(e.clientX-rect.left)/rect.width-.5;
+    const y=(e.clientY-rect.top)/rect.height-.5;
+    this.style.transform='perspective(800px) rotateY('+x*8+'deg) rotateX('+-y*8+'deg)';
+  });
+  card.addEventListener('mouseleave',function(){this.style.transform='';});
+});
+
+/* ══════════════════════════════════════════════════════
+   RIPPLE EFFECT
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.ripple-effect').forEach(el=>{
+  el.addEventListener('click',function(e){
+    const rect=this.getBoundingClientRect();
+    const ripple=document.createElement('span');
+    ripple.className='ripple';
+    const size=Math.max(rect.width,rect.height);
+    ripple.style.width=ripple.style.height=size+'px';
+    ripple.style.left=(e.clientX-rect.left-size/2)+'px';
+    ripple.style.top=(e.clientY-rect.top-size/2)+'px';
+    this.appendChild(ripple);
+    setTimeout(()=>ripple.remove(),600);
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   CARD SPOTLIGHT TRACKING
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.card-spotlight').forEach(card=>{
+  card.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+    this.style.setProperty('--spot-x',x+'px');
+    this.style.setProperty('--spot-y',y+'px');
+    if(this.querySelector(':scope'))
+      this.style.cssText+='--spot-x:'+x+'px;--spot-y:'+y+'px;';
+  });
+  // Use CSS custom property approach
+  card.addEventListener('mousemove',function(e){
+    const before=card.querySelector('::before');
+    const rect=this.getBoundingClientRect();
+    const x=e.clientX-rect.left-125;
+    const y=e.clientY-rect.top-125;
+    this.style.setProperty('--mx',x+'px');
+    this.style.setProperty('--my',y+'px');
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   LOSS AVERSION COUNTER
+══════════════════════════════════════════════════════ */
+(function(){
+  const lacEl=document.getElementById('la-counter');
+  if(!lacEl)return;
+  let count=0;
+  setInterval(()=>{
+    count+=Math.random()>.7?1:0;
+    lacEl.textContent=count;
+  },2200);
+})();
+
+/* ══════════════════════════════════════════════════════
+   IDENTITY ANCHOR FLASH (quiz 1 correct)
+══════════════════════════════════════════════════════ */
+const _origQ1Handlers = document.querySelectorAll('.quiz-opt[data-quiz="1"]');
+const idFlash=document.getElementById('identity-flash');
+let idFlashShown=false;
+_origQ1Handlers.forEach(opt=>{
+  const handler=function(){
+    if(opt.dataset.correct==='true'&&!idFlashShown){
+      idFlashShown=true;
+      setTimeout(()=>{
+        if(idFlash){idFlash.classList.add('show');playSuccess();}
+        setTimeout(()=>{if(idFlash)idFlash.classList.remove('show');},2200);
+      },1200);
+    }
+  };
+  opt.addEventListener('click',handler);
+});
+
+/* ══════════════════════════════════════════════════════
+   STEP TRANSITION CROSSFADE
+══════════════════════════════════════════════════════ */
+const stepOverlay=document.getElementById('step-transition');
+const origGoTo=goTo;
+goTo=function(nextKey){
+  if(stepOverlay){
+    stepOverlay.classList.add('active');
+    setTimeout(()=>{
+      stepOverlay.classList.remove('active');
+      origGoTo(nextKey);
+    },200);
+  }else{
+    origGoTo(nextKey);
+  }
+};
+
+/* ══════════════════════════════════════════════════════
+   CONFETTI BURST ON COMPLETE
+══════════════════════════════════════════════════════ */
+function launchConfetti(){
+  const colors=['#C9A34A','#F2D668','#34D399','#60A5FA','#A78BFA','#EF4444','#FDFAF5'];
+  for(let i=0;i<60;i++){
+    const piece=document.createElement('div');
+    piece.className='confetti-piece';
+    piece.style.left=Math.random()*100+'vw';
+    piece.style.top='-10px';
+    piece.style.width=(Math.random()*8+4)+'px';
+    piece.style.height=(Math.random()*8+4)+'px';
+    piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+    piece.style.borderRadius=Math.random()>.5?'50%':'2px';
+    piece.style.animationDuration=(Math.random()*2+2)+'s';
+    piece.style.animationDelay=(Math.random()*.5)+'s';
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(),4500);
+  }
+}
+const completeBtn=document.getElementById('complete-btn');
+if(completeBtn){
+  completeBtn.addEventListener('click',function(e){
+    setTimeout(launchConfetti,300);
+  },true);
+}
 
 })();
 </script>

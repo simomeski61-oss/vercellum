@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Path 2: Build Useful AI Agents — VERCELLUM</title>
+<meta name="description" content="Build real AI agents that drive your business forward. Five hands-on lessons teaching lead automation, customer support agents, CRM workflows, multi-step agents, and performance optimization. On VERCELLUM.">
+<meta name="keywords" content="AI agents, build AI, lead automation, customer support AI, CRM automation, AI workflow, VERCELLUM, AI for small business">
+<meta name="robots" content="index, follow">
+<meta name="author" content="VERCELLUM">
+<link rel="canonical" href="https://vercellum.com/paths/path2.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Path 2: Build Useful AI Agents — VERCELLUM">
+<meta property="og:description" content="Five hands-on lessons. Build AI agents that capture leads, answer customers, manage your CRM, and run full business workflows — automatically.">
+<meta property="og:url" content="https://vercellum.com/paths/path2.html">
+<meta property="og:site_name" content="VERCELLUM">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Path 2: Build Useful AI Agents — VERCELLUM">
+<meta name="twitter:description" content="Five hands-on lessons. Build AI agents that capture leads, answer customers, manage your CRM, and run full workflows on VERCELLUM.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Path 2: Build Useful AI Agents",
+  "description": "A structured learning path covering lead & sales automation agents, customer support agents, CRM + workflow automation, multi-step smart agents, and monitoring & optimization.",
+  "provider": {
+    "@type": "Organization",
+    "name": "VERCELLUM",
+    "url": "https://vercellum.com"
+  },
+  "educationalLevel": "Intermediate",
+  "numberOfCredits": "5 Lessons + Final Test",
+  "hasCourseInstance": [
+    {"@type": "CourseInstance", "name": "Lead & Sales Automation Agent"},
+    {"@type": "CourseInstance", "name": "Customer Support Agent"},
+    {"@type": "CourseInstance", "name": "CRM + Workflow Automation"},
+    {"@type": "CourseInstance", "name": "Multi-Step Smart Agent"},
+    {"@type": "CourseInstance", "name": "Monitoring & Optimization"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   VERCELLUM · PATH 2
+   Dark Luxury · Gold & Void
+══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --v:#040302;--ab:#070604;--ob:#0C0A08;--on:#131009;--cb:#1B1710;--ir:#2A2419;
+  --as:#423B30;--tp:#6A6050;--bn:#AFA79C;--cr:#F1ECE2;--wh:#FDFAF5;
+  --g0:#F2D668;--g1:#C9A34A;--g2:#A88532;--g3:#7B611E;--g4:#54420F;
+  --gg:rgba(201,163,74,.5);--gm:rgba(201,163,74,.18);--gf:rgba(201,163,74,.08);--gt:rgba(201,163,74,.04);
+  --grn:#34D399;--grnd:rgba(52,211,153,.15);
+  --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
+  --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);--sn:cubic-bezier(.87,0,.13,1);
+  --sg:0 0 80px rgba(201,163,74,.15),0 30px 60px rgba(0,0,0,.5);
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--v)}
+::-webkit-scrollbar-thumb{background:var(--g3);border-radius:2px}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--v);color:var(--cr);line-height:1.65;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--fs);cursor:none;border:none;background:none}
+@media(hover:none){body{cursor:auto}button,a{cursor:pointer}}
+
+/* ══ NOISE ══ */
+body::before{content:'';position:fixed;inset:0;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px;pointer-events:none;z-index:9990}
+
+/* ══ CURSOR ══ */
+#cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--g1);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s var(--ex),height .2s var(--ex),background .2s}
+#cur-r{position:fixed;width:28px;height:28px;border-radius:50%;border:1px solid rgba(201,163,74,.5);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .35s var(--ex),height .35s var(--ex),border-color .3s}
+#blob{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(201,163,74,.04) 0%,transparent 70%);transform:translate(-50%,-50%);filter:blur(40px);transition:transform .8s var(--ex)}
+body.hov #cur{width:16px;height:16px;background:var(--g0)}
+body.hov #cur-r{width:52px;height:52px;border-color:rgba(201,163,74,.22)}
+body.clk #cur{transform:translate(-50%,-50%) scale(.45)}
+
+/* ══ ORBS ══ */
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(90px);z-index:0}
+.o1{width:700px;height:700px;top:-200px;right:-200px;background:radial-gradient(circle,rgba(201,163,74,.055),transparent 70%);animation:oF1 16s ease-in-out infinite}
+.o2{width:600px;height:600px;bottom:-150px;left:-200px;background:radial-gradient(circle,rgba(201,163,74,.04),transparent 70%);animation:oF2 20s ease-in-out infinite}
+.o3{width:280px;height:280px;top:40%;right:8%;background:radial-gradient(circle,rgba(201,163,74,.03),transparent 70%);animation:oF3 12s ease-in-out infinite}
+@keyframes oF1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,28px) scale(1.06)}}
+@keyframes oF2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(32px,-38px) scale(1.08)}}
+@keyframes oF3{0%,100%{transform:translate(0,0)}33%{transform:translate(18px,-14px)}66%{transform:translate(-14px,18px)}}
+
+/* ══ HEADER ══ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:800;padding:.85rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(4,3,2,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-bottom:1px solid rgba(201,163,74,.09)}
+.hb{display:flex;align-items:center;gap:11px}
+.hb-em{width:34px;height:34px;border-radius:8px;border:1px solid rgba(201,163,74,.25);background:var(--gt);display:grid;place-items:center;transition:border-color .3s,transform .4s var(--bk),box-shadow .3s}
+.hb-em:hover{border-color:var(--g1);box-shadow:0 0 18px rgba(201,163,74,.2);transform:rotate(12deg) scale(1.07)}
+.hb-em svg{width:14px;height:14px;stroke:var(--g1);stroke-width:2;fill:none}
+.hb-n{font-family:var(--fb);font-size:.84rem;font-weight:500;letter-spacing:.2em;color:var(--cr)}
+.hdr-r{display:flex;align-items:center;gap:1.25rem}
+.back-btn{display:flex;align-items:center;gap:7px;font-family:var(--fb);font-size:.58rem;letter-spacing:.2em;color:var(--tp);transition:color .3s;padding:.4rem .8rem;border-radius:6px;border:1px solid rgba(201,163,74,.1);background:var(--gt)}
+.back-btn:hover{color:var(--g1);border-color:rgba(201,163,74,.3)}
+.back-btn svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0}
+@media(max-width:680px){.hdr{padding:.85rem 1.25rem}}
+
+/* ══ MAIN WRAP ══ */
+.wrap{position:relative;z-index:1;padding:9rem 1.5rem 6rem;max-width:900px;margin:0 auto}
+
+/* ══ PATH HEADER ══ */
+.path-eyebrow{display:inline-flex;align-items:center;gap:9px;padding:.4rem 1.1rem;border-radius:50px;border:1px solid rgba(201,163,74,.2);background:rgba(201,163,74,.05);font-family:var(--fb);font-size:.58rem;letter-spacing:.24em;color:var(--g1);margin-bottom:1.75rem;backdrop-filter:blur(8px)}
+.ey-dot{width:5px;height:5px;border-radius:50%;background:var(--g1);animation:dpls 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes dpls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.55)}}
+.path-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,5vw,3rem);font-weight:700;color:transparent;background:linear-gradient(135deg,var(--g0) 0%,var(--g1) 45%,var(--g2) 100%);-webkit-background-clip:text;background-clip:text;letter-spacing:.04em;line-height:1.2;margin-bottom:.6rem}
+.path-sub{font-family:var(--fd);font-size:clamp(1.1rem,3vw,1.55rem);font-style:italic;color:var(--bn);font-weight:300;margin-bottom:2.5rem}
+.guide-msg{background:rgba(201,163,74,.05);border:1px solid rgba(201,163,74,.12);border-left:2px solid rgba(201,163,74,.4);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:3rem;position:relative}
+.guide-msg::before{content:'◆';position:absolute;left:-8px;top:50%;transform:translateY(-50%);font-size:.6rem;color:var(--g1);background:var(--v);padding:2px}
+.guide-msg p{font-family:var(--fd);font-size:1.05rem;color:var(--bn);font-weight:300;line-height:1.8}
+.guide-msg em{color:var(--g1);font-style:normal}
+
+/* ══ PROGRESS BAR ══ */
+.prog-wrap{margin-bottom:4rem;background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.1);border-radius:16px;padding:1.5rem 1.75rem}
+.prog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.prog-label{font-family:var(--fb);font-size:.58rem;letter-spacing:.24em;color:var(--tp)}
+.prog-pct{font-family:var(--fd);font-size:1rem;color:var(--g1);font-weight:500}
+.prog-steps{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;gap:.5rem}
+.prog-step{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1}
+.ps-dot{width:10px;height:10px;border-radius:50%;background:rgba(201,163,74,.15);border:1px solid rgba(201,163,74,.25);transition:all .5s var(--ex);position:relative;z-index:1}
+.ps-dot.done{background:var(--g2);border-color:var(--g1);box-shadow:0 0 10px rgba(201,163,74,.35)}
+.ps-dot.active{background:var(--g1);border-color:var(--g0);box-shadow:0 0 14px rgba(201,163,74,.5);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(201,163,74,.5)}50%{box-shadow:0 0 22px rgba(201,163,74,.8)}}
+.ps-lbl{font-family:var(--fb);font-size:.45rem;letter-spacing:.15em;color:var(--tp);text-align:center;white-space:nowrap}
+.ps-connector{height:1px;flex:1;background:rgba(201,163,74,.1);position:relative;margin-top:-16px}
+.ps-connector.done{background:linear-gradient(90deg,var(--g3),var(--g2))}
+.prog-bar-wrap{height:3px;background:rgba(201,163,74,.1);border-radius:2px;overflow:hidden}
+.prog-bar-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g2),var(--g1),var(--g0));border-radius:2px;transition:width 1s var(--ex);box-shadow:0 0 10px rgba(201,163,74,.3);width:0%}
+
+/* ══ TIMELINE ══ */
+.timeline{position:relative;padding:2rem 0 4rem;margin:0 auto;max-width:700px}
+.timeline-spine{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,163,74,.15) 10%,rgba(201,163,74,.15) 90%,transparent);transform:translateX(-50%);z-index:0}
+
+/* CONNECTOR SVG */
+.connectors{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0}
+
+/* NODE ROW */
+.node-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;margin-bottom:3.5rem}
+.node-row.left{justify-content:flex-start}
+.node-row.right{justify-content:flex-end}
+.node-row.center-row{justify-content:center}
+
+/* NODE CARD */
+.node-card{width:calc(50% - 3rem);background:var(--ob);border:1px solid rgba(201,163,74,.12);border-radius:18px;padding:1.5rem 1.6rem;position:relative;transition:border-color .4s,box-shadow .4s,transform .4s var(--ex);animation:nodeIn .7s var(--ex) both}
+.node-row.right .node-card{margin-right:3.5rem}
+.node-row.left .node-card{margin-left:3.5rem}
+.node-row.center-row .node-card{width:calc(60% - 2rem)}
+@keyframes nodeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.node-card.unlocked{border-color:rgba(201,163,74,.25)}
+.node-card.unlocked:hover{border-color:rgba(201,163,74,.45);box-shadow:0 8px 40px rgba(201,163,74,.1);transform:translateY(-3px)}
+.node-card.locked{opacity:.55}
+.node-card.completed{border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.03)}
+.node-card.completed:hover{border-color:rgba(52,211,153,.45);box-shadow:0 8px 40px rgba(52,211,153,.08);transform:translateY(-3px)}
+
+/* NODE INDICATOR (circle on spine) */
+.node-indicator{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;transition:all .4s var(--ex);flex-shrink:0}
+.node-row.left .node-indicator{right:-4rem;transform:translate(50%,-50%)}
+.node-row.right .node-indicator{left:-4rem;transform:translate(-50%,-50%)}
+.node-row.center-row .node-indicator{display:none}
+.ni-locked{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.ni-unlocked{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.35);box-shadow:0 0 18px rgba(201,163,74,.2)}
+.ni-completed{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.4);box-shadow:0 0 18px rgba(52,211,153,.2)}
+.ni-test{background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.3)}
+.ni-icon{font-size:1.1rem;line-height:1}
+.ni-num{font-family:var(--fb);font-size:.65rem;color:var(--g1);letter-spacing:.1em}
+
+/* NODE CONTENT */
+.node-tag{font-family:var(--fb);font-size:.5rem;letter-spacing:.25em;color:var(--tp);margin-bottom:.5rem}
+.node-tag.completed-tag{color:var(--grn)}
+.node-title{font-family:var(--fd);font-size:1.15rem;font-weight:500;color:var(--cr);margin-bottom:.4rem;line-height:1.3}
+.node-desc{font-family:var(--fs);font-size:.8rem;color:var(--tp);line-height:1.6;margin-bottom:1rem}
+.node-btn{display:inline-flex;align-items:center;gap:8px;padding:.55rem 1.2rem;border-radius:8px;font-family:var(--fb);font-size:.55rem;letter-spacing:.2em;transition:all .3s var(--ex);cursor:none}
+.node-btn.start{background:linear-gradient(135deg,var(--g3),var(--g2));color:var(--cr);border:1px solid rgba(201,163,74,.4)}
+.node-btn.start:hover{background:linear-gradient(135deg,var(--g2),var(--g1));box-shadow:0 4px 20px rgba(201,163,74,.25);transform:translateY(-1px)}
+.node-btn.review{background:rgba(52,211,153,.08);color:var(--grn);border:1px solid rgba(52,211,153,.25)}
+.node-btn.review:hover{background:rgba(52,211,153,.15);box-shadow:0 4px 16px rgba(52,211,153,.15)}
+.node-btn.locked-btn{background:rgba(255,255,255,.04);color:var(--tp);border:1px solid rgba(255,255,255,.08);cursor:not-allowed}
+.node-btn.test-start{background:linear-gradient(135deg,rgba(201,163,74,.18),rgba(201,163,74,.08));color:var(--g1);border:1px solid rgba(201,163,74,.3);font-size:.6rem;padding:.65rem 1.4rem}
+.node-btn.test-start:hover{background:linear-gradient(135deg,rgba(201,163,74,.28),rgba(201,163,74,.15));box-shadow:0 4px 24px rgba(201,163,74,.2)}
+.node-btn svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
+.completed-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;color:var(--grn);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:20px;padding:.3rem .7rem}
+
+/* CURVED PATH SVG */
+.path-svg{position:absolute;inset:0;pointer-events:none;z-index:0;width:100%;height:100%}
+
+/* FINAL TEST NODE */
+.final-node{text-align:center;position:relative;z-index:1;margin-top:1rem}
+.final-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.3),transparent);margin:0 auto 2rem}
+.final-card{background:rgba(201,163,74,.04);border:1px solid rgba(201,163,74,.2);border-radius:20px;padding:2rem 2.5rem;max-width:420px;margin:0 auto;position:relative;overflow:hidden;transition:all .4s var(--ex)}
+.final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% -30%,rgba(201,163,74,.06),transparent 70%);pointer-events:none}
+.final-card.locked{opacity:.5}
+.final-card.unlocked:hover{border-color:rgba(201,163,74,.4);box-shadow:0 12px 50px rgba(201,163,74,.12);transform:translateY(-4px)}
+.final-icon{font-size:2rem;margin-bottom:.75rem}
+.final-title{font-family:var(--fd);font-size:1.35rem;color:var(--cr);margin-bottom:.35rem;font-weight:500}
+.final-desc{font-family:var(--fs);font-size:.82rem;color:var(--tp);line-height:1.6;margin-bottom:1.5rem}
+
+/* ══ UNLOCK TOAST ══ */
+#unlock-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:rgba(201,163,74,.12);border:1px solid rgba(201,163,74,.35);border-radius:12px;padding:.85rem 1.5rem;font-family:var(--fb);font-size:.58rem;letter-spacing:.18em;color:var(--g1);backdrop-filter:blur(20px);z-index:9995;transition:transform .5s var(--bk),opacity .5s;opacity:0;white-space:nowrap}
+#unlock-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+#unlock-toast::before{content:'✦ ';color:var(--g0)}
+
+/* ══ DECORATIVE LINES ══ */
+.gl{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--g2),transparent);margin:0 auto 3rem}
+
+/* ══ DEMO CONTROLS PANEL ══ */
+#dev-panel{
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  background:rgba(7,6,4,.97);
+  border:1px solid rgba(201,163,74,.18);
+  border-radius:14px;padding:0;z-index:900;
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  min-width:280px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(201,163,74,.05) inset;
+}
+.dev-header{
+  display:flex;align-items:center;gap:8px;
+  padding:.85rem 1.1rem .75rem;
+  border-bottom:1px solid rgba(201,163,74,.1);
+  background:rgba(201,163,74,.03);
+}
+.dev-header-dot{width:6px;height:6px;border-radius:50%;background:var(--g1);flex-shrink:0;animation:dpls 2.5s ease-in-out infinite}
+.dev-title{font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g1);flex:1}
+.dev-badge{font-family:var(--fs);font-size:.52rem;color:var(--tp);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:.15rem .4rem;letter-spacing:.04em}
+/* Table layout */
+.dev-table{width:100%;border-collapse:collapse}
+.dev-table-head{display:grid;grid-template-columns:1.6rem 1fr auto;gap:.5rem;padding:.45rem 1.1rem .35rem;border-bottom:1px solid rgba(201,163,74,.07)}
+.dev-table-head span{font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--as)}
+.dev-rows{display:flex;flex-direction:column}
+.dev-row{display:grid;grid-template-columns:1.6rem 1fr auto;gap:.5rem;align-items:center;padding:.42rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.03);transition:background .2s}
+.dev-row:hover{background:rgba(201,163,74,.04)}
+.dev-row-num{font-family:var(--fb);font-size:.5rem;color:var(--g3);letter-spacing:.1em}
+.dev-row-label{font-family:var(--fs);font-size:.62rem;color:var(--bn)}
+.dev-row-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:.28rem .6rem;border-radius:5px;
+  border:1px solid rgba(201,163,74,.2);
+  background:rgba(201,163,74,.06);
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;
+  color:var(--g1);cursor:none;transition:all .2s;
+  white-space:nowrap;
+}
+.dev-row-btn:hover{background:rgba(201,163,74,.14);border-color:rgba(201,163,74,.4);box-shadow:0 0 10px rgba(201,163,74,.15)}
+.dev-row-btn.done-row{border-color:rgba(52,211,153,.2);background:rgba(52,211,153,.06);color:var(--grn);cursor:default}
+.dev-reset-row{padding:.6rem 1.1rem .75rem;border-top:1px solid rgba(255,255,255,.05)}
+.dev-reset-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:.45rem;border-radius:7px;
+  border:1px solid rgba(255,100,100,.15);
+  background:rgba(255,100,100,.04);
+  font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;
+  color:rgba(255,120,120,.6);cursor:none;transition:all .25s;
+}
+.dev-reset-btn:hover{border-color:rgba(255,100,100,.35);color:rgba(255,120,120,.9);background:rgba(255,100,100,.08)}
+.dev-hint{padding:.5rem 1.1rem .7rem;font-family:var(--fs);font-size:.58rem;color:var(--as);line-height:1.5;border-top:1px solid rgba(255,255,255,.04)}
+
+/* ══ LESSON 1 HINT ══ */
+.lesson1-hint{
+  margin-top:.75rem;
+  font-family:var(--fs);font-size:.72rem;
+  color:var(--g2);
+  background:rgba(201,163,74,.06);
+  border:1px solid rgba(201,163,74,.15);
+  border-radius:8px;
+  padding:.55rem .85rem;
+  line-height:1.6;
+}
+.lesson1-hint strong{color:var(--g1);font-weight:600}
+.node-card.completed .lesson1-hint{display:none}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Journey Context Header
+════════════════════════════════════════════════════ */
+.journey-context{
+  margin-bottom:1.75rem;
+  animation:fadeSlideIn .6s var(--ex) both;
+}
+.journey-context-label{
+  font-family:var(--fb);
+  font-size:.5rem;
+  letter-spacing:.28em;
+  color:var(--g2);
+  margin-bottom:.3rem;
+  text-transform:uppercase;
+}
+.journey-context-sub{
+  font-family:var(--fd);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--bn);
+  font-weight:300;
+  transition:all .4s;
+}
+.journey-context-sub.returning{
+  color:var(--g1);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Progress Hero Section
+════════════════════════════════════════════════════ */
+.progress-hero{
+  background:linear-gradient(135deg,rgba(201,163,74,.07) 0%,rgba(201,163,74,.03) 100%);
+  border:1px solid rgba(201,163,74,.18);
+  border-radius:20px;
+  padding:2rem 2.25rem;
+  margin-bottom:2.5rem;
+  position:relative;
+  overflow:hidden;
+  animation:fadeSlideIn .7s var(--ex) both;
+}
+.progress-hero::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-20%;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,163,74,.06),transparent 70%);
+  pointer-events:none;
+}
+.progress-hero-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
+}
+.progress-hero-left{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+}
+.progress-hero-stat{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2rem,5vw,2.8rem);
+  font-weight:700;
+  background:linear-gradient(135deg,var(--g0) 0%,var(--g1) 50%,var(--g2) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  line-height:1.1;
+  transition:all .5s var(--ex);
+}
+.progress-hero-stat.complete{
+  background:linear-gradient(135deg,var(--grn) 0%,rgba(52,211,153,.7) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.progress-hero-desc{
+  font-family:var(--fs);
+  font-size:.82rem;
+  color:var(--bn);
+  line-height:1.5;
+}
+.progress-hero-right{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.progress-hero-ring{
+  position:relative;
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+}
+.progress-hero-ring svg{
+  width:80px;
+  height:80px;
+  transform:rotate(-90deg);
+}
+.progress-hero-ring circle{
+  fill:none;
+  stroke-width:3;
+}
+.ring-bg{
+  stroke:rgba(201,163,74,.1);
+}
+.ring-fill{
+  stroke:var(--g1);
+  stroke-linecap:round;
+  transition:stroke-dashoffset 1.2s var(--ex);
+  filter:drop-shadow(0 0 6px rgba(201,163,74,.4));
+}
+.ring-fill.complete{
+  stroke:var(--grn);
+  filter:drop-shadow(0 0 6px rgba(52,211,153,.4));
+}
+.ring-pct{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--fb);
+  font-size:.75rem;
+  font-weight:600;
+  color:var(--g1);
+  letter-spacing:.05em;
+}
+.ring-pct.complete{color:var(--grn)}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Motivational Feedback
+════════════════════════════════════════════════════ */
+.motivational-wrap{
+  margin-bottom:2.5rem;
+  animation:fadeSlideIn .8s var(--ex) both;
+}
+.motivational-msg{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  padding:.65rem 1.25rem;
+  border-radius:12px;
+  background:rgba(201,163,74,.04);
+  border:1px solid rgba(201,163,74,.12);
+  font-family:var(--fd);
+  font-size:.95rem;
+  color:var(--bn);
+  font-weight:400;
+  font-style:italic;
+  transition:all .5s var(--ex);
+}
+.motivational-msg .motiv-icon{
+  font-size:1.1rem;
+  flex-shrink:0;
+}
+.motivational-msg .motiv-text{
+  line-height:1.5;
+}
+.motivational-msg.motiv-milestone{
+  background:rgba(201,163,74,.08);
+  border-color:rgba(201,163,74,.25);
+  color:var(--g1);
+}
+.motivational-msg.motiv-complete{
+  background:rgba(52,211,153,.06);
+  border-color:rgba(52,211,153,.2);
+  color:var(--grn);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Next Lesson Highlighting
+════════════════════════════════════════════════════ */
+.node-card.next-lesson{
+  border-color:rgba(201,163,74,.5);
+  box-shadow:0 0 30px rgba(201,163,74,.1),0 0 60px rgba(201,163,74,.04);
+  background:linear-gradient(135deg,var(--ob) 0%,rgba(201,163,74,.04) 100%);
+}
+.node-card.next-lesson:hover{
+  border-color:rgba(201,163,74,.65);
+  box-shadow:0 0 40px rgba(201,163,74,.15),0 0 80px rgba(201,163,74,.06);
+  transform:translateY(-4px);
+}
+
+.recommended-indicator{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  margin-bottom:.65rem;
+  animation:fadeSlideIn .5s var(--ex) both;
+}
+.recommended-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:.25rem .7rem;
+  border-radius:6px;
+  background:linear-gradient(135deg,rgba(201,163,74,.15),rgba(201,163,74,.06));
+  border:1px solid rgba(201,163,74,.35);
+  font-family:var(--fb);
+  font-size:.42rem;
+  letter-spacing:.2em;
+  color:var(--g0);
+  text-transform:uppercase;
+  box-shadow:0 0 12px rgba(201,163,74,.15);
+}
+.recommended-badge .rec-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--g0);
+  animation:dpls 2s ease-in-out infinite;
+}
+.continue-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:.25rem .65rem;
+  border-radius:6px;
+  background:rgba(201,163,74,.08);
+  border:1px solid rgba(201,163,74,.2);
+  font-family:var(--fs);
+  font-size:.6rem;
+  font-weight:500;
+  color:var(--g1);
+  letter-spacing:.06em;
+  margin-left:.25rem;
+}
+.continue-badge svg{
+  width:10px;
+  height:10px;
+  stroke:currentColor;
+  stroke-width:2;
+  fill:none;
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Enhanced Start Buttons
+════════════════════════════════════════════════════ */
+.node-btn.start{
+  padding:.7rem 1.5rem;
+  font-size:.6rem;
+  background:linear-gradient(135deg,var(--g3),var(--g1));
+  color:var(--wh);
+  border:1px solid rgba(201,163,74,.5);
+  box-shadow:0 2px 16px rgba(201,163,74,.15);
+  text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.node-btn.start:hover{
+  background:linear-gradient(135deg,var(--g2),var(--g0));
+  box-shadow:0 4px 28px rgba(201,163,74,.3),0 0 12px rgba(201,163,74,.15);
+  transform:translateY(-2px) scale(1.02);
+  border-color:rgba(201,163,74,.7);
+}
+.node-btn.start:active{
+  transform:translateY(0) scale(.98);
+}
+.node-btn.start.btn-continue{
+  padding:.8rem 1.8rem;
+  font-size:.65rem;
+  background:linear-gradient(135deg,var(--g1),var(--g0));
+  border-color:rgba(201,163,74,.7);
+  box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1);
+  animation:btnGlow 2.5s ease-in-out infinite;
+}
+.node-btn.start.btn-continue:hover{
+  box-shadow:0 6px 36px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.15);
+  transform:translateY(-3px) scale(1.03);
+}
+@keyframes btnGlow{
+  0%,100%{box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1)}
+  50%{box-shadow:0 4px 32px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.2)}
+}
+.node-btn.test-start.btn-continue{
+  padding:.8rem 1.8rem;
+  font-size:.7rem;
+  background:linear-gradient(135deg,var(--g1),var(--g0));
+  border-color:rgba(201,163,74,.7);
+  box-shadow:0 4px 24px rgba(201,163,74,.25),0 0 16px rgba(201,163,74,.1);
+  animation:btnGlow 2.5s ease-in-out infinite;
+}
+.node-btn.test-start.btn-continue:hover{
+  box-shadow:0 6px 36px rgba(201,163,74,.4),0 0 24px rgba(201,163,74,.15);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Completed Card Visual Emphasis
+════════════════════════════════════════════════════ */
+.node-card.completed{
+  opacity:.7;
+}
+.node-card.completed:hover{
+  opacity:.9;
+}
+.node-card.completed .node-title{
+  color:var(--bn);
+  text-decoration:none;
+}
+.node-card.completed .node-desc{
+  color:var(--as);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Final Test Next Highlighting
+════════════════════════════════════════════════════ */
+.final-card.next-lesson{
+  border-color:rgba(201,163,74,.5);
+  box-shadow:0 0 30px rgba(201,163,74,.1),0 0 60px rgba(201,163,74,.04);
+}
+.final-card.next-lesson:hover{
+  border-color:rgba(201,163,74,.65);
+  box-shadow:0 0 40px rgba(201,163,74,.15),0 0 80px rgba(201,163,74,.06);
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: General Animations
+════════════════════════════════════════════════════ */
+@keyframes fadeSlideIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes subtlePulse{
+  0%,100%{opacity:1}
+  50%{opacity:.7}
+}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: The Anchor Phrase System
+════════════════════════════════════════════════════ */
+.phil-anchor{
+  text-align:center;
+  padding:2.25rem 1.5rem;
+  margin:0 0 2rem;
+  position:relative;
+}
+.phil-line{
+  font-family:var(--fd);
+  font-size:clamp(1.2rem,3.5vw,1.8rem);
+  font-weight:400;
+  font-style:italic;
+  color:var(--cr);
+  line-height:1.5;
+  letter-spacing:.01em;
+  position:relative;
+  display:inline-block;
+}
+.phil-line .phil-emp{
+  color:transparent;
+  background:linear-gradient(135deg,var(--g0),var(--g1),var(--g2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  font-weight:500;
+}
+.phil-line .phil-emp-shimmer{
+  color:transparent;
+  background:linear-gradient(90deg,var(--g0) 0%,var(--g0) 40%,var(--wh) 50%,var(--g1) 60%,var(--g1) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  font-weight:500;
+  animation:shimmerText 3s ease-in-out infinite;
+}
+@keyframes shimmerText{
+  0%{background-position:100% 50%}
+  100%{background-position:-100% 50%}
+}
+.phil-attr{
+  display:block;
+  font-family:var(--fb);
+  font-size:.45rem;
+  letter-spacing:.3em;
+  color:var(--g3);
+  margin-top:.75rem;
+  text-transform:uppercase;
+}
+.phil-cursor{
+  display:inline-block;
+  width:2px;
+  height:1.1em;
+  background:var(--g1);
+  margin-left:3px;
+  vertical-align:text-bottom;
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: Echo Divider (repeated between sections)
+════════════════════════════════════════════════════ */
+.phil-echo{
+  text-align:center;
+  padding:1.25rem 1rem;
+  margin:2.5rem 0;
+  position:relative;
+}
+.phil-echo::before{
+  content:'';position:absolute;left:50%;top:0;width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--g3),transparent);transform:translateX(-50%);
+}
+.phil-echo-text{
+  font-family:var(--fd);font-size:.88rem;font-style:italic;color:var(--as);letter-spacing:.04em;line-height:1.5;
+}
+.phil-echo-text strong{color:var(--g2);font-weight:500;font-style:normal}
+.phil-echo-fade{opacity:0;transform:translateY(10px);transition:opacity .8s var(--ex),transform .8s var(--ex)}
+.phil-echo-fade.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   HOOK: 3-Second Attention Grabber
+════════════════════════════════════════════════════ */
+.hook-strip{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.55rem 1rem;margin-bottom:2rem;border-radius:50px;
+  background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.15);
+  animation:hookPulse 3s ease-in-out infinite,fadeSlideIn .5s var(--ex) both;
+  position:relative;overflow:hidden;
+}
+.hook-strip::after{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(201,163,74,.08),transparent);
+  animation:hookSweep 4s ease-in-out infinite 1s;
+}
+@keyframes hookSweep{0%{left:-60%}100%{left:120%}}
+@keyframes hookPulse{0%,100%{box-shadow:0 0 0 rgba(201,163,74,0)}50%{box-shadow:0 0 20px rgba(201,163,74,.08)}}
+.hook-icon{font-size:.9rem;flex-shrink:0;animation:hookGlow 2s ease-in-out infinite}
+@keyframes hookGlow{0%,100%{filter:drop-shadow(0 0 2px rgba(201,163,74,.3));transform:scale(1)}50%{filter:drop-shadow(0 0 6px rgba(201,163,74,.6));transform:scale(1.1)}}
+.hook-text{font-family:var(--fs);font-size:.72rem;font-weight:500;color:var(--g1);letter-spacing:.06em;white-space:nowrap}
+.hook-text .hook-highlight{color:var(--g0);font-weight:600}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Scroll Reveal System
+════════════════════════════════════════════════════ */
+.scroll-reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ex),transform .7s var(--ex)}
+.scroll-reveal.revealed{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Floating Particles
+════════════════════════════════════════════════════ */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--g1);opacity:0;animation:particleFloat linear infinite}
+@keyframes particleFloat{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.4}90%{opacity:.4}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Glow Border on Next Lesson Card
+════════════════════════════════════════════════════ */
+.node-card.unlocked.next-lesson::after{
+  content:'';position:absolute;inset:-1px;border-radius:18px;
+  background:conic-gradient(from var(--glow-angle,0deg),transparent 0%,rgba(201,163,74,.3) 10%,transparent 20%);
+  z-index:-1;animation:rotateGlow 4s linear infinite;
+}
+@property --glow-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes rotateGlow{to{--glow-angle:360deg}}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:680px){
+  .phil-line{font-size:clamp(1rem,4vw,1.4rem)}
+  .hook-text{font-size:.65rem;white-space:normal;text-align:center}
+  .hook-strip{flex-wrap:wrap;justify-content:center}
+  .particles{display:none}
+  .node-card{width:calc(100% - 4rem) !important;margin-left:2rem !important;margin-right:0 !important}
+  .node-row.right .node-card{margin-right:0;margin-left:2rem}
+  .node-row.left .node-indicator,.node-row.right .node-indicator{left:-.5rem;right:auto;transform:translate(-50%,-50%)}
+  .node-row{justify-content:flex-end !important}
+  .final-card{padding:1.5rem}
+  #dev-panel{display:none}
+  .progress-hero{padding:1.5rem 1.25rem}
+  .progress-hero-inner{flex-direction:column;align-items:flex-start;gap:1rem}
+  .recommended-indicator{flex-wrap:wrap}
+  .continue-badge{margin-left:0;margin-top:.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+<div id="blob" aria-hidden="true"></div>
+
+<!-- ORBS -->
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
+
+<!-- FLOATING PARTICLES -->
+<div class="particles" id="particles" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a class="hb" href="path.html">
+    <div class="hb-em">
+      <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <span class="hb-n">VERCELLUM</span>
+  </a>
+  <div class="hdr-r">
+    <a class="back-btn" href="path.html">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      ALL PATHS
+    </a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="wrap">
+
+  <!-- 3-SECOND HOOK -->
+  <div class="hook-strip">
+    <span class="hook-icon">🤖</span>
+    <span class="hook-text"><span class="hook-highlight">Businesses using AI agents</span> report 3x faster lead response and 40% higher conversion. The agent you build today pays for itself by next week.</span>
+  </div>
+
+  <!-- PATH HEADER -->
+  <div class="path-eyebrow">
+    <span class="ey-dot"></span>
+    PATH 2 · INTERMEDIATE LEVEL
+  </div>
+  <h1 class="path-title">Build Useful<br>AI Agents</h1>
+  <p class="path-sub">Five hands-on lessons. Build AI agents that work for your business — automatically.</p>
+
+  <!-- PHILOSOPHICAL ANCHOR — Typewriter -->
+  <div class="phil-anchor" id="phil-anchor">
+    <p class="phil-line" id="phil-main-line"><span id="phil-typed"></span><span class="phil-cursor" id="phil-cursor"></span></p>
+    <span class="phil-attr" id="phil-attr" style="opacity:0">— The Builder's Principle</span>
+  </div>
+
+  <!-- ENHANCEMENT: Journey Context -->
+  <div class="journey-context" id="journey-context">
+    <p class="journey-context-label">Your Agent Building Path</p>
+    <p class="journey-context-sub" id="journey-sub">Turn AI knowledge into real business automation</p>
+  </div>
+
+  <!-- ENHANCEMENT: Progress Hero -->
+  <div class="progress-hero" id="progress-hero">
+    <div class="progress-hero-inner">
+      <div class="progress-hero-left">
+        <div class="progress-hero-stat" id="hero-stat">0% Complete</div>
+        <div class="progress-hero-desc" id="hero-desc">Start building your first AI agent to begin tracking progress</div>
+      </div>
+      <div class="progress-hero-right">
+        <div class="progress-hero-ring">
+          <svg viewBox="0 0 80 80">
+            <circle class="ring-bg" cx="40" cy="40" r="34"/>
+            <circle class="ring-fill" id="ring-fill" cx="40" cy="40" r="34" stroke-dasharray="213.63" stroke-dashoffset="213.63"/>
+          </svg>
+          <span class="ring-pct" id="ring-pct">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENHANCEMENT: Motivational Feedback -->
+  <div class="motivational-wrap" id="motivational-wrap">
+    <div class="motivational-msg" id="motivational-msg">
+      <span class="motiv-icon">✦</span>
+      <span class="motiv-text" id="motiv-text">Every agent you build is a worker that never sleeps, never complains, and never stops selling.</span>
+    </div>
+  </div>
+
+  <div class="guide-msg">
+    <p>In Level 1, you learned <em>how AI thinks</em>. Now it's time to make it <em>work for you</em>. This path is built for small business owners who want to stop doing everything themselves. You'll build real AI agents — a <em>sales agent that qualifies leads, a support agent that answers customers, a CRM agent that manages your data, a smart agent that chains full workflows</em>, and a monitoring system that keeps improving them. Every lesson ends with a <em>practical build</em> — you'll have a working agent by the time you finish.</p>
+    <p style="margin-top:.85rem;font-size:.9rem;color:var(--bn);">⟶ Complete each lesson to unlock the next. Your progress is saved automatically. <em>Finish all five lessons and the final test to earn your Level 2 badge — and build a complete business AI agent from scratch.</em></p>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="prog-wrap">
+    <div class="prog-header">
+      <span class="prog-label">YOUR PROGRESS</span>
+      <span class="prog-pct" id="prog-pct">0%</span>
+    </div>
+    <div class="prog-steps">
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-1"></div>
+        <span class="ps-lbl">L1</span>
+      </div>
+      <div class="ps-connector" id="pc-1"></div>
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-2"></div>
+        <span class="ps-lbl">L2</span>
+      </div>
+      <div class="ps-connector" id="pc-2"></div>
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-3"></div>
+        <span class="ps-lbl">L3</span>
+      </div>
+      <div class="ps-connector" id="pc-3"></div>
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-4"></div>
+        <span class="ps-lbl">L4</span>
+      </div>
+      <div class="ps-connector" id="pc-4"></div>
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-5"></div>
+        <span class="ps-lbl">L5</span>
+      </div>
+      <div class="ps-connector" id="pc-5"></div>
+      <div class="prog-step">
+        <div class="ps-dot" id="pd-t"></div>
+        <span class="ps-lbl">TEST</span>
+      </div>
+    </div>
+    <div class="prog-bar-wrap">
+      <div class="prog-bar-fill" id="prog-fill"></div>
+    </div>
+  </div>
+
+  <!-- ZIG-ZAG TIMELINE -->
+  <div class="timeline" id="timeline">
+
+    <!-- SVG curved path background -->
+    <svg class="path-svg" id="path-svg" viewBox="0 0 700 1100" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <filter id="glow-f">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <!-- Zig-zag dotted guide path — 5 nodes -->
+      <path id="guide-path"
+        d="M 350 60
+           C 250 120, 150 160, 150 240
+           C 150 310, 250 340, 350 400
+           C 450 460, 550 500, 550 580
+           C 550 660, 450 700, 350 760
+           C 250 820, 180 860, 180 940
+           C 180 1000, 280 1040, 350 1060"
+        fill="none"
+        stroke="rgba(201,163,74,0.12)"
+        stroke-width="1.5"
+        stroke-dasharray="5,8"
+        filter="url(#glow-f)"/>
+      <!-- Animated glow dot along the path -->
+      <circle r="4" fill="rgba(201,163,74,0.6)" filter="url(#glow-f)">
+        <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#guide-path"/>
+        </animateMotion>
+      </circle>
+    </svg>
+
+    <!-- LESSON 1 — LEFT -->
+    <div class="node-row left" id="row-1" style="animation-delay:.1s">
+      <div class="node-card" id="card-1">
+        <p class="node-tag" id="tag-1">LESSON 1</p>
+        <h2 class="node-title">Lead & Sales Automation Agent</h2>
+        <p class="node-desc">Turn visitors into customers automatically. Master lead qualification scoring, AI response logic, automatic follow-up sequences, and purchase-pushing strategies — then build a full sales agent from scratch.</p>
+        <div id="action-1"></div>
+        <p class="lesson1-hint" id="hint-1">✦ Once you've finished the lesson, come back and click <strong>"Complete Lesson 1"</strong> above to unlock Lesson 2.</p>
+        <div class="node-indicator" id="ni-1">
+          <span class="ni-num">01</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHILOSOPHICAL ECHO 1 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"Your best salesperson never sleeps.</strong> An AI agent doesn't take breaks — it just converts."</p>
+    </div>
+
+    <!-- LESSON 2 — RIGHT -->
+    <div class="node-row right" id="row-2" style="animation-delay:.25s">
+      <div class="node-card" id="card-2">
+        <p class="node-tag" id="tag-2">LESSON 2</p>
+        <h2 class="node-title">Customer Support Agent</h2>
+        <p class="node-desc">AI answers your customers instead of your team. Learn FAQ automation, intelligent reply routing, fallback-to-human systems, and brand tone control — then deploy a complete support agent.</p>
+        <div id="action-2"></div>
+        <div class="node-indicator" id="ni-2">
+          <span class="ni-num">02</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHILOSOPHICAL ECHO 2 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"The best support is instant.</strong> Your AI agent responds before frustration even begins."</p>
+    </div>
+
+    <!-- LESSON 3 — LEFT -->
+    <div class="node-row left" id="row-3" style="animation-delay:.4s">
+      <div class="node-card" id="card-3">
+        <p class="node-tag" id="tag-3">LESSON 3</p>
+        <h2 class="node-title">CRM + Workflow Automation</h2>
+        <p class="node-desc">AI manages your customers internally. Master data capture, automatic CRM saves, task creation, and notification systems — then build an agent that runs your entire backend on autopilot.</p>
+        <div id="action-3"></div>
+        <div class="node-indicator" id="ni-3">
+          <span class="ni-num">03</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LESSON 4 — RIGHT -->
+    <div class="node-row right" id="row-4" style="animation-delay:.55s">
+      <div class="node-card" id="card-4">
+        <p class="node-tag" id="tag-4">LESSON 4</p>
+        <h2 class="node-title">Multi-Step Smart Agent</h2>
+        <p class="node-desc">AI performs a full business workflow. Learn step chaining, decision logic, smart routing, and multi-step orchestration — then build a fully autonomous smart agent that handles end-to-end processes.</p>
+        <div id="action-4"></div>
+        <div class="node-indicator" id="ni-4">
+          <span class="ni-num">04</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHILOSOPHICAL ECHO 3 -->
+    <div class="phil-echo scroll-reveal">
+      <p class="phil-echo-text phil-echo-fade"><strong>"A single step agent is a tool.</strong> A multi-step agent is a <strong>business partner.</strong>"</p>
+    </div>
+
+    <!-- LESSON 5 — LEFT -->
+    <div class="node-row left" id="row-5" style="animation-delay:.7s">
+      <div class="node-card" id="card-5">
+        <p class="node-tag" id="tag-5">LESSON 5</p>
+        <h2 class="node-title">Monitoring & Optimization</h2>
+        <p class="node-desc">Improve your AI's performance over time. Learn accuracy metrics, activity logging, error detection, prompt optimization, and performance tuning — then build a system that makes your agents smarter every day.</p>
+        <div id="action-5"></div>
+        <div class="node-indicator" id="ni-5">
+          <span class="ni-num">05</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL TEST -->
+    <div class="final-node" style="animation:nodeIn .7s .85s var(--ex) both;opacity:0">
+      <div class="final-divider"></div>
+      <div class="final-card" id="final-card">
+        <div class="final-icon" id="final-icon">⬡</div>
+        <h2 class="final-title">Final Build: Complete Business AI Agent</h2>
+        <p class="final-desc">Build a complete business AI agent from scratch — with lead capture, qualification, automatic response, CRM integration, follow-up automation, and full workflow chaining. Pass to unlock Level 3.</p>
+        <div id="action-test"></div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- PHILOSOPHICAL ECHO 4 — Final -->
+  <div class="phil-echo scroll-reveal">
+    <p class="phil-echo-text phil-echo-fade"><strong>"An AI agent you built yourself</strong> is worth more than any tool you could ever buy."</p>
+  </div>
+
+</main>
+
+<!-- UNLOCK TOAST -->
+<div id="unlock-toast" role="status" aria-live="polite"></div>
+
+<!-- DEV PANEL (for demo / testing only) -->
+<div id="dev-panel" role="complementary" aria-label="Demo Controls">
+  <div class="dev-header">
+    <span class="dev-header-dot"></span>
+    <span class="dev-title">DEMO CONTROLS</span>
+    <span class="dev-badge">Simulate Progress</span>
+  </div>
+  <div class="dev-table-head">
+    <span>#</span>
+    <span>LESSON</span>
+    <span>ACTION</span>
+  </div>
+  <div class="dev-rows" id="dev-rows">
+    <div class="dev-row">
+      <span class="dev-row-num">01</span>
+      <span class="dev-row-label">Lead & Sales Agent</span>
+      <button class="dev-row-btn" onclick="devComplete(1)" id="dbtn-1">Complete</button>
+    </div>
+    <div class="dev-row">
+      <span class="dev-row-num">02</span>
+      <span class="dev-row-label">Customer Support</span>
+      <button class="dev-row-btn" onclick="devComplete(2)" id="dbtn-2">Complete</button>
+    </div>
+    <div class="dev-row">
+      <span class="dev-row-num">03</span>
+      <span class="dev-row-label">CRM Automation</span>
+      <button class="dev-row-btn" onclick="devComplete(3)" id="dbtn-3">Complete</button>
+    </div>
+    <div class="dev-row">
+      <span class="dev-row-num">04</span>
+      <span class="dev-row-label">Multi-Step Agent</span>
+      <button class="dev-row-btn" onclick="devComplete(4)" id="dbtn-4">Complete</button>
+    </div>
+    <div class="dev-row">
+      <span class="dev-row-num">05</span>
+      <span class="dev-row-label">Monitoring</span>
+      <button class="dev-row-btn" onclick="devComplete(5)" id="dbtn-5">Complete</button>
+    </div>
+  </div>
+  <div class="dev-reset-row">
+    <button class="dev-reset-btn" onclick="devReset()">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      RESET ALL PROGRESS
+    </button>
+  </div>
+  <p class="dev-hint">💡 Click a row to simulate completing that lesson and unlock the next one.</p>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ══ SOUND ENGINE ══ */
+let audioCtx=null;
+function getAudioCtx(){
+  if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  return audioCtx;
+}
+function playClick(type='default'){
+  try{
+    const ctx=getAudioCtx();
+    if(ctx.state==='suspended')ctx.resume();
+    const osc=ctx.createOscillator();
+    const gain=ctx.createGain();
+    const t=ctx.currentTime;
+    if(type==='complete'){
+      osc.type='sine';
+      osc.frequency.setValueAtTime(660,t);
+      osc.frequency.exponentialRampToValueAtTime(880,t+0.12);
+      gain.gain.setValueAtTime(0,t);
+      gain.gain.linearRampToValueAtTime(.18,t+.012);
+      gain.gain.exponentialRampToValueAtTime(.001,t+.45);
+    } else if(type==='reset'){
+      osc.type='sine';
+      osc.frequency.setValueAtTime(440,t);
+      osc.frequency.exponentialRampToValueAtTime(220,t+0.18);
+      gain.gain.setValueAtTime(0,t);
+      gain.gain.linearRampToValueAtTime(.12,t+.01);
+      gain.gain.exponentialRampToValueAtTime(.001,t+.3);
+    } else {
+      osc.type='sine';
+      osc.frequency.setValueAtTime(800,t);
+      osc.frequency.exponentialRampToValueAtTime(500,t+0.06);
+      gain.gain.setValueAtTime(0,t);
+      gain.gain.linearRampToValueAtTime(.1,t+.008);
+      gain.gain.exponentialRampToValueAtTime(.001,t+.1);
+    }
+    osc.connect(gain);gain.connect(ctx.destination);
+    osc.start(t);osc.stop(t+.5);
+  }catch(e){}
+}
+function attachSounds(){
+  document.querySelectorAll('button').forEach(btn=>{
+    if(btn._soundAttached)return;
+    btn._soundAttached=true;
+    btn.addEventListener('click',()=>{
+      if(btn.disabled)return;
+      if(btn.classList.contains('dev-reset-btn'))playClick('reset');
+      else if(btn.classList.contains('start')||btn.classList.contains('test-start')||btn.classList.contains('dev-row-btn'))playClick('complete');
+      else playClick('default');
+    });
+  });
+}
+
+/* ══ DEV PANEL STATE SYNC ══ */
+function syncDevBtns(){
+  const state=getState();
+  for(let i=0;i<5;i++){
+    const btn=document.getElementById('dbtn-'+(i+1));
+    if(!btn)continue;
+    if(state[i]){
+      btn.textContent='✓ Done';
+      btn.className='dev-row-btn done-row';
+      btn.disabled=true;
+      btn.style.opacity='';btn.style.cursor='';
+    } else if(i>0 && !state[i-1]){
+      btn.textContent='Locked';
+      btn.className='dev-row-btn';
+      btn.disabled=true;
+      btn.style.opacity='.4';
+      btn.style.cursor='not-allowed';
+    } else {
+      btn.textContent='Complete';
+      btn.className='dev-row-btn';
+      btn.disabled=false;
+      btn.style.opacity='';btn.style.cursor='';
+    }
+  }
+}
+
+/* ══ CURSOR ══ */
+const cur=document.getElementById('cur'),curR=document.getElementById('cur-r'),blob=document.getElementById('blob');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+  blob.style.left=mx+'px';blob.style.top=my+'px';
+});
+(function rAF(){
+  tx+=(mx-tx)*.13;ty+=(my-ty)*.13;
+  curR.style.left=tx+'px';curR.style.top=ty+'px';
+  requestAnimationFrame(rAF);
+})();
+document.addEventListener('mousedown',()=>document.body.classList.add('clk'));
+document.addEventListener('mouseup',()=>document.body.classList.remove('clk'));
+document.querySelectorAll('a,button,.node-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+/* ══ PROGRESS STATE ══ */
+const TOTAL_LESSONS=5;
+const KEYS=['path2_lesson1_completed','path2_lesson2_completed','path2_lesson3_completed','path2_lesson4_completed','path2_lesson5_completed'];
+const PAGES=['lesson1 lvl2.html','lesson2 lvl2.html','lesson3 lvl2.html','lesson4 lvl2.html','lesson5 lvl2.html'];
+const LABELS=['LESSON 1','LESSON 2','LESSON 3','LESSON 4','LESSON 5'];
+
+function getState(){
+  return KEYS.map(k=>localStorage.getItem(k)==='true');
+}
+
+function completedCount(){
+  return getState().filter(Boolean).length;
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Motivational Message Engine
+════════════════════════════════════════════════════ */
+function getMotivation(count){
+  if(count===0) return {icon:'✦', text:'Every agent you build is a worker that never sleeps.', cls:''};
+  if(count===1) return {icon:'🌟', text:'Your first agent is live — now imagine five of them running your business.', cls:'motiv-milestone'};
+  if(count===2) return {icon:'🔥', text:'Two agents deployed. Your competitors are still doing everything by hand.', cls:'motiv-milestone'};
+  if(count===3) return {icon:'⚡', text:'Halfway there — you\'re building an AI-powered business from the inside out.', cls:'motiv-milestone'};
+  if(count===4) return {icon:'🚀', text:'One lesson left. You\'re about to build something most businesses don\'t even know is possible.', cls:'motiv-milestone'};
+  return {icon:'🏆', text:'All lessons complete. Your business AI agent is ready to be built.', cls:'motiv-complete'};
+}
+
+function updateMotivation(count){
+  const m=getMotivation(count);
+  const wrap=document.getElementById('motivational-wrap');
+  const msg=document.getElementById('motivational-msg');
+  const icon=document.querySelector('#motivational-msg .motiv-icon');
+  const text=document.getElementById('motiv-text');
+  if(!wrap||!msg||!icon||!text)return;
+  icon.textContent=m.icon;
+  text.textContent=m.text;
+  msg.className='motivational-msg '+m.cls;
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Progress Hero Engine
+════════════════════════════════════════════════════ */
+function updateProgressHero(count){
+  const stat=document.getElementById('hero-stat');
+  const desc=document.getElementById('hero-desc');
+  const ringFill=document.getElementById('ring-fill');
+  const ringPct=document.getElementById('ring-pct');
+  if(!stat||!desc||!ringFill||!ringPct)return;
+
+  const pct=Math.round((count/TOTAL_LESSONS)*100);
+  const circumference=2*Math.PI*34;
+  const offset=circumference-(pct/100)*circumference;
+
+  stat.textContent=pct+'% Complete';
+  ringPct.textContent=pct+'%';
+  ringFill.style.strokeDashoffset=offset;
+
+  if(pct>=100){
+    stat.classList.add('complete');
+    ringFill.classList.add('complete');
+    ringPct.classList.add('complete');
+    desc.textContent='All lessons completed — take the final build test to earn your Level 2 badge';
+  } else if(count>0){
+    stat.classList.remove('complete');
+    ringFill.classList.remove('complete');
+    ringPct.classList.remove('complete');
+    const remaining=TOTAL_LESSONS-count;
+    desc.textContent=count+' of '+TOTAL_LESSONS+' lessons completed — '+remaining+' lesson'+(remaining>1?'s':'')+' remaining';
+  } else {
+    stat.classList.remove('complete');
+    ringFill.classList.remove('complete');
+    ringPct.classList.remove('complete');
+    desc.textContent='Start building your first AI agent to begin tracking progress';
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Journey Context Engine
+════════════════════════════════════════════════════ */
+function updateJourneyContext(count){
+  const sub=document.getElementById('journey-sub');
+  if(!sub)return;
+
+  if(count===0){
+    sub.textContent='Turn AI knowledge into real business automation';
+    sub.classList.remove('returning');
+  } else if(count<TOTAL_LESSONS){
+    sub.textContent='Continue where you left off — Lesson '+(count+1)+' is ready';
+    sub.classList.add('returning');
+  } else {
+    sub.textContent='All lessons complete — take the final build test';
+    sub.classList.add('returning');
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Next Lesson Detection
+════════════════════════════════════════════════════ */
+function getNextLessonIndex(state){
+  for(let i=0;i<state.length;i++){
+    if(!state[i]) return i;
+  }
+  return -1;
+}
+
+/* ══ RENDER NODES ══ */
+function renderAll(){
+  const state=getState();
+  const count=state.filter(Boolean).length;
+  const nextIdx=getNextLessonIndex(state);
+
+  for(let i=0;i<TOTAL_LESSONS;i++){
+    const done=state[i];
+    const unlocked=i===0||(state[i-1]);
+    const isNext=(i===nextIdx);
+    const card=document.getElementById('card-'+(i+1));
+    const tag=document.getElementById('tag-'+(i+1));
+    const action=document.getElementById('action-'+(i+1));
+    const ni=document.getElementById('ni-'+(i+1));
+
+    // Card state
+    let cardClass='node-card';
+    if(done) cardClass+=' completed';
+    else if(isNext) cardClass+=' unlocked next-lesson';
+    else if(unlocked) cardClass+=' unlocked';
+    else cardClass+=' locked';
+    card.className=cardClass;
+
+    // Tag
+    tag.className='node-tag'+(done?' completed-tag':'');
+    tag.textContent=done?'✓ COMPLETED':LABELS[i];
+
+    // ENHANCEMENT: Recommended indicator for next lesson
+    const existingIndicator=card.querySelector('.recommended-indicator');
+    if(existingIndicator) existingIndicator.remove();
+
+    if(isNext && !done){
+      const indicator=document.createElement('div');
+      indicator.className='recommended-indicator';
+      indicator.innerHTML='<span class="recommended-badge"><span class="rec-dot"></span>Recommended</span>' +
+        '<span class="continue-badge">Continue → <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+      tag.parentNode.insertBefore(indicator, tag.nextSibling);
+    }
+
+    // Indicator
+    if(done){
+      ni.className='node-indicator ni-completed';
+      ni.innerHTML='<span style="font-size:1rem">✓</span>';
+    } else if(isNext){
+      ni.className='node-indicator ni-unlocked';
+      ni.innerHTML='<span class="ni-num">0'+(i+1)+'</span>';
+    } else if(unlocked){
+      ni.className='node-indicator ni-unlocked';
+      ni.innerHTML='<span class="ni-num">0'+(i+1)+'</span>';
+    } else {
+      ni.className='node-indicator ni-locked';
+      ni.innerHTML='<span style="font-size:.85rem;opacity:.4">🔒</span>';
+    }
+
+    // Action button
+    if(done){
+      action.innerHTML=`
+        <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+          <span class="completed-badge">✓ COMPLETED</span>
+          <button class="node-btn review" onclick="window.location.href='${PAGES[i]}'">
+            Review
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>`;
+    } else if(unlocked){
+      const btnClass=isNext?'node-btn start btn-continue':'node-btn start';
+      const btnLabel=isNext?'Continue Lesson':'Start Lesson';
+      action.innerHTML=`<button class="${btnClass}" onclick="window.location.href='${PAGES[i]}'">
+        ${btnLabel}
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>`;
+    } else {
+      action.innerHTML=`<button class="node-btn locked-btn" disabled style="cursor:not-allowed">🔒 Complete Previous Lesson to Unlock</button>`;
+    }
+  }
+
+  // Final test
+  const testUnlocked=state[TOTAL_LESSONS-1];
+  const testIsNext=(nextIdx===-1 && !localStorage.getItem('test2_completed'));
+  const finalCard=document.getElementById('final-card');
+  const finalIcon=document.getElementById('final-icon');
+  const actionTest=document.getElementById('action-test');
+
+  let finalClass='final-card';
+  if(testIsNext) finalClass+=' unlocked next-lesson';
+  else if(testUnlocked) finalClass+=' unlocked';
+  else finalClass+=' locked';
+  finalCard.className=finalClass;
+
+  finalIcon.textContent=testUnlocked?'◈':'⬡';
+  if(testUnlocked){
+    const testBtnClass=testIsNext?'node-btn test-start btn-continue':'node-btn test-start';
+    const testBtnLabel=testIsNext?'Take Final Test Now':'Begin Final Test';
+    actionTest.innerHTML=`<button class="${testBtnClass}" onclick="window.location.href='test2.html'">
+      ${testBtnLabel}
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>`;
+  } else {
+    actionTest.innerHTML=`<button class="node-btn locked-btn" disabled style="width:100%;justify-content:center;cursor:not-allowed">🔒 Complete All Lessons to Unlock</button>`;
+  }
+
+  // Progress bar
+  updateProgress(count);
+
+  // ENHANCEMENT: Update hero, motivation, context
+  updateProgressHero(count);
+  updateMotivation(count);
+  updateJourneyContext(count);
+
+  // ENHANCEMENT: Auto-scroll to next lesson on return
+  autoScrollToNext(nextIdx);
+}
+
+function updateProgress(count){
+  const realPct=Math.round((count/TOTAL_LESSONS)*100);
+  document.getElementById('prog-pct').textContent=realPct+'%';
+  document.getElementById('prog-fill').style.width=realPct+'%';
+
+  // Step dots
+  const state=getState();
+  for(let i=0;i<TOTAL_LESSONS;i++){
+    const dot=document.getElementById('pd-'+(i+1));
+    const con=document.getElementById('pc-'+(i+1));
+    if(state[i]){
+      dot.className='ps-dot done';
+      con.className='ps-connector done';
+    } else if(i===0||(i>0&&state[i-1])){
+      dot.className='ps-dot active';
+    } else {
+      dot.className='ps-dot';
+    }
+  }
+  const testDot=document.getElementById('pd-t');
+  testDot.className=state[TOTAL_LESSONS-1]?'ps-dot active':'ps-dot';
+}
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Auto-scroll to next lesson
+════════════════════════════════════════════════════ */
+function autoScrollToNext(nextIdx){
+  if(!sessionStorage.getItem('path2_justReturned')) return;
+  sessionStorage.removeItem('path2_justReturned');
+
+  setTimeout(function(){
+    if(nextIdx>=0 && nextIdx<TOTAL_LESSONS){
+      var row=document.getElementById('row-'+(nextIdx+1));
+      if(row){
+        row.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    } else if(nextIdx===-1){
+      var finalNode=document.querySelector('.final-node');
+      if(finalNode){
+        finalNode.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+  },600);
+}
+
+/* ══ TOAST ══ */
+let toastTimer=null;
+function showToast(msg){
+  const t=document.getElementById('unlock-toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* ══ DEV CONTROLS ══ */
+window.devComplete=function(n){
+  localStorage.setItem('path2_lesson'+n+'_completed','true');
+  renderAll();
+  syncDevBtns();
+  attachSounds();
+  const labels=['Lead & Sales Agent','Customer Support Agent','CRM + Workflow Automation','Multi-Step Smart Agent','Monitoring & Optimization'];
+  if(n<=TOTAL_LESSONS)showToast('Lesson '+(n+1)+' Unlocked');
+  else showToast('Final Build Test Unlocked ◈');
+};
+window.devReset=function(){
+  KEYS.forEach(k=>localStorage.removeItem(k));
+  renderAll();
+  syncDevBtns();
+  attachSounds();
+  showToast('Progress Reset');
+};
+
+/* ══ INTERSECTION OBSERVER for stagger ══ */
+const cards=document.querySelectorAll('.node-card,.final-card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';observer.unobserve(e.target);}
+  });
+},{threshold:.15});
+cards.forEach(c=>observer.observe(c));
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Cross-tab localStorage sync
+════════════════════════════════════════════════════ */
+window.addEventListener('storage',function(e){
+  if(KEYS.indexOf(e.key)!==-1 || e.key==='test2_completed'){
+    renderAll();
+    syncDevBtns();
+    attachSounds();
+  }
+});
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT: Returning detection
+   Mark as returning when a lesson page sets this flag
+════════════════════════════════════════════════════ */
+(function detectReturn(){
+  if(sessionStorage.getItem('path2_justReturned')){
+    localStorage.setItem('path2_returning','true');
+  }
+})();
+
+/* ══ INIT ══ */
+renderAll();
+syncDevBtns();
+attachSounds();
+
+// Animate progress bar on load with delay
+setTimeout(()=>{
+  const count=completedCount();
+  const realPct=Math.round((count/TOTAL_LESSONS)*100);
+  document.getElementById('prog-fill').style.width=realPct+'%';
+},300);
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHICAL: Typewriter Effect for Anchor Phrase
+════════════════════════════════════════════════════ */
+(function initTypewriter(){
+  const el=document.getElementById('phil-typed');
+  const cursor=document.getElementById('phil-cursor');
+  const attr=document.getElementById('phil-attr');
+  if(!el) return;
+
+  const fullText='Every agent you build is a worker that never sleeps — never complains — and never stops selling.';
+  let i=0;
+
+  // Find the word to emphasize
+  const empStart=fullText.indexOf('never sleeps');
+  const empEnd=empStart+'never sleeps — never complains — and never stops selling'.length;
+
+  function type(){
+    if(i<=fullText.length){
+      let html='';
+      if(i>0){
+        const visible=fullText.substring(0,i);
+        if(i>empStart && i<=empEnd){
+          html=fullText.substring(0,empStart)+
+            '<span class="phil-emp-shimmer">'+fullText.substring(empStart,i)+'</span>';
+        } else if(i>empEnd){
+          html=fullText.substring(0,empStart)+
+            '<span class="phil-emp-shimmer">'+fullText.substring(empStart,empEnd)+'</span>'+
+            fullText.substring(empEnd,i);
+        } else {
+          html=visible;
+        }
+      }
+      el.innerHTML=html;
+      i++;
+      setTimeout(type, 38+Math.random()*25);
+    } else {
+      if(attr){
+        setTimeout(function(){ attr.style.transition='opacity .8s'; attr.style.opacity='1'; },400);
+      }
+    }
+  }
+
+  setTimeout(type, 800);
+})();
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Floating Particles Generator
+════════════════════════════════════════════════════ */
+(function initParticles(){
+  const container=document.getElementById('particles');
+  if(!container) return;
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(8+Math.random()*14)+'s';
+    p.style.animationDelay=(Math.random()*10)+'s';
+    p.style.width=p.style.height=(1+Math.random()*2)+'px';
+    p.style.opacity=0;
+    container.appendChild(p);
+  }
+})();
+
+/* ═══════════════════════════════════════════════════
+   ANIMATION: Scroll Reveal Observer
+════════════════════════════════════════════════════ */
+(function initScrollReveal(){
+  const els=document.querySelectorAll('.scroll-reveal,.phil-echo-fade');
+  if(!els.length) return;
+  const obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('revealed','visible');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+
+})();
+</script>
+</body>
+</html>
