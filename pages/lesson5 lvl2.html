@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Level 2 · Lesson 5: Monitoring & Optimization — VERCELLUM | Agentic AI for SMBs 2026</title>
+<meta name="description" content="Master Monitoring & Optimization for AI Agents. Learn the exact metrics, dashboards, and feedback loops that keep your agents profitable — not just running.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="VERCELLUM">
+<meta name="theme-color" content="#040302">
+<meta name="keywords" content="AI agent monitoring, agent optimization, SMB AI metrics, agent performance dashboard, automation KPIs, AI agent analytics, agentic AI 2026">
+<link rel="canonical" href="https://vercellum.com/level-2/lesson-5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monitoring & Optimization for AI Agents — VERCELLUM Level 2">
+<meta property="og:description" content="An agent you can't measure is an agent you can't improve. Learn the exact monitoring system that turns good agents into great ones.">
+<meta property="og:url" content="https://vercellum.com/level-2/lesson-5">
+<meta property="og:site_name" content="VERCELLUM">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Monitoring & Optimization — VERCELLUM Level 2">
+<meta name="twitter:description" content="70% of AI agents underperform because nobody's watching them. Fix that today.">
+<meta name="twitter:creator" content="@vercellum">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23040302'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-size='18' font-weight='700' fill='%23C9A34A'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   VERCELLUM · LEVEL 2 · LESSON 5 · Monitoring & Optimization
+   REDESIGNED CSS — Matches Lesson 1 & 2 Design Ecosystem
+   Architecture: Top Bar + Nav Rail + Progressive Content
+   Design: Cinematic · Premium · Multi-Layered Depth · Glassmorphism
+═══════════════════════════════════════════════════════════ */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --v:#0a0a0f;--ab:#111118;--ab2:#16161f;--ab3:#1c1c28;
+  --ob:#111118;--on:#1c1c28;--cb:#16161f;
+  --as:#4b5563;--tp:#6b7280;--ts:#9ca3af;--bn:#d1d5db;--cr:#e5e7eb;--wh:#f9fafb;
+  --g0:#c9a34a;--g1:#dfc06e;--g2:#b08d3a;--g3:#8a6e2e;--g4:#6b4e1e;
+  --gg:rgba(201,163,74,.45);--gm:rgba(201,163,74,.14);--gf:rgba(201,163,74,.07);--gt:rgba(201,163,74,.03);
+  --grn:#34d399;--grn2:#10b981;--grnd:rgba(52,211,153,.07);--grns:rgba(52,211,153,.07);--grnb:rgba(52,211,153,.22);
+  --red:#ef4444;--red2:#dc2626;--redt:rgba(239,68,68,.07);--reds:rgba(239,68,68,.07);--redb:rgba(239,68,68,.22);
+  --blu:#60a5fa;--blu2:#3b82f6;--blud:rgba(96,165,250,.07);--blub:rgba(96,165,250,.22);
+  --purp:#a78bfa;--purpd:rgba(167,139,250,.07);--purpb:rgba(167,139,250,.22);
+  --ora:#fb923c;--orad:rgba(251,146,60,.07);--orab:rgba(251,146,60,.22);
+  --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
+  --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);
+  --topbar-h:52px;--rail-w:64px;--rail-expanded:268px;
+  --content-max:820px;--content-focus-max:720px;--ai-panel-w:380px;
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(201,163,74,.18);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(201,163,74,.35)}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--fs);background:var(--v);color:var(--bn);
+  line-height:1.68;font-size:.88rem;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  padding-top:var(--topbar-h);
+  padding-left:var(--rail-w);
+  transition:padding .4s var(--ex);
+}
+a{color:var(--g1);text-decoration:none;transition:color .2s}
+a:hover{color:var(--grn)}
+button{font-family:var(--fs);border:none;background:none;cursor:pointer;color:inherit}
+input,textarea,select{font-family:var(--fs);color:inherit}
+body.ai-open{padding-right:var(--ai-panel-w)}
+body.focus-mode{padding-left:0;padding-right:0}
+::selection{background:rgba(201,163,74,.3);color:#fff}
+:focus-visible{outline:2px solid var(--g1);outline-offset:2px;border-radius:4px}
+
+/* ── AMBIENT BACKGROUND ── */
+body::before{
+  content:'';position:fixed;inset:0;opacity:.012;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  box-shadow:inset 0 0 150px rgba(0,0,0,.5);
+  pointer-events:none;z-index:1;
+}
+
+/* ── AMBIENT ORBS ── */
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:0;opacity:.12}
+.o1{width:700px;height:700px;top:-200px;right:-180px;background:radial-gradient(circle,rgba(201,163,74,.055),transparent 70%);animation:oF1 18s ease-in-out infinite}
+.o2{width:550px;height:550px;bottom:-140px;left:-180px;background:radial-gradient(circle,rgba(96,165,250,.03),transparent 70%);animation:oF2 22s ease-in-out infinite reverse}
+.o3{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,.02),transparent 70%);animation:oF1 28s ease-in-out infinite reverse;pointer-events:none;position:fixed;z-index:0}
+@keyframes oF1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-35px,25px) scale(1.05)}}
+@keyframes oF2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-32px) scale(1.07)}}
+
+/* ── TOP BAR ── */
+#topbar{
+  position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  z-index:900;display:flex;align-items:center;
+  padding:0 1.5rem 0 calc(var(--rail-w) + 1.5rem);
+  background:rgba(10,10,15,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,163,74,.06);
+  transition:padding .4s var(--ex),background .4s;
+}
+body.focus-mode #topbar{padding-left:1.5rem;background:rgba(10,10,15,.7);border-bottom-color:transparent}
+.tb-left{display:flex;align-items:center;gap:.75rem;flex:1}
+.tb-lesson-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.tb-lesson-label span{color:var(--g2)}
+.tb-progress-wrap{flex:1;max-width:240px;display:flex;align-items:center;gap:.75rem}
+.tb-progress-track{flex:1;height:3px;background:rgba(201,163,74,.08);border-radius:4px;overflow:hidden}
+.tb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:4px;width:0%;transition:width .8s var(--ex)}
+.tb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.62rem;color:var(--g2);white-space:nowrap;min-width:2.2rem;text-align:right}
+.tb-right{display:flex;align-items:center;gap:.5rem}
+#focus-btn{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.46rem 1.1rem;border-radius:7px;
+  border:1px solid var(--g2);
+  background:linear-gradient(135deg,rgba(107,78,30,.85),rgba(138,110,46,.75));
+  color:var(--g0);font-family:var(--fb);
+  font-size:.46rem;letter-spacing:.18em;cursor:pointer;
+  transition:all .28s var(--ex);white-space:nowrap;
+  box-shadow:0 2px 10px rgba(201,163,74,.18),inset 0 1px 0 rgba(223,192,110,.12);
+  position:relative;overflow:hidden;
+}
+#focus-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(223,192,110,.08),transparent);opacity:0;transition:opacity .2s}
+#focus-btn:hover{border-color:var(--g1);background:linear-gradient(135deg,rgba(138,110,46,.9),rgba(176,141,58,.8));box-shadow:0 4px 18px rgba(201,163,74,.32),inset 0 1px 0 rgba(223,192,110,.15);transform:translateY(-1px)}
+#focus-btn:hover::before{opacity:1}
+#focus-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+body.focus-mode #focus-btn{border-color:var(--g0);background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--v);box-shadow:0 4px 22px rgba(201,163,74,.42),inset 0 1px 0 rgba(223,192,110,.2)}
+.tb-save-btn{
+  width:32px;height:32px;border-radius:6px;
+  border:1px solid rgba(201,163,74,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--tp);cursor:pointer;transition:all .25s;
+}
+.tb-save-btn:hover{border-color:rgba(201,163,74,.3);color:var(--g1);background:var(--gf)}
+.tb-save-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#read-progress{
+  position:fixed;top:var(--topbar-h);left:0;right:0;height:2px;
+  z-index:901;background:transparent;
+}
+#read-progress::after{
+  content:'';display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--g0),var(--grn));
+  transition:width .15s linear;
+}
+
+/* ── NAV RAIL ── */
+#nav-rail{
+  position:fixed;left:0;top:var(--topbar-h);bottom:0;
+  width:var(--rail-w);z-index:800;
+  background:rgba(10,10,15,.92);backdrop-filter:blur(20px);
+  border-right:1px solid rgba(201,163,74,.06);
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:width .35s var(--ex),opacity .35s var(--ex),transform .35s var(--ex);
+}
+body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:none}
+@media(min-width:900px){#nav-rail:hover,#nav-rail.pinned{width:var(--rail-expanded)}}
+@media(max-width:900px){#nav-rail{display:none}}
+.rail-logo-area{display:flex;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(201,163,74,.06);overflow:hidden;flex-shrink:0}
+.rail-logo-icon{width:var(--rail-w);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rail-logo-mark{
+  width:28px;height:28px;border-radius:6px;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  border:1px solid rgba(201,163,74,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel Decorative',serif;font-size:.55rem;
+  color:var(--v);font-weight:700;flex-shrink:0;
+}
+.rail-logo-text{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-8px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
+#nav-rail:hover .rail-logo-text,#nav-rail.pinned .rail-logo-text{opacity:1;transform:translateX(0)}
+.rail-wordmark{font-family:'Cinzel Decorative',serif;font-size:.78rem;color:var(--g1);letter-spacing:.06em;display:block}
+.rail-tagline{font-size:.58rem;color:var(--tp);margin-top:.15rem;letter-spacing:.04em}
+.rail-nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.75rem 0;scrollbar-width:none}
+.rail-nav::-webkit-scrollbar{display:none}
+.rail-lesson{display:flex;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;width:100%;text-align:left;border:none;background:none}
+.rail-lesson:hover{background:rgba(201,163,74,.04)}
+.rail-lesson.active{background:rgba(201,163,74,.06);border-right:2px solid var(--g0)}
+.rail-lesson.done{background:rgba(52,211,153,.04)}
+.rail-lesson.upcoming{opacity:.5}
+.rail-lesson-icon{width:var(--rail-w);height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.rail-lesson-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.48rem;letter-spacing:.1em;border:1px solid;flex-shrink:0;transition:all .25s}
+.rail-lesson.active .rail-lesson-num{background:var(--g1);border-color:var(--g1);color:var(--v);font-weight:700}
+.rail-lesson.done .rail-lesson-num{background:var(--grns);border-color:var(--grnb);color:var(--grn)}
+.rail-lesson.upcoming .rail-lesson-num{border-color:rgba(201,163,74,.2);color:var(--tp)}
+.rail-lesson.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--g3),var(--g1));border-radius:0 2px 2px 0}
+.rail-lesson-body{padding:.6rem 1rem .6rem 0;flex:1;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ex),transform .2s var(--ex);overflow:hidden;white-space:nowrap}
+#nav-rail:hover .rail-lesson-body,#nav-rail.pinned .rail-lesson-body{opacity:1;transform:translateX(0)}
+.rail-lesson-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.rail-lesson.active .rail-lesson-tag{color:var(--g2)}
+.rail-lesson.done .rail-lesson-tag{color:var(--grn2)}
+.rail-lesson-name{font-size:.76rem;color:var(--bn);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
+.rail-lesson.active .rail-lesson-name{color:var(--cr);font-weight:500}
+.rail-lesson.done .rail-lesson-name{color:var(--tp)}
+.rail-bottom{border-top:1px solid rgba(201,163,74,.06);padding:.75rem 0;flex-shrink:0;overflow:hidden}
+.rail-live{display:flex;align-items:center;height:36px;padding:0 calc((var(--rail-w) - 8px)/2)}
+.rail-live-dot{width:8px;height:8px;border-radius:50%;background:var(--grn);animation:dpls 2s infinite;flex-shrink:0}
+@keyframes dpls{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.rail-live-text{white-space:nowrap;overflow:hidden;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;color:var(--grn);padding-left:.75rem;opacity:0;transition:opacity .2s var(--ex)}
+#nav-rail:hover .rail-live-text,#nav-rail.pinned .rail-live-text{opacity:1}
+.rail-pin-btn{display:none;width:var(--rail-w);height:32px;align-items:center;justify-content:center;cursor:pointer;color:var(--tp);transition:color .2s}
+@media(min-width:900px){.rail-pin-btn{display:flex}}
+.rail-pin-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#nav-rail.pinned .rail-pin-btn{color:var(--g2)}
+
+/* ── MAIN CONTENT ── */
+.content-shell{min-height:calc(100vh - var(--topbar-h));position:relative;z-index:10;transition:all .4s var(--ex)}
+.content-inner{max-width:var(--content-max);margin:0 auto;padding:0 2.5rem 4rem;transition:max-width .4s var(--ex),padding .4s var(--ex)}
+@media(max-width:1100px){.content-inner{padding:0 2rem 4rem}}
+@media(max-width:700px){.content-inner{padding:0 1.25rem 3rem}}
+body.focus-mode .content-inner{max-width:var(--content-focus-max);padding:0 2.5rem 5rem}
+
+/* ── HERO ── */
+.lesson-hero{padding:4rem 0 3.5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,163,74,.06)}
+.lesson-hero::after{content:'';position:absolute;top:-40%;left:-20%;width:140%;height:140%;background:radial-gradient(ellipse at 70% 20%,rgba(201,163,74,.04),transparent 60%);pointer-events:none;z-index:0}
+.lesson-hero>*{position:relative;z-index:1}
+.hero-breadcrumb{display:flex;align-items:center;gap:.45rem;margin-bottom:1.75rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--tp);text-transform:uppercase}
+.hero-breadcrumb a{color:var(--tp);transition:color .2s}
+.hero-breadcrumb a:hover{color:var(--g1)}
+.hero-breadcrumb-sep{color:var(--as);margin:0 .1rem}
+.hero-badges{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.hero-lesson-num{padding:.28rem .75rem;border-radius:4px;background:var(--gf);border:1px solid rgba(201,163,74,.15);font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g2);text-transform:uppercase}
+.hero-lab-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.28rem .7rem;border-radius:4px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.18);font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--grn);text-transform:uppercase}
+.hero-lab-badge::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.hero-h1{font-family:var(--fd);font-size:clamp(2rem,4.2vw,3.3rem);font-weight:300;line-height:1.08;color:var(--wh);letter-spacing:-.02em;margin-bottom:1.1rem}
+.hero-h1 .gold-text{background:linear-gradient(135deg,var(--g0),var(--g1),var(--blu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline{font-size:clamp(.86rem,1.4vw,.98rem);color:var(--bn);max-width:560px;line-height:1.78;margin-bottom:2.1rem}
+.hero-tagline strong{color:var(--cr)}
+.hero-cta-row{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-primary-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 2rem;border-radius:8px;
+  background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);
+  font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;transition:all .35s var(--ex);
+  box-shadow:0 4px 20px rgba(201,163,74,.28);cursor:pointer;border:none;
+  position:relative;overflow:hidden;
+}
+.hero-primary-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(223,192,110,.15),transparent);animation:shimmerSweep 3s ease-in-out infinite}
+@keyframes shimmerSweep{0%{left:-100%}50%{left:100%}100%{left:100%}}
+.hero-primary-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(201,163,74,.45)}
+.hero-primary-btn svg{width:12px;height:12px;stroke:var(--v);fill:none;stroke-width:2.5}
+.hero-ghost-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.5rem;border-radius:8px;
+  border:1px solid rgba(201,163,74,.18);background:rgba(201,163,74,.04);
+  color:var(--g1);font-family:var(--fb);
+  font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+}
+.hero-ghost-btn:hover{background:rgba(201,163,74,.1);border-color:rgba(201,163,74,.35);transform:translateY(-2px)}
+.hero-meta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--tp)}
+.hero-meta-item svg{width:12px;height:12px;stroke:var(--g2);fill:none;stroke-width:1.8;flex-shrink:0}
+.hero-meta-sep{width:1px;height:12px;background:rgba(201,163,74,.1)}
+
+/* ── SECTION BLOCK ── */
+.section-block{
+  background:var(--ab);border:1px solid rgba(201,163,74,.06);
+  border-radius:14px;padding:1.75rem 1.5rem;
+  position:relative;overflow:hidden;
+  margin:1.5rem 0;
+}
+.section-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,163,74,.15),transparent);
+}
+.section-block+.section-block{border-top:1px solid rgba(201,163,74,.05)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.12),transparent);margin:2rem 0}
+
+/* ── TYPOGRAPHY ── */
+.sec-badge{display:inline-flex;align-items:center;gap:5px;padding:.2rem .6rem;border-radius:4px;font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;margin-bottom:.5rem}
+.sec-badge.red{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.sec-badge.green{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.sec-badge.gold{background:var(--gf);border:1px solid rgba(201,163,74,.18);color:var(--g1)}
+.sec-badge.blue{background:var(--blud);border:1px solid var(--blub);color:var(--blu)}
+.sec-badge.purple{background:var(--purpd);border:1px solid var(--purpb);color:var(--purp)}
+.sec-badge.orange{background:var(--orad);border:1px solid var(--orab);color:var(--ora)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:.35rem 1rem;border-radius:50px;border:1px solid rgba(201,163,74,.18);background:rgba(201,163,74,.04);font-family:var(--fb);font-size:.52rem;letter-spacing:.24em;color:var(--g1);margin-bottom:1.25rem;backdrop-filter:blur(8px)}
+.ey-dot{width:4px;height:4px;border-radius:50%;background:var(--g1);animation:dpls 2.5s ease-in-out infinite;flex-shrink:0}
+h2.sec-title{font-family:var(--fb);font-size:clamp(.95rem,2.5vw,1.28rem);font-weight:600;letter-spacing:.05em;color:var(--cr);margin-bottom:1.1rem;line-height:1.3}
+h2.sec-title .gold{color:var(--g1)}
+h2.sec-title .red{color:var(--red)}
+h2.sec-title .green{color:var(--grn)}
+h2.sec-title .blue{color:var(--blu)}
+p.body-text{font-size:.93rem;color:var(--bn);line-height:1.82;margin-bottom:1rem}
+p.body-text strong{color:var(--cr);font-weight:500}
+
+/* ── BUTTONS ── */
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.8rem 1.85rem;border-radius:8px;
+  background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);
+  font-size:.64rem;letter-spacing:.16em;font-weight:600;
+  transition:transform .3s var(--bk),box-shadow .3s;
+  box-shadow:0 4px 20px rgba(201,163,74,.2);cursor:pointer;border:none;
+}
+.btn-gold:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 28px rgba(201,163,74,.38)}
+.btn-green{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.7rem 1.5rem;border-radius:8px;
+  border:1px solid var(--grnb);background:var(--grns);
+  color:var(--grn);font-family:var(--fb);
+  font-size:.6rem;letter-spacing:.16em;
+  transition:all .3s var(--bk);cursor:pointer;
+}
+.btn-green:hover{border-color:var(--grn);background:var(--grnd);transform:translateY(-1px)}
+.btn-gold svg,.btn-green svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.glow-pulse{animation:glowPulse 3s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 4px 20px rgba(201,163,74,.2)}50%{box-shadow:0 6px 32px rgba(201,163,74,.45)}}
+
+/* ── KEY INSIGHT BOX ── */
+.key-insight{
+  display:flex;gap:.9rem;padding:1.1rem 1.35rem;border-radius:12px;
+  margin:1.5rem 0;border-left:3px solid var(--g1);
+  background:linear-gradient(135deg,rgba(201,163,74,.05),rgba(201,163,74,.02));
+  border-top:1px solid rgba(201,163,74,.1);border-right:1px solid rgba(201,163,74,.1);border-bottom:1px solid rgba(201,163,74,.1);
+}
+.ki-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
+.ki-content{flex:1}
+.ki-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--g1);margin-bottom:.3rem;text-transform:uppercase}
+.ki-text{font-size:.88rem;color:var(--bn);line-height:1.65}
+.ki-text strong{color:var(--cr)}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{transition:opacity .7s var(--ex),transform .7s var(--ex)}
+.js-reveal .reveal{opacity:0;transform:translateY(20px)}
+.js-reveal .reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+.reveal-delay-4{transition-delay:.6s}
+
+/* ── STEP SYSTEM ── */
+.lesson-body{position:relative;z-index:10}
+.step-tracker{
+  position:sticky;top:var(--topbar-h);z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.55rem 1.5rem;
+  background:rgba(10,10,15,.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,163,74,.06);margin-bottom:.5rem;
+}
+.step-counter{font-family:var(--fb);font-size:.46rem;letter-spacing:.26em;color:var(--tp)}
+.step-dots{display:flex;gap:.35rem;align-items:center}
+.step-dot{width:7px;height:7px;border-radius:50%;background:rgba(201,163,74,.15);transition:all .35s var(--ex)}
+.step-dot.done{background:var(--grn);box-shadow:0 0 6px rgba(52,211,153,.4)}
+.step-dot.active{background:var(--g1);box-shadow:0 0 8px rgba(201,163,74,.5);transform:scale(1.3)}
+.prog-step{display:none}
+.prog-step.active{display:block}
+.step-continue-wrap{display:flex;justify-content:flex-end;padding:1.5rem 0 2rem}
+.step-continue-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.9rem 2rem;border-radius:50px;
+  background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);
+  font-size:.58rem;letter-spacing:.18em;font-weight:600;
+  cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 4px 22px rgba(201,163,74,.22);border:none;
+  position:relative;overflow:hidden;
+}
+.step-continue-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .25s}
+.step-continue-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,163,74,.38)}
+.step-continue-btn:hover::before{opacity:1}
+.step-continue-btn svg{width:13px;height:13px;stroke:var(--v);fill:none;stroke-width:2.5;flex-shrink:0}
+
+/* ── BEFORE / AFTER ── */
+.bfa-wrap{display:grid;grid-template-columns:1fr;gap:1.25rem;margin:2rem 0}
+.bfa-col{border-radius:16px;padding:1.75rem 1.5rem;position:relative;overflow:hidden}
+.bfa-col.bfa-before{background:linear-gradient(145deg,rgba(239,68,68,.08),rgba(239,68,68,.02));border:1px solid var(--redb)}
+.bfa-col.bfa-after{background:linear-gradient(145deg,rgba(52,211,153,.08),rgba(52,211,153,.02));border:1px solid var(--grnb)}
+.bfa-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.bfa-before::before{background:linear-gradient(90deg,var(--red),transparent 70%)}
+.bfa-after::before{background:linear-gradient(90deg,var(--grn),transparent 70%)}
+.bfa-header{display:flex;align-items:center;gap:.85rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.bfa-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:1.25rem;flex-shrink:0}
+.bfa-before .bfa-icon{background:var(--reds);border:1px solid var(--redb)}
+.bfa-after .bfa-icon{background:var(--grns);border:1px solid var(--grnb)}
+.bfa-title{font-family:var(--fb);font-size:.76rem;letter-spacing:.14em}
+.bfa-before .bfa-title{color:var(--red)}
+.bfa-after .bfa-title{color:var(--grn)}
+.bfa-subtitle{font-size:.7rem;color:var(--as);font-style:italic;margin-top:.1rem}
+.bfa-items{display:flex;flex-direction:column;gap:.65rem}
+.bfa-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.5;padding:.55rem .75rem;border-radius:8px;transition:background .25s,transform .25s}
+.bfa-item:hover{background:rgba(255,255,255,.025);transform:translateX(4px)}
+.bfa-item-mark{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:.06rem}
+.bfa-before .bfa-item-mark{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.bfa-after .bfa-item-mark{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.bfa-divider-row{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:.5rem 0}
+.bfa-divider-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--g3),var(--g1));display:grid;place-items:center;font-size:1.1rem;box-shadow:0 4px 20px rgba(201,163,74,.2);animation:bfaPulse 2.5s ease-in-out infinite}
+@keyframes bfaPulse{0%,100%{box-shadow:0 4px 20px rgba(201,163,74,.2)}50%{box-shadow:0 4px 30px rgba(201,163,74,.4)}}
+
+/* ── FLOWCHART ── */
+.flowchart{display:flex;align-items:center;gap:.5rem;padding:1.35rem;background:var(--ab2);border-radius:12px;border:1px solid rgba(201,163,74,.1);margin:1.5rem 0;flex-wrap:wrap;justify-content:center}
+@media(max-width:600px){.flowchart{flex-direction:column}}
+.flow-node{padding:.7rem 1.1rem;border-radius:8px;text-align:center;flex-shrink:0;transition:transform .25s var(--bk),box-shadow .25s}
+.flow-node:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.flow-node-icon{font-size:1.4rem;display:block;margin-bottom:.25rem}
+.flow-node-label{font-family:var(--fb);font-size:.54rem;letter-spacing:.14em;white-space:nowrap}
+.flow-node-sub{font-size:.68rem;margin-top:.15rem;opacity:.75}
+.flow-node.track{background:var(--blud);border:1px solid var(--blub)}.flow-node.track .flow-node-label{color:var(--blu)}
+.flow-node.analyze{background:var(--gf);border:1px solid rgba(201,163,74,.2)}.flow-node.analyze .flow-node-label{color:var(--g1)}
+.flow-node.optimize{background:var(--grns);border:1px solid var(--grnb)}.flow-node.optimize .flow-node-label{color:var(--grn)}
+.flow-node.act{background:var(--orad);border:1px solid var(--orab)}.flow-node.act .flow-node-label{color:var(--ora)}
+.flow-arrow{color:var(--g3);font-size:1.1rem;flex-shrink:0;padding:0 .15rem}
+@media(max-width:600px){.flow-arrow{transform:rotate(90deg)}}
+
+/* ── HOOK STATS ── */
+.hook-stat-banner{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(201,163,74,.08);border-radius:14px;
+  overflow:hidden;border:1px solid rgba(201,163,74,.1);
+  margin-bottom:1.75rem;
+}
+.hook-stat{
+  padding:1.5rem 1.25rem;background:var(--ab2);
+  text-align:center;position:relative;overflow:hidden;
+  transition:background .3s,transform .3s var(--ex);
+}
+.hook-stat:hover{background:rgba(201,163,74,.04);transform:translateY(-2px)}
+.hook-stat-num{font-family:'Cinzel Decorative',serif;font-size:2rem;background:linear-gradient(135deg,var(--g0),var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;margin-bottom:.4rem}
+.hook-stat-num.red-num{background:linear-gradient(135deg,#EF4444,#DC2626);-webkit-background-clip:text;background-clip:text}
+.hook-stat-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.2em;color:var(--tp);line-height:1.4}
+.hook-stat-sub{font-size:.72rem;color:var(--as);margin-top:.25rem}
+.hook-revelation{
+  padding:2rem 2.25rem;background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(96,165,250,.03));
+  border:1px solid rgba(201,163,74,.18);border-radius:16px;
+  position:relative;overflow:hidden;margin-bottom:1.5rem;
+}
+.hook-revelation::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g3),var(--g0),var(--blu),var(--g0),var(--g3))}
+.hook-revelation-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.28em;color:var(--g2);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.hook-revelation-label::before{content:'';width:18px;height:1px;background:var(--g2)}
+.hook-revelation-quote{font-family:var(--fd);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:300;color:var(--wh);line-height:1.4;font-style:italic}
+.hook-revelation-quote em{color:var(--g1);font-style:normal}
+.hook-counter-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem}
+.hook-counter-chip{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:50px;font-family:var(--fb);font-size:.5rem;letter-spacing:.14em}
+.hook-counter-chip.danger{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.hook-counter-chip.success{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.hook-counter-chip svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ── PILLARS GRID ── */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+@media(max-width:640px){.pillars-grid{grid-template-columns:1fr}}
+.pillar-card{
+  padding:1.75rem 1.35rem;border-radius:16px;
+  background:var(--ab);border:1px solid rgba(201,163,74,.1);
+  position:relative;overflow:hidden;cursor:default;
+  transition:transform .35s var(--ex),box-shadow .35s,border-color .35s;
+}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transition:opacity .3s}
+.pillar-card:hover{transform:translateY(-6px)}
+.pillar-card.pc-blue{border-color:rgba(96,165,250,.2)}.pillar-card.pc-blue::before{background:linear-gradient(90deg,transparent,var(--blu),transparent)}.pillar-card.pc-blue:hover{box-shadow:0 12px 40px rgba(96,165,250,.1);border-color:rgba(96,165,250,.4)}
+.pillar-card.pc-gold{border-color:rgba(201,163,74,.2)}.pillar-card.pc-gold::before{background:linear-gradient(90deg,transparent,var(--g1),transparent)}.pillar-card.pc-gold:hover{box-shadow:0 12px 40px rgba(201,163,74,.12);border-color:rgba(201,163,74,.4)}
+.pillar-card.pc-green{border-color:var(--grnb)}.pillar-card.pc-green::before{background:linear-gradient(90deg,transparent,var(--grn),transparent)}.pillar-card.pc-green:hover{box-shadow:0 12px 40px rgba(52,211,153,.1);border-color:var(--grn)}
+.pillar-num{font-family:'Cinzel Decorative',serif;font-size:2.4rem;line-height:1;margin-bottom:.5rem}
+.pc-blue .pillar-num{background:linear-gradient(135deg,var(--blu),#93C5FD);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.pc-gold .pillar-num{background:linear-gradient(135deg,var(--g0),var(--g1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.pc-green .pillar-num{color:var(--grn)}
+.pillar-icon{font-size:1.8rem;margin-bottom:.6rem}
+.pillar-title{font-family:var(--fb);font-size:.72rem;letter-spacing:.14em;margin-bottom:.5rem}
+.pc-blue .pillar-title{color:var(--blu)}.pc-gold .pillar-title{color:var(--g1)}.pc-green .pillar-title{color:var(--grn)}
+.pillar-desc{font-size:.82rem;color:var(--tp);line-height:1.6}
+
+/* ── METRICS TABLE ── */
+.metrics-grid{display:flex;flex-direction:column;gap:.75rem;margin:2rem 0}
+.metric-row{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.1rem 1.35rem;background:var(--ab);
+  border:1px solid rgba(201,163,74,.08);border-radius:12px;
+  transition:all .3s var(--ex);cursor:default;
+}
+.metric-row:hover{background:rgba(201,163,74,.04);border-color:rgba(201,163,74,.2);transform:translateX(4px)}
+.metric-icon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
+.metric-body{flex:1}
+.metric-name{font-family:var(--fb);font-size:.64rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.2rem}
+.metric-desc{font-size:.78rem;color:var(--tp);line-height:1.5}
+.metric-target{padding:.3rem .75rem;border-radius:20px;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;white-space:nowrap;flex-shrink:0}
+.metric-target.mt-green{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.metric-target.mt-blue{background:var(--blud);border:1px solid var(--blub);color:var(--blu)}
+.metric-target.mt-gold{background:var(--gf);border:1px solid rgba(201,163,74,.2);color:var(--g1)}
+.metric-target.mt-purp{background:var(--purpd);border:1px solid var(--purpb);color:var(--purp)}
+.metric-target.mt-ora{background:var(--orad);border:1px solid var(--orab);color:var(--ora)}
+
+/* ── LIVE DASHBOARD SIMULATION ── */
+.dashboard-container{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.14);
+  border-radius:18px;overflow:hidden;margin:2rem 0;
+  box-shadow:0 8px 40px rgba(0,0,0,.35);position:relative;
+}
+.dashboard-container::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),var(--grn),var(--g1),transparent)}
+.dash-header{padding:1.1rem 1.5rem;border-bottom:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.85rem;background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(52,211,153,.03))}
+.dash-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.12));border:1.5px solid rgba(201,163,74,.35);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;position:relative}
+.dash-avatar::after{content:'';position:absolute;bottom:-1px;right:-1px;width:10px;height:10px;border-radius:50%;background:var(--grn);border:2px solid var(--ab);animation:pulse 2s infinite}
+.dash-identity{flex:1}
+.dash-name{font-family:var(--fb);font-size:.62rem;letter-spacing:.16em;color:var(--g1)}
+.dash-status{font-size:.7rem;color:var(--grn);margin-top:.08rem;display:flex;align-items:center;gap:.4rem}
+.dash-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+.dash-status-id{font-family:var(--fb);font-size:.5rem;letter-spacing:.1em;color:var(--as);margin-left:auto}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,163,74,.06);border-bottom:1px solid rgba(201,163,74,.08)}
+@media(max-width:640px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
+.dash-kpi{padding:1rem 1.1rem;background:var(--on);text-align:center;position:relative;overflow:hidden;transition:background .25s}
+.dash-kpi:hover{background:rgba(201,163,74,.04)}
+.dash-kpi-val{font-family:'Cinzel Decorative',serif;font-size:1.45rem;line-height:1;margin-bottom:.3rem;transition:color .5s}
+.dash-kpi-label{font-family:var(--fb);font-size:.4rem;letter-spacing:.18em;color:var(--tp);line-height:1.3}
+.dash-kpi-delta{font-size:.68rem;margin-top:.2rem}
+.dash-kpi-delta.up{color:var(--grn)}.dash-kpi-delta.down{color:var(--red)}.dash-kpi-delta.neutral{color:var(--tp)}
+.dash-chart-area{padding:1.25rem 1.5rem;min-height:220px}
+.dash-log-area{padding:.75rem 1.5rem;border-top:1px solid rgba(201,163,74,.06);max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g4) transparent}
+.dash-log-area::-webkit-scrollbar{width:2px}
+.dash-log-line{font-family:'DM Mono',monospace,var(--fs);font-size:.7rem;padding:.2rem 0;display:flex;align-items:flex-start;gap:.6rem;line-height:1.5;opacity:0;animation:logFadeIn .4s var(--ex) both}
+@keyframes logFadeIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+.dash-log-line.log-ok{color:var(--grn2)}.dash-log-line.log-warn{color:var(--g1)}.dash-log-line.log-err{color:var(--red)}.dash-log-line.log-info{color:var(--bn)}
+.dash-log-line .log-ts{color:var(--as);flex-shrink:0;font-size:.62rem}
+.dash-actions{padding:1.1rem 1.5rem;border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.85rem;background:rgba(201,163,74,.02);flex-wrap:wrap}
+.dash-run-btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:.85rem 2rem;border-radius:50px;
+  background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);
+  font-size:.56rem;letter-spacing:.18em;font-weight:600;
+  cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 4px 22px rgba(201,163,74,.22);border:none;
+  position:relative;overflow:hidden;
+}
+.dash-run-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .25s}
+.dash-run-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,163,74,.38)}
+.dash-run-btn:hover:not(:disabled)::before{opacity:1}
+.dash-run-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.dash-run-btn svg{width:13px;height:13px;stroke:var(--v);fill:none;stroke-width:2.5;flex-shrink:0}
+.dash-reset-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.7rem 1.3rem;border-radius:50px;
+  border:1px solid rgba(201,163,74,.2);background:var(--gf);
+  color:var(--g2);font-family:var(--fb);
+  font-size:.5rem;letter-spacing:.14em;cursor:pointer;transition:all .25s;
+}
+.dash-reset-btn:hover{border-color:rgba(201,163,74,.4);color:var(--g1)}
+
+/* ── INSIGHTS GRID ── */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+@media(max-width:640px){.insights-grid{grid-template-columns:1fr}}
+.insight-card{
+  padding:1.75rem 1.35rem;border-radius:16px;
+  background:var(--ab);border:1px solid rgba(201,163,74,.1);
+  position:relative;overflow:hidden;
+  transition:transform .35s var(--ex),box-shadow .35s;
+}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.insight-card:hover{transform:translateY(-4px)}
+.insight-1{border-color:rgba(96,165,250,.2)}.insight-1::before{background:linear-gradient(90deg,transparent,var(--blu),transparent)}.insight-1:hover{box-shadow:0 12px 40px rgba(96,165,250,.1)}
+.insight-2{border-color:rgba(201,163,74,.2)}.insight-2::before{background:linear-gradient(90deg,transparent,var(--g1),transparent)}.insight-2:hover{box-shadow:0 12px 40px rgba(201,163,74,.1)}
+.insight-3{border-color:var(--grnb)}.insight-3::before{background:linear-gradient(90deg,transparent,var(--grn),transparent)}.insight-3:hover{box-shadow:0 12px 40px rgba(52,211,153,.1)}
+.insight-icon{font-size:1.75rem;margin-bottom:.6rem}
+.insight-num{font-family:'Cinzel Decorative',serif;font-size:.75rem;letter-spacing:.12em;margin-bottom:.4rem}
+.insight-1 .insight-num{color:var(--blu)}.insight-2 .insight-num{color:var(--g1)}.insight-3 .insight-num{color:var(--grn)}
+.insight-title{font-family:var(--fb);font-size:.64rem;letter-spacing:.12em;color:var(--cr);margin-bottom:.6rem}
+.insight-text{font-size:.82rem;color:var(--tp);line-height:1.6}
+
+/* ── CHARTS ── */
+.charts-section{margin-top:2rem}
+.charts-intro{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--tp);text-align:center;margin-bottom:1.25rem}
+.charts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+@media(max-width:640px){.charts-grid{grid-template-columns:1fr}}
+.chart-card{background:var(--ab);border:1px solid rgba(201,163,74,.1);border-radius:14px;padding:1.25rem}
+.chart-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.2rem}
+.chart-sub{font-size:.72rem;color:var(--tp);margin-bottom:1rem}
+.chart-canvas-wrap{position:relative}
+
+/* ── ACHIEVEMENT / CHECKLIST ── */
+.achievement-box{
+  background:linear-gradient(135deg,var(--on),var(--ob));
+  border:1px solid rgba(201,163,74,.18);border-radius:20px;
+  padding:2.5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;margin:2rem 0;
+}
+.achievement-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g0),var(--grn),var(--g0),transparent)}
+.achievement-icon{font-size:2.8rem;display:block;margin-bottom:1rem}
+.achievement-msg{font-family:var(--fd);font-size:clamp(1.2rem,2.5vw,1.65rem);color:var(--wh);line-height:1.3;margin-bottom:1.75rem}
+.achievement-list{display:flex;flex-direction:column;gap:.65rem;max-width:540px;margin:0 auto;text-align:left}
+.achievement-item{
+  display:flex;align-items:flex-start;gap:.85rem;
+  padding:.85rem 1.1rem;border-radius:10px;
+  border:1px solid rgba(201,163,74,.1);background:rgba(201,163,74,.03);
+  font-size:.86rem;color:var(--bn);line-height:1.55;
+  cursor:pointer;transition:all .25s var(--ex);
+}
+.achievement-item::before{content:'○';color:var(--g3);font-size:.9rem;flex-shrink:0;margin-top:.08rem;transition:all .25s}
+.achievement-item:hover{background:rgba(201,163,74,.06);border-color:rgba(201,163,74,.2)}
+.achievement-item.checked{background:var(--grns);border-color:var(--grnb);color:var(--cr)}
+.achievement-item.checked::before{content:'✓';color:var(--grn)}
+
+/* ── CHALLENGE SECTION ── */
+.challenge-box{
+  background:var(--ab);border:1px solid rgba(201,163,74,.14);
+  border-radius:16px;padding:2rem;margin:2rem 0;
+  position:relative;overflow:hidden;
+}
+.challenge-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),var(--purp),var(--g1),transparent)}
+.challenge-header{display:flex;align-items:center;gap:.85rem;margin-bottom:1.5rem}
+.challenge-badge{width:44px;height:44px;border-radius:12px;background:var(--purpd);border:1px solid var(--purpb);display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+.challenge-title{font-family:var(--fb);font-size:.75rem;letter-spacing:.12em;color:var(--cr)}
+.challenge-subtitle{font-size:.76rem;color:var(--tp);margin-top:.15rem}
+.challenge-prompt{font-size:.9rem;color:var(--bn);line-height:1.72;margin-bottom:1.5rem}
+.challenge-prompt strong{color:var(--cr)}
+.challenge-textarea{
+  width:100%;background:rgba(10,10,15,.65);border:1px solid rgba(201,163,74,.15);
+  border-radius:10px;padding:1rem 1.15rem;font-family:var(--fs);
+  font-size:.82rem;color:var(--cr);line-height:1.65;
+  resize:vertical;min-height:120px;transition:border-color .25s,box-shadow .25s;
+  outline:none;color-scheme:dark;
+}
+.challenge-textarea:focus{border-color:rgba(201,163,74,.4);box-shadow:0 0 0 3px rgba(201,163,74,.06)}
+.challenge-textarea::placeholder{color:var(--as)}
+.challenge-btn-row{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.85rem}
+.scarcity-signal{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--tp);font-family:var(--fb);font-size:.44rem;letter-spacing:.12em}
+.scarcity-dot{width:5px;height:5px;border-radius:50%;background:var(--g1);animation:dpls 2s infinite;flex-shrink:0}
+.challenge-saved{display:none;margin-top:1rem;padding:1rem 1.25rem;border-radius:10px;background:var(--grns);border:1px solid var(--grnb);font-size:.86rem;color:var(--grn);line-height:1.65}
+.challenge-saved.show{display:block}
+.badge-earned{display:inline-flex;align-items:center;gap:.4rem;margin-top:.65rem;padding:.28rem .75rem;border-radius:4px;background:var(--gf);border:1px solid rgba(201,163,74,.2);font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--g1)}
+.badge-dot{width:4px;height:4px;border-radius:50%;background:var(--g1);animation:dpls 2s infinite}
+
+/* ── SUMMARY ── */
+.summary-list{display:flex;flex-direction:column;gap:1.25rem;margin:2rem 0}
+.summary-item{
+  display:flex;gap:1rem;padding:1.5rem;
+  background:var(--ab);border:1px solid rgba(201,163,74,.1);
+  border-radius:14px;transition:all .3s var(--ex);
+}
+.summary-item:hover{background:rgba(201,163,74,.04);border-color:rgba(201,163,74,.22);transform:translateX(4px)}
+.summary-icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.summary-title{font-family:var(--fb);font-size:.62rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.4rem}
+.summary-text{font-size:.86rem;color:var(--bn);line-height:1.65}
+.recap-box{
+  background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));
+  border:1px solid rgba(201,163,74,.18);border-radius:14px;
+  padding:1.5rem 1.75rem;position:relative;overflow:hidden;
+}
+.recap-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.recap-title{font-family:var(--fb);font-size:.55rem;letter-spacing:.24em;color:var(--g2);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.recap-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite}
+.recap-items{display:flex;flex-direction:column;gap:.6rem}
+.recap-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55}
+.recap-item::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.recap-motivation{font-size:.84rem;color:var(--g1);font-style:italic;line-height:1.55;padding-top:.85rem;border-top:1px solid rgba(201,163,74,.08);margin-top:.85rem}
+
+/* ── FUTURE SELF ── */
+.future-self{
+  display:flex;gap:1.1rem;padding:1.5rem 1.75rem;border-radius:16px;
+  margin:2rem 0;background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));
+  border:1px solid rgba(201,163,74,.2);position:relative;overflow:hidden;
+}
+.future-self::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.fs-icon{font-size:1.75rem;flex-shrink:0;line-height:1;animation:fsFloat 3s ease-in-out infinite}
+@keyframes fsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.fs-content{flex:1}
+.fs-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--g2);margin-bottom:.6rem;text-transform:uppercase}
+.fs-text{font-size:.9rem;color:var(--bn);line-height:1.72}
+.fs-text strong{color:var(--cr)}
+
+/* ── TOAST ── */
+#toast-container{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+.toast{
+  padding:.7rem 1.2rem;border-radius:10px;font-family:var(--fb);
+  font-size:.52rem;letter-spacing:.12em;display:flex;align-items:center;gap:.6rem;
+  pointer-events:none;transform:translateY(20px);opacity:0;
+  transition:all .4s var(--ex);max-width:300px;
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.toast.warning{background:var(--orad);border:1px solid var(--orab);color:var(--ora)}
+.toast.info{background:var(--gf);border:1px solid rgba(201,163,74,.2);color:var(--g1)}
+
+/* ── FINAL CTA ── */
+.final-cta{text-align:center;padding:3rem 0 1.5rem;position:relative}
+.final-cta::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:100%;background:linear-gradient(180deg,rgba(201,163,74,.12),transparent)}
+.final-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;border-radius:50px;background:linear-gradient(135deg,var(--grns),var(--grnd));border:1px solid var(--grnb);font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;color:var(--grn);margin-bottom:1.75rem}
+.final-h2{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:300;line-height:1.2;color:var(--wh);margin-bottom:1rem}
+.final-sub{font-size:.9rem;color:var(--bn);max-width:560px;margin:0 auto 2rem;line-height:1.75}
+.text-shimmer{
+  background:linear-gradient(110deg,var(--cr) 0%,var(--cr) 40%,var(--g0) 50%,var(--cr) 60%,var(--cr) 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:textShimmer 3.5s ease-in-out infinite;
+}
+@keyframes textShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.next-lesson-card{
+  background:linear-gradient(135deg,rgba(52,211,153,.05),rgba(201,163,74,.04));
+  border:1px solid rgba(201,163,74,.18);border-radius:16px;
+  padding:1.75rem;text-align:left;position:relative;overflow:hidden;
+  margin:0 auto 2rem;
+}
+.next-lesson-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g3),var(--g1),var(--g2))}
+.nlc-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.26em;color:var(--g3);margin-bottom:.6rem}
+.nlc-title{font-family:var(--fb);font-size:.9rem;letter-spacing:.08em;color:var(--g1);margin-bottom:.5rem}
+.nlc-desc{font-size:.84rem;color:var(--bn);line-height:1.65;margin-bottom:.75rem}
+.nlc-meta{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--tp)}
+.nlc-meta svg{width:11px;height:11px;stroke:var(--g2);fill:none;stroke-width:1.8}
+.final-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.9rem 2.1rem;border-radius:8px;
+  background:linear-gradient(135deg,var(--g4),var(--g2),var(--g1));
+  color:var(--v);font-family:var(--fb);
+  font-size:.54rem;letter-spacing:.18em;font-weight:700;
+  cursor:pointer;transition:all .35s var(--ex);
+  box-shadow:0 4px 22px rgba(201,163,74,.22);border:none;
+  position:relative;overflow:hidden;
+}
+.final-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);opacity:0;transition:opacity .25s}
+.final-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(201,163,74,.45)}
+.final-btn:hover::before{opacity:1}
+.final-btn svg{width:14px;height:14px;stroke:var(--v);fill:none;stroke-width:2.5;flex-shrink:0}
+.emotional-anchor{font-family:var(--fd);font-size:clamp(.9rem,2vw,1.15rem);color:var(--g1);font-style:italic;line-height:1.55;margin:1.5rem auto;text-align:center}
+
+/* ── AI PANEL ── */
+#ai-panel{
+  position:fixed;top:var(--topbar-h);right:0;bottom:0;
+  width:var(--ai-panel-w);z-index:700;
+  background:rgba(17,17,24,.96);backdrop-filter:blur(24px);
+  border-left:1px solid rgba(201,163,74,.1);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .4s var(--ex);
+  pointer-events:none;box-shadow:-20px 0 60px rgba(0,0,0,.4);
+}
+body.ai-open #ai-panel{transform:translateX(0);pointer-events:auto}
+#ai-panel[aria-hidden="false"]{pointer-events:auto}
+.ai-panel-header{padding:1rem 1.25rem;border-bottom:1px solid rgba(201,163,74,.08);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ai-panel-id{display:flex;align-items:center;gap:.75rem}
+.ai-avatar-ring{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(201,163,74,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;background:rgba(201,163,74,.08);
+  color:var(--g1);animation:aiRing 3s ease-in-out infinite;
+}
+@keyframes aiRing{0%,100%{box-shadow:0 0 0 0 rgba(201,163,74,.2)}50%{box-shadow:0 0 0 6px rgba(201,163,74,0)}}
+.ai-name{font-family:var(--fb);font-size:.6rem;letter-spacing:.14em;color:var(--g1)}
+.ai-subtitle{font-size:.62rem;color:var(--tp);margin-top:.08rem}
+.ai-close{
+  width:28px;height:28px;border-radius:6px;
+  border:1px solid rgba(201,163,74,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--tp);cursor:pointer;transition:all .2s;
+}
+.ai-close:hover{color:var(--cr);border-color:rgba(201,163,74,.3);background:var(--gf)}
+.ai-close svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+.ai-context-chip{
+  margin:.85rem 1.25rem;padding:.35rem .85rem;
+  border-radius:50px;background:rgba(201,163,74,.06);
+  border:1px solid rgba(201,163,74,.14);
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.16em;
+  color:var(--g3);display:inline-block;transition:all .3s var(--ex);
+}
+.ai-messages{
+  flex:1;overflow-y:auto;padding:.5rem 1.25rem;
+  display:flex;flex-direction:column;gap:.75rem;
+  scrollbar-width:thin;scrollbar-color:var(--g4) transparent;
+}
+.ai-messages::-webkit-scrollbar{width:2px}
+.ai-msg{padding:.85rem 1.1rem;border-radius:12px;font-size:.84rem;line-height:1.65;max-width:92%;animation:msgIn .35s var(--ex) both}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.bot{background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.1);color:var(--bn);align-self:flex-start;border-bottom-left-radius:4px}
+.ai-msg.bot strong{color:var(--cr)}
+.ai-msg.user{background:rgba(52,211,153,.08);border:1px solid var(--grnb);color:var(--cr);align-self:flex-end;border-bottom-right-radius:4px}
+.ai-typing{display:flex;gap:4px;align-items:center;padding:.25rem 0}
+.ai-typing-dot{width:6px;height:6px;border-radius:50%;background:var(--g2);animation:typingBounce 1.2s ease-in-out infinite}
+.ai-typing-dot:nth-child(2){animation-delay:.15s}
+.ai-typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes typingBounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-6px);opacity:1}}
+.ai-suggestions{padding:.75rem 1.25rem 1.25rem;border-top:1px solid rgba(201,163,74,.06);flex-shrink:0}
+.ai-suggest-header{font-family:var(--fb);font-size:.4rem;letter-spacing:.22em;color:var(--as);margin-bottom:.6rem}
+.ai-suggest-list{display:flex;flex-direction:column;gap:.4rem}
+.ai-suggest-q{
+  width:100%;padding:.55rem .85rem;border-radius:8px;
+  border:1px solid rgba(201,163,74,.1);background:rgba(201,163,74,.03);
+  color:var(--bn);font-size:.78rem;text-align:left;
+  cursor:pointer;transition:all .2s;line-height:1.4;
+}
+.ai-suggest-q:hover{background:rgba(201,163,74,.08);border-color:rgba(201,163,74,.25);color:var(--cr)}
+.ai-suggest-q.used{opacity:.35;cursor:default}
+#ai-beacon{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:690;
+  display:flex;align-items:center;gap:.55rem;
+  padding:.7rem 1.25rem;border-radius:50px;
+  background:linear-gradient(135deg,var(--g3),var(--g2),var(--g1));
+  border:none;cursor:pointer;
+  box-shadow:0 4px 24px rgba(201,163,74,.3);
+  transition:all .35s var(--ex);
+}
+#ai-beacon:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(201,163,74,.48)}
+.ai-beacon-btn{width:22px;height:22px;display:flex;align-items:center;justify-content:center}
+.ai-beacon-btn svg{width:14px;height:14px;stroke:var(--v);fill:none;stroke-width:2;flex-shrink:0}
+.ai-beacon-label{font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;color:var(--v);font-weight:700}
+body.ai-open #ai-beacon{opacity:0;pointer-events:none}
+
+/* ── OPTIMIZATION CYCLE ── */
+.opt-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin:2rem 0;position:relative}
+@media(max-width:640px){.opt-cycle{grid-template-columns:1fr 1fr}}
+.opt-step{
+  padding:1.25rem 1rem;border-radius:14px;
+  background:var(--ab);border:1px solid rgba(201,163,74,.1);
+  text-align:center;position:relative;overflow:hidden;
+  transition:all .3s var(--ex);
+}
+.opt-step::after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--g3);font-size:.9rem;z-index:2}
+.opt-step:last-child::after{display:none}
+@media(max-width:640px){.opt-step::after{display:none}}
+.opt-step:hover{transform:translateY(-4px)}
+.opt-step.os-1{border-color:rgba(96,165,250,.25)}.opt-step.os-1:hover{box-shadow:0 10px 30px rgba(96,165,250,.12)}
+.opt-step.os-2{border-color:rgba(249,115,22,.25)}.opt-step.os-2:hover{box-shadow:0 10px 30px rgba(249,115,22,.12)}
+.opt-step.os-3{border-color:rgba(201,163,74,.25)}.opt-step.os-3:hover{box-shadow:0 10px 30px rgba(201,163,74,.12)}
+.opt-step.os-4{border-color:var(--grnb)}.opt-step.os-4:hover{box-shadow:0 10px 30px rgba(52,211,153,.12)}
+.opt-step-num{font-family:'Cinzel Decorative',serif;font-size:1.6rem;line-height:1;margin-bottom:.4rem}
+.os-1 .opt-step-num{color:var(--blu)}.os-2 .opt-step-num{color:var(--ora)}.os-3 .opt-step-num{color:var(--g1)}.os-4 .opt-step-num{color:var(--grn)}
+.opt-step-icon{font-size:1.5rem;margin-bottom:.45rem}
+.opt-step-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.12em;margin-bottom:.35rem}
+.os-1 .opt-step-title{color:var(--blu)}.os-2 .opt-step-title{color:var(--ora)}.os-3 .opt-step-title{color:var(--g1)}.os-4 .opt-step-title{color:var(--grn)}
+.opt-step-desc{font-size:.75rem;color:var(--tp);line-height:1.55}
+
+/* ── CASE STUDY ── */
+.case-study-box{background:var(--ab);border:1px solid rgba(201,163,74,.12);border-radius:18px;overflow:hidden;margin:2rem 0}
+.case-study-header{padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(96,165,250,.03));border-bottom:1px solid rgba(201,163,74,.08)}
+.case-study-badge{font-family:var(--fb);font-size:.42rem;letter-spacing:.24em;color:var(--g3);margin-bottom:.35rem}
+.case-study-name{font-family:var(--fb);font-size:.8rem;letter-spacing:.1em;color:var(--g1)}
+.case-study-sub{font-size:.76rem;color:var(--tp);margin-top:.15rem}
+.case-study-body{padding:1.5rem}
+.case-study-problem{font-size:.88rem;color:var(--bn);line-height:1.7;margin-bottom:1.25rem;padding:.9rem 1.1rem;border-radius:10px;background:rgba(239,68,68,.05);border-left:2px solid var(--red)}
+.case-study-results{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:560px){.case-study-results{grid-template-columns:1fr 1fr}}
+.case-result-item{text-align:center;padding:1rem;border-radius:10px;background:var(--on);border:1px solid rgba(201,163,74,.08)}
+.case-result-val{font-family:'Cinzel Decorative',serif;font-size:1.5rem;line-height:1;margin-bottom:.3rem}
+.case-result-val.up{color:var(--grn)}.case-result-val.down{color:var(--red)}
+.case-result-label{font-size:.72rem;color:var(--tp);line-height:1.4;font-family:var(--fb);letter-spacing:.1em}
+.case-study-quote{margin-top:1.25rem;padding:1rem 1.25rem;border-radius:10px;background:rgba(201,163,74,.05);border-left:2px solid var(--g1)}
+.case-study-quote p{font-family:var(--fd);font-size:1rem;color:var(--bn);font-style:italic;line-height:1.65}
+.case-study-quote p strong{color:var(--g1);font-style:normal}
+
+/* ── SOCIAL PROOF BAR ── */
+.social-proof-bar{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.55rem 1rem;margin:1.25rem 0;border-radius:50px;background:var(--gf);border:1px solid rgba(201,163,74,.12)}
+.sp-avatars{display:flex;margin-right:.35rem}
+.sp-avatar{width:24px;height:24px;border-radius:50%;border:2px solid var(--v);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:.55rem;background:var(--ab);flex-shrink:0}
+.sp-avatar:first-child{margin-left:0}
+.sp-text{font-size:.72rem;color:var(--bn);line-height:1.4}
+.sp-text strong{color:var(--g1);font-weight:600}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  :root{--rail-w:3rem}
+  .rail-logo-text,.rail-lesson-body,.rail-live-text,.rail-tagline{display:none}
+  .rail-logo-area{justify-content:center;padding-bottom:.5rem;margin-bottom:.5rem}
+  .rail-lesson{justify-content:center;padding:.4rem}
+  .rail-bottom{justify-content:center}
+  #topbar{padding-left:calc(var(--rail-w) + .85rem)}
+  .content-inner{padding:0 1.5rem 3rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  #nav-rail{display:none}
+  :root{--rail-w:0rem}
+  body{padding-left:0}
+  #topbar{padding-left:.85rem}
+  .content-shell{margin-left:0}
+  .content-inner{padding:0 1.25rem 3rem}
+}
+@media(max-width:700px){
+  .content-inner{padding:0 1rem 2.5rem}
+  .hero-h1{font-size:1.65rem}
+  h2.sec-title{font-size:1.1rem}
+  .hero-cta-row{flex-direction:column;gap:.55rem}
+  .hero-meta-row{flex-direction:column;gap:.4rem}
+  .hero-meta-sep{display:none}
+  #ai-panel{width:100vw}
+  body.ai-open{padding-right:0}
+  .pillars-grid{grid-template-columns:1fr}
+  .insights-grid{grid-template-columns:1fr}
+  .charts-grid{grid-template-columns:1fr}
+  .opt-cycle{grid-template-columns:1fr 1fr}
+  .opt-step::after{display:none}
+}
+@media(max-width:560px){
+  .section-block{padding:1.25rem 1rem}
+  .final-h2{font-size:1.4rem}
+  .hook-stat-banner{grid-template-columns:1fr}
+  .dash-kpis{grid-template-columns:repeat(2,1fr)}
+  .case-study-results{grid-template-columns:1fr 1fr}
+}
+
+@media print{
+  #topbar,#nav-rail,#ai-panel,#ai-beacon,.step-continue-wrap,.step-tracker,.orb,#read-progress{display:none!important}
+  body{padding:0;background:#fff;color:#111}
+  .content-inner{max-width:100%}
+  .section-block{background:#fff;border:1px solid #ddd;break-inside:avoid}
+  .prog-step{display:block!important;break-inside:avoid}
+  .hero-h1,h2.sec-title{color:#111}
+}
+</style>
+</head>
+<body>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- TOP BAR -->
+<header id="topbar" role="banner">
+  <div class="tb-left">
+    <span class="tb-lesson-label">VERCELLUM · <span>Level 2 · Lesson 05</span></span>
+    <div class="tb-progress-wrap">
+      <div class="tb-progress-track"><div class="tb-progress-fill" id="tb-progress-fill"></div></div>
+      <span class="tb-progress-pct" id="tb-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button id="focus-btn" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+      FOCUS MODE
+    </button>
+    <button class="tb-save-btn" id="tb-save-btn" aria-label="Save progress">
+      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+    </button>
+  </div>
+</header>
+<div id="read-progress" aria-hidden="true"></div>
+
+<!-- NAV RAIL -->
+<nav id="nav-rail" aria-label="Course navigation">
+  <div class="rail-logo-area">
+    <div class="rail-logo-icon"><div class="rail-logo-mark">V</div></div>
+    <div class="rail-logo-text">
+      <span class="rail-wordmark">VERCELLUM</span>
+      <span class="rail-tagline">Agentic AI · Level 2</span>
+    </div>
+  </div>
+  <div class="rail-nav" role="list">
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L1</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 1</div><div class="rail-lesson-name">Lead &amp; Sales Agent</div></div>
+    </div>
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L2</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 2</div><div class="rail-lesson-name">Customer Support Agent</div></div>
+    </div>
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L3</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 3</div><div class="rail-lesson-name">Operations Agent</div></div>
+    </div>
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L4</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 4</div><div class="rail-lesson-name">Self-Correcting Agent</div></div>
+    </div>
+    <div class="rail-lesson active" role="listitem" aria-current="page">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">05</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Active · Lesson 5</div><div class="rail-lesson-name">Monitoring &amp; Optimization</div></div>
+    </div>
+  </div>
+  <div class="rail-bottom">
+    <div class="rail-live">
+      <div class="rail-live-dot"></div>
+      <span class="rail-live-text rail-live-text-js">241 owners building now</span>
+    </div>
+    <button class="rail-pin-btn" id="rail-pin-btn" aria-label="Pin navigation open">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- AI ASSISTANT PANEL -->
+<aside id="ai-panel" aria-label="AI Learning Assistant" aria-hidden="true">
+  <div class="ai-panel-header">
+    <div class="ai-panel-id">
+      <div class="ai-avatar-ring">&#10022;</div>
+      <div><div class="ai-name">Kira · Your Learning Guide</div><div class="ai-subtitle">Powered by VERCELLUM AI</div></div>
+    </div>
+    <button class="ai-close" id="ai-close-btn" aria-label="Close assistant">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="ai-context-chip" id="ai-context-chip">Following your current section…</div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-suggestions">
+    <div class="ai-suggest-header">ASK KIRA ABOUT THIS SECTION</div>
+    <div class="ai-suggest-list" id="ai-suggest-list"></div>
+  </div>
+</aside>
+<button id="ai-beacon" aria-label="Open AI learning assistant" aria-expanded="false">
+  <div class="ai-beacon-btn">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </div>
+  <span class="ai-beacon-label">Ask Kira</span>
+</button>
+
+<!-- MAIN CONTENT -->
+<div class="content-shell">
+  <div class="content-inner" id="main-content">
+
+    <!-- HERO -->
+    <section class="lesson-hero">
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <span>VERCELLUM</span><span class="hero-breadcrumb-sep">&#8250;</span>
+        <span>Level 2</span><span class="hero-breadcrumb-sep">&#8250;</span>
+        <span>Lesson 5</span>
+      </nav>
+      <div class="hero-badges">
+        <div class="hero-lesson-num">Level 2 · Lesson 05 of 05</div>
+        <div class="hero-lab-badge">Live Dashboard · Interactive · 13 Steps</div>
+      </div>
+      <h1 class="hero-h1">The Agent That<br><span class="gold-text">Pays For Itself</span> — Or Costs You Everything</h1>
+      <p class="hero-tagline">Building agents is step one. <strong>Knowing if they're actually working</strong> is what separates businesses that scale from businesses that waste money on automation that runs in the dark.</p>
+      <div class="hero-cta-row">
+        <button class="hero-primary-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>START THE LESSON
+        </button>
+        <button class="hero-ghost-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">SEE THE DASHBOARD</button>
+      </div>
+      <div class="hero-meta-row">
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12–15 min · Monitoring mastery</div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 Live dashboard simulation</div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="rail-live-dot" style="margin-right:.35rem;display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grn);animation:rldot 2s infinite"></span>241 owners building now</div>
+      </div>
+    </section>
+
+    <!-- LESSON BODY -->
+    <div class="lesson-body" id="lesson-body">
+      <div class="step-tracker" id="step-tracker">
+        <div class="step-counter" id="step-counter">STEP 1 OF 13</div>
+        <div class="step-dots" id="step-dots" aria-hidden="true"></div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 0: HOOK
+      ══════════════════════════════════════ -->
+      <div class="prog-step active" data-step="0" id="prog-step-0">
+        <section class="section-block">
+          <div class="sec-badge blue">THE HOOK</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE SILENT KILLER</div>
+          <h2 class="sec-title">Your agents are running. But are they <span class="red">actually working</span> — or just silently costing you money?</h2>
+
+          <div class="hook-stat-banner reveal">
+            <div class="hook-stat">
+              <span class="hook-stat-num red-num" id="ctr-70">0%</span>
+              <div class="hook-stat-label">OF SMB AI AGENTS<br>UNDERPERFORM</div>
+              <div class="hook-stat-sub">Nobody's watching them.</div>
+            </div>
+            <div class="hook-stat">
+              <span class="hook-stat-num" id="ctr-3x">0x</span>
+              <div class="hook-stat-label">MORE ROI FROM<br>MONITORED AGENTS</div>
+              <div class="hook-stat-sub">Same agents. Better results.</div>
+            </div>
+            <div class="hook-stat">
+              <span class="hook-stat-num" id="ctr-11">0%</span>
+              <div class="hook-stat-label">AVERAGE COST REDUCTION<br>AFTER FIRST OPTIMIZATION</div>
+              <div class="hook-stat-sub">Spotted in the first 30 days.</div>
+            </div>
+          </div>
+
+          <div class="hook-revelation reveal reveal-delay-1">
+            <div class="hook-revelation-label">THE UNCOMFORTABLE TRUTH</div>
+            <p class="hook-revelation-quote">"Deploying an agent without monitoring it is like hiring an employee and never checking their work. Eventually, they'll either coast — or <em>cost you everything.</em>"</p>
+            <div class="hook-counter-row">
+              <div class="hook-counter-chip danger">
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                WITHOUT MONITORING: Agent drifts, degrades, wastes budget
+              </div>
+              <div class="hook-counter-chip success">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                WITH MONITORING: Spot issues early, fix fast, improve constantly
+              </div>
+            </div>
+          </div>
+
+          <p class="body-text reveal reveal-delay-2">The four agents you've built so far are running. They're qualifying leads, handling support, managing operations, and self-correcting. But without a monitoring layer, you're flying blind. <strong>You don't know which ones are performing. You don't know what's breaking. And you don't know where the money is going.</strong></p>
+          <p class="body-text reveal reveal-delay-2">This lesson teaches you the exact monitoring and optimization system used by businesses that get real ROI from their AI agents. By the end, you'll have a complete measurement framework: what to track, how to read it, and how to act on it.</p>
+
+          <div class="key-insight reveal reveal-delay-3">
+            <span class="ki-icon">&#128200;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE CORE PRINCIPLE</div>
+              <p class="ki-text">Monitoring is not about watching. It's about improving. <strong>The goal isn't to catch your agents failing — it's to find opportunities to make them 10x more valuable.</strong> Every metric you track is a lever you can pull.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="1">Begin the Lesson<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 1: LESSON GOAL
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="1" id="prog-step-1">
+        <section class="section-block">
+          <div class="sec-badge gold">LESSON GOAL</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT YOU'LL MASTER</div>
+          <h2 class="sec-title">By the end of this lesson, you'll have a complete <span class="gold">Monitoring & Optimization System</span> for every agent in your business</h2>
+          <p class="body-text">This isn't about dashboards for the sake of dashboards. This is a practical, business-first framework that tells you: is my agent making me money, saving me time, and working as intended?</p>
+          <div style="font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--tp);text-align:center;margin:1.75rem 0 .85rem">WHAT YOU'LL WALK AWAY WITH:</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin:0 0 1.5rem">
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px" class="reveal"><div style="width:32px;height:32px;border-radius:8px;background:var(--blud);display:grid;place-items:center;flex-shrink:0;color:var(--blu);font-size:14px">&#128200;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">The 5 metrics every SMB agent needs</strong> — simple, practical, instantly actionable for any business</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px" class="reveal reveal-delay-1"><div style="width:32px;height:32px;border-radius:8px;background:var(--grns);display:grid;place-items:center;flex-shrink:0;color:var(--grn);font-size:14px">&#128260;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">The Optimization Cycle</strong> — a 4-step loop that continuously improves performance without rebuilding from scratch</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px" class="reveal reveal-delay-2"><div style="width:32px;height:32px;border-radius:8px;background:var(--gf);display:grid;place-items:center;flex-shrink:0;color:var(--g1);font-size:14px">&#128065;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">A live dashboard simulation</strong> — see exactly what monitoring looks like in practice, with real numbers</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px" class="reveal reveal-delay-3"><div style="width:32px;height:32px;border-radius:8px;background:var(--purpd);display:grid;place-items:center;flex-shrink:0;color:var(--purp);font-size:14px">&#127919;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Your personal monitoring plan</strong> — define the 3 metrics that matter most to your specific business</div></li>
+          </ul>
+          <div class="key-insight">
+            <span class="ki-icon">&#127942;</span>
+            <div class="ki-content">
+              <div class="ki-label">FINAL OUTCOME</div>
+              <p class="ki-text">You'll be able to look at any agent you've built and answer: <strong>Is it working? How well? What needs to change?</strong> That ability is what turns an experiment into a business asset.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="2">Why This Matters<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 2: WHY THIS MATTERS
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="2" id="prog-step-2">
+        <section class="section-block">
+          <div class="sec-badge red">WHY THIS MATTERS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE BEFORE &amp; AFTER</div>
+          <h2 class="sec-title">The Difference Between an Agent That <span class="red">Costs You Money</span> and One That <span class="green">Makes You Money</span></h2>
+          <div class="bfa-wrap">
+            <div class="bfa-col bfa-before reveal">
+              <div class="bfa-header">
+                <div class="bfa-icon">&#128566;</div>
+                <div><div class="bfa-title">WITHOUT MONITORING</div><div class="bfa-subtitle">Running blind, hoping for the best</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Agent runs but you don't know if leads are actually converting</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Support agent gives wrong answers — for weeks — before you notice</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>You're paying for automation that has stopped working silently</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>No way to know which agent is your highest ROI</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✕</span>Problems compound: one bad agent contaminates your whole pipeline</div>
+              </div>
+            </div>
+            <div class="bfa-divider-row">
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(239,68,68,.2))"></div>
+              <div class="bfa-divider-icon">→</div>
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(52,211,153,.2),transparent)"></div>
+            </div>
+            <div class="bfa-col bfa-after reveal reveal-delay-1">
+              <div class="bfa-header">
+                <div class="bfa-icon">&#128200;</div>
+                <div><div class="bfa-title">WITH MONITORING</div><div class="bfa-subtitle">Data-driven, always improving</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>You know exact conversion rates, response times, and cost per outcome</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>Issues are caught within hours, not weeks — before they cause damage</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>You allocate budget to agents that prove their ROI — and cut the rest</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>Every week, your agents get a little smarter based on real data</div>
+                <div class="bfa-item"><span class="bfa-item-mark">✓</span>You have proof to show stakeholders — numbers, not opinions</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));border:1px solid rgba(201,163,74,.18);border-radius:14px;padding:1.5rem 1.75rem;margin-top:1.5rem;position:relative;overflow:hidden;" class="reveal reveal-delay-2">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)"></div>
+            <div style="font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g2);margin-bottom:.85rem">THE REAL COST OF NOT MONITORING</div>
+            <div style="display:flex;flex-direction:column;gap:.55rem">
+              <div style="display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55">
+                <span style="color:var(--red);flex-shrink:0;font-weight:700">→</span>A sales agent with a 3% conversion rate vs. 12% after optimization = <strong style="color:var(--cr)">4x more revenue from the same traffic</strong>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55">
+                <span style="color:var(--red);flex-shrink:0;font-weight:700">→</span>A support agent answering incorrectly for 14 days = <strong style="color:var(--cr)">hundreds of frustrated customers you'll never win back</strong>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--bn);line-height:1.55">
+                <span style="color:var(--red);flex-shrink:0;font-weight:700">→</span>No cost visibility = <strong style="color:var(--cr)">spending $500/month on agents with zero measurable return</strong>
+              </div>
+            </div>
+          </div>
+          <div class="future-self reveal reveal-delay-3" style="margin-top:2rem">
+            <div class="fs-icon">&#128336;</div>
+            <div class="fs-content">
+              <div class="fs-label">IMAGINE YOUR MONDAY MORNING — 60 DAYS FROM NOW</div>
+              <p class="fs-text">You open your agent dashboard. At a glance: your Sales Agent converted 18% of leads last week, up from 11% after you tweaked the qualification script. Your Support Agent resolved 94% of tickets without escalation. Cost per resolved ticket: $0.38. You spent 20 minutes optimizing — and made an extra $6,800 last month because of it. <strong>That's what monitoring makes possible.</strong></p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="3">What Is Monitoring?<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 3: CORE CONCEPT
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="3" id="prog-step-3">
+        <section class="section-block">
+          <div class="sec-badge blue">CORE CONCEPT</div>
+          <div class="eyebrow"><span class="ey-dot"></span>SIMPLE EXPLANATION</div>
+          <h2 class="sec-title">Think of It as a <span class="gold">Scoreboard</span> — Not a Surveillance System</h2>
+          <p class="body-text">Most business owners hear "monitoring" and think complexity: servers, logs, code. Forget that. For an SMB owner, monitoring is simply asking: <strong>"Is my agent doing its job well enough to justify running it?"</strong> If the answer is yes, great. If not, you need to know why — and fix it.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0">
+            <div style="padding:1.25rem;border-radius:12px;background:var(--reds);border:1px solid var(--redb)" class="reveal">
+              <div style="font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--red);margin-bottom:.5rem">&#10006; WHAT MONITORING IS NOT</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem">
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--red)">–</span>A technical dashboard only engineers understand</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--red)">–</span>Something you set up and never look at again</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--red)">–</span>Micromanaging every single interaction</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--red)">–</span>Proof that something is wrong</li>
+              </ul>
+            </div>
+            <div style="padding:1.25rem;border-radius:12px;background:var(--grns);border:1px solid var(--grnb)" class="reveal reveal-delay-1">
+              <div style="font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--grn);margin-bottom:.5rem">&#10004; WHAT MONITORING IS</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem">
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--grn)">+</span>A simple weekly check on a few key numbers</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--grn)">+</span>An early warning system for problems before they escalate</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--grn)">+</span>A source of ideas to improve performance</li>
+                <li style="font-size:.8rem;color:var(--bn);display:flex;gap:.5rem;line-height:1.5"><span style="color:var(--grn)">+</span>Proof of ROI you can show anyone</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="font-family:var(--fb);font-size:.52rem;letter-spacing:.22em;color:var(--g2);text-align:center;margin:1.75rem 0 .85rem">THE THREE PILLARS OF MONITORING</div>
+          <div class="pillars-grid">
+            <div class="pillar-card pc-blue reveal">
+              <div class="pillar-icon">&#128065;</div>
+              <div class="pillar-num">01</div>
+              <div class="pillar-title">TRACK</div>
+              <div class="pillar-desc">Collect the right data automatically. What happened? How often? How fast? At what cost?</div>
+            </div>
+            <div class="pillar-card pc-gold reveal reveal-delay-1">
+              <div class="pillar-icon">&#129504;</div>
+              <div class="pillar-num">02</div>
+              <div class="pillar-title">ANALYZE</div>
+              <div class="pillar-desc">Compare against your targets. Is performance getting better or worse? Where are the gaps?</div>
+            </div>
+            <div class="pillar-card pc-green reveal reveal-delay-2">
+              <div class="pillar-icon">&#9889;</div>
+              <div class="pillar-num">03</div>
+              <div class="pillar-title">OPTIMIZE</div>
+              <div class="pillar-desc">Make one targeted change, measure the impact, and repeat. Small improvements compound fast.</div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#128161;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE SIMPLEST TRUTH</div>
+              <p class="ki-text">You don't need to monitor everything. <strong>You need to monitor the three to five numbers that, if they change, would tell you something important is happening.</strong> That's your entire monitoring system for an SMB agent stack.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="4">The 5 Key Metrics<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 4: 5 KEY METRICS
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="4" id="prog-step-4">
+        <section class="section-block">
+          <div class="sec-badge gold">THE METRICS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT TO TRACK</div>
+          <h2 class="sec-title">The <span class="gold">5 Metrics</span> Every SMB Agent Stack Must Track — Starting Day One</h2>
+          <p class="body-text">Most people measure too much or too little. These five metrics cover every critical dimension of agent performance: speed, quality, cost, reliability, and business impact. Start here. Add more only when you need to.</p>
+
+          <div class="metrics-grid">
+            <div class="metric-row reveal">
+              <div class="metric-icon" style="background:var(--blud);border:1px solid var(--blub)">&#9889;</div>
+              <div class="metric-body">
+                <div class="metric-name">RESPONSE TIME</div>
+                <div class="metric-desc">How fast does your agent reply to an incoming request? The first 5 minutes are critical. Every minute over 5 costs you leads.</div>
+              </div>
+              <div class="metric-target mt-green">Target: &lt;90 seconds</div>
+            </div>
+            <div class="metric-row reveal reveal-delay-1">
+              <div class="metric-icon" style="background:var(--grns);border:1px solid var(--grnb)">&#128203;</div>
+              <div class="metric-body">
+                <div class="metric-name">RESOLUTION RATE</div>
+                <div class="metric-desc">What % of conversations does the agent handle fully without a human stepping in? Below 70% means the agent needs better training.</div>
+              </div>
+              <div class="metric-target mt-blue">Target: &gt;80%</div>
+            </div>
+            <div class="metric-row reveal reveal-delay-2">
+              <div class="metric-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.2)">&#128176;</div>
+              <div class="metric-body">
+                <div class="metric-name">CONVERSION RATE</div>
+                <div class="metric-desc">For Sales Agents: what % of agent-handled leads become qualified opportunities or bookings? This is your direct revenue metric.</div>
+              </div>
+              <div class="metric-target mt-gold">Target: improve by 10%/month</div>
+            </div>
+            <div class="metric-row reveal reveal-delay-3">
+              <div class="metric-icon" style="background:var(--purpd);border:1px solid var(--purpb)">&#128184;</div>
+              <div class="metric-body">
+                <div class="metric-name">COST PER OUTCOME</div>
+                <div class="metric-desc">What does it cost per resolved ticket, per qualified lead, per booked call? This is how you prove (or disprove) ROI.</div>
+              </div>
+              <div class="metric-target mt-purp">Track weekly</div>
+            </div>
+            <div class="metric-row reveal">
+              <div class="metric-icon" style="background:var(--orad);border:1px solid var(--orab)">&#128680;</div>
+              <div class="metric-body">
+                <div class="metric-name">ESCALATION RATE</div>
+                <div class="metric-desc">How often does the agent give up and forward to a human? High escalation = unclear instructions or missing knowledge. Fix it fast.</div>
+              </div>
+              <div class="metric-target mt-ora">Target: &lt;20%</div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#127919;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE GOLDEN RULE</div>
+              <p class="ki-text">Start by picking just <strong>two or three of these metrics</strong> — the ones most relevant to your business right now. A sales-focused business starts with Response Time + Conversion Rate. A service business starts with Resolution Rate + Escalation Rate. Get those right first.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="5">See the Optimization Cycle<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 5: OPTIMIZATION CYCLE
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="5" id="prog-step-5">
+        <section class="section-block">
+          <div class="sec-badge orange">OPTIMIZATION</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE IMPROVEMENT LOOP</div>
+          <h2 class="sec-title">The 4-Step <span class="gold">Optimization Cycle</span> That Turns Average Agents Into High-Performers</h2>
+          <p class="body-text">Monitoring is the input. Optimization is the output. This four-step cycle is how you turn data into decisions — and decisions into revenue. Run this cycle once a week, and your agents will outperform competitors within 30 days.</p>
+
+          <div class="opt-cycle">
+            <div class="opt-step os-1 reveal">
+              <div class="opt-step-num">01</div>
+              <div class="opt-step-icon">&#128065;</div>
+              <div class="opt-step-title">OBSERVE</div>
+              <div class="opt-step-desc">Check your 3 key metrics. Is anything outside its target range? If yes, note it. If no, you're done for the week.</div>
+            </div>
+            <div class="opt-step os-2 reveal reveal-delay-1">
+              <div class="opt-step-num">02</div>
+              <div class="opt-step-icon">&#128269;</div>
+              <div class="opt-step-title">DIAGNOSE</div>
+              <div class="opt-step-desc">Why is it underperforming? Read 5–10 conversations where the agent failed. Find the pattern. Is it a knowledge gap? A bad prompt? An unclear process?</div>
+            </div>
+            <div class="opt-step os-3 reveal reveal-delay-2">
+              <div class="opt-step-num">03</div>
+              <div class="opt-step-icon">&#128295;</div>
+              <div class="opt-step-title">ADJUST</div>
+              <div class="opt-step-desc">Make one targeted change. Update the prompt. Add a new FAQ. Change the qualification threshold. One change at a time — so you know what worked.</div>
+            </div>
+            <div class="opt-step os-4 reveal reveal-delay-3">
+              <div class="opt-step-num">04</div>
+              <div class="opt-step-icon">&#128260;</div>
+              <div class="opt-step-title">MEASURE</div>
+              <div class="opt-step-desc">Run for 7 days. Did the metric improve? If yes, make it permanent and find the next thing to improve. If not, revert and try a different approach.</div>
+            </div>
+          </div>
+
+          <div style="background:var(--ab);border:1px solid rgba(201,163,74,.1);border-radius:12px;padding:1.5rem;margin:1.5rem 0" class="reveal">
+            <div style="font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--g2);margin-bottom:1rem">REAL EXAMPLE: SALES AGENT OPTIMIZATION</div>
+            <div class="flowchart" style="background:transparent;border:none;padding:.5rem 0;margin:0">
+              <div class="flow-node track" style="flex:1">
+                <span class="flow-node-icon">&#128065;</span>
+                <div class="flow-node-label">OBSERVE</div>
+                <div class="flow-node-sub" style="color:var(--blu)">Conversion: 6%</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node analyze" style="flex:1">
+                <span class="flow-node-icon">&#128269;</span>
+                <div class="flow-node-label">DIAGNOSE</div>
+                <div class="flow-node-sub" style="color:var(--g1)">Asking budget too early</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node" style="background:var(--orad);border:1px solid var(--orab);flex:1">
+                <span class="flow-node-icon">&#128295;</span>
+                <div class="flow-node-label" style="color:var(--ora)">ADJUST</div>
+                <div class="flow-node-sub" style="color:var(--ora)">Move budget Q to step 3</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node optimize" style="flex:1">
+                <span class="flow-node-icon">&#128200;</span>
+                <div class="flow-node-label">MEASURE</div>
+                <div class="flow-node-sub" style="color:var(--grn)">Conversion: 14% ↑</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#8987;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE TIME INVESTMENT</div>
+              <p class="ki-text">This entire cycle takes <strong>20–30 minutes per agent per week.</strong> That's 2 hours per month for a stack of four agents. The average ROI from systematic optimization: a <strong>2–4x improvement in key metrics within 90 days.</strong> No developer required.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="6">Live Dashboard Simulation<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 6: LIVE DASHBOARD SIMULATION
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="6" id="prog-step-6">
+        <section class="section-block">
+          <div class="sec-badge green">LIVE SIMULATION</div>
+          <div class="eyebrow"><span class="ey-dot"></span>SEE IT IN ACTION</div>
+          <h2 class="sec-title">Watch a <span class="gold">Real-Time Monitoring Dashboard</span> Catch an Underperforming Agent — and Fix It</h2>
+          <p class="body-text">This simulation shows your Sales Agent dashboard over a 7-day period. You'll see metrics fluctuate in real-time, watch an alert trigger when performance drops, and see the optimization applied — with immediate results.</p>
+
+          <!-- DASHBOARD -->
+          <div class="dashboard-container" id="dash-container">
+            <div class="dash-header">
+              <div class="dash-avatar">&#129302;</div>
+              <div class="dash-identity">
+                <div class="dash-name">SALES AGENT · LIVE DASHBOARD</div>
+                <div class="dash-status" id="dash-status-text">Monitoring active</div>
+              </div>
+              <div class="dash-status-id">AGENT-SALES-01</div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="dash-kpis">
+              <div class="dash-kpi">
+                <div class="dash-kpi-val" id="kpi-response" style="color:var(--grn)">--</div>
+                <div class="dash-kpi-label">RESPONSE TIME<br>(avg, seconds)</div>
+                <div class="dash-kpi-delta neutral" id="kpi-response-delta">–</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-val" id="kpi-conv" style="color:var(--g1)">--</div>
+                <div class="dash-kpi-label">CONVERSION<br>RATE</div>
+                <div class="dash-kpi-delta neutral" id="kpi-conv-delta">–</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-val" id="kpi-esc" style="color:var(--blu)">--</div>
+                <div class="dash-kpi-label">ESCALATION<br>RATE</div>
+                <div class="dash-kpi-delta neutral" id="kpi-esc-delta">–</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-val" id="kpi-cost" style="color:var(--purp)">--</div>
+                <div class="dash-kpi-label">COST PER<br>QUALIFIED LEAD</div>
+                <div class="dash-kpi-delta neutral" id="kpi-cost-delta">–</div>
+              </div>
+            </div>
+
+            <!-- CHART -->
+            <div class="dash-chart-area">
+              <canvas id="dashChart" height="160"></canvas>
+            </div>
+
+            <!-- LOG -->
+            <div class="dash-log-area" id="dash-log">
+              <div class="dash-log-line log-info"><span class="log-ts">--:--</span><span>Dashboard ready. Click "RUN SIMULATION" to begin monitoring.</span></div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="dash-actions">
+              <button class="dash-run-btn" id="dash-run-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="dash-btn-label">RUN SIMULATION</span>
+              </button>
+              <button class="dash-reset-btn" id="dash-reset-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.49"/></svg>
+                RESET
+              </button>
+            </div>
+          </div>
+
+          <div class="key-insight" style="margin-top:1.25rem">
+            <span class="ki-icon">&#128161;</span>
+            <div class="ki-content">
+              <div class="ki-label">WHAT JUST HAPPENED</div>
+              <p class="ki-text">The simulation shows a 7-day monitoring window. On Day 4, conversion drops below target — the dashboard flags it immediately. A prompt adjustment is applied (the agent stops asking for budget before establishing value). By Day 7, conversion has recovered and exceeded the original baseline. <strong>This is what one 15-minute optimization looks like.</strong></p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="7">Real Business Case Study<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 7: CASE STUDY
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="7" id="prog-step-7">
+        <section class="section-block">
+          <div class="sec-badge purple">CASE STUDY</div>
+          <div class="eyebrow"><span class="ey-dot"></span>REAL-WORLD EXAMPLE</div>
+          <h2 class="sec-title">How a <span class="gold">Home Services Business</span> Doubled Lead Conversion in 30 Days — Without Hiring Anyone</h2>
+
+          <div class="case-study-box reveal">
+            <div class="case-study-header">
+              <div class="case-study-badge">CASE STUDY · SMB · HOME SERVICES</div>
+              <div class="case-study-name">Marco's HVAC &amp; Plumbing — Toronto, Canada</div>
+              <div class="case-study-sub">Team of 6 · $1.8M annual revenue · Deployed agent stack in Level 2</div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-problem">
+                <strong style="color:var(--red)">The Problem:</strong> Marco deployed a Sales Agent in Week 1. After 3 weeks, he checked his CRM. The agent had handled 143 inquiries but only 9 converted to booked jobs — a 6.3% conversion rate. He had no idea why.
+              </div>
+
+              <div style="font-family:var(--fb);font-size:.46rem;letter-spacing:.22em;color:var(--tp);margin-bottom:1rem">MONITORING FOUND THE PROBLEM IN 20 MINUTES:</div>
+              <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem">
+                <div style="display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border-radius:8px;background:var(--ob);border:1px solid rgba(201,163,74,.08)" class="reveal">
+                  <span style="color:var(--g1);flex-shrink:0;font-family:var(--fb);font-size:.6rem">01</span>
+                  <div style="font-size:.83rem;color:var(--bn);line-height:1.55"><strong style="color:var(--cr)">Escalation rate was 38%</strong> — the agent couldn't answer questions about pricing windows or same-day availability, so it kept handing off to Marco</div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border-radius:8px;background:var(--ob);border:1px solid rgba(201,163,74,.08)" class="reveal reveal-delay-1">
+                  <span style="color:var(--g1);flex-shrink:0;font-family:var(--fb);font-size:.6rem">02</span>
+                  <div style="font-size:.83rem;color:var(--bn);line-height:1.55"><strong style="color:var(--cr)">Average response time was 4 minutes 22 seconds</strong> — because the agent was doing too much processing before replying. Customers left before getting an answer</div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border-radius:8px;background:var(--ob);border:1px solid rgba(201,163,74,.08)" class="reveal reveal-delay-2">
+                  <span style="color:var(--g1);flex-shrink:0;font-family:var(--fb);font-size:.6rem">03</span>
+                  <div style="font-size:.83rem;color:var(--bn);line-height:1.55"><strong style="color:var(--cr)">The booking question was never asked</strong> — the agent was qualifying endlessly without ever moving to a close. It needed a clear "Would you like to book?" trigger</div>
+                </div>
+              </div>
+
+              <div style="font-family:var(--fb);font-size:.46rem;letter-spacing:.22em;color:var(--tp);margin-bottom:1rem">AFTER 3 TARGETED OPTIMIZATIONS:</div>
+              <div class="case-study-results">
+                <div class="case-result-item reveal">
+                  <div class="case-result-val up">14.2%</div>
+                  <div class="case-result-label">CONVERSION RATE<br>(was 6.3%)</div>
+                </div>
+                <div class="case-result-item reveal reveal-delay-1">
+                  <div class="case-result-val up">58s</div>
+                  <div class="case-result-label">AVG RESPONSE<br>(was 4m 22s)</div>
+                </div>
+                <div class="case-result-item reveal reveal-delay-2">
+                  <div class="case-result-val down">11%</div>
+                  <div class="case-result-label">ESCALATION RATE<br>(was 38%)</div>
+                </div>
+              </div>
+
+              <div class="case-study-quote reveal reveal-delay-3">
+                <p>"I spent 40 minutes reading conversations and making three small changes. The next month, the agent booked $34,000 in jobs that I would have missed. <strong>Monitoring wasn't the extra step — it was the whole point.</strong>"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#128300;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE LESSON</div>
+              <p class="ki-text">Marco's agent wasn't broken. It was just unrefined. <strong>Three targeted changes — each identified by reading the monitoring data — turned a 6.3% conversion into 14.2%.</strong> That's the power of even basic monitoring. Every agent has these opportunities. You just need to look.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="8">See Key Insights + Data<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 8: KEY INSIGHTS + CHARTS
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="8" id="prog-step-8">
+        <section class="section-block">
+          <div class="sec-badge gold">KEY INSIGHTS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THREE THINGS TO REMEMBER</div>
+          <h2 class="sec-title">The <span class="gold">3 Principles</span> Behind Every High-Performing Agent Stack</h2>
+          <div class="insights-grid">
+            <div class="insight-card insight-1 reveal">
+              <div class="insight-icon">&#128200;</div>
+              <div class="insight-num">01</div>
+              <div class="insight-title">WHAT GETS MEASURED GETS IMPROVED</div>
+              <div class="insight-text">You can't improve what you don't measure. Even tracking just one metric — like escalation rate — forces you to understand what's happening inside your agent and gives you a target to beat.</div>
+            </div>
+            <div class="insight-card insight-2 reveal reveal-delay-1">
+              <div class="insight-icon">&#127919;</div>
+              <div class="insight-num">02</div>
+              <div class="insight-title">ONE CHANGE AT A TIME, ALWAYS</div>
+              <div class="insight-text">When you make multiple changes simultaneously, you can't know which one worked. One targeted change per week means clean data, fast learning, and compounding improvement. This is the discipline that separates good operators from great ones.</div>
+            </div>
+            <div class="insight-card insight-3 reveal reveal-delay-2">
+              <div class="insight-icon">&#128640;</div>
+              <div class="insight-num">03</div>
+              <div class="insight-title">SMALL IMPROVEMENTS COMPOUND FAST</div>
+              <div class="insight-text">A 10% improvement in conversion per month sounds modest. After 6 months, that's a 77% cumulative improvement. An agent that converts 10% on day one converts 18.5% by month six — from the same traffic. This is the true ROI of systematic optimization.</div>
+            </div>
+          </div>
+
+          <div class="charts-section reveal">
+            <div class="charts-intro">Performance Data · Monitored vs Unmonitored Agents · 90-Day Window</div>
+            <div class="charts-grid">
+              <div class="chart-card">
+                <div class="chart-title">Conversion Rate Over Time</div>
+                <div class="chart-sub">Weekly optimization cycle applied to Sales Agent</div>
+                <div class="chart-canvas-wrap"><canvas id="lineChart" height="200"></canvas></div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-title">What SMBs Actually Optimize First</div>
+                <div class="chart-sub">Top 4 optimization levers by impact</div>
+                <div class="chart-canvas-wrap"><canvas id="donutChart" height="200"></canvas></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#128273;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE COMPOUNDING TRUTH</div>
+              <p class="ki-text">These three principles apply to every agent you'll ever build. <strong>Measure it. Change one thing. Measure again. Repeat.</strong> That loop — run consistently — is worth more than any individual agent feature or capability you'll ever add.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="9">What You've Built<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 9: ACHIEVEMENT / WHAT YOU BUILT
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="9" id="prog-step-9">
+        <div class="achievement-box reveal">
+          <span class="achievement-icon">&#127942;</span>
+          <div class="achievement-msg">You Now Think Like an AI Operations Manager</div>
+          <div class="achievement-list" id="checklist">
+            <div class="achievement-item" onclick="toggleCheck(this)">Understood why monitoring is the difference between agents that drift and agents that grow</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Learned the 3 pillars of monitoring: Track, Analyze, Optimize</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Mastered the 5 key metrics every SMB agent stack must track</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Understood the 4-step Optimization Cycle and how to run it weekly</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Saw a real dashboard simulation and watched an agent get improved in real-time</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Studied a real-world case study where monitoring turned $0 into $34K in a month</div>
+          </div>
+          <div style="margin-top:2rem;padding:.6rem 1.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.03);display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.18em;color:var(--g3)">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite"></span>
+            Click each item above to mark it complete
+          </div>
+        </div>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="10">Your Personal Challenge<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 10: CHALLENGE
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="10" id="prog-step-10">
+        <section class="section-block">
+          <div class="challenge-box">
+            <div class="challenge-header">
+              <div class="challenge-badge">&#127919;</div>
+              <div>
+                <div class="challenge-title">YOUR PERSONAL MONITORING PLAN</div>
+                <div class="challenge-subtitle">3 minutes · High-impact exercise</div>
+              </div>
+            </div>
+            <p class="challenge-prompt">This is the most important step in this lesson. Before you leave, <strong>define the 3 metrics you will personally track for your agent stack.</strong> Which agents matter most to your business right now? What would you need to know to say "it's working"?</p>
+            <p class="challenge-prompt" style="margin-top:0">Write down: (1) which agent, (2) which metric, and (3) what your target is. For example: <em>"Sales Agent → Conversion Rate → I want to reach 15% within 60 days."</em></p>
+            <textarea class="challenge-textarea" id="monitoring-plan-input" placeholder="Metric 1: [Agent name] → [Metric] → I want to reach [target] by [timeframe]
+Metric 2: [Agent name] → [Metric] → I want to reach [target] by [timeframe]
+Metric 3: [Agent name] → [Metric] → I want to reach [target] by [timeframe]" rows="5"></textarea>
+            <div class="challenge-btn-row">
+              <button class="btn-green" id="monitoring-save-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+                SAVE MY MONITORING PLAN
+              </button>
+              <span class="scarcity-signal"><span class="scarcity-dot"></span>This becomes your weekly optimization agenda</span>
+            </div>
+            <div class="challenge-saved" id="monitoring-saved">
+              ✅ Saved. You now have a monitoring plan. Spend 20 minutes every Monday reviewing these three metrics. That's 80 minutes per month — and it's the most high-leverage time you'll spend on your business.
+              <div class="badge-earned"><span class="badge-dot"></span>MONITORING PLAN · DEFINED</div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="11">See the Summary<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 11: SUMMARY
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="11" id="prog-step-11">
+        <section class="section-block">
+          <div class="sec-badge green">SUMMARY</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT YOU NOW KNOW</div>
+          <h2 class="sec-title">Your <span class="gold">3-Point Summary</span> — Everything That Matters from This Lesson</h2>
+          <div class="summary-list">
+            <div class="summary-item">
+              <div class="summary-icon">&#128065;</div>
+              <div class="summary-content">
+                <div class="summary-title">MONITORING = TRACK + ANALYZE + OPTIMIZE</div>
+                <div class="summary-text">Every effective monitoring system runs three activities: collect the right data, compare it against targets, and make one targeted change at a time. You don't need complex tools — you need discipline. 20 minutes weekly, applied consistently, compounds into massive performance gains within 90 days.</div>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-icon">&#127919;</div>
+              <div class="summary-content">
+                <div class="summary-title">THE 5 METRICS ARE YOUR ENTIRE MEASUREMENT SYSTEM</div>
+                <div class="summary-text">Response Time, Resolution Rate, Conversion Rate, Cost Per Outcome, and Escalation Rate. These five numbers tell you everything you need to know about whether your agent is performing. Start with two or three. Master those. Expand only when you need to.</div>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-icon">&#128200;</div>
+              <div class="summary-content">
+                <div class="summary-title">OPTIMIZATION IS THE REAL PRODUCT — AGENTS ARE THE INPUT</div>
+                <div class="summary-text">An agent that you deploy and never touch will degrade over time as your business evolves. An agent that you monitor and optimize weekly will compound in performance every single month. The businesses that win with AI aren't the ones who built the best agents on day one — they're the ones who kept improving them.</div>
+              </div>
+            </div>
+          </div>
+          <div class="recap-box" style="margin-top:1.75rem">
+            <div class="recap-title">YOUR LESSON TAKEAWAY</div>
+            <div class="recap-items">
+              <div class="recap-item">You have a complete mental framework for monitoring any AI agent you've built or will ever build</div>
+              <div class="recap-item">You have the 5 metrics that matter and you know which ones to start with for your business</div>
+              <div class="recap-item">You have a personal monitoring plan — the exact metrics you'll track starting this week</div>
+            </div>
+            <div class="recap-motivation">The agents are built. The monitoring system is in place. The only thing left is execution — one 20-minute session every Monday morning.</div>
+          </div>
+          <div class="future-self" style="margin-top:2rem">
+            <div class="fs-icon">&#128640;</div>
+            <div class="fs-content">
+              <div class="fs-label">THE COMPOUNDING EFFECT STARTS THIS WEEK</div>
+              <p class="fs-text">Every business owner who reads this lesson falls into one of two groups. The first group closes the tab and keeps running agents in the dark. The second group spends 20 minutes on Monday reviewing their three metrics — and in six months, their agents are converting at 3x the rate of everyone else. <strong>The difference is entirely behavioral, not technical. You already know what to do.</strong></p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="12">Finish &amp; See What's Next<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 12: FINAL CTA
+      ══════════════════════════════════════ -->
+      <div class="prog-step" data-step="12" id="prog-step-12">
+        <div class="divider"></div>
+        <section class="section-block">
+          <div class="final-cta">
+            <div class="final-badge">&#127942; Level 2 · Lesson 5 Complete — Level 2 Mastered</div>
+            <h2 class="final-h2">You Have a Complete<br><span class="text-shimmer">AI Agent Stack. Now Make It Unstoppable.</span></h2>
+            <p class="final-sub">You've done what less than 5% of business owners have: you've built, connected, self-corrected, and now you know how to optimize a full AI agent system. In Level 3, you'll learn to scale it — connecting agents to each other, adding memory, and building systems that grow with your business.</p>
+
+            <div class="next-lesson-card" style="max-width:460px;margin:0 auto 2rem">
+              <div class="nlc-label">NEXT UP — LEVEL 3</div>
+              <div class="nlc-title">Multi-Agent Systems &amp; Scaling</div>
+              <div class="nlc-desc">Connect your agents to each other, add persistent memory, and build orchestration layers that let your entire stack operate as a single intelligent system — automatically.</div>
+              <div class="nlc-meta">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Level 3 · 6 Advanced Lessons · No code required
+              </div>
+            </div>
+
+            <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;align-items:center">
+              <a href="level3.html" class="final-btn glow-pulse" id="complete-btn" style="text-decoration:none">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Complete Level 2 → Enter Level 3
+              </a>
+            </div>
+            <div class="emotional-anchor" style="max-width:480px;margin:1.5rem auto">The stack is built. The monitoring is active. The only remaining question is: how far do you want to take it?</div>
+            <div style="margin-top:1.75rem;padding:.7rem 1.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.03);display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.4rem;letter-spacing:.18em;color:var(--g3);text-transform:uppercase">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite"></span>
+              <span class="rail-live-text-js">241 owners building now</span> · Level 3 is open
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div><!-- /lesson-body -->
+  </div><!-- /content-inner -->
+</div><!-- /content-shell -->
+
+<script>
+(function() {
+'use strict';
+
+/* ══════════════════════════════════════
+   CONFIG & STATE
+══════════════════════════════════════ */
+var CONFIG = { totalSteps: 13 };
+var state = {
+  currentStep: 0,
+  usedSuggestions: new Set(),
+  aiMessages: [],
+  demoRunning: false,
+  chartInitialized: false,
+  dashChart: null
+};
+
+/* ══════════════════════════════════════
+   WAIT FOR DOM
+══════════════════════════════════════ */
+function initApp() {
+
+/* ══════════════════════════════════════
+   NULL-SAFE EVENT HELPER
+══════════════════════════════════════ */
+function on(id, evt, fn) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener(evt, fn);
+}
+
+/* ══════════════════════════════════════
+   UTILS
+══════════════════════════════════════ */
+function escapeHTML(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function wait(ms) { return new Promise(function(r){setTimeout(r,ms);}); }
+function throttle(fn, delay) {
+  var last = 0;
+  return function() {
+    var now = Date.now();
+    if (now - last >= delay) { last = now; fn.apply(this, arguments); }
+  };
+}
+
+/* ══════════════════════════════════════
+   TOAST
+══════════════════════════════════════ */
+function showToast(msg, type) {
+  var container = document.getElementById('toast-container');
+  var t = document.createElement('div');
+  t.className = 'toast ' + (type||'info');
+  t.textContent = msg;
+  container.appendChild(t);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ t.classList.add('show'); }); });
+  setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ t.remove(); }, 400); }, 3200);
+}
+
+/* ══════════════════════════════════════
+   PROGRESS PERSISTENCE
+══════════════════════════════════════ */
+function saveProgress() {
+  try { localStorage.setItem('vrc_l2l5_step', state.currentStep); return true; } catch(e){ return false; }
+}
+function restoreProgress() {
+  try {
+    var s = parseInt(localStorage.getItem('vrc_l2l5_step'), 10);
+    if (!isNaN(s) && s >= 0 && s < CONFIG.totalSteps) state.currentStep = s;
+  } catch(e){}
+}
+
+/* ══════════════════════════════════════
+   STEP NAVIGATION
+══════════════════════════════════════ */
+function goToStep(index, instant) {
+  var steps = document.querySelectorAll('.prog-step');
+  steps.forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('prog-step-' + index);
+  if (!target) return;
+  target.classList.add('active');
+  state.currentStep = index;
+  updateProgress();
+  updateStepDots();
+  if (!instant) {
+    var tracker = document.getElementById('step-tracker');
+    if (tracker) { window.scrollTo({ top: tracker.offsetTop - 60, behavior: 'smooth' }); }
+  }
+  saveProgress();
+  updateAISuggestions();
+  if (index === 6) initDashboardChart();
+  if (index === 8) initInsightCharts();
+  triggerRevealInStep(target);
+  setTimeout(function() {
+    target.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+  }, 0);
+}
+
+function updateProgress() {
+  var pct = Math.round((state.currentStep / (CONFIG.totalSteps - 1)) * 100);
+  var fill = document.getElementById('tb-progress-fill');
+  var pctEl = document.getElementById('tb-progress-pct');
+  var counter = document.getElementById('step-counter');
+  if (fill) fill.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (counter) counter.textContent = 'STEP ' + (state.currentStep + 1) + ' OF ' + CONFIG.totalSteps;
+}
+
+function updateStepDots() {
+  var container = document.getElementById('step-dots');
+  if (!container) return;
+  container.innerHTML = '';
+  for (var i = 0; i < CONFIG.totalSteps; i++) {
+    var d = document.createElement('div');
+    d.className = 'step-dot' + (i < state.currentStep ? ' done' : '') + (i === state.currentStep ? ' active' : '');
+    d.setAttribute('aria-label', 'Step ' + (i+1));
+    (function(idx){ d.addEventListener('click', function(){ if(idx <= state.currentStep) goToStep(idx, false); }); })(i);
+    container.appendChild(d);
+  }
+}
+
+/* ══════════════════════════════════════
+   STEP CONTINUE BUTTONS - FIXED
+══════════════════════════════════════ */
+document.addEventListener('click', function(e) {
+  // Find the button even if clicking on child elements like SVG
+  var btn = e.target;
+  while (btn && !btn.classList.contains('step-continue-btn')) {
+    btn = btn.parentElement;
+    if (btn === document.body) return; // Prevent infinite loop
+  }
+  if (!btn || !btn.classList.contains('step-continue-btn')) return;
+  
+  var next = parseInt(btn.getAttribute('data-next'), 10);
+  if (!isNaN(next)) {
+    e.preventDefault();
+    goToStep(next, false);
+  }
+});
+
+/* ══════════════════════════════════════
+   HERO BUTTONS - FIXED
+══════════════════════════════════════ */
+document.querySelectorAll('.hero-primary-btn, .hero-ghost-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var lessonBody = document.getElementById('lesson-body');
+    if (lessonBody) {
+      lessonBody.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+/* ══════════════════════════════════════
+   REVEAL ON ENTER
+══════════════════════════════════════ */
+function triggerRevealInStep(stepEl) {
+  document.body.classList.add('js-reveal');
+  var items = stepEl.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.02 });
+  items.forEach(function(el) { observer.observe(el); });
+  setTimeout(function() { items.forEach(function(el) { el.classList.add('visible'); }); }, 150);
+}
+
+window.addEventListener('load', function() {
+  document.querySelectorAll('.prog-step.active .reveal').forEach(function(el) {
+    el.classList.add('visible');
+  });
+});
+
+/* ══════════════════════════════════════
+   HOOK COUNTERS
+══════════════════════════════════════ */
+function animateCounter(id, target, suffix, duration) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var start = 0, startTime = null;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var progress = Math.min((timestamp - startTime) / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3);
+    var current = Math.round(eased * target);
+    el.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+var hookObserver = new IntersectionObserver(function(entries) {
+  if (entries[0].isIntersecting) {
+    animateCounter('ctr-70', 70, '%', 2000);
+    animateCounter('ctr-3x', 3, 'x', 1500);
+    animateCounter('ctr-11', 38, '%', 1800);
+    hookObserver.disconnect();
+  }
+}, { threshold: 0.3 });
+var hookStat = document.querySelector('.hook-stat-banner');
+if (hookStat) hookObserver.observe(hookStat);
+
+/* ══════════════════════════════════════
+   ACHIEVEMENT CHECKLIST
+══════════════════════════════════════ */
+window.toggleCheck = function(el) {
+  el.classList.toggle('checked');
+  var checked = document.querySelectorAll('.achievement-item.checked').length;
+  var total = document.querySelectorAll('.achievement-item').length;
+  if (checked === total) showToast('All items checked! 🏆 Excellent work.', 'success');
+};
+
+/* ══════════════════════════════════════
+   CHALLENGE SAVE
+══════════════════════════════════════ */
+on('monitoring-save-btn', 'click', function() {
+  var input = document.getElementById('monitoring-plan-input');
+  var saved = document.getElementById('monitoring-saved');
+  if (!input || !input.value.trim()) {
+    showToast('Write your monitoring plan before saving.', 'warning');
+    return;
+  }
+  try { localStorage.setItem('vrc_l2l5_monitor_plan', input.value); } catch(e){}
+  if (saved) saved.classList.add('show');
+  showToast('Monitoring plan saved — your weekly agenda is set.', 'success');
+});
+
+/* ══════════════════════════════════════
+   FOCUS MODE - FIXED
+══════════════════════════════════════ */
+on('focus-btn', 'click', function(e) {
+  e.preventDefault();
+  var active = document.body.classList.toggle('focus-mode');
+  this.setAttribute('aria-pressed', active);
+});
+
+/* ══════════════════════════════════════
+   NAV RAIL PIN
+══════════════════════════════════════ */
+on('rail-pin-btn', 'click', function() {
+  var rail = document.getElementById('nav-rail');
+  if (rail) rail.classList.toggle('pinned');
+});
+
+/* ══════════════════════════════════════
+   READ PROGRESS BAR
+══════════════════════════════════════ */
+var updateReadProgress = throttle(function() {
+  var bodyH = document.documentElement.scrollHeight - window.innerHeight;
+  if (bodyH > 0) {
+    document.getElementById('read-progress').style.transform = 'scaleX(' + Math.min(window.scrollY / bodyH, 1) + ')';
+  }
+}, 16);
+window.addEventListener('scroll', updateReadProgress, { passive: true });
+
+/* ══════════════════════════════════════
+   LIVE SOCIAL PROOF
+══════════════════════════════════════ */
+(function(){
+  var startTime = Date.now();
+  setInterval(function(){
+    var mins = Math.floor((Date.now()-startTime)/60000);
+    var count = 241 + Math.floor(mins/7);
+    document.querySelectorAll('.rail-live-text-js').forEach(function(el){ el.textContent = count + ' owners building now'; });
+  }, 30000);
+})();
+
+/* ══════════════════════════════════════
+   SAVE BUTTON
+══════════════════════════════════════ */
+on('tb-save-btn', 'click', function() {
+  var saved = saveProgress();
+  if (saved) showToast('Progress saved — Step ' + (state.currentStep+1) + ' of ' + CONFIG.totalSteps, 'success');
+  else showToast('Could not save — storage may be disabled', 'warning');
+});
+
+/* ══════════════════════════════════════
+   DASHBOARD CHART INIT (STEP 6)
+══════════════════════════════════════ */
+function initDashboardChart() {
+  if (state.dashChart) return;
+  var ctx = document.getElementById('dashChart');
+  if (!ctx) return;
+  state.dashChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      datasets: [{
+        label: 'Conversion Rate %',
+        data: [null,null,null,null,null,null,null],
+        borderColor: 'rgba(201,163,74,.8)',
+        backgroundColor: 'rgba(201,163,74,.06)',
+        borderWidth: 2,
+        pointBackgroundColor: 'rgba(201,163,74,1)',
+        pointRadius: 4,
+        tension: 0.4,
+        fill: true
+      },{
+        label: 'Target',
+        data: [12,12,12,12,12,12,12],
+        borderColor: 'rgba(52,211,153,.35)',
+        borderWidth: 1,
+        borderDash: [4,4],
+        pointRadius: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: { duration: 600 },
+      plugins: {
+        legend: { labels: { color: 'rgba(175,167,156,.7)', font: { size: 11 }, boxWidth: 14 }},
+        tooltip: { backgroundColor: 'rgba(7,6,4,.95)', titleColor: '#C9A34A', bodyColor: '#AFA79C', borderColor: 'rgba(201,163,74,.2)', borderWidth: 1 }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(201,163,74,.05)' }, ticks: { color: 'rgba(106,96,80,.8)', font: { size: 10 }}},
+        y: { grid: { color: 'rgba(201,163,74,.05)' }, ticks: { color: 'rgba(106,96,80,.8)', font: { size: 10 }, callback: function(v){ return v+'%'; }}, min: 0, max: 25 }
+      }
+    }
+  });
+}
+
+/* ══════════════════════════════════════
+   DASHBOARD SIMULATION
+══════════════════════════════════════ */
+var dashScenario = [
+  { day: 'Mon', conv: 11.2, response: 74, esc: 18, cost: 4.20, status: 'ok', log: 'Agent active. 23 conversations processed. All metrics nominal.' },
+  { day: 'Tue', conv: 12.1, response: 68, esc: 16, cost: 3.95, status: 'ok', log: '27 conversations. Conversion trending above target baseline.' },
+  { day: 'Wed', conv: 10.8, response: 82, esc: 21, cost: 4.50, status: 'warn', log: 'Mild escalation increase detected. Monitoring for pattern.' },
+  { day: 'Thu', conv: 7.3, response: 118, esc: 34, cost: 6.80, status: 'err', log: '⚠ ALERT: Conversion dropped to 7.3%. Escalation at 34%. Budget question triggered too early in conversation flow. Optimization required.' },
+  { day: 'Thu+', conv: null, response: null, esc: null, cost: null, status: 'fix', log: '⚡ OPTIMIZATION APPLIED: Budget question moved from step 1 to step 3 in qualification flow. Redeploy initiated.' },
+  { day: 'Fri', conv: 13.5, response: 61, esc: 14, cost: 3.60, status: 'ok', log: 'Optimization effective. Conversion recovering. Escalation returning to baseline.' },
+  { day: 'Sat', conv: 15.8, response: 55, esc: 11, cost: 3.10, status: 'ok', log: 'Post-optimization peak. Conversion 15.8% — above target. Cost per lead: $3.10.' },
+  { day: 'Sun', conv: 16.4, response: 52, esc: 10, cost: 2.95, status: 'ok', log: '✓ Week summary: Optimization improved conversion by 124% from low. New baseline established at 16.4%.' }
+];
+
+function addDashLog(text, type) {
+  var log = document.getElementById('dash-log');
+  if (!log) return;
+  var now = new Date();
+  var ts = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+  var line = document.createElement('div');
+  line.className = 'dash-log-line log-' + (type||'info');
+  line.style.animationDelay = '0s';
+  line.innerHTML = '<span class="log-ts">'+ts+'</span><span>'+text+'</span>';
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+}
+
+function setKPIs(data, prev) {
+  if (data.conv !== null) {
+    document.getElementById('kpi-conv').textContent = data.conv + '%';
+    document.getElementById('kpi-conv').style.color = data.conv < 9 ? 'var(--red)' : data.conv > 14 ? 'var(--grn)' : 'var(--g1)';
+    if (prev && prev.conv !== null) {
+      var d = (data.conv - prev.conv).toFixed(1);
+      var el = document.getElementById('kpi-conv-delta');
+      el.textContent = (d > 0 ? '↑' : '↓') + Math.abs(d) + '%';
+      el.className = 'dash-kpi-delta ' + (d > 0 ? 'up' : 'down');
+    }
+  }
+  if (data.response !== null) {
+    document.getElementById('kpi-response').textContent = data.response + 's';
+    document.getElementById('kpi-response').style.color = data.response > 100 ? 'var(--red)' : data.response < 65 ? 'var(--grn)' : 'var(--g1)';
+    if (prev && prev.response !== null) {
+      var dr = data.response - prev.response;
+      var er = document.getElementById('kpi-response-delta');
+      er.textContent = (dr > 0 ? '↑' : '↓') + Math.abs(dr) + 's';
+      er.className = 'dash-kpi-delta ' + (dr < 0 ? 'up' : 'down');
+    }
+  }
+  if (data.esc !== null) {
+    document.getElementById('kpi-esc').textContent = data.esc + '%';
+    document.getElementById('kpi-esc').style.color = data.esc > 30 ? 'var(--red)' : data.esc < 15 ? 'var(--grn)' : 'var(--blu)';
+    if (prev && prev.esc !== null) {
+      var de = data.esc - prev.esc;
+      var ee = document.getElementById('kpi-esc-delta');
+      ee.textContent = (de > 0 ? '↑' : '↓') + Math.abs(de) + '%';
+      ee.className = 'dash-kpi-delta ' + (de < 0 ? 'up' : 'down');
+    }
+  }
+  if (data.cost !== null) {
+    document.getElementById('kpi-cost').textContent = '$' + data.cost.toFixed(2);
+    document.getElementById('kpi-cost').style.color = data.cost > 6 ? 'var(--red)' : data.cost < 3.5 ? 'var(--grn)' : 'var(--purp)';
+    if (prev && prev.cost !== null) {
+      var dc = data.cost - prev.cost;
+      var ec = document.getElementById('kpi-cost-delta');
+      ec.textContent = (dc > 0 ? '↑' : '↓') + '$' + Math.abs(dc).toFixed(2);
+      ec.className = 'dash-kpi-delta ' + (dc < 0 ? 'up' : 'down');
+    }
+  }
+}
+
+function updateDashChart(dayIndex, value) {
+  if (!state.dashChart || value === null) return;
+  state.dashChart.data.datasets[0].data[Math.min(dayIndex, 6)] = value;
+  state.dashChart.update('none');
+}
+
+on('dash-run-btn', 'click', function() {
+  if (state.demoRunning) return;
+  runDashSim();
+});
+
+on('dash-reset-btn', 'click', function() {
+  if (state.demoRunning) return;
+  var dashLog = document.getElementById('dash-log');
+  if (dashLog) dashLog.innerHTML = '<div class="dash-log-line log-info"><span class="log-ts">--:--</span><span>Dashboard reset. Click "RUN SIMULATION" to begin.</span></div>';
+  ['conv','response','esc','cost'].forEach(function(k){
+    var val = document.getElementById('kpi-'+k); if(val) val.textContent='--';
+    var delta = document.getElementById('kpi-'+k+'-delta'); if(delta){delta.textContent='–';delta.className='dash-kpi-delta neutral';}
+  });
+  var statusEl = document.getElementById('dash-status-text'); if(statusEl) statusEl.textContent='Monitoring active';
+  var btnLabel = document.getElementById('dash-btn-label'); if(btnLabel) btnLabel.textContent='RUN SIMULATION';
+  var runBtn = document.getElementById('dash-run-btn'); if(runBtn) runBtn.disabled=false;
+  if (state.dashChart) {
+    state.dashChart.data.datasets[0].data = [null,null,null,null,null,null,null];
+    state.dashChart.update();
+  }
+  state.demoRunning = false;
+});
+
+async function runDashSim() {
+  state.demoRunning = true;
+  var btn = document.getElementById('dash-run-btn');
+  var btnLabel = document.getElementById('dash-btn-label');
+  if (btn) btn.disabled = true;
+  if (btnLabel) btnLabel.textContent = 'RUNNING…';
+  var dashLog = document.getElementById('dash-log');
+  if (dashLog) dashLog.innerHTML = '';
+  addDashLog('▶ 7-day monitoring window initialized. Tracking Sales Agent…', 'info');
+
+  var chartIdx = 0;
+  for (var i = 0; i < dashScenario.length; i++) {
+    var scene = dashScenario[i];
+    var prev = i > 0 ? dashScenario[i-1] : null;
+    await wait(i === 0 ? 800 : 1400);
+    var statusEl = document.getElementById('dash-status-text');
+    if (statusEl) {
+      if (scene.status === 'err') {
+        statusEl.textContent = '⚠ Alert triggered';
+        statusEl.style.color = 'var(--red)';
+      } else if (scene.status === 'fix') {
+        statusEl.textContent = '⚡ Optimizing…';
+        statusEl.style.color = 'var(--ora)';
+      } else {
+        statusEl.textContent = 'Monitoring active';
+        statusEl.style.color = 'var(--grn)';
+      }
+    }
+    if (scene.conv !== null) {
+      setKPIs(scene, prev);
+      updateDashChart(chartIdx, scene.conv);
+      chartIdx++;
+    }
+    var logType = scene.status === 'err' ? 'err' : scene.status === 'fix' ? 'warn' : scene.status === 'warn' ? 'warn' : 'ok';
+    addDashLog('[Day ' + scene.day + '] ' + scene.log, logType);
+  }
+
+  await wait(600);
+  var finalStatus = document.getElementById('dash-status-text');
+  if (finalStatus) { finalStatus.textContent = '✓ Simulation complete'; finalStatus.style.color = 'var(--grn)'; }
+  if (btnLabel) btnLabel.textContent = 'SIMULATION COMPLETE';
+  showToast('Dashboard simulation complete — see the optimization impact!', 'success');
+  state.demoRunning = false;
+}
+
+/* ══════════════════════════════════════
+   INSIGHT CHARTS (STEP 8)
+══════════════════════════════════════ */
+function initInsightCharts() {
+  if (state.chartInitialized) return;
+  state.chartInitialized = true;
+
+  var lineCtx = document.getElementById('lineChart');
+  if (lineCtx) {
+    new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: ['Wk1','Wk2','Wk3','Wk4','Wk5','Wk6','Wk7','Wk8','Wk9','Wk10','Wk11','Wk12'],
+        datasets: [
+          {
+            label: 'Monitored Agent',
+            data: [10,10.8,11.5,12.3,13.2,13.9,14.6,15.4,16.2,17.1,18.0,18.9],
+            borderColor: 'rgba(52,211,153,.85)',
+            backgroundColor: 'rgba(52,211,153,.06)',
+            borderWidth: 2,
+            pointRadius: 3,
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'Unmonitored Agent',
+            data: [10,9.8,9.5,9.3,9.0,8.8,8.9,8.6,8.4,8.2,8.0,7.8],
+            borderColor: 'rgba(239,68,68,.65)',
+            backgroundColor: 'rgba(239,68,68,.04)',
+            borderWidth: 2,
+            borderDash: [4,3],
+            pointRadius: 3,
+            tension: 0.4,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { color: 'rgba(175,167,156,.7)', font: { size: 11 }, boxWidth: 14 }},
+          tooltip: { backgroundColor: 'rgba(7,6,4,.95)', titleColor: '#C9A34A', bodyColor: '#AFA79C', borderColor: 'rgba(201,163,74,.2)', borderWidth: 1 }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(201,163,74,.05)' }, ticks: { color: 'rgba(106,96,80,.8)', font: { size: 10 }}},
+          y: { grid: { color: 'rgba(201,163,74,.05)' }, ticks: { color: 'rgba(106,96,80,.8)', font: { size: 10 }, callback: function(v){ return v+'%'; }}, min: 0, max: 25 }
+        }
+      }
+    });
+  }
+
+  var donutCtx = document.getElementById('donutChart');
+  if (donutCtx) {
+    new Chart(donutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Prompt Improvement','Knowledge Base Update','Qualification Flow','Response Speed'],
+        datasets: [{
+          data: [38, 27, 22, 13],
+          backgroundColor: ['rgba(201,163,74,.75)','rgba(52,211,153,.65)','rgba(96,165,250,.65)','rgba(249,115,22,.65)'],
+          borderColor: ['rgba(201,163,74,.2)','rgba(52,211,153,.2)','rgba(96,165,250,.2)','rgba(249,115,22,.2)'],
+          borderWidth: 1,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '65%',
+        plugins: {
+          legend: { position: 'bottom', labels: { color: 'rgba(175,167,156,.7)', font: { size: 10 }, padding: 12, boxWidth: 12 }},
+          tooltip: { backgroundColor: 'rgba(7,6,4,.95)', titleColor: '#C9A34A', bodyColor: '#AFA79C', borderColor: 'rgba(201,163,74,.2)', borderWidth: 1 }
+        }
+      }
+    });
+  }
+}
+
+/* ══════════════════════════════════════
+   AI ASSISTANT — KIRA
+══════════════════════════════════════ */
+var AI_SUGGESTIONS = {
+  0: ['Why do 70% of agents underperform?', 'What does "flying blind" actually cost?', 'How does monitoring improve ROI?', 'Is monitoring really necessary for small agents?'],
+  1: ['What are the 5 key metrics?', 'How long does monitoring take per week?', 'Can I monitor without technical tools?', 'Which metric should I start with?'],
+  2: ['How does an unmonitored agent degrade?', 'What\'s the ROI of monitoring?', 'How quickly can I see improvement?', 'What\'s the minimum I need to track?'],
+  3: ['What is the simplest monitoring setup?', 'How do Track, Analyze, Optimize connect?', 'How many metrics is too many?', 'What counts as a "good" metric?'],
+  4: ['Which metric matters most for sales?', 'What escalation rate is acceptable?', 'How do I calculate cost per outcome?', 'What if my conversion rate is low?'],
+  5: ['How long is the optimization cycle?', 'Why only one change at a time?', 'What if the change makes things worse?', 'How fast does compounding work?'],
+  6: ['What caused the Day 4 drop?', 'How did moving the budget question fix it?', 'What tools show this dashboard in real life?', 'How do I set up alerts like this?'],
+  7: ['How did Marco find the problem in 20 minutes?', 'What was the biggest improvement factor?', 'Can I replicate this for my business?', 'What is a realistic conversion target for me?'],
+  8: ['Why is one change at a time so important?', 'How fast does 10% monthly compound?', 'What is the most impactful first optimization?', 'What makes agents degrade over time?'],
+  9: ['What should I do after this lesson?', 'How do I implement this this week?', 'What tools should I use for monitoring?', 'Where do I find the conversation logs?'],
+  10: ['How do I write a good monitoring plan?', 'What if I have more than 3 agents?', 'How specific should my targets be?', 'When should I revise my plan?'],
+  11: ['What is the most important thing I learned?', 'How do I start monitoring this week?', 'What comes in Level 3?', 'How long before I see results?'],
+  12: ['What will Level 3 cover?', 'How do agents connect to each other?', 'What is multi-agent orchestration?', 'Is Level 3 harder than Level 2?']
+};
+
+var AI_RESPONSES = {
+  'Why do 70% of agents underperform?': 'The core reason is simple: most business owners deploy an agent, see it working at first, and move on. But agents drift. Your business changes — new products, new pricing, new processes — while the agent keeps running on its original instructions. <strong>Without monitoring, you don\'t know the agent has drifted until a customer complains or a metric collapses.</strong> Monitoring catches this drift early, before it costs you money.',
+  'What does "flying blind" actually cost?': 'In concrete terms: a Sales Agent with a 7% conversion rate that could be 14% with one prompt change is costing you roughly <strong>half your potential revenue from that channel</strong>. If the agent handles 80 leads per month at an average deal value of $2,000, that\'s the difference between $11,200 and $22,400 per month — from the same traffic, no extra cost. That\'s $134,000 in annual revenue difference from one monitoring insight.',
+  'How does monitoring improve ROI?': 'Monitoring improves ROI through three mechanisms: (1) <strong>It catches problems fast</strong> — before they compound. A bad agent response addressed in Week 1 affects 50 customers; the same issue caught in Week 8 affects 400. (2) <strong>It identifies your best-performing agent</strong> so you can allocate more to what works. (3) <strong>It creates a compounding improvement loop</strong> — each 10% improvement multiplies on the previous gains. After 6 months of weekly optimization, your agents can be 2-4x more effective than Day 1.',
+  'What are the 5 key metrics?': 'The five metrics are: <strong>Response Time</strong> (how fast does the agent reply — target under 90 seconds), <strong>Resolution Rate</strong> (% of conversations handled without human help — target above 80%), <strong>Conversion Rate</strong> (for sales agents, % that become qualified opportunities), <strong>Cost Per Outcome</strong> (what it costs per resolved ticket or qualified lead), and <strong>Escalation Rate</strong> (% passed to humans — target below 20%). Start with two that match your business type.',
+  'How long does monitoring take per week?': 'For an SMB owner with a stack of 3–4 agents, the weekly monitoring session takes <strong>20–30 minutes total</strong>. The Optimization Cycle — Observe, Diagnose, Adjust, Measure — is designed to fit into a Monday morning routine. It\'s the equivalent of checking your email metrics: quick, structured, and high-value. The first session might take 45 minutes as you set up, but after that it becomes routine.',
+  'Which metric matters most for sales?': 'For a sales-focused agent, <strong>Conversion Rate is your primary metric</strong> — it directly measures revenue impact. But don\'t ignore Response Time, because speed is the single biggest predictor of conversion. An agent that responds in 45 seconds converts at significantly higher rates than one that takes 5 minutes, even with identical messaging. The winning combination: track Response Time first to make sure the foundation is fast, then track Conversion Rate to measure quality.',
+  'What caused the Day 4 drop?': 'The Day 4 drop was caused by the agent asking about budget too early in the conversation — specifically as question 1 in the qualification flow. When potential customers hit a budget question before they\'ve understood the value, many disengage immediately. <strong>This is one of the most common Sales Agent mistakes.</strong> The fix — moving the budget question to step 3, after two rapport-building questions — reduced friction and allowed more conversations to reach the booking stage.',
+  'How did Marco find the problem in 20 minutes?': 'Marco found the problem by reading the conversation logs — specifically the conversations where the agent \'failed\' (no booking outcome). He read 10 of them. In 8 out of 10, the drop-off happened at the same point: when the agent asked "What is your budget?" as the opening question. That pattern identification took about 15 minutes. The fix took 5 minutes. <strong>You don\'t need analytics software to find this — you just need to read your worst conversations.</strong>',
+  'Why only one change at a time?': 'This is the most important optimization principle. If you change your prompt, add three FAQ answers, and adjust your qualification threshold simultaneously — and your conversion improves — you have no idea which of those three changes drove the improvement. And if it gets worse, you don\'t know which one caused it. <strong>One change at a time gives you clean causality</strong>. You know exactly what worked. After one week, you make it permanent and test the next thing. This is how compound improvement actually compounds.',
+  'How fast does 10% monthly compound?': 'Starting at 10% conversion and improving 10% each month: Month 1: 11%, Month 2: 12.1%, Month 3: 13.3%, Month 4: 14.6%, Month 5: 16.1%, Month 6: 17.7%. That\'s a <strong>77% cumulative improvement in 6 months</strong> from a discipline of 20 minutes per week. Framed differently: the same 80 leads per month converts from 8 deals to 14 deals. If the average deal is $2,000, that\'s $12,000 vs $28,000 per month — from the same traffic.',
+  'What will Level 3 cover?': 'Level 3 covers <strong>Multi-Agent Systems & Scaling</strong> — how to connect the agents you\'ve built into a unified system. This includes agent orchestration (how agents hand off to each other), persistent memory (agents that remember past interactions across sessions), shared knowledge bases, and building a coordination layer that lets your entire stack operate as one intelligent system. It\'s the difference between having four individual agents and having a fully integrated AI operations layer for your business.'
+};
+
+function getAIResponse(question) {
+  if (AI_RESPONSES[question]) return AI_RESPONSES[question];
+  var q = question.toLowerCase();
+  if (q.includes('70%') || q.includes('underperform')) return AI_RESPONSES['Why do 70% of agents underperform?'];
+  if (q.includes('cost') && (q.includes('blind') || q.includes('monitor'))) return AI_RESPONSES['What does "flying blind" actually cost?'];
+  if (q.includes('5 metric') || q.includes('five metric')) return AI_RESPONSES['What are the 5 key metrics?'];
+  if (q.includes('how long') || q.includes('time') && q.includes('week')) return AI_RESPONSES['How long does monitoring take per week?'];
+  if (q.includes('sales') && q.includes('metric')) return AI_RESPONSES['Which metric matters most for sales?'];
+  if (q.includes('day 4') || q.includes('drop')) return AI_RESPONSES['What caused the Day 4 drop?'];
+  if (q.includes('marco') || q.includes('20 minute')) return AI_RESPONSES['How did Marco find the problem in 20 minutes?'];
+  if (q.includes('one change') || q.includes('one at a time')) return AI_RESPONSES['Why only one change at a time?'];
+  if (q.includes('10%') && q.includes('compound')) return AI_RESPONSES['How fast does 10% monthly compound?'];
+  if (q.includes('level 3')) return AI_RESPONSES['What will Level 3 cover?'];
+  return 'That\'s a great question about monitoring and optimization. The core principle to remember: <strong>monitoring isn\'t complexity — it\'s discipline.</strong> Three metrics, checked weekly, improved one change at a time. That\'s the entire system. Every question you have about agent performance can be answered by the five core metrics. Try reading 5–10 of your worst conversations — the patterns always reveal themselves faster than any dashboard.';
+}
+
+function updateAISuggestions() {
+  var list = document.getElementById('ai-suggest-list');
+  if (!list) return;
+  var suggestions = AI_SUGGESTIONS[state.currentStep] || AI_SUGGESTIONS[0];
+  list.innerHTML = '';
+  suggestions.forEach(function(q) {
+    var btn = document.createElement('button');
+    btn.className = 'ai-suggest-q';
+    if (state.usedSuggestions.has(q)) btn.classList.add('used');
+    btn.textContent = q;
+    btn.addEventListener('click', function(){ askKira(q); });
+    list.appendChild(btn);
+  });
+}
+
+function addAIMessage(text, isUser) {
+  var container = document.getElementById('ai-messages');
+  if (!container) return;
+  var msg = document.createElement('div');
+  msg.className = 'ai-msg ' + (isUser ? 'user' : 'bot');
+  msg.innerHTML = isUser ? escapeHTML(text) : text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTypingIndicator() {
+  var container = document.getElementById('ai-messages');
+  if (!container) return;
+  var typing = document.createElement('div');
+  typing.className = 'ai-msg bot';
+  typing.id = 'ai-typing';
+  typing.innerHTML = '<div class="ai-typing"><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div></div>';
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  var t = document.getElementById('ai-typing');
+  if (t) t.remove();
+}
+
+function askKira(question) {
+  state.usedSuggestions.add(question);
+  addAIMessage(question, true);
+  updateAISuggestions();
+  showTypingIndicator();
+  var delay = 800 + Math.random() * 1000;
+  setTimeout(function() {
+    removeTypingIndicator();
+    addAIMessage(getAIResponse(question), false);
+  }, delay);
+}
+
+on('ai-beacon', 'click', function() {
+  document.body.classList.toggle('ai-open');
+  var expanded = document.body.classList.contains('ai-open');
+  var beacon = document.getElementById('ai-beacon');
+  if (beacon) beacon.setAttribute('aria-expanded', expanded);
+  var panel = document.getElementById('ai-panel');
+  if (panel) panel.setAttribute('aria-hidden', !expanded);
+  if (expanded && state.aiMessages.length === 0) {
+    state.aiMessages.push(1);
+    addAIMessage('Hi! I\'m <strong>Kira</strong>, your learning guide for this lesson. I\'m here to help you master Monitoring & Optimization — the system that turns decent agents into high-performing ones. What would you like to know?', false);
+    updateAISuggestions();
+  }
+});
+
+on('ai-close-btn', 'click', function() {
+  document.body.classList.remove('ai-open');
+  var beacon = document.getElementById('ai-beacon');
+  if (beacon) beacon.setAttribute('aria-expanded', 'false');
+  var panel = document.getElementById('ai-panel');
+  if (panel) panel.setAttribute('aria-hidden', 'true');
+});
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+try {
+  restoreProgress();
+  goToStep(state.currentStep, true);
+} catch(e) {
+  try {
+    document.querySelectorAll('.prog-step').forEach(function(s){ s.classList.remove('active'); });
+    var s0 = document.getElementById('prog-step-0');
+    if (s0) {
+      s0.classList.add('active');
+      s0.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+    }
+  } catch(e2) {}
+}
+
+} // end initApp
+
+/* ══════════════════════════════════════
+   DOM READY CHECK
+══════════════════════════════════════ */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
+})();
+</script>
+</body>
+</html>

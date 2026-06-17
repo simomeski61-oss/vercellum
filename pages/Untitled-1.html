@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERCELLUM | Agentic AI for SMBs 2026</title>
+  <meta name="description" content="Build an AI Agent that detects, diagnoses, and fixes its own mistakes in real-time. Learn the Planner → Executor → Observer → Loop architecture.">
+  <meta name="theme-color" content="#040302">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23040302'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-size='18' font-weight='700' fill='%23C9A34A'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..4₀,6₀₀&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   VERCELLUM · LEVEL 2 · LESSON 4 · Self-Correcting AI Agents
+   REDESIGNED EDITION — Premium Dark Luxury · Interactive · Data-Driven
+   Visual language aligned with Lesson 2 & 3 ecosystem
+═══════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --v:#0a0a0f;--ab:#111118;--ab2:#16161f;--ob:#111118;--on:#1c1c28;--cb:#16161f;
+  --as:#4b5563;--tp:#6b7280;--ts:#9ca3af;--bn:#d1d5db;--cr:#e5e7eb;--wh:#f9fafb;
+  --g0:#c9a34a;--g1:#dfc06e;--g2:#b08d3a;--g3:#8a6e2e;--g4:#6b4e1e;
+  --gg:rgba(201,163,74,.45);--gm:rgba(201,163,74,.14);--gf:rgba(201,163,74,.07);--gt:rgba(201,163,74,.03);
+  --grn:#34d399;--grn2:#10b981;--grnd:rgba(52,211,153,.07);--grns:rgba(52,211,153,.07);--grnb:rgba(52,211,153,.22);
+  --red:#ef4444;--red2:#dc2626;--redt:rgba(239,68,68,.07);--reds:rgba(239,68,68,.07);--redb:rgba(239,68,68,.22);
+  --blu:#60a5fa;--blu2:#3b82f6;--blud:rgba(96,165,250,.07);--blub:rgba(96,165,250,.22);
+  --purp:#a78bfa;--purpd:rgba(167,139,250,.07);--purpb:rgba(167,139,250,.22);
+  --ora:#fb923c;--orad:rgba(251,146,60,.07);--orab:rgba(251,146,60,.22);
+  --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
+  --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);
+  --topbar-h:52px;--rail-w:64px;--rail-expanded:268px;
+  --content-max:820px;--content-focus-max:720px;--ai-panel-w:380px;
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(201,163,74,.18);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(201,163,74,.35)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+body{
+  font-family:var(--fs);background:var(--v);color:var(--bn);
+  line-height:1.68;font-size:.88rem;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  padding-top:var(--topbar-h);padding-left:var(--rail-w);
+  transition:padding .4s var(--ex);
+}
+@media(hover:none){body{cursor:auto}button,a,input,textarea{cursor:auto}}
+a{color:var(--g1);text-decoration:none;transition:color .2s}
+a:hover{color:var(--grn)}
+button{font-family:var(--fs);cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:var(--fs);font-size:inherit;color:inherit}
+::selection{background:rgba(201,163,74,.3);color:#fff}
+:focus-visible{outline:2px solid var(--g1);outline-offset:2px;border-radius:4px}
+body.ai-open{padding-right:var(--ai-panel-w)}
+body.focus-mode{padding-left:0;padding-right:0}
+
+/* ── AMBIENT ── */
+body::before{
+  content:'';position:fixed;inset:0;opacity:.012;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  box-shadow:inset 0 0 150px rgba(0,0,0,.5);
+  pointer-events:none;z-index:1;
+}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.12}
+.o1{width:18rem;height:18rem;background:var(--g0);top:8%;left:12%;animation:oF1 18s ease-in-out infinite}
+.o2{width:14rem;height:14rem;background:var(--purp);top:45%;right:8%;animation:oF2 22s ease-in-out infinite reverse}
+.o3{width:12rem;height:12rem;background:var(--blu);bottom:15%;left:30%;animation:oF3 20s ease-in-out infinite 3s}
+@keyframes oF1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-35px,25px) scale(1.05)}}
+@keyframes oF2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-32px) scale(1.07)}}
+@keyframes oF3{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+
+/* ── CUSTOM CURSOR (YELLOW CIRCLE) ── */
+#cur{
+  position:fixed;width:8px;height:8px;border-radius:50%;
+  pointer-events:none;z-index:9998;
+  background:radial-gradient(circle,var(--g1),transparent 70%);
+  transform:translate(-50%,-50%);transition:transform .08s linear,opacity .3s;opacity:0;
+}
+#cur-r{
+  position:fixed;width:32px;height:32px;border-radius:50%;
+  pointer-events:none;z-index:9997;
+  background:radial-gradient(circle,rgba(201,163,74,.12),transparent 70%);
+  transform:translate(-50%,-50%);transition:transform .25s ease-out;opacity:0;
+}
+body:hover #cur,body:hover #cur-r{opacity:1}
+body.hov #cur{width:14px;height:14px;background:var(--g0)}
+body.hov #cur-r{width:46px;height:46px}
+body.clk #cur{transform:translate(-50%,-50%) scale(.4)}
+body.focus-mode #cur{opacity:.3}
+
+#blob{
+  position:fixed;width:28rem;height:28rem;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,163,74,.04) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+  transform:translate(-50%,-50%);transition:left 1.2s ease-out,top 1.2s ease-out;
+}
+
+/* ── TOP BAR ── */
+#topbar{
+  position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  z-index:900;display:flex;align-items:center;
+  padding:0 1.5rem 0 calc(var(--rail-w) + 1.5rem);
+  background:rgba(10,10,15,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,163,74,.06);
+  transition:padding .4s var(--ex),background .4s;
+}
+body.focus-mode #topbar{padding-left:1.5rem;background:rgba(10,10,15,.7);border-bottom-color:transparent}
+.tb-left{display:flex;align-items:center;gap:.75rem;flex:1}
+.tb-lesson-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.tb-lesson-label span{color:var(--g2)}
+.tb-progress-wrap{flex:1;max-width:240px;display:flex;align-items:center;gap:.75rem}
+.tb-progress-track{flex:1;height:3px;background:rgba(201,163,74,.08);border-radius:4px;overflow:hidden}
+.tb-progress-fill{height:100%;background:linear-gradient(90deg,var(--g4),var(--g1),var(--g0));border-radius:4px;width:0%;transition:width .8s var(--ex)}
+.tb-progress-pct{font-family:'Cinzel Decorative',serif;font-size:.62rem;color:var(--g2);white-space:nowrap;min-width:2.2rem;text-align:right}
+.tb-right{display:flex;align-items:center;gap:.5rem}
+#focus-btn{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.46rem 1.1rem;border-radius:7px;
+  border:1px solid var(--g2);
+  background:linear-gradient(135deg,rgba(107,78,30,.85),rgba(138,110,46,.75));
+  color:var(--g0);font-family:var(--fb);
+  font-size:.46rem;letter-spacing:.18em;cursor:pointer;
+  transition:all .28s var(--ex);white-space:nowrap;
+  box-shadow:0 2px 10px rgba(201,163,74,.18),inset 0 1px 0 rgba(223,192,110,.12);
+  position:relative;overflow:hidden;
+}
+#focus-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(223,192,110,.08),transparent);opacity:0;transition:opacity .2s}
+#focus-btn:hover{border-color:var(--g1);background:linear-gradient(135deg,rgba(138,110,46,.9),rgba(176,141,58,.8));box-shadow:0 4px 18px rgba(201,163,74,.32);transform:translateY(-1px)}
+#focus-btn:hover::before{opacity:1}
+#focus-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+body.focus-mode #focus-btn{border-color:var(--g0);background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--v);box-shadow:0 4px 22px rgba(201,163,74,.42)}
+.tb-save-btn{
+  width:32px;height:32px;border-radius:6px;
+  border:1px solid rgba(201,163,74,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--tp);cursor:pointer;transition:all .25s;
+}
+.tb-save-btn:hover{border-color:rgba(201,163,74,.3);color:var(--g1);background:var(--gf)}
+.tb-save-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#read-progress{
+  position:fixed;top:var(--topbar-h);left:0;right:0;height:2px;
+  z-index:901;background:transparent;
+}
+#read-progress::after{
+  content:'';display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--g0),var(--grn));
+  transition:width .15s linear;
+}
+
+/* ── NAV RAIL ── */
+#nav-rail{
+  position:fixed;left:0;top:var(--topbar-h);bottom:0;
+  width:var(--rail-w);z-index:800;
+  background:rgba(10,10,15,.92);backdrop-filter:blur(20px);
+  border-right:1px solid rgba(201,163,74,.06);
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:width .35s var(--ex),opacity .35s var(--ex),transform .35s var(--ex);
+}
+body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:none}
+@media(min-width:900px){#nav-rail:hover,#nav-rail.pinned{width:var(--rail-expanded)}}
+@media(max-width:900px){#nav-rail{display:none}}
+.rail-logo-area{display:flex;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(201,163,74,.06);overflow:hidden;flex-shrink:0}
+.rail-logo-icon{width:var(--rail-w);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rail-logo-mark{
+  width:28px;height:28px;border-radius:6px;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  border:1px solid rgba(201,163,74,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel Decorative',serif;font-size:.55rem;
+  color:var(--v);font-weight:700;flex-shrink:0;
+}
+.rail-logo-text{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-8px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
+#nav-rail:hover .rail-logo-text,#nav-rail.pinned .rail-logo-text{opacity:1;transform:translateX(0)}
+.rail-wordmark{font-family:'Cinzel Decorative',serif;font-size:.78rem;color:var(--g1);letter-spacing:.06em;display:block}
+.rail-tagline{font-size:.58rem;color:var(--tp);margin-top:.15rem;letter-spacing:.04em}
+.rail-nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.75rem 0;scrollbar-width:none}
+.rail-nav::-webkit-scrollbar{display:none}
+.rail-lesson{display:flex;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;width:100%;text-align:left}
+.rail-lesson:hover{background:rgba(201,163,74,.04)}
+.rail-lesson.active{background:rgba(201,163,74,.06);border-right:2px solid var(--g0)}
+.rail-lesson.done{background:rgba(52,211,153,.04)}
+.rail-lesson.upcoming{opacity:.5}
+.rail-lesson-icon{width:var(--rail-w);height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.rail-lesson-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.48rem;letter-spacing:.1em;border:1px solid;flex-shrink:0;transition:all .25s}
+.rail-lesson.active .rail-lesson-num{background:var(--g1);border-color:var(--g1);color:var(--v);font-weight:700}
+.rail-lesson.done .rail-lesson-num{background:var(--grns);border-color:var(--grnb);color:var(--grn)}
+.rail-lesson.upcoming .rail-lesson-num{border-color:rgba(201,163,74,.2);color:var(--tp)}
+.rail-lesson.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--g3),var(--g1));border-radius:0 2px 2px 0}
+.rail-lesson-body{padding:.6rem 1rem .6rem 0;flex:1;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ex),transform .2s var(--ex);overflow:hidden}
+#nav-rail:hover .rail-lesson-body,#nav-rail.pinned .rail-lesson-body{opacity:1;transform:translateX(0)}
+.rail-lesson-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
+.rail-lesson.active .rail-lesson-tag{color:var(--g2)}
+.rail-lesson.done .rail-lesson-tag{color:var(--grn2)}
+.rail-lesson-name{font-size:.76rem;color:var(--bn);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
+.rail-lesson.active .rail-lesson-name{color:var(--cr);font-weight:500}
+.rail-lesson.done .rail-lesson-name{color:var(--tp)}
+.rail-bottom{border-top:1px solid rgba(201,163,74,.06);padding:.75rem 0;flex-shrink:0;overflow:hidden}
+.rail-live{display:flex;align-items:center;height:36px;padding:0 calc((var(--rail-w) - 8px)/2)}
+.rail-live-dot{width:8px;height:8px;border-radius:50%;background:var(--grn);animation:rldot 2s infinite;flex-shrink:0}
+@keyframes rldot{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.rail-live-text{white-space:nowrap;overflow:hidden;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;color:var(--grn);padding-left:.75rem;opacity:0;transition:opacity .2s var(--ex)}
+#nav-rail:hover .rail-live-text,#nav-rail.pinned .rail-live-text{opacity:1}
+.rail-pin-btn{display:none;width:var(--rail-w);height:32px;align-items:center;justify-content:center;cursor:pointer;color:var(--tp);transition:color .2s}
+@media(min-width:900px){.rail-pin-btn{display:flex}}
+.rail-pin-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+#nav-rail.pinned .rail-pin-btn{color:var(--g2)}
+
+/* ── MAIN CONTENT ── */
+.content-shell{min-height:calc(100vh - var(--topbar-h));position:relative;z-index:10;transition:all .4s var(--ex)}
+.content-inner{max-width:var(--content-max);margin:0 auto;padding:0 3rem 6rem;transition:max-width .4s var(--ex),padding .4s var(--ex)}
+@media(max-width:1100px){.content-inner{padding:0 2rem 4rem}}
+@media(max-width:700px){.content-inner{padding:0 1.25rem 3rem}}
+body.focus-mode .content-inner{max-width:var(--content-focus-max);padding:0 2.5rem 5rem}
+
+/* ── HERO ── */
+.lesson-hero{padding:4rem 0 3.5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,163,74,.06)}
+.lesson-hero::after{
+  content:'';position:absolute;top:-40%;left:-20%;width:140%;height:140%;
+  background:radial-gradient(ellipse at 70% 20%,rgba(201,163,74,.04),transparent 60%);
+  pointer-events:none;z-index:0;
+}
+.lesson-hero>*{position:relative;z-index:1}
+.hero-breadcrumb{display:flex;align-items:center;gap:.45rem;margin-bottom:1.75rem;font-family:var(--fb);font-size:.44rem;letter-spacing:.2em;color:var(--tp);text-transform:uppercase}
+.hero-breadcrumb a:hover{color:var(--g1);transition:color .2s}
+.hero-breadcrumb-sep{color:var(--tp);opacity:.5;margin:0 .1rem}
+.hero-badges{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.hero-lesson-num{
+  padding:.28rem .75rem;border-radius:4px;
+  background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.15);
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g2);text-transform:uppercase;
+}
+.hero-lab-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.28rem .7rem;border-radius:4px;
+  background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.18);
+  font-family:var(--fb);font-size:.42rem;letter-spacing:.2em;color:var(--grn);text-transform:uppercase;
+}
+.hero-lab-badge::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+.hero-h1{font-family:var(--fd);font-size:clamp(2rem,4.2vw,3.3rem);font-weight:300;line-height:1.08;color:var(--wh);letter-spacing:-.02em;margin-bottom:1.1rem}
+.hero-h1 .gold-text{
+  background:linear-gradient(135deg,var(--g0),var(--g1),var(--blu));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-tagline{font-size:clamp(.86rem,1.4vw,.98rem);color:var(--ts);max-width:560px;line-height:1.78;margin-bottom:2.1rem}
+.hero-tagline strong{color:var(--cr)}
+.hero-cta-row{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-primary-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 2rem;border-radius:8px;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  color:var(--v);font-family:var(--fb);
+  font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;transition:all .35s var(--ex);
+  box-shadow:0 4px 20px rgba(201,163,74,.28);cursor:pointer;border:none;
+  position:relative;overflow:hidden;
+}
+.hero-primary-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(223,192,110,.15),transparent);animation:shimmerSweep 3s ease-in-out infinite}
+@keyframes shimmerSweep{0%{left:-100%}50%{left:100%}100%{left:100%}}
+.hero-primary-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(201,163,74,.45)}
+.hero-primary-btn svg{width:12px;height:12px;stroke:var(--v);fill:none;stroke-width:2.5}
+.hero-ghost-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.5rem;border-radius:8px;
+  border:1px solid rgba(201,163,74,.18);background:transparent;
+  color:var(--g1);font-family:var(--fb);
+  font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;
+}
+.hero-ghost-btn:hover{background:rgba(201,163,74,.08);border-color:rgba(201,163,74,.35);color:var(--g0)}
+.hero-meta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--tp)}
+.hero-meta-item svg{width:12px;height:12px;stroke:var(--g2);fill:none;stroke-width:1.8;flex-shrink:0}
+.hero-meta-sep{width:1px;height:12px;background:rgba(201,163,74,.1)}
+
+/* ── HOOK SECTION (ENHANCED) ── */
+.hook-dramatic{margin:2rem 0;position:relative}
+.hook-stat-banner{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(201,163,74,.08);border-radius:14px;overflow:hidden;
+  border:1px solid rgba(201,163,74,.1);margin-bottom:1.75rem;
+}
+.hook-stat{
+  padding:1.5rem 1.25rem;background:var(--ab);text-align:center;
+  position:relative;overflow:hidden;transition:background .3s,transform .3s var(--ex);
+}
+.hook-stat:hover{background:rgba(201,163,74,.04);transform:translateY(-2px)}
+.hook-stat-num{
+  font-family:'Cinzel Decorative',serif;font-size:2rem;
+  background:linear-gradient(135deg,var(--g0),var(--g1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;line-height:1;margin-bottom:.4rem;
+}
+.hook-stat-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.2em;color:var(--tp);line-height:1.4}
+.hook-stat-sub{font-size:.72rem;color:var(--ts);margin-top:.25rem}
+.hook-revelation{
+  padding:2rem 2.25rem;
+  background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(96,165,250,.03));
+  border:1px solid rgba(201,163,74,.18);border-radius:16px;
+  position:relative;overflow:hidden;margin-bottom:1.5rem;
+}
+.hook-revelation::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--g3),var(--g0),var(--blu),var(--g0),var(--g3));
+}
+.hook-revelation-label{font-family:var(--fb);font-size:.44rem;letter-spacing:.28em;color:var(--g2);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.hook-revelation-label::before{content:'';width:18px;height:1px;background:var(--g2)}
+.hook-revelation-quote{font-family:var(--fd);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:300;color:var(--wh);line-height:1.4;font-style:italic}
+.hook-revelation-quote em{color:var(--g1);font-style:normal}
+.hook-counter-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem}
+.hook-counter-chip{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:50px;font-family:var(--fb);font-size:.5rem;letter-spacing:.14em}
+.hook-counter-chip.danger{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.hook-counter-chip.success{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.hook-counter-chip svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ── TYPOGRAPHY ── */
+.sec-badge{display:inline-flex;align-items:center;gap:5px;padding:.3rem .8rem;border-radius:4px;font-family:var(--fb);font-size:.44rem;font-weight:700;letter-spacing:.22em;margin-bottom:.5rem;text-transform:uppercase}
+.sec-badge.red{color:var(--red);background:var(--reds);border:1px solid var(--redb)}
+.sec-badge.green{color:var(--grn);background:var(--grns);border:1px solid var(--grnb)}
+.sec-badge.gold{color:var(--g0);background:var(--gf);border:1px solid rgba(201,163,74,.15)}
+.sec-badge.blue{color:var(--blu);background:var(--blud);border:1px solid var(--blub)}
+.sec-badge.purple{color:var(--purp);background:var(--purpd);border:1px solid var(--purpb)}
+.sec-badge.orange{color:var(--ora);background:var(--orad);border:1px solid var(--orab)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.35rem 1rem;border-radius:50px;
+  border:1px solid rgba(201,163,74,.18);
+  background:rgba(201,163,74,.04);
+  font-family:var(--fb);font-size:.52rem;letter-spacing:.24em;
+  color:var(--g1);margin-bottom:1.25rem;backdrop-filter:blur(8px);
+}
+.ey-dot{width:4px;height:4px;border-radius:50%;background:var(--g1);animation:dpls 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes dpls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
+h2.sec-title{font-family:var(--fb);font-size:clamp(.95rem,2.5vw,1.28rem);font-weight:600;letter-spacing:.05em;color:var(--cr);margin-bottom:1.1rem;line-height:1.3}
+h2.sec-title .gold{color:var(--g1)}
+h2.sec-title .red{color:var(--red)}
+h2.sec-title .green{color:var(--grn)}
+p.body-text{font-size:.9rem;color:var(--ts);line-height:1.82;margin-bottom:1rem}
+p.body-text strong{color:var(--cr);font-weight:500}
+
+/* ── BUTTONS ── */
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.8rem 1.85rem;border-radius:8px;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  color:var(--v);font-family:var(--fb);
+  font-size:.64rem;letter-spacing:.16em;font-weight:600;
+  cursor:pointer;transition:transform .3s var(--bk),box-shadow .3s;
+  box-shadow:0 4px 20px rgba(201,163,74,.2);border:none;
+  position:relative;overflow:hidden;
+}
+.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(223,192,110,.12),transparent);animation:shimmerSweep 3s ease-in-out infinite}
+.btn-gold:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 28px rgba(201,163,74,.38)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.7rem 1.5rem;border-radius:8px;
+  border:1px solid rgba(201,163,74,.22);
+  background:transparent;color:var(--ts);
+  font-family:var(--fb);font-size:.6rem;letter-spacing:.16em;
+  transition:all .25s;cursor:pointer;
+}
+.btn-ghost:hover{border-color:var(--gg);color:var(--g1);background:rgba(201,163,74,.05);transform:translateY(-1px)}
+.btn-green{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.7rem 1.5rem;border-radius:8px;
+  border:1px solid var(--grnb);background:rgba(52,211,153,.1);
+  color:var(--grn);font-family:var(--fb);
+  font-size:.6rem;letter-spacing:.16em;cursor:pointer;
+  transition:all .3s var(--bk);
+}
+.btn-green:hover{border-color:var(--grn);background:var(--grnd);transform:translateY(-1px)}
+.btn-gold svg,.btn-ghost svg,.btn-green svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.glow-pulse{animation:glowPulse 2.5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 4px 20px rgba(201,163,74,.2)}50%{box-shadow:0 6px 32px rgba(201,163,74,.45)}}
+
+/* ── KEY INSIGHT BOX ── */
+.key-insight{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:1.1rem 1.35rem;border-radius:12px;
+  margin:1.5rem 0;
+  background:rgba(201,163,74,.03);border:1px solid rgba(201,163,74,.1);
+  border-left:3px solid var(--g0);
+}
+.ki-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
+.ki-content{flex:1}
+.ki-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;color:var(--g1);margin-bottom:.3rem}
+.ki-text{font-size:.88rem;color:var(--ts);line-height:1.65}
+.ki-text strong{color:var(--cr)}
+
+/* ── BEFORE / AFTER ── */
+.bfa-wrap{display:grid;grid-template-columns:1fr;gap:1.25rem;margin:2rem 0;position:relative}
+.bfa-col{border-radius:16px;padding:1.75rem 1.5rem;position:relative;overflow:hidden}
+.bfa-col.bfa-before{background:linear-gradient(145deg,rgba(239,68,68,.08),rgba(239,68,68,.02));border:1px solid var(--redb)}
+.bfa-col.bfa-after{background:linear-gradient(145deg,rgba(52,211,153,.08),rgba(52,211,153,.02));border:1px solid var(--grnb)}
+.bfa-col::before{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.bfa-before::before{background:linear-gradient(90deg,var(--red),transparent 70%)}
+.bfa-after::before{background:linear-gradient(90deg,var(--grn),transparent 70%)}
+.bfa-header{display:flex;align-items:center;gap:.85rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.bfa-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:1.25rem;flex-shrink:0}
+.bfa-before .bfa-icon{background:var(--reds);border:1px solid var(--redb)}
+.bfa-after .bfa-icon{background:var(--grns);border:1px solid var(--grnb)}
+.bfa-title{font-family:var(--fb);font-size:.76rem;letter-spacing:.14em}
+.bfa-before .bfa-title{color:var(--red)}
+.bfa-after .bfa-title{color:var(--grn)}
+.bfa-subtitle{font-size:.7rem;color:var(--ts);font-style:italic;margin-top:.1rem}
+.bfa-items{display:flex;flex-direction:column;gap:.65rem}
+.bfa-item{
+  display:flex;align-items:flex-start;gap:.7rem;
+  font-size:.84rem;color:var(--ts);line-height:1.5;
+  padding:.55rem .75rem;border-radius:8px;
+  transition:background .25s var(--ex),transform .25s var(--ex);
+}
+.bfa-item:hover{background:rgba(255,255,255,.02);transform:translateX(4px)}
+.bfa-item-mark{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:.06rem}
+.bfa-before .bfa-item-mark{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.bfa-after .bfa-item-mark{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.bfa-divider-row{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:.5rem 0}
+.bfa-divider-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--g3),var(--g1));
+  display:grid;place-items:center;font-size:1.1rem;
+  box-shadow:0 4px 20px rgba(201,163,74,.2);
+  animation:bfaPulse 2.5s ease-in-out infinite;
+}
+@keyframes bfaPulse{0%,100%{box-shadow:0 4px 20px rgba(201,163,74,.2)}50%{box-shadow:0 4px 30px rgba(201,163,74,.4)}}
+
+/* ── FLOWCHART ── */
+.flowchart{
+  display:flex;align-items:center;gap:.5rem;
+  padding:1.35rem;background:var(--ab);
+  border-radius:12px;border:1px solid rgba(201,163,74,.1);
+  margin:1.5rem 0;flex-wrap:wrap;justify-content:center;
+}
+@media(max-width:600px){.flowchart{flex-direction:column}}
+.flow-node{
+  padding:.7rem 1.1rem;border-radius:8px;text-align:center;
+  flex-shrink:0;transition:transform .25s var(--bk),box-shadow .25s;
+  background:var(--ab2);border:1px solid rgba(255,255,255,.04);
+}
+.flow-node:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.flow-node-icon{font-size:1.4rem;display:block;margin-bottom:.25rem}
+.flow-node-label{font-family:var(--fb);font-size:.54rem;letter-spacing:.14em;white-space:nowrap}
+.flow-node-sub{font-size:.68rem;margin-top:.15rem;opacity:.75}
+.flow-node.capture{background:var(--blud);border:1px solid var(--blub)}
+.flow-node.capture .flow-node-label{color:var(--blu)}
+.flow-node.qualify{background:var(--gf);border:1px solid rgba(201,163,74,.2)}
+.flow-node.qualify .flow-node-label{color:var(--g1)}
+.flow-node.score{background:var(--purpd);border:1px solid var(--purpb)}
+.flow-node.score .flow-node-label{color:var(--purp)}
+.flow-node.route{background:var(--grns);border:1px solid var(--grnb)}
+.flow-node.route .flow-node-label{color:var(--grn)}
+.flow-arrow{color:var(--g3);font-size:1.1rem;flex-shrink:0;padding:0 .15rem}
+@media(max-width:600px){.flow-arrow{transform:rotate(90deg)}}
+.arch-loop-row{display:flex;align-items:center;gap:.5rem;justify-content:center;padding:.5rem 0}
+
+/* ── EXPANDABLE CARDS ── */
+.exp-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:600px){.exp-cards-grid{grid-template-columns:1fr}}
+.exp-card{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.1);
+  border-radius:14px;cursor:pointer;
+  transition:all .3s var(--ex);position:relative;overflow:hidden;
+}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent);opacity:0;transition:opacity .3s}
+.exp-card:hover{border-color:rgba(201,163,74,.25);transform:translateY(-4px);box-shadow:0 14px 40px rgba(201,163,74,.08)}
+.exp-card.open{border-color:var(--g1);box-shadow:0 0 32px rgba(201,163,74,.08)}
+.exp-card.open::before{opacity:1}
+.exp-card-header{display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.25rem}
+.exp-card-icon{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:1.15rem;flex-shrink:0;transition:transform .3s var(--bk)}
+.exp-card.open .exp-card-icon{transform:scale(1.1)}
+.exp-card-title{flex:1}
+.exp-card-name{font-family:var(--fb);font-size:.72rem;letter-spacing:.12em;color:var(--cr)}
+.exp-card.open .exp-card-name{color:var(--g1)}
+.exp-card-sub{font-size:.7rem;color:var(--tp);margin-top:.12rem}
+.exp-card-chevron{width:18px;height:18px;border-radius:50%;border:1px solid rgba(201,163,74,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ex)}
+.exp-card.open .exp-card-chevron{background:rgba(201,163,74,.1);border-color:var(--gg);transform:rotate(180deg)}
+.exp-card-chevron svg{width:9px;height:9px;stroke:var(--g1);fill:none;stroke-width:2.5}
+.exp-card-body{max-height:0;overflow:hidden;transition:max-height .45s var(--ex),padding .45s var(--ex)}
+.exp-card.open .exp-card-body{max-height:500px;padding-bottom:1.25rem}
+.exp-card-content{
+  padding:0 1.25rem;font-size:.85rem;color:var(--ts);line-height:1.72;
+  border-top:1px solid rgba(201,163,74,.07);padding-top:.9rem;
+}
+.exp-card-content strong{color:var(--cr)}
+.exp-card-content ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.exp-card-content ul li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ts)}
+.exp-card-content ul li::before{content:'\2192';color:var(--g1);font-weight:700;flex-shrink:0}
+
+/* ── BUILD STEPPER ── */
+.hib-stepper{margin:2rem 0;display:flex;flex-direction:column;gap:0}
+.hib-step{display:flex;gap:1.5rem;padding:1.25rem 0;position:relative}
+.hib-step:not(:last-child)::before{
+  content:'';position:absolute;left:19px;top:58px;bottom:-10px;width:1px;
+  background:linear-gradient(180deg,rgba(201,163,74,.3),rgba(201,163,74,.05));
+}
+.hib-step-num{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid var(--g1);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel Decorative',serif;font-size:.7rem;
+  color:var(--g1);flex-shrink:0;background:var(--gf);
+  transition:all .35s var(--bk);position:relative;z-index:1;
+}
+.hib-step:hover .hib-step-num{background:var(--g1);color:var(--v);border-color:var(--g1);transform:scale(1.12);box-shadow:0 0 24px rgba(201,163,74,.3)}
+.hib-step-body{flex:1;padding-top:.15rem}
+.hib-step-title{font-family:var(--fb);font-size:.72rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.4rem;transition:color .25s}
+.hib-step:hover .hib-step-title{color:var(--g1)}
+.hib-step-desc{font-size:.84rem;color:var(--ts);line-height:1.6}
+.hib-step-desc code{
+  padding:2px 8px;background:rgba(201,163,74,.08);border:1px solid rgba(201,163,74,.12);
+  border-radius:4px;font-family:'Courier New',monospace;font-size:12px;color:var(--g2);
+}
+
+/* ── STORY BLOCK ── */
+.story-block{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.12);
+  border-radius:16px;overflow:hidden;margin:1.75rem 0;position:relative;
+}
+.story-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.story-header{padding:1.35rem 1.5rem;border-bottom:1px solid rgba(201,163,74,.08);background:rgba(201,163,74,.03);display:flex;align-items:center;gap:.85rem}
+.story-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.1));
+  border:1px solid rgba(201,163,74,.3);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+}
+.story-identity{flex:1}
+.story-name{font-family:var(--fb);font-size:.66rem;letter-spacing:.12em;color:var(--cr)}
+.story-role{font-size:.74rem;color:var(--tp);margin-top:.1rem}
+.story-body{padding:1.35rem 1.5rem}
+.story-body h3{font-family:var(--fb);font-size:.76rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.5rem}
+.story-body p{font-size:.84rem;color:var(--ts);line-height:1.65}
+.story-highlight{
+  padding:1.1rem 1.35rem;border-radius:12px;
+  background:rgba(201,163,74,.05);border:1px solid rgba(201,163,74,.15);
+  margin:1.25rem 0;font-size:.84rem;color:var(--ts);font-style:italic;line-height:1.6;
+}
+.story-result{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.85rem 1.1rem;border-radius:10px;
+  background:var(--grns);border:1px solid var(--grnb);
+  margin-top:1rem;font-size:.82rem;color:var(--grn);font-weight:600;
+}
+.story-result svg{width:18px;height:18px;stroke:var(--grn);fill:none;stroke-width:2;flex-shrink:0}
+
+/* ── DEMO SIMULATION (MAJOR UPGRADE) ── */
+.wiw-container{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.14);
+  border-radius:18px;overflow:hidden;margin:1.75rem 0;
+  box-shadow:0 12px 48px rgba(0,0,0,.3);position:relative;
+}
+.wiw-container::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--g1),var(--blu),var(--g1),transparent);
+}
+.wiw-container.demo-done::before{background:linear-gradient(90deg,transparent,var(--grn),var(--g1),var(--grn),transparent)}
+.wiw-header{
+  padding:1.15rem 1.5rem;border-bottom:1px solid rgba(201,163,74,.08);
+  display:flex;align-items:center;gap:.85rem;
+  background:linear-gradient(135deg,rgba(201,163,74,.04),rgba(96,165,250,.03));
+}
+.wiw-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(201,163,74,.3),rgba(201,163,74,.12));
+  border:1.5px solid rgba(201,163,74,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;position:relative;
+}
+.wiw-avatar::after{content:'';position:absolute;bottom:-1px;right:-1px;width:10px;height:10px;border-radius:50%;background:var(--grn);border:2px solid var(--ab2);animation:rldot 2s infinite}
+.wiw-identity{flex:1}
+.wiw-name{font-family:var(--fb);font-size:.62rem;letter-spacing:.16em;color:var(--g1)}
+.wiw-status{font-size:.7rem;color:var(--grn);margin-top:.08rem;display:flex;align-items:center;gap:.4rem}
+.wiw-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grn)}
+.wiw-status.running{color:var(--ora)}
+.wiw-status.running::before{background:var(--ora);animation:statusPulse .8s ease-in-out infinite}
+.wiw-status.error{color:var(--red)}
+.wiw-status.error::before{background:var(--red)}
+.wiw-status.complete{color:var(--g1)}
+.wiw-status.complete::before{background:var(--g1)}
+@keyframes statusPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.wiw-progress-bar{height:3px;background:rgba(201,163,74,.06);overflow:hidden;margin:0}
+.wiw-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--g3),var(--g1),var(--g0));border-radius:2px;transition:width .6s var(--ex);box-shadow:0 0 8px rgba(201,163,74,.3)}
+.wiw-body{padding:1.35rem 1.5rem}
+.demo-step{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.25rem;
+  background:rgba(201,163,74,.03);border:1px solid rgba(201,163,74,.08);
+  border-radius:12px;
+  transition:all .5s cubic-bezier(.4,0,.2,1);
+  opacity:.3;margin-bottom:.6rem;position:relative;
+}
+.demo-step::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;background:transparent;transition:background .4s}
+.demo-step.active{opacity:1;border-color:rgba(201,163,74,.4);background:rgba(201,163,74,.06);box-shadow:0 0 28px rgba(201,163,74,.12);animation:stepPulse 2s ease-in-out infinite}
+.demo-step.active::after{background:var(--g1)}
+@keyframes stepPulse{0%,100%{box-shadow:0 0 28px rgba(201,163,74,.12)}50%{box-shadow:0 0 38px rgba(201,163,74,.22)}}
+.demo-step.success{opacity:1;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.05);animation:successGlow .6s ease-out}
+.demo-step.success::after{background:var(--grn)}
+@keyframes successGlow{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}100%{box-shadow:0 0 0 0 transparent}}
+.demo-step.failure{opacity:1;border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.06);animation:errorShake .5s ease-in-out}
+.demo-step.failure::after{background:var(--red)}
+@keyframes errorShake{0%,100%{transform:translateX(0)}15%,45%,75%{transform:translateX(-6px)}30%,60%,90%{transform:translateX(6px)}}
+.demo-step.retrying{opacity:1;border-color:rgba(251,146,60,.4);background:rgba(251,146,60,.06);animation:retrySpin 1.5s ease-in-out infinite}
+.demo-step.retrying::after{background:var(--ora)}
+@keyframes retrySpin{0%{box-shadow:0 0 0 0 rgba(251,146,60,.3)}50%{box-shadow:0 0 0 8px rgba(251,146,60,0)}100%{box-shadow:0 0 0 0 rgba(251,146,60,0)}}
+.demo-step.resolved{opacity:1;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.05);animation:resolveFlash .8s ease-out}
+.demo-step.resolved::after{background:var(--grn)}
+@keyframes resolveFlash{0%{box-shadow:0 0 30px rgba(52,211,153,.5)}100%{box-shadow:0 0 0 transparent}}
+.demo-step-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;transition:all .5s}
+.demo-step.active .demo-step-icon{transform:scale(1.08)}
+.demo-step .step-info{flex:1}
+.demo-step .step-name{font-family:var(--fb);font-size:.58rem;letter-spacing:.12em;color:var(--cr);margin-bottom:2px;transition:color .3s}
+.demo-step.active .step-name{color:var(--g1)}
+.demo-step.success .step-name{color:var(--grn)}
+.demo-step.failure .step-name{color:var(--red)}
+.demo-step.retrying .step-name{color:var(--ora)}
+.demo-step .step-detail{font-size:.72rem;color:var(--tp);line-height:1.4}
+.demo-step .step-badge{
+  font-size:.42rem;font-weight:700;padding:.28rem .7rem;border-radius:12px;
+  letter-spacing:.08em;flex-shrink:0;opacity:0;transform:scale(.8);
+  transition:all .35s var(--bk);text-transform:uppercase;font-family:var(--fb);
+}
+.demo-step.success .step-badge,.demo-step.failure .step-badge,.demo-step.retrying .step-badge,.demo-step.resolved .step-badge{opacity:1;transform:scale(1)}
+.demo-step.success .step-badge{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.demo-step.failure .step-badge{background:var(--reds);border:1px solid var(--redb);color:var(--red)}
+.demo-step.retrying .step-badge{background:rgba(251,146,60,.08);border:1px solid var(--orab);color:var(--ora);animation:retryBadgePulse 1s ease-in-out infinite}
+@keyframes retryBadgePulse{0%,100%{opacity:1}50%{opacity:.5}}
+.demo-step.resolved .step-badge{background:var(--grns);border:1px solid var(--grnb);color:var(--grn)}
+.demo-step-connector{width:1px;height:12px;background:linear-gradient(180deg,rgba(201,163,74,.12),rgba(201,163,74,.04));margin:0 auto;position:relative}
+.demo-step-connector.lit{background:linear-gradient(180deg,rgba(52,211,153,.4),rgba(52,211,153,.08))}
+.demo-log{
+  margin-top:1.15rem;padding:1.1rem 1.3rem;
+  background:rgba(0,0,0,.4);border:1px solid rgba(201,163,74,.1);
+  border-radius:12px;font-family:'Courier New',monospace;
+  font-size:.72rem;color:var(--tp);line-height:1.9;
+  min-height:80px;max-height:200px;overflow-y:auto;position:relative;
+}
+.demo-log::-webkit-scrollbar{width:2px}
+.demo-log::-webkit-scrollbar-thumb{background:var(--g4)}
+.demo-log .log-entry{animation:logSlide .35s var(--ex)}
+@keyframes logSlide{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+.demo-log .log-time{color:var(--as);opacity:.55}
+.demo-log .log-success{color:var(--grn)}
+.demo-log .log-error{color:var(--red);text-shadow:0 0 8px rgba(239,68,68,.25)}
+.demo-log .log-warn{color:var(--ora);text-shadow:0 0 8px rgba(251,146,60,.2)}
+.demo-log .log-info{color:var(--blu)}
+.demo-log .log-separator{border-top:1px solid rgba(201,163,74,.1);margin:6px 0;animation:logSlide .3s var(--ex)}
+.demo-log-cursor{
+  display:inline-block;width:7px;height:12px;
+  background:var(--g1);animation:blink 1s step-end infinite;
+  vertical-align:middle;margin-left:3px;border-radius:1px;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.demo-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(201,163,74,.06);border-radius:12px;overflow:hidden;
+  margin-top:1rem;border:1px solid rgba(201,163,74,.08);
+}
+.demo-stat{padding:.85rem 1rem;background:var(--ab);text-align:center;opacity:0;transform:translateY(8px);transition:all .5s var(--ex)}
+.demo-stat.visible{opacity:1;transform:translateY(0)}
+.demo-stat-val{
+  font-family:'Cinzel Decorative',serif;font-size:1.25rem;
+  background:linear-gradient(135deg,var(--g0),var(--g1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;line-height:1;margin-bottom:.2rem;
+}
+.demo-stat-label{font-family:var(--fb);font-size:.4rem;letter-spacing:.2em;color:var(--tp)}
+.demo-stat:nth-child(1) .demo-stat-val{background:linear-gradient(135deg,var(--blu),#93C5FD);-webkit-background-clip:text;background-clip:text}
+.demo-stat:nth-child(2) .demo-stat-val{background:linear-gradient(135deg,var(--ora),#FDBA74);-webkit-background-clip:text;background-clip:text}
+.demo-stat:nth-child(3) .demo-stat-val{background:linear-gradient(135deg,var(--grn),#6EE7B7);-webkit-background-clip:text;background-clip:text}
+.wiw-actions{padding:1.25rem 1.5rem;border-top:1px solid rgba(201,163,74,.08);display:flex;align-items:center;gap:.85rem;background:rgba(201,163,74,.02)}
+.wiw-run-btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:.95rem 2.25rem;border-radius:50px;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  color:var(--v);font-family:var(--fb);
+  font-size:.58rem;letter-spacing:.18em;font-weight:600;
+  transition:all .35s var(--ex);
+  box-shadow:0 4px 24px rgba(201,163,74,.25);
+  position:relative;overflow:hidden;border:none;cursor:pointer;
+}
+.wiw-run-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);opacity:0;transition:opacity .25s}
+.wiw-run-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 40px rgba(201,163,74,.45)}
+.wiw-run-btn:hover::before{opacity:1}
+.wiw-run-btn svg{width:13px;height:13px;stroke:var(--v);fill:none;stroke-width:2.5;flex-shrink:0}
+.wiw-run-btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none}
+.wiw-run-btn.running{animation:btnGlow 2s ease-in-out infinite}
+@keyframes btnGlow{0%,100%{box-shadow:0 4px 24px rgba(201,163,74,.25)}50%{box-shadow:0 4px 36px rgba(201,163,74,.5)}}
+
+/* ── DATA VISUALIZATION ── */
+.charts-section{margin:2rem 0}
+.charts-intro{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;color:var(--tp);text-align:center;margin-bottom:1.25rem;text-transform:uppercase}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1rem 0}
+@media(max-width:680px){.charts-grid{grid-template-columns:1fr}}
+.chart-card{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.1);
+  border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;
+  transition:border-color .3s;
+}
+.chart-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.chart-card:hover{border-color:rgba(201,163,74,.22);box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.chart-title{font-family:var(--fb);font-size:.66rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.3rem}
+.chart-sub{font-size:.74rem;color:var(--tp);margin-bottom:1.25rem}
+.chart-canvas-wrap{position:relative;width:100%}
+.chart-canvas-wrap canvas{max-width:100%}
+
+/* ── INSIGHTS GRID ── */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:680px){.insights-grid{grid-template-columns:1fr}}
+.insight-card{
+  padding:1.35rem 1.25rem;border-radius:14px;
+  background:var(--ab2);border:1px solid rgba(201,163,74,.1);
+  position:relative;overflow:hidden;transition:all .3s var(--ex);
+}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
+.insight-card:hover{border-color:rgba(201,163,74,.28);transform:translateY(-5px) scale(1.01);box-shadow:0 16px 44px rgba(201,163,74,.08)}
+.insight-num{font-family:'Cinzel Decorative',serif;font-size:1.8rem;color:var(--g3);line-height:1;margin-bottom:.6rem}
+.insight-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:1.15rem;flex-shrink:0;margin-bottom:1rem}
+.insight-1 .insight-icon{background:rgba(201,163,74,.12);color:var(--g1)}
+.insight-2 .insight-icon{background:var(--purpd);color:var(--purp)}
+.insight-3 .insight-icon{background:var(--blud);color:var(--blu)}
+.insight-title{font-family:var(--fb);font-size:.66rem;letter-spacing:.14em;color:var(--g1);margin-bottom:.45rem}
+.insight-text{font-size:.8rem;color:var(--ts);line-height:1.6}
+
+/* ── ACHIEVEMENT ── */
+.achievement-box{
+  background:linear-gradient(135deg,rgba(201,163,74,.06),rgba(201,163,74,.02));
+  border:1px solid rgba(201,163,74,.2);border-radius:16px;
+  padding:2rem;text-align:center;position:relative;overflow:hidden;margin:1.75rem 0;
+}
+.achievement-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),var(--g0),var(--g1),transparent)}
+.achievement-icon{font-size:3rem;margin-bottom:.75rem;display:block}
+.achievement-msg{font-family:var(--fd);font-size:1.35rem;font-weight:300;color:var(--wh);margin-bottom:1.25rem;line-height:1.3}
+.achievement-list{display:flex;flex-direction:column;gap:.55rem;text-align:left;max-width:500px;margin:0 auto}
+.achievement-item{
+  display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:var(--ts);
+  padding:.55rem .75rem;border-radius:8px;cursor:pointer;transition:background .25s;
+}
+.achievement-item:hover{background:rgba(201,163,74,.04)}
+.achievement-item.checked{background:rgba(52,211,153,.03);border-left:2px solid var(--grn)}
+.achievement-item::before{
+  content:'';width:18px;height:18px;border-radius:5px;
+  border:1.5px solid var(--g2);display:grid;place-items:center;
+  flex-shrink:0;font-size:.7rem;font-weight:700;color:transparent;transition:all .25s;
+}
+.achievement-item.checked::before{content:'\2713';color:var(--v);background:var(--grn);border-color:var(--grn)}
+
+/* ── TASK BOX ── */
+.task-box{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.12);
+  border-radius:14px;padding:1.75rem;margin:1.75rem 0;
+  position:relative;overflow:hidden;
+}
+.task-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
+.task-label{font-family:var(--fb);font-size:.56rem;letter-spacing:.22em;color:var(--grn2);margin-bottom:.65rem}
+.task-prompt{font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--cr);margin-bottom:1.1rem;line-height:1.5}
+.task-input{
+  width:100%;padding:.9rem 1.1rem;
+  background:rgba(10,10,15,.7);border:1px solid rgba(201,163,74,.18);
+  border-radius:8px;color:var(--cr);font-size:.88rem;
+  line-height:1.6;outline:none;transition:border-color .25s,box-shadow .25s;
+  resize:vertical;min-height:90px;
+}
+.task-input:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(201,163,74,.08),0 0 20px rgba(201,163,74,.06)}
+.task-input::placeholder{color:var(--as)}
+.task-feedback{
+  margin-top:.75rem;padding:.85rem 1.1rem;border-radius:8px;
+  font-size:.83rem;display:none;animation:fadeUp .4s var(--ex) both;
+  line-height:1.55;align-items:flex-start;gap:.6rem;
+}
+.task-feedback.show{display:flex}
+.task-feedback.correct{background:var(--grnd);border:1px solid var(--grnb);color:var(--grn)}
+.task-feedback.hint{background:rgba(251,146,60,.08);border:1px solid var(--orab);color:var(--ora)}
+.task-feedback svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0;margin-top:.05rem}
+
+/* ── SUMMARY ── */
+.summary-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+@media(max-width:600px){.summary-list{grid-template-columns:1fr}}
+.summary-item{
+  display:flex;gap:1.1rem;padding:1.1rem 1.35rem;border-radius:14px;
+  background:var(--ab2);border:1px solid rgba(201,163,74,.08);
+  transition:all .25s var(--ex);align-items:flex-start;
+}
+.summary-item:hover{border-color:rgba(201,163,74,.25);transform:translateX(6px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.summary-item:nth-child(1){border-left:2px solid var(--blu)}
+.summary-item:nth-child(2){border-left:2px solid var(--g1)}
+.summary-item:nth-child(3){border-left:2px solid var(--grn)}
+.summary-item:nth-child(4){border-left:2px solid var(--purp)}
+.summary-icon{font-size:1.25rem;flex-shrink:0;margin-top:.05rem}
+.summary-title{font-family:var(--fb);font-size:.66rem;letter-spacing:.14em;color:var(--cr);margin-bottom:.3rem}
+.summary-text{font-size:.82rem;color:var(--ts);line-height:1.55}
+
+/* ── NEXT LESSON ── */
+.next-lesson-card{
+  background:linear-gradient(135deg,rgba(52,211,153,.05),rgba(201,163,74,.04));
+  border:1px solid rgba(52,211,153,.2);border-radius:14px;
+  padding:1.75rem;margin:1.75rem 0;position:relative;overflow:hidden;
+}
+.next-lesson-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--grn),var(--g1),transparent)}
+.nlc-label{font-family:var(--fb);font-size:.48rem;letter-spacing:.26em;color:var(--grn2);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.nlc-title{font-family:var(--fd);font-size:1.6rem;font-weight:300;color:var(--wh);margin-bottom:.5rem}
+.nlc-desc{font-size:.86rem;color:var(--ts);line-height:1.65;margin-bottom:1rem}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:4rem 0;text-align:center;position:relative}
+.final-cta::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:100%;background:linear-gradient(180deg,rgba(201,163,74,.12),transparent)}
+.final-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border:1px solid rgba(201,163,74,.2);border-radius:4px;background:var(--gf);font-family:var(--fb);font-size:.44rem;letter-spacing:.22em;color:var(--g1);text-transform:uppercase;margin-bottom:1.5rem}
+.final-h2{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.75rem);font-weight:300;color:var(--wh);line-height:1.2;margin-bottom:.9rem;letter-spacing:-.01em;max-width:620px;margin-left:auto;margin-right:auto}
+.text-shimmer{
+  background:linear-gradient(90deg,var(--g0),var(--grn),var(--g0));
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:textShimmer 3s ease-in-out infinite;
+}
+@keyframes textShimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* ── AI PANEL ── */
+#ai-beacon{
+  position:fixed;bottom:2.25rem;right:5.5rem;z-index:600;
+  display:flex;align-items:center;gap:.7rem;cursor:pointer;
+  transition:transform .3s var(--ex),opacity .3s;
+}
+body.ai-open #ai-beacon{right:calc(var(--ai-panel-w) + 1.5rem)}
+.ai-beacon-btn{
+  width:2.8rem;height:2.8rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--g0),var(--g2));
+  box-shadow:0 4px 20px rgba(201,163,74,.25);
+  transition:transform .25s var(--bk),box-shadow .25s;position:relative;border:none;
+}
+.ai-beacon-btn::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(201,163,74,.25);animation:beaconPulse 2.5s ease-in-out infinite}
+@keyframes beaconPulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.12);opacity:0}}
+.ai-beacon-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(201,163,74,.35)}
+body.ai-open .ai-beacon-btn{background:rgba(201,163,74,.25);border:1px solid var(--g0);transform:scale(1.05)}
+.ai-beacon-btn svg{width:18px;height:18px;stroke:var(--v);stroke-width:2;fill:none}
+.ai-beacon-label{
+  background:var(--ab2);border:1px solid rgba(201,163,74,.2);
+  padding:.4rem .85rem;border-radius:20px;
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.16em;
+  color:var(--g1);white-space:nowrap;
+  opacity:0;transform:translateX(6px);
+  transition:all .25s var(--ex);pointer-events:none;
+}
+#ai-beacon:hover .ai-beacon-label{opacity:1;transform:translateX(0)}
+body.ai-open .ai-beacon-label{opacity:0!important}
+#ai-panel{
+  position:fixed;top:var(--topbar-h);right:0;bottom:0;
+  width:var(--ai-panel-w);z-index:700;
+  background:rgba(17,17,24,.96);backdrop-filter:blur(14px);
+  border-left:1px solid rgba(201,163,74,.08);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .4s var(--ex);
+  box-shadow:-20px 0 60px rgba(0,0,0,.4);
+}
+body.ai-open #ai-panel{transform:translateX(0)}
+@media(max-width:700px){#ai-panel{width:100vw}body.ai-open{padding-right:0}}
+.ai-panel-header{
+  padding:1.1rem 1.25rem;border-bottom:1px solid rgba(201,163,74,.08);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;background:rgba(96,165,250,.04);
+}
+.ai-panel-id{display:flex;align-items:center;gap:.75rem}
+.ai-avatar-ring{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--g0),var(--purp));
+  border:1px solid rgba(201,163,74,.3);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:1rem;position:relative;color:var(--v);
+}
+.ai-avatar-ring::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--grn);border:1.5px solid var(--ob);position:absolute;bottom:-1px;right:-1px}
+.ai-name{font-family:var(--fb);font-size:.58rem;letter-spacing:.14em;color:var(--blu)}
+.ai-subtitle{font-size:.66rem;color:var(--tp);margin-top:.06rem}
+.ai-close{
+  width:28px;height:28px;border-radius:7px;
+  border:1px solid rgba(96,165,250,.15);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--tp);transition:all .2s;
+}
+.ai-close:hover{border-color:rgba(96,165,250,.35);color:var(--blu);background:rgba(96,165,250,.07)}
+.ai-close svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5}
+.ai-context-chip{
+  margin:.75rem 1.25rem 0;padding:.55rem 1rem;border-radius:7px;
+  background:rgba(201,163,74,.06);border:1px solid rgba(201,163,74,.1);
+  font-size:.72rem;color:var(--tp);flex-shrink:0;
+  display:flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .2s;
+}
+.ai-context-chip::before{content:'📍';font-size:.75rem}
+.ai-messages{flex:1;overflow-y:auto;overflow-x:hidden;padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.7rem}
+.ai-msg{max-width:92%;font-size:.84rem;line-height:1.58;padding:.72rem .95rem;border-radius:12px;animation:fadeUp .3s var(--ex) both}
+.ai-msg.bot{background:rgba(201,163,74,.05);border:1px solid rgba(201,163,74,.08);color:var(--ts);align-self:flex-start;border-bottom-left-radius:3px}
+.ai-msg.bot strong{color:var(--cr)}
+.ai-msg.user{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.15);color:var(--cr);align-self:flex-end;border-bottom-right-radius:3px;font-size:.82rem}
+.ai-suggestions{padding:.75rem 1.1rem .85rem;border-top:1px solid rgba(201,163,74,.07);flex-shrink:0}
+.ai-suggest-header{font-family:var(--fb);font-size:.4rem;letter-spacing:.2em;color:var(--tp);margin-bottom:.5rem}
+.ai-suggest-list{display:flex;flex-direction:column;gap:.35rem;transition:opacity .22s ease,transform .22s ease}
+.ai-suggest-q{
+  text-align:left;padding:.52rem .9rem;border-radius:7px;
+  border:1px solid rgba(201,163,74,.12);
+  background:rgba(201,163,74,.04);color:var(--ts);
+  font-size:.78rem;cursor:pointer;transition:all .22s;
+  display:flex;align-items:center;gap:.55rem;line-height:1.38;
+}
+.ai-suggest-q::before{content:'›';color:var(--g1);font-size:.9rem;flex-shrink:0;line-height:1}
+.ai-suggest-q:hover{border-color:rgba(201,163,74,.3);background:rgba(201,163,74,.09);color:var(--cr)}
+.ai-suggest-q.used{opacity:.3;pointer-events:none}
+
+/* ── STEP SYSTEM ── */
+.lesson-body{padding-top:1rem}
+.step-tracker{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 0 .5rem;border-bottom:1px solid rgba(201,163,74,.06);
+  margin-bottom:.25rem;position:sticky;top:var(--topbar-h);
+  background:rgba(10,10,15,.88);backdrop-filter:blur(12px);z-index:50;
+}
+.step-counter{font-family:var(--fb);font-size:.52rem;font-weight:700;letter-spacing:.18em;color:var(--g1)}
+.step-dots{display:flex;gap:.3rem;align-items:center}
+.step-dot{width:5px;height:5px;border-radius:50%;background:rgba(201,163,74,.12);transition:background .4s,transform .3s var(--bk),width .3s}
+.step-dot.done{background:var(--grn);width:8px;border-radius:2px}
+.step-dot.active{background:var(--g1);transform:scale(1.5)}
+.prog-step{display:none;opacity:0;transform:translateY(16px);animation:stepReveal .6s var(--ex) both}
+.prog-step.active{display:block;opacity:1;transform:translateY(0)}
+@keyframes stepReveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.step-continue-wrap{display:flex;align-items:center;justify-content:center;padding:2.25rem 0 .75rem;gap:.85rem;flex-wrap:wrap}
+.step-continue-btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:.9rem 2.25rem;border-radius:50px;
+  border:1px solid rgba(201,163,74,.28);
+  background:rgba(201,163,74,.05);
+  color:var(--g1);font-family:var(--fb);
+  font-size:.58rem;letter-spacing:.18em;
+  cursor:pointer;transition:all .3s var(--ex);
+  position:relative;overflow:hidden;
+}
+.step-continue-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,74,.1),transparent);opacity:0;transition:opacity .25s}
+.step-continue-btn:hover{border-color:var(--g1);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,163,74,.2)}
+.step-continue-btn:hover::after{opacity:1}
+.step-continue-btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;box-shadow:none}
+.step-continue-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .25s var(--bk)}
+.step-continue-btn:hover svg{transform:translateX(4px)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,74,.12),transparent);margin:2.5rem 0}
+.section-block{
+  padding:3.25rem 0;border-bottom:1px solid rgba(201,163,74,.05);
+  position:relative;
+}
+.section-block:last-child{border-bottom:none}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ex),transform .7s var(--ex);will-change:transform,opacity}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.12s}
+.reveal-delay-2{transition-delay:.24s}
+.reveal-delay-3{transition-delay:.36s}
+
+/* ── MISC ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.focus-hint{
+  position:fixed;bottom:2.25rem;left:50%;
+  transform:translateX(-50%) translateY(80px);
+  z-index:650;background:rgba(10,10,15,.88);backdrop-filter:blur(12px);
+  border:1px solid rgba(201,163,74,.18);border-radius:50px;
+  padding:.55rem 1.25rem;font-family:var(--fb);
+  font-size:.44rem;letter-spacing:.18em;color:var(--tp);
+  display:flex;align-items:center;gap:.6rem;
+  transition:transform .4s var(--bk),opacity .3s;opacity:0;pointer-events:none;
+}
+body.focus-mode .focus-hint{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.focus-hint kbd{background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2);padding:.12rem .5rem;border-radius:4px;font-size:.5rem;color:var(--g2);font-family:var(--fs)}
+@media print{#ai-panel,#ai-beacon,#topbar,#nav-rail,.step-continue-wrap,.step-tracker,.focus-hint,.orb,.toast{display:none!important}body{padding:0}.content-inner{max-width:100%}}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .orb{display:none}
+  .reveal{opacity:1;transform:none}
+  .prog-step{opacity:1;transform:none}
+}
+
+/* ── TOAST NOTIFICATION ── */
+.toast-container{position:fixed;top:calc(var(--topbar-h) + 12px);right:1.5rem;z-index:950;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+.toast{
+  padding:.65rem 1.25rem;border-radius:10px;
+  font-family:var(--fs);font-size:.78rem;
+  display:flex;align-items:center;gap:.6rem;
+  pointer-events:auto;animation:toastIn .4s var(--ex) both;
+  backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+.toast.success{background:rgba(52,211,153,.12);border:1px solid var(--grnb);color:var(--grn)}
+.toast.info{background:rgba(96,165,250,.12);border:1px solid var(--blub);color:var(--blu)}
+.toast.warning{background:rgba(251,146,60,.12);border:1px solid var(--orab);color:var(--ora)}
+.toast.fade-out{animation:toastOut .35s var(--ex) both}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes toastOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(40px)}}
+
+/* ── KEYBOARD FOCUS ── */
+.step-continue-btn:focus-visible,.hero-primary-btn:focus-visible,.wiw-run-btn:focus-visible,.btn-gold:focus-visible,.btn-green:focus-visible{outline-offset:3px}
+
+/* ── AI TYPING INDICATOR ── */
+.ai-typing{display:flex;gap:4px;padding:.5rem .25rem;align-items:center}
+.ai-typing-dot{width:6px;height:6px;border-radius:50%;background:var(--blu);opacity:.4;animation:typingBounce 1.2s ease-in-out infinite}
+.ai-typing-dot:nth-child(2){animation-delay:.15s}
+.ai-typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+
+/* ── SAVE BUTTON ACTIVE STATE ── */
+.tb-save-btn.saved{border-color:rgba(52,211,153,.3);color:var(--grn)}
+.tb-save-btn.saved svg{stroke:var(--grn)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  :root{--rail-w:3rem}
+  .rail-logo-text,.rail-lesson-body,.rail-live-text,.rail-tagline{display:none}
+  .rail-logo-area{justify-content:center;padding-bottom:.5rem;margin-bottom:.5rem}
+  .rail-lesson{justify-content:center;padding:.4rem}
+  .rail-bottom{justify-content:center}
+  #topbar{padding-left:calc(var(--rail-w) + .85rem)}
+  .content-inner{padding:0 1.5rem 3rem}
+}
+@media(max-width:900px){
+  #nav-rail{display:none}
+  :root{--rail-w:0rem}
+  body{padding-left:0}
+  #topbar{padding-left:.85rem}
+  .content-shell{margin-left:0}
+  .content-inner{padding:0 1.25rem 3rem}
+}
+@media(max-width:700px){
+  .content-inner{padding:0 1rem 2.5rem}
+  .hero-h1{font-size:1.5rem}
+  .hero-cta-row{flex-direction:column;gap:.55rem}
+  .hero-meta-row{flex-direction:column;gap:.4rem}
+  .hero-meta-sep{display:none}
+  #ai-panel{width:100vw}
+  body.ai-open{padding-right:0}
+}
+@media(max-width:560px){
+  .section-block{padding:1.25rem 1rem}
+  .final-h2{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div class="orb o3" aria-hidden="true"></div>
+<div class="toast-container" id="toast-container" aria-live="polite"></div>
+<div class="focus-hint" aria-live="polite">Press <kbd>Esc</kbd> or click <kbd>Focus</kbd> again to exit deep work mode</div>
+
+<!-- TOP BAR -->
+<header id="topbar" role="banner">
+  <div class="tb-left">
+    <span class="tb-lesson-label">Level 2 · <span>Lesson 04</span></span>
+    <div class="tb-progress-wrap">
+      <div class="tb-progress-track"><div class="tb-progress-fill" id="tb-progress-fill"></div></div>
+      <span class="tb-progress-pct" id="tb-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button id="focus-btn" aria-label="Toggle focus mode" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span id="focus-btn-label">Focus Mode</span>
+    </button>
+    <button class="tb-save-btn" id="tb-save-btn" aria-label="Save progress">
+      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+    </button>
+  </div>
+</header>
+<div id="read-progress" aria-hidden="true"></div>
+
+<!-- NAV RAIL -->
+<nav id="nav-rail" aria-label="Course navigation">
+  <div class="rail-logo-area">
+    <div class="rail-logo-icon"><div class="rail-logo-mark">V</div></div>
+    <div class="rail-logo-text">
+      <span class="rail-wordmark">VERCELLUM</span>
+      <span class="rail-tagline">Agentic AI · Level 2</span>
+    </div>
+  </div>
+  <div class="rail-nav" role="list">
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L1</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 1</div><div class="rail-lesson-name">Lead &amp; Sales Agent</div></div>
+    </div>
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L2</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 2</div><div class="rail-lesson-name">Customer Support Agent</div></div>
+    </div>
+    <div class="rail-lesson done" role="listitem">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">L3</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 3</div><div class="rail-lesson-name">Operations Agent</div></div>
+    </div>
+    <div class="rail-lesson active" role="listitem" aria-current="page">
+      <div class="rail-lesson-icon"><div class="rail-lesson-num">04</div></div>
+      <div class="rail-lesson-body"><div class="rail-lesson-tag">Active · Lesson 4</div><div class="rail-lesson-name">Self-Correcting Agent</div></div>
+    </div>
+  </div>
+  <div class="rail-bottom">
+    <div class="rail-live">
+      <div class="rail-live-dot"></div>
+      <span class="rail-live-text">241 owners building now</span>
+    </div>
+    <button class="rail-pin-btn" id="rail-pin-btn" aria-label="Pin navigation open">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- AI ASSISTANT PANEL -->
+<aside id="ai-panel" aria-label="AI Learning Assistant" aria-hidden="true">
+  <div class="ai-panel-header">
+    <div class="ai-panel-id">
+      <div class="ai-avatar-ring">&#10022;</div>
+      <div><div class="ai-name">Kira · Your Learning Guide</div><div class="ai-subtitle">Powered by VERCELLUM AI</div></div>
+    </div>
+    <button class="ai-close" id="ai-close-btn" aria-label="Close assistant">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="ai-context-chip" id="ai-context-chip">Reading your current section…</div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-suggestions">
+    <div class="ai-suggest-header">ASK KIRA ABOUT THIS SECTION</div>
+    <div class="ai-suggest-list" id="ai-suggest-list"></div>
+  </div>
+</aside>
+<button id="ai-beacon" aria-label="Open AI learning assistant" aria-expanded="false">
+  <div class="ai-beacon-btn">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </div>
+  <span class="ai-beacon-label">Ask Kira</span>
+</button>
+
+<!-- MAIN CONTENT -->
+<div class="content-shell">
+  <div class="content-inner" id="main-content">
+
+    <!-- HERO -->
+    <section class="lesson-hero">
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <span>VERCELLUM</span><span class="hero-breadcrumb-sep">&#8250;</span>
+        <span>Level 2</span><span class="hero-breadcrumb-sep">&#8250;</span>
+        <span>Lesson 4</span>
+      </nav>
+      <div class="hero-badges">
+        <div class="hero-lesson-num">Level 2 · Lesson 04 of 04</div>
+        <div class="hero-lab-badge">Advanced AI Architecture · 13 Steps</div>
+      </div>
+      <h1 class="hero-h1">Build an AI Agent That<br><span class="gold-text">Fixes Its Own Mistakes</span></h1>
+      <p class="hero-tagline">What if your AI could detect when it's wrong, figure out <em>why</em>, and correct itself — all without human intervention? That's the architecture behind every <strong>resilient AI system.</strong></p>
+      <div class="hero-cta-row">
+        <button class="hero-primary-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>START THE LESSON
+        </button>
+        <button class="hero-ghost-btn" onclick="document.getElementById('lesson-body').scrollIntoView({behavior:'smooth'})">WHAT I'LL BUILD</button>
+      </div>
+      <div class="hero-meta-row">
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12–15 min · Advanced build lesson</div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 Agent simulation included</div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="rail-live-dot" style="margin-right:.35rem"></span>241 owners building now</div>
+      </div>
+    </section>
+
+    <!-- LESSON BODY -->
+    <div class="lesson-body" id="lesson-body">
+      <div class="step-tracker" id="step-tracker">
+        <div class="step-counter" id="step-counter">STEP 1 OF 13</div>
+        <div class="step-dots" id="step-dots" aria-hidden="true"></div>
+      </div>
+
+      <!-- STEP 0: HOOK (REDESIGNED) -->
+      <div class="prog-step active" data-step="0" id="prog-step-0">
+        <section class="section-block">
+          <div class="sec-badge blue">THE HOOK</div>
+          <div class="eyebrow"><span class="ey-dot"></span>BEFORE YOU START</div>
+          <h2 class="sec-title">Most AI agents are <span class="red">one error away from total failure.</span> What separates the 4% that survive?</h2>
+
+          <!-- DRAMATIC STATS -->
+          <div class="hook-stat-banner reveal">
+            <div class="hook-stat">
+              <span class="hook-stat-num" id="counter-96">0%</span>
+              <div class="hook-stat-label">OF AI AGENTS<br>FAIL ON FIRST ERROR</div>
+              <div class="hook-stat-sub">They stop. Wait. Do nothing.</div>
+            </div>
+            <div class="hook-stat">
+              <span class="hook-stat-num" id="counter-73">0x</span>
+              <div class="hook-stat-label">MORE UPTIME WITH<br>SELF-CORRECTING AGENTS</div>
+              <div class="hook-stat-sub">Same task. Zero human help.</div>
+            </div>
+            <div class="hook-stat">
+              <span class="hook-stat-num" id="counter-11">0s</span>
+              <div class="hook-stat-label">AVERAGE RECOVERY<br>TIME FOR SMART AGENTS</div>
+              <div class="hook-stat-sub">Detect → Diagnose → Fix.</div>
+            </div>
+          </div>
+
+          <!-- REVELATION -->
+          <div class="hook-revelation reveal reveal-delay-1">
+            <div class="hook-revelation-label">THE UNCOMFORTABLE TRUTH</div>
+            <p class="hook-revelation-quote">"You didn't build a product. You built a <em>liability</em> — unless your agent knows how to recover when reality doesn't match the plan."</p>
+            <div class="hook-counter-row">
+              <div class="hook-counter-chip danger">
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                WITHOUT SELF-CORRECTION: Crashes on unexpected data
+              </div>
+              <div class="hook-counter-chip success">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                WITH SELF-CORRECTION: Detects, adapts, delivers
+              </div>
+            </div>
+          </div>
+
+          <p class="body-text reveal reveal-delay-2">Most AI agents fail silently. They hit an error, stop working, and wait for a human to intervene. But the most powerful agents in production don't just survive failure — they <strong>learn from it in real-time</strong>, adapt their approach, and keep going without a single human touch.</p>
+          <p class="body-text reveal reveal-delay-2">This lesson teaches you the exact architecture behind self-correcting AI agents: a closed-loop system where every action is observed, every result is evaluated, and every failure triggers an intelligent retry. By the end, you'll understand the four pillars: <strong>Planner, Executor, Observer, and Self-Correction Loop</strong>.</p>
+
+          <div class="key-insight reveal reveal-delay-3">
+            <span class="ki-icon">&#129504;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE CORE PRINCIPLE</div>
+              <p class="ki-text">A self-correcting AI agent operates on a simple but powerful principle: <strong>every action is observed, every result is evaluated, and every failure triggers an intelligent retry.</strong> This creates a closed-loop system where the agent continuously improves its own performance without external help.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="1">Begin the Lesson<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 1: LESSON GOAL -->
+      <div class="prog-step" data-step="1" id="prog-step-1">
+        <section class="section-block">
+          <div class="sec-badge gold">LESSON GOAL</div>
+          <div class="eyebrow"><span class="ey-dot"></span>WHAT YOU'LL MASTER</div>
+          <h2 class="sec-title">By the end of this lesson, you'll have a complete mental model for building <span class="gold">Self-Correcting AI Agents</span> — the architecture that powers production-grade autonomous systems</h2>
+          <p class="body-text">You'll be able to architect AI systems that autonomously recover from errors, handle edge cases, and deliver reliable results — even in unpredictable environments.</p>
+          <div style="font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;color:var(--tp);text-align:center;margin:1.75rem 0 .85rem">CAPABILITIES YOU'LL GAIN:</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin:0 0 1.5rem">
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px;transition:all .25s" class="reveal"><div style="width:32px;height:32px;border-radius:8px;background:rgba(201,163,74,.12);display:grid;place-items:center;flex-shrink:0;color:var(--g1);font-size:14px">&#9998;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Design a Planner</strong> that decomposes complex tasks into executable sub-tasks with clear success criteria</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px;transition:all .25s" class="reveal reveal-delay-1"><div style="width:32px;height:32px;border-radius:8px;background:rgba(139,92,246,.12);display:grid;place-items:center;flex-shrink:0;color:var(--purp);font-size:14px">&#9889;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Build an Executor</strong> that runs each sub-task and collects detailed output and error signals</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px;transition:all .25s" class="reveal reveal-delay-2"><div style="width:32px;height:32px;border-radius:8px;background:rgba(96,165,250,.12);display:grid;place-items:center;flex-shrink:0;color:var(--blu);font-size:14px">&#128065;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Implement an Observer</strong> that evaluates results against expected outcomes and flags deviations</div></li>
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--ab);border:1px solid rgba(201,163,74,.08);border-radius:12px;transition:all .25s" class="reveal reveal-delay-3"><div style="width:32px;height:32px;border-radius:8px;background:rgba(249,115,22,.12);display:grid;place-items:center;flex-shrink:0;color:var(--ora);font-size:14px">&#128260;</div><div style="font-size:.85rem;color:var(--bn);line-height:1.6"><strong style="color:var(--cr)">Create a Self-Correction Loop</strong> that triggers adaptive retries when failures are detected</div></li>
+          </ul>
+          <div class="key-insight">
+            <span class="ki-icon">&#127942;</span>
+            <div class="ki-content">
+              <div class="ki-label">FINAL OUTCOME</div>
+              <p class="ki-text">You'll be able to architect AI systems that autonomously recover from errors, handle edge cases, and deliver reliable results — even in unpredictable environments.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="2">Continue<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: WHY THIS MATTERS -->
+      <div class="prog-step" data-step="2" id="prog-step-2">
+        <section class="section-block">
+          <div class="sec-badge red">WHY THIS MATTERS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE PROBLEM &amp; SOLUTION</div>
+          <h2 class="sec-title">The Difference Between a <span class="red">Fragile AI Demo</span> and a <span class="green">Production-Ready Agent</span></h2>
+          <p class="body-text">The difference between a fragile AI demo and a production-ready agent is the ability to survive failure. Let's compare two approaches:</p>
+          <div class="bfa-wrap">
+            <div class="bfa-col bfa-before reveal">
+              <div class="bfa-header">
+                <div class="bfa-icon">&#10060;</div>
+                <div><div class="bfa-title">TRADITIONAL AGENT</div><div class="bfa-subtitle">Linear execution, no self-awareness</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">&#10005;</span>Follows a rigid plan with no adaptation</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10005;</span>Fails silently when steps produce errors</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10005;</span>Requires human intervention to recover</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10005;</span>Cannot learn from or adapt to new failure modes</div>
+              </div>
+            </div>
+            <div class="bfa-divider-row">
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(239,68,68,.2))"></div>
+              <div class="bfa-divider-icon">&#8594;</div>
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(52,211,153,.2),transparent)"></div>
+            </div>
+            <div class="bfa-col bfa-after reveal reveal-delay-1">
+              <div class="bfa-header">
+                <div class="bfa-icon">&#9989;</div>
+                <div><div class="bfa-title">SELF-CORRECTING AGENT</div><div class="bfa-subtitle">Adaptive execution with built-in resilience</div></div>
+              </div>
+              <div class="bfa-items">
+                <div class="bfa-item"><span class="bfa-item-mark">&#10003;</span>Dynamically adjusts its plan based on results</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10003;</span>Detects failures instantly and triggers recovery</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10003;</span>Operates autonomously for extended periods</div>
+                <div class="bfa-item"><span class="bfa-item-mark">&#10003;</span>Continuously improves through feedback loops</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="3">See the Architecture<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 3: ARCHITECTURE -->
+      <div class="prog-step" data-step="3" id="prog-step-3">
+        <section class="section-block">
+          <div class="sec-badge blue">ARCHITECTURE</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE CORE CONCEPT</div>
+          <h2 class="sec-title">Think of It as Your <span class="gold">Best Receptionist + Your Best Quality Controller</span> — Combined, in One System</h2>
+          <p class="body-text">A self-correcting AI agent operates on a simple but powerful principle: <strong>every action is observed, every result is evaluated, and every failure triggers an intelligent retry.</strong> This creates a closed-loop system where the agent continuously improves its own performance without external help.</p>
+          <div class="flowchart reveal">
+            <div class="flow-node capture"><span class="flow-node-icon">&#9998;</span><div class="flow-node-label">PLANNER</div><div class="flow-node-sub" style="color:var(--blu)">Creates the task plan</div></div>
+            <span class="flow-arrow">&#8594;</span>
+            <div class="flow-node qualify"><span class="flow-node-icon">&#9889;</span><div class="flow-node-label">EXECUTOR</div><div class="flow-node-sub" style="color:var(--g1)">Runs each sub-task</div></div>
+            <span class="flow-arrow">&#8594;</span>
+            <div class="flow-node score"><span class="flow-node-icon">&#128065;</span><div class="flow-node-label">OBSERVER</div><div class="flow-node-sub" style="color:var(--purp)">Evaluates quality</div></div>
+            <span class="flow-arrow">&#8594;</span>
+            <div class="flow-node route"><span class="flow-node-icon">&#128260;</span><div class="flow-node-label">CORRECTION LOOP</div><div class="flow-node-sub" style="color:var(--ora)">Adapts and retries</div></div>
+          </div>
+          <div class="arch-loop-row">
+            <div style="display:flex;align-items:center;gap:8px"><div class="flow-arrow" style="transform:rotate(180deg)">&#8592;</div><div style="width:60px;height:2px;background:linear-gradient(90deg,var(--ora),var(--g1));opacity:.4"></div><div class="flow-arrow" style="transform:rotate(180deg)">&#8592;</div></div>
+            <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;color:var(--ora);text-align:center">RETRY WITH MODIFIED PLAN</div>
+          </div>
+          <p class="body-text" style="margin-top:1rem">Each of these four steps happens automatically, in sequence. The moment the Observer detects a failure, the Self-Correction Loop kicks in — analyzing what went wrong, modifying the approach, and sending the task back to the Executor.</p>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="4">Explore Components<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 4: COMPONENTS -->
+      <div class="prog-step" data-step="4" id="prog-step-4">
+        <section class="section-block">
+          <div class="sec-badge purple">COMPONENTS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THE FOUR BUILDING BLOCKS</div>
+          <h2 class="sec-title">Your Agent Has <span class="gold">4 Components</span> — Click Each One to Understand It</h2>
+          <p class="body-text">Each component plays a critical role. Click any card to see what it does and how they work together.</p>
+          <div class="exp-cards-grid">
+            <div class="exp-card reveal" id="ec-0">
+              <div class="exp-card-header" onclick="toggleExpCard('ec-0')">
+                <div class="exp-card-icon" style="background:var(--blud);border:1px solid var(--blub)">&#9998;</div>
+                <div class="exp-card-title"><div class="exp-card-name">1. THE PLANNER</div><div class="exp-card-sub">Strategic task decomposition</div></div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body"><div class="exp-card-content"><p>The Planner is the strategic brain of your agent. It takes a high-level objective and breaks it down into ordered, executable sub-tasks, each with defined inputs, expected outputs, and success criteria.</p><ul><li>Receives a user goal or system prompt as input</li><li>Decomposes it into 3–10 discrete, actionable steps</li><li>Assigns dependencies between steps (which must finish first)</li><li>Defines acceptance criteria for each sub-task</li><li>Generates a structured plan object that the Executor can consume</li></ul></div></div>
+            </div>
+            <div class="exp-card reveal reveal-delay-1" id="ec-1">
+              <div class="exp-card-header" onclick="toggleExpCard('ec-1')">
+                <div class="exp-card-icon" style="background:rgba(201,163,74,.1);border:1px solid rgba(201,163,74,.2)">&#9889;</div>
+                <div class="exp-card-title"><div class="exp-card-name">2. THE EXECUTOR</div><div class="exp-card-sub">Step-by-step task runner</div></div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body"><div class="exp-card-content"><p>The Executor is the hands of your agent. It takes each sub-task from the Planner's output and runs it — whether that means calling an API, querying a database, running code, or invoking another model. It collects both the result and any error information, then passes everything to the Observer for evaluation.</p><ul><li>Iterates through the plan steps in order</li><li>Executes each step with the specified inputs and tools</li><li>Captures the raw output, status codes, and error messages</li><li>Wraps each execution in error handling to prevent crashes</li><li>Passes structured results to the Observer for quality checks</li></ul></div></div>
+            </div>
+            <div class="exp-card reveal reveal-delay-2" id="ec-2">
+              <div class="exp-card-header" onclick="toggleExpCard('ec-2')">
+                <div class="exp-card-icon" style="background:var(--blud);border:1px solid var(--blub)">&#128065;</div>
+                <div class="exp-card-title"><div class="exp-card-name">3. THE OBSERVER</div><div class="exp-card-sub">Result quality evaluator</div></div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body"><div class="exp-card-content"><p>The Observer is the quality control layer. It takes the Executor's output and compares it against the Planner's original success criteria. If the result passes, the agent moves on. If it fails, the Observer triggers the Self-Correction Loop.</p><ul><li>Compares actual output against expected success criteria</li><li>Detects anomalies, incomplete results, or error states</li><li>Classifies failures by type: API error, logic error, timeout, etc.</li><li>Generates a diagnostic report for the correction loop</li><li>Maintains a history of past failures to avoid repeated mistakes</li></ul></div></div>
+            </div>
+            <div class="exp-card reveal reveal-delay-3" id="ec-3">
+              <div class="exp-card-header" onclick="toggleExpCard('ec-3')">
+                <div class="exp-card-icon" style="background:rgba(249,115,22,.1);border:1px solid var(--orab)">&#128260;</div>
+                <div class="exp-card-title"><div class="exp-card-name">4. THE SELF-CORRECTION LOOP</div><div class="exp-card-sub">Adaptive retry mechanism</div></div>
+                <div class="exp-card-chevron"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+              </div>
+              <div class="exp-card-body"><div class="exp-card-content"><p>The Self-Correction Loop is what separates a smart agent from a dumb script. When the Observer flags a failure, this loop kicks in: it analyzes the diagnostic report, modifies the approach, and sends the task back to the Executor.</p><ul><li>Receives failure diagnostics from the Observer</li><li>Analyzes root cause and determines correction strategy</li><li>Modifies the step's parameters or approach before retrying</li><li>Tracks retry count and enforces a maximum limit</li><li>Escalates to human oversight if all retries are exhausted</li></ul></div></div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="5">Start Building<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 5: BUILD GUIDE -->
+      <div class="prog-step" data-step="5" id="prog-step-5">
+        <section class="section-block">
+          <div class="sec-badge green">BUILD GUIDE</div>
+          <div class="eyebrow"><span class="ey-dot"></span>IMPLEMENTATION</div>
+          <h2 class="sec-title">6 Practical Steps to <span class="gold">Build Your Agent</span> — No Code Required</h2>
+          <p class="body-text">Follow these steps to build a self-correcting agent from scratch. Each step builds on the previous one.</p>
+          <div class="hib-stepper">
+            <div class="hib-step reveal"><div class="hib-step-num">1</div><div class="hib-step-body"><div class="hib-step-title">DEFINE YOUR TASK SCHEMA</div><div class="hib-step-desc">Create a structured format for tasks that includes: <code>task_id</code>, <code>description</code>, <code>expected_output</code>, <code>max_retries</code>, and <code>dependencies</code>. This schema becomes the contract between all components.</div></div></div>
+            <div class="hib-step reveal reveal-delay-1"><div class="hib-step-num">2</div><div class="hib-step-body"><div class="hib-step-title">IMPLEMENT THE PLANNER</div><div class="hib-step-desc">Use an LLM to decompose the user's goal into a list of task objects following your schema. Include a validation step that checks if the plan is complete and logically consistent.</div></div></div>
+            <div class="hib-step reveal reveal-delay-2"><div class="hib-step-num">3</div><div class="hib-step-body"><div class="hib-step-title">BUILD THE EXECUTOR ENGINE</div><div class="hib-step-desc">Create a function that takes a task object, dispatches it to the appropriate tool or API, and returns a structured result object with <code>status</code>, <code>output</code>, and <code>error</code> fields.</div></div></div>
+            <div class="hib-step reveal reveal-delay-3"><div class="hib-step-num">4</div><div class="hib-step-body"><div class="hib-step-title">ADD THE OBSERVER LAYER</div><div class="hib-step-desc">Write an evaluation function that compares the Executor's output against the <code>expected_output</code>. Return a boolean pass/fail along with a diagnostic message explaining why.</div></div></div>
+            <div class="hib-step reveal"><div class="hib-step-num">5</div><div class="hib-step-body"><div class="hib-step-title">IMPLEMENT THE CORRECTION LOOP</div><div class="hib-step-desc">Create a retry mechanism that: (a) checks retry count against <code>max_retries</code>, (b) analyzes the Observer's diagnostic, (c) modifies the approach, and (d) re-executes. Log every iteration.</div></div></div>
+            <div class="hib-step reveal reveal-delay-1"><div class="hib-step-num">6</div><div class="hib-step-body"><div class="hib-step-title">WIRE IT ALL TOGETHER</div><div class="hib-step-desc">Connect Planner &#8594; Executor &#8594; Observer &#8594; Loop into a single orchestration function. Add logging, error boundaries, and a final summary report.</div></div></div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="6">See a Real Example<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 6: USE CASE -->
+      <div class="prog-step" data-step="6" id="prog-step-6">
+        <section class="section-block">
+          <div class="sec-badge orange">REAL WORLD</div>
+          <div class="eyebrow"><span class="ey-dot"></span>USE CASE STORY</div>
+          <h2 class="sec-title">How a <span class="gold">Data Pipeline Agent</span> Handles a Real-World Scenario</h2>
+          <div class="story-block reveal">
+            <div class="story-header">
+              <div class="story-avatar">&#128640;</div>
+              <div class="story-identity"><div class="story-name">SCENARIO: AUTOMATED ANALYTICS PIPELINE</div><div class="story-role">Self-correcting agent in production</div></div>
+            </div>
+            <div class="story-body">
+              <h3>The Challenge</h3>
+              <p>An AI agent is tasked with building a daily analytics report. It needs to: fetch data from an API, clean it, compute metrics, generate charts, and email the report. Each step has potential failure points — the API might timeout, the data might have unexpected formats, or the email service might be temporarily unavailable.</p>
+              <h3>What Happens</h3>
+              <p>The agent starts by asking the Planner to create a 5-step plan. The Executor begins running each step sequentially. On Step 2 (data cleaning), the Observer detects that the data contains null values in a critical column — the expected format wasn't met.</p>
+              <div class="story-highlight">"Observer detects format mismatch in Step 2: expected 12 columns, found 9. Null values detected in 'revenue' column. Triggering self-correction..."</div>
+              <p>The Self-Correction Loop kicks in. Instead of failing, the agent modifies its approach: it adds a data imputation step to fill null values with rolling averages, then re-runs the cleaning step. On the second attempt, the Observer confirms the data is clean and the agent continues through the remaining steps successfully.</p>
+              <div class="story-result"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>Report delivered successfully — 1 self-correction applied, zero human intervention needed.</span></div>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="7">See the Demo<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 7: DEMO SIMULATION (MAJOR UPGRADE) -->
+      <div class="prog-step" data-step="7" id="prog-step-7">
+        <section class="section-block">
+          <div class="sec-badge blue">INTERACTIVE DEMO</div>
+          <div class="eyebrow"><span class="ey-dot"></span>LIVE SIMULATION</div>
+          <h2 class="sec-title">Watch the Agent <span class="gold">Handle Failure</span> — See Every Step in Real Time</h2>
+          <p class="body-text">Click the button below to run a live simulation. Watch it detect a failure, diagnose the issue, and retry with a corrected approach — all automatically.</p>
+          <div class="wiw-container" id="wiw-container">
+            <div class="wiw-header">
+              <div class="wiw-avatar">&#129302;</div>
+              <div class="wiw-identity">
+                <div class="wiw-name">AGENT RUNTIME · ANALYTICS PIPELINE</div>
+                <div class="wiw-status" id="demo-status-label">Online — Ready to run</div>
+              </div>
+            </div>
+            <div class="wiw-progress-bar"><div class="wiw-progress-fill" id="demo-progress-fill"></div></div>
+            <div class="wiw-body">
+              <div id="demo-steps">
+                <div class="demo-step" id="ds-1">
+                  <div class="demo-step-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g1)" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                  <div class="step-info"><div class="step-name">Step 1 — Plan Generation</div><div class="step-detail">Decomposing user goal into executable sub-tasks</div></div>
+                  <div class="step-badge">Pending</div>
+                </div>
+                <div class="demo-step-connector" id="dc-1"></div>
+                <div class="demo-step" id="ds-2">
+                  <div class="demo-step-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g1)" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 13 2"/></svg></div>
+                  <div class="step-info"><div class="step-name">Step 2 — Data Fetching</div><div class="step-detail">Calling external API to retrieve dataset</div></div>
+                  <div class="step-badge">Pending</div>
+                </div>
+                <div class="demo-step-connector" id="dc-2"></div>
+                <div class="demo-step" id="ds-3">
+                  <div class="demo-step-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g1)" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                  <div class="step-info"><div class="step-name">Step 3 — Data Validation</div><div class="step-detail">Observer checking data integrity and format</div></div>
+                  <div class="step-badge">Pending</div>
+                </div>
+                <div class="demo-step-connector" id="dc-3"></div>
+                <div class="demo-step" id="ds-4">
+                  <div class="demo-step-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g1)" stroke-width="1.8"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
+                  <div class="step-info"><div class="step-name">Step 4 — Self-Correction</div><div class="step-detail">Applying adaptive retry with modified parameters</div></div>
+                  <div class="step-badge">Pending</div>
+                </div>
+                <div class="demo-step-connector" id="dc-4"></div>
+                <div class="demo-step" id="ds-5">
+                  <div class="demo-step-icon" style="background:var(--gf);border:1px solid rgba(201,163,74,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g1)" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
+                  <div class="step-info"><div class="step-name">Step 5 — Final Output</div><div class="step-detail">Generating the completed analytics report</div></div>
+                  <div class="step-badge">Pending</div>
+                </div>
+              </div>
+              <div class="demo-stats" id="demo-stats">
+                <div class="demo-stat" id="ds-steps"><div class="demo-stat-val" id="ds-steps-val">0/5</div><div class="demo-stat-label">STEPS COMPLETED</div></div>
+                <div class="demo-stat" id="ds-corrections"><div class="demo-stat-val" id="ds-corrections-val">0</div><div class="demo-stat-label">CORRECTIONS APPLIED</div></div>
+                <div class="demo-stat" id="ds-reliability"><div class="demo-stat-val" id="ds-reliability-val">100%</div><div class="demo-stat-label">AGENT RELIABILITY</div></div>
+              </div>
+              <div class="demo-log" id="demo-log"><div style="color:var(--as);opacity:.4;font-style:italic">› Waiting for simulation to start...<span class="demo-log-cursor"></span></div></div>
+            </div>
+            <div class="wiw-actions">
+              <button class="wiw-run-btn" id="demoBtn" onclick="runDemo()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="demoBtnLabel">RUN SIMULATION</span>
+              </button>
+            </div>
+          </div>
+          <div class="key-insight" style="margin-top:1.25rem">
+            <span class="ki-icon">&#128161;</span>
+            <div class="ki-content">
+              <div class="ki-label">HOW IT WORKS</div>
+              <p class="ki-text">The simulation runs 5 sequential steps. Step 3 deliberately fails (mimicking real data quality issues). The Self-Correction Loop at Step 4 diagnoses the root cause, applies an imputation strategy, and retries. This demonstrates the complete Planner → Executor → Observer → Loop cycle in action.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="8">See Key Insights<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 8: KEY INSIGHTS + DATA VIZ -->
+      <div class="prog-step" data-step="8" id="prog-step-8">
+        <section class="section-block">
+          <div class="sec-badge gold">KEY INSIGHTS</div>
+          <div class="eyebrow"><span class="ey-dot"></span>THREE THINGS TO REMEMBER</div>
+          <h2 class="sec-title">The <span class="gold">3 Principles</span> Behind Every Effective Self-Correcting Agent</h2>
+          <div class="insights-grid">
+            <div class="insight-card insight-1 reveal">
+              <div class="insight-icon">&#128161;</div>
+              <div class="insight-num">01</div>
+              <div class="insight-title">FAILURE IS DATA, NOT DEFEAT</div>
+              <div class="insight-text">Every failure carries diagnostic information. A well-designed agent treats errors as signals — logging what went wrong, categorizing the failure type, and using that data to make smarter decisions on the next attempt.</div>
+            </div>
+            <div class="insight-card insight-2 reveal reveal-delay-1">
+              <div class="insight-icon">&#128260;</div>
+              <div class="insight-num">02</div>
+              <div class="insight-title">CORRECTION MUST BE ADAPTIVE</div>
+              <div class="insight-text">Simply retrying the same action with the same parameters won't fix a systemic issue. True self-correction requires the agent to modify its approach based on the specific failure mode it encountered.</div>
+            </div>
+            <div class="insight-card insight-3 reveal reveal-delay-2">
+              <div class="insight-icon">&#128737;</div>
+              <div class="insight-num">03</div>
+              <div class="insight-title">GUARDRAILS PREVENT INFINITE LOOPS</div>
+              <div class="insight-text">Always enforce a maximum retry count, add exponential backoff between attempts, and include an escalation path to human oversight. The goal is resilience with boundaries — not blind persistence.</div>
+            </div>
+          </div>
+
+          <!-- DATA VISUALIZATION -->
+          <div class="charts-section reveal">
+            <div class="charts-intro">Performance Data · Self-Correcting vs Traditional Agents</div>
+            <div class="charts-grid">
+              <div class="chart-card">
+                <div class="chart-title">Success Rate Over Time</div>
+                <div class="chart-sub">Weekly task completion rate comparison</div>
+                <div class="chart-canvas-wrap"><canvas id="lineChart" height="200"></canvas></div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-title">Failure Recovery Breakdown</div>
+                <div class="chart-sub">How self-correcting agents resolve failures</div>
+                <div class="chart-canvas-wrap"><canvas id="donutChart" height="200"></canvas></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-insight">
+            <span class="ki-icon">&#128273;</span>
+            <div class="ki-content">
+              <div class="ki-label">THE COMPOUNDING TRUTH</div>
+              <p class="ki-text">These three principles don't just apply to self-correcting agents — they apply to every agent you'll ever build. <strong>Failure is data. Correction must be adaptive. Guardrails prevent chaos.</strong> Master this pattern and you can replicate it across every department in your business.</p>
+            </div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="9">What Did You Build?<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 9: WHAT YOU BUILT -->
+      <div class="prog-step" data-step="9" id="prog-step-9">
+        <div class="achievement-box reveal">
+          <span class="achievement-icon">&#127942;</span>
+          <div class="achievement-msg">You've Just Built Something<br>Most Developers Never Will</div>
+          <div class="achievement-list" id="checklist">
+            <div class="achievement-item" onclick="toggleCheck(this)">Understood the Planner component and task decomposition strategy</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Learned how the Executor dispatches and monitors sub-tasks</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Explored Observer pattern for result evaluation and anomaly detection</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Grasped the Self-Correction Loop with adaptive retry logic</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Studied the complete architecture: Planner &#8594; Executor &#8594; Observer &#8594; Loop</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Witnessed a live demo of failure detection, diagnosis, and recovery</div>
+            <div class="achievement-item" onclick="toggleCheck(this)">Explored real-world use case: autonomous data pipeline with self-healing</div>
+          </div>
+        </div>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="10">Take the Challenge<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 10: MINI CHALLENGE (FIXED WITH INPUT) -->
+      <div class="prog-step" data-step="10" id="prog-step-10">
+        <section class="section-block">
+          <div class="sec-badge purple">YOUR CHALLENGE</div>
+          <div class="eyebrow"><span class="ey-dot"></span>APPLY IT</div>
+          <h2 class="sec-title">What Should the Agent Do After <span class="gold">Max Retries</span> Are Exhausted?</h2>
+          <div class="task-box reveal">
+            <div class="task-label">&#9889; CRITICAL THINKING CHALLENGE</div>
+            <p class="task-prompt">Imagine your self-correcting agent has retried a failing step 3 times using different parameters each time, but it keeps failing. What should the agent do next, and what design principle does this relate to? Type your answer in a few sentences.</p>
+            <textarea class="task-input" id="challengeInput" rows="4" placeholder="Type your answer here... Think about what happens when all retries are exhausted and what safeguard prevents the agent from looping forever."></textarea>
+            <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+              <button class="btn-green" onclick="checkChallenge()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>SUBMIT ANSWER</button>
+            </div>
+            <div class="task-feedback" id="challenge-feedback"><svg id="feedbackIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg><span id="feedbackText"></span></div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="11">See the Summary<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 11: SUMMARY -->
+      <div class="prog-step" data-step="11" id="prog-step-11">
+        <section class="section-block">
+          <div class="sec-badge green">SUMMARY</div>
+          <div class="eyebrow"><span class="ey-dot"></span>RECAP</div>
+          <h2 class="sec-title">Your <span class="gold">4-Point Summary</span> — Everything That Matters from This Lesson</h2>
+          <div class="summary-list">
+            <div class="summary-item reveal"><div class="summary-icon" style="background:var(--blud);border:1px solid var(--blub);color:var(--blu)">&#9998;</div><div><div class="summary-title">PLANNER ARCHITECTURE</div><div class="summary-text">Task decomposition with dependencies, success criteria, and structured schemas that guide the entire agent workflow.</div></div></div>
+            <div class="summary-item reveal reveal-delay-1"><div class="summary-icon" style="background:rgba(201,163,74,.12);border:1px solid rgba(201,163,74,.2);color:var(--g1)">&#9889;</div><div><div class="summary-title">EXECUTOR ENGINE</div><div class="summary-text">Sequential task execution with comprehensive error handling, output capture, and structured result reporting.</div></div></div>
+            <div class="summary-item reveal reveal-delay-2"><div class="summary-icon" style="background:var(--blud);border:1px solid var(--blub);color:var(--blu)">&#128065;</div><div><div class="summary-title">OBSERVER PATTERN</div><div class="summary-text">Result evaluation against expected outcomes with anomaly detection, failure classification, and diagnostic reporting.</div></div></div>
+            <div class="summary-item reveal reveal-delay-3"><div class="summary-icon" style="background:rgba(249,115,22,.12);border:1px solid var(--orab);color:var(--ora)">&#128260;</div><div><div class="summary-title">SELF-CORRECTION LOOP</div><div class="summary-text">Adaptive retry mechanism with root-cause analysis, parameter modification, exponential backoff, and escalation safeguards.</div></div></div>
+          </div>
+        </section>
+        <div class="step-continue-wrap">
+          <button class="step-continue-btn" data-next="12">What's Next<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 12: FINAL / NEXT LESSON -->
+      <div class="prog-step" data-step="12" id="prog-step-12">
+        <div class="divider"></div>
+        <section class="section-block">
+          <div class="final-cta">
+            <div class="final-badge">&#127942; Level 2 · Lesson 4 Complete</div>
+            <h2 class="final-h2">Your Self-Correcting Agent Blueprint Is Ready.<br><span class="text-shimmer">The Next Agent Takes Collaboration to the Next Level.</span></h2>
+            <p style="font-size:.86rem;color:var(--bn);max-width:480px;margin:0 auto 2.5rem;line-height:1.75">You've learned to design, build, and deploy an agent that detects, diagnoses, and fixes its own mistakes. In Lesson 5, you'll discover how multiple self-correcting agents work together.</p>
+            <div class="next-lesson-card reveal" style="max-width:460px;margin:0 auto 2rem">
+              <div class="nlc-label">NEXT UP — LEVEL 3</div>
+              <div class="nlc-title">Multi-Agent Collaboration</div>
+              <div class="nlc-desc">What happens when multiple self-correcting agents work together? Discover how to orchestrate agent teams that divide, conquer, and merge their outputs into a unified solution.</div>
+            </div>
+            <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;align-items:center;margin-top:1rem">
+              <button class="btn-gold glow-pulse" onclick="goToStep(0)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Restart Lesson</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div><!-- /.content-inner -->
+  </div><!-- /.content-shell -->
+</div>
+
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════════════════════
+   VERCELLUM · LESSON 4 · IMPROVED ENGINE
+   ─ Security: XSS-safe text rendering
+   ─ Performance: passive scroll, debounced resize, cleanup
+   ─ Persistence: localStorage save/restore progress
+   ─ Accessibility: keyboard nav, reduced-motion, ARIA live
+   ─ AI Panel: functional suggestions + simulated responses
+   ─ UX: toast notifications, smoother transitions
+══════════════════════════════════════════════════════════════ */
+
+// ── CONFIGURATION ──
+var CONFIG = {
+  totalSteps: 13,
+  storageKey: 'vercellum_l4_progress',
+  reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+};
+
+var SECTION_NAMES = [
+  'Introduction','Lesson Goal','Why It Matters','Architecture',
+  'Components','Build Guide','Use Case','Demo Simulation',
+  'Key Insights','What You Built','Mini Challenge','Lesson Summary','Next Lesson'
+];
+
+// ── STATE ──
+var state = {
+  currentStep: 0,
+  demoRunning: false,
+  demoStepsCompleted: 0,
+  demoCorrections: 0,
+  chartsInitialized: false,
+  countersAnimated: false,
+  aiMessages: [],
+  usedSuggestions: new Set()
+};
+
+// ── UTILITY: XSS-SAFE TEXT ──
+function escapeHTML(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// ── UTILITY: WAIT (PROMISE-BASED DELAY) ──
+function wait(ms) {
+  return new Promise(function(resolve) { setTimeout(resolve, ms); });
+}
+
+// ── UTILITY: THROTTLE ──
+function throttle(fn, limit) {
+  var lastCall = 0;
+  return function() {
+    var now = Date.now();
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      fn.apply(this, arguments);
+    }
+  };
+}
+
+// ── TOAST NOTIFICATION SYSTEM ──
+function showToast(message, type) {
+  type = type || 'info';
+  var container = document.getElementById('toast-container');
+  if (!container) return;
+  var toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(function() {
+    toast.classList.add('fade-out');
+    setTimeout(function() { toast.remove(); }, 350);
+  }, 2800);
+}
+
+// ── LOCALSTORAGE PERSISTENCE ──
+function saveProgress() {
+  try {
+    var data = {
+      step: state.currentStep,
+      timestamp: Date.now(),
+      checklist: []
+    };
+    var checks = document.querySelectorAll('.achievement-item.checked');
+    checks.forEach(function(item, i) { data.checklist.push(i); });
+    localStorage.setItem(CONFIG.storageKey, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function loadProgress() {
+  try {
+    var raw = localStorage.getItem(CONFIG.storageKey);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (e) {
+    return null;
+  }
+}
+
+function restoreProgress() {
+  var saved = loadProgress();
+  if (!saved || typeof saved.step !== 'number') return;
+  var step = Math.max(0, Math.min(saved.step, CONFIG.totalSteps - 1));
+  if (step > 0 && saved.timestamp) {
+    var elapsed = Date.now() - saved.timestamp;
+    var within24h = elapsed < 24 * 60 * 60 * 1000;
+    if (within24h) {
+      state.currentStep = step;
+      if (saved.checklist && Array.isArray(saved.checklist)) {
+        saved.checklist.forEach(function(idx) {
+          var items = document.querySelectorAll('.achievement-item');
+          if (items[idx]) items[idx].classList.add('checked');
+        });
+      }
+      showToast('Progress restored — continuing from Step ' + (step + 1), 'info');
+    } else {
+      localStorage.removeItem(CONFIG.storageKey);
+    }
+  }
+}
+
+// ── NAVIGATION ──
+function goToStep(num, skipScroll) {
+  if (num < 0 || num >= CONFIG.totalSteps) return;
+  document.querySelectorAll('.prog-step').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('prog-step-' + num);
+  if (target) { target.classList.add('active'); }
+  state.currentStep = num;
+  updateStepTracker();
+  updateAISuggestions();
+  if (!skipScroll) {
+    document.getElementById('lesson-body').scrollIntoView({ behavior: CONFIG.reducedMotion ? 'auto' : 'smooth', block: 'start' });
+  }
+  if (num === 8) { setTimeout(initCharts, 400); }
+  autoSave();
+}
+
+function updateStepTracker() {
+  var counter = document.getElementById('step-counter');
+  var dots = document.getElementById('step-dots');
+  if (counter) counter.textContent = 'STEP ' + (state.currentStep + 1) + ' OF ' + CONFIG.totalSteps;
+  if (dots) {
+    dots.innerHTML = '';
+    for (var i = 0; i < CONFIG.totalSteps; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'step-dot';
+      if (i < state.currentStep) dot.classList.add('done');
+      if (i === state.currentStep) dot.classList.add('active');
+      dots.appendChild(dot);
+    }
+  }
+  var pct = Math.round((state.currentStep / (CONFIG.totalSteps - 1)) * 100);
+  var fill = document.getElementById('tb-progress-fill');
+  var pctEl = document.getElementById('tb-progress-pct');
+  if (fill) fill.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  var contextChip = document.getElementById('ai-context-chip');
+  if (contextChip && SECTION_NAMES[state.currentStep]) {
+    contextChip.textContent = '\uD83D\uDCCC Reading: ' + SECTION_NAMES[state.currentStep];
+  }
+}
+
+// Auto-save throttled
+var autoSave = throttle(function() { saveProgress(); }, 3000);
+
+// Step continue buttons
+document.querySelectorAll('.step-continue-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var next = parseInt(this.getAttribute('data-next'));
+    if (!isNaN(next)) goToStep(next);
+  });
+});
+
+// ── KEYBOARD NAVIGATION ──
+document.addEventListener('keydown', function(e) {
+  // Focus mode toggle
+  if (e.key === 'Escape') {
+    if (document.body.classList.contains('focus-mode')) {
+      document.body.classList.remove('focus-mode');
+      document.getElementById('focus-btn').setAttribute('aria-pressed', 'false');
+      document.getElementById('focus-btn-label').textContent = 'Focus Mode';
+      return;
+    }
+    if (document.body.classList.contains('ai-open')) {
+      document.body.classList.remove('ai-open');
+      document.getElementById('ai-beacon').setAttribute('aria-expanded', 'false');
+      document.getElementById('ai-panel').setAttribute('aria-hidden', 'true');
+      return;
+    }
+  }
+  // Step navigation with arrow keys (only when not in textarea/input)
+  var tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'TEXTAREA' || tag === 'INPUT') return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    goToStep(state.currentStep + 1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    goToStep(state.currentStep - 1);
+  }
+});
+
+// ── EXPANDABLE CARDS ──
+function toggleExpCard(id) {
+  var card = document.getElementById(id);
+  if (!card) return;
+  var isOpen = card.classList.contains('open');
+  // Close all others for accordion behavior
+  document.querySelectorAll('.exp-card.open').forEach(function(c) {
+    if (c.id !== id) c.classList.remove('open');
+  });
+  card.classList.toggle('open');
+}
+
+// ── CHECKLIST ──
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  autoSave();
+}
+
+// ── CHALLENGE ──
+function checkChallenge() {
+  var input = document.getElementById('challengeInput');
+  var feedback = document.getElementById('challenge-feedback');
+  var feedbackIcon = document.getElementById('feedbackIcon');
+  var feedbackText = document.getElementById('feedbackText');
+  var answer = input.value.trim().toLowerCase();
+  feedback.classList.remove('show', 'correct', 'hint');
+  if (!answer) {
+    feedbackIcon.innerHTML = '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>';
+    feedbackText.textContent = 'Please type an answer before submitting.';
+    feedback.classList.add('show', 'hint');
+    return;
+  }
+  var escalateWords = ['escalat','human','person','intervention','fallback','notify','alert','supervisor','manual','handoff'];
+  var limitWords = ['max','limit','boundary','guardrail','safeguard','stop','ceiling','cap','threshold','give up'];
+  var hasEscalate = escalateWords.some(function(w) { return answer.includes(w); });
+  var hasMaxRetry = limitWords.some(function(w) { return answer.includes(w); });
+  if (hasEscalate && hasMaxRetry) {
+    feedbackIcon.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>';
+    feedbackText.textContent = 'Excellent! The agent should escalate to human oversight after exhausting retries. This relates to the "Guardrails Prevent Infinite Loops" principle — resilience with boundaries, not blind persistence.';
+    feedback.classList.add('show', 'correct');
+    showToast('Challenge completed — great answer!', 'success');
+  } else if (hasEscalate || hasMaxRetry) {
+    feedbackIcon.innerHTML = '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2 3 3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
+    feedbackText.textContent = 'Good thinking! You identified one key part. The full answer: enforce a max retry limit AND escalate to a human supervisor when exhausted. This is the guardrails principle.';
+    feedback.classList.add('show', 'hint');
+  } else {
+    feedbackIcon.innerHTML = '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2 3 3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
+    feedbackText.textContent = 'Hint: Think about what happens after max retries are exhausted. Should the agent keep trying forever? What safety mechanism prevents infinite loops and protects human oversight?';
+    feedback.classList.add('show', 'hint');
+  }
+}
+
+// ── DEMO SIMULATION (IMPROVED) ──
+function runDemo() {
+  if (state.demoRunning) return;
+  state.demoRunning = true;
+  state.demoStepsCompleted = 0;
+  state.demoCorrections = 0;
+
+  var btn = document.getElementById('demoBtn');
+  var btnLabel = document.getElementById('demoBtnLabel');
+  var statusLabel = document.getElementById('demo-status-label');
+  var container = document.getElementById('wiw-container');
+  btn.disabled = true;
+  btn.classList.add('running');
+  btnLabel.textContent = 'RUNNING...';
+  statusLabel.textContent = 'Running...';
+  statusLabel.className = 'wiw-status running';
+  container.classList.remove('demo-done');
+
+  document.getElementById('demo-progress-fill').style.width = '0%';
+
+  var stats = document.querySelectorAll('.demo-stat');
+  stats.forEach(function(s) { s.classList.remove('visible'); });
+
+  for (var c = 1; c <= 4; c++) {
+    var conn = document.getElementById('dc-' + c);
+    if (conn) conn.classList.remove('lit');
+  }
+
+  var log = document.getElementById('demo-log');
+  log.innerHTML = '<div style="color:var(--as);opacity:.4;font-style:italic">\u203A Simulation starting...<span class="demo-log-cursor"></span></div>';
+
+  for (var i = 1; i <= 5; i++) {
+    var step = document.getElementById('ds-' + i);
+    step.className = 'demo-step';
+    step.querySelector('.step-badge').textContent = 'Pending';
+  }
+
+  updateDemoStats();
+
+  wait(600).then(function() {
+    addLog('\u25B6 Agent runtime initialized. Goal: Generate daily analytics report.', 'info');
+    updateDemoProgress(10);
+    setDemoStep(1, 'active', 'Running...');
+    return wait(1200);
+  }).then(function() {
+    addLog('\u2713 Planner: 5 sub-tasks generated with dependency mapping.', 'success');
+    addLog('  \u2192 task_1: fetch_data | task_2: validate | task_3: compute | task_4: chart | task_5: email', 'info');
+    setDemoStep(1, 'success', 'Done \u2713');
+    lightConnector(1);
+    state.demoStepsCompleted = 1;
+    updateDemoStats();
+    updateDemoProgress(25);
+    return wait(700);
+  }).then(function() {
+    addLog('\u25B6 Executor: Starting task_2 \u2014 Fetching API data...', 'info');
+    setDemoStep(2, 'active', 'Running...');
+    return wait(1500);
+  }).then(function() {
+    addLog('\u2713 Executor: 1,247 records retrieved from analytics API.', 'success');
+    setDemoStep(2, 'success', 'Done \u2713');
+    lightConnector(2);
+    state.demoStepsCompleted = 2;
+    updateDemoStats();
+    updateDemoProgress(45);
+    return wait(700);
+  }).then(function() {
+    addLog('\u25B6 Observer: Validating data schema and integrity...', 'info');
+    setDemoStep(3, 'active', 'Checking...');
+    return wait(1400);
+  }).then(function() {
+    statusLabel.textContent = 'Error detected!';
+    statusLabel.className = 'wiw-status error';
+    addLog('\u2717 FAILURE DETECTED: Expected 12 columns, found 9.', 'error');
+    return wait(400);
+  }).then(function() {
+    addLog('\u2717 Observer: 23 null values in non-nullable column "revenue".', 'error');
+    return wait(350);
+  }).then(function() {
+    addLog('\u2717 Schema mismatch on rows 44\u201367. Data imputation required.', 'error');
+    setDemoStep(3, 'failure', 'Failed \u2717');
+    updateDemoProgress(55);
+    return wait(900);
+  }).then(function() {
+    statusLabel.textContent = 'Self-correcting...';
+    statusLabel.className = 'wiw-status running';
+    addLog('\u26A1 Self-Correction Loop triggered. Analyzing failure...', 'warn');
+    return wait(500);
+  }).then(function() {
+    addLog('  Root cause: Upstream source sent partial schema (v1.2 instead of v1.4).', 'warn');
+    return wait(400);
+  }).then(function() {
+    addLog('  Strategy: Apply rolling-average imputation + schema coercion.', 'warn');
+    setDemoStep(4, 'active', 'Diagnosing...');
+    lightConnector(3);
+    updateDemoProgress(70);
+    return wait(1200);
+  }).then(function() {
+    addLog('\u21BA Retry: Modified params \u2192 data_imputation=true, fill="rolling_avg", coerce=true', 'warn');
+    setDemoStep(4, 'retrying', 'Retrying...');
+    state.demoCorrections = 1;
+    updateDemoStats();
+    return wait(1600);
+  }).then(function() {
+    addLog('\u2713 Re-validation passed: 12 columns present, 0 null values, schema v1.4.', 'success');
+    return wait(400);
+  }).then(function() {
+    addLog('\u2713 Self-correction resolved. Resuming normal execution.', 'success');
+    setDemoStep(4, 'resolved', 'Resolved \u2713');
+    setDemoStep(3, 'resolved', 'Recovered \u2713');
+    lightConnector(4);
+    state.demoStepsCompleted = 4;
+    updateDemoStats();
+    updateDemoProgress(85);
+    return wait(700);
+  }).then(function() {
+    addLog('\u25B6 Executor: Computing metrics and generating charts...', 'info');
+    setDemoStep(5, 'active', 'Running...');
+    return wait(2000);
+  }).then(function() {
+    addLog('\u2713 Report generated. All 5 QA checks passed.', 'success');
+    addLog('\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501', 'info');
+    addLog('\u2713 COMPLETE: 5 steps | 1 self-correction | 0 human interventions', 'success');
+    setDemoStep(5, 'success', 'Done \u2713');
+    state.demoStepsCompleted = 5;
+    updateDemoStats();
+    updateDemoProgress(100);
+
+    statusLabel.textContent = 'Complete \u2014 Report Delivered';
+    statusLabel.className = 'wiw-status complete';
+    container.classList.add('demo-done');
+    btn.disabled = false;
+    btn.classList.remove('running');
+    btnLabel.textContent = 'REPLAY SIMULATION';
+    state.demoRunning = false;
+
+    setTimeout(function() { if(stats[0]) stats[0].classList.add('visible'); }, 200);
+    setTimeout(function() { if(stats[1]) stats[1].classList.add('visible'); }, 400);
+    setTimeout(function() { if(stats[2]) stats[2].classList.add('visible'); }, 600);
+  });
+}
+
+function updateDemoProgress(pct) {
+  var el = document.getElementById('demo-progress-fill');
+  if (el) el.style.width = pct + '%';
+}
+
+function updateDemoStats() {
+  var stepsEl = document.getElementById('ds-steps-val');
+  var corrEl = document.getElementById('ds-corrections-val');
+  var relEl = document.getElementById('ds-reliability-val');
+  if (stepsEl) stepsEl.textContent = state.demoStepsCompleted + '/5';
+  if (corrEl) corrEl.textContent = state.demoCorrections;
+  var reliability = Math.round((state.demoStepsCompleted / 5) * 100);
+  if (relEl) relEl.textContent = reliability + '%';
+}
+
+function lightConnector(num) {
+  var conn = document.getElementById('dc-' + num);
+  if (conn) {
+    conn.style.transition = 'background .5s cubic-bezier(.16,1,.3,1)';
+    conn.classList.add('lit');
+  }
+}
+
+function setDemoStep(num, stateClass, badge) {
+  var step = document.getElementById('ds-' + num);
+  if (!step) return;
+  step.className = 'demo-step ' + stateClass;
+  var badgeEl = step.querySelector('.step-badge');
+  if (badgeEl) badgeEl.textContent = badge;
+}
+
+function addLog(msg, type) {
+  var now = new Date();
+  var time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  var entry = document.createElement('div');
+  entry.className = 'log-entry';
+  // XSS-safe rendering
+  entry.innerHTML = '<span class="log-time">[' + escapeHTML(time) + ']</span> <span class="log-' + escapeHTML(type) + '">' + escapeHTML(msg) + '</span>';
+  var log = document.getElementById('demo-log');
+  if (log) {
+    // Remove placeholder on first real log
+    var placeholder = log.querySelector('[style]');
+    if (placeholder && placeholder.textContent.includes('Simulation starting')) {
+      placeholder.remove();
+    }
+    log.appendChild(entry);
+    log.scrollTop = log.scrollHeight;
+  }
+}
+
+// ── DATA VISUALIZATION ──
+function initCharts() {
+  if (state.chartsInitialized || typeof Chart === 'undefined') return;
+  state.chartsInitialized = true;
+
+  var gridColor = 'rgba(201,163,74,.06)';
+  var tickColor = 'rgba(175,167,156,.45)';
+  var font = { family: "'DM Sans', sans-serif", size: 11 };
+
+  var lineCtx = document.getElementById('lineChart');
+  if (lineCtx) {
+    new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: ['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],
+        datasets: [
+          {
+            label: 'Self-Correcting Agent',
+            data: [71, 76, 80, 83, 88, 91, 93, 96],
+            borderColor: 'rgba(201,163,74,.9)',
+            backgroundColor: 'rgba(201,163,74,.08)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(201,163,74,1)',
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'Traditional Agent',
+            data: [68, 65, 62, 58, 55, 52, 50, 48],
+            borderColor: 'rgba(239,68,68,.7)',
+            backgroundColor: 'rgba(239,68,68,.05)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(239,68,68,.9)',
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            tension: 0.4,
+            fill: true,
+            borderDash: [4, 3]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: CONFIG.reducedMotion ? false : { duration: 1200, easing: 'easeInOutQuart' },
+        plugins: {
+          legend: { labels: { color: tickColor, font: font, boxWidth: 12, padding: 14 } },
+          tooltip: { backgroundColor: 'rgba(7,6,4,.92)', titleColor: '#F1ECE2', bodyColor: '#AFA79C', borderColor: 'rgba(201,163,74,.2)', borderWidth: 1 }
+        },
+        scales: {
+          x: { grid: { color: gridColor }, ticks: { color: tickColor, font: font } },
+          y: {
+            grid: { color: gridColor }, ticks: { color: tickColor, font: font, callback: function(v) { return v + '%'; } },
+            min: 40, max: 100
+          }
+        }
+      }
+    });
+  }
+
+  var donutCtx = document.getElementById('donutChart');
+  if (donutCtx) {
+    new Chart(donutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Parameter Adjustment', 'Strategy Switch', 'Retry Same (Transient)', 'Escalated to Human'],
+        datasets: [{
+          data: [42, 31, 19, 8],
+          backgroundColor: ['rgba(201,163,74,.8)', 'rgba(96,165,250,.75)', 'rgba(52,211,153,.75)', 'rgba(239,68,68,.65)'],
+          borderColor: ['rgba(201,163,74,.3)', 'rgba(96,165,250,.3)', 'rgba(52,211,153,.3)', 'rgba(239,68,68,.3)'],
+          borderWidth: 1.5,
+          hoverOffset: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '62%',
+        animation: CONFIG.reducedMotion ? false : { duration: 1200, animateRotate: true },
+        plugins: {
+          legend: { position: 'bottom', labels: { color: tickColor, font: { family: "'DM Sans', sans-serif", size: 10.5 }, boxWidth: 10, padding: 12 } },
+          tooltip: { backgroundColor: 'rgba(7,6,4,.92)', titleColor: '#F1ECE2', bodyColor: '#AFA79C', borderColor: 'rgba(201,163,74,.2)', borderWidth: 1, callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed + '%'; } } }
+        }
+      }
+    });
+  }
+}
+
+// ── SCROLL REVEAL (IMPROVED) ──
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  function observeRevealElements() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  observeRevealElements();
+
+  // Watch for step activation to re-observe new reveal elements
+  var stepObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.target.classList && mutation.target.classList.contains('active')) {
+        setTimeout(observeRevealElements, 100);
+      }
+    });
+  });
+  document.querySelectorAll('.prog-step').forEach(function(step) {
+    stepObserver.observe(step, { attributes: true, attributeFilter: ['class'] });
+  });
+})();
+
+// ── ANIMATED COUNTERS (IMPROVED) ──
+(function() {
+  function animateCounter(el, target, suffix, duration) {
+    if (!el || CONFIG.reducedMotion) {
+      if (el) el.textContent = target + suffix;
+      return;
+    }
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var hookObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !state.countersAnimated) {
+        state.countersAnimated = true;
+        setTimeout(function() { animateCounter(document.getElementById('counter-96'), 96, '%', 1800); }, 200);
+        setTimeout(function() { animateCounter(document.getElementById('counter-73'), 73, 'x', 2100); }, 450);
+        setTimeout(function() { animateCounter(document.getElementById('counter-11'), 11, 's', 1600); }, 650);
+        hookObs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  var statBanner = document.querySelector('.hook-stat-banner');
+  if (statBanner) hookObs.observe(statBanner);
+})();
+
+// ── FOCUS MODE (IMPROVED) ──
+document.getElementById('focus-btn').addEventListener('click', function() {
+  document.body.classList.toggle('focus-mode');
+  var pressed = document.body.classList.contains('focus-mode');
+  this.setAttribute('aria-pressed', pressed);
+  document.getElementById('focus-btn-label').textContent = pressed ? 'Exit Focus' : 'Focus Mode';
+  if (pressed) showToast('Focus mode activated \u2014 distractions hidden', 'info');
+});
+
+// ── NAV RAIL PIN ──
+document.getElementById('rail-pin-btn').addEventListener('click', function() {
+  document.getElementById('nav-rail').classList.toggle('pinned');
+});
+
+// ── AI PANEL (FULLY FUNCTIONAL) ──
+var AI_SUGGESTIONS = {
+  0: [
+    'Why do most AI agents fail on the first error?',
+    'What is the core principle of self-correction?',
+    'How does the Planner \u2192 Executor \u2192 Observer loop work?'
+  ],
+  1: [
+    'What are the four components I need to build?',
+    'Why is task decomposition important?',
+    'How does the Planner define success criteria?'
+  ],
+  2: [
+    'What makes a traditional agent fragile?',
+    'How does adaptive execution differ from linear execution?',
+    'Can you give a real example of agent failure?'
+  ],
+  3: [
+    'Why is the Observer crucial in this architecture?',
+    'What triggers the Self-Correction Loop?',
+    'How does the retry mechanism modify the approach?'
+  ],
+  4: [
+    'What makes the Planner different from a simple to-do list?',
+    'How does the Executor handle API failures?',
+    'What types of failures can the Observer detect?'
+  ],
+  5: [
+    'What does a task schema look like in practice?',
+    'How do I implement exponential backoff?',
+    'What is the best way to wire all components together?'
+  ],
+  6: [
+    'What would happen without the self-correction loop?',
+    'How long does the correction process typically take?',
+    'Could this work for real-time data pipelines?'
+  ],
+  7: [
+    'Why does Step 3 deliberately fail in this demo?',
+    'What is data imputation and why is it used here?',
+    'How does the agent decide the correction strategy?'
+  ],
+  8: [
+    'Why must correction be adaptive, not just repetitive?',
+    'What happens if max retries are exhausted?',
+    'How does exponential backoff prevent API throttling?'
+  ],
+  9: [
+    'How can I apply this to my own business processes?',
+    'What are the most common failure modes in SMB agents?',
+    'Can multiple self-correction loops run in parallel?'
+  ],
+  10: [
+    'What escalation strategies work best for human oversight?',
+    'How do I decide the right max retry count?',
+    'What monitoring should I add to track correction rates?'
+  ],
+  11: [
+    'What should I build first: Planner or Observer?',
+    'How long does it take to implement this architecture?',
+    'Can I use this pattern for non-technical workflows?'
+  ],
+  12: [
+    'What will I learn in the next level about multi-agent systems?',
+    'How do multiple self-correcting agents coordinate?',
+    'What is the best resource to learn more about agent orchestration?'
+  ]
+};
+
+var AI_RESPONSES = {
+  'Why do most AI agents fail on the first error?': 'Most AI agents are built with linear execution \u2014 they follow a predetermined sequence of steps and have no mechanism to detect or recover from failures. When an API times out, data comes in an unexpected format, or a third-party service goes down, the agent simply stops. It lacks an <strong>Observer</strong> to evaluate results and a <strong>Self-Correction Loop</strong> to trigger recovery. This is the fundamental difference between a demo and a production system.',
+  'What is the core principle of self-correction?': 'The core principle is: <strong>every action is observed, every result is evaluated, and every failure triggers an intelligent retry.</strong> This creates a closed-loop system where the agent continuously monitors its own performance, identifies deviations from expected outcomes, and autonomously modifies its approach before retrying. The key word is <em>intelligent</em> \u2014 it\u2019s not just retrying the same thing, but adapting based on what went wrong.',
+  'How does the Planner \u2192 Executor \u2192 Observer loop work?': 'The <strong>Planner</strong> breaks a goal into structured sub-tasks with success criteria. The <strong>Executor</strong> runs each sub-task and captures results plus error data. The <strong>Observer</strong> compares the actual output against the expected criteria \u2014 if it passes, the agent advances; if it fails, the <strong>Self-Correction Loop</strong> analyzes the failure, modifies parameters or strategy, and sends the task back to the Executor. This cycle continues until success or max retries.',
+  'What makes a traditional agent fragile?': 'Traditional agents follow a linear plan: Step A \u2192 Step B \u2192 Step C. If Step B fails, everything stops. There\u2019s no error detection, no diagnostic analysis, and no retry mechanism. They assume the world behaves exactly as expected \u2014 which it never does in production. A single API timeout, a malformed data field, or a temporary service outage can bring the entire workflow down.',
+  'What triggers the Self-Correction Loop?': 'The Self-Correction Loop is triggered when the <strong>Observer</strong> detects a mismatch between the actual output and the expected success criteria. This could be: a schema mismatch (wrong number of columns), null values in critical fields, an API returning an error code, a timeout, or data falling outside expected ranges. The Observer classifies the failure type and generates a diagnostic report that guides the correction strategy.',
+  'Why does Step 3 deliberately fail in this demo?': 'Step 3 simulates a very common real-world scenario: <strong>upstream data quality issues</strong>. The external API sent a partial schema (version 1.2 instead of 1.4), missing 3 columns and containing null values. This happens constantly in production \u2014 APIs change, data sources get updated, and formats drift. The demo shows how a self-correcting agent handles this gracefully instead of crashing.',
+  'What is data imputation and why is it used here?': 'Data imputation is the process of <strong>filling in missing or null values</strong> with estimated values. In this demo, the agent uses rolling-average imputation to fill null values in the "revenue" column. This is a common strategy because it preserves the overall data distribution without requiring human intervention. Other strategies include: median fill, forward-fill from previous rows, or ML-based prediction.',
+  'How does the agent decide the correction strategy?': 'The correction strategy is determined by the <strong>failure classification</strong> from the Observer. Common mappings: Schema mismatch \u2192 coerce to expected format + impute missing values. API timeout \u2192 exponential backoff + retry. Rate limit hit \u2192 increase delay between requests. Logic error \u2192 modify parameters or switch strategy entirely. The key is that each failure type maps to a specific, pre-defined correction approach.',
+  'Why must correction be adaptive, not just repetitive?': 'Retrying the exact same action with the same parameters will produce the same failure. If an API call fails because of a timeout, retrying with no changes might work for transient issues \u2014 but if the data format is wrong, the same retry will fail again. <strong>Adaptive correction</strong> means modifying the approach: changing parameters, switching strategies, adding preprocessing steps, or trying alternative data sources. This is what separates intelligent recovery from blind repetition.',
+  'What happens if max retries are exhausted?': 'When max retries are exhausted, the agent should <strong>escalate to human oversight</strong>. This is the "Guardrails Prevent Infinite Loops" principle. The agent logs all its attempts, the diagnostic data from each failure, and the correction strategies it tried. It then creates an escalation ticket or notification so a human can review and intervene. The goal is resilience with boundaries \u2014 not blind persistence.'
+};
+
+function getAIResponse(question) {
+  // Check for direct match first
+  if (AI_RESPONSES[question]) return AI_RESPONSES[question];
+
+  // Keyword-based matching for flexibility
+  var q = question.toLowerCase();
+  if (q.includes('observer') && q.includes('trigger')) return AI_RESPONSES['What triggers the Self-Correction Loop?'];
+  if (q.includes('imput') || (q.includes('null') && q.includes('fill'))) return AI_RESPONSES['What is data imputation and why is it used here?'];
+  if (q.includes('why') && q.includes('step 3') && q.includes('fail')) return AI_RESPONSES['Why does Step 3 deliberately fail in this demo?'];
+  if (q.includes('adaptiv') && q.includes('repet')) return AI_RESPONSES['Why must correction be adaptive, not just repetitive?'];
+  if (q.includes('max') && (q.includes('exhaust') || q.includes('retry') || q.includes('limit'))) return AI_RESPONSES['What happens if max retries are exhausted?'];
+  if (q.includes('fragile') || q.includes('traditional') && q.includes('fail')) return AI_RESPONSES['What makes a traditional agent fragile?'];
+  if (q.includes('core principle') || q.includes('self-correction') && q.includes('principle')) return AI_RESPONSES['What is the core principle of self-correction?'];
+  if (q.includes('planner') && q.includes('executor') && q.includes('observer')) return AI_RESPONSES['How does the Planner \u2192 Executor \u2192 Observer loop work?'];
+  if (q.includes('fail') && q.includes('first error')) return AI_RESPONSES['Why do most AI agents fail on the first error?'];
+  if (q.includes('strategy') && q.includes('decid')) return AI_RESPONSES['How does the agent decide the correction strategy?'];
+
+  // Default response
+  return 'That\'s a great question! This concept relates to the <strong>self-correcting agent architecture</strong> covered in this lesson. The key idea is that every component \u2014 Planner, Executor, Observer, and Correction Loop \u2014 works together to create a resilient system that handles failure gracefully. Try exploring the interactive demo above to see it in action, or review the architecture diagram in Step 3.';
+}
+
+function updateAISuggestions() {
+  var list = document.getElementById('ai-suggest-list');
+  if (!list) return;
+  var suggestions = AI_SUGGESTIONS[state.currentStep] || AI_SUGGESTIONS[0];
+  list.innerHTML = '';
+  suggestions.forEach(function(q) {
+    var btn = document.createElement('button');
+    btn.className = 'ai-suggest-q';
+    if (state.usedSuggestions.has(q)) btn.classList.add('used');
+    btn.textContent = q;
+    btn.addEventListener('click', function() { askKira(q); });
+    list.appendChild(btn);
+  });
+}
+
+function addAIMessage(text, isUser) {
+  var container = document.getElementById('ai-messages');
+  if (!container) return;
+  var msg = document.createElement('div');
+  msg.className = 'ai-msg ' + (isUser ? 'user' : 'bot');
+  msg.innerHTML = text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTypingIndicator() {
+  var container = document.getElementById('ai-messages');
+  if (!container) return;
+  var typing = document.createElement('div');
+  typing.className = 'ai-msg bot';
+  typing.id = 'ai-typing';
+  typing.innerHTML = '<div class="ai-typing"><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div></div>';
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  var typing = document.getElementById('ai-typing');
+  if (typing) typing.remove();
+}
+
+function askKira(question) {
+  state.usedSuggestions.add(question);
+  addAIMessage(escapeHTML(question), true);
+  updateAISuggestions();
+
+  showTypingIndicator();
+  var responseDelay = 800 + Math.random() * 1200;
+  setTimeout(function() {
+    removeTypingIndicator();
+    var response = getAIResponse(question);
+    addAIMessage(response, false);
+  }, responseDelay);
+}
+
+// AI panel toggle
+document.getElementById('ai-beacon').addEventListener('click', function() {
+  document.body.classList.toggle('ai-open');
+  var expanded = document.body.classList.contains('ai-open');
+  this.setAttribute('aria-expanded', expanded);
+  document.getElementById('ai-panel').setAttribute('aria-hidden', !expanded);
+  if (expanded && state.aiMessages.length === 0) {
+    state.aiMessages.push(1);
+    addAIMessage('Hi! I\'m <strong>Kira</strong>, your learning guide for this lesson. I can answer questions about self-correcting agents, explain concepts, or help you think through the challenge. What would you like to know?', false);
+    updateAISuggestions();
+  }
+});
+
+document.getElementById('ai-close-btn').addEventListener('click', function() {
+  document.body.classList.remove('ai-open');
+  document.getElementById('ai-beacon').setAttribute('aria-expanded', 'false');
+  document.getElementById('ai-panel').setAttribute('aria-hidden', 'true');
+});
+
+// ── SAVE BUTTON (FUNCTIONAL) ──
+document.getElementById('tb-save-btn').addEventListener('click', function() {
+  var saved = saveProgress();
+  var btn = this;
+  if (saved) {
+    btn.classList.add('saved');
+    showToast('Progress saved \u2014 Step ' + (state.currentStep + 1) + ' of ' + CONFIG.totalSteps, 'success');
+    setTimeout(function() { btn.classList.remove('saved'); }, 2000);
+  } else {
+    showToast('Could not save \u2014 storage may be disabled', 'warning');
+  }
+});
+
+// ── READ PROGRESS (IMPROVED — passive scroll, not RAF loop) ──
+var updateReadProgress = throttle(function() {
+  var bodyH = document.documentElement.scrollHeight - window.innerHeight;
+  if (bodyH > 0) {
+    var readPct = Math.min(window.scrollY / bodyH, 1);
+    document.getElementById('read-progress').style.transform = 'scaleX(' + readPct + ')';
+  }
+}, 16);
+
+window.addEventListener('scroll', updateReadProgress, { passive: true });
+
+// ── INIT ──
+restoreProgress();
+goToStep(state.currentStep, true);
+</script>
+</body>
+</html>
