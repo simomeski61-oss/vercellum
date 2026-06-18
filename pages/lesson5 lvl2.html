@@ -29,7 +29,7 @@
 /* ═══════════════════════════════════════════════════════════
    VERCELLUM · LEVEL 2 · LESSON 5 · Monitoring & Optimization
    REDESIGNED CSS — Matches Lesson 1 & 2 Design Ecosystem
-   Architecture: Top Bar + Nav Rail + Progressive Content
+   Architecture: Top Bar + Progressive Content (Sidebar-Free)
    Design: Cinematic · Premium · Multi-Layered Depth · Glassmorphism
 ═══════════════════════════════════════════════════════════ */
 
@@ -47,7 +47,7 @@
   --ora:#fb923c;--orad:rgba(251,146,60,.07);--orab:rgba(251,146,60,.22);
   --fb:'Cinzel',serif;--fd:'Cormorant Garamond',serif;--fs:'DM Sans',sans-serif;
   --ex:cubic-bezier(.16,1,.3,1);--bk:cubic-bezier(.34,1.56,.64,1);
-  --topbar-h:52px;--rail-w:64px;--rail-expanded:268px;
+  --topbar-h:52px;
   --content-max:820px;--content-focus-max:720px;--ai-panel-w:380px;
 }
 ::-webkit-scrollbar{width:5px}
@@ -60,7 +60,6 @@ body{
   line-height:1.68;font-size:.88rem;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   padding-top:var(--topbar-h);
-  padding-left:var(--rail-w);
   transition:padding .4s var(--ex);
 }
 a{color:var(--g1);text-decoration:none;transition:color .2s}
@@ -96,12 +95,12 @@ body::after{
 #topbar{
   position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
   z-index:900;display:flex;align-items:center;
-  padding:0 1.5rem 0 calc(var(--rail-w) + 1.5rem);
+  padding:0 1.5rem;
   background:rgba(10,10,15,.88);backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(201,163,74,.06);
-  transition:padding .4s var(--ex),background .4s;
+  transition:background .4s;
 }
-body.focus-mode #topbar{padding-left:1.5rem;background:rgba(10,10,15,.7);border-bottom-color:transparent}
+body.focus-mode #topbar{background:rgba(10,10,15,.7);border-bottom-color:transparent}
 .tb-left{display:flex;align-items:center;gap:.75rem;flex:1}
 .tb-lesson-label{font-family:var(--fb);font-size:.46rem;letter-spacing:.28em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
 .tb-lesson-label span{color:var(--g2)}
@@ -144,65 +143,8 @@ body.focus-mode #focus-btn{border-color:var(--g0);background:linear-gradient(135
   transition:width .15s linear;
 }
 
-/* ── NAV RAIL ── */
-#nav-rail{
-  position:fixed;left:0;top:var(--topbar-h);bottom:0;
-  width:var(--rail-w);z-index:800;
-  background:rgba(10,10,15,.92);backdrop-filter:blur(20px);
-  border-right:1px solid rgba(201,163,74,.06);
-  display:flex;flex-direction:column;overflow:hidden;
-  transition:width .35s var(--ex),opacity .35s var(--ex),transform .35s var(--ex);
-}
-body.focus-mode #nav-rail{transform:translateX(-100%);opacity:0;pointer-events:none}
-@media(min-width:900px){#nav-rail:hover,#nav-rail.pinned{width:var(--rail-expanded)}}
-@media(max-width:900px){#nav-rail{display:none}}
-.rail-logo-area{display:flex;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(201,163,74,.06);overflow:hidden;flex-shrink:0}
-.rail-logo-icon{width:var(--rail-w);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.rail-logo-mark{
-  width:28px;height:28px;border-radius:6px;
-  background:linear-gradient(135deg,var(--g0),var(--g2));
-  border:1px solid rgba(201,163,74,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cinzel Decorative',serif;font-size:.55rem;
-  color:var(--v);font-weight:700;flex-shrink:0;
-}
-.rail-logo-text{white-space:nowrap;overflow:hidden;opacity:0;transform:translateX(-8px);transition:opacity .25s var(--ex),transform .25s var(--ex)}
-#nav-rail:hover .rail-logo-text,#nav-rail.pinned .rail-logo-text{opacity:1;transform:translateX(0)}
-.rail-wordmark{font-family:'Cinzel Decorative',serif;font-size:.78rem;color:var(--g1);letter-spacing:.06em;display:block}
-.rail-tagline{font-size:.58rem;color:var(--tp);margin-top:.15rem;letter-spacing:.04em}
-.rail-nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.75rem 0;scrollbar-width:none}
-.rail-nav::-webkit-scrollbar{display:none}
-.rail-lesson{display:flex;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;width:100%;text-align:left;border:none;background:none}
-.rail-lesson:hover{background:rgba(201,163,74,.04)}
-.rail-lesson.active{background:rgba(201,163,74,.06);border-right:2px solid var(--g0)}
-.rail-lesson.done{background:rgba(52,211,153,.04)}
-.rail-lesson.upcoming{opacity:.5}
-.rail-lesson-icon{width:var(--rail-w);height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
-.rail-lesson-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.48rem;letter-spacing:.1em;border:1px solid;flex-shrink:0;transition:all .25s}
-.rail-lesson.active .rail-lesson-num{background:var(--g1);border-color:var(--g1);color:var(--v);font-weight:700}
-.rail-lesson.done .rail-lesson-num{background:var(--grns);border-color:var(--grnb);color:var(--grn)}
-.rail-lesson.upcoming .rail-lesson-num{border-color:rgba(201,163,74,.2);color:var(--tp)}
-.rail-lesson.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--g3),var(--g1));border-radius:0 2px 2px 0}
-.rail-lesson-body{padding:.6rem 1rem .6rem 0;flex:1;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ex),transform .2s var(--ex);overflow:hidden;white-space:nowrap}
-#nav-rail:hover .rail-lesson-body,#nav-rail.pinned .rail-lesson-body{opacity:1;transform:translateX(0)}
-.rail-lesson-tag{font-family:var(--fb);font-size:.42rem;letter-spacing:.22em;color:var(--tp);text-transform:uppercase;white-space:nowrap}
-.rail-lesson.active .rail-lesson-tag{color:var(--g2)}
-.rail-lesson.done .rail-lesson-tag{color:var(--grn2)}
-.rail-lesson-name{font-size:.76rem;color:var(--bn);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
-.rail-lesson.active .rail-lesson-name{color:var(--cr);font-weight:500}
-.rail-lesson.done .rail-lesson-name{color:var(--tp)}
-.rail-bottom{border-top:1px solid rgba(201,163,74,.06);padding:.75rem 0;flex-shrink:0;overflow:hidden}
-.rail-live{display:flex;align-items:center;height:36px;padding:0 calc((var(--rail-w) - 8px)/2)}
-.rail-live-dot{width:8px;height:8px;border-radius:50%;background:var(--grn);animation:dpls 2s infinite;flex-shrink:0}
-@keyframes dpls{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
-.rail-live-text{white-space:nowrap;overflow:hidden;font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;color:var(--grn);padding-left:.75rem;opacity:0;transition:opacity .2s var(--ex)}
-#nav-rail:hover .rail-live-text,#nav-rail.pinned .rail-live-text{opacity:1}
-.rail-pin-btn{display:none;width:var(--rail-w);height:32px;align-items:center;justify-content:center;cursor:pointer;color:var(--tp);transition:color .2s}
-@media(min-width:900px){.rail-pin-btn{display:flex}}
-.rail-pin-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
-#nav-rail.pinned .rail-pin-btn{color:var(--g2)}
-
 /* ── MAIN CONTENT ── */
+@keyframes dpls{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
 .content-shell{min-height:calc(100vh - var(--topbar-h));position:relative;z-index:10;transition:all .4s var(--ex)}
 .content-inner{max-width:var(--content-max);margin:0 auto;padding:0 2.5rem 4rem;transition:max-width .4s var(--ex),padding .4s var(--ex)}
 @media(max-width:1100px){.content-inner{padding:0 2rem 4rem}}
@@ -851,21 +793,11 @@ body.ai-open #ai-beacon{opacity:0;pointer-events:none}
    RESPONSIVE
 ══════════════════════════════════════════════ */
 @media(max-width:1100px){
-  :root{--rail-w:3rem}
-  .rail-logo-text,.rail-lesson-body,.rail-live-text,.rail-tagline{display:none}
-  .rail-logo-area{justify-content:center;padding-bottom:.5rem;margin-bottom:.5rem}
-  .rail-lesson{justify-content:center;padding:.4rem}
-  .rail-bottom{justify-content:center}
-  #topbar{padding-left:calc(var(--rail-w) + .85rem)}
   .content-inner{padding:0 1.5rem 3rem}
   .stats-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:900px){
-  #nav-rail{display:none}
-  :root{--rail-w:0rem}
-  body{padding-left:0}
   #topbar{padding-left:.85rem}
-  .content-shell{margin-left:0}
   .content-inner{padding:0 1.25rem 3rem}
 }
 @media(max-width:700px){
@@ -892,7 +824,7 @@ body.ai-open #ai-beacon{opacity:0;pointer-events:none}
 }
 
 @media print{
-  #topbar,#nav-rail,#ai-panel,#ai-beacon,.step-continue-wrap,.step-tracker,.orb,#read-progress{display:none!important}
+  #topbar,#ai-panel,#ai-beacon,.step-continue-wrap,.step-tracker,.orb,#read-progress{display:none!important}
   body{padding:0;background:#fff;color:#111}
   .content-inner{max-width:100%}
   .section-block{background:#fff;border:1px solid #ddd;break-inside:avoid}
@@ -927,48 +859,6 @@ body.ai-open #ai-beacon{opacity:0;pointer-events:none}
   </div>
 </header>
 <div id="read-progress" aria-hidden="true"></div>
-
-<!-- NAV RAIL -->
-<nav id="nav-rail" aria-label="Course navigation">
-  <div class="rail-logo-area">
-    <div class="rail-logo-icon"><div class="rail-logo-mark">V</div></div>
-    <div class="rail-logo-text">
-      <span class="rail-wordmark">VERCELLUM</span>
-      <span class="rail-tagline">Agentic AI · Level 2</span>
-    </div>
-  </div>
-  <div class="rail-nav" role="list">
-    <div class="rail-lesson done" role="listitem">
-      <div class="rail-lesson-icon"><div class="rail-lesson-num">L1</div></div>
-      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 1</div><div class="rail-lesson-name">Lead &amp; Sales Agent</div></div>
-    </div>
-    <div class="rail-lesson done" role="listitem">
-      <div class="rail-lesson-icon"><div class="rail-lesson-num">L2</div></div>
-      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 2</div><div class="rail-lesson-name">Customer Support Agent</div></div>
-    </div>
-    <div class="rail-lesson done" role="listitem">
-      <div class="rail-lesson-icon"><div class="rail-lesson-num">L3</div></div>
-      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 3</div><div class="rail-lesson-name">Operations Agent</div></div>
-    </div>
-    <div class="rail-lesson done" role="listitem">
-      <div class="rail-lesson-icon"><div class="rail-lesson-num">L4</div></div>
-      <div class="rail-lesson-body"><div class="rail-lesson-tag">Done · Lesson 4</div><div class="rail-lesson-name">Self-Correcting Agent</div></div>
-    </div>
-    <div class="rail-lesson active" role="listitem" aria-current="page">
-      <div class="rail-lesson-icon"><div class="rail-lesson-num">05</div></div>
-      <div class="rail-lesson-body"><div class="rail-lesson-tag">Active · Lesson 5</div><div class="rail-lesson-name">Monitoring &amp; Optimization</div></div>
-    </div>
-  </div>
-  <div class="rail-bottom">
-    <div class="rail-live">
-      <div class="rail-live-dot"></div>
-      <span class="rail-live-text rail-live-text-js">241 owners building now</span>
-    </div>
-    <button class="rail-pin-btn" id="rail-pin-btn" aria-label="Pin navigation open">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </button>
-  </div>
-</nav>
 
 <!-- AI ASSISTANT PANEL -->
 <aside id="ai-panel" aria-label="AI Learning Assistant" aria-hidden="true">
@@ -1023,7 +913,7 @@ body.ai-open #ai-beacon{opacity:0;pointer-events:none}
         <div class="hero-meta-sep"></div>
         <div class="hero-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 Live dashboard simulation</div>
         <div class="hero-meta-sep"></div>
-        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="rail-live-dot" style="margin-right:.35rem;display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grn);animation:rldot 2s infinite"></span>241 owners building now</div>
+        <div class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="live-pulse-dot" style="margin-right:.35rem;display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grn);animation:rldot 2s infinite"></span>241 owners building now</div>
       </div>
     </section>
 
@@ -1755,7 +1645,7 @@ Metric 3: [Agent name] → [Metric] → I want to reach [target] by [timeframe]"
             <div class="emotional-anchor" style="max-width:480px;margin:1.5rem auto">The stack is built. The monitoring is active. The only remaining question is: how far do you want to take it?</div>
             <div style="margin-top:1.75rem;padding:.7rem 1.25rem;border-radius:50px;border:1px solid rgba(201,163,74,.15);background:rgba(201,163,74,.03);display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.4rem;letter-spacing:.18em;color:var(--g3);text-transform:uppercase">
               <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);animation:dpls 2s ease-in-out infinite"></span>
-              <span class="rail-live-text-js">241 owners building now</span> · Level 3 is open
+              <span class="live-count-js">241 owners building now</span> · Level 3 is open
             </div>
           </div>
         </section>
@@ -2003,14 +1893,6 @@ on('focus-btn', 'click', function(e) {
 });
 
 /* ══════════════════════════════════════
-   NAV RAIL PIN
-══════════════════════════════════════ */
-on('rail-pin-btn', 'click', function() {
-  var rail = document.getElementById('nav-rail');
-  if (rail) rail.classList.toggle('pinned');
-});
-
-/* ══════════════════════════════════════
    READ PROGRESS BAR
 ══════════════════════════════════════ */
 var updateReadProgress = throttle(function() {
@@ -2029,7 +1911,7 @@ window.addEventListener('scroll', updateReadProgress, { passive: true });
   setInterval(function(){
     var mins = Math.floor((Date.now()-startTime)/60000);
     var count = 241 + Math.floor(mins/7);
-    document.querySelectorAll('.rail-live-text-js').forEach(function(el){ el.textContent = count + ' owners building now'; });
+    document.querySelectorAll('.live-count-js').forEach(function(el){ el.textContent = count + ' owners building now'; });
   }, 30000);
 })();
 
